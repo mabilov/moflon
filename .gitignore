@@ -1,2 +1,4 @@
 .metadata/
 bpmn2/bin/
+UseCaseDSL/bin/
+BpmnToUseCaseIntegration/bin/

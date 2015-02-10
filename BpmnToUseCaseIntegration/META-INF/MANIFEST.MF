@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: BpmnToUseCaseIntegration;singleton:=true
+Export-Package: BpmnToUseCaseIntegration.util,
+ BpmnToUseCaseIntegration.impl,
+ BpmnToUseCaseIntegration,
+ BpmnToUseCaseIntegration.Rules,
+ BpmnToUseCaseIntegration.Rules.impl,
+ BpmnToUseCaseIntegration.Rules.util
+Bundle-Name: BpmnToUseCaseIntegration
+Bundle-Version: 1.0
+Require-Bundle: bpmn2,
+ UseCaseDSL,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.moflon.dependencies,
+ MocaTree,
+ SDMLanguage,
+ TGGLanguage,
+ TGGRuntime
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: TU Darmstadt

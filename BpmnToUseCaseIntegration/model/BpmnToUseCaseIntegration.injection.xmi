@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdmUtil:CompilerInjection xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sdmUtil="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//sdmUtil">
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isAppropriate_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;documentRoot&quot;, documentRoot);&#xA;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/registerObjectsToMatch_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isAppropriate_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;documentRoot&quot;,documentRoot);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isApplicable_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isApplicable_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;documentRoot&quot;, documentRoot);&#xA;ruleresult.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;ruleresult.registerObject(&quot;documentRootToUseCasesModel&quot;, documentRootToUseCasesModel);&#xA;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/registerObjects_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;documentRoot&quot;).eClass().equals(bpmn2.Bpmn2Package.eINSTANCE.getDocumentRoot());">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/checkTypes_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isAppropriate_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/registerObjectsToMatch_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isAppropriate_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModel&quot;,useCasesModel);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isApplicable_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isApplicable_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;documentRoot&quot;, documentRoot);&#xA;ruleresult.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;ruleresult.registerObject(&quot;documentRootToUseCasesModel&quot;, documentRootToUseCasesModel);&#xA;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/registerObjects_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;useCasesModel&quot;).eClass().equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE.getUseCasesModel());">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/checkTypes_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isAppropriate_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;definitions&quot;, definitions);&#xA;match.registerObject(&quot;documentRoot&quot;, documentRoot);&#xA;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/registerObjectsToMatch_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isAppropriate_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;definitions&quot;,definitions);&#xD;&#xA;isApplicableMatch.registerObject(&quot;documentRoot&quot;,documentRoot);&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModel&quot;,useCasesModel);&#xD;&#xA;isApplicableMatch.registerObject(&quot;documentRootToUseCasesModel&quot;,documentRootToUseCasesModel);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isApplicable_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isApplicable_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;definitions&quot;, definitions);&#xA;ruleresult.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;ruleresult.registerObject(&quot;definitionsToPackageDeclaration&quot;, definitionsToPackageDeclaration);&#xA;ruleresult.registerObject(&quot;documentRoot&quot;, documentRoot);&#xA;ruleresult.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;ruleresult.registerObject(&quot;documentRootToUseCasesModel&quot;, documentRootToUseCasesModel);&#xA;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/registerObjects_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;definitions&quot;).eClass().equals(bpmn2.Bpmn2Package.eINSTANCE.getDefinitions());">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/checkTypes_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isAppropriate_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;match.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/registerObjectsToMatch_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isAppropriate_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;packageDeclaration&quot;,packageDeclaration);&#xD;&#xA;isApplicableMatch.registerObject(&quot;documentRoot&quot;,documentRoot);&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModel&quot;,useCasesModel);&#xD;&#xA;isApplicableMatch.registerObject(&quot;documentRootToUseCasesModel&quot;,documentRootToUseCasesModel);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isApplicable_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isApplicable_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;definitions&quot;, definitions);&#xA;ruleresult.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;ruleresult.registerObject(&quot;definitionsToPackageDeclaration&quot;, definitionsToPackageDeclaration);&#xA;ruleresult.registerObject(&quot;documentRoot&quot;, documentRoot);&#xA;ruleresult.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;ruleresult.registerObject(&quot;documentRootToUseCasesModel&quot;, documentRootToUseCasesModel);&#xA;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/registerObjects_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;packageDeclaration&quot;).eClass().equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE.getPackageDeclaration());">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/checkTypes_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/generateModel_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/generateModel_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;documentRoot&quot;,documentRoot);&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModel&quot;,useCasesModel);&#xD;&#xA;isApplicableMatch.registerObject(&quot;documentRootToUseCasesModel&quot;,documentRootToUseCasesModel);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/generateModel_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/generateModel_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule"/>
+  </importInjectionEntries>
+</sdmUtil:CompilerInjection>

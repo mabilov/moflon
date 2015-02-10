@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: UseCaseDSL;singleton:=true
+Export-Package: UseCaseDSL,
+ UseCaseDSL.impl,
+ UseCaseDSL.util
+Bundle-Name: UseCaseDSL
+Bundle-Version: 1.0
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.moflon.dependencies
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: TU Darmstadt
