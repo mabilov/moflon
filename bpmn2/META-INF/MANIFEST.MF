@@ -1,5 +1,8 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: bpmn2;singleton:=true
+Export-Package: bpmn2.util,
+ bpmn2,
+ bpmn2.impl
 Bundle-Name: bpmn2
 Bundle-Version: 1.0
 Require-Bundle: org.eclipse.emf.ecore,
