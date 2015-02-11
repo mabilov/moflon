@@ -58,36 +58,6 @@ public interface UseCaseDSLPackage extends EPackage {
 	UseCaseDSLPackage eINSTANCE = UseCaseDSL.impl.UseCaseDSLPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.UseCasesModelImpl <em>Use Cases Model</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.UseCasesModelImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getUseCasesModel()
-	 * @generated
-	 */
-	int USE_CASES_MODEL = 16;
-
-	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.PackageDeclarationImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getPackageDeclaration()
-	 * @generated
-	 */
-	int PACKAGE_DECLARATION = 10;
-
-	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.UseCaseImpl <em>Use Case</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.UseCaseImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getUseCase()
-	 * @generated
-	 */
-	int USE_CASE = 15;
-
-	/**
 	 * The meta object id for the '{@link UseCaseDSL.impl.ActorImpl <em>Actor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,16 +122,6 @@ public interface UseCaseDSLPackage extends EPackage {
 	int ACTOR_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.StepImpl <em>Step</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.StepImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getStep()
-	 * @generated
-	 */
-	int STEP = 13;
-
-	/**
 	 * The meta object id for the '{@link UseCaseDSL.impl.FlowImpl <em>Flow</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,16 +166,6 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FLOW_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.BasicFlowImpl <em>Basic Flow</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.BasicFlowImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getBasicFlow()
-	 * @generated
-	 */
-	int BASIC_FLOW = 3;
 
 	/**
 	 * The meta object id for the '{@link UseCaseDSL.impl.NamedFlowImpl <em>Named Flow</em>}' class.
@@ -273,16 +223,6 @@ public interface UseCaseDSLPackage extends EPackage {
 	int NAMED_FLOW_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.ExceptionFlowImpl <em>Exception Flow</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.ExceptionFlowImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getExceptionFlow()
-	 * @generated
-	 */
-	int EXCEPTION_FLOW = 5;
-
-	/**
 	 * The meta object id for the '{@link UseCaseDSL.impl.AlternativeFlowImpl <em>Alternative Flow</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,16 +278,6 @@ public interface UseCaseDSLPackage extends EPackage {
 	int ALTERNATIVE_FLOW_OPERATION_COUNT = NAMED_FLOW_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.ParallelFlowImpl <em>Parallel Flow</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.ParallelFlowImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getParallelFlow()
-	 * @generated
-	 */
-	int PARALLEL_FLOW = 11;
-
-	/**
 	 * The meta object id for the '{@link UseCaseDSL.impl.StepAlternativeImpl <em>Step Alternative</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,26 +322,6 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int STEP_ALTERNATIVE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.ConditionImpl <em>Condition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.ConditionImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getCondition()
-	 * @generated
-	 */
-	int CONDITION = 4;
-
-	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.LocalAlternativeImpl <em>Local Alternative</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.LocalAlternativeImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getLocalAlternative()
-	 * @generated
-	 */
-	int LOCAL_ALTERNATIVE = 7;
 
 	/**
 	 * The meta object id for the '{@link UseCaseDSL.impl.AlternativeFlowAlternativeImpl <em>Alternative Flow Alternative</em>}' class.
@@ -469,6 +379,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	int ALTERNATIVE_FLOW_ALTERNATIVE_OPERATION_COUNT = STEP_ALTERNATIVE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.BasicFlowImpl <em>Basic Flow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.BasicFlowImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getBasicFlow()
+	 * @generated
+	 */
+	int BASIC_FLOW = 3;
+
+	/**
 	 * The feature id for the '<em><b>Steps</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -505,6 +425,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	int BASIC_FLOW_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.ConditionImpl <em>Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.ConditionImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getCondition()
+	 * @generated
+	 */
+	int CONDITION = 4;
+
+	/**
 	 * The feature id for the '<em><b>Continuation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -539,6 +469,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION_OPERATION_COUNT = STEP_ALTERNATIVE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.ExceptionFlowImpl <em>Exception Flow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.ExceptionFlowImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getExceptionFlow()
+	 * @generated
+	 */
+	int EXCEPTION_FLOW = 5;
 
 	/**
 	 * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -595,6 +535,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	int EXCEPTION_FLOW_OPERATION_COUNT = NAMED_FLOW_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.LocalAlternativeImpl <em>Local Alternative</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.LocalAlternativeImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getLocalAlternative()
+	 * @generated
+	 */
+	int LOCAL_ALTERNATIVE = 7;
+
+	/**
 	 * The feature id for the '<em><b>Continuation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -649,6 +599,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	int LOCAL_ALTERNATIVE_OPERATION_COUNT = STEP_ALTERNATIVE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.StepImpl <em>Step</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.StepImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getStep()
+	 * @generated
+	 */
+	int STEP = 13;
+
+	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -701,16 +661,6 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int STEP_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link UseCaseDSL.impl.ParallelStepImpl <em>Parallel Step</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.impl.ParallelStepImpl
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getParallelStep()
-	 * @generated
-	 */
-	int PARALLEL_STEP = 12;
 
 	/**
 	 * The meta object id for the '{@link UseCaseDSL.impl.NormalStepImpl <em>Normal Step</em>}' class.
@@ -804,6 +754,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	int NORMAL_STEP_OPERATION_COUNT = STEP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.PackageDeclarationImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getPackageDeclaration()
+	 * @generated
+	 */
+	int PACKAGE_DECLARATION = 10;
+
+	/**
 	 * The feature id for the '<em><b>Use Cases</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -858,6 +818,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	int PACKAGE_DECLARATION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.ParallelFlowImpl <em>Parallel Flow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.ParallelFlowImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getParallelFlow()
+	 * @generated
+	 */
+	int PARALLEL_FLOW = 11;
+
+	/**
 	 * The feature id for the '<em><b>Steps</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -901,6 +871,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARALLEL_FLOW_OPERATION_COUNT = NAMED_FLOW_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.ParallelStepImpl <em>Parallel Step</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.ParallelStepImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getParallelStep()
+	 * @generated
+	 */
+	int PARALLEL_STEP = 12;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -964,6 +944,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARALLEL_STEP_OPERATION_COUNT = STEP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.UseCaseImpl <em>Use Case</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.UseCaseImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getUseCase()
+	 * @generated
+	 */
+	int USE_CASE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Super Case</b></em>' reference.
@@ -1038,6 +1028,16 @@ public interface UseCaseDSLPackage extends EPackage {
 	int USE_CASE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.UseCasesModelImpl <em>Use Cases Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.UseCasesModelImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getUseCasesModel()
+	 * @generated
+	 */
+	int USE_CASES_MODEL = 16;
+
+	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1085,25 +1085,258 @@ public interface UseCaseDSLPackage extends EPackage {
 	int CUSTOM_STEP_TYPE = 18;
 
 	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.UseCasesModel <em>Use Cases Model</em>}'.
+	 * Returns the meta object for class '{@link UseCaseDSL.Actor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Use Cases Model</em>'.
-	 * @see UseCaseDSL.UseCasesModel
+	 * @return the meta object for class '<em>Actor</em>'.
+	 * @see UseCaseDSL.Actor
 	 * @generated
 	 */
-	EClass getUseCasesModel();
+	EClass getActor();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link UseCaseDSL.UseCasesModel#getPackages <em>Packages</em>}'.
+	 * Returns the meta object for the reference '{@link UseCaseDSL.Actor#getExtends <em>Extends</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Packages</em>'.
-	 * @see UseCaseDSL.UseCasesModel#getPackages()
-	 * @see #getUseCasesModel()
+	 * @return the meta object for the reference '<em>Extends</em>'.
+	 * @see UseCaseDSL.Actor#getExtends()
+	 * @see #getActor()
 	 * @generated
 	 */
-	EReference getUseCasesModel_Packages();
+	EReference getActor_Extends();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.Actor#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see UseCaseDSL.Actor#getDescription()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.Actor#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see UseCaseDSL.Actor#getName()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.Actor#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see UseCaseDSL.Actor#getType()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EAttribute getActor_Type();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.AlternativeFlow <em>Alternative Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Alternative Flow</em>'.
+	 * @see UseCaseDSL.AlternativeFlow
+	 * @generated
+	 */
+	EClass getAlternativeFlow();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.AlternativeFlowAlternative <em>Alternative Flow Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Alternative Flow Alternative</em>'.
+	 * @see UseCaseDSL.AlternativeFlowAlternative
+	 * @generated
+	 */
+	EClass getAlternativeFlowAlternative();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseDSL.AlternativeFlowAlternative#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ref</em>'.
+	 * @see UseCaseDSL.AlternativeFlowAlternative#getRef()
+	 * @see #getAlternativeFlowAlternative()
+	 * @generated
+	 */
+	EReference getAlternativeFlowAlternative_Ref();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.BasicFlow <em>Basic Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Basic Flow</em>'.
+	 * @see UseCaseDSL.BasicFlow
+	 * @generated
+	 */
+	EClass getBasicFlow();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Condition</em>'.
+	 * @see UseCaseDSL.Condition
+	 * @generated
+	 */
+	EClass getCondition();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.ExceptionFlow <em>Exception Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exception Flow</em>'.
+	 * @see UseCaseDSL.ExceptionFlow
+	 * @generated
+	 */
+	EClass getExceptionFlow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.ExceptionFlow#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Condition</em>'.
+	 * @see UseCaseDSL.ExceptionFlow#getCondition()
+	 * @see #getExceptionFlow()
+	 * @generated
+	 */
+	EAttribute getExceptionFlow_Condition();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.Flow <em>Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flow</em>'.
+	 * @see UseCaseDSL.Flow
+	 * @generated
+	 */
+	EClass getFlow();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link UseCaseDSL.Flow#getSteps <em>Steps</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Steps</em>'.
+	 * @see UseCaseDSL.Flow#getSteps()
+	 * @see #getFlow()
+	 * @generated
+	 */
+	EReference getFlow_Steps();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.Flow#getFinalState <em>Final State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Final State</em>'.
+	 * @see UseCaseDSL.Flow#getFinalState()
+	 * @see #getFlow()
+	 * @generated
+	 */
+	EAttribute getFlow_FinalState();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.LocalAlternative <em>Local Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Local Alternative</em>'.
+	 * @see UseCaseDSL.LocalAlternative
+	 * @generated
+	 */
+	EClass getLocalAlternative();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseDSL.LocalAlternative#getInvokedUseCase <em>Invoked Use Case</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Invoked Use Case</em>'.
+	 * @see UseCaseDSL.LocalAlternative#getInvokedUseCase()
+	 * @see #getLocalAlternative()
+	 * @generated
+	 */
+	EReference getLocalAlternative_InvokedUseCase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.LocalAlternative#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see UseCaseDSL.LocalAlternative#getDescription()
+	 * @see #getLocalAlternative()
+	 * @generated
+	 */
+	EAttribute getLocalAlternative_Description();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.NamedFlow <em>Named Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Flow</em>'.
+	 * @see UseCaseDSL.NamedFlow
+	 * @generated
+	 */
+	EClass getNamedFlow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.NamedFlow#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see UseCaseDSL.NamedFlow#getName()
+	 * @see #getNamedFlow()
+	 * @generated
+	 */
+	EAttribute getNamedFlow_Name();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.NormalStep <em>Normal Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Normal Step</em>'.
+	 * @see UseCaseDSL.NormalStep
+	 * @generated
+	 */
+	EClass getNormalStep();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link UseCaseDSL.NormalStep#getStepAlternative <em>Step Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Step Alternative</em>'.
+	 * @see UseCaseDSL.NormalStep#getStepAlternative()
+	 * @see #getNormalStep()
+	 * @generated
+	 */
+	EReference getNormalStep_StepAlternative();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseDSL.NormalStep#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actor</em>'.
+	 * @see UseCaseDSL.NormalStep#getActor()
+	 * @see #getNormalStep()
+	 * @generated
+	 */
+	EReference getNormalStep_Actor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.NormalStep#getCustomStepType <em>Custom Step Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Custom Step Type</em>'.
+	 * @see UseCaseDSL.NormalStep#getCustomStepType()
+	 * @see #getNormalStep()
+	 * @generated
+	 */
+	EAttribute getNormalStep_CustomStepType();
 
 	/**
 	 * Returns the meta object for class '{@link UseCaseDSL.PackageDeclaration <em>Package Declaration</em>}'.
@@ -1158,6 +1391,123 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPackageDeclaration_Description();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.ParallelFlow <em>Parallel Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parallel Flow</em>'.
+	 * @see UseCaseDSL.ParallelFlow
+	 * @generated
+	 */
+	EClass getParallelFlow();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.ParallelStep <em>Parallel Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parallel Step</em>'.
+	 * @see UseCaseDSL.ParallelStep
+	 * @generated
+	 */
+	EClass getParallelStep();
+
+	/**
+	 * Returns the meta object for the reference list '{@link UseCaseDSL.ParallelStep#getInvokedFlows <em>Invoked Flows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Invoked Flows</em>'.
+	 * @see UseCaseDSL.ParallelStep#getInvokedFlows()
+	 * @see #getParallelStep()
+	 * @generated
+	 */
+	EReference getParallelStep_InvokedFlows();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.Step <em>Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Step</em>'.
+	 * @see UseCaseDSL.Step
+	 * @generated
+	 */
+	EClass getStep();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseDSL.Step#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next</em>'.
+	 * @see UseCaseDSL.Step#getNext()
+	 * @see #getStep()
+	 * @generated
+	 */
+	EReference getStep_Next();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseDSL.Step#getInvokedUseCase <em>Invoked Use Case</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Invoked Use Case</em>'.
+	 * @see UseCaseDSL.Step#getInvokedUseCase()
+	 * @see #getStep()
+	 * @generated
+	 */
+	EReference getStep_InvokedUseCase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.Step#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see UseCaseDSL.Step#getLabel()
+	 * @see #getStep()
+	 * @generated
+	 */
+	EAttribute getStep_Label();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.Step#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see UseCaseDSL.Step#getName()
+	 * @see #getStep()
+	 * @generated
+	 */
+	EAttribute getStep_Name();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.StepAlternative <em>Step Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Step Alternative</em>'.
+	 * @see UseCaseDSL.StepAlternative
+	 * @generated
+	 */
+	EClass getStepAlternative();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseDSL.StepAlternative#getContinuation <em>Continuation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Continuation</em>'.
+	 * @see UseCaseDSL.StepAlternative#getContinuation()
+	 * @see #getStepAlternative()
+	 * @generated
+	 */
+	EReference getStepAlternative_Continuation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.StepAlternative#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Condition</em>'.
+	 * @see UseCaseDSL.StepAlternative#getCondition()
+	 * @see #getStepAlternative()
+	 * @generated
+	 */
+	EAttribute getStepAlternative_Condition();
 
 	/**
 	 * Returns the meta object for class '{@link UseCaseDSL.UseCase <em>Use Case</em>}'.
@@ -1236,375 +1586,25 @@ public interface UseCaseDSLPackage extends EPackage {
 	EAttribute getUseCase_Postcondition();
 
 	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.Actor <em>Actor</em>}'.
+	 * Returns the meta object for class '{@link UseCaseDSL.UseCasesModel <em>Use Cases Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Actor</em>'.
-	 * @see UseCaseDSL.Actor
+	 * @return the meta object for class '<em>Use Cases Model</em>'.
+	 * @see UseCaseDSL.UseCasesModel
 	 * @generated
 	 */
-	EClass getActor();
+	EClass getUseCasesModel();
 
 	/**
-	 * Returns the meta object for the reference '{@link UseCaseDSL.Actor#getExtends <em>Extends</em>}'.
+	 * Returns the meta object for the containment reference list '{@link UseCaseDSL.UseCasesModel#getPackages <em>Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Extends</em>'.
-	 * @see UseCaseDSL.Actor#getExtends()
-	 * @see #getActor()
+	 * @return the meta object for the containment reference list '<em>Packages</em>'.
+	 * @see UseCaseDSL.UseCasesModel#getPackages()
+	 * @see #getUseCasesModel()
 	 * @generated
 	 */
-	EReference getActor_Extends();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.Actor#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see UseCaseDSL.Actor#getDescription()
-	 * @see #getActor()
-	 * @generated
-	 */
-	EAttribute getActor_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.Actor#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see UseCaseDSL.Actor#getName()
-	 * @see #getActor()
-	 * @generated
-	 */
-	EAttribute getActor_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.Actor#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see UseCaseDSL.Actor#getType()
-	 * @see #getActor()
-	 * @generated
-	 */
-	EAttribute getActor_Type();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.Step <em>Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Step</em>'.
-	 * @see UseCaseDSL.Step
-	 * @generated
-	 */
-	EClass getStep();
-
-	/**
-	 * Returns the meta object for the reference '{@link UseCaseDSL.Step#getNext <em>Next</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next</em>'.
-	 * @see UseCaseDSL.Step#getNext()
-	 * @see #getStep()
-	 * @generated
-	 */
-	EReference getStep_Next();
-
-	/**
-	 * Returns the meta object for the reference '{@link UseCaseDSL.Step#getInvokedUseCase <em>Invoked Use Case</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Invoked Use Case</em>'.
-	 * @see UseCaseDSL.Step#getInvokedUseCase()
-	 * @see #getStep()
-	 * @generated
-	 */
-	EReference getStep_InvokedUseCase();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.Step#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see UseCaseDSL.Step#getName()
-	 * @see #getStep()
-	 * @generated
-	 */
-	EAttribute getStep_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.Step#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see UseCaseDSL.Step#getLabel()
-	 * @see #getStep()
-	 * @generated
-	 */
-	EAttribute getStep_Label();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.Flow <em>Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Flow</em>'.
-	 * @see UseCaseDSL.Flow
-	 * @generated
-	 */
-	EClass getFlow();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link UseCaseDSL.Flow#getSteps <em>Steps</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Steps</em>'.
-	 * @see UseCaseDSL.Flow#getSteps()
-	 * @see #getFlow()
-	 * @generated
-	 */
-	EReference getFlow_Steps();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.Flow#getFinalState <em>Final State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Final State</em>'.
-	 * @see UseCaseDSL.Flow#getFinalState()
-	 * @see #getFlow()
-	 * @generated
-	 */
-	EAttribute getFlow_FinalState();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.BasicFlow <em>Basic Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Basic Flow</em>'.
-	 * @see UseCaseDSL.BasicFlow
-	 * @generated
-	 */
-	EClass getBasicFlow();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.NamedFlow <em>Named Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Named Flow</em>'.
-	 * @see UseCaseDSL.NamedFlow
-	 * @generated
-	 */
-	EClass getNamedFlow();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.NamedFlow#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see UseCaseDSL.NamedFlow#getName()
-	 * @see #getNamedFlow()
-	 * @generated
-	 */
-	EAttribute getNamedFlow_Name();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.ExceptionFlow <em>Exception Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Exception Flow</em>'.
-	 * @see UseCaseDSL.ExceptionFlow
-	 * @generated
-	 */
-	EClass getExceptionFlow();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.ExceptionFlow#getCondition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Condition</em>'.
-	 * @see UseCaseDSL.ExceptionFlow#getCondition()
-	 * @see #getExceptionFlow()
-	 * @generated
-	 */
-	EAttribute getExceptionFlow_Condition();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.AlternativeFlow <em>Alternative Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Alternative Flow</em>'.
-	 * @see UseCaseDSL.AlternativeFlow
-	 * @generated
-	 */
-	EClass getAlternativeFlow();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.ParallelFlow <em>Parallel Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parallel Flow</em>'.
-	 * @see UseCaseDSL.ParallelFlow
-	 * @generated
-	 */
-	EClass getParallelFlow();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.StepAlternative <em>Step Alternative</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Step Alternative</em>'.
-	 * @see UseCaseDSL.StepAlternative
-	 * @generated
-	 */
-	EClass getStepAlternative();
-
-	/**
-	 * Returns the meta object for the reference '{@link UseCaseDSL.StepAlternative#getContinuation <em>Continuation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Continuation</em>'.
-	 * @see UseCaseDSL.StepAlternative#getContinuation()
-	 * @see #getStepAlternative()
-	 * @generated
-	 */
-	EReference getStepAlternative_Continuation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.StepAlternative#getCondition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Condition</em>'.
-	 * @see UseCaseDSL.StepAlternative#getCondition()
-	 * @see #getStepAlternative()
-	 * @generated
-	 */
-	EAttribute getStepAlternative_Condition();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.Condition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Condition</em>'.
-	 * @see UseCaseDSL.Condition
-	 * @generated
-	 */
-	EClass getCondition();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.LocalAlternative <em>Local Alternative</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Local Alternative</em>'.
-	 * @see UseCaseDSL.LocalAlternative
-	 * @generated
-	 */
-	EClass getLocalAlternative();
-
-	/**
-	 * Returns the meta object for the reference '{@link UseCaseDSL.LocalAlternative#getInvokedUseCase <em>Invoked Use Case</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Invoked Use Case</em>'.
-	 * @see UseCaseDSL.LocalAlternative#getInvokedUseCase()
-	 * @see #getLocalAlternative()
-	 * @generated
-	 */
-	EReference getLocalAlternative_InvokedUseCase();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.LocalAlternative#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see UseCaseDSL.LocalAlternative#getDescription()
-	 * @see #getLocalAlternative()
-	 * @generated
-	 */
-	EAttribute getLocalAlternative_Description();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.AlternativeFlowAlternative <em>Alternative Flow Alternative</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Alternative Flow Alternative</em>'.
-	 * @see UseCaseDSL.AlternativeFlowAlternative
-	 * @generated
-	 */
-	EClass getAlternativeFlowAlternative();
-
-	/**
-	 * Returns the meta object for the reference '{@link UseCaseDSL.AlternativeFlowAlternative#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Ref</em>'.
-	 * @see UseCaseDSL.AlternativeFlowAlternative#getRef()
-	 * @see #getAlternativeFlowAlternative()
-	 * @generated
-	 */
-	EReference getAlternativeFlowAlternative_Ref();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.ParallelStep <em>Parallel Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parallel Step</em>'.
-	 * @see UseCaseDSL.ParallelStep
-	 * @generated
-	 */
-	EClass getParallelStep();
-
-	/**
-	 * Returns the meta object for the reference list '{@link UseCaseDSL.ParallelStep#getInvokedFlows <em>Invoked Flows</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Invoked Flows</em>'.
-	 * @see UseCaseDSL.ParallelStep#getInvokedFlows()
-	 * @see #getParallelStep()
-	 * @generated
-	 */
-	EReference getParallelStep_InvokedFlows();
-
-	/**
-	 * Returns the meta object for class '{@link UseCaseDSL.NormalStep <em>Normal Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Normal Step</em>'.
-	 * @see UseCaseDSL.NormalStep
-	 * @generated
-	 */
-	EClass getNormalStep();
-
-	/**
-	 * Returns the meta object for the reference '{@link UseCaseDSL.NormalStep#getActor <em>Actor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Actor</em>'.
-	 * @see UseCaseDSL.NormalStep#getActor()
-	 * @see #getNormalStep()
-	 * @generated
-	 */
-	EReference getNormalStep_Actor();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link UseCaseDSL.NormalStep#getStepAlternative <em>Step Alternative</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Step Alternative</em>'.
-	 * @see UseCaseDSL.NormalStep#getStepAlternative()
-	 * @see #getNormalStep()
-	 * @generated
-	 */
-	EReference getNormalStep_StepAlternative();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.NormalStep#getCustomStepType <em>Custom Step Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Custom Step Type</em>'.
-	 * @see UseCaseDSL.NormalStep#getCustomStepType()
-	 * @see #getNormalStep()
-	 * @generated
-	 */
-	EAttribute getNormalStep_CustomStepType();
+	EReference getUseCasesModel_Packages();
 
 	/**
 	 * Returns the meta object for enum '{@link UseCaseDSL.ActorType <em>Actor Type</em>}'.
@@ -1650,23 +1650,223 @@ public interface UseCaseDSLPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.UseCasesModelImpl <em>Use Cases Model</em>}' class.
+		 * The meta object literal for the '{@link UseCaseDSL.impl.ActorImpl <em>Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.UseCasesModelImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getUseCasesModel()
+		 * @see UseCaseDSL.impl.ActorImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getActor()
 		 * @generated
 		 */
-		EClass USE_CASES_MODEL = eINSTANCE.getUseCasesModel();
+		EClass ACTOR = eINSTANCE.getActor();
 
 		/**
-		 * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference USE_CASES_MODEL__PACKAGES = eINSTANCE
-				.getUseCasesModel_Packages();
+		EReference ACTOR__EXTENDS = eINSTANCE.getActor_Extends();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__DESCRIPTION = eINSTANCE.getActor_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__NAME = eINSTANCE.getActor_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR__TYPE = eINSTANCE.getActor_Type();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.AlternativeFlowImpl <em>Alternative Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.AlternativeFlowImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getAlternativeFlow()
+		 * @generated
+		 */
+		EClass ALTERNATIVE_FLOW = eINSTANCE.getAlternativeFlow();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.AlternativeFlowAlternativeImpl <em>Alternative Flow Alternative</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.AlternativeFlowAlternativeImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getAlternativeFlowAlternative()
+		 * @generated
+		 */
+		EClass ALTERNATIVE_FLOW_ALTERNATIVE = eINSTANCE
+				.getAlternativeFlowAlternative();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALTERNATIVE_FLOW_ALTERNATIVE__REF = eINSTANCE
+				.getAlternativeFlowAlternative_Ref();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.BasicFlowImpl <em>Basic Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.BasicFlowImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getBasicFlow()
+		 * @generated
+		 */
+		EClass BASIC_FLOW = eINSTANCE.getBasicFlow();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.ConditionImpl <em>Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.ConditionImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getCondition()
+		 * @generated
+		 */
+		EClass CONDITION = eINSTANCE.getCondition();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.ExceptionFlowImpl <em>Exception Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.ExceptionFlowImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getExceptionFlow()
+		 * @generated
+		 */
+		EClass EXCEPTION_FLOW = eINSTANCE.getExceptionFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXCEPTION_FLOW__CONDITION = eINSTANCE
+				.getExceptionFlow_Condition();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.FlowImpl <em>Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.FlowImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getFlow()
+		 * @generated
+		 */
+		EClass FLOW = eINSTANCE.getFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOW__STEPS = eINSTANCE.getFlow_Steps();
+
+		/**
+		 * The meta object literal for the '<em><b>Final State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW__FINAL_STATE = eINSTANCE.getFlow_FinalState();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.LocalAlternativeImpl <em>Local Alternative</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.LocalAlternativeImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getLocalAlternative()
+		 * @generated
+		 */
+		EClass LOCAL_ALTERNATIVE = eINSTANCE.getLocalAlternative();
+
+		/**
+		 * The meta object literal for the '<em><b>Invoked Use Case</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOCAL_ALTERNATIVE__INVOKED_USE_CASE = eINSTANCE
+				.getLocalAlternative_InvokedUseCase();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCAL_ALTERNATIVE__DESCRIPTION = eINSTANCE
+				.getLocalAlternative_Description();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.NamedFlowImpl <em>Named Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.NamedFlowImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getNamedFlow()
+		 * @generated
+		 */
+		EClass NAMED_FLOW = eINSTANCE.getNamedFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_FLOW__NAME = eINSTANCE.getNamedFlow_Name();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.NormalStepImpl <em>Normal Step</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.NormalStepImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getNormalStep()
+		 * @generated
+		 */
+		EClass NORMAL_STEP = eINSTANCE.getNormalStep();
+
+		/**
+		 * The meta object literal for the '<em><b>Step Alternative</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NORMAL_STEP__STEP_ALTERNATIVE = eINSTANCE
+				.getNormalStep_StepAlternative();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NORMAL_STEP__ACTOR = eINSTANCE.getNormalStep_Actor();
+
+		/**
+		 * The meta object literal for the '<em><b>Custom Step Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NORMAL_STEP__CUSTOM_STEP_TYPE = eINSTANCE
+				.getNormalStep_CustomStepType();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseDSL.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
@@ -1713,6 +1913,105 @@ public interface UseCaseDSLPackage extends EPackage {
 		 */
 		EAttribute PACKAGE_DECLARATION__DESCRIPTION = eINSTANCE
 				.getPackageDeclaration_Description();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.ParallelFlowImpl <em>Parallel Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.ParallelFlowImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getParallelFlow()
+		 * @generated
+		 */
+		EClass PARALLEL_FLOW = eINSTANCE.getParallelFlow();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.ParallelStepImpl <em>Parallel Step</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.ParallelStepImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getParallelStep()
+		 * @generated
+		 */
+		EClass PARALLEL_STEP = eINSTANCE.getParallelStep();
+
+		/**
+		 * The meta object literal for the '<em><b>Invoked Flows</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARALLEL_STEP__INVOKED_FLOWS = eINSTANCE
+				.getParallelStep_InvokedFlows();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.StepImpl <em>Step</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.StepImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getStep()
+		 * @generated
+		 */
+		EClass STEP = eINSTANCE.getStep();
+
+		/**
+		 * The meta object literal for the '<em><b>Next</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STEP__NEXT = eINSTANCE.getStep_Next();
+
+		/**
+		 * The meta object literal for the '<em><b>Invoked Use Case</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STEP__INVOKED_USE_CASE = eINSTANCE.getStep_InvokedUseCase();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STEP__LABEL = eINSTANCE.getStep_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STEP__NAME = eINSTANCE.getStep_Name();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.StepAlternativeImpl <em>Step Alternative</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.StepAlternativeImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getStepAlternative()
+		 * @generated
+		 */
+		EClass STEP_ALTERNATIVE = eINSTANCE.getStepAlternative();
+
+		/**
+		 * The meta object literal for the '<em><b>Continuation</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STEP_ALTERNATIVE__CONTINUATION = eINSTANCE
+				.getStepAlternative_Continuation();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STEP_ALTERNATIVE__CONDITION = eINSTANCE
+				.getStepAlternative_Condition();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseDSL.impl.UseCaseImpl <em>Use Case</em>}' class.
@@ -1775,322 +2074,23 @@ public interface UseCaseDSLPackage extends EPackage {
 				.getUseCase_Postcondition();
 
 		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.ActorImpl <em>Actor</em>}' class.
+		 * The meta object literal for the '{@link UseCaseDSL.impl.UseCasesModelImpl <em>Use Cases Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.ActorImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getActor()
+		 * @see UseCaseDSL.impl.UseCasesModelImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getUseCasesModel()
 		 * @generated
 		 */
-		EClass ACTOR = eINSTANCE.getActor();
+		EClass USE_CASES_MODEL = eINSTANCE.getUseCasesModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTOR__EXTENDS = eINSTANCE.getActor_Extends();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTOR__DESCRIPTION = eINSTANCE.getActor_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTOR__NAME = eINSTANCE.getActor_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTOR__TYPE = eINSTANCE.getActor_Type();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.StepImpl <em>Step</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.StepImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getStep()
-		 * @generated
-		 */
-		EClass STEP = eINSTANCE.getStep();
-
-		/**
-		 * The meta object literal for the '<em><b>Next</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STEP__NEXT = eINSTANCE.getStep_Next();
-
-		/**
-		 * The meta object literal for the '<em><b>Invoked Use Case</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STEP__INVOKED_USE_CASE = eINSTANCE.getStep_InvokedUseCase();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STEP__NAME = eINSTANCE.getStep_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STEP__LABEL = eINSTANCE.getStep_Label();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.FlowImpl <em>Flow</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.FlowImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getFlow()
-		 * @generated
-		 */
-		EClass FLOW = eINSTANCE.getFlow();
-
-		/**
-		 * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FLOW__STEPS = eINSTANCE.getFlow_Steps();
-
-		/**
-		 * The meta object literal for the '<em><b>Final State</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FLOW__FINAL_STATE = eINSTANCE.getFlow_FinalState();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.BasicFlowImpl <em>Basic Flow</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.BasicFlowImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getBasicFlow()
-		 * @generated
-		 */
-		EClass BASIC_FLOW = eINSTANCE.getBasicFlow();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.NamedFlowImpl <em>Named Flow</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.NamedFlowImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getNamedFlow()
-		 * @generated
-		 */
-		EClass NAMED_FLOW = eINSTANCE.getNamedFlow();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAMED_FLOW__NAME = eINSTANCE.getNamedFlow_Name();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.ExceptionFlowImpl <em>Exception Flow</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.ExceptionFlowImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getExceptionFlow()
-		 * @generated
-		 */
-		EClass EXCEPTION_FLOW = eINSTANCE.getExceptionFlow();
-
-		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXCEPTION_FLOW__CONDITION = eINSTANCE
-				.getExceptionFlow_Condition();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.AlternativeFlowImpl <em>Alternative Flow</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.AlternativeFlowImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getAlternativeFlow()
-		 * @generated
-		 */
-		EClass ALTERNATIVE_FLOW = eINSTANCE.getAlternativeFlow();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.ParallelFlowImpl <em>Parallel Flow</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.ParallelFlowImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getParallelFlow()
-		 * @generated
-		 */
-		EClass PARALLEL_FLOW = eINSTANCE.getParallelFlow();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.StepAlternativeImpl <em>Step Alternative</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.StepAlternativeImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getStepAlternative()
-		 * @generated
-		 */
-		EClass STEP_ALTERNATIVE = eINSTANCE.getStepAlternative();
-
-		/**
-		 * The meta object literal for the '<em><b>Continuation</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STEP_ALTERNATIVE__CONTINUATION = eINSTANCE
-				.getStepAlternative_Continuation();
-
-		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STEP_ALTERNATIVE__CONDITION = eINSTANCE
-				.getStepAlternative_Condition();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.ConditionImpl <em>Condition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.ConditionImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getCondition()
-		 * @generated
-		 */
-		EClass CONDITION = eINSTANCE.getCondition();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.LocalAlternativeImpl <em>Local Alternative</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.LocalAlternativeImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getLocalAlternative()
-		 * @generated
-		 */
-		EClass LOCAL_ALTERNATIVE = eINSTANCE.getLocalAlternative();
-
-		/**
-		 * The meta object literal for the '<em><b>Invoked Use Case</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOCAL_ALTERNATIVE__INVOKED_USE_CASE = eINSTANCE
-				.getLocalAlternative_InvokedUseCase();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LOCAL_ALTERNATIVE__DESCRIPTION = eINSTANCE
-				.getLocalAlternative_Description();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.AlternativeFlowAlternativeImpl <em>Alternative Flow Alternative</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.AlternativeFlowAlternativeImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getAlternativeFlowAlternative()
-		 * @generated
-		 */
-		EClass ALTERNATIVE_FLOW_ALTERNATIVE = eINSTANCE
-				.getAlternativeFlowAlternative();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ALTERNATIVE_FLOW_ALTERNATIVE__REF = eINSTANCE
-				.getAlternativeFlowAlternative_Ref();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.ParallelStepImpl <em>Parallel Step</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.ParallelStepImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getParallelStep()
-		 * @generated
-		 */
-		EClass PARALLEL_STEP = eINSTANCE.getParallelStep();
-
-		/**
-		 * The meta object literal for the '<em><b>Invoked Flows</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARALLEL_STEP__INVOKED_FLOWS = eINSTANCE
-				.getParallelStep_InvokedFlows();
-
-		/**
-		 * The meta object literal for the '{@link UseCaseDSL.impl.NormalStepImpl <em>Normal Step</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.impl.NormalStepImpl
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getNormalStep()
-		 * @generated
-		 */
-		EClass NORMAL_STEP = eINSTANCE.getNormalStep();
-
-		/**
-		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NORMAL_STEP__ACTOR = eINSTANCE.getNormalStep_Actor();
-
-		/**
-		 * The meta object literal for the '<em><b>Step Alternative</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NORMAL_STEP__STEP_ALTERNATIVE = eINSTANCE
-				.getNormalStep_StepAlternative();
-
-		/**
-		 * The meta object literal for the '<em><b>Custom Step Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NORMAL_STEP__CUSTOM_STEP_TYPE = eINSTANCE
-				.getNormalStep_CustomStepType();
+		EReference USE_CASES_MODEL__PACKAGES = eINSTANCE
+				.getUseCasesModel_Packages();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseDSL.ActorType <em>Actor Type</em>}' enum.

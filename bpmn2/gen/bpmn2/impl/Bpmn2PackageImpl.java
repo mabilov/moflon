@@ -598,9 +598,19 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlowElementsContainer_FlowElements() {
+	public EReference getFlowElementsContainer_LaneSets() {
 		return (EReference) flowElementsContainerEClass
 				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlowElementsContainer_FlowElements() {
+		return (EReference) flowElementsContainerEClass
+				.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -629,6 +639,15 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 	 */
 	public EClass getGateway() {
 		return gatewayEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGateway_GatewayDirection() {
+		return (EAttribute) gatewayEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -893,12 +912,15 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 
 		flowElementsContainerEClass = createEClass(FLOW_ELEMENTS_CONTAINER);
 		createEReference(flowElementsContainerEClass,
+				FLOW_ELEMENTS_CONTAINER__LANE_SETS);
+		createEReference(flowElementsContainerEClass,
 				FLOW_ELEMENTS_CONTAINER__FLOW_ELEMENTS);
 
 		formalExpressionEClass = createEClass(FORMAL_EXPRESSION);
 		createEAttribute(formalExpressionEClass, FORMAL_EXPRESSION__BODY);
 
 		gatewayEClass = createEClass(GATEWAY);
+		createEAttribute(gatewayEClass, GATEWAY__GATEWAY_DIRECTION);
 
 		interactionNodeEClass = createEClass(INTERACTION_NODE);
 
@@ -1104,6 +1126,11 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 		initEClass(flowElementsContainerEClass, FlowElementsContainer.class,
 				"FlowElementsContainer", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFlowElementsContainer_LaneSets(), this.getLaneSet(),
+				null, "laneSets", null, 0, -1, FlowElementsContainer.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEReference(getFlowElementsContainer_FlowElements(),
 				this.getFlowElement(), null, "flowElements", null, 0, -1,
 				FlowElementsContainer.class, !IS_TRANSIENT, !IS_VOLATILE,
@@ -1120,6 +1147,10 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 
 		initEClass(gatewayEClass, Gateway.class, "Gateway", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGateway_GatewayDirection(),
+				this.getGatewayDirection(), "gatewayDirection", null, 1, 1,
+				Gateway.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(interactionNodeEClass, InteractionNode.class,
 				"InteractionNode", !IS_ABSTRACT, !IS_INTERFACE,

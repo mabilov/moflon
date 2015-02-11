@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: BpmnToUseCaseIntegration;singleton:=true
 Export-Package: BpmnToUseCaseIntegration.util,
- BpmnToUseCaseIntegration.impl,
- BpmnToUseCaseIntegration,
  BpmnToUseCaseIntegration.Rules,
  BpmnToUseCaseIntegration.Rules.impl,
- BpmnToUseCaseIntegration.Rules.util
+ BpmnToUseCaseIntegration.Rules.util,
+ BpmnToUseCaseIntegration.impl,
+ BpmnToUseCaseIntegration
 Bundle-Name: BpmnToUseCaseIntegration
 Bundle-Version: 1.0
 Require-Bundle: bpmn2,

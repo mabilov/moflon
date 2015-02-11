@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link bpmn2.FlowElementsContainer#getLaneSets <em>Lane Sets</em>}</li>
  *   <li>{@link bpmn2.FlowElementsContainer#getFlowElements <em>Flow Elements</em>}</li>
  * </ul>
  * </p>
@@ -23,6 +24,22 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface FlowElementsContainer extends BaseElement {
+	/**
+	 * Returns the value of the '<em><b>Lane Sets</b></em>' containment reference list.
+	 * The list contents are of type {@link bpmn2.LaneSet}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Lane Sets</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Lane Sets</em>' containment reference list.
+	 * @see bpmn2.Bpmn2Package#getFlowElementsContainer_LaneSets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<LaneSet> getLaneSets();
+
 	/**
 	 * Returns the value of the '<em><b>Flow Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link bpmn2.FlowElement}.

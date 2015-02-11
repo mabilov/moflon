@@ -26,6 +26,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface NormalStep extends Step {
 	/**
+	 * Returns the value of the '<em><b>Step Alternative</b></em>' containment reference list.
+	 * The list contents are of type {@link UseCaseDSL.StepAlternative}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Step Alternative</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Step Alternative</em>' containment reference list.
+	 * @see UseCaseDSL.UseCaseDSLPackage#getNormalStep_StepAlternative()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<StepAlternative> getStepAlternative();
+
+	/**
 	 * Returns the value of the '<em><b>Actor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -50,22 +66,6 @@ public interface NormalStep extends Step {
 	 * @generated
 	 */
 	void setActor(Actor value);
-
-	/**
-	 * Returns the value of the '<em><b>Step Alternative</b></em>' containment reference list.
-	 * The list contents are of type {@link UseCaseDSL.StepAlternative}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Step Alternative</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Step Alternative</em>' containment reference list.
-	 * @see UseCaseDSL.UseCaseDSLPackage#getNormalStep_StepAlternative()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<StepAlternative> getStepAlternative();
 
 	/**
 	 * Returns the value of the '<em><b>Custom Step Type</b></em>' attribute.

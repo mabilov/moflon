@@ -105,6 +105,20 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<StepAlternative> getStepAlternative() {
+		if (stepAlternative == null) {
+			stepAlternative = new EObjectContainmentEList<StepAlternative>(
+					StepAlternative.class, this,
+					UseCaseDSLPackage.NORMAL_STEP__STEP_ALTERNATIVE);
+		}
+		return stepAlternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Actor getActor() {
 		if (actor != null && actor.eIsProxy()) {
 			InternalEObject oldActor = (InternalEObject) actor;
@@ -139,20 +153,6 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					UseCaseDSLPackage.NORMAL_STEP__ACTOR, oldActor, actor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<StepAlternative> getStepAlternative() {
-		if (stepAlternative == null) {
-			stepAlternative = new EObjectContainmentEList<StepAlternative>(
-					StepAlternative.class, this,
-					UseCaseDSLPackage.NORMAL_STEP__STEP_ALTERNATIVE);
-		}
-		return stepAlternative;
 	}
 
 	/**

@@ -801,13 +801,22 @@ public interface Bpmn2Package extends EPackage {
 	int GATEWAY__INCOMING = FLOW_NODE__INCOMING;
 
 	/**
+	 * The feature id for the '<em><b>Gateway Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATEWAY__GATEWAY_DIRECTION = FLOW_NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Gateway</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GATEWAY_FEATURE_COUNT = FLOW_NODE_FEATURE_COUNT + 0;
+	int GATEWAY_FEATURE_COUNT = FLOW_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Gateway</em>' class.
@@ -863,6 +872,15 @@ public interface Bpmn2Package extends EPackage {
 	 * @ordered
 	 */
 	int EVENT_BASED_GATEWAY__INCOMING = GATEWAY__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Gateway Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_BASED_GATEWAY__GATEWAY_DIRECTION = GATEWAY__GATEWAY_DIRECTION;
 
 	/**
 	 * The number of structural features of the '<em>Event Based Gateway</em>' class.
@@ -927,6 +945,15 @@ public interface Bpmn2Package extends EPackage {
 	 * @ordered
 	 */
 	int EXCLUSIVE_GATEWAY__INCOMING = GATEWAY__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Gateway Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIVE_GATEWAY__GATEWAY_DIRECTION = GATEWAY__GATEWAY_DIRECTION;
 
 	/**
 	 * The feature id for the '<em><b>Default</b></em>' reference.
@@ -1012,13 +1039,22 @@ public interface Bpmn2Package extends EPackage {
 	int FLOW_ELEMENTS_CONTAINER__ID = BASE_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Lane Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_ELEMENTS_CONTAINER__LANE_SETS = BASE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Flow Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_ELEMENTS_CONTAINER__FLOW_ELEMENTS = BASE_ELEMENT_FEATURE_COUNT + 0;
+	int FLOW_ELEMENTS_CONTAINER__FLOW_ELEMENTS = BASE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Flow Elements Container</em>' class.
@@ -1027,7 +1063,7 @@ public interface Bpmn2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_ELEMENTS_CONTAINER_FEATURE_COUNT = BASE_ELEMENT_FEATURE_COUNT + 1;
+	int FLOW_ELEMENTS_CONTAINER_FEATURE_COUNT = BASE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Flow Elements Container</em>' class.
@@ -1525,6 +1561,15 @@ public interface Bpmn2Package extends EPackage {
 	int PARALLEL_GATEWAY__INCOMING = GATEWAY__INCOMING;
 
 	/**
+	 * The feature id for the '<em><b>Gateway Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_GATEWAY__GATEWAY_DIRECTION = GATEWAY__GATEWAY_DIRECTION;
+
+	/**
 	 * The number of structural features of the '<em>Parallel Gateway</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1571,13 +1616,22 @@ public interface Bpmn2Package extends EPackage {
 	int PROCESS__ID = CALLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Lane Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__LANE_SETS = CALLABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Flow Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__FLOW_ELEMENTS = CALLABLE_ELEMENT_FEATURE_COUNT + 1;
+	int PROCESS__FLOW_ELEMENTS = CALLABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Process</em>' class.
@@ -1586,7 +1640,7 @@ public interface Bpmn2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_FEATURE_COUNT = CALLABLE_ELEMENT_FEATURE_COUNT + 2;
+	int PROCESS_FEATURE_COUNT = CALLABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Process</em>' class.
@@ -2093,6 +2147,17 @@ public interface Bpmn2Package extends EPackage {
 	EClass getFlowElementsContainer();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link bpmn2.FlowElementsContainer#getLaneSets <em>Lane Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Lane Sets</em>'.
+	 * @see bpmn2.FlowElementsContainer#getLaneSets()
+	 * @see #getFlowElementsContainer()
+	 * @generated
+	 */
+	EReference getFlowElementsContainer_LaneSets();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link bpmn2.FlowElementsContainer#getFlowElements <em>Flow Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2133,6 +2198,17 @@ public interface Bpmn2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getGateway();
+
+	/**
+	 * Returns the meta object for the attribute '{@link bpmn2.Gateway#getGatewayDirection <em>Gateway Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Gateway Direction</em>'.
+	 * @see bpmn2.Gateway#getGatewayDirection()
+	 * @see #getGateway()
+	 * @generated
+	 */
+	EAttribute getGateway_GatewayDirection();
 
 	/**
 	 * Returns the meta object for class '{@link bpmn2.InteractionNode <em>Interaction Node</em>}'.
@@ -2635,6 +2711,15 @@ public interface Bpmn2Package extends EPackage {
 		EClass FLOW_ELEMENTS_CONTAINER = eINSTANCE.getFlowElementsContainer();
 
 		/**
+		 * The meta object literal for the '<em><b>Lane Sets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOW_ELEMENTS_CONTAINER__LANE_SETS = eINSTANCE
+				.getFlowElementsContainer_LaneSets();
+
+		/**
 		 * The meta object literal for the '<em><b>Flow Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2671,6 +2756,15 @@ public interface Bpmn2Package extends EPackage {
 		 * @generated
 		 */
 		EClass GATEWAY = eINSTANCE.getGateway();
+
+		/**
+		 * The meta object literal for the '<em><b>Gateway Direction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GATEWAY__GATEWAY_DIRECTION = eINSTANCE
+				.getGateway_GatewayDirection();
 
 		/**
 		 * The meta object literal for the '{@link bpmn2.impl.InteractionNodeImpl <em>Interaction Node</em>}' class.

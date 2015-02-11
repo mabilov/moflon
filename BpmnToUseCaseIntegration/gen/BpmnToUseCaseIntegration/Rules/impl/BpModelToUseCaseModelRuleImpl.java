@@ -5,9 +5,20 @@ package BpmnToUseCaseIntegration.Rules.impl;
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
 import BpmnToUseCaseIntegration.DefinitionsToPackageDeclaration;
 import BpmnToUseCaseIntegration.DocumentRootToUseCasesModel;
+import BpmnToUseCaseIntegration.EndEventToFlow;
+import BpmnToUseCaseIntegration.FlowNodeToStep;
+import BpmnToUseCaseIntegration.IntermediateCatchEventToAlternativeFlow;
+import BpmnToUseCaseIntegration.LaneToActor;
+import BpmnToUseCaseIntegration.ProcessToActor;
+import BpmnToUseCaseIntegration.ProcessToUseCase;
 
 import BpmnToUseCaseIntegration.Rules.BpModelToUseCaseModelRule;
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
+
+import BpmnToUseCaseIntegration.SequenceFlowToAlternativeFlowAlternative;
+import BpmnToUseCaseIntegration.SequenceFlowToStep;
+import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
+import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
 import TGGLanguage.modelgenerator.RuleEntryContainer;
 import TGGLanguage.modelgenerator.RuleEntryList;
@@ -25,13 +36,36 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
+import UseCaseDSL.Actor;
+import UseCaseDSL.AlternativeFlow;
+import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.BasicFlow;
+import UseCaseDSL.Flow;
+import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.ParallelFlow;
+import UseCaseDSL.ParallelStep;
+import UseCaseDSL.Step;
+import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
 
 import bpmn2.Bpmn2Factory;
 import bpmn2.Definitions;
 import bpmn2.DocumentRoot;
+import bpmn2.EndEvent;
+import bpmn2.EventBasedGateway;
+import bpmn2.ExclusiveGateway;
+import bpmn2.FlowElementsContainer;
+import bpmn2.IntermediateCatchEvent;
+import bpmn2.IntermediateThrowEvent;
+import bpmn2.Lane;
+import bpmn2.LaneSet;
+import bpmn2.ParallelGateway;
+import bpmn2.SequenceFlow;
+import bpmn2.ServiceTask;
+import bpmn2.StartEvent;
+import bpmn2.UserTask;
 
 import de.upb.tools.sdm.*;
 
@@ -47,6 +81,33 @@ import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
@@ -107,7 +168,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RulesPackage.Literals.BP_MODEL_TO_USE_CASE_MODEL_RULE;
+		return RulesPackage.eINSTANCE.getBpModelToUseCaseModelRule();
 	}
 
 	/**
@@ -279,11 +340,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRoot, "translatedElements");
+					documentRootToUseCasesModel, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRootToUseCasesModel, "createdLinkElements");
+					documentRoot, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -345,11 +406,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 					.setTrg(useCasesModel);
 
 			// create link
-			documentRootToUseCasesModel__target__useCasesModel
+			documentRootToUseCasesModel__source__documentRoot
 					.setSrc(documentRootToUseCasesModel);
 
 			// create link
-			documentRootToUseCasesModel__source__documentRoot
+			documentRootToUseCasesModel__target__useCasesModel
 					.setSrc(documentRootToUseCasesModel);
 
 			fujaba__Success = true;
@@ -756,15 +817,15 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					documentRoot, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					documentRootToUseCasesModel, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					useCasesModel, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRoot, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -826,11 +887,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 					.setTrg(useCasesModel);
 
 			// create link
-			documentRootToUseCasesModel__target__useCasesModel
+			documentRootToUseCasesModel__source__documentRoot
 					.setSrc(documentRootToUseCasesModel);
 
 			// create link
-			documentRootToUseCasesModel__source__documentRoot
+			documentRootToUseCasesModel__target__useCasesModel
 					.setSrc(documentRootToUseCasesModel);
 
 			fujaba__Success = true;
@@ -1081,7 +1142,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_DocumentRoot_0(
+	public EObjectContainer isAppropriate_FWD_DocumentRoot_4(
 			DocumentRoot documentRoot) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1205,7 +1266,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_UseCasesModel_0(
+	public EObjectContainer isAppropriate_BWD_UseCasesModel_4(
 			UseCasesModel useCasesModel) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1426,10 +1487,10 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 					ruleResult.setSuccess(true);
 
 					// create link
-					ruleResult.getSourceObjects().add(documentRoot);
+					documentRootToUseCasesModel.setSource(documentRoot);
 
 					// create link
-					documentRootToUseCasesModel.setSource(documentRoot);
+					ruleResult.getSourceObjects().add(documentRoot);
 
 					// create link
 					ruleResult.getTargetObjects().add(useCasesModel);
@@ -1548,11 +1609,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_FWD_DOCUMENT_ROOT_0__DOCUMENTROOT:
-			return isAppropriate_FWD_DocumentRoot_0((DocumentRoot) arguments
+		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_FWD_DOCUMENT_ROOT_4__DOCUMENTROOT:
+			return isAppropriate_FWD_DocumentRoot_4((DocumentRoot) arguments
 					.get(0));
-		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_BWD_USE_CASES_MODEL_0__USECASESMODEL:
-			return isAppropriate_BWD_UseCasesModel_0((UseCasesModel) arguments
+		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_BWD_USE_CASES_MODEL_4__USECASESMODEL:
+			return isAppropriate_BWD_UseCasesModel_4((UseCasesModel) arguments
 					.get(0));
 		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

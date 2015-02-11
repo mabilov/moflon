@@ -61,6 +61,28 @@ public class BpmnToUseCaseIntegrationFactoryImpl extends EFactoryImpl implements
 			return createDocumentRootToUseCasesModel();
 		case BpmnToUseCaseIntegrationPackage.DEFINITIONS_TO_PACKAGE_DECLARATION:
 			return createDefinitionsToPackageDeclaration();
+		case BpmnToUseCaseIntegrationPackage.PROCESS_TO_USE_CASE:
+			return createProcessToUseCase();
+		case BpmnToUseCaseIntegrationPackage.START_EVENT_TO_USE_CASE:
+			return createStartEventToUseCase();
+		case BpmnToUseCaseIntegrationPackage.START_EVENT_TO_BASIC_FLOW:
+			return createStartEventToBasicFlow();
+		case BpmnToUseCaseIntegrationPackage.SEQUENCE_FLOW_TO_UC_FLOW:
+			return createSequenceFlowToUCFlow();
+		case BpmnToUseCaseIntegrationPackage.PROCESS_TO_ACTOR:
+			return createProcessToActor();
+		case BpmnToUseCaseIntegrationPackage.FLOW_NODE_TO_STEP:
+			return createFlowNodeToStep();
+		case BpmnToUseCaseIntegrationPackage.SEQUENCE_FLOW_TO_STEP:
+			return createSequenceFlowToStep();
+		case BpmnToUseCaseIntegrationPackage.LANE_TO_ACTOR:
+			return createLaneToActor();
+		case BpmnToUseCaseIntegrationPackage.SEQUENCE_FLOW_TO_ALTERNATIVE_FLOW_ALTERNATIVE:
+			return createSequenceFlowToAlternativeFlowAlternative();
+		case BpmnToUseCaseIntegrationPackage.INTERMEDIATE_CATCH_EVENT_TO_ALTERNATIVE_FLOW:
+			return createIntermediateCatchEventToAlternativeFlow();
+		case BpmnToUseCaseIntegrationPackage.END_EVENT_TO_FLOW:
+			return createEndEventToFlow();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -85,6 +107,116 @@ public class BpmnToUseCaseIntegrationFactoryImpl extends EFactoryImpl implements
 	public DefinitionsToPackageDeclaration createDefinitionsToPackageDeclaration() {
 		DefinitionsToPackageDeclarationImpl definitionsToPackageDeclaration = new DefinitionsToPackageDeclarationImpl();
 		return definitionsToPackageDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProcessToUseCase createProcessToUseCase() {
+		ProcessToUseCaseImpl processToUseCase = new ProcessToUseCaseImpl();
+		return processToUseCase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StartEventToUseCase createStartEventToUseCase() {
+		StartEventToUseCaseImpl startEventToUseCase = new StartEventToUseCaseImpl();
+		return startEventToUseCase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StartEventToBasicFlow createStartEventToBasicFlow() {
+		StartEventToBasicFlowImpl startEventToBasicFlow = new StartEventToBasicFlowImpl();
+		return startEventToBasicFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceFlowToUCFlow createSequenceFlowToUCFlow() {
+		SequenceFlowToUCFlowImpl sequenceFlowToUCFlow = new SequenceFlowToUCFlowImpl();
+		return sequenceFlowToUCFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProcessToActor createProcessToActor() {
+		ProcessToActorImpl processToActor = new ProcessToActorImpl();
+		return processToActor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlowNodeToStep createFlowNodeToStep() {
+		FlowNodeToStepImpl flowNodeToStep = new FlowNodeToStepImpl();
+		return flowNodeToStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceFlowToStep createSequenceFlowToStep() {
+		SequenceFlowToStepImpl sequenceFlowToStep = new SequenceFlowToStepImpl();
+		return sequenceFlowToStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LaneToActor createLaneToActor() {
+		LaneToActorImpl laneToActor = new LaneToActorImpl();
+		return laneToActor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceFlowToAlternativeFlowAlternative createSequenceFlowToAlternativeFlowAlternative() {
+		SequenceFlowToAlternativeFlowAlternativeImpl sequenceFlowToAlternativeFlowAlternative = new SequenceFlowToAlternativeFlowAlternativeImpl();
+		return sequenceFlowToAlternativeFlowAlternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntermediateCatchEventToAlternativeFlow createIntermediateCatchEventToAlternativeFlow() {
+		IntermediateCatchEventToAlternativeFlowImpl intermediateCatchEventToAlternativeFlow = new IntermediateCatchEventToAlternativeFlowImpl();
+		return intermediateCatchEventToAlternativeFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndEventToFlow createEndEventToFlow() {
+		EndEventToFlowImpl endEventToFlow = new EndEventToFlowImpl();
+		return endEventToFlow;
 	}
 
 	/**

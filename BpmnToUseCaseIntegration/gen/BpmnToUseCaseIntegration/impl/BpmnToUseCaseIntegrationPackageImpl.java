@@ -4,23 +4,34 @@ package BpmnToUseCaseIntegration.impl;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
-import BpmnToUseCaseIntegration.DefinitionsToPackageDeclaration;
-import BpmnToUseCaseIntegration.DocumentRootToUseCasesModel;
 
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
+
 import BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl;
+
 import TGGLanguage.TGGLanguagePackage;
-import TGGRuntime.TGGRuntimePackage;
 
 import UseCaseDSL.UseCaseDSLPackage;
 
 import bpmn2.Bpmn2Package;
 
+import java.io.IOException;
+
+import java.net.URL;
+
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.eclipse.emf.ecore.resource.Resource;
+
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +46,13 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	protected String packageFilename = "BpmnToUseCaseIntegration.ecore";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass documentRootToUseCasesModelEClass = null;
 
 	/**
@@ -43,6 +61,83 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass definitionsToPackageDeclarationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass processToUseCaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass startEventToUseCaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass startEventToBasicFlowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sequenceFlowToUCFlowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass processToActorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flowNodeToStepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sequenceFlowToStepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass laneToActorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sequenceFlowToAlternativeFlowAlternativeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass intermediateCatchEventToAlternativeFlowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass endEventToFlowEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -78,8 +173,6 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
-	 * @see #createPackageContents()
-	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static BpmnToUseCaseIntegrationPackage init() {
@@ -104,13 +197,12 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 				.getEPackage(RulesPackage.eNS_URI) instanceof RulesPackageImpl ? EPackage.Registry.INSTANCE
 				.getEPackage(RulesPackage.eNS_URI) : RulesPackage.eINSTANCE);
 
-		// Create package meta-data objects
-		theBpmnToUseCaseIntegrationPackage.createPackageContents();
-		theRulesPackage.createPackageContents();
+		// Load packages
+		theBpmnToUseCaseIntegrationPackage.loadPackage();
 
-		// Initialize created meta-data
-		theBpmnToUseCaseIntegrationPackage.initializePackageContents();
-		theRulesPackage.initializePackageContents();
+		// Fix loaded packages
+		theBpmnToUseCaseIntegrationPackage.fixPackageContents();
+		theRulesPackage.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theBpmnToUseCaseIntegrationPackage.freeze();
@@ -127,6 +219,11 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EClass getDocumentRootToUseCasesModel() {
+		if (documentRootToUseCasesModelEClass == null) {
+			documentRootToUseCasesModelEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(0);
+		}
 		return documentRootToUseCasesModelEClass;
 	}
 
@@ -136,7 +233,7 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getDocumentRootToUseCasesModel_Source() {
-		return (EReference) documentRootToUseCasesModelEClass
+		return (EReference) getDocumentRootToUseCasesModel()
 				.getEStructuralFeatures().get(0);
 	}
 
@@ -146,7 +243,7 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getDocumentRootToUseCasesModel_Target() {
-		return (EReference) documentRootToUseCasesModelEClass
+		return (EReference) getDocumentRootToUseCasesModel()
 				.getEStructuralFeatures().get(1);
 	}
 
@@ -156,6 +253,11 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EClass getDefinitionsToPackageDeclaration() {
+		if (definitionsToPackageDeclarationEClass == null) {
+			definitionsToPackageDeclarationEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(1);
+		}
 		return definitionsToPackageDeclarationEClass;
 	}
 
@@ -165,7 +267,7 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getDefinitionsToPackageDeclaration_Source() {
-		return (EReference) definitionsToPackageDeclarationEClass
+		return (EReference) getDefinitionsToPackageDeclaration()
 				.getEStructuralFeatures().get(0);
 	}
 
@@ -175,8 +277,374 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getDefinitionsToPackageDeclaration_Target() {
-		return (EReference) definitionsToPackageDeclarationEClass
+		return (EReference) getDefinitionsToPackageDeclaration()
 				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProcessToUseCase() {
+		if (processToUseCaseEClass == null) {
+			processToUseCaseEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(2);
+		}
+		return processToUseCaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcessToUseCase_Source() {
+		return (EReference) getProcessToUseCase().getEStructuralFeatures().get(
+				0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcessToUseCase_Target() {
+		return (EReference) getProcessToUseCase().getEStructuralFeatures().get(
+				1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStartEventToUseCase() {
+		if (startEventToUseCaseEClass == null) {
+			startEventToUseCaseEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(3);
+		}
+		return startEventToUseCaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStartEventToUseCase_Source() {
+		return (EReference) getStartEventToUseCase().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStartEventToUseCase_Target() {
+		return (EReference) getStartEventToUseCase().getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStartEventToBasicFlow() {
+		if (startEventToBasicFlowEClass == null) {
+			startEventToBasicFlowEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(4);
+		}
+		return startEventToBasicFlowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStartEventToBasicFlow_Source() {
+		return (EReference) getStartEventToBasicFlow().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStartEventToBasicFlow_Target() {
+		return (EReference) getStartEventToBasicFlow().getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSequenceFlowToUCFlow() {
+		if (sequenceFlowToUCFlowEClass == null) {
+			sequenceFlowToUCFlowEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(5);
+		}
+		return sequenceFlowToUCFlowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequenceFlowToUCFlow_Source() {
+		return (EReference) getSequenceFlowToUCFlow().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequenceFlowToUCFlow_Target() {
+		return (EReference) getSequenceFlowToUCFlow().getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProcessToActor() {
+		if (processToActorEClass == null) {
+			processToActorEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(6);
+		}
+		return processToActorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcessToActor_Source() {
+		return (EReference) getProcessToActor().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcessToActor_Target() {
+		return (EReference) getProcessToActor().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFlowNodeToStep() {
+		if (flowNodeToStepEClass == null) {
+			flowNodeToStepEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(7);
+		}
+		return flowNodeToStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlowNodeToStep_Source() {
+		return (EReference) getFlowNodeToStep().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlowNodeToStep_Target() {
+		return (EReference) getFlowNodeToStep().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSequenceFlowToStep() {
+		if (sequenceFlowToStepEClass == null) {
+			sequenceFlowToStepEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(8);
+		}
+		return sequenceFlowToStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequenceFlowToStep_Source() {
+		return (EReference) getSequenceFlowToStep().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequenceFlowToStep_Target() {
+		return (EReference) getSequenceFlowToStep().getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLaneToActor() {
+		if (laneToActorEClass == null) {
+			laneToActorEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(9);
+		}
+		return laneToActorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLaneToActor_Source() {
+		return (EReference) getLaneToActor().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLaneToActor_Target() {
+		return (EReference) getLaneToActor().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSequenceFlowToAlternativeFlowAlternative() {
+		if (sequenceFlowToAlternativeFlowAlternativeEClass == null) {
+			sequenceFlowToAlternativeFlowAlternativeEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(10);
+		}
+		return sequenceFlowToAlternativeFlowAlternativeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequenceFlowToAlternativeFlowAlternative_Source() {
+		return (EReference) getSequenceFlowToAlternativeFlowAlternative()
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequenceFlowToAlternativeFlowAlternative_Target() {
+		return (EReference) getSequenceFlowToAlternativeFlowAlternative()
+				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntermediateCatchEventToAlternativeFlow() {
+		if (intermediateCatchEventToAlternativeFlowEClass == null) {
+			intermediateCatchEventToAlternativeFlowEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(11);
+		}
+		return intermediateCatchEventToAlternativeFlowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIntermediateCatchEventToAlternativeFlow_Source() {
+		return (EReference) getIntermediateCatchEventToAlternativeFlow()
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIntermediateCatchEventToAlternativeFlow_Target() {
+		return (EReference) getIntermediateCatchEventToAlternativeFlow()
+				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEndEventToFlow() {
+		if (endEventToFlowEClass == null) {
+			endEventToFlowEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(12);
+		}
+		return endEventToFlowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEndEventToFlow_Source() {
+		return (EReference) getEndEventToFlow().getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEndEventToFlow_Target() {
+		return (EReference) getEndEventToFlow().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -193,32 +661,34 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private boolean isCreated = false;
+	private boolean isLoaded = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
+	 * Laods the package and any sub-packages from their serialized form.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createPackageContents() {
-		if (isCreated)
+	public void loadPackage() {
+		if (isLoaded)
 			return;
-		isCreated = true;
+		isLoaded = true;
 
-		// Create classes and their features
-		documentRootToUseCasesModelEClass = createEClass(DOCUMENT_ROOT_TO_USE_CASES_MODEL);
-		createEReference(documentRootToUseCasesModelEClass,
-				DOCUMENT_ROOT_TO_USE_CASES_MODEL__SOURCE);
-		createEReference(documentRootToUseCasesModelEClass,
-				DOCUMENT_ROOT_TO_USE_CASES_MODEL__TARGET);
-
-		definitionsToPackageDeclarationEClass = createEClass(DEFINITIONS_TO_PACKAGE_DECLARATION);
-		createEReference(definitionsToPackageDeclarationEClass,
-				DEFINITIONS_TO_PACKAGE_DECLARATION__SOURCE);
-		createEReference(definitionsToPackageDeclarationEClass,
-				DEFINITIONS_TO_PACKAGE_DECLARATION__TARGET);
+		URL url = getClass().getResource(packageFilename);
+		if (url == null) {
+			throw new RuntimeException("Missing serialized package: "
+					+ packageFilename);
+		}
+		URI uri = URI.createURI(url.toString());
+		Resource resource = new EcoreResourceFactoryImpl().createResource(uri);
+		try {
+			resource.load(null);
+		} catch (IOException exception) {
+			throw new WrappedException(exception);
+		}
+		initializeFromLoadedEPackage(this, (EPackage) resource.getContents()
+				.get(0));
+		createResource(eNS_URI);
 	}
 
 	/**
@@ -226,82 +696,34 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private boolean isInitialized = false;
+	private boolean isFixed = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
+	 * Fixes up the loaded package, to make it appear as if it had been programmatically built.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void initializePackageContents() {
-		if (isInitialized)
+	public void fixPackageContents() {
+		if (isFixed)
 			return;
-		isInitialized = true;
+		isFixed = true;
+		fixEClassifiers();
+	}
 
-		// Initialize package
-		setName(eNAME);
-		setNsPrefix(eNS_PREFIX);
-		setNsURI(eNS_URI);
-
-		// Obtain other dependent packages
-		RulesPackage theRulesPackage = (RulesPackage) EPackage.Registry.INSTANCE
-				.getEPackage(RulesPackage.eNS_URI);
-		TGGRuntimePackage theTGGRuntimePackage = (TGGRuntimePackage) EPackage.Registry.INSTANCE
-				.getEPackage(TGGRuntimePackage.eNS_URI);
-		Bpmn2Package theBpmn2Package = (Bpmn2Package) EPackage.Registry.INSTANCE
-				.getEPackage(Bpmn2Package.eNS_URI);
-		UseCaseDSLPackage theUseCaseDSLPackage = (UseCaseDSLPackage) EPackage.Registry.INSTANCE
-				.getEPackage(UseCaseDSLPackage.eNS_URI);
-
-		// Add subpackages
-		getESubpackages().add(theRulesPackage);
-
-		// Create type parameters
-
-		// Set bounds for type parameters
-
-		// Add supertypes to classes
-		documentRootToUseCasesModelEClass.getESuperTypes().add(
-				theTGGRuntimePackage.getAbstractCorrespondence());
-		definitionsToPackageDeclarationEClass.getESuperTypes().add(
-				theTGGRuntimePackage.getAbstractCorrespondence());
-
-		// Initialize classes, features, and operations; add parameters
-		initEClass(documentRootToUseCasesModelEClass,
-				DocumentRootToUseCasesModel.class,
-				"DocumentRootToUseCasesModel", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDocumentRootToUseCasesModel_Source(),
-				theBpmn2Package.getDocumentRoot(), null, "source", null, 1, 1,
-				DocumentRootToUseCasesModel.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRootToUseCasesModel_Target(),
-				theUseCaseDSLPackage.getUseCasesModel(), null, "target", null,
-				1, 1, DocumentRootToUseCasesModel.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(definitionsToPackageDeclarationEClass,
-				DefinitionsToPackageDeclaration.class,
-				"DefinitionsToPackageDeclaration", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDefinitionsToPackageDeclaration_Source(),
-				theBpmn2Package.getDefinitions(), null, "source", null, 1, 1,
-				DefinitionsToPackageDeclaration.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDefinitionsToPackageDeclaration_Target(),
-				theUseCaseDSLPackage.getPackageDeclaration(), null, "target",
-				null, 1, 1, DefinitionsToPackageDeclaration.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-
-		// Create resource
-		createResource(eNS_URI);
+	/**
+	 * Sets the instance class on the given classifier.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected void fixInstanceClass(EClassifier eClassifier) {
+		if (eClassifier.getInstanceClassName() == null) {
+			eClassifier.setInstanceClassName("BpmnToUseCaseIntegration."
+					+ eClassifier.getName());
+			setGeneratedClassName(eClassifier);
+		}
 	}
 
 } //BpmnToUseCaseIntegrationPackageImpl

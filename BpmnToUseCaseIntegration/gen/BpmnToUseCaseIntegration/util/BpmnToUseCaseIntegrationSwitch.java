@@ -86,6 +86,105 @@ public class BpmnToUseCaseIntegrationSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case BpmnToUseCaseIntegrationPackage.PROCESS_TO_USE_CASE: {
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) theEObject;
+			T result = caseProcessToUseCase(processToUseCase);
+			if (result == null)
+				result = caseAbstractCorrespondence(processToUseCase);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.START_EVENT_TO_USE_CASE: {
+			StartEventToUseCase startEventToUseCase = (StartEventToUseCase) theEObject;
+			T result = caseStartEventToUseCase(startEventToUseCase);
+			if (result == null)
+				result = caseAbstractCorrespondence(startEventToUseCase);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.START_EVENT_TO_BASIC_FLOW: {
+			StartEventToBasicFlow startEventToBasicFlow = (StartEventToBasicFlow) theEObject;
+			T result = caseStartEventToBasicFlow(startEventToBasicFlow);
+			if (result == null)
+				result = caseAbstractCorrespondence(startEventToBasicFlow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.SEQUENCE_FLOW_TO_UC_FLOW: {
+			SequenceFlowToUCFlow sequenceFlowToUCFlow = (SequenceFlowToUCFlow) theEObject;
+			T result = caseSequenceFlowToUCFlow(sequenceFlowToUCFlow);
+			if (result == null)
+				result = caseAbstractCorrespondence(sequenceFlowToUCFlow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.PROCESS_TO_ACTOR: {
+			ProcessToActor processToActor = (ProcessToActor) theEObject;
+			T result = caseProcessToActor(processToActor);
+			if (result == null)
+				result = caseAbstractCorrespondence(processToActor);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.FLOW_NODE_TO_STEP: {
+			FlowNodeToStep flowNodeToStep = (FlowNodeToStep) theEObject;
+			T result = caseFlowNodeToStep(flowNodeToStep);
+			if (result == null)
+				result = caseAbstractCorrespondence(flowNodeToStep);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.SEQUENCE_FLOW_TO_STEP: {
+			SequenceFlowToStep sequenceFlowToStep = (SequenceFlowToStep) theEObject;
+			T result = caseSequenceFlowToStep(sequenceFlowToStep);
+			if (result == null)
+				result = caseAbstractCorrespondence(sequenceFlowToStep);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.LANE_TO_ACTOR: {
+			LaneToActor laneToActor = (LaneToActor) theEObject;
+			T result = caseLaneToActor(laneToActor);
+			if (result == null)
+				result = caseAbstractCorrespondence(laneToActor);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.SEQUENCE_FLOW_TO_ALTERNATIVE_FLOW_ALTERNATIVE: {
+			SequenceFlowToAlternativeFlowAlternative sequenceFlowToAlternativeFlowAlternative = (SequenceFlowToAlternativeFlowAlternative) theEObject;
+			T result = caseSequenceFlowToAlternativeFlowAlternative(sequenceFlowToAlternativeFlowAlternative);
+			if (result == null)
+				result = caseAbstractCorrespondence(sequenceFlowToAlternativeFlowAlternative);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.INTERMEDIATE_CATCH_EVENT_TO_ALTERNATIVE_FLOW: {
+			IntermediateCatchEventToAlternativeFlow intermediateCatchEventToAlternativeFlow = (IntermediateCatchEventToAlternativeFlow) theEObject;
+			T result = caseIntermediateCatchEventToAlternativeFlow(intermediateCatchEventToAlternativeFlow);
+			if (result == null)
+				result = caseAbstractCorrespondence(intermediateCatchEventToAlternativeFlow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.END_EVENT_TO_FLOW: {
+			EndEventToFlow endEventToFlow = (EndEventToFlow) theEObject;
+			T result = caseEndEventToFlow(endEventToFlow);
+			if (result == null)
+				result = caseAbstractCorrespondence(endEventToFlow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -119,6 +218,173 @@ public class BpmnToUseCaseIntegrationSwitch<T> extends Switch<T> {
 	 */
 	public T caseDefinitionsToPackageDeclaration(
 			DefinitionsToPackageDeclaration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Process To Use Case</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Process To Use Case</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcessToUseCase(ProcessToUseCase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Start Event To Use Case</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Start Event To Use Case</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStartEventToUseCase(StartEventToUseCase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Start Event To Basic Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Start Event To Basic Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStartEventToBasicFlow(StartEventToBasicFlow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Flow To UC Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Flow To UC Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceFlowToUCFlow(SequenceFlowToUCFlow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Process To Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Process To Actor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcessToActor(ProcessToActor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flow Node To Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flow Node To Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlowNodeToStep(FlowNodeToStep object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Flow To Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Flow To Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceFlowToStep(SequenceFlowToStep object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lane To Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lane To Actor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLaneToActor(LaneToActor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Flow To Alternative Flow Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Flow To Alternative Flow Alternative</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceFlowToAlternativeFlowAlternative(
+			SequenceFlowToAlternativeFlowAlternative object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Intermediate Catch Event To Alternative Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Intermediate Catch Event To Alternative Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntermediateCatchEventToAlternativeFlow(
+			IntermediateCatchEventToAlternativeFlow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>End Event To Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>End Event To Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEndEventToFlow(EndEventToFlow object) {
 		return null;
 	}
 

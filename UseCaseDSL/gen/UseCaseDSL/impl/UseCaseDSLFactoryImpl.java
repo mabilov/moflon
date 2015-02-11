@@ -139,89 +139,9 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UseCasesModel createUseCasesModel() {
-		UseCasesModelImpl useCasesModel = new UseCasesModelImpl();
-		return useCasesModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PackageDeclaration createPackageDeclaration() {
-		PackageDeclarationImpl packageDeclaration = new PackageDeclarationImpl();
-		return packageDeclaration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UseCase createUseCase() {
-		UseCaseImpl useCase = new UseCaseImpl();
-		return useCase;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Actor createActor() {
 		ActorImpl actor = new ActorImpl();
 		return actor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Step createStep() {
-		StepImpl step = new StepImpl();
-		return step;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Flow createFlow() {
-		FlowImpl flow = new FlowImpl();
-		return flow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BasicFlow createBasicFlow() {
-		BasicFlowImpl basicFlow = new BasicFlowImpl();
-		return basicFlow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NamedFlow createNamedFlow() {
-		NamedFlowImpl namedFlow = new NamedFlowImpl();
-		return namedFlow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExceptionFlow createExceptionFlow() {
-		ExceptionFlowImpl exceptionFlow = new ExceptionFlowImpl();
-		return exceptionFlow;
 	}
 
 	/**
@@ -239,9 +159,9 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParallelFlow createParallelFlow() {
-		ParallelFlowImpl parallelFlow = new ParallelFlowImpl();
-		return parallelFlow;
+	public AlternativeFlowAlternative createAlternativeFlowAlternative() {
+		AlternativeFlowAlternativeImpl alternativeFlowAlternative = new AlternativeFlowAlternativeImpl();
+		return alternativeFlowAlternative;
 	}
 
 	/**
@@ -249,9 +169,9 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StepAlternative createStepAlternative() {
-		StepAlternativeImpl stepAlternative = new StepAlternativeImpl();
-		return stepAlternative;
+	public BasicFlow createBasicFlow() {
+		BasicFlowImpl basicFlow = new BasicFlowImpl();
+		return basicFlow;
 	}
 
 	/**
@@ -269,6 +189,26 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExceptionFlow createExceptionFlow() {
+		ExceptionFlowImpl exceptionFlow = new ExceptionFlowImpl();
+		return exceptionFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Flow createFlow() {
+		FlowImpl flow = new FlowImpl();
+		return flow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LocalAlternative createLocalAlternative() {
 		LocalAlternativeImpl localAlternative = new LocalAlternativeImpl();
 		return localAlternative;
@@ -279,9 +219,39 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AlternativeFlowAlternative createAlternativeFlowAlternative() {
-		AlternativeFlowAlternativeImpl alternativeFlowAlternative = new AlternativeFlowAlternativeImpl();
-		return alternativeFlowAlternative;
+	public NamedFlow createNamedFlow() {
+		NamedFlowImpl namedFlow = new NamedFlowImpl();
+		return namedFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NormalStep createNormalStep() {
+		NormalStepImpl normalStep = new NormalStepImpl();
+		return normalStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PackageDeclaration createPackageDeclaration() {
+		PackageDeclarationImpl packageDeclaration = new PackageDeclarationImpl();
+		return packageDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParallelFlow createParallelFlow() {
+		ParallelFlowImpl parallelFlow = new ParallelFlowImpl();
+		return parallelFlow;
 	}
 
 	/**
@@ -299,9 +269,39 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NormalStep createNormalStep() {
-		NormalStepImpl normalStep = new NormalStepImpl();
-		return normalStep;
+	public Step createStep() {
+		StepImpl step = new StepImpl();
+		return step;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StepAlternative createStepAlternative() {
+		StepAlternativeImpl stepAlternative = new StepAlternativeImpl();
+		return stepAlternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UseCase createUseCase() {
+		UseCaseImpl useCase = new UseCaseImpl();
+		return useCase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UseCasesModel createUseCasesModel() {
+		UseCasesModelImpl useCasesModel = new UseCasesModelImpl();
+		return useCasesModel;
 	}
 
 	/**

@@ -6,6 +6,7 @@ import bpmn2.BaseElement;
 import bpmn2.Bpmn2Package;
 import bpmn2.FlowElement;
 import bpmn2.FlowElementsContainer;
+import bpmn2.LaneSet;
 
 import java.util.Collection;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link bpmn2.impl.ProcessImpl#getId <em>Id</em>}</li>
+ *   <li>{@link bpmn2.impl.ProcessImpl#getLaneSets <em>Lane Sets</em>}</li>
  *   <li>{@link bpmn2.impl.ProcessImpl#getFlowElements <em>Flow Elements</em>}</li>
  * </ul>
  * </p>
@@ -58,6 +60,16 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getLaneSets() <em>Lane Sets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLaneSets()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LaneSet> laneSets;
 
 	/**
 	 * The cached value of the '{@link #getFlowElements() <em>Flow Elements</em>}' containment reference list.
@@ -115,6 +127,19 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<LaneSet> getLaneSets() {
+		if (laneSets == null) {
+			laneSets = new EObjectContainmentEList<LaneSet>(LaneSet.class,
+					this, Bpmn2Package.PROCESS__LANE_SETS);
+		}
+		return laneSets;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<FlowElement> getFlowElements() {
 		if (flowElements == null) {
 			flowElements = new EObjectContainmentEList<FlowElement>(
@@ -133,6 +158,9 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case Bpmn2Package.PROCESS__LANE_SETS:
+			return ((InternalEList<?>) getLaneSets()).basicRemove(otherEnd,
+					msgs);
 		case Bpmn2Package.PROCESS__FLOW_ELEMENTS:
 			return ((InternalEList<?>) getFlowElements()).basicRemove(otherEnd,
 					msgs);
@@ -150,6 +178,8 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 		switch (featureID) {
 		case Bpmn2Package.PROCESS__ID:
 			return getId();
+		case Bpmn2Package.PROCESS__LANE_SETS:
+			return getLaneSets();
 		case Bpmn2Package.PROCESS__FLOW_ELEMENTS:
 			return getFlowElements();
 		}
@@ -167,6 +197,10 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 		switch (featureID) {
 		case Bpmn2Package.PROCESS__ID:
 			setId((String) newValue);
+			return;
+		case Bpmn2Package.PROCESS__LANE_SETS:
+			getLaneSets().clear();
+			getLaneSets().addAll((Collection<? extends LaneSet>) newValue);
 			return;
 		case Bpmn2Package.PROCESS__FLOW_ELEMENTS:
 			getFlowElements().clear();
@@ -188,6 +222,9 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 		case Bpmn2Package.PROCESS__ID:
 			setId(ID_EDEFAULT);
 			return;
+		case Bpmn2Package.PROCESS__LANE_SETS:
+			getLaneSets().clear();
+			return;
 		case Bpmn2Package.PROCESS__FLOW_ELEMENTS:
 			getFlowElements().clear();
 			return;
@@ -205,6 +242,8 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 		switch (featureID) {
 		case Bpmn2Package.PROCESS__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case Bpmn2Package.PROCESS__LANE_SETS:
+			return laneSets != null && !laneSets.isEmpty();
 		case Bpmn2Package.PROCESS__FLOW_ELEMENTS:
 			return flowElements != null && !flowElements.isEmpty();
 		}
@@ -228,6 +267,8 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 		}
 		if (baseClass == FlowElementsContainer.class) {
 			switch (derivedFeatureID) {
+			case Bpmn2Package.PROCESS__LANE_SETS:
+				return Bpmn2Package.FLOW_ELEMENTS_CONTAINER__LANE_SETS;
 			case Bpmn2Package.PROCESS__FLOW_ELEMENTS:
 				return Bpmn2Package.FLOW_ELEMENTS_CONTAINER__FLOW_ELEMENTS;
 			default:
@@ -254,6 +295,8 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 		}
 		if (baseClass == FlowElementsContainer.class) {
 			switch (baseFeatureID) {
+			case Bpmn2Package.FLOW_ELEMENTS_CONTAINER__LANE_SETS:
+				return Bpmn2Package.PROCESS__LANE_SETS;
 			case Bpmn2Package.FLOW_ELEMENTS_CONTAINER__FLOW_ELEMENTS:
 				return Bpmn2Package.PROCESS__FLOW_ELEMENTS;
 			default:

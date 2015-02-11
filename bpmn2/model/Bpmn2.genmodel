@@ -45,12 +45,15 @@
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Expression"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/laneSets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FormalExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//FormalExpression/body"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Gateway"/>
+    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Gateway">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//Gateway/gatewayDirection"/>
+    </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//InteractionNode"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateCatchEvent"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateThrowEvent"/>

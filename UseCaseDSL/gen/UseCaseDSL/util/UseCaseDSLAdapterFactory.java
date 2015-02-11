@@ -172,48 +172,6 @@ public class UseCaseDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.UseCasesModel <em>Use Cases Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseDSL.UseCasesModel
-	 * @generated
-	 */
-	public Adapter createUseCasesModelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.PackageDeclaration <em>Package Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseDSL.PackageDeclaration
-	 * @generated
-	 */
-	public Adapter createPackageDeclarationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.UseCase <em>Use Case</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseDSL.UseCase
-	 * @generated
-	 */
-	public Adapter createUseCaseAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link UseCaseDSL.Actor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -224,76 +182,6 @@ public class UseCaseDSLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.Step <em>Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseDSL.Step
-	 * @generated
-	 */
-	public Adapter createStepAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.Flow <em>Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseDSL.Flow
-	 * @generated
-	 */
-	public Adapter createFlowAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.BasicFlow <em>Basic Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseDSL.BasicFlow
-	 * @generated
-	 */
-	public Adapter createBasicFlowAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.NamedFlow <em>Named Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseDSL.NamedFlow
-	 * @generated
-	 */
-	public Adapter createNamedFlowAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.ExceptionFlow <em>Exception Flow</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseDSL.ExceptionFlow
-	 * @generated
-	 */
-	public Adapter createExceptionFlowAdapter() {
 		return null;
 	}
 
@@ -312,30 +200,30 @@ public class UseCaseDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.ParallelFlow <em>Parallel Flow</em>}'.
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.AlternativeFlowAlternative <em>Alternative Flow Alternative</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UseCaseDSL.ParallelFlow
+	 * @see UseCaseDSL.AlternativeFlowAlternative
 	 * @generated
 	 */
-	public Adapter createParallelFlowAdapter() {
+	public Adapter createAlternativeFlowAlternativeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.StepAlternative <em>Step Alternative</em>}'.
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.BasicFlow <em>Basic Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UseCaseDSL.StepAlternative
+	 * @see UseCaseDSL.BasicFlow
 	 * @generated
 	 */
-	public Adapter createStepAlternativeAdapter() {
+	public Adapter createBasicFlowAdapter() {
 		return null;
 	}
 
@@ -354,6 +242,34 @@ public class UseCaseDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.ExceptionFlow <em>Exception Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.ExceptionFlow
+	 * @generated
+	 */
+	public Adapter createExceptionFlowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.Flow <em>Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.Flow
+	 * @generated
+	 */
+	public Adapter createFlowAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link UseCaseDSL.LocalAlternative <em>Local Alternative</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -368,16 +284,58 @@ public class UseCaseDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.AlternativeFlowAlternative <em>Alternative Flow Alternative</em>}'.
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.NamedFlow <em>Named Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UseCaseDSL.AlternativeFlowAlternative
+	 * @see UseCaseDSL.NamedFlow
 	 * @generated
 	 */
-	public Adapter createAlternativeFlowAlternativeAdapter() {
+	public Adapter createNamedFlowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.NormalStep <em>Normal Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.NormalStep
+	 * @generated
+	 */
+	public Adapter createNormalStepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.PackageDeclaration <em>Package Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.PackageDeclaration
+	 * @generated
+	 */
+	public Adapter createPackageDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.ParallelFlow <em>Parallel Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.ParallelFlow
+	 * @generated
+	 */
+	public Adapter createParallelFlowAdapter() {
 		return null;
 	}
 
@@ -396,16 +354,58 @@ public class UseCaseDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseDSL.NormalStep <em>Normal Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.Step <em>Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UseCaseDSL.NormalStep
+	 * @see UseCaseDSL.Step
 	 * @generated
 	 */
-	public Adapter createNormalStepAdapter() {
+	public Adapter createStepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.StepAlternative <em>Step Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.StepAlternative
+	 * @generated
+	 */
+	public Adapter createStepAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.UseCase <em>Use Case</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.UseCase
+	 * @generated
+	 */
+	public Adapter createUseCaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.UseCasesModel <em>Use Cases Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.UseCasesModel
+	 * @generated
+	 */
+	public Adapter createUseCasesModelAdapter() {
 		return null;
 	}
 

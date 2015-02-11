@@ -46,6 +46,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="//BaseElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="FlowElementsContainer" eSuperTypes="//BaseElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="laneSets" upperBound="-1" eType="//LaneSet" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flowElements" upperBound="-1" eType="//FlowElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FormalExpression" eSuperTypes="//Expression">
@@ -53,7 +54,9 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="//FlowNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="//FlowNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gatewayDirection" ordered="false" lowerBound="1" eType="//GatewayDirection"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GatewayDirection">
     <eLiterals name="Converging" value="1" literal=""/>
     <eLiterals name="Diverging" value="2" literal=""/>

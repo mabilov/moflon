@@ -6,6 +6,16 @@ import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 import BpmnToUseCaseIntegration.DefinitionsToPackageDeclaration;
 import BpmnToUseCaseIntegration.DocumentRootToUseCasesModel;
+import BpmnToUseCaseIntegration.EndEventToFlow;
+import BpmnToUseCaseIntegration.FlowNodeToStep;
+import BpmnToUseCaseIntegration.IntermediateCatchEventToAlternativeFlow;
+import BpmnToUseCaseIntegration.LaneToActor;
+import BpmnToUseCaseIntegration.ProcessToActor;
+import BpmnToUseCaseIntegration.ProcessToUseCase;
+import BpmnToUseCaseIntegration.SequenceFlowToAlternativeFlowAlternative;
+import BpmnToUseCaseIntegration.SequenceFlowToStep;
+import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
+import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
 import TGGLanguage.csp.*;
 
@@ -25,13 +35,36 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractCorrespondenceImpl;
 
+import UseCaseDSL.Actor;
+import UseCaseDSL.AlternativeFlow;
+import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.BasicFlow;
+import UseCaseDSL.Flow;
+import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.ParallelFlow;
+import UseCaseDSL.ParallelStep;
+import UseCaseDSL.Step;
+import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
 
 import bpmn2.Bpmn2Factory;
 import bpmn2.Definitions;
 import bpmn2.DocumentRoot;
+import bpmn2.EndEvent;
+import bpmn2.EventBasedGateway;
+import bpmn2.ExclusiveGateway;
+import bpmn2.FlowElementsContainer;
+import bpmn2.IntermediateCatchEvent;
+import bpmn2.IntermediateThrowEvent;
+import bpmn2.Lane;
+import bpmn2.LaneSet;
+import bpmn2.ParallelGateway;
+import bpmn2.SequenceFlow;
+import bpmn2.ServiceTask;
+import bpmn2.StartEvent;
+import bpmn2.UserTask;
 
 import csp.constraints.*;
 

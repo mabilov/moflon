@@ -5,9 +5,20 @@ package BpmnToUseCaseIntegration.Rules.impl;
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
 import BpmnToUseCaseIntegration.DefinitionsToPackageDeclaration;
 import BpmnToUseCaseIntegration.DocumentRootToUseCasesModel;
+import BpmnToUseCaseIntegration.EndEventToFlow;
+import BpmnToUseCaseIntegration.FlowNodeToStep;
+import BpmnToUseCaseIntegration.IntermediateCatchEventToAlternativeFlow;
+import BpmnToUseCaseIntegration.LaneToActor;
+import BpmnToUseCaseIntegration.ProcessToActor;
+import BpmnToUseCaseIntegration.ProcessToUseCase;
 
 import BpmnToUseCaseIntegration.Rules.DefinitionsToPackageRule;
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
+
+import BpmnToUseCaseIntegration.SequenceFlowToAlternativeFlowAlternative;
+import BpmnToUseCaseIntegration.SequenceFlowToStep;
+import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
+import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
 import TGGLanguage.modelgenerator.RuleEntryContainer;
 import TGGLanguage.modelgenerator.RuleEntryList;
@@ -25,13 +36,36 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
+import UseCaseDSL.Actor;
+import UseCaseDSL.AlternativeFlow;
+import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.BasicFlow;
+import UseCaseDSL.Flow;
+import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.ParallelFlow;
+import UseCaseDSL.ParallelStep;
+import UseCaseDSL.Step;
+import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
 
 import bpmn2.Bpmn2Factory;
 import bpmn2.Definitions;
 import bpmn2.DocumentRoot;
+import bpmn2.EndEvent;
+import bpmn2.EventBasedGateway;
+import bpmn2.ExclusiveGateway;
+import bpmn2.FlowElementsContainer;
+import bpmn2.IntermediateCatchEvent;
+import bpmn2.IntermediateThrowEvent;
+import bpmn2.Lane;
+import bpmn2.LaneSet;
+import bpmn2.ParallelGateway;
+import bpmn2.SequenceFlow;
+import bpmn2.ServiceTask;
+import bpmn2.StartEvent;
+import bpmn2.UserTask;
 
 import de.upb.tools.sdm.*;
 
@@ -47,6 +81,33 @@ import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
@@ -107,7 +168,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RulesPackage.Literals.DEFINITIONS_TO_PACKAGE_RULE;
+		return RulesPackage.eINSTANCE.getDefinitionsToPackageRule();
 	}
 
 	/**
@@ -238,9 +299,9 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		DefinitionsToPackageDeclaration definitionsToPackageDeclaration = null;
 		PackageDeclaration packageDeclaration = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge useCasesModel__packages__packageDeclaration = null;
-		EMoflonEdge definitionsToPackageDeclaration__source__definitions = null;
 		EMoflonEdge definitionsToPackageDeclaration__target__packageDeclaration = null;
+		EMoflonEdge definitionsToPackageDeclaration__source__definitions = null;
+		EMoflonEdge useCasesModel__packages__packageDeclaration = null;
 		EMoflonEdge __documentRoot_definitions_definitions = null;
 
 		// story node 'perform transformation'
@@ -302,14 +363,19 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			packageDeclaration = UseCaseDSLFactory.eINSTANCE
 					.createPackageDeclaration();
 
+			// assign attribute packageDeclaration
+			packageDeclaration.setDescription((java.lang.String) csp
+					.getAttributeVariable("packageDeclaration", "description")
+					.getValue());
+
 			// create link
 			definitionsToPackageDeclaration.setSource(definitions);
 
 			// create link
-			useCasesModel.getPackages().add(packageDeclaration);
+			definitionsToPackageDeclaration.setTarget(packageDeclaration);
 
 			// create link
-			definitionsToPackageDeclaration.setTarget(packageDeclaration);
+			useCasesModel.getPackages().add(packageDeclaration);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -331,11 +397,11 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration, "createdElements");
+					definitions, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitions, "translatedElements");
+					packageDeclaration, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -413,16 +479,16 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCasesModel and packageDeclaration 
 			JavaSDM.ensure(!useCasesModel.equals(packageDeclaration));
 
-			// create object useCasesModel__packages__packageDeclaration
-			useCasesModel__packages__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+			// create object definitionsToPackageDeclaration__target__packageDeclaration
+			definitionsToPackageDeclaration__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object definitionsToPackageDeclaration__source__definitions
 			definitionsToPackageDeclaration__source__definitions = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object definitionsToPackageDeclaration__target__packageDeclaration
-			definitionsToPackageDeclaration__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+			// create object useCasesModel__packages__packageDeclaration
+			useCasesModel__packages__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __documentRoot_definitions_definitions
@@ -444,8 +510,9 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							useCasesModel__packages__packageDeclaration,
+					.addOppositeReference(
+							ruleresult,
+							definitionsToPackageDeclaration__target__packageDeclaration,
 							"createdEdges");
 
 			// create link
@@ -455,9 +522,8 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(
-							ruleresult,
-							definitionsToPackageDeclaration__target__packageDeclaration,
+					.addOppositeReference(ruleresult,
+							useCasesModel__packages__packageDeclaration,
 							"createdEdges");
 
 			// create link
@@ -465,18 +531,18 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					__documentRoot_definitions_definitions, "translatedEdges");
 
 			// create link
-			__documentRoot_definitions_definitions.setTrg(definitions);
-
-			// create link
 			definitionsToPackageDeclaration__source__definitions
 					.setTrg(definitions);
 
 			// create link
-			useCasesModel__packages__packageDeclaration
-					.setTrg(packageDeclaration);
+			__documentRoot_definitions_definitions.setTrg(definitions);
 
 			// create link
 			definitionsToPackageDeclaration__target__packageDeclaration
+					.setTrg(packageDeclaration);
+
+			// create link
+			useCasesModel__packages__packageDeclaration
 					.setTrg(packageDeclaration);
 
 			// create link
@@ -521,8 +587,8 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		IsApplicableRuleResult ruleresult = null;
 		Definitions definitions = null;
 		DocumentRoot documentRoot = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __documentRoot_definitions_definitions = null;
+		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __documentRootToUseCasesModel_source_documentRoot = null;
 		EMoflonEdge __documentRootToUseCasesModel_target_useCasesModel = null;
 		CSP csp = null;
@@ -642,13 +708,13 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 						JavaSDM.ensure(useCasesModel
 								.equals(documentRootToUseCasesModel.getTarget()));
 
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
 						// create object __documentRoot_definitions_definitions
 						__documentRoot_definitions_definitions = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
+
+						// create object isApplicableMatch
+						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+								.createIsApplicableMatch();
 
 						// create object __documentRootToUseCasesModel_source_documentRoot
 						__documentRootToUseCasesModel_source_documentRoot = TGGRuntimeFactory.eINSTANCE
@@ -669,12 +735,16 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								.setName("target");
 
 						// create link
+						__documentRoot_definitions_definitions
+								.setTrg(definitions);
+
+						// create link
 						isApplicableMatch.getAllContextElements().add(
 								definitions);
 
 						// create link
 						__documentRoot_definitions_definitions
-								.setTrg(definitions);
+								.setSrc(documentRoot);
 
 						// create link
 						__documentRootToUseCasesModel_source_documentRoot
@@ -685,8 +755,8 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								documentRoot);
 
 						// create link
-						__documentRoot_definitions_definitions
-								.setSrc(documentRoot);
+						__documentRootToUseCasesModel_target_useCasesModel
+								.setTrg(useCasesModel);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(
@@ -694,19 +764,21 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 						// create link
 						__documentRootToUseCasesModel_target_useCasesModel
-								.setTrg(useCasesModel);
+								.setSrc(documentRootToUseCasesModel);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(
 								documentRootToUseCasesModel);
 
 						// create link
-						__documentRootToUseCasesModel_target_useCasesModel
+						__documentRootToUseCasesModel_source_documentRoot
 								.setSrc(documentRootToUseCasesModel);
 
 						// create link
-						__documentRootToUseCasesModel_source_documentRoot
-								.setSrc(documentRootToUseCasesModel);
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__documentRoot_definitions_definitions,
+								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil
@@ -714,12 +786,6 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 										isApplicableMatch,
 										__documentRootToUseCasesModel_source_documentRoot,
 										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__documentRoot_definitions_definitions,
-								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil
@@ -813,6 +879,18 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			DocumentRoot documentRoot) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
+
+		// Create literals
+
+		// Create attribute variables
+
+		// Create explicit parameters
+
+		// Create unbound variables
+
+		// Create constraints
+
+		// Solve CSP
 		return csp;
 	}
 
@@ -822,7 +900,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isAppropriate_checkCsp_FWD(CSP csp) {
-		return true;
+		return csp.check();
 	}
 
 	/**
@@ -836,6 +914,33 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			DocumentRootToUseCasesModel documentRootToUseCasesModel) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("http://");
+
+		// Create attribute variables
+		Variable var_definitions_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("definitions.name", true, csp);
+		var_definitions_name.setValue(definitions.getName());
+
+		// Create explicit parameters
+
+		// Create unbound variables
+		Variable var_packageDeclaration_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("packageDeclaration.description", csp);
+
+		// Create constraints
+		AddPrefix addPrefix = new AddPrefix();
+
+		csp.getConstraints().add(addPrefix);
+
+		// Solve CSP
+		addPrefix.setRuleName("");
+		addPrefix.solve(literal0, var_packageDeclaration_description,
+				var_definitions_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("definitions", definitions);
@@ -852,7 +957,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isApplicable_checkCsp_FWD(CSP csp) {
-		return true;
+		return csp.check();
 	}
 
 	/**
@@ -1017,9 +1122,9 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		DefinitionsToPackageDeclaration definitionsToPackageDeclaration = null;
 		PerformRuleResult ruleresult = null;
 		EMoflonEdge documentRoot__definitions__definitions = null;
-		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
-		EMoflonEdge definitionsToPackageDeclaration__source__definitions = null;
 		EMoflonEdge definitionsToPackageDeclaration__target__packageDeclaration = null;
+		EMoflonEdge definitionsToPackageDeclaration__source__definitions = null;
+		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1079,14 +1184,18 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			definitionsToPackageDeclaration = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createDefinitionsToPackageDeclaration();
 
+			// assign attribute definitions
+			definitions.setName((java.lang.String) csp.getAttributeVariable(
+					"definitions", "name").getValue());
+
 			// create link
-			documentRoot.getDefinitions().add(definitions);
+			definitionsToPackageDeclaration.setTarget(packageDeclaration);
 
 			// create link
 			definitionsToPackageDeclaration.setSource(definitions);
 
 			// create link
-			definitionsToPackageDeclaration.setTarget(packageDeclaration);
+			documentRoot.getDefinitions().add(definitions);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1108,15 +1217,15 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclaration, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					definitions, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					definitionsToPackageDeclaration, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1194,16 +1303,16 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			documentRoot__definitions__definitions = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __useCasesModel_packages_packageDeclaration
-			__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
+			// create object definitionsToPackageDeclaration__target__packageDeclaration
+			definitionsToPackageDeclaration__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object definitionsToPackageDeclaration__source__definitions
 			definitionsToPackageDeclaration__source__definitions = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object definitionsToPackageDeclaration__target__packageDeclaration
-			definitionsToPackageDeclaration__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+			// create object __useCasesModel_packages_packageDeclaration
+			__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1224,9 +1333,11 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					documentRoot__definitions__definitions, "createdEdges");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCasesModel_packages_packageDeclaration,
-					"translatedEdges");
+			org.moflon.util.eMoflonEMFUtil
+					.addOppositeReference(
+							ruleresult,
+							definitionsToPackageDeclaration__target__packageDeclaration,
+							"createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1234,11 +1345,9 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					"createdEdges");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(
-							ruleresult,
-							definitionsToPackageDeclaration__target__packageDeclaration,
-							"createdEdges");
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__useCasesModel_packages_packageDeclaration,
+					"translatedEdges");
 
 			// create link
 			definitionsToPackageDeclaration__source__definitions
@@ -1473,6 +1582,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								.setTrg(useCasesModel);
 
 						// create link
+						isApplicableMatch.getAllContextElements().add(
+								documentRootToUseCasesModel);
+
+						// create link
 						__documentRootToUseCasesModel_source_documentRoot
 								.setSrc(documentRootToUseCasesModel);
 
@@ -1481,21 +1594,17 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								.setSrc(documentRootToUseCasesModel);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								documentRootToUseCasesModel);
-
-						// create link
 						org.moflon.util.eMoflonEMFUtil
 								.addOppositeReference(
 										isApplicableMatch,
-										__documentRootToUseCasesModel_source_documentRoot,
+										__documentRootToUseCasesModel_target_useCasesModel,
 										"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil
 								.addOppositeReference(
 										isApplicableMatch,
-										__documentRootToUseCasesModel_target_useCasesModel,
+										__documentRootToUseCasesModel_source_documentRoot,
 										"allContextElements");
 
 						// create link
@@ -1589,6 +1698,18 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
+
+		// Create literals
+
+		// Create attribute variables
+
+		// Create explicit parameters
+
+		// Create unbound variables
+
+		// Create constraints
+
+		// Solve CSP
 		return csp;
 	}
 
@@ -1598,7 +1719,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isAppropriate_checkCsp_BWD(CSP csp) {
-		return true;
+		return csp.check();
 	}
 
 	/**
@@ -1612,6 +1733,34 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			DocumentRootToUseCasesModel documentRootToUseCasesModel) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("http://");
+
+		// Create attribute variables
+		Variable var_packageDeclaration_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("packageDeclaration.description", true, csp);
+		var_packageDeclaration_description.setValue(packageDeclaration
+				.getDescription());
+
+		// Create explicit parameters
+
+		// Create unbound variables
+		Variable var_definitions_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("definitions.name", csp);
+
+		// Create constraints
+		AddPrefix addPrefix = new AddPrefix();
+
+		csp.getConstraints().add(addPrefix);
+
+		// Solve CSP
+		addPrefix.setRuleName("");
+		addPrefix.solve(literal0, var_packageDeclaration_description,
+				var_definitions_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("packageDeclaration",
@@ -1629,7 +1778,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isApplicable_checkCsp_BWD(CSP csp) {
-		return true;
+		return csp.check();
 	}
 
 	/**
@@ -1670,7 +1819,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_0(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_436(
 			EMoflonEdge _edge_definitions) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1678,7 +1827,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		DocumentRoot __DEC_definitions_definitions_92061 = null;
+		DocumentRoot __DEC_definitions_definitions_222359 = null;
 		Match match = null;
 		Definitions definitions = null;
 		DocumentRoot documentRoot = null;
@@ -1756,19 +1905,19 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_definitions_definitions_92061 = definitions
+					__DEC_definitions_definitions_222359 = definitions
 							.eContainer() instanceof DocumentRoot ? (DocumentRoot) definitions
 							.eContainer() : null;
 
-					// check object __DEC_definitions_definitions_92061 is really bound
-					JavaSDM.ensure(__DEC_definitions_definitions_92061 != null);
+					// check object __DEC_definitions_definitions_222359 is really bound
+					JavaSDM.ensure(__DEC_definitions_definitions_222359 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_definitions_definitions_92061
+					JavaSDM.ensure(__DEC_definitions_definitions_222359
 							.getDefinitions().contains(definitions));
 
-					// check isomorphic binding between objects __DEC_definitions_definitions_92061 and documentRoot 
-					JavaSDM.ensure(!__DEC_definitions_definitions_92061
+					// check isomorphic binding between objects __DEC_definitions_definitions_222359 and documentRoot 
+					JavaSDM.ensure(!__DEC_definitions_definitions_222359
 							.equals(documentRoot));
 
 					fujaba__Success = true;
@@ -1857,7 +2006,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_0(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_184(
 			EMoflonEdge _edge_packages) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1865,7 +2014,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCasesModel __DEC_packageDeclaration_packages_856408 = null;
+		UseCasesModel __DEC_packageDeclaration_packages_975550 = null;
 		Match match = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCasesModel useCasesModel = null;
@@ -1943,19 +2092,19 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_packageDeclaration_packages_856408 = packageDeclaration
+					__DEC_packageDeclaration_packages_975550 = packageDeclaration
 							.eContainer() instanceof UseCasesModel ? (UseCasesModel) packageDeclaration
 							.eContainer() : null;
 
-					// check object __DEC_packageDeclaration_packages_856408 is really bound
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_856408 != null);
+					// check object __DEC_packageDeclaration_packages_975550 is really bound
+					JavaSDM.ensure(__DEC_packageDeclaration_packages_975550 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_856408
+					JavaSDM.ensure(__DEC_packageDeclaration_packages_975550
 							.getPackages().contains(packageDeclaration));
 
-					// check isomorphic binding between objects __DEC_packageDeclaration_packages_856408 and useCasesModel 
-					JavaSDM.ensure(!__DEC_packageDeclaration_packages_856408
+					// check isomorphic binding between objects __DEC_packageDeclaration_packages_975550 and useCasesModel 
+					JavaSDM.ensure(!__DEC_packageDeclaration_packages_975550
 							.equals(useCasesModel));
 
 					fujaba__Success = true;
@@ -2209,8 +2358,24 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 									packageDeclaration = UseCaseDSLFactory.eINSTANCE
 											.createPackageDeclaration();
 
+									// assign attribute definitions
+									definitions.setName((java.lang.String) csp
+											.getAttributeVariable(
+													"definitions", "name")
+											.getValue());
+									// assign attribute packageDeclaration
+									packageDeclaration
+											.setDescription((java.lang.String) csp
+													.getAttributeVariable(
+															"packageDeclaration",
+															"description")
+													.getValue());
 									// assign attribute ruleResult
 									ruleResult.setSuccess(true);
+
+									// create link
+									documentRoot.getDefinitions().add(
+											definitions);
 
 									// create link
 									definitionsToPackageDeclaration
@@ -2221,20 +2386,16 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 											definitions);
 
 									// create link
-									documentRoot.getDefinitions().add(
-											definitions);
-
-									// create link
-									useCasesModel.getPackages().add(
-											packageDeclaration);
-
-									// create link
 									ruleResult.getTargetObjects().add(
 											packageDeclaration);
 
 									// create link
 									definitionsToPackageDeclaration
 											.setTarget(packageDeclaration);
+
+									// create link
+									useCasesModel.getPackages().add(
+											packageDeclaration);
 
 									// create link
 									ruleResult.getCorrObjects().add(
@@ -2283,6 +2444,32 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			ModelgeneratorRuleResult ruleResult) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("http://");
+
+		// Create attribute variables
+
+		// Create explicit parameters
+
+		// Create unbound variables
+		Variable var_packageDeclaration_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("packageDeclaration.description", csp);
+		Variable var_definitions_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("definitions.name", csp);
+
+		// Create constraints
+		AddPrefix_modelgen addPrefix_modelgen = new AddPrefix_modelgen();
+
+		csp.getConstraints().add(addPrefix_modelgen);
+
+		// Solve CSP
+		addPrefix_modelgen.setRuleName("");
+		addPrefix_modelgen.solve(literal0, var_packageDeclaration_description,
+				var_definitions_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("documentRoot", documentRoot);
@@ -2298,7 +2485,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return true;
+		return csp.check();
 	}
 
 	/**
@@ -2382,11 +2569,11 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_0__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_0((EMoflonEdge) arguments
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_436__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_436((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_0__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_0((EMoflonEdge) arguments
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_184__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_184((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

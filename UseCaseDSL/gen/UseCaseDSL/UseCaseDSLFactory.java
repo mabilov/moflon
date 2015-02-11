@@ -22,33 +22,6 @@ public interface UseCaseDSLFactory extends EFactory {
 	UseCaseDSLFactory eINSTANCE = UseCaseDSL.impl.UseCaseDSLFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Use Cases Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Use Cases Model</em>'.
-	 * @generated
-	 */
-	UseCasesModel createUseCasesModel();
-
-	/**
-	 * Returns a new object of class '<em>Package Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Package Declaration</em>'.
-	 * @generated
-	 */
-	PackageDeclaration createPackageDeclaration();
-
-	/**
-	 * Returns a new object of class '<em>Use Case</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Use Case</em>'.
-	 * @generated
-	 */
-	UseCase createUseCase();
-
-	/**
 	 * Returns a new object of class '<em>Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,51 +29,6 @@ public interface UseCaseDSLFactory extends EFactory {
 	 * @generated
 	 */
 	Actor createActor();
-
-	/**
-	 * Returns a new object of class '<em>Step</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Step</em>'.
-	 * @generated
-	 */
-	Step createStep();
-
-	/**
-	 * Returns a new object of class '<em>Flow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flow</em>'.
-	 * @generated
-	 */
-	Flow createFlow();
-
-	/**
-	 * Returns a new object of class '<em>Basic Flow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Basic Flow</em>'.
-	 * @generated
-	 */
-	BasicFlow createBasicFlow();
-
-	/**
-	 * Returns a new object of class '<em>Named Flow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Named Flow</em>'.
-	 * @generated
-	 */
-	NamedFlow createNamedFlow();
-
-	/**
-	 * Returns a new object of class '<em>Exception Flow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exception Flow</em>'.
-	 * @generated
-	 */
-	ExceptionFlow createExceptionFlow();
 
 	/**
 	 * Returns a new object of class '<em>Alternative Flow</em>'.
@@ -112,22 +40,22 @@ public interface UseCaseDSLFactory extends EFactory {
 	AlternativeFlow createAlternativeFlow();
 
 	/**
-	 * Returns a new object of class '<em>Parallel Flow</em>'.
+	 * Returns a new object of class '<em>Alternative Flow Alternative</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parallel Flow</em>'.
+	 * @return a new object of class '<em>Alternative Flow Alternative</em>'.
 	 * @generated
 	 */
-	ParallelFlow createParallelFlow();
+	AlternativeFlowAlternative createAlternativeFlowAlternative();
 
 	/**
-	 * Returns a new object of class '<em>Step Alternative</em>'.
+	 * Returns a new object of class '<em>Basic Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Step Alternative</em>'.
+	 * @return a new object of class '<em>Basic Flow</em>'.
 	 * @generated
 	 */
-	StepAlternative createStepAlternative();
+	BasicFlow createBasicFlow();
 
 	/**
 	 * Returns a new object of class '<em>Condition</em>'.
@@ -139,6 +67,24 @@ public interface UseCaseDSLFactory extends EFactory {
 	Condition createCondition();
 
 	/**
+	 * Returns a new object of class '<em>Exception Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Exception Flow</em>'.
+	 * @generated
+	 */
+	ExceptionFlow createExceptionFlow();
+
+	/**
+	 * Returns a new object of class '<em>Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flow</em>'.
+	 * @generated
+	 */
+	Flow createFlow();
+
+	/**
 	 * Returns a new object of class '<em>Local Alternative</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,13 +94,40 @@ public interface UseCaseDSLFactory extends EFactory {
 	LocalAlternative createLocalAlternative();
 
 	/**
-	 * Returns a new object of class '<em>Alternative Flow Alternative</em>'.
+	 * Returns a new object of class '<em>Named Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alternative Flow Alternative</em>'.
+	 * @return a new object of class '<em>Named Flow</em>'.
 	 * @generated
 	 */
-	AlternativeFlowAlternative createAlternativeFlowAlternative();
+	NamedFlow createNamedFlow();
+
+	/**
+	 * Returns a new object of class '<em>Normal Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Normal Step</em>'.
+	 * @generated
+	 */
+	NormalStep createNormalStep();
+
+	/**
+	 * Returns a new object of class '<em>Package Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Package Declaration</em>'.
+	 * @generated
+	 */
+	PackageDeclaration createPackageDeclaration();
+
+	/**
+	 * Returns a new object of class '<em>Parallel Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parallel Flow</em>'.
+	 * @generated
+	 */
+	ParallelFlow createParallelFlow();
 
 	/**
 	 * Returns a new object of class '<em>Parallel Step</em>'.
@@ -166,13 +139,40 @@ public interface UseCaseDSLFactory extends EFactory {
 	ParallelStep createParallelStep();
 
 	/**
-	 * Returns a new object of class '<em>Normal Step</em>'.
+	 * Returns a new object of class '<em>Step</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Normal Step</em>'.
+	 * @return a new object of class '<em>Step</em>'.
 	 * @generated
 	 */
-	NormalStep createNormalStep();
+	Step createStep();
+
+	/**
+	 * Returns a new object of class '<em>Step Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Step Alternative</em>'.
+	 * @generated
+	 */
+	StepAlternative createStepAlternative();
+
+	/**
+	 * Returns a new object of class '<em>Use Case</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Use Case</em>'.
+	 * @generated
+	 */
+	UseCase createUseCase();
+
+	/**
+	 * Returns a new object of class '<em>Use Cases Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Use Cases Model</em>'.
+	 * @generated
+	 */
+	UseCasesModel createUseCasesModel();
 
 	/**
 	 * Returns the package supported by this factory.
