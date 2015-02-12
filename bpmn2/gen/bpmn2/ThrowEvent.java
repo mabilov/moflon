@@ -12,7 +12,7 @@ package bpmn2;
  *
  *
  * @see bpmn2.Bpmn2Package#getThrowEvent()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ThrowEvent extends Event { // <-- [user code injected with eMoflon]

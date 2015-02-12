@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class GatewayImpl extends FlowNodeImpl implements Gateway {
+public abstract class GatewayImpl extends FlowNodeImpl implements Gateway {
 	/**
 	 * The default value of the '{@link #getGatewayDirection() <em>Gateway Direction</em>}' attribute.
 	 * <!-- begin-user-doc -->

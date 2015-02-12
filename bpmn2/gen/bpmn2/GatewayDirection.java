@@ -26,7 +26,7 @@ public enum GatewayDirection implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONVERGING(1, "Converging", ""),
+	CONVERGING(1, "Converging", "Converging"),
 
 	/**
 	 * The '<em><b>Diverging</b></em>' literal object.
@@ -36,7 +36,7 @@ public enum GatewayDirection implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIVERGING(2, "Diverging", "");
+	DIVERGING(2, "Diverging", "Diverging");
 
 	/**
 	 * The '<em><b>Converging</b></em>' literal value.
@@ -47,7 +47,7 @@ public enum GatewayDirection implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CONVERGING
-	 * @model name="Converging" literal=""
+	 * @model name="Converging"
 	 * @generated
 	 * @ordered
 	 */
@@ -62,7 +62,7 @@ public enum GatewayDirection implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DIVERGING
-	 * @model name="Diverging" literal=""
+	 * @model name="Diverging"
 	 * @generated
 	 * @ordered
 	 */

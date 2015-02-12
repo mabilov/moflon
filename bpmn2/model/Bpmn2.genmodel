@@ -13,10 +13,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//BaseElement/id"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//RootElement"/>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElement">
+    <genClasses image="false" ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowNode">
+    <genClasses image="false" ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowNode">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowNode/outgoing"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowNode/incoming"/>
     </genClasses>
@@ -29,7 +29,7 @@
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//CallableElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//CallableElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//CatchEvent"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//CatchEvent"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions/rootElements"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions/targetNamespace"/>
@@ -44,14 +44,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//ExclusiveGateway/default"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Expression"/>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer">
+    <genClasses image="false" ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/laneSets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FormalExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//FormalExpression/body"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Gateway">
+    <genClasses image="false" ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Gateway">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//Gateway/gatewayDirection"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//InteractionNode"/>
@@ -73,8 +73,8 @@
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ServiceTask"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//StartEvent"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Task"/>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Event"/>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ThrowEvent"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Event"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ThrowEvent"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//UserTask"/>
   </genPackages>
 </genmodel:GenModel>

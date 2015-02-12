@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FlowNodeImpl extends FlowElementImpl implements FlowNode {
+public abstract class FlowNodeImpl extends FlowElementImpl implements FlowNode {
 	/**
 	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
 	 * <!-- begin-user-doc -->

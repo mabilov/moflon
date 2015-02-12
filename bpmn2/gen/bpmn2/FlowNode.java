@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see bpmn2.Bpmn2Package#getFlowNode()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface FlowNode extends FlowElement {

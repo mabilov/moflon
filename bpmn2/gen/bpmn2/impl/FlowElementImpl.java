@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FlowElementImpl extends BaseElementImpl implements FlowElement {
+public abstract class FlowElementImpl extends BaseElementImpl implements
+		FlowElement {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

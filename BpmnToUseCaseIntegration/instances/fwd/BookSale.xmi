@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="ASCII"?>
+<bpmn2:DocumentRoot
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bpmn2="platform:/plugin/bpmn2/model/Bpmn2.ecore"
+    xsi:schemaLocation="platform:/plugin/bpmn2/model/Bpmn2.ecore ../../bpmn2/model/Bpmn2.ecore">
+  <definitions
+      targetNamespace="http://de.abilov.booksale"
+      name="Book Sale">
+    <rootElements
+        xsi:type="bpmn2:Process"
+        name="Book Sale Process"
+        id="BookSaleProcess">
+      <laneSets
+          id="ls_1"
+          name="ls1">
+        <lanes
+            flowNodeRefs="se_order_received st_record_order st_check_stock"
+            id="sales"
+            name="Sales"/>
+        <lanes
+            flowNodeRefs="egw_all_books ecgw_1 pgw_1 st_charge_issue ice_payment_received ut_issue_invoice"
+            id="financing"
+            name="Financing"/>
+        <lanes
+            flowNodeRefs="ut_deliver_books ut_separate_books pcgw_1 ut_deliver_books_to_customer ice_delivery_confirmed ee_1"
+            id="shiping"
+            name="Shiping"/>
+      </laneSets>
+      <flowElements
+          xsi:type="bpmn2:StartEvent"
+          id="se_order_received"
+          name="Order received"
+          outgoing="sf_1"/>
+      <flowElements
+          xsi:type="bpmn2:ServiceTask"
+          id="st_record_order"
+          name="Record Order"
+          outgoing="sf_2"
+          incoming="sf_1"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_1"
+          name="sf1"
+          sourceRef="se_order_received"
+          targetRef="st_record_order"/>
+      <flowElements
+          xsi:type="bpmn2:ServiceTask"
+          id="st_check_stock"
+          name="Check Stock"
+          outgoing="sf_3"
+          incoming="sf_2"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_2"
+          name="sf2"
+          sourceRef="st_record_order"
+          targetRef="st_check_stock"/>
+      <flowElements
+          xsi:type="bpmn2:ExclusiveGateway"
+          id="egw_all_books"
+          name="All books available"
+          outgoing="some_books_unavailable sf_yes"
+          incoming="sf_3"
+          gatewayDirection="Diverging"
+          default="sf_yes"/>
+      <flowElements
+          xsi:type="bpmn2:UserTask"
+          id="ut_deliver_books"
+          name="Deliver books to stock"
+          outgoing="sf_4"
+          incoming="some_books_unavailable"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_3"
+          name="sf3"
+          sourceRef="st_check_stock"
+          targetRef="egw_all_books"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="some_books_unavailable"
+          name="Some books unavailable"
+          sourceRef="egw_all_books"
+          targetRef="ut_deliver_books"/>
+      <flowElements
+          xsi:type="bpmn2:ExclusiveGateway"
+          id="ecgw_1"
+          name="ecgw_1"
+          outgoing="payment"
+          incoming="sf_yes sf_4"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_yes"
+          name="Yes"
+          sourceRef="egw_all_books"
+          targetRef="ecgw_1"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_4"
+          name="sf4"
+          sourceRef="ut_deliver_books"
+          targetRef="ecgw_1"/>
+      <flowElements
+          xsi:type="bpmn2:ParallelGateway"
+          id="pgw_1"
+          name="pgw1"
+          outgoing="sf_6 shipment_prepare"
+          incoming="payment"
+          gatewayDirection="Diverging"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="payment"
+          name="payment"
+          sourceRef="ecgw_1"
+          targetRef="pgw_1"/>
+      <flowElements
+          xsi:type="bpmn2:ServiceTask"
+          id="st_charge_issue"
+          name="Charge Issue"
+          outgoing="sf_7"
+          incoming="sf_6"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_6"
+          name="sf6"
+          sourceRef="pgw_1"
+          targetRef="st_charge_issue"/>
+      <flowElements
+          xsi:type="bpmn2:IntermediateCatchEvent"
+          id="ice_payment_received"
+          name="Payment received"
+          outgoing="sf_8"
+          incoming="sf_7"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_7"
+          name="sf7"
+          sourceRef="st_charge_issue"
+          targetRef="ice_payment_received"/>
+      <flowElements
+          xsi:type="bpmn2:UserTask"
+          id="ut_issue_invoice"
+          name="Issue invoice"
+          outgoing="sf_10"
+          incoming="sf_8"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_8"
+          name="sf8"
+          sourceRef="ice_payment_received"
+          targetRef="ut_issue_invoice"/>
+      <flowElements
+          xsi:type="bpmn2:UserTask"
+          id="ut_separate_books"
+          name="Separate books of the request"
+          outgoing="sf_11"
+          incoming="shipment_prepare"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="shipment_prepare"
+          name="shipment prepare"
+          sourceRef="pgw_1"
+          targetRef="ut_separate_books"/>
+      <flowElements
+          xsi:type="bpmn2:ParallelGateway"
+          id="pcgw_1"
+          name="pcgw1"
+          outgoing="sf_12"
+          incoming="sf_10 sf_11"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_10"
+          name="sf10"
+          sourceRef="ut_issue_invoice"
+          targetRef="pcgw_1"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_11"
+          name="sf11"
+          sourceRef="ut_separate_books"
+          targetRef="pcgw_1"/>
+      <flowElements
+          xsi:type="bpmn2:UserTask"
+          id="ut_deliver_books_to_customer"
+          name="Deliver books to customer"
+          outgoing="sf_13"
+          incoming="sf_12"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_12"
+          name="sf12"
+          sourceRef="pcgw_1"
+          targetRef="ut_deliver_books_to_customer"/>
+      <flowElements
+          xsi:type="bpmn2:IntermediateCatchEvent"
+          id="ice_delivery_confirmed"
+          name="Delivery confirmed"
+          outgoing="sf_14"
+          incoming="sf_13"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_13"
+          name="sf13"
+          sourceRef="ut_deliver_books_to_customer"
+          targetRef="ice_delivery_confirmed"/>
+      <flowElements
+          xsi:type="bpmn2:EndEvent"
+          id="ee_1"
+          incoming="sf_14"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf_14"
+          name="sf14"
+          sourceRef="ice_delivery_confirmed"
+          targetRef="ee_1"/>
+    </rootElements>
+  </definitions>
+</bpmn2:DocumentRoot>

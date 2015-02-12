@@ -35,8 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FlowElementsContainerImpl extends BaseElementImpl implements
-		FlowElementsContainer {
+public abstract class FlowElementsContainerImpl extends BaseElementImpl
+		implements FlowElementsContainer {
 	/**
 	 * The cached value of the '{@link #getLaneSets() <em>Lane Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

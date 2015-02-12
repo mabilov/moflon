@@ -34,7 +34,7 @@ public interface BaseElement extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see bpmn2.Bpmn2Package#getBaseElement_Id()
-	 * @model required="true" ordered="false"
+	 * @model id="true" required="true" ordered="false"
 	 * @generated
 	 */
 	String getId();

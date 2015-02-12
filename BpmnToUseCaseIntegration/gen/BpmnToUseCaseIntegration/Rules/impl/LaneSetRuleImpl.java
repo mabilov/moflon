@@ -115,6 +115,36 @@ import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 
 // [user defined imports] -->
 
@@ -211,11 +241,11 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "toBeTranslatedEdges");
+						laneSet, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "toBeTranslatedNodes");
+						__process_laneSets_laneSet, "toBeTranslatedEdges");
 
 				// create link
 				__process_laneSets_laneSet.setSrc(process);
@@ -640,7 +670,7 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_454(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_127(
 			EMoflonEdge _edge_laneSets) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -648,7 +678,7 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_laneSet_laneSets_212476 = null;
+		FlowElementsContainer __DEC_laneSet_laneSets_724192 = null;
 		Match match = null;
 		LaneSet laneSet = null;
 		Process process = null;
@@ -726,18 +756,18 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_laneSet_laneSets_212476 = laneSet.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) laneSet
+					__DEC_laneSet_laneSets_724192 = laneSet.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) laneSet
 							.eContainer() : null;
 
-					// check object __DEC_laneSet_laneSets_212476 is really bound
-					JavaSDM.ensure(__DEC_laneSet_laneSets_212476 != null);
+					// check object __DEC_laneSet_laneSets_724192 is really bound
+					JavaSDM.ensure(__DEC_laneSet_laneSets_724192 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_laneSet_laneSets_212476.getLaneSets()
+					JavaSDM.ensure(__DEC_laneSet_laneSets_724192.getLaneSets()
 							.contains(laneSet));
 
-					// check isomorphic binding between objects __DEC_laneSet_laneSets_212476 and process 
-					JavaSDM.ensure(!__DEC_laneSet_laneSets_212476
+					// check isomorphic binding between objects __DEC_laneSet_laneSets_724192 and process 
+					JavaSDM.ensure(!__DEC_laneSet_laneSets_724192
 							.equals(process));
 
 					fujaba__Success = true;
@@ -1042,8 +1072,8 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 			return null;
 		case RulesPackage.LANE_SET_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.LANE_SET_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_454__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_454((EMoflonEdge) arguments
+		case RulesPackage.LANE_SET_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_127__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_127((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_SET_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

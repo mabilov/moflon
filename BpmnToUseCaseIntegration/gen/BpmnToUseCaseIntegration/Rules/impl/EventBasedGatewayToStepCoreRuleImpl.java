@@ -139,6 +139,60 @@ import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 
 // [user defined imports] -->
 
@@ -182,9 +236,9 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
+		EMoflonEdge __process_flowElements_eventBasedGateway = null;
 		EMoflonEdge __inFlow_targetRef_eventBasedGateway = null;
 		EMoflonEdge __eventBasedGateway_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_eventBasedGateway = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
 
 		// story node 'initial bindings'
@@ -234,16 +288,16 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 				JavaSDM.ensure(match != null);
 				// check object process is really bound
 				JavaSDM.ensure(process != null);
+				// create object __process_flowElements_eventBasedGateway
+				__process_flowElements_eventBasedGateway = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __inFlow_targetRef_eventBasedGateway
 				__inFlow_targetRef_eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __eventBasedGateway_incoming_inFlow
 				__eventBasedGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_eventBasedGateway
-				__process_flowElements_eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __process_flowElements_eventBasedGateway
@@ -256,12 +310,13 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_eventBasedGateway,
+						__process_flowElements_eventBasedGateway,
 						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						eventBasedGateway, "toBeTranslatedNodes");
+						__inFlow_targetRef_eventBasedGateway,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -270,8 +325,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_eventBasedGateway,
-						"toBeTranslatedEdges");
+						eventBasedGateway, "toBeTranslatedNodes");
 
 				// create link
 				__process_flowElements_eventBasedGateway.setSrc(process);
@@ -283,11 +337,11 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 				__eventBasedGateway_incoming_inFlow.setTrg(inFlow);
 
 				// create link
-				__eventBasedGateway_incoming_inFlow.setSrc(eventBasedGateway);
-
-				// create link
 				__process_flowElements_eventBasedGateway
 						.setTrg(eventBasedGateway);
+
+				// create link
+				__eventBasedGateway_incoming_inFlow.setSrc(eventBasedGateway);
 
 				// create link
 				__inFlow_targetRef_eventBasedGateway.setTrg(eventBasedGateway);
@@ -322,11 +376,11 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
+						__process_flowElements_inFlow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
+						process, "contextNodes");
 
 				// create link
 				__process_flowElements_inFlow.setSrc(process);
@@ -370,13 +424,13 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		FlowNodeToStep ebgToNormalStep = null;
 		NormalStep normalStep = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __eventBasedGateway_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_eventBasedGateway = null;
-		EMoflonEdge normalStep__actor__actor = null;
-		EMoflonEdge flow__steps__normalStep = null;
-		EMoflonEdge __inFlow_targetRef_eventBasedGateway = null;
-		EMoflonEdge ebgToNormalStep__target__normalStep = null;
 		EMoflonEdge ebgToNormalStep__source__eventBasedGateway = null;
+		EMoflonEdge __process_flowElements_eventBasedGateway = null;
+		EMoflonEdge ebgToNormalStep__target__normalStep = null;
+		EMoflonEdge flow__steps__normalStep = null;
+		EMoflonEdge __eventBasedGateway_incoming_inFlow = null;
+		EMoflonEdge __inFlow_targetRef_eventBasedGateway = null;
+		EMoflonEdge normalStep__actor__actor = null;
 
 		// story node 'perform transformation'
 		try {
@@ -635,32 +689,32 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 			// check isomorphic binding between objects processToActor and process 
 			JavaSDM.ensure(!processToActor.equals(process));
 
-			// create object __eventBasedGateway_incoming_inFlow
-			__eventBasedGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+			// create object ebgToNormalStep__source__eventBasedGateway
+			ebgToNormalStep__source__eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __process_flowElements_eventBasedGateway
 			__process_flowElements_eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object normalStep__actor__actor
-			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
+			// create object ebgToNormalStep__target__normalStep
+			ebgToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object flow__steps__normalStep
 			flow__steps__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object __eventBasedGateway_incoming_inFlow
+			__eventBasedGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object __inFlow_targetRef_eventBasedGateway
 			__inFlow_targetRef_eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object ebgToNormalStep__target__normalStep
-			ebgToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object ebgToNormalStep__source__eventBasedGateway
-			ebgToNormalStep__source__eventBasedGateway = TGGRuntimeFactory.eINSTANCE
+			// create object normalStep__actor__actor
+			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -682,7 +736,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__eventBasedGateway_incoming_inFlow, "translatedEdges");
+					ebgToNormalStep__source__eventBasedGateway, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil
@@ -692,7 +746,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep__actor__actor, "createdEdges");
+					ebgToNormalStep__target__normalStep, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -700,31 +754,28 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__eventBasedGateway_incoming_inFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__inFlow_targetRef_eventBasedGateway, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					ebgToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					ebgToNormalStep__source__eventBasedGateway, "createdEdges");
+					normalStep__actor__actor, "createdEdges");
 
 			// create link
 			__process_flowElements_eventBasedGateway.setSrc(process);
 
 			// create link
-			__eventBasedGateway_incoming_inFlow.setTrg(inFlow);
+			__inFlow_targetRef_eventBasedGateway.setSrc(inFlow);
 
 			// create link
-			__inFlow_targetRef_eventBasedGateway.setSrc(inFlow);
+			__eventBasedGateway_incoming_inFlow.setTrg(inFlow);
 
 			// create link
 			ebgToNormalStep__source__eventBasedGateway
 					.setTrg(eventBasedGateway);
-
-			// create link
-			__inFlow_targetRef_eventBasedGateway.setTrg(eventBasedGateway);
 
 			// create link
 			__eventBasedGateway_incoming_inFlow.setSrc(eventBasedGateway);
@@ -733,16 +784,19 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 			__process_flowElements_eventBasedGateway.setTrg(eventBasedGateway);
 
 			// create link
-			normalStep__actor__actor.setTrg(actor);
+			__inFlow_targetRef_eventBasedGateway.setTrg(eventBasedGateway);
 
 			// create link
-			flow__steps__normalStep.setTrg(normalStep);
+			normalStep__actor__actor.setTrg(actor);
 
 			// create link
 			normalStep__actor__actor.setSrc(normalStep);
 
 			// create link
 			ebgToNormalStep__target__normalStep.setTrg(normalStep);
+
+			// create link
+			flow__steps__normalStep.setTrg(normalStep);
 
 			// create link
 			flow__steps__normalStep.setSrc(flow);
@@ -782,13 +836,13 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		EventBasedGateway eventBasedGateway = null;
 		SequenceFlow inFlow = null;
 		Process process = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __process_flowElements_eventBasedGateway = null;
 		EMoflonEdge __processToActor_source_process = null;
+		EMoflonEdge __process_flowElements_eventBasedGateway = null;
+		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __eventBasedGateway_incoming_inFlow = null;
 		EMoflonEdge __inFlowToFlow_source_inFlow = null;
 		EMoflonEdge __inFlow_targetRef_eventBasedGateway = null;
-		EMoflonEdge __eventBasedGateway_incoming_inFlow = null;
 		EMoflonEdge __processToActor_target_actor = null;
 		EMoflonEdge __inFlowToFlow_target_flow = null;
 		CSP csp = null;
@@ -938,6 +992,10 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 								JavaSDM.ensure(process.equals(inFlow
 										.eContainer()));
 
+								// check link incoming from inFlow to eventBasedGateway
+								JavaSDM.ensure(eventBasedGateway.equals(inFlow
+										.getTargetRef()));
+
 								// check link source from inFlowToFlow to inFlow
 								JavaSDM.ensure(inFlow.equals(inFlowToFlow
 										.getSource()));
@@ -954,24 +1012,24 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 								JavaSDM.ensure(actor.equals(processToActor
 										.getTarget()));
 
-								// check link targetRef from inFlow to eventBasedGateway
-								JavaSDM.ensure(eventBasedGateway.equals(inFlow
-										.getTargetRef()));
-
-								// create object isApplicableMatch
-								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-										.createIsApplicableMatch();
-
 								// create object __process_flowElements_inFlow
 								__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __processToActor_source_process
+								__processToActor_source_process = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __process_flowElements_eventBasedGateway
 								__process_flowElements_eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object __processToActor_source_process
-								__processToActor_source_process = TGGRuntimeFactory.eINSTANCE
+								// create object isApplicableMatch
+								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+										.createIsApplicableMatch();
+
+								// create object __eventBasedGateway_incoming_inFlow
+								__eventBasedGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __inFlowToFlow_source_inFlow
@@ -980,10 +1038,6 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 								// create object __inFlow_targetRef_eventBasedGateway
 								__inFlow_targetRef_eventBasedGateway = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __eventBasedGateway_incoming_inFlow
-								__eventBasedGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __processToActor_target_actor
@@ -1017,36 +1071,36 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 								__inFlowToFlow_target_flow.setName("target");
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										process);
+								__process_flowElements_inFlow.setSrc(process);
 
 								// create link
-								__process_flowElements_inFlow.setSrc(process);
+								__processToActor_source_process.setTrg(process);
 
 								// create link
 								__process_flowElements_eventBasedGateway
 										.setSrc(process);
 
 								// create link
-								__processToActor_source_process.setTrg(process);
-
-								// create link
-								__process_flowElements_inFlow.setTrg(inFlow);
+								isApplicableMatch.getAllContextElements().add(
+										process);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										inFlow);
 
 								// create link
+								__eventBasedGateway_incoming_inFlow
+										.setTrg(inFlow);
+
+								// create link
 								__inFlowToFlow_source_inFlow.setTrg(inFlow);
+
+								// create link
+								__process_flowElements_inFlow.setTrg(inFlow);
 
 								// create link
 								__inFlow_targetRef_eventBasedGateway
 										.setSrc(inFlow);
-
-								// create link
-								__eventBasedGateway_incoming_inFlow
-										.setTrg(inFlow);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
@@ -1057,23 +1111,19 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 										.setSrc(eventBasedGateway);
 
 								// create link
-								__inFlow_targetRef_eventBasedGateway
-										.setTrg(eventBasedGateway);
-
-								// create link
 								__process_flowElements_eventBasedGateway
 										.setTrg(eventBasedGateway);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										actor);
+								__inFlow_targetRef_eventBasedGateway
+										.setTrg(eventBasedGateway);
 
 								// create link
 								__processToActor_target_actor.setTrg(actor);
 
 								// create link
-								__processToActor_source_process
-										.setSrc(processToActor);
+								isApplicableMatch.getAllContextElements().add(
+										actor);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
@@ -1084,11 +1134,15 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 										.setSrc(processToActor);
 
 								// create link
-								__inFlowToFlow_target_flow.setTrg(flow);
+								__processToActor_source_process
+										.setSrc(processToActor);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										flow);
+
+								// create link
+								__inFlowToFlow_target_flow.setTrg(flow);
 
 								// create link
 								__inFlowToFlow_target_flow.setSrc(inFlowToFlow);
@@ -1105,35 +1159,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__processToActor_source_process,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__inFlowToFlow_target_flow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
 												__eventBasedGateway_incoming_inFlow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__process_flowElements_inFlow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__process_flowElements_eventBasedGateway,
 												"allContextElements");
 
 								// create link
@@ -1154,7 +1180,35 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
+												__process_flowElements_eventBasedGateway,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__processToActor_source_process,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
 												__inFlowToFlow_source_inFlow,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__process_flowElements_inFlow,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__inFlowToFlow_target_flow,
 												"allContextElements");
 								// story node 'solve CSP'
 								try {
@@ -1397,8 +1451,8 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __flow_steps_normalStep = null;
 		EMoflonEdge __normalStep_actor_actor = null;
+		EMoflonEdge __flow_steps_normalStep = null;
 
 		// story node 'initial bindings'
 		try {
@@ -1447,12 +1501,12 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 				JavaSDM.ensure(match != null);
 				// check object normalStep is really bound
 				JavaSDM.ensure(normalStep != null);
-				// create object __flow_steps_normalStep
-				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __normalStep_actor_actor
 				__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __flow_steps_normalStep
+				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __normalStep_actor_actor
@@ -1462,15 +1516,15 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_normalStep, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__normalStep_actor_actor, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						normalStep, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__flow_steps_normalStep, "toBeTranslatedEdges");
 
 				// create link
 				__normalStep_actor_actor.setTrg(actor);
@@ -1504,11 +1558,11 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "contextNodes");
+						flow, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
+						actor, "contextNodes");
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
 				fujaba__Success = false;
@@ -1545,12 +1599,12 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		FlowNodeToStep ebgToNormalStep = null;
 		PerformRuleResult ruleresult = null;
 		EMoflonEdge eventBasedGateway__incoming__inFlow = null;
-		EMoflonEdge ebgToNormalStep__source__eventBasedGateway = null;
-		EMoflonEdge __normalStep_actor_actor = null;
-		EMoflonEdge ebgToNormalStep__target__normalStep = null;
-		EMoflonEdge process__flowElements__eventBasedGateway = null;
 		EMoflonEdge inFlow__targetRef__eventBasedGateway = null;
+		EMoflonEdge ebgToNormalStep__target__normalStep = null;
+		EMoflonEdge __normalStep_actor_actor = null;
+		EMoflonEdge ebgToNormalStep__source__eventBasedGateway = null;
 		EMoflonEdge __flow_steps_normalStep = null;
+		EMoflonEdge process__flowElements__eventBasedGateway = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1670,7 +1724,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					ebgToNormalStep, "createdLinkElements");
+					normalStep, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1678,7 +1732,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep, "translatedElements");
+					ebgToNormalStep, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1820,28 +1874,28 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 			eventBasedGateway__incoming__inFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object ebgToNormalStep__source__eventBasedGateway
-			ebgToNormalStep__source__eventBasedGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __normalStep_actor_actor
-			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
+			// create object inFlow__targetRef__eventBasedGateway
+			inFlow__targetRef__eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object ebgToNormalStep__target__normalStep
 			ebgToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object process__flowElements__eventBasedGateway
-			process__flowElements__eventBasedGateway = TGGRuntimeFactory.eINSTANCE
+			// create object __normalStep_actor_actor
+			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object inFlow__targetRef__eventBasedGateway
-			inFlow__targetRef__eventBasedGateway = TGGRuntimeFactory.eINSTANCE
+			// create object ebgToNormalStep__source__eventBasedGateway
+			ebgToNormalStep__source__eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __flow_steps_normalStep
 			__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object process__flowElements__eventBasedGateway
+			process__flowElements__eventBasedGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1867,11 +1921,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					ebgToNormalStep__source__eventBasedGateway, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__normalStep_actor_actor, "translatedEdges");
+					inFlow__targetRef__eventBasedGateway, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1879,24 +1929,34 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					process__flowElements__eventBasedGateway, "createdEdges");
+					__normalStep_actor_actor, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					inFlow__targetRef__eventBasedGateway, "createdEdges");
+					ebgToNormalStep__source__eventBasedGateway, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__flow_steps_normalStep, "translatedEdges");
 
 			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					process__flowElements__eventBasedGateway, "createdEdges");
+
+			// create link
 			process__flowElements__eventBasedGateway.setSrc(process);
+
+			// create link
+			eventBasedGateway__incoming__inFlow.setTrg(inFlow);
 
 			// create link
 			inFlow__targetRef__eventBasedGateway.setSrc(inFlow);
 
 			// create link
-			eventBasedGateway__incoming__inFlow.setTrg(inFlow);
+			process__flowElements__eventBasedGateway.setTrg(eventBasedGateway);
+
+			// create link
+			eventBasedGateway__incoming__inFlow.setSrc(eventBasedGateway);
 
 			// create link
 			inFlow__targetRef__eventBasedGateway.setTrg(eventBasedGateway);
@@ -1906,31 +1966,25 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 					.setTrg(eventBasedGateway);
 
 			// create link
-			eventBasedGateway__incoming__inFlow.setSrc(eventBasedGateway);
-
-			// create link
-			process__flowElements__eventBasedGateway.setTrg(eventBasedGateway);
-
-			// create link
 			__normalStep_actor_actor.setTrg(actor);
-
-			// create link
-			__normalStep_actor_actor.setSrc(normalStep);
-
-			// create link
-			ebgToNormalStep__target__normalStep.setTrg(normalStep);
 
 			// create link
 			__flow_steps_normalStep.setTrg(normalStep);
 
 			// create link
+			ebgToNormalStep__target__normalStep.setTrg(normalStep);
+
+			// create link
+			__normalStep_actor_actor.setSrc(normalStep);
+
+			// create link
 			__flow_steps_normalStep.setSrc(flow);
 
 			// create link
-			ebgToNormalStep__source__eventBasedGateway.setSrc(ebgToNormalStep);
+			ebgToNormalStep__target__normalStep.setSrc(ebgToNormalStep);
 
 			// create link
-			ebgToNormalStep__target__normalStep.setSrc(ebgToNormalStep);
+			ebgToNormalStep__source__eventBasedGateway.setSrc(ebgToNormalStep);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -2196,9 +2250,6 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 										process);
 
 								// create link
-								__process_flowElements_inFlow.setTrg(inFlow);
-
-								// create link
 								__inFlowToFlow_source_inFlow.setTrg(inFlow);
 
 								// create link
@@ -2206,39 +2257,39 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 										inFlow);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										actor);
+								__process_flowElements_inFlow.setTrg(inFlow);
 
 								// create link
 								__normalStep_actor_actor.setTrg(actor);
 
 								// create link
-								__processToActor_target_actor.setTrg(actor);
-
-								// create link
 								isApplicableMatch.getAllContextElements().add(
-										processToActor);
+										actor);
 
 								// create link
-								__processToActor_source_process
-										.setSrc(processToActor);
+								__processToActor_target_actor.setTrg(actor);
 
 								// create link
 								__processToActor_target_actor
 										.setSrc(processToActor);
 
 								// create link
-								__flow_steps_normalStep.setTrg(normalStep);
+								__processToActor_source_process
+										.setSrc(processToActor);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										processToActor);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										normalStep);
 
 								// create link
-								__normalStep_actor_actor.setSrc(normalStep);
+								__flow_steps_normalStep.setTrg(normalStep);
 
 								// create link
-								__flow_steps_normalStep.setSrc(flow);
+								__normalStep_actor_actor.setSrc(normalStep);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
@@ -2248,21 +2299,31 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 								__inFlowToFlow_target_flow.setTrg(flow);
 
 								// create link
+								__flow_steps_normalStep.setSrc(flow);
+
+								// create link
 								isApplicableMatch.getAllContextElements().add(
 										inFlowToFlow);
+
+								// create link
+								__inFlowToFlow_target_flow.setSrc(inFlowToFlow);
 
 								// create link
 								__inFlowToFlow_source_inFlow
 										.setSrc(inFlowToFlow);
 
 								// create link
-								__inFlowToFlow_target_flow.setSrc(inFlowToFlow);
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__flow_steps_normalStep,
+												"allContextElements");
 
 								// create link
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__inFlowToFlow_target_flow,
+												__processToActor_source_process,
 												"allContextElements");
 
 								// create link
@@ -2283,21 +2344,14 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
+												__inFlowToFlow_target_flow,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
 												__processToActor_target_actor,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__processToActor_source_process,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__flow_steps_normalStep,
 												"allContextElements");
 
 								// create link
@@ -2537,7 +2591,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_505(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_178(
 			EMoflonEdge _edge_flowElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -2545,9 +2599,9 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_eventBasedGateway_flowElements_125722 = null;
-		Iterator fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_939380 = null;
-		SequenceFlow __DEC_eventBasedGateway_targetRef_939380 = null;
+		FlowElementsContainer __DEC_eventBasedGateway_flowElements_547050 = null;
+		Iterator fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_499708 = null;
+		SequenceFlow __DEC_eventBasedGateway_targetRef_499708 = null;
 		Match match = null;
 		Iterator fujaba__IterProcessToInFlow = null;
 		SequenceFlow inFlow = null;
@@ -2631,7 +2685,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 					// ensure correct type and really bound of object inFlow
 					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
 					inFlow = (SequenceFlow) _TmpObject;
-					// check link targetRef from inFlow to eventBasedGateway
+					// check link incoming from inFlow to eventBasedGateway
 					JavaSDM.ensure(eventBasedGateway.equals(inFlow
 							.getTargetRef()));
 
@@ -2644,20 +2698,20 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_eventBasedGateway_flowElements_125722 = eventBasedGateway
+							__DEC_eventBasedGateway_flowElements_547050 = eventBasedGateway
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) eventBasedGateway
 									.eContainer() : null;
 
-							// check object __DEC_eventBasedGateway_flowElements_125722 is really bound
-							JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_125722 != null);
+							// check object __DEC_eventBasedGateway_flowElements_547050 is really bound
+							JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_547050 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_125722
+							JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_547050
 									.getFlowElements().contains(
 											eventBasedGateway));
 
-							// check isomorphic binding between objects __DEC_eventBasedGateway_flowElements_125722 and process 
-							JavaSDM.ensure(!__DEC_eventBasedGateway_flowElements_125722
+							// check isomorphic binding between objects __DEC_eventBasedGateway_flowElements_547050 and process 
+							JavaSDM.ensure(!__DEC_eventBasedGateway_flowElements_547050
 									.equals(process));
 
 							fujaba__Success = true;
@@ -2677,23 +2731,23 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from eventBasedGateway to __DEC_eventBasedGateway_targetRef_939380
+							// iterate to-many link incoming from eventBasedGateway to __DEC_eventBasedGateway_targetRef_499708
 							fujaba__Success = false;
 
-							fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_939380 = new ArrayList(
+							fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_499708 = new ArrayList(
 									eventBasedGateway.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_939380
+									&& fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_499708
 											.hasNext()) {
 								try {
-									__DEC_eventBasedGateway_targetRef_939380 = (SequenceFlow) fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_939380
+									__DEC_eventBasedGateway_targetRef_499708 = (SequenceFlow) fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_499708
 											.next();
 
-									// check object __DEC_eventBasedGateway_targetRef_939380 is really bound
-									JavaSDM.ensure(__DEC_eventBasedGateway_targetRef_939380 != null);
-									// check isomorphic binding between objects __DEC_eventBasedGateway_targetRef_939380 and inFlow 
-									JavaSDM.ensure(!__DEC_eventBasedGateway_targetRef_939380
+									// check object __DEC_eventBasedGateway_targetRef_499708 is really bound
+									JavaSDM.ensure(__DEC_eventBasedGateway_targetRef_499708 != null);
+									// check isomorphic binding between objects __DEC_eventBasedGateway_targetRef_499708 and inFlow 
+									JavaSDM.ensure(!__DEC_eventBasedGateway_targetRef_499708
 											.equals(inFlow));
 
 									fujaba__Success = true;
@@ -2727,13 +2781,13 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 						// check link flowElements from inFlow to process
 						JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
+						// check link incoming from inFlow to eventBasedGateway
+						JavaSDM.ensure(eventBasedGateway.equals(inFlow
+								.getTargetRef()));
+
 						// check link src from _edge_flowElements to process
 						JavaSDM.ensure(process.equals(_edge_flowElements
 								.getSrc()));
-
-						// check link targetRef from inFlow to eventBasedGateway
-						JavaSDM.ensure(eventBasedGateway.equals(inFlow
-								.getTargetRef()));
 
 						// check link trg from _edge_flowElements to eventBasedGateway
 						JavaSDM.ensure(eventBasedGateway
@@ -2808,7 +2862,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_506(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_179(
 			EMoflonEdge _edge_targetRef) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -2816,9 +2870,9 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_eventBasedGateway_flowElements_105759 = null;
-		Iterator fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_887503 = null;
-		SequenceFlow __DEC_eventBasedGateway_targetRef_887503 = null;
+		FlowElementsContainer __DEC_eventBasedGateway_flowElements_12378 = null;
+		Iterator fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_836450 = null;
+		SequenceFlow __DEC_eventBasedGateway_targetRef_836450 = null;
 		Match match = null;
 		Process process = null;
 		EventBasedGateway eventBasedGateway = null;
@@ -2900,7 +2954,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 			// check link flowElements from inFlow to process
 			JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-			// check link targetRef from inFlow to eventBasedGateway
+			// check link incoming from inFlow to eventBasedGateway
 			JavaSDM.ensure(eventBasedGateway.equals(inFlow.getTargetRef()));
 
 			// story node 'test core match and DECs'
@@ -2912,19 +2966,19 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_eventBasedGateway_flowElements_105759 = eventBasedGateway
+					__DEC_eventBasedGateway_flowElements_12378 = eventBasedGateway
 							.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) eventBasedGateway
 							.eContainer() : null;
 
-					// check object __DEC_eventBasedGateway_flowElements_105759 is really bound
-					JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_105759 != null);
+					// check object __DEC_eventBasedGateway_flowElements_12378 is really bound
+					JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_12378 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_105759
+					JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_12378
 							.getFlowElements().contains(eventBasedGateway));
 
-					// check isomorphic binding between objects __DEC_eventBasedGateway_flowElements_105759 and process 
-					JavaSDM.ensure(!__DEC_eventBasedGateway_flowElements_105759
+					// check isomorphic binding between objects __DEC_eventBasedGateway_flowElements_12378 and process 
+					JavaSDM.ensure(!__DEC_eventBasedGateway_flowElements_12378
 							.equals(process));
 
 					fujaba__Success = true;
@@ -2944,23 +2998,23 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link targetRef from eventBasedGateway to __DEC_eventBasedGateway_targetRef_887503
+					// iterate to-many link incoming from eventBasedGateway to __DEC_eventBasedGateway_targetRef_836450
 					fujaba__Success = false;
 
-					fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_887503 = new ArrayList(
+					fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_836450 = new ArrayList(
 							eventBasedGateway.getIncoming()).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_887503
+							&& fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_836450
 									.hasNext()) {
 						try {
-							__DEC_eventBasedGateway_targetRef_887503 = (SequenceFlow) fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_887503
+							__DEC_eventBasedGateway_targetRef_836450 = (SequenceFlow) fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_836450
 									.next();
 
-							// check object __DEC_eventBasedGateway_targetRef_887503 is really bound
-							JavaSDM.ensure(__DEC_eventBasedGateway_targetRef_887503 != null);
-							// check isomorphic binding between objects __DEC_eventBasedGateway_targetRef_887503 and inFlow 
-							JavaSDM.ensure(!__DEC_eventBasedGateway_targetRef_887503
+							// check object __DEC_eventBasedGateway_targetRef_836450 is really bound
+							JavaSDM.ensure(__DEC_eventBasedGateway_targetRef_836450 != null);
+							// check isomorphic binding between objects __DEC_eventBasedGateway_targetRef_836450 and inFlow 
+							JavaSDM.ensure(!__DEC_eventBasedGateway_targetRef_836450
 									.equals(inFlow));
 
 							fujaba__Success = true;
@@ -2993,11 +3047,11 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 				// check link flowElements from inFlow to process
 				JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
+				// check link incoming from inFlow to eventBasedGateway
+				JavaSDM.ensure(eventBasedGateway.equals(inFlow.getTargetRef()));
+
 				// check link src from _edge_targetRef to inFlow
 				JavaSDM.ensure(inFlow.equals(_edge_targetRef.getSrc()));
-
-				// check link targetRef from inFlow to eventBasedGateway
-				JavaSDM.ensure(eventBasedGateway.equals(inFlow.getTargetRef()));
 
 				// check link trg from _edge_targetRef to eventBasedGateway
 				JavaSDM.ensure(eventBasedGateway.equals(_edge_targetRef
@@ -3065,7 +3119,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_507(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_180(
 			EMoflonEdge _edge_incoming) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3073,9 +3127,9 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_eventBasedGateway_flowElements_218718 = null;
-		Iterator fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_365359 = null;
-		SequenceFlow __DEC_eventBasedGateway_targetRef_365359 = null;
+		FlowElementsContainer __DEC_eventBasedGateway_flowElements_68733 = null;
+		Iterator fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_214306 = null;
+		SequenceFlow __DEC_eventBasedGateway_targetRef_214306 = null;
 		Match match = null;
 		Iterator fujaba__IterEventBasedGatewayTo_edge_targetRef = null;
 		EMoflonEdge _edge_targetRef = null;
@@ -3159,7 +3213,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 			// check link flowElements from inFlow to process
 			JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-			// check link targetRef from inFlow to eventBasedGateway
+			// check link incoming from inFlow to eventBasedGateway
 			JavaSDM.ensure(eventBasedGateway.equals(inFlow.getTargetRef()));
 
 			// iterate to-many link trg from eventBasedGateway to _edge_targetRef
@@ -3192,20 +3246,20 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_eventBasedGateway_flowElements_218718 = eventBasedGateway
+							__DEC_eventBasedGateway_flowElements_68733 = eventBasedGateway
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) eventBasedGateway
 									.eContainer() : null;
 
-							// check object __DEC_eventBasedGateway_flowElements_218718 is really bound
-							JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_218718 != null);
+							// check object __DEC_eventBasedGateway_flowElements_68733 is really bound
+							JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_68733 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_218718
+							JavaSDM.ensure(__DEC_eventBasedGateway_flowElements_68733
 									.getFlowElements().contains(
 											eventBasedGateway));
 
-							// check isomorphic binding between objects __DEC_eventBasedGateway_flowElements_218718 and process 
-							JavaSDM.ensure(!__DEC_eventBasedGateway_flowElements_218718
+							// check isomorphic binding between objects __DEC_eventBasedGateway_flowElements_68733 and process 
+							JavaSDM.ensure(!__DEC_eventBasedGateway_flowElements_68733
 									.equals(process));
 
 							fujaba__Success = true;
@@ -3225,23 +3279,23 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from eventBasedGateway to __DEC_eventBasedGateway_targetRef_365359
+							// iterate to-many link incoming from eventBasedGateway to __DEC_eventBasedGateway_targetRef_214306
 							fujaba__Success = false;
 
-							fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_365359 = new ArrayList(
+							fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_214306 = new ArrayList(
 									eventBasedGateway.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_365359
+									&& fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_214306
 											.hasNext()) {
 								try {
-									__DEC_eventBasedGateway_targetRef_365359 = (SequenceFlow) fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_365359
+									__DEC_eventBasedGateway_targetRef_214306 = (SequenceFlow) fujaba__IterEventBasedGatewayTo__DEC_eventBasedGateway_targetRef_214306
 											.next();
 
-									// check object __DEC_eventBasedGateway_targetRef_365359 is really bound
-									JavaSDM.ensure(__DEC_eventBasedGateway_targetRef_365359 != null);
-									// check isomorphic binding between objects __DEC_eventBasedGateway_targetRef_365359 and inFlow 
-									JavaSDM.ensure(!__DEC_eventBasedGateway_targetRef_365359
+									// check object __DEC_eventBasedGateway_targetRef_214306 is really bound
+									JavaSDM.ensure(__DEC_eventBasedGateway_targetRef_214306 != null);
+									// check isomorphic binding between objects __DEC_eventBasedGateway_targetRef_214306 and inFlow 
+									JavaSDM.ensure(!__DEC_eventBasedGateway_targetRef_214306
 											.equals(inFlow));
 
 									fujaba__Success = true;
@@ -3280,16 +3334,16 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 						// check link flowElements from inFlow to process
 						JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
+						// check link incoming from inFlow to eventBasedGateway
+						JavaSDM.ensure(eventBasedGateway.equals(inFlow
+								.getTargetRef()));
+
 						// check link src from _edge_incoming to eventBasedGateway
 						JavaSDM.ensure(eventBasedGateway.equals(_edge_incoming
 								.getSrc()));
 
 						// check link src from _edge_targetRef to inFlow
 						JavaSDM.ensure(inFlow.equals(_edge_targetRef.getSrc()));
-
-						// check link targetRef from inFlow to eventBasedGateway
-						JavaSDM.ensure(eventBasedGateway.equals(inFlow
-								.getTargetRef()));
 
 						// check link trg from _edge_incoming to inFlow
 						JavaSDM.ensure(inFlow.equals(_edge_incoming.getTrg()));
@@ -3367,7 +3421,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_212(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_74(
 			EMoflonEdge _edge_actor) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3375,9 +3429,9 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_928223 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_764162 = null;
-		Step __DEC_normalStep_next_764162 = null;
+		Flow __DEC_normalStep_steps_314930 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_833280 = null;
+		Step __DEC_normalStep_next_833280 = null;
 		Match match = null;
 		Actor actor = null;
 		Flow flow = null;
@@ -3466,18 +3520,18 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_normalStep_steps_928223 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
+					__DEC_normalStep_steps_314930 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
 							.eContainer() : null;
 
-					// check object __DEC_normalStep_steps_928223 is really bound
-					JavaSDM.ensure(__DEC_normalStep_steps_928223 != null);
+					// check object __DEC_normalStep_steps_314930 is really bound
+					JavaSDM.ensure(__DEC_normalStep_steps_314930 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_normalStep_steps_928223.getSteps()
+					JavaSDM.ensure(__DEC_normalStep_steps_314930.getSteps()
 							.contains(normalStep));
 
-					// check isomorphic binding between objects __DEC_normalStep_steps_928223 and flow 
-					JavaSDM.ensure(!__DEC_normalStep_steps_928223.equals(flow));
+					// check isomorphic binding between objects __DEC_normalStep_steps_314930 and flow 
+					JavaSDM.ensure(!__DEC_normalStep_steps_314930.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -3492,25 +3546,25 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link next from normalStep to __DEC_normalStep_next_764162
+					// iterate to-many link next from normalStep to __DEC_normalStep_next_833280
 					fujaba__Success = false;
 
-					fujaba__IterNormalStepTo__DEC_normalStep_next_764162 = new ArrayList(
+					fujaba__IterNormalStepTo__DEC_normalStep_next_833280 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(normalStep,
 											Step.class, "next")).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterNormalStepTo__DEC_normalStep_next_764162
+							&& fujaba__IterNormalStepTo__DEC_normalStep_next_833280
 									.hasNext()) {
 						try {
-							__DEC_normalStep_next_764162 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_764162
+							__DEC_normalStep_next_833280 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_833280
 									.next();
 
-							// check object __DEC_normalStep_next_764162 is really bound
-							JavaSDM.ensure(__DEC_normalStep_next_764162 != null);
-							// check isomorphic binding between objects __DEC_normalStep_next_764162 and normalStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_764162
+							// check object __DEC_normalStep_next_833280 is really bound
+							JavaSDM.ensure(__DEC_normalStep_next_833280 != null);
+							// check isomorphic binding between objects __DEC_normalStep_next_833280 and normalStep 
+							JavaSDM.ensure(!__DEC_normalStep_next_833280
 									.equals(normalStep));
 
 							fujaba__Success = true;
@@ -3621,7 +3675,7 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_213(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_75(
 			EMoflonEdge _edge_steps) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3629,9 +3683,9 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_684671 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_681487 = null;
-		Step __DEC_normalStep_next_681487 = null;
+		Flow __DEC_normalStep_steps_316707 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_148261 = null;
+		Step __DEC_normalStep_next_148261 = null;
 		Match match = null;
 		Actor actor = null;
 		NormalStep normalStep = null;
@@ -3716,18 +3770,18 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_normalStep_steps_684671 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
+					__DEC_normalStep_steps_316707 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
 							.eContainer() : null;
 
-					// check object __DEC_normalStep_steps_684671 is really bound
-					JavaSDM.ensure(__DEC_normalStep_steps_684671 != null);
+					// check object __DEC_normalStep_steps_316707 is really bound
+					JavaSDM.ensure(__DEC_normalStep_steps_316707 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_normalStep_steps_684671.getSteps()
+					JavaSDM.ensure(__DEC_normalStep_steps_316707.getSteps()
 							.contains(normalStep));
 
-					// check isomorphic binding between objects __DEC_normalStep_steps_684671 and flow 
-					JavaSDM.ensure(!__DEC_normalStep_steps_684671.equals(flow));
+					// check isomorphic binding between objects __DEC_normalStep_steps_316707 and flow 
+					JavaSDM.ensure(!__DEC_normalStep_steps_316707.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -3742,25 +3796,25 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link next from normalStep to __DEC_normalStep_next_681487
+					// iterate to-many link next from normalStep to __DEC_normalStep_next_148261
 					fujaba__Success = false;
 
-					fujaba__IterNormalStepTo__DEC_normalStep_next_681487 = new ArrayList(
+					fujaba__IterNormalStepTo__DEC_normalStep_next_148261 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(normalStep,
 											Step.class, "next")).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterNormalStepTo__DEC_normalStep_next_681487
+							&& fujaba__IterNormalStepTo__DEC_normalStep_next_148261
 									.hasNext()) {
 						try {
-							__DEC_normalStep_next_681487 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_681487
+							__DEC_normalStep_next_148261 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_148261
 									.next();
 
-							// check object __DEC_normalStep_next_681487 is really bound
-							JavaSDM.ensure(__DEC_normalStep_next_681487 != null);
-							// check isomorphic binding between objects __DEC_normalStep_next_681487 and normalStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_681487
+							// check object __DEC_normalStep_next_148261 is really bound
+							JavaSDM.ensure(__DEC_normalStep_next_148261 != null);
+							// check isomorphic binding between objects __DEC_normalStep_next_148261 and normalStep 
+							JavaSDM.ensure(!__DEC_normalStep_next_148261
 									.equals(normalStep));
 
 							fujaba__Success = true;
@@ -4122,26 +4176,26 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 													.add(inFlow);
 
 											// create link
-											ruleResult.getSourceObjects().add(
-													eventBasedGateway);
-
-											// create link
 											ebgToNormalStep
 													.setSource(eventBasedGateway);
+
+											// create link
+											ruleResult.getSourceObjects().add(
+													eventBasedGateway);
 
 											// create link
 											normalStep.setActor(actor);
 
 											// create link
-											flow.getSteps().add(normalStep);
+											ebgToNormalStep
+													.setTarget(normalStep);
 
 											// create link
 											ruleResult.getTargetObjects().add(
 													normalStep);
 
 											// create link
-											ebgToNormalStep
-													.setTarget(normalStep);
+											flow.getSteps().add(normalStep);
 
 											// create link
 											ruleResult.getCorrObjects().add(
@@ -4348,20 +4402,20 @@ public class EventBasedGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_505__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_505((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_178__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_178((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_506__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_506((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_179__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_179((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_507__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_507((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_180__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_180((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_212__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_212((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_74__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_74((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_213__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_213((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_75__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_75((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

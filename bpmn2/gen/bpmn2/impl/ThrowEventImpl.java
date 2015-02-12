@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ThrowEventImpl extends EventImpl implements ThrowEvent {
+public abstract class ThrowEventImpl extends EventImpl implements ThrowEvent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -18,7 +18,7 @@ package bpmn2;
  * </p>
  *
  * @see bpmn2.Bpmn2Package#getFlowElement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface FlowElement extends BaseElement {

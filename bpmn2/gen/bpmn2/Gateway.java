@@ -18,7 +18,7 @@ package bpmn2;
  * </p>
  *
  * @see bpmn2.Bpmn2Package#getGateway()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Gateway extends FlowNode {

@@ -139,6 +139,60 @@ import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 
 // [user defined imports] -->
 
@@ -182,12 +236,12 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __inFlow_targetRef_event = null;
-		EMoflonEdge __event_incoming_inFlow = null;
-		EMoflonEdge __outFlow_sourceRef_event = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
 		EMoflonEdge __event_outgoing_outFlow = null;
 		EMoflonEdge __process_flowElements_event = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge __outFlow_sourceRef_event = null;
+		EMoflonEdge __inFlow_targetRef_event = null;
+		EMoflonEdge __event_incoming_inFlow = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
 
 		// story node 'initial bindings'
@@ -247,28 +301,28 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 				// check isomorphic binding between objects outFlow and inFlow 
 				JavaSDM.ensure(!outFlow.equals(inFlow));
 
-				// create object __inFlow_targetRef_event
-				__inFlow_targetRef_event = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __event_incoming_inFlow
-				__event_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __outFlow_sourceRef_event
-				__outFlow_sourceRef_event = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_outFlow
-				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __event_outgoing_outFlow
 				__event_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __process_flowElements_event
 				__process_flowElements_event = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_flowElements_outFlow
+				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __outFlow_sourceRef_event
+				__outFlow_sourceRef_event = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __inFlow_targetRef_event
+				__inFlow_targetRef_event = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __event_incoming_inFlow
+				__event_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __process_flowElements_outFlow
@@ -286,23 +340,15 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__event_outgoing_outFlow, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						event, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_event, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__event_incoming_inFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__outFlow_sourceRef_event, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
+						__process_flowElements_event, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -310,47 +356,55 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__event_outgoing_outFlow, "toBeTranslatedEdges");
+						__outFlow_sourceRef_event, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_event, "toBeTranslatedEdges");
+						__inFlow_targetRef_event, "toBeTranslatedEdges");
 
 				// create link
-				__inFlow_targetRef_event.setTrg(event);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						outFlow, "toBeTranslatedNodes");
 
 				// create link
-				__outFlow_sourceRef_event.setTrg(event);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__event_incoming_inFlow, "toBeTranslatedEdges");
 
 				// create link
 				__event_outgoing_outFlow.setSrc(event);
 
 				// create link
-				__event_incoming_inFlow.setSrc(event);
-
-				// create link
 				__process_flowElements_event.setTrg(event);
 
 				// create link
-				__event_incoming_inFlow.setTrg(inFlow);
+				__outFlow_sourceRef_event.setTrg(event);
+
+				// create link
+				__event_incoming_inFlow.setSrc(event);
+
+				// create link
+				__inFlow_targetRef_event.setTrg(event);
 
 				// create link
 				__inFlow_targetRef_event.setSrc(inFlow);
 
 				// create link
-				__process_flowElements_event.setSrc(process);
+				__event_incoming_inFlow.setTrg(inFlow);
 
 				// create link
 				__process_flowElements_outFlow.setSrc(process);
+
+				// create link
+				__process_flowElements_event.setSrc(process);
+
+				// create link
+				__outFlow_sourceRef_event.setSrc(outFlow);
 
 				// create link
 				__process_flowElements_outFlow.setTrg(outFlow);
 
 				// create link
 				__event_outgoing_outFlow.setTrg(outFlow);
-
-				// create link
-				__outFlow_sourceRef_event.setSrc(outFlow);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -383,15 +437,15 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						inFlow, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__process_flowElements_inFlow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
 
 				// create link
 				__process_flowElements_inFlow.setTrg(inFlow);
@@ -440,21 +494,21 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		SequenceFlowToStep outFlowToNormalStep = null;
 		SequenceFlowToUCFlow outFlowToFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge eventToNormalStep__target__normalStep = null;
-		EMoflonEdge prevStep__next__normalStep = null;
-		EMoflonEdge normalStep__actor__actor = null;
-		EMoflonEdge __inFlow_targetRef_event = null;
-		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
 		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
-		EMoflonEdge __outFlow_sourceRef_event = null;
 		EMoflonEdge outFlowToFlow__source__outFlow = null;
-		EMoflonEdge __event_outgoing_outFlow = null;
-		EMoflonEdge eventToNormalStep__source__event = null;
 		EMoflonEdge flow__steps__normalStep = null;
-		EMoflonEdge __process_flowElements_event = null;
-		EMoflonEdge outFlowToFlow__target__flow = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge normalStep__actor__actor = null;
+		EMoflonEdge __outFlow_sourceRef_event = null;
+		EMoflonEdge eventToNormalStep__source__event = null;
+		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
 		EMoflonEdge __event_incoming_inFlow = null;
+		EMoflonEdge prevStep__next__normalStep = null;
+		EMoflonEdge __process_flowElements_event = null;
+		EMoflonEdge eventToNormalStep__target__normalStep = null;
+		EMoflonEdge outFlowToFlow__target__flow = null;
+		EMoflonEdge __event_outgoing_outFlow = null;
+		EMoflonEdge __inFlow_targetRef_event = null;
 
 		// story node 'perform transformation'
 		try {
@@ -582,13 +636,13 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 					actor, "actor");
 
 			// create link
+			eventToNormalStep.setTarget(normalStep);
+
+			// create link
 			flow.getSteps().add(normalStep);
 
 			// create link
 			outFlowToNormalStep.setTarget(normalStep);
-
-			// create link
-			eventToNormalStep.setTarget(normalStep);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -620,15 +674,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					normalStep, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					event, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -636,7 +682,15 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToFlow, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					event, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -949,64 +1003,64 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// check isomorphic binding between objects processToActor and process 
 			JavaSDM.ensure(!processToActor.equals(process));
 
-			// create object __process_flowElements_outFlow
-			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object eventToNormalStep__target__normalStep
-			eventToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object prevStep__next__normalStep
-			prevStep__next__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object normalStep__actor__actor
-			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __inFlow_targetRef_event
-			__inFlow_targetRef_event = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object outFlowToNormalStep__source__outFlow
 			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __outFlow_sourceRef_event
-			__outFlow_sourceRef_event = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object outFlowToFlow__source__outFlow
 			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __event_outgoing_outFlow
-			__event_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object flow__steps__normalStep
+			flow__steps__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __process_flowElements_outFlow
+			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object normalStep__actor__actor
+			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __outFlow_sourceRef_event
+			__outFlow_sourceRef_event = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object eventToNormalStep__source__event
 			eventToNormalStep__source__event = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object flow__steps__normalStep
-			flow__steps__normalStep = TGGRuntimeFactory.eINSTANCE
+			// create object outFlowToNormalStep__target__normalStep
+			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __event_incoming_inFlow
+			__event_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object prevStep__next__normalStep
+			prevStep__next__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __process_flowElements_event
 			__process_flowElements_event = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object eventToNormalStep__target__normalStep
+			eventToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object outFlowToFlow__target__flow
 			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __event_incoming_inFlow
-			__event_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __event_outgoing_outFlow
+			__event_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __inFlow_targetRef_event
+			__inFlow_targetRef_event = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1044,35 +1098,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					eventToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					prevStep__next__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep__actor__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__inFlow_targetRef_event, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToNormalStep__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__outFlow_sourceRef_event, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1080,7 +1106,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__event_outgoing_outFlow, "translatedEdges");
+					flow__steps__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__process_flowElements_outFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					normalStep__actor__actor, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__outFlow_sourceRef_event, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1088,7 +1126,15 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					flow__steps__normalStep, "createdEdges");
+					outFlowToNormalStep__target__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__event_incoming_inFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					prevStep__next__normalStep, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1096,17 +1142,22 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					eventToNormalStep__target__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToFlow__target__flow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__event_incoming_inFlow, "translatedEdges");
+					__event_outgoing_outFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__inFlow_targetRef_event, "translatedEdges");
 
 			// create link
 			__outFlow_sourceRef_event.setTrg(event);
-
-			// create link
-			__inFlow_targetRef_event.setTrg(event);
 
 			// create link
 			__event_incoming_inFlow.setSrc(event);
@@ -1121,16 +1172,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			eventToNormalStep__source__event.setTrg(event);
 
 			// create link
-			__inFlow_targetRef_event.setSrc(inFlow);
+			__inFlow_targetRef_event.setTrg(event);
 
 			// create link
 			__event_incoming_inFlow.setTrg(inFlow);
 
 			// create link
+			__inFlow_targetRef_event.setSrc(inFlow);
+
+			// create link
 			prevStep__next__normalStep.setSrc(prevStep);
 
 			// create link
-			flow__steps__normalStep.setTrg(normalStep);
+			normalStep__actor__actor.setSrc(normalStep);
 
 			// create link
 			eventToNormalStep__target__normalStep.setTrg(normalStep);
@@ -1139,10 +1193,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
 
 			// create link
-			prevStep__next__normalStep.setTrg(normalStep);
+			flow__steps__normalStep.setTrg(normalStep);
 
 			// create link
-			normalStep__actor__actor.setSrc(normalStep);
+			prevStep__next__normalStep.setTrg(normalStep);
 
 			// create link
 			__process_flowElements_event.setSrc(process);
@@ -1151,34 +1205,34 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			__process_flowElements_outFlow.setSrc(process);
 
 			// create link
-			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
-			__process_flowElements_outFlow.setTrg(outFlow);
+			__event_outgoing_outFlow.setTrg(outFlow);
 
 			// create link
 			__outFlow_sourceRef_event.setSrc(outFlow);
 
 			// create link
-			__event_outgoing_outFlow.setTrg(outFlow);
+			outFlowToFlow__source__outFlow.setTrg(outFlow);
+
+			// create link
+			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
+
+			// create link
+			__process_flowElements_outFlow.setTrg(outFlow);
 
 			// create link
 			normalStep__actor__actor.setTrg(actor);
 
 			// create link
-			eventToNormalStep__source__event.setSrc(eventToNormalStep);
-
-			// create link
 			eventToNormalStep__target__normalStep.setSrc(eventToNormalStep);
 
 			// create link
-			outFlowToNormalStep__target__normalStep.setSrc(outFlowToNormalStep);
+			eventToNormalStep__source__event.setSrc(eventToNormalStep);
 
 			// create link
 			outFlowToNormalStep__source__outFlow.setSrc(outFlowToNormalStep);
+
+			// create link
+			outFlowToNormalStep__target__normalStep.setSrc(outFlowToNormalStep);
 
 			// create link
 			outFlowToFlow__target__flow.setTrg(flow);
@@ -1187,10 +1241,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			flow__steps__normalStep.setSrc(flow);
 
 			// create link
-			outFlowToFlow__target__flow.setSrc(outFlowToFlow);
+			outFlowToFlow__source__outFlow.setSrc(outFlowToFlow);
 
 			// create link
-			outFlowToFlow__source__outFlow.setSrc(outFlowToFlow);
+			outFlowToFlow__target__flow.setSrc(outFlowToFlow);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1223,14 +1277,14 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		SequenceFlow inFlow = null;
 		SequenceFlow outFlow = null;
 		Process process = null;
-		EMoflonEdge __outFlow_sourceRef_event = null;
+		EMoflonEdge __process_flowElements_event = null;
 		EMoflonEdge __inFlow_targetRef_event = null;
-		EMoflonEdge __event_outgoing_outFlow = null;
 		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __event_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_event = null;
-		EMoflonEdge __inFlowToFlow_source_inFlow = null;
+		EMoflonEdge __outFlow_sourceRef_event = null;
+		EMoflonEdge __event_outgoing_outFlow = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
+		EMoflonEdge __inFlowToFlow_source_inFlow = null;
 		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
 		EMoflonEdge __inFlowToPrevStep_target_prevStep = null;
 		EMoflonEdge __processToActor_source_process = null;
@@ -1431,6 +1485,14 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										JavaSDM.ensure(process.equals(outFlow
 												.eContainer()));
 
+										// check link incoming from inFlow to event
+										JavaSDM.ensure(event.equals(inFlow
+												.getTargetRef()));
+
+										// check link outgoing from outFlow to event
+										JavaSDM.ensure(event.equals(outFlow
+												.getSourceRef()));
+
 										// check link source from inFlowToFlow to inFlow
 										JavaSDM.ensure(inFlow
 												.equals(inFlowToFlow
@@ -1446,10 +1508,6 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 												.equals(processToActor
 														.getSource()));
 
-										// check link sourceRef from outFlow to event
-										JavaSDM.ensure(event.equals(outFlow
-												.getSourceRef()));
-
 										// check link target from inFlowToFlow to flow
 										JavaSDM.ensure(flow.equals(inFlowToFlow
 												.getTarget()));
@@ -1464,20 +1522,12 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 												.equals(processToActor
 														.getTarget()));
 
-										// check link targetRef from inFlow to event
-										JavaSDM.ensure(event.equals(inFlow
-												.getTargetRef()));
-
-										// create object __outFlow_sourceRef_event
-										__outFlow_sourceRef_event = TGGRuntimeFactory.eINSTANCE
+										// create object __process_flowElements_event
+										__process_flowElements_event = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __inFlow_targetRef_event
 										__inFlow_targetRef_event = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __event_outgoing_outFlow
-										__event_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object isApplicableMatch
@@ -1488,16 +1538,20 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										__event_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __process_flowElements_event
-										__process_flowElements_event = TGGRuntimeFactory.eINSTANCE
+										// create object __outFlow_sourceRef_event
+										__outFlow_sourceRef_event = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __inFlowToFlow_source_inFlow
-										__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
+										// create object __event_outgoing_outFlow
+										__event_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __process_flowElements_inFlow
 										__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __inFlowToFlow_source_inFlow
+										__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __inFlowToPrevStep_source_inFlow
@@ -1565,13 +1619,11 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 												.setName("target");
 
 										// create link
-										__outFlow_sourceRef_event.setTrg(event);
+										__process_flowElements_event
+												.setTrg(event);
 
 										// create link
 										__inFlow_targetRef_event.setTrg(event);
-
-										// create link
-										__event_outgoing_outFlow.setSrc(event);
 
 										// create link
 										isApplicableMatch
@@ -1582,15 +1634,24 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										__event_incoming_inFlow.setSrc(event);
 
 										// create link
-										__process_flowElements_event
-												.setTrg(event);
+										__outFlow_sourceRef_event.setTrg(event);
+
+										// create link
+										__event_outgoing_outFlow.setSrc(event);
+
+										// create link
+										__inFlow_targetRef_event.setSrc(inFlow);
+
+										// create link
+										__event_incoming_inFlow.setTrg(inFlow);
+
+										// create link
+										__process_flowElements_inFlow
+												.setTrg(inFlow);
 
 										// create link
 										__inFlowToFlow_source_inFlow
 												.setTrg(inFlow);
-
-										// create link
-										__inFlow_targetRef_event.setSrc(inFlow);
 
 										// create link
 										isApplicableMatch
@@ -1598,19 +1659,8 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 														inFlow);
 
 										// create link
-										__process_flowElements_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										__event_incoming_inFlow.setTrg(inFlow);
-
-										// create link
 										__inFlowToPrevStep_source_inFlow
 												.setTrg(inFlow);
-
-										// create link
-										__inFlowToPrevStep_target_prevStep
-												.setTrg(prevStep);
 
 										// create link
 										isApplicableMatch
@@ -1618,30 +1668,29 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 														prevStep);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														inFlowToPrevStep);
-
-										// create link
 										__inFlowToPrevStep_target_prevStep
-												.setSrc(inFlowToPrevStep);
+												.setTrg(prevStep);
 
 										// create link
 										__inFlowToPrevStep_source_inFlow
 												.setSrc(inFlowToPrevStep);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														process);
+										__inFlowToPrevStep_target_prevStep
+												.setSrc(inFlowToPrevStep);
 
 										// create link
-										__process_flowElements_event
-												.setSrc(process);
+										isApplicableMatch
+												.getAllContextElements().add(
+														inFlowToPrevStep);
 
 										// create link
 										__processToActor_source_process
 												.setTrg(process);
+
+										// create link
+										__process_flowElements_event
+												.setSrc(process);
 
 										// create link
 										__process_flowElements_outFlow
@@ -1652,11 +1701,16 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 												.setSrc(process);
 
 										// create link
-										__event_outgoing_outFlow
-												.setTrg(outFlow);
+										isApplicableMatch
+												.getAllContextElements().add(
+														process);
 
 										// create link
 										__process_flowElements_outFlow
+												.setTrg(outFlow);
+
+										// create link
+										__event_outgoing_outFlow
 												.setTrg(outFlow);
 
 										// create link
@@ -1678,11 +1732,11 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 												.setTrg(actor);
 
 										// create link
-										__processToActor_source_process
+										__processToActor_target_actor
 												.setSrc(processToActor);
 
 										// create link
-										__processToActor_target_actor
+										__processToActor_source_process
 												.setSrc(processToActor);
 
 										// create link
@@ -1691,19 +1745,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 														processToActor);
 
 										// create link
-										__inFlowToFlow_target_flow.setTrg(flow);
-
-										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														flow);
 
 										// create link
-										__inFlowToFlow_source_inFlow
-												.setSrc(inFlowToFlow);
+										__inFlowToFlow_target_flow.setTrg(flow);
 
 										// create link
 										__inFlowToFlow_target_flow
+												.setSrc(inFlowToFlow);
+
+										// create link
+										__inFlowToFlow_source_inFlow
 												.setSrc(inFlowToFlow);
 
 										// create link
@@ -1715,63 +1769,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__event_outgoing_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_source_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_target_prevStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToFlow_target_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToFlow_source_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
 														__processToActor_source_process,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlow_targetRef_event,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_event,
 														"allContextElements");
 
 										// create link
@@ -1785,7 +1783,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__event_incoming_inFlow,
+														__inFlowToFlow_source_inFlow,
 														"allContextElements");
 
 										// create link
@@ -1799,7 +1797,63 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
+														__event_incoming_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__process_flowElements_event,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToPrevStep_source_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlow_targetRef_event,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__event_outgoing_outFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__process_flowElements_outFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
 														__process_flowElements_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToPrevStep_target_prevStep,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToFlow_target_flow,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -2057,8 +2111,8 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __prevStep_next_normalStep = null;
 		EMoflonEdge __flow_steps_normalStep = null;
+		EMoflonEdge __prevStep_next_normalStep = null;
 		EMoflonEdge __normalStep_actor_actor = null;
 
 		// story node 'initial bindings'
@@ -2118,12 +2172,12 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 				// check isomorphic binding between objects prevStep and normalStep 
 				JavaSDM.ensure(!prevStep.equals(normalStep));
 
-				// create object __prevStep_next_normalStep
-				__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __flow_steps_normalStep
 				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __prevStep_next_normalStep
+				__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __normalStep_actor_actor
@@ -2143,11 +2197,11 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__prevStep_next_normalStep, "toBeTranslatedEdges");
+						__flow_steps_normalStep, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_normalStep, "toBeTranslatedEdges");
+						__prevStep_next_normalStep, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -2157,10 +2211,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 				__prevStep_next_normalStep.setSrc(prevStep);
 
 				// create link
-				__flow_steps_normalStep.setTrg(normalStep);
+				__normalStep_actor_actor.setSrc(normalStep);
 
 				// create link
-				__normalStep_actor_actor.setSrc(normalStep);
+				__flow_steps_normalStep.setTrg(normalStep);
 
 				// create link
 				__prevStep_next_normalStep.setTrg(normalStep);
@@ -2240,26 +2294,26 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__IterIsApplicableMatchToCsp = null;
 		CSP csp = null;
 		IntermediateCatchEvent event = null;
-		FlowNodeToStep eventToNormalStep = null;
 		SequenceFlow outFlow = null;
+		FlowNodeToStep eventToNormalStep = null;
 		SequenceFlowToStep outFlowToNormalStep = null;
 		SequenceFlowToUCFlow outFlowToFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge outFlowToFlow__target__flow = null;
-		EMoflonEdge eventToNormalStep__target__normalStep = null;
-		EMoflonEdge eventToNormalStep__source__event = null;
-		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
-		EMoflonEdge outFlowToFlow__source__outFlow = null;
 		EMoflonEdge inFlow__targetRef__event = null;
-		EMoflonEdge event__outgoing__outFlow = null;
 		EMoflonEdge process__flowElements__outFlow = null;
-		EMoflonEdge event__incoming__inFlow = null;
-		EMoflonEdge __normalStep_actor_actor = null;
-		EMoflonEdge process__flowElements__event = null;
-		EMoflonEdge outFlow__sourceRef__event = null;
+		EMoflonEdge eventToNormalStep__target__normalStep = null;
 		EMoflonEdge __flow_steps_normalStep = null;
+		EMoflonEdge eventToNormalStep__source__event = null;
+		EMoflonEdge event__outgoing__outFlow = null;
+		EMoflonEdge outFlow__sourceRef__event = null;
+		EMoflonEdge process__flowElements__event = null;
+		EMoflonEdge event__incoming__inFlow = null;
 		EMoflonEdge __prevStep_next_normalStep = null;
 		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
+		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
+		EMoflonEdge __normalStep_actor_actor = null;
+		EMoflonEdge outFlowToFlow__source__outFlow = null;
+		EMoflonEdge outFlowToFlow__target__flow = null;
 
 		// story node 'perform transformation'
 		try {
@@ -2342,12 +2396,12 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// create object event
 			event = Bpmn2Factory.eINSTANCE.createIntermediateCatchEvent();
 
+			// create object outFlow
+			outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
+
 			// create object eventToNormalStep
 			eventToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createFlowNodeToStep();
-
-			// create object outFlow
-			outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
 
 			// create object outFlowToNormalStep
 			outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
@@ -2365,19 +2419,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 					"name").getValue());
 
 			// create link
-			outFlowToNormalStep.setTarget(normalStep);
+			eventToNormalStep.setTarget(normalStep);
 
 			// create link
-			eventToNormalStep.setTarget(normalStep);
+			outFlowToNormalStep.setTarget(normalStep);
 
 			// create link
 			process.getFlowElements().add(outFlow); // add link
 
 			// create link
-			outFlowToFlow.setSource(outFlow);
+			outFlowToNormalStep.setSource(outFlow);
 
 			// create link
-			outFlowToNormalStep.setSource(outFlow);
+			outFlowToFlow.setSource(outFlow);
 
 			// create link
 			outFlowToFlow.setTarget(flow);
@@ -2386,13 +2440,13 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			inFlow.setTargetRef(event);
 
 			// create link
-			eventToNormalStep.setSource(event);
+			outFlow.setSourceRef(event);
 
 			// create link
 			process.getFlowElements().add(event);
 
 			// create link
-			outFlow.setSourceRef(event);
+			eventToNormalStep.setSource(event);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -2420,7 +2474,11 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep, "createdLinkElements");
+					eventToNormalStep, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToFlow, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2428,15 +2486,11 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					eventToNormalStep, "createdLinkElements");
+					outFlowToNormalStep, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					event, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2753,56 +2807,40 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// check isomorphic binding between objects processToActor and process 
 			JavaSDM.ensure(!processToActor.equals(process));
 
-			// create object outFlowToFlow__target__flow
-			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object eventToNormalStep__target__normalStep
-			eventToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object eventToNormalStep__source__event
-			eventToNormalStep__source__event = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object inFlow__targetRef__event
 			inFlow__targetRef__event = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object event__outgoing__outFlow
-			event__outgoing__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object process__flowElements__outFlow
 			process__flowElements__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object event__incoming__inFlow
-			event__incoming__inFlow = TGGRuntimeFactory.eINSTANCE
+			// create object eventToNormalStep__target__normalStep
+			eventToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __normalStep_actor_actor
-			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
+			// create object __flow_steps_normalStep
+			__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object process__flowElements__event
-			process__flowElements__event = TGGRuntimeFactory.eINSTANCE
+			// create object eventToNormalStep__source__event
+			eventToNormalStep__source__event = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object event__outgoing__outFlow
+			event__outgoing__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object outFlow__sourceRef__event
 			outFlow__sourceRef__event = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __flow_steps_normalStep
-			__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
+			// create object process__flowElements__event
+			process__flowElements__event = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object event__incoming__inFlow
+			event__incoming__inFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __prevStep_next_normalStep
@@ -2811,6 +2849,22 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create object outFlowToNormalStep__target__normalStep
 			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToNormalStep__source__outFlow
+			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __normalStep_actor_actor
+			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToFlow__source__outFlow
+			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToFlow__target__flow
+			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -2848,31 +2902,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__target__flow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					eventToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					eventToNormalStep__source__event, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					inFlow__targetRef__event, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					event__outgoing__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2880,15 +2910,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					event__incoming__inFlow, "createdEdges");
+					eventToNormalStep__target__normalStep, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__normalStep_actor_actor, "translatedEdges");
+					__flow_steps_normalStep, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					process__flowElements__event, "createdEdges");
+					eventToNormalStep__source__event, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					event__outgoing__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2896,7 +2930,11 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__flow_steps_normalStep, "translatedEdges");
+					process__flowElements__event, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					event__incoming__inFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2907,52 +2945,68 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 					outFlowToNormalStep__target__normalStep, "createdEdges");
 
 			// create link
-			outFlow__sourceRef__event.setTrg(event);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep__source__outFlow, "createdEdges");
 
 			// create link
-			event__incoming__inFlow.setSrc(event);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__normalStep_actor_actor, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToFlow__source__outFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToFlow__target__flow, "createdEdges");
 
 			// create link
 			process__flowElements__event.setTrg(event);
 
 			// create link
-			event__outgoing__outFlow.setSrc(event);
+			eventToNormalStep__source__event.setTrg(event);
 
 			// create link
-			eventToNormalStep__source__event.setTrg(event);
+			outFlow__sourceRef__event.setTrg(event);
+
+			// create link
+			event__outgoing__outFlow.setSrc(event);
 
 			// create link
 			inFlow__targetRef__event.setTrg(event);
 
 			// create link
-			inFlow__targetRef__event.setSrc(inFlow);
+			event__incoming__inFlow.setSrc(event);
 
 			// create link
 			event__incoming__inFlow.setTrg(inFlow);
 
 			// create link
-			__prevStep_next_normalStep.setSrc(prevStep);
+			inFlow__targetRef__event.setSrc(inFlow);
 
 			// create link
-			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
+			__prevStep_next_normalStep.setSrc(prevStep);
 
 			// create link
 			__flow_steps_normalStep.setTrg(normalStep);
 
 			// create link
-			__prevStep_next_normalStep.setTrg(normalStep);
+			__normalStep_actor_actor.setSrc(normalStep);
 
 			// create link
 			eventToNormalStep__target__normalStep.setTrg(normalStep);
 
 			// create link
-			__normalStep_actor_actor.setSrc(normalStep);
+			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
 
 			// create link
-			process__flowElements__outFlow.setSrc(process);
+			__prevStep_next_normalStep.setTrg(normalStep);
 
 			// create link
 			process__flowElements__event.setSrc(process);
+
+			// create link
+			process__flowElements__outFlow.setSrc(process);
 
 			// create link
 			process__flowElements__outFlow.setTrg(outFlow);
@@ -2961,28 +3015,28 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			outFlow__sourceRef__event.setSrc(outFlow);
 
 			// create link
+			outFlowToFlow__source__outFlow.setTrg(outFlow);
+
+			// create link
 			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
 
 			// create link
 			event__outgoing__outFlow.setTrg(outFlow);
 
 			// create link
-			outFlowToFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
 			__normalStep_actor_actor.setTrg(actor);
-
-			// create link
-			eventToNormalStep__source__event.setSrc(eventToNormalStep);
 
 			// create link
 			eventToNormalStep__target__normalStep.setSrc(eventToNormalStep);
 
 			// create link
-			outFlowToNormalStep__target__normalStep.setSrc(outFlowToNormalStep);
+			eventToNormalStep__source__event.setSrc(eventToNormalStep);
 
 			// create link
 			outFlowToNormalStep__source__outFlow.setSrc(outFlowToNormalStep);
+
+			// create link
+			outFlowToNormalStep__target__normalStep.setSrc(outFlowToNormalStep);
 
 			// create link
 			outFlowToFlow__target__flow.setTrg(flow);
@@ -3027,12 +3081,12 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Flow flow = null;
 		NormalStep normalStep = null;
 		Step prevStep = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __inFlowToFlow_source_inFlow = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
-		EMoflonEdge __inFlowToPrevStep_target_prevStep = null;
+		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __inFlowToFlow_source_inFlow = null;
+		EMoflonEdge __process_flowElements_inFlow = null;
 		EMoflonEdge __prevStep_next_normalStep = null;
+		EMoflonEdge __inFlowToPrevStep_target_prevStep = null;
 		EMoflonEdge __normalStep_actor_actor = null;
 		EMoflonEdge __flow_steps_normalStep = null;
 		EMoflonEdge __processToActor_source_process = null;
@@ -3260,28 +3314,28 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 												.equals(processToActor
 														.getTarget()));
 
-										// create object __process_flowElements_inFlow
-										__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __inFlowToFlow_source_inFlow
-										__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
+										// create object __inFlowToPrevStep_source_inFlow
+										__inFlowToPrevStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object isApplicableMatch
 										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 												.createIsApplicableMatch();
 
-										// create object __inFlowToPrevStep_source_inFlow
-										__inFlowToPrevStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
+										// create object __inFlowToFlow_source_inFlow
+										__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __inFlowToPrevStep_target_prevStep
-										__inFlowToPrevStep_target_prevStep = TGGRuntimeFactory.eINSTANCE
+										// create object __process_flowElements_inFlow
+										__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __prevStep_next_normalStep
 										__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __inFlowToPrevStep_target_prevStep
+										__inFlowToPrevStep_target_prevStep = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __normalStep_actor_actor
@@ -3336,11 +3390,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 												.setName("target");
 
 										// create link
-										__process_flowElements_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										__inFlowToFlow_source_inFlow
+										__inFlowToPrevStep_source_inFlow
 												.setTrg(inFlow);
 
 										// create link
@@ -3349,12 +3399,12 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 														inFlow);
 
 										// create link
-										__inFlowToPrevStep_source_inFlow
+										__inFlowToFlow_source_inFlow
 												.setTrg(inFlow);
 
 										// create link
-										__inFlowToPrevStep_target_prevStep
-												.setTrg(prevStep);
+										__process_flowElements_inFlow
+												.setTrg(inFlow);
 
 										// create link
 										__prevStep_next_normalStep
@@ -3366,25 +3416,21 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 														prevStep);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														inFlowToPrevStep);
-
-										// create link
 										__inFlowToPrevStep_target_prevStep
-												.setSrc(inFlowToPrevStep);
+												.setTrg(prevStep);
 
 										// create link
 										__inFlowToPrevStep_source_inFlow
 												.setSrc(inFlowToPrevStep);
 
 										// create link
-										__prevStep_next_normalStep
-												.setTrg(normalStep);
+										__inFlowToPrevStep_target_prevStep
+												.setSrc(inFlowToPrevStep);
 
 										// create link
-										__normalStep_actor_actor
-												.setSrc(normalStep);
+										isApplicableMatch
+												.getAllContextElements().add(
+														inFlowToPrevStep);
 
 										// create link
 										isApplicableMatch
@@ -3392,8 +3438,20 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 														normalStep);
 
 										// create link
+										__normalStep_actor_actor
+												.setSrc(normalStep);
+
+										// create link
+										__prevStep_next_normalStep
+												.setTrg(normalStep);
+
+										// create link
 										__flow_steps_normalStep
 												.setTrg(normalStep);
+
+										// create link
+										__process_flowElements_inFlow
+												.setSrc(process);
 
 										// create link
 										isApplicableMatch
@@ -3405,14 +3463,6 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 												.setTrg(process);
 
 										// create link
-										__process_flowElements_inFlow
-												.setSrc(process);
-
-										// create link
-										__processToActor_target_actor
-												.setTrg(actor);
-
-										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														actor);
@@ -3421,17 +3471,27 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										__normalStep_actor_actor.setTrg(actor);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														processToActor);
+										__processToActor_target_actor
+												.setTrg(actor);
 
 										// create link
 										__processToActor_source_process
 												.setSrc(processToActor);
 
 										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														processToActor);
+
+										// create link
 										__processToActor_target_actor
 												.setSrc(processToActor);
+
+										// create link
+										__inFlowToFlow_target_flow.setTrg(flow);
+
+										// create link
+										__flow_steps_normalStep.setSrc(flow);
 
 										// create link
 										isApplicableMatch
@@ -3439,10 +3499,8 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 														flow);
 
 										// create link
-										__flow_steps_normalStep.setSrc(flow);
-
-										// create link
-										__inFlowToFlow_target_flow.setTrg(flow);
+										__inFlowToFlow_target_flow
+												.setSrc(inFlowToFlow);
 
 										// create link
 										isApplicableMatch
@@ -3452,24 +3510,6 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										// create link
 										__inFlowToFlow_source_inFlow
 												.setSrc(inFlowToFlow);
-
-										// create link
-										__inFlowToFlow_target_flow
-												.setSrc(inFlowToFlow);
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__flow_steps_normalStep,
-														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
@@ -3482,35 +3522,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__inFlowToPrevStep_source_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToActor_source_process,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_target_prevStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__prevStep_next_normalStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToFlow_source_inFlow,
+														__process_flowElements_inFlow,
 														"allContextElements");
 
 										// create link
@@ -3524,7 +3536,49 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
+														__flow_steps_normalStep,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToPrevStep_target_prevStep,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
 														__processToActor_target_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToPrevStep_source_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToFlow_source_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__prevStep_next_normalStep,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__processToActor_source_process,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -3768,7 +3822,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_202(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_64(
 			EMoflonEdge _edge_next) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3776,9 +3830,9 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_536139 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_34347 = null;
-		Step __DEC_normalStep_next_34347 = null;
+		Flow __DEC_normalStep_steps_703627 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_234208 = null;
+		Step __DEC_normalStep_next_234208 = null;
 		Match match = null;
 		Flow flow = null;
 		Actor actor = null;
@@ -3877,18 +3931,18 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_normalStep_steps_536139 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
+					__DEC_normalStep_steps_703627 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
 							.eContainer() : null;
 
-					// check object __DEC_normalStep_steps_536139 is really bound
-					JavaSDM.ensure(__DEC_normalStep_steps_536139 != null);
+					// check object __DEC_normalStep_steps_703627 is really bound
+					JavaSDM.ensure(__DEC_normalStep_steps_703627 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_normalStep_steps_536139.getSteps()
+					JavaSDM.ensure(__DEC_normalStep_steps_703627.getSteps()
 							.contains(normalStep));
 
-					// check isomorphic binding between objects __DEC_normalStep_steps_536139 and flow 
-					JavaSDM.ensure(!__DEC_normalStep_steps_536139.equals(flow));
+					// check isomorphic binding between objects __DEC_normalStep_steps_703627 and flow 
+					JavaSDM.ensure(!__DEC_normalStep_steps_703627.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -3903,29 +3957,29 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link next from normalStep to __DEC_normalStep_next_34347
+					// iterate to-many link next from normalStep to __DEC_normalStep_next_234208
 					fujaba__Success = false;
 
-					fujaba__IterNormalStepTo__DEC_normalStep_next_34347 = new ArrayList(
+					fujaba__IterNormalStepTo__DEC_normalStep_next_234208 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(normalStep,
 											Step.class, "next")).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterNormalStepTo__DEC_normalStep_next_34347
+							&& fujaba__IterNormalStepTo__DEC_normalStep_next_234208
 									.hasNext()) {
 						try {
-							__DEC_normalStep_next_34347 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_34347
+							__DEC_normalStep_next_234208 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_234208
 									.next();
 
-							// check object __DEC_normalStep_next_34347 is really bound
-							JavaSDM.ensure(__DEC_normalStep_next_34347 != null);
-							// check isomorphic binding between objects __DEC_normalStep_next_34347 and normalStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_34347
+							// check object __DEC_normalStep_next_234208 is really bound
+							JavaSDM.ensure(__DEC_normalStep_next_234208 != null);
+							// check isomorphic binding between objects __DEC_normalStep_next_234208 and normalStep 
+							JavaSDM.ensure(!__DEC_normalStep_next_234208
 									.equals(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_next_34347 and prevStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_34347
+							// check isomorphic binding between objects __DEC_normalStep_next_234208 and prevStep 
+							JavaSDM.ensure(!__DEC_normalStep_next_234208
 									.equals(prevStep));
 
 							fujaba__Success = true;
@@ -4044,7 +4098,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_474(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_147(
 			EMoflonEdge _edge_flowElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4052,10 +4106,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_event_flowElements_745717 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_633602 = null;
-		Iterator fujaba__IterEventTo__DEC_event_targetRef_224522 = null;
-		SequenceFlow __DEC_event_targetRef_224522 = null;
+		FlowElementsContainer __DEC_event_flowElements_742592 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_456535 = null;
+		Iterator fujaba__IterEventTo__DEC_event_targetRef_101588 = null;
+		SequenceFlow __DEC_event_targetRef_101588 = null;
 		Match match = null;
 		Iterator fujaba__IterEventToInFlow = null;
 		SequenceFlow inFlow = null;
@@ -4137,7 +4191,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// check link flowElements from event to process
 			JavaSDM.ensure(process.equals(event.eContainer()));
 
-			// iterate to-many link targetRef from event to inFlow
+			// iterate to-many link incoming from event to inFlow
 			fujaba__Success = false;
 
 			fujaba__IterEventToInFlow = new ArrayList(event.getIncoming())
@@ -4164,19 +4218,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_event_flowElements_745717 = event
+							__DEC_event_flowElements_742592 = event
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) event
 									.eContainer() : null;
 
-							// check object __DEC_event_flowElements_745717 is really bound
-							JavaSDM.ensure(__DEC_event_flowElements_745717 != null);
+							// check object __DEC_event_flowElements_742592 is really bound
+							JavaSDM.ensure(__DEC_event_flowElements_742592 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_event_flowElements_745717
+							JavaSDM.ensure(__DEC_event_flowElements_742592
 									.getFlowElements().contains(event));
 
-							// check isomorphic binding between objects __DEC_event_flowElements_745717 and process 
-							JavaSDM.ensure(!__DEC_event_flowElements_745717
+							// check isomorphic binding between objects __DEC_event_flowElements_742592 and process 
+							JavaSDM.ensure(!__DEC_event_flowElements_742592
 									.equals(process));
 
 							fujaba__Success = true;
@@ -4193,19 +4247,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_outFlow_flowElements_633602 = outFlow
+							__DEC_outFlow_flowElements_456535 = outFlow
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 									.eContainer() : null;
 
-							// check object __DEC_outFlow_flowElements_633602 is really bound
-							JavaSDM.ensure(__DEC_outFlow_flowElements_633602 != null);
+							// check object __DEC_outFlow_flowElements_456535 is really bound
+							JavaSDM.ensure(__DEC_outFlow_flowElements_456535 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_outFlow_flowElements_633602
+							JavaSDM.ensure(__DEC_outFlow_flowElements_456535
 									.getFlowElements().contains(outFlow));
 
-							// check isomorphic binding between objects __DEC_outFlow_flowElements_633602 and process 
-							JavaSDM.ensure(!__DEC_outFlow_flowElements_633602
+							// check isomorphic binding between objects __DEC_outFlow_flowElements_456535 and process 
+							JavaSDM.ensure(!__DEC_outFlow_flowElements_456535
 									.equals(process));
 
 							fujaba__Success = true;
@@ -4230,27 +4284,27 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from event to __DEC_event_targetRef_224522
+							// iterate to-many link incoming from event to __DEC_event_targetRef_101588
 							fujaba__Success = false;
 
-							fujaba__IterEventTo__DEC_event_targetRef_224522 = new ArrayList(
+							fujaba__IterEventTo__DEC_event_targetRef_101588 = new ArrayList(
 									event.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterEventTo__DEC_event_targetRef_224522
+									&& fujaba__IterEventTo__DEC_event_targetRef_101588
 											.hasNext()) {
 								try {
-									__DEC_event_targetRef_224522 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_224522
+									__DEC_event_targetRef_101588 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_101588
 											.next();
 
-									// check object __DEC_event_targetRef_224522 is really bound
-									JavaSDM.ensure(__DEC_event_targetRef_224522 != null);
-									// check isomorphic binding between objects __DEC_event_targetRef_224522 and inFlow 
-									JavaSDM.ensure(!__DEC_event_targetRef_224522
+									// check object __DEC_event_targetRef_101588 is really bound
+									JavaSDM.ensure(__DEC_event_targetRef_101588 != null);
+									// check isomorphic binding between objects __DEC_event_targetRef_101588 and inFlow 
+									JavaSDM.ensure(!__DEC_event_targetRef_101588
 											.equals(inFlow));
 
-									// check isomorphic binding between objects __DEC_event_targetRef_224522 and outFlow 
-									JavaSDM.ensure(!__DEC_event_targetRef_224522
+									// check isomorphic binding between objects __DEC_event_targetRef_101588 and outFlow 
+									JavaSDM.ensure(!__DEC_event_targetRef_101588
 											.equals(outFlow));
 
 									fujaba__Success = true;
@@ -4291,18 +4345,18 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 						// check link flowElements from outFlow to process
 						JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-						// check link sourceRef from outFlow to event
+						// check link incoming from inFlow to event
+						JavaSDM.ensure(event.equals(inFlow.getTargetRef()));
+
+						// check link incoming from outFlow to event
+						JavaSDM.ensure(!(event.equals(outFlow.getTargetRef())));
+
+						// check link outgoing from outFlow to event
 						JavaSDM.ensure(event.equals(outFlow.getSourceRef()));
 
 						// check link src from _edge_flowElements to process
 						JavaSDM.ensure(process.equals(_edge_flowElements
 								.getSrc()));
-
-						// check link targetRef from inFlow to event
-						JavaSDM.ensure(event.equals(inFlow.getTargetRef()));
-
-						// check link targetRef from outFlow to event
-						JavaSDM.ensure(!(event.equals(outFlow.getTargetRef())));
 
 						// check link trg from _edge_flowElements to outFlow
 						JavaSDM.ensure(outFlow.equals(_edge_flowElements
@@ -4377,7 +4431,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_475(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_148(
 			EMoflonEdge _edge_flowElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4385,15 +4439,15 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_event_flowElements_751692 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_432817 = null;
-		Iterator fujaba__IterEventTo__DEC_event_targetRef_328228 = null;
-		SequenceFlow __DEC_event_targetRef_328228 = null;
+		FlowElementsContainer __DEC_event_flowElements_439046 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_520462 = null;
+		Iterator fujaba__IterEventTo__DEC_event_targetRef_457238 = null;
+		SequenceFlow __DEC_event_targetRef_457238 = null;
 		Match match = null;
-		Iterator fujaba__IterEventToInFlow = null;
-		SequenceFlow inFlow = null;
 		Iterator fujaba__IterEventToOutFlow = null;
 		SequenceFlow outFlow = null;
+		Iterator fujaba__IterEventToInFlow = null;
+		SequenceFlow inFlow = null;
 		IntermediateCatchEvent event = null;
 		Process process = null;
 
@@ -4461,39 +4515,39 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// check link flowElements from event to process
 			JavaSDM.ensure(process.equals(event.eContainer()));
 
-			// iterate to-many link sourceRef from event to outFlow
+			// iterate to-many link incoming from event to inFlow
 			fujaba__Success = false;
 
-			fujaba__IterEventToOutFlow = new ArrayList(event.getOutgoing())
+			fujaba__IterEventToInFlow = new ArrayList(event.getIncoming())
 					.iterator();
 
-			while (fujaba__IterEventToOutFlow.hasNext()) {
+			while (fujaba__IterEventToInFlow.hasNext()) {
 				try {
-					outFlow = (SequenceFlow) fujaba__IterEventToOutFlow.next();
+					inFlow = (SequenceFlow) fujaba__IterEventToInFlow.next();
 
-					// check object outFlow is really bound
-					JavaSDM.ensure(outFlow != null);
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
+					// check object inFlow is really bound
+					JavaSDM.ensure(inFlow != null);
+					// check link flowElements from inFlow to process
+					JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-					// iterate to-many link targetRef from event to inFlow
+					// iterate to-many link outgoing from event to outFlow
 					fujaba__Success = false;
 
-					fujaba__IterEventToInFlow = new ArrayList(
-							event.getIncoming()).iterator();
+					fujaba__IterEventToOutFlow = new ArrayList(
+							event.getOutgoing()).iterator();
 
-					while (fujaba__IterEventToInFlow.hasNext()) {
+					while (fujaba__IterEventToOutFlow.hasNext()) {
 						try {
-							inFlow = (SequenceFlow) fujaba__IterEventToInFlow
+							outFlow = (SequenceFlow) fujaba__IterEventToOutFlow
 									.next();
 
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
+							// check object outFlow is really bound
+							JavaSDM.ensure(outFlow != null);
 							// check isomorphic binding between objects outFlow and inFlow 
 							JavaSDM.ensure(!outFlow.equals(inFlow));
 
-							// check link flowElements from inFlow to process
-							JavaSDM.ensure(process.equals(inFlow.eContainer()));
+							// check link flowElements from outFlow to process
+							JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
 							// story node 'test core match and DECs'
 							try {
@@ -4504,19 +4558,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_event_flowElements_751692 = event
+									__DEC_event_flowElements_439046 = event
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) event
 											.eContainer() : null;
 
-									// check object __DEC_event_flowElements_751692 is really bound
-									JavaSDM.ensure(__DEC_event_flowElements_751692 != null);
+									// check object __DEC_event_flowElements_439046 is really bound
+									JavaSDM.ensure(__DEC_event_flowElements_439046 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_event_flowElements_751692
+									JavaSDM.ensure(__DEC_event_flowElements_439046
 											.getFlowElements().contains(event));
 
-									// check isomorphic binding between objects __DEC_event_flowElements_751692 and process 
-									JavaSDM.ensure(!__DEC_event_flowElements_751692
+									// check isomorphic binding between objects __DEC_event_flowElements_439046 and process 
+									JavaSDM.ensure(!__DEC_event_flowElements_439046
 											.equals(process));
 
 									fujaba__Success = true;
@@ -4533,20 +4587,20 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_432817 = outFlow
+									__DEC_outFlow_flowElements_520462 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_432817 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_432817 != null);
+									// check object __DEC_outFlow_flowElements_520462 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_520462 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_432817
+									JavaSDM.ensure(__DEC_outFlow_flowElements_520462
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_432817 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_432817
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_520462 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_520462
 											.equals(process));
 
 									fujaba__Success = true;
@@ -4572,27 +4626,27 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link targetRef from event to __DEC_event_targetRef_328228
+									// iterate to-many link incoming from event to __DEC_event_targetRef_457238
 									fujaba__Success = false;
 
-									fujaba__IterEventTo__DEC_event_targetRef_328228 = new ArrayList(
+									fujaba__IterEventTo__DEC_event_targetRef_457238 = new ArrayList(
 											event.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterEventTo__DEC_event_targetRef_328228
+											&& fujaba__IterEventTo__DEC_event_targetRef_457238
 													.hasNext()) {
 										try {
-											__DEC_event_targetRef_328228 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_328228
+											__DEC_event_targetRef_457238 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_457238
 													.next();
 
-											// check object __DEC_event_targetRef_328228 is really bound
-											JavaSDM.ensure(__DEC_event_targetRef_328228 != null);
-											// check isomorphic binding between objects __DEC_event_targetRef_328228 and inFlow 
-											JavaSDM.ensure(!__DEC_event_targetRef_328228
+											// check object __DEC_event_targetRef_457238 is really bound
+											JavaSDM.ensure(__DEC_event_targetRef_457238 != null);
+											// check isomorphic binding between objects __DEC_event_targetRef_457238 and inFlow 
+											JavaSDM.ensure(!__DEC_event_targetRef_457238
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_event_targetRef_328228 and outFlow 
-											JavaSDM.ensure(!__DEC_event_targetRef_328228
+											// check isomorphic binding between objects __DEC_event_targetRef_457238 and outFlow 
+											JavaSDM.ensure(!__DEC_event_targetRef_457238
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -4636,21 +4690,21 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 								JavaSDM.ensure(process.equals(outFlow
 										.eContainer()));
 
-								// check link sourceRef from outFlow to event
+								// check link incoming from inFlow to event
+								JavaSDM.ensure(event.equals(inFlow
+										.getTargetRef()));
+
+								// check link incoming from outFlow to event
+								JavaSDM.ensure(!(event.equals(outFlow
+										.getTargetRef())));
+
+								// check link outgoing from outFlow to event
 								JavaSDM.ensure(event.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_flowElements to process
 								JavaSDM.ensure(process
 										.equals(_edge_flowElements.getSrc()));
-
-								// check link targetRef from inFlow to event
-								JavaSDM.ensure(event.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to event
-								JavaSDM.ensure(!(event.equals(outFlow
-										.getTargetRef())));
 
 								// check link trg from _edge_flowElements to event
 								JavaSDM.ensure(event.equals(_edge_flowElements
@@ -4735,7 +4789,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_476(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_149(
 			EMoflonEdge _edge_targetRef) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4743,10 +4797,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_event_flowElements_467112 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_28290 = null;
-		Iterator fujaba__IterEventTo__DEC_event_targetRef_961800 = null;
-		SequenceFlow __DEC_event_targetRef_961800 = null;
+		FlowElementsContainer __DEC_event_flowElements_439940 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_688942 = null;
+		Iterator fujaba__IterEventTo__DEC_event_targetRef_992976 = null;
+		SequenceFlow __DEC_event_targetRef_992976 = null;
 		Match match = null;
 		Iterator fujaba__IterEventToOutFlow = null;
 		SequenceFlow outFlow = null;
@@ -4829,10 +4883,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// check link flowElements from inFlow to process
 			JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-			// check link targetRef from inFlow to event
+			// check link incoming from inFlow to event
 			JavaSDM.ensure(event.equals(inFlow.getTargetRef()));
 
-			// iterate to-many link sourceRef from event to outFlow
+			// iterate to-many link outgoing from event to outFlow
 			fujaba__Success = false;
 
 			fujaba__IterEventToOutFlow = new ArrayList(event.getOutgoing())
@@ -4859,19 +4913,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_event_flowElements_467112 = event
+							__DEC_event_flowElements_439940 = event
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) event
 									.eContainer() : null;
 
-							// check object __DEC_event_flowElements_467112 is really bound
-							JavaSDM.ensure(__DEC_event_flowElements_467112 != null);
+							// check object __DEC_event_flowElements_439940 is really bound
+							JavaSDM.ensure(__DEC_event_flowElements_439940 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_event_flowElements_467112
+							JavaSDM.ensure(__DEC_event_flowElements_439940
 									.getFlowElements().contains(event));
 
-							// check isomorphic binding between objects __DEC_event_flowElements_467112 and process 
-							JavaSDM.ensure(!__DEC_event_flowElements_467112
+							// check isomorphic binding between objects __DEC_event_flowElements_439940 and process 
+							JavaSDM.ensure(!__DEC_event_flowElements_439940
 									.equals(process));
 
 							fujaba__Success = true;
@@ -4888,19 +4942,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_outFlow_flowElements_28290 = outFlow
+							__DEC_outFlow_flowElements_688942 = outFlow
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 									.eContainer() : null;
 
-							// check object __DEC_outFlow_flowElements_28290 is really bound
-							JavaSDM.ensure(__DEC_outFlow_flowElements_28290 != null);
+							// check object __DEC_outFlow_flowElements_688942 is really bound
+							JavaSDM.ensure(__DEC_outFlow_flowElements_688942 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_outFlow_flowElements_28290
+							JavaSDM.ensure(__DEC_outFlow_flowElements_688942
 									.getFlowElements().contains(outFlow));
 
-							// check isomorphic binding between objects __DEC_outFlow_flowElements_28290 and process 
-							JavaSDM.ensure(!__DEC_outFlow_flowElements_28290
+							// check isomorphic binding between objects __DEC_outFlow_flowElements_688942 and process 
+							JavaSDM.ensure(!__DEC_outFlow_flowElements_688942
 									.equals(process));
 
 							fujaba__Success = true;
@@ -4925,27 +4979,27 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from event to __DEC_event_targetRef_961800
+							// iterate to-many link incoming from event to __DEC_event_targetRef_992976
 							fujaba__Success = false;
 
-							fujaba__IterEventTo__DEC_event_targetRef_961800 = new ArrayList(
+							fujaba__IterEventTo__DEC_event_targetRef_992976 = new ArrayList(
 									event.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterEventTo__DEC_event_targetRef_961800
+									&& fujaba__IterEventTo__DEC_event_targetRef_992976
 											.hasNext()) {
 								try {
-									__DEC_event_targetRef_961800 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_961800
+									__DEC_event_targetRef_992976 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_992976
 											.next();
 
-									// check object __DEC_event_targetRef_961800 is really bound
-									JavaSDM.ensure(__DEC_event_targetRef_961800 != null);
-									// check isomorphic binding between objects __DEC_event_targetRef_961800 and inFlow 
-									JavaSDM.ensure(!__DEC_event_targetRef_961800
+									// check object __DEC_event_targetRef_992976 is really bound
+									JavaSDM.ensure(__DEC_event_targetRef_992976 != null);
+									// check isomorphic binding between objects __DEC_event_targetRef_992976 and inFlow 
+									JavaSDM.ensure(!__DEC_event_targetRef_992976
 											.equals(inFlow));
 
-									// check isomorphic binding between objects __DEC_event_targetRef_961800 and outFlow 
-									JavaSDM.ensure(!__DEC_event_targetRef_961800
+									// check isomorphic binding between objects __DEC_event_targetRef_992976 and outFlow 
+									JavaSDM.ensure(!__DEC_event_targetRef_992976
 											.equals(outFlow));
 
 									fujaba__Success = true;
@@ -4986,17 +5040,17 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 						// check link flowElements from outFlow to process
 						JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-						// check link sourceRef from outFlow to event
+						// check link incoming from inFlow to event
+						JavaSDM.ensure(event.equals(inFlow.getTargetRef()));
+
+						// check link incoming from outFlow to event
+						JavaSDM.ensure(!(event.equals(outFlow.getTargetRef())));
+
+						// check link outgoing from outFlow to event
 						JavaSDM.ensure(event.equals(outFlow.getSourceRef()));
 
 						// check link src from _edge_targetRef to inFlow
 						JavaSDM.ensure(inFlow.equals(_edge_targetRef.getSrc()));
-
-						// check link targetRef from inFlow to event
-						JavaSDM.ensure(event.equals(inFlow.getTargetRef()));
-
-						// check link targetRef from outFlow to event
-						JavaSDM.ensure(!(event.equals(outFlow.getTargetRef())));
 
 						// check link trg from _edge_targetRef to event
 						JavaSDM.ensure(event.equals(_edge_targetRef.getTrg()));
@@ -5070,7 +5124,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_477(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_150(
 			EMoflonEdge _edge_incoming) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5078,10 +5132,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_event_flowElements_849593 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_37172 = null;
-		Iterator fujaba__IterEventTo__DEC_event_targetRef_66560 = null;
-		SequenceFlow __DEC_event_targetRef_66560 = null;
+		FlowElementsContainer __DEC_event_flowElements_552593 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_550437 = null;
+		Iterator fujaba__IterEventTo__DEC_event_targetRef_779501 = null;
+		SequenceFlow __DEC_event_targetRef_779501 = null;
 		Match match = null;
 		Iterator fujaba__IterEventTo_edge_targetRef = null;
 		EMoflonEdge _edge_targetRef = null;
@@ -5166,10 +5220,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// check link flowElements from inFlow to process
 			JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-			// check link targetRef from inFlow to event
+			// check link incoming from inFlow to event
 			JavaSDM.ensure(event.equals(inFlow.getTargetRef()));
 
-			// iterate to-many link sourceRef from event to outFlow
+			// iterate to-many link outgoing from event to outFlow
 			fujaba__Success = false;
 
 			fujaba__IterEventToOutFlow = new ArrayList(event.getOutgoing())
@@ -5220,19 +5274,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_event_flowElements_849593 = event
+									__DEC_event_flowElements_552593 = event
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) event
 											.eContainer() : null;
 
-									// check object __DEC_event_flowElements_849593 is really bound
-									JavaSDM.ensure(__DEC_event_flowElements_849593 != null);
+									// check object __DEC_event_flowElements_552593 is really bound
+									JavaSDM.ensure(__DEC_event_flowElements_552593 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_event_flowElements_849593
+									JavaSDM.ensure(__DEC_event_flowElements_552593
 											.getFlowElements().contains(event));
 
-									// check isomorphic binding between objects __DEC_event_flowElements_849593 and process 
-									JavaSDM.ensure(!__DEC_event_flowElements_849593
+									// check isomorphic binding between objects __DEC_event_flowElements_552593 and process 
+									JavaSDM.ensure(!__DEC_event_flowElements_552593
 											.equals(process));
 
 									fujaba__Success = true;
@@ -5249,20 +5303,20 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_37172 = outFlow
+									__DEC_outFlow_flowElements_550437 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_37172 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_37172 != null);
+									// check object __DEC_outFlow_flowElements_550437 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_550437 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_37172
+									JavaSDM.ensure(__DEC_outFlow_flowElements_550437
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_37172 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_37172
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_550437 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_550437
 											.equals(process));
 
 									fujaba__Success = true;
@@ -5288,27 +5342,27 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link targetRef from event to __DEC_event_targetRef_66560
+									// iterate to-many link incoming from event to __DEC_event_targetRef_779501
 									fujaba__Success = false;
 
-									fujaba__IterEventTo__DEC_event_targetRef_66560 = new ArrayList(
+									fujaba__IterEventTo__DEC_event_targetRef_779501 = new ArrayList(
 											event.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterEventTo__DEC_event_targetRef_66560
+											&& fujaba__IterEventTo__DEC_event_targetRef_779501
 													.hasNext()) {
 										try {
-											__DEC_event_targetRef_66560 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_66560
+											__DEC_event_targetRef_779501 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_779501
 													.next();
 
-											// check object __DEC_event_targetRef_66560 is really bound
-											JavaSDM.ensure(__DEC_event_targetRef_66560 != null);
-											// check isomorphic binding between objects __DEC_event_targetRef_66560 and inFlow 
-											JavaSDM.ensure(!__DEC_event_targetRef_66560
+											// check object __DEC_event_targetRef_779501 is really bound
+											JavaSDM.ensure(__DEC_event_targetRef_779501 != null);
+											// check isomorphic binding between objects __DEC_event_targetRef_779501 and inFlow 
+											JavaSDM.ensure(!__DEC_event_targetRef_779501
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_event_targetRef_66560 and outFlow 
-											JavaSDM.ensure(!__DEC_event_targetRef_66560
+											// check isomorphic binding between objects __DEC_event_targetRef_779501 and outFlow 
+											JavaSDM.ensure(!__DEC_event_targetRef_779501
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -5358,7 +5412,15 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 								JavaSDM.ensure(process.equals(outFlow
 										.eContainer()));
 
-								// check link sourceRef from outFlow to event
+								// check link incoming from inFlow to event
+								JavaSDM.ensure(event.equals(inFlow
+										.getTargetRef()));
+
+								// check link incoming from outFlow to event
+								JavaSDM.ensure(!(event.equals(outFlow
+										.getTargetRef())));
+
+								// check link outgoing from outFlow to event
 								JavaSDM.ensure(event.equals(outFlow
 										.getSourceRef()));
 
@@ -5369,14 +5431,6 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 								// check link src from _edge_targetRef to inFlow
 								JavaSDM.ensure(inFlow.equals(_edge_targetRef
 										.getSrc()));
-
-								// check link targetRef from inFlow to event
-								JavaSDM.ensure(event.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to event
-								JavaSDM.ensure(!(event.equals(outFlow
-										.getTargetRef())));
 
 								// check link trg from _edge_incoming to inFlow
 								JavaSDM.ensure(inFlow.equals(_edge_incoming
@@ -5465,7 +5519,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_478(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_151(
 			EMoflonEdge _edge_sourceRef) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5473,10 +5527,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_event_flowElements_387974 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_62456 = null;
-		Iterator fujaba__IterEventTo__DEC_event_targetRef_356491 = null;
-		SequenceFlow __DEC_event_targetRef_356491 = null;
+		FlowElementsContainer __DEC_event_flowElements_123322 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_606317 = null;
+		Iterator fujaba__IterEventTo__DEC_event_targetRef_490837 = null;
+		SequenceFlow __DEC_event_targetRef_490837 = null;
 		Match match = null;
 		Iterator fujaba__IterEventToInFlow = null;
 		SequenceFlow inFlow = null;
@@ -5559,10 +5613,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// check link flowElements from outFlow to process
 			JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-			// check link sourceRef from outFlow to event
+			// check link outgoing from outFlow to event
 			JavaSDM.ensure(event.equals(outFlow.getSourceRef()));
 
-			// iterate to-many link targetRef from event to inFlow
+			// iterate to-many link incoming from event to inFlow
 			fujaba__Success = false;
 
 			fujaba__IterEventToInFlow = new ArrayList(event.getIncoming())
@@ -5589,19 +5643,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_event_flowElements_387974 = event
+							__DEC_event_flowElements_123322 = event
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) event
 									.eContainer() : null;
 
-							// check object __DEC_event_flowElements_387974 is really bound
-							JavaSDM.ensure(__DEC_event_flowElements_387974 != null);
+							// check object __DEC_event_flowElements_123322 is really bound
+							JavaSDM.ensure(__DEC_event_flowElements_123322 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_event_flowElements_387974
+							JavaSDM.ensure(__DEC_event_flowElements_123322
 									.getFlowElements().contains(event));
 
-							// check isomorphic binding between objects __DEC_event_flowElements_387974 and process 
-							JavaSDM.ensure(!__DEC_event_flowElements_387974
+							// check isomorphic binding between objects __DEC_event_flowElements_123322 and process 
+							JavaSDM.ensure(!__DEC_event_flowElements_123322
 									.equals(process));
 
 							fujaba__Success = true;
@@ -5618,19 +5672,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_outFlow_flowElements_62456 = outFlow
+							__DEC_outFlow_flowElements_606317 = outFlow
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 									.eContainer() : null;
 
-							// check object __DEC_outFlow_flowElements_62456 is really bound
-							JavaSDM.ensure(__DEC_outFlow_flowElements_62456 != null);
+							// check object __DEC_outFlow_flowElements_606317 is really bound
+							JavaSDM.ensure(__DEC_outFlow_flowElements_606317 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_outFlow_flowElements_62456
+							JavaSDM.ensure(__DEC_outFlow_flowElements_606317
 									.getFlowElements().contains(outFlow));
 
-							// check isomorphic binding between objects __DEC_outFlow_flowElements_62456 and process 
-							JavaSDM.ensure(!__DEC_outFlow_flowElements_62456
+							// check isomorphic binding between objects __DEC_outFlow_flowElements_606317 and process 
+							JavaSDM.ensure(!__DEC_outFlow_flowElements_606317
 									.equals(process));
 
 							fujaba__Success = true;
@@ -5655,27 +5709,27 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from event to __DEC_event_targetRef_356491
+							// iterate to-many link incoming from event to __DEC_event_targetRef_490837
 							fujaba__Success = false;
 
-							fujaba__IterEventTo__DEC_event_targetRef_356491 = new ArrayList(
+							fujaba__IterEventTo__DEC_event_targetRef_490837 = new ArrayList(
 									event.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterEventTo__DEC_event_targetRef_356491
+									&& fujaba__IterEventTo__DEC_event_targetRef_490837
 											.hasNext()) {
 								try {
-									__DEC_event_targetRef_356491 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_356491
+									__DEC_event_targetRef_490837 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_490837
 											.next();
 
-									// check object __DEC_event_targetRef_356491 is really bound
-									JavaSDM.ensure(__DEC_event_targetRef_356491 != null);
-									// check isomorphic binding between objects __DEC_event_targetRef_356491 and inFlow 
-									JavaSDM.ensure(!__DEC_event_targetRef_356491
+									// check object __DEC_event_targetRef_490837 is really bound
+									JavaSDM.ensure(__DEC_event_targetRef_490837 != null);
+									// check isomorphic binding between objects __DEC_event_targetRef_490837 and inFlow 
+									JavaSDM.ensure(!__DEC_event_targetRef_490837
 											.equals(inFlow));
 
-									// check isomorphic binding between objects __DEC_event_targetRef_356491 and outFlow 
-									JavaSDM.ensure(!__DEC_event_targetRef_356491
+									// check isomorphic binding between objects __DEC_event_targetRef_490837 and outFlow 
+									JavaSDM.ensure(!__DEC_event_targetRef_490837
 											.equals(outFlow));
 
 									fujaba__Success = true;
@@ -5716,17 +5770,17 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 						// check link flowElements from outFlow to process
 						JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-						// check link sourceRef from outFlow to event
+						// check link incoming from inFlow to event
+						JavaSDM.ensure(event.equals(inFlow.getTargetRef()));
+
+						// check link incoming from outFlow to event
+						JavaSDM.ensure(!(event.equals(outFlow.getTargetRef())));
+
+						// check link outgoing from outFlow to event
 						JavaSDM.ensure(event.equals(outFlow.getSourceRef()));
 
 						// check link src from _edge_sourceRef to outFlow
 						JavaSDM.ensure(outFlow.equals(_edge_sourceRef.getSrc()));
-
-						// check link targetRef from inFlow to event
-						JavaSDM.ensure(event.equals(inFlow.getTargetRef()));
-
-						// check link targetRef from outFlow to event
-						JavaSDM.ensure(!(event.equals(outFlow.getTargetRef())));
 
 						// check link trg from _edge_sourceRef to event
 						JavaSDM.ensure(event.equals(_edge_sourceRef.getTrg()));
@@ -5800,7 +5854,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_479(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_152(
 			EMoflonEdge _edge_outgoing) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5808,10 +5862,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_event_flowElements_288218 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_847663 = null;
-		Iterator fujaba__IterEventTo__DEC_event_targetRef_102150 = null;
-		SequenceFlow __DEC_event_targetRef_102150 = null;
+		FlowElementsContainer __DEC_event_flowElements_718826 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_446805 = null;
+		Iterator fujaba__IterEventTo__DEC_event_targetRef_366925 = null;
+		SequenceFlow __DEC_event_targetRef_366925 = null;
 		Match match = null;
 		Iterator fujaba__IterEventTo_edge_sourceRef = null;
 		EMoflonEdge _edge_sourceRef = null;
@@ -5896,10 +5950,10 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			// check link flowElements from outFlow to process
 			JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-			// check link sourceRef from outFlow to event
+			// check link outgoing from outFlow to event
 			JavaSDM.ensure(event.equals(outFlow.getSourceRef()));
 
-			// iterate to-many link targetRef from event to inFlow
+			// iterate to-many link incoming from event to inFlow
 			fujaba__Success = false;
 
 			fujaba__IterEventToInFlow = new ArrayList(event.getIncoming())
@@ -5950,19 +6004,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_event_flowElements_288218 = event
+									__DEC_event_flowElements_718826 = event
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) event
 											.eContainer() : null;
 
-									// check object __DEC_event_flowElements_288218 is really bound
-									JavaSDM.ensure(__DEC_event_flowElements_288218 != null);
+									// check object __DEC_event_flowElements_718826 is really bound
+									JavaSDM.ensure(__DEC_event_flowElements_718826 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_event_flowElements_288218
+									JavaSDM.ensure(__DEC_event_flowElements_718826
 											.getFlowElements().contains(event));
 
-									// check isomorphic binding between objects __DEC_event_flowElements_288218 and process 
-									JavaSDM.ensure(!__DEC_event_flowElements_288218
+									// check isomorphic binding between objects __DEC_event_flowElements_718826 and process 
+									JavaSDM.ensure(!__DEC_event_flowElements_718826
 											.equals(process));
 
 									fujaba__Success = true;
@@ -5979,20 +6033,20 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_847663 = outFlow
+									__DEC_outFlow_flowElements_446805 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_847663 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_847663 != null);
+									// check object __DEC_outFlow_flowElements_446805 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_446805 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_847663
+									JavaSDM.ensure(__DEC_outFlow_flowElements_446805
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_847663 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_847663
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_446805 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_446805
 											.equals(process));
 
 									fujaba__Success = true;
@@ -6018,27 +6072,27 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link targetRef from event to __DEC_event_targetRef_102150
+									// iterate to-many link incoming from event to __DEC_event_targetRef_366925
 									fujaba__Success = false;
 
-									fujaba__IterEventTo__DEC_event_targetRef_102150 = new ArrayList(
+									fujaba__IterEventTo__DEC_event_targetRef_366925 = new ArrayList(
 											event.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterEventTo__DEC_event_targetRef_102150
+											&& fujaba__IterEventTo__DEC_event_targetRef_366925
 													.hasNext()) {
 										try {
-											__DEC_event_targetRef_102150 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_102150
+											__DEC_event_targetRef_366925 = (SequenceFlow) fujaba__IterEventTo__DEC_event_targetRef_366925
 													.next();
 
-											// check object __DEC_event_targetRef_102150 is really bound
-											JavaSDM.ensure(__DEC_event_targetRef_102150 != null);
-											// check isomorphic binding between objects __DEC_event_targetRef_102150 and inFlow 
-											JavaSDM.ensure(!__DEC_event_targetRef_102150
+											// check object __DEC_event_targetRef_366925 is really bound
+											JavaSDM.ensure(__DEC_event_targetRef_366925 != null);
+											// check isomorphic binding between objects __DEC_event_targetRef_366925 and inFlow 
+											JavaSDM.ensure(!__DEC_event_targetRef_366925
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_event_targetRef_102150 and outFlow 
-											JavaSDM.ensure(!__DEC_event_targetRef_102150
+											// check isomorphic binding between objects __DEC_event_targetRef_366925 and outFlow 
+											JavaSDM.ensure(!__DEC_event_targetRef_366925
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -6088,7 +6142,15 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 								JavaSDM.ensure(process.equals(outFlow
 										.eContainer()));
 
-								// check link sourceRef from outFlow to event
+								// check link incoming from inFlow to event
+								JavaSDM.ensure(event.equals(inFlow
+										.getTargetRef()));
+
+								// check link incoming from outFlow to event
+								JavaSDM.ensure(!(event.equals(outFlow
+										.getTargetRef())));
+
+								// check link outgoing from outFlow to event
 								JavaSDM.ensure(event.equals(outFlow
 										.getSourceRef()));
 
@@ -6099,14 +6161,6 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 								// check link src from _edge_sourceRef to outFlow
 								JavaSDM.ensure(outFlow.equals(_edge_sourceRef
 										.getSrc()));
-
-								// check link targetRef from inFlow to event
-								JavaSDM.ensure(event.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to event
-								JavaSDM.ensure(!(event.equals(outFlow
-										.getTargetRef())));
 
 								// check link trg from _edge_outgoing to outFlow
 								JavaSDM.ensure(outFlow.equals(_edge_outgoing
@@ -6195,7 +6249,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_203(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_65(
 			EMoflonEdge _edge_actor) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -6203,9 +6257,9 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_327228 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_27840 = null;
-		Step __DEC_normalStep_next_27840 = null;
+		Flow __DEC_normalStep_steps_280940 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_382919 = null;
+		Step __DEC_normalStep_next_382919 = null;
 		Match match = null;
 		Iterator fujaba__IterNormalStepToPrevStep = null;
 		Step prevStep = null;
@@ -6311,19 +6365,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_normalStep_steps_327228 = normalStep
+							__DEC_normalStep_steps_280940 = normalStep
 									.eContainer() instanceof Flow ? (Flow) normalStep
 									.eContainer() : null;
 
-							// check object __DEC_normalStep_steps_327228 is really bound
-							JavaSDM.ensure(__DEC_normalStep_steps_327228 != null);
+							// check object __DEC_normalStep_steps_280940 is really bound
+							JavaSDM.ensure(__DEC_normalStep_steps_280940 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_normalStep_steps_327228
+							JavaSDM.ensure(__DEC_normalStep_steps_280940
 									.getSteps().contains(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_steps_327228 and flow 
-							JavaSDM.ensure(!__DEC_normalStep_steps_327228
+							// check isomorphic binding between objects __DEC_normalStep_steps_280940 and flow 
+							JavaSDM.ensure(!__DEC_normalStep_steps_280940
 									.equals(flow));
 
 							fujaba__Success = true;
@@ -6339,30 +6393,30 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link next from normalStep to __DEC_normalStep_next_27840
+							// iterate to-many link next from normalStep to __DEC_normalStep_next_382919
 							fujaba__Success = false;
 
-							fujaba__IterNormalStepTo__DEC_normalStep_next_27840 = new ArrayList(
+							fujaba__IterNormalStepTo__DEC_normalStep_next_382919 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(normalStep,
 													Step.class, "next"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterNormalStepTo__DEC_normalStep_next_27840
+									&& fujaba__IterNormalStepTo__DEC_normalStep_next_382919
 											.hasNext()) {
 								try {
-									__DEC_normalStep_next_27840 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_27840
+									__DEC_normalStep_next_382919 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_382919
 											.next();
 
-									// check object __DEC_normalStep_next_27840 is really bound
-									JavaSDM.ensure(__DEC_normalStep_next_27840 != null);
-									// check isomorphic binding between objects __DEC_normalStep_next_27840 and normalStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_27840
+									// check object __DEC_normalStep_next_382919 is really bound
+									JavaSDM.ensure(__DEC_normalStep_next_382919 != null);
+									// check isomorphic binding between objects __DEC_normalStep_next_382919 and normalStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_382919
 											.equals(normalStep));
 
-									// check isomorphic binding between objects __DEC_normalStep_next_27840 and prevStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_27840
+									// check isomorphic binding between objects __DEC_normalStep_next_382919 and prevStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_382919
 											.equals(prevStep));
 
 									fujaba__Success = true;
@@ -6490,7 +6544,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_204(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_66(
 			EMoflonEdge _edge_steps) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -6498,9 +6552,9 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_424506 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_263496 = null;
-		Step __DEC_normalStep_next_263496 = null;
+		Flow __DEC_normalStep_steps_415855 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_497604 = null;
+		Step __DEC_normalStep_next_497604 = null;
 		Match match = null;
 		Iterator fujaba__IterNormalStepToPrevStep = null;
 		Step prevStep = null;
@@ -6603,19 +6657,19 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_normalStep_steps_424506 = normalStep
+							__DEC_normalStep_steps_415855 = normalStep
 									.eContainer() instanceof Flow ? (Flow) normalStep
 									.eContainer() : null;
 
-							// check object __DEC_normalStep_steps_424506 is really bound
-							JavaSDM.ensure(__DEC_normalStep_steps_424506 != null);
+							// check object __DEC_normalStep_steps_415855 is really bound
+							JavaSDM.ensure(__DEC_normalStep_steps_415855 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_normalStep_steps_424506
+							JavaSDM.ensure(__DEC_normalStep_steps_415855
 									.getSteps().contains(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_steps_424506 and flow 
-							JavaSDM.ensure(!__DEC_normalStep_steps_424506
+							// check isomorphic binding between objects __DEC_normalStep_steps_415855 and flow 
+							JavaSDM.ensure(!__DEC_normalStep_steps_415855
 									.equals(flow));
 
 							fujaba__Success = true;
@@ -6631,30 +6685,30 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link next from normalStep to __DEC_normalStep_next_263496
+							// iterate to-many link next from normalStep to __DEC_normalStep_next_497604
 							fujaba__Success = false;
 
-							fujaba__IterNormalStepTo__DEC_normalStep_next_263496 = new ArrayList(
+							fujaba__IterNormalStepTo__DEC_normalStep_next_497604 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(normalStep,
 													Step.class, "next"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterNormalStepTo__DEC_normalStep_next_263496
+									&& fujaba__IterNormalStepTo__DEC_normalStep_next_497604
 											.hasNext()) {
 								try {
-									__DEC_normalStep_next_263496 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_263496
+									__DEC_normalStep_next_497604 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_497604
 											.next();
 
-									// check object __DEC_normalStep_next_263496 is really bound
-									JavaSDM.ensure(__DEC_normalStep_next_263496 != null);
-									// check isomorphic binding between objects __DEC_normalStep_next_263496 and normalStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_263496
+									// check object __DEC_normalStep_next_497604 is really bound
+									JavaSDM.ensure(__DEC_normalStep_next_497604 != null);
+									// check isomorphic binding between objects __DEC_normalStep_next_497604 and normalStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_497604
 											.equals(normalStep));
 
-									// check isomorphic binding between objects __DEC_normalStep_next_263496 and prevStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_263496
+									// check isomorphic binding between objects __DEC_normalStep_next_497604 and prevStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_497604
 											.equals(prevStep));
 
 									fujaba__Success = true;
@@ -7075,12 +7129,7 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 													outFlow.setSourceRef(event);
 
 													// create link
-													eventToNormalStep
-															.setSource(event);
-
-													// create link
-													process.getFlowElements()
-															.add(event);
+													inFlow.setTargetRef(event);
 
 													// create link
 													ruleResult
@@ -7088,7 +7137,12 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 															.add(event);
 
 													// create link
-													inFlow.setTargetRef(event);
+													eventToNormalStep
+															.setSource(event);
+
+													// create link
+													process.getFlowElements()
+															.add(event);
 
 													// create link
 													org.moflon.util.eMoflonEMFUtil
@@ -7105,6 +7159,15 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 																	"actor");
 
 													// create link
+													ruleResult
+															.getTargetObjects()
+															.add(normalStep);
+
+													// create link
+													eventToNormalStep
+															.setTarget(normalStep);
+
+													// create link
 													outFlowToNormalStep
 															.setTarget(normalStep);
 
@@ -7113,26 +7176,17 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 															normalStep);
 
 													// create link
-													eventToNormalStep
-															.setTarget(normalStep);
-
-													// create link
-													ruleResult
-															.getTargetObjects()
-															.add(normalStep);
-
-													// create link
 													process.getFlowElements()
 															.add(outFlow); // add link
+
+													// create link
+													outFlowToNormalStep
+															.setSource(outFlow);
 
 													// create link
 													ruleResult
 															.getSourceObjects()
 															.add(outFlow);
-
-													// create link
-													outFlowToNormalStep
-															.setSource(outFlow);
 
 													// create link
 													outFlowToFlow
@@ -7368,32 +7422,32 @@ public class IntermediateCatchEventToStepRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_202__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_202((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_64__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_64((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_474__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_474((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_147__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_147((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_475__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_475((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_148__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_148((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_476__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_476((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_149__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_149((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_477__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_477((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_150__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_150((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_478__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_478((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_151__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_151((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_479__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_479((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_152__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_152((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_203__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_203((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_65__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_65((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_204__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_204((EMoflonEdge) arguments
+		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_66__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_66((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.INTERMEDIATE_CATCH_EVENT_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

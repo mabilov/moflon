@@ -40,24 +40,6 @@ public interface Bpmn2Factory extends EFactory {
 	RootElement createRootElement();
 
 	/**
-	 * Returns a new object of class '<em>Flow Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flow Element</em>'.
-	 * @generated
-	 */
-	FlowElement createFlowElement();
-
-	/**
-	 * Returns a new object of class '<em>Flow Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flow Node</em>'.
-	 * @generated
-	 */
-	FlowNode createFlowNode();
-
-	/**
 	 * Returns a new object of class '<em>Sequence Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,15 +65,6 @@ public interface Bpmn2Factory extends EFactory {
 	 * @generated
 	 */
 	CallableElement createCallableElement();
-
-	/**
-	 * Returns a new object of class '<em>Catch Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Catch Event</em>'.
-	 * @generated
-	 */
-	CatchEvent createCatchEvent();
 
 	/**
 	 * Returns a new object of class '<em>Definitions</em>'.
@@ -148,15 +121,6 @@ public interface Bpmn2Factory extends EFactory {
 	Expression createExpression();
 
 	/**
-	 * Returns a new object of class '<em>Flow Elements Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flow Elements Container</em>'.
-	 * @generated
-	 */
-	FlowElementsContainer createFlowElementsContainer();
-
-	/**
 	 * Returns a new object of class '<em>Formal Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,15 +128,6 @@ public interface Bpmn2Factory extends EFactory {
 	 * @generated
 	 */
 	FormalExpression createFormalExpression();
-
-	/**
-	 * Returns a new object of class '<em>Gateway</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Gateway</em>'.
-	 * @generated
-	 */
-	Gateway createGateway();
 
 	/**
 	 * Returns a new object of class '<em>Interaction Node</em>'.
@@ -272,24 +227,6 @@ public interface Bpmn2Factory extends EFactory {
 	 * @generated
 	 */
 	Task createTask();
-
-	/**
-	 * Returns a new object of class '<em>Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Event</em>'.
-	 * @generated
-	 */
-	Event createEvent();
-
-	/**
-	 * Returns a new object of class '<em>Throw Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Throw Event</em>'.
-	 * @generated
-	 */
-	ThrowEvent createThrowEvent();
 
 	/**
 	 * Returns a new object of class '<em>User Task</em>'.

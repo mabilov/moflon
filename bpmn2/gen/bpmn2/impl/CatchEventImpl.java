@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class CatchEventImpl extends EventImpl implements CatchEvent {
+public abstract class CatchEventImpl extends EventImpl implements CatchEvent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

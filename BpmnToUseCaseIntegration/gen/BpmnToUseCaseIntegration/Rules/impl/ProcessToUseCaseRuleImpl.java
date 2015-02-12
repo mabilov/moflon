@@ -139,6 +139,60 @@ import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 
 // [user defined imports] -->
 
@@ -183,11 +237,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __process_flowElements_startEvent = null;
 		EMoflonEdge __process_flowElements_sequenceFlow = null;
 		EMoflonEdge __startEvent_outgoing_sequenceFlow = null;
-		EMoflonEdge __sequenceFlow_sourceRef_startEvent = null;
 		EMoflonEdge __definitions_rootElements_process = null;
+		EMoflonEdge __process_flowElements_startEvent = null;
+		EMoflonEdge __sequenceFlow_sourceRef_startEvent = null;
 
 		// story node 'initial bindings'
 		try {
@@ -240,10 +294,6 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(sequenceFlow != null);
 				// check object startEvent is really bound
 				JavaSDM.ensure(startEvent != null);
-				// create object __process_flowElements_startEvent
-				__process_flowElements_startEvent = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __process_flowElements_sequenceFlow
 				__process_flowElements_sequenceFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -252,12 +302,16 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				__startEvent_outgoing_sequenceFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __sequenceFlow_sourceRef_startEvent
-				__sequenceFlow_sourceRef_startEvent = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __definitions_rootElements_process
 				__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_flowElements_startEvent
+				__process_flowElements_startEvent = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __sequenceFlow_sourceRef_startEvent
+				__sequenceFlow_sourceRef_startEvent = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __definitions_rootElements_process
@@ -273,21 +327,8 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_startEvent,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__process_flowElements_sequenceFlow,
 						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						startEvent, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -300,22 +341,35 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__definitions_rootElements_process,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						startEvent, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_startEvent,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__sequenceFlow_sourceRef_startEvent,
 						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__definitions_rootElements_process,
-						"toBeTranslatedEdges");
+						process, "toBeTranslatedNodes");
 
 				// create link
 				__definitions_rootElements_process.setSrc(definitions);
 
 				// create link
-				__process_flowElements_sequenceFlow.setSrc(process);
+				__definitions_rootElements_process.setTrg(process);
 
 				// create link
-				__definitions_rootElements_process.setTrg(process);
+				__process_flowElements_sequenceFlow.setSrc(process);
 
 				// create link
 				__process_flowElements_startEvent.setSrc(process);
@@ -324,10 +378,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				__process_flowElements_startEvent.setTrg(startEvent);
 
 				// create link
-				__sequenceFlow_sourceRef_startEvent.setTrg(startEvent);
+				__startEvent_outgoing_sequenceFlow.setSrc(startEvent);
 
 				// create link
-				__startEvent_outgoing_sequenceFlow.setSrc(startEvent);
+				__sequenceFlow_sourceRef_startEvent.setTrg(startEvent);
 
 				// create link
 				__process_flowElements_sequenceFlow.setTrg(sequenceFlow);
@@ -393,30 +447,30 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		StartEvent startEvent = null;
 		Iterator fujaba__IterIsApplicableMatchToCsp = null;
 		CSP csp = null;
-		Actor actor = null;
 		UseCase useCase = null;
+		Actor actor = null;
 		ProcessToUseCase processToUseCase = null;
 		ProcessToActor processToActor = null;
 		BasicFlow basicFlow = null;
 		StartEventToBasicFlow startEventToBasicFlow = null;
 		SequenceFlowToUCFlow sequenceFlowToBasicFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge startEventToBasicFlow__source__startEvent = null;
-		EMoflonEdge packageDeclaration__useCases__useCase = null;
-		EMoflonEdge __process_flowElements_startEvent = null;
-		EMoflonEdge __sequenceFlow_sourceRef_startEvent = null;
-		EMoflonEdge __process_flowElements_sequenceFlow = null;
-		EMoflonEdge sequenceFlowToBasicFlow__source__sequenceFlow = null;
-		EMoflonEdge __startEvent_outgoing_sequenceFlow = null;
-		EMoflonEdge useCase__flows__basicFlow = null;
-		EMoflonEdge __definitions_rootElements_process = null;
 		EMoflonEdge packageDeclaration__actors__actor = null;
-		EMoflonEdge processToUseCase__source__process = null;
-		EMoflonEdge processToActor__source__process = null;
-		EMoflonEdge startEventToBasicFlow__target__basicFlow = null;
+		EMoflonEdge __definitions_rootElements_process = null;
 		EMoflonEdge processToActor__target__actor = null;
-		EMoflonEdge sequenceFlowToBasicFlow__target__basicFlow = null;
+		EMoflonEdge processToActor__source__process = null;
+		EMoflonEdge __startEvent_outgoing_sequenceFlow = null;
+		EMoflonEdge __process_flowElements_sequenceFlow = null;
+		EMoflonEdge __process_flowElements_startEvent = null;
+		EMoflonEdge sequenceFlowToBasicFlow__source__sequenceFlow = null;
+		EMoflonEdge useCase__flows__basicFlow = null;
+		EMoflonEdge __sequenceFlow_sourceRef_startEvent = null;
 		EMoflonEdge processToUseCase__target__useCase = null;
+		EMoflonEdge processToUseCase__source__process = null;
+		EMoflonEdge startEventToBasicFlow__target__basicFlow = null;
+		EMoflonEdge startEventToBasicFlow__source__startEvent = null;
+		EMoflonEdge sequenceFlowToBasicFlow__target__basicFlow = null;
+		EMoflonEdge packageDeclaration__useCases__useCase = null;
 
 		// story node 'perform transformation'
 		try {
@@ -479,11 +533,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = true;
 				csp = null;
 			}
-			// create object actor
-			actor = UseCaseDSLFactory.eINSTANCE.createActor();
-
 			// create object useCase
 			useCase = UseCaseDSLFactory.eINSTANCE.createUseCase();
+
+			// create object actor
+			actor = UseCaseDSLFactory.eINSTANCE.createActor();
 
 			// create object processToUseCase
 			processToUseCase = BpmnToUseCaseIntegrationFactory.eINSTANCE
@@ -522,10 +576,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					"actor", "type").getValue());
 
 			// create link
-			packageDeclaration.getActors().add(actor); // add link
+			packageDeclaration.getUseCases().add(useCase); // add link
 
 			// create link
-			packageDeclaration.getUseCases().add(useCase); // add link
+			packageDeclaration.getActors().add(actor); // add link
 
 			// create link
 			processToUseCase.setSource(process);
@@ -543,10 +597,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			startEventToBasicFlow.setSource(startEvent);
 
 			// create link
-			sequenceFlowToBasicFlow.setTarget(basicFlow);
+			startEventToBasicFlow.setTarget(basicFlow);
 
 			// create link
-			startEventToBasicFlow.setTarget(basicFlow);
+			sequenceFlowToBasicFlow.setTarget(basicFlow);
 
 			// create link
 			sequenceFlowToBasicFlow.setSource(sequenceFlow);
@@ -588,7 +642,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToUseCase, "createdLinkElements");
+					processToActor, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -596,7 +650,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToActor, "createdLinkElements");
+					startEventToBasicFlow, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					processToUseCase, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -604,15 +662,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					process, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					sequenceFlow, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					sequenceFlowToBasicFlow, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					startEventToBasicFlow, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -620,11 +674,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actor, "createdElements");
+					sequenceFlowToBasicFlow, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					process, "translatedElements");
+					actor, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -903,68 +957,68 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and startEventToBasicFlow 
 			JavaSDM.ensure(!useCase.equals(startEventToBasicFlow));
 
-			// create object startEventToBasicFlow__source__startEvent
-			startEventToBasicFlow__source__startEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclaration__useCases__useCase
-			packageDeclaration__useCases__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_startEvent
-			__process_flowElements_startEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __sequenceFlow_sourceRef_startEvent
-			__sequenceFlow_sourceRef_startEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_sequenceFlow
-			__process_flowElements_sequenceFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object sequenceFlowToBasicFlow__source__sequenceFlow
-			sequenceFlowToBasicFlow__source__sequenceFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __startEvent_outgoing_sequenceFlow
-			__startEvent_outgoing_sequenceFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCase__flows__basicFlow
-			useCase__flows__basicFlow = TGGRuntimeFactory.eINSTANCE
+			// create object packageDeclaration__actors__actor
+			packageDeclaration__actors__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __definitions_rootElements_process
 			__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object packageDeclaration__actors__actor
-			packageDeclaration__actors__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object processToUseCase__source__process
-			processToUseCase__source__process = TGGRuntimeFactory.eINSTANCE
+			// create object processToActor__target__actor
+			processToActor__target__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object processToActor__source__process
 			processToActor__source__process = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object __startEvent_outgoing_sequenceFlow
+			__startEvent_outgoing_sequenceFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __process_flowElements_sequenceFlow
+			__process_flowElements_sequenceFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __process_flowElements_startEvent
+			__process_flowElements_startEvent = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object sequenceFlowToBasicFlow__source__sequenceFlow
+			sequenceFlowToBasicFlow__source__sequenceFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCase__flows__basicFlow
+			useCase__flows__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __sequenceFlow_sourceRef_startEvent
+			__sequenceFlow_sourceRef_startEvent = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object processToUseCase__target__useCase
+			processToUseCase__target__useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object processToUseCase__source__process
+			processToUseCase__source__process = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object startEventToBasicFlow__target__basicFlow
 			startEventToBasicFlow__target__basicFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object processToActor__target__actor
-			processToActor__target__actor = TGGRuntimeFactory.eINSTANCE
+			// create object startEventToBasicFlow__source__startEvent
+			startEventToBasicFlow__source__startEvent = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object sequenceFlowToBasicFlow__target__basicFlow
 			sequenceFlowToBasicFlow__target__basicFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object processToUseCase__target__useCase
-			processToUseCase__target__useCase = TGGRuntimeFactory.eINSTANCE
+			// create object packageDeclaration__useCases__useCase
+			packageDeclaration__useCases__useCase = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1004,23 +1058,31 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					startEventToBasicFlow__source__startEvent, "createdEdges");
+					packageDeclaration__actors__actor, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration__useCases__useCase, "createdEdges");
+					__definitions_rootElements_process, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_startEvent, "translatedEdges");
+					processToActor__target__actor, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__sequenceFlow_sourceRef_startEvent, "translatedEdges");
+					processToActor__source__process, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__startEvent_outgoing_sequenceFlow, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__process_flowElements_sequenceFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__process_flowElements_startEvent, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1029,19 +1091,15 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__startEvent_outgoing_sequenceFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					useCase__flows__basicFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__definitions_rootElements_process, "translatedEdges");
+					__sequenceFlow_sourceRef_startEvent, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration__actors__actor, "createdEdges");
+					processToUseCase__target__useCase, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1049,15 +1107,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToActor__source__process, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					startEventToBasicFlow__target__basicFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToActor__target__actor, "createdEdges");
+					startEventToBasicFlow__source__startEvent, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1065,7 +1119,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToUseCase__target__useCase, "createdEdges");
+					packageDeclaration__useCases__useCase, "createdEdges");
 
 			// create link
 			__definitions_rootElements_process.setSrc(definitions);
@@ -1077,28 +1131,28 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			packageDeclaration__useCases__useCase.setSrc(packageDeclaration);
 
 			// create link
-			processToUseCase__source__process.setTrg(process);
+			__definitions_rootElements_process.setTrg(process);
 
 			// create link
 			processToActor__source__process.setTrg(process);
 
 			// create link
-			__definitions_rootElements_process.setTrg(process);
+			__process_flowElements_startEvent.setSrc(process);
 
 			// create link
-			__process_flowElements_startEvent.setSrc(process);
+			processToUseCase__source__process.setTrg(process);
 
 			// create link
 			__process_flowElements_sequenceFlow.setSrc(process);
 
 			// create link
-			useCase__flows__basicFlow.setSrc(useCase);
+			packageDeclaration__useCases__useCase.setTrg(useCase);
 
 			// create link
 			processToUseCase__target__useCase.setTrg(useCase);
 
 			// create link
-			packageDeclaration__useCases__useCase.setTrg(useCase);
+			useCase__flows__basicFlow.setSrc(useCase);
 
 			// create link
 			processToUseCase__target__useCase.setSrc(processToUseCase);
@@ -1107,16 +1161,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			processToUseCase__source__process.setSrc(processToUseCase);
 
 			// create link
-			__process_flowElements_startEvent.setTrg(startEvent);
+			__startEvent_outgoing_sequenceFlow.setSrc(startEvent);
 
 			// create link
 			__sequenceFlow_sourceRef_startEvent.setTrg(startEvent);
 
 			// create link
-			__startEvent_outgoing_sequenceFlow.setSrc(startEvent);
+			__process_flowElements_startEvent.setTrg(startEvent);
 
 			// create link
 			startEventToBasicFlow__source__startEvent.setTrg(startEvent);
+
+			// create link
+			startEventToBasicFlow__target__basicFlow.setTrg(basicFlow);
 
 			// create link
 			useCase__flows__basicFlow.setTrg(basicFlow);
@@ -1125,24 +1182,21 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			sequenceFlowToBasicFlow__target__basicFlow.setTrg(basicFlow);
 
 			// create link
-			startEventToBasicFlow__target__basicFlow.setTrg(basicFlow);
+			startEventToBasicFlow__source__startEvent
+					.setSrc(startEventToBasicFlow);
 
 			// create link
 			startEventToBasicFlow__target__basicFlow
 					.setSrc(startEventToBasicFlow);
 
 			// create link
-			startEventToBasicFlow__source__startEvent
-					.setSrc(startEventToBasicFlow);
+			sequenceFlowToBasicFlow__source__sequenceFlow.setTrg(sequenceFlow);
 
 			// create link
 			__sequenceFlow_sourceRef_startEvent.setSrc(sequenceFlow);
 
 			// create link
 			__startEvent_outgoing_sequenceFlow.setTrg(sequenceFlow);
-
-			// create link
-			sequenceFlowToBasicFlow__source__sequenceFlow.setTrg(sequenceFlow);
 
 			// create link
 			__process_flowElements_sequenceFlow.setTrg(sequenceFlow);
@@ -1156,10 +1210,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					.setSrc(sequenceFlowToBasicFlow);
 
 			// create link
-			processToActor__target__actor.setTrg(actor);
+			packageDeclaration__actors__actor.setTrg(actor);
 
 			// create link
-			packageDeclaration__actors__actor.setTrg(actor);
+			processToActor__target__actor.setTrg(actor);
 
 			// create link
 			processToActor__target__actor.setSrc(processToActor);
@@ -1198,12 +1252,12 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Process process = null;
 		SequenceFlow sequenceFlow = null;
 		StartEvent startEvent = null;
-		EMoflonEdge __definitionsToPackageDeclaration_source_definitions = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __definitionsToPackageDeclaration_source_definitions = null;
 		EMoflonEdge __definitions_rootElements_process = null;
 		EMoflonEdge __definitionsToPackageDeclaration_target_packageDeclaration = null;
-		EMoflonEdge __process_flowElements_sequenceFlow = null;
 		EMoflonEdge __process_flowElements_startEvent = null;
+		EMoflonEdge __process_flowElements_sequenceFlow = null;
 		EMoflonEdge __sequenceFlow_sourceRef_startEvent = null;
 		EMoflonEdge __startEvent_outgoing_sequenceFlow = null;
 		CSP csp = null;
@@ -1332,6 +1386,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						// check link flowElements from startEvent to process
 						JavaSDM.ensure(process.equals(startEvent.eContainer()));
 
+						// check link outgoing from sequenceFlow to startEvent
+						JavaSDM.ensure(startEvent.equals(sequenceFlow
+								.getSourceRef()));
+
 						// check link rootElements from process to definitions
 						JavaSDM.ensure(definitions.equals(process.eContainer()));
 
@@ -1340,22 +1398,18 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								.equals(definitionsToPackageDeclaration
 										.getSource()));
 
-						// check link sourceRef from sequenceFlow to startEvent
-						JavaSDM.ensure(startEvent.equals(sequenceFlow
-								.getSourceRef()));
-
 						// check link target from definitionsToPackageDeclaration to packageDeclaration
 						JavaSDM.ensure(packageDeclaration
 								.equals(definitionsToPackageDeclaration
 										.getTarget()));
 
-						// create object __definitionsToPackageDeclaration_source_definitions
-						__definitionsToPackageDeclaration_source_definitions = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
 						// create object isApplicableMatch
 						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 								.createIsApplicableMatch();
+
+						// create object __definitionsToPackageDeclaration_source_definitions
+						__definitionsToPackageDeclaration_source_definitions = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
 
 						// create object __definitions_rootElements_process
 						__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
@@ -1365,12 +1419,12 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						__definitionsToPackageDeclaration_target_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
-						// create object __process_flowElements_sequenceFlow
-						__process_flowElements_sequenceFlow = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
 						// create object __process_flowElements_startEvent
 						__process_flowElements_startEvent = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
+
+						// create object __process_flowElements_sequenceFlow
+						__process_flowElements_sequenceFlow = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object __sequenceFlow_sourceRef_startEvent
@@ -1403,25 +1457,29 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						__startEvent_outgoing_sequenceFlow.setName("outgoing");
 
 						// create link
-						__definitionsToPackageDeclaration_source_definitions
-								.setTrg(definitions);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								definitions);
 
 						// create link
-						__definitions_rootElements_process.setSrc(definitions);
+						__definitionsToPackageDeclaration_source_definitions
+								.setTrg(definitions);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
+						__definitions_rootElements_process.setSrc(definitions);
 
 						// create link
 						__definitionsToPackageDeclaration_target_packageDeclaration
 								.setTrg(packageDeclaration);
 
 						// create link
+						isApplicableMatch.getAllContextElements().add(
+								packageDeclaration);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(
+								definitionsToPackageDeclaration);
+
+						// create link
 						__definitionsToPackageDeclaration_target_packageDeclaration
 								.setSrc(definitionsToPackageDeclaration);
 
@@ -1430,23 +1488,20 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								.setSrc(definitionsToPackageDeclaration);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								definitionsToPackageDeclaration);
-
-						// create link
-						__process_flowElements_sequenceFlow.setSrc(process);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(process);
+						__process_flowElements_startEvent.setSrc(process);
 
 						// create link
 						__definitions_rootElements_process.setTrg(process);
 
 						// create link
-						__process_flowElements_startEvent.setSrc(process);
+						isApplicableMatch.getAllContextElements().add(process);
 
 						// create link
-						__process_flowElements_startEvent.setTrg(startEvent);
+						__process_flowElements_sequenceFlow.setSrc(process);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(
+								startEvent);
 
 						// create link
 						__sequenceFlow_sourceRef_startEvent.setTrg(startEvent);
@@ -1455,15 +1510,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						__startEvent_outgoing_sequenceFlow.setSrc(startEvent);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								startEvent);
-
-						// create link
-						__process_flowElements_sequenceFlow
-								.setTrg(sequenceFlow);
-
-						// create link
-						__startEvent_outgoing_sequenceFlow.setTrg(sequenceFlow);
+						__process_flowElements_startEvent.setTrg(startEvent);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(
@@ -1474,10 +1521,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								.setSrc(sequenceFlow);
 
 						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__definitions_rootElements_process,
-								"allContextElements");
+						__startEvent_outgoing_sequenceFlow.setTrg(sequenceFlow);
+
+						// create link
+						__process_flowElements_sequenceFlow
+								.setTrg(sequenceFlow);
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil
@@ -1485,18 +1533,6 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 										isApplicableMatch,
 										__definitionsToPackageDeclaration_target_packageDeclaration,
 										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__startEvent_outgoing_sequenceFlow,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__sequenceFlow_sourceRef_startEvent,
-								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil
@@ -1508,6 +1544,18 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
+								__startEvent_outgoing_sequenceFlow,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__definitions_rootElements_process,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
 								__process_flowElements_sequenceFlow,
 								"allContextElements");
 
@@ -1515,6 +1563,12 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
 								__process_flowElements_startEvent,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__sequenceFlow_sourceRef_startEvent,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -1781,9 +1835,9 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __useCase_flows_basicFlow = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
 
 		// story node 'initial bindings'
 		try {
@@ -1836,16 +1890,16 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(packageDeclaration != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
+				// create object __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __packageDeclaration_useCases_useCase
 				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __useCase_flows_basicFlow
 				__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __packageDeclaration_actors_actor
-				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __packageDeclaration_useCases_useCase
@@ -1857,12 +1911,17 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__packageDeclaration_useCases_useCase,
+						useCase, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_actors_actor,
 						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "toBeTranslatedNodes");
+						__packageDeclaration_useCases_useCase,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1877,22 +1936,17 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						actor, "toBeTranslatedNodes");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__packageDeclaration_actors_actor,
-						"toBeTranslatedEdges");
+				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
 
 				// create link
 				__packageDeclaration_useCases_useCase
 						.setSrc(packageDeclaration);
 
 				// create link
-				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 				// create link
 				__useCase_flows_basicFlow.setSrc(useCase);
-
-				// create link
-				__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 				// create link
 				__useCase_flows_basicFlow.setTrg(basicFlow);
@@ -1958,27 +2012,27 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Process process = null;
 		StartEvent startEvent = null;
 		SequenceFlow sequenceFlow = null;
-		ProcessToActor processToActor = null;
 		ProcessToUseCase processToUseCase = null;
+		ProcessToActor processToActor = null;
 		StartEventToBasicFlow startEventToBasicFlow = null;
 		SequenceFlowToUCFlow sequenceFlowToBasicFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
+		EMoflonEdge processToUseCase__source__process = null;
+		EMoflonEdge definitions__rootElements__process = null;
+		EMoflonEdge processToUseCase__target__useCase = null;
+		EMoflonEdge process__flowElements__sequenceFlow = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge sequenceFlowToBasicFlow__target__basicFlow = null;
+		EMoflonEdge __useCase_flows_basicFlow = null;
+		EMoflonEdge process__flowElements__startEvent = null;
+		EMoflonEdge startEventToBasicFlow__target__basicFlow = null;
+		EMoflonEdge sequenceFlow__sourceRef__startEvent = null;
+		EMoflonEdge processToActor__target__actor = null;
+		EMoflonEdge sequenceFlowToBasicFlow__source__sequenceFlow = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge startEventToBasicFlow__source__startEvent = null;
 		EMoflonEdge processToActor__source__process = null;
 		EMoflonEdge startEvent__outgoing__sequenceFlow = null;
-		EMoflonEdge startEventToBasicFlow__target__basicFlow = null;
-		EMoflonEdge sequenceFlowToBasicFlow__source__sequenceFlow = null;
-		EMoflonEdge processToUseCase__target__useCase = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
-		EMoflonEdge process__flowElements__sequenceFlow = null;
-		EMoflonEdge definitions__rootElements__process = null;
-		EMoflonEdge process__flowElements__startEvent = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
-		EMoflonEdge processToActor__target__actor = null;
-		EMoflonEdge startEventToBasicFlow__source__startEvent = null;
-		EMoflonEdge processToUseCase__source__process = null;
-		EMoflonEdge sequenceFlow__sourceRef__startEvent = null;
 
 		// story node 'perform transformation'
 		try {
@@ -2050,13 +2104,13 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			// create object sequenceFlow
 			sequenceFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
 
-			// create object processToActor
-			processToActor = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createProcessToActor();
-
 			// create object processToUseCase
 			processToUseCase = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createProcessToUseCase();
+
+			// create object processToActor
+			processToActor = BpmnToUseCaseIntegrationFactory.eINSTANCE
+					.createProcessToActor();
 
 			// create object startEventToBasicFlow
 			startEventToBasicFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
@@ -2098,10 +2152,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			process.getFlowElements().add(sequenceFlow); // add link
 
 			// create link
-			processToActor.setSource(process);
+			processToUseCase.setSource(process);
 
 			// create link
-			processToUseCase.setSource(process);
+			processToActor.setSource(process);
 
 			// create link
 			processToUseCase.setTarget(useCase);
@@ -2146,19 +2200,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					processToActor, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					sequenceFlowToBasicFlow, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					startEvent, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					startEventToBasicFlow, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToUseCase, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlow, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2170,19 +2224,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlow, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					useCase, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					sequenceFlowToBasicFlow, "createdLinkElements");
+					processToUseCase, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					process, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToActor, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -2461,12 +2515,60 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and startEventToBasicFlow 
 			JavaSDM.ensure(!useCase.equals(startEventToBasicFlow));
 
-			// create object __useCase_flows_basicFlow
-			__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
+			// create object processToUseCase__source__process
+			processToUseCase__source__process = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object definitions__rootElements__process
+			definitions__rootElements__process = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object processToUseCase__target__useCase
+			processToUseCase__target__useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object process__flowElements__sequenceFlow
+			process__flowElements__sequenceFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __packageDeclaration_useCases_useCase
+			__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object sequenceFlowToBasicFlow__target__basicFlow
 			sequenceFlowToBasicFlow__target__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __useCase_flows_basicFlow
+			__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object process__flowElements__startEvent
+			process__flowElements__startEvent = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object startEventToBasicFlow__target__basicFlow
+			startEventToBasicFlow__target__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object sequenceFlow__sourceRef__startEvent
+			sequenceFlow__sourceRef__startEvent = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object processToActor__target__actor
+			processToActor__target__actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object sequenceFlowToBasicFlow__source__sequenceFlow
+			sequenceFlowToBasicFlow__source__sequenceFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __packageDeclaration_actors_actor
+			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object startEventToBasicFlow__source__startEvent
+			startEventToBasicFlow__source__startEvent = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object processToActor__source__process
@@ -2475,54 +2577,6 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create object startEvent__outgoing__sequenceFlow
 			startEvent__outgoing__sequenceFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object startEventToBasicFlow__target__basicFlow
-			startEventToBasicFlow__target__basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object sequenceFlowToBasicFlow__source__sequenceFlow
-			sequenceFlowToBasicFlow__source__sequenceFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object processToUseCase__target__useCase
-			processToUseCase__target__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __packageDeclaration_actors_actor
-			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object process__flowElements__sequenceFlow
-			process__flowElements__sequenceFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object definitions__rootElements__process
-			definitions__rootElements__process = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object process__flowElements__startEvent
-			process__flowElements__startEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __packageDeclaration_useCases_useCase
-			__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object processToActor__target__actor
-			processToActor__target__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object startEventToBasicFlow__source__startEvent
-			startEventToBasicFlow__source__startEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object processToUseCase__source__process
-			processToUseCase__source__process = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object sequenceFlow__sourceRef__startEvent
-			sequenceFlow__sourceRef__startEvent = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -2562,11 +2616,60 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCase_flows_basicFlow, "translatedEdges");
+					processToUseCase__source__process, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					definitions__rootElements__process, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					processToUseCase__target__useCase, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					process__flowElements__sequenceFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__packageDeclaration_useCases_useCase, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					sequenceFlowToBasicFlow__target__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__useCase_flows_basicFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					process__flowElements__startEvent, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					startEventToBasicFlow__target__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					sequenceFlow__sourceRef__startEvent, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					processToActor__target__actor, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					sequenceFlowToBasicFlow__source__sequenceFlow,
+					"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__packageDeclaration_actors_actor, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					startEventToBasicFlow__source__startEvent, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2577,62 +2680,16 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					startEvent__outgoing__sequenceFlow, "createdEdges");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					startEventToBasicFlow__target__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					sequenceFlowToBasicFlow__source__sequenceFlow,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToUseCase__target__useCase, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__packageDeclaration_actors_actor, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					process__flowElements__sequenceFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitions__rootElements__process, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					process__flowElements__startEvent, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__packageDeclaration_useCases_useCase, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToActor__target__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					startEventToBasicFlow__source__startEvent, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					processToUseCase__source__process, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					sequenceFlow__sourceRef__startEvent, "createdEdges");
-
-			// create link
 			definitions__rootElements__process.setSrc(definitions);
+
+			// create link
+			__packageDeclaration_actors_actor.setSrc(packageDeclaration);
 
 			// create link
 			__packageDeclaration_useCases_useCase.setSrc(packageDeclaration);
 
 			// create link
-			__packageDeclaration_actors_actor.setSrc(packageDeclaration);
+			processToActor__source__process.setTrg(process);
 
 			// create link
 			definitions__rootElements__process.setTrg(process);
@@ -2647,7 +2704,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			process__flowElements__sequenceFlow.setSrc(process);
 
 			// create link
-			processToActor__source__process.setTrg(process);
+			__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 			// create link
 			processToUseCase__target__useCase.setTrg(useCase);
@@ -2656,16 +2713,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			__useCase_flows_basicFlow.setSrc(useCase);
 
 			// create link
-			__packageDeclaration_useCases_useCase.setTrg(useCase);
-
-			// create link
-			processToUseCase__target__useCase.setSrc(processToUseCase);
-
-			// create link
 			processToUseCase__source__process.setSrc(processToUseCase);
 
 			// create link
-			process__flowElements__startEvent.setTrg(startEvent);
+			processToUseCase__target__useCase.setSrc(processToUseCase);
 
 			// create link
 			startEvent__outgoing__sequenceFlow.setSrc(startEvent);
@@ -2674,16 +2725,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			sequenceFlow__sourceRef__startEvent.setTrg(startEvent);
 
 			// create link
-			startEventToBasicFlow__source__startEvent.setTrg(startEvent);
+			process__flowElements__startEvent.setTrg(startEvent);
 
 			// create link
-			sequenceFlowToBasicFlow__target__basicFlow.setTrg(basicFlow);
+			startEventToBasicFlow__source__startEvent.setTrg(startEvent);
 
 			// create link
 			__useCase_flows_basicFlow.setTrg(basicFlow);
 
 			// create link
 			startEventToBasicFlow__target__basicFlow.setTrg(basicFlow);
+
+			// create link
+			sequenceFlowToBasicFlow__target__basicFlow.setTrg(basicFlow);
 
 			// create link
 			startEventToBasicFlow__target__basicFlow
@@ -2694,7 +2748,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					.setSrc(startEventToBasicFlow);
 
 			// create link
-			startEvent__outgoing__sequenceFlow.setTrg(sequenceFlow);
+			sequenceFlow__sourceRef__startEvent.setSrc(sequenceFlow);
 
 			// create link
 			process__flowElements__sequenceFlow.setTrg(sequenceFlow);
@@ -2703,14 +2757,14 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			sequenceFlowToBasicFlow__source__sequenceFlow.setTrg(sequenceFlow);
 
 			// create link
-			sequenceFlow__sourceRef__startEvent.setSrc(sequenceFlow);
-
-			// create link
-			sequenceFlowToBasicFlow__source__sequenceFlow
-					.setSrc(sequenceFlowToBasicFlow);
+			startEvent__outgoing__sequenceFlow.setTrg(sequenceFlow);
 
 			// create link
 			sequenceFlowToBasicFlow__target__basicFlow
+					.setSrc(sequenceFlowToBasicFlow);
+
+			// create link
+			sequenceFlowToBasicFlow__source__sequenceFlow
 					.setSrc(sequenceFlowToBasicFlow);
 
 			// create link
@@ -2720,10 +2774,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			__packageDeclaration_actors_actor.setTrg(actor);
 
 			// create link
-			processToActor__target__actor.setSrc(processToActor);
+			processToActor__source__process.setSrc(processToActor);
 
 			// create link
-			processToActor__source__process.setSrc(processToActor);
+			processToActor__target__actor.setSrc(processToActor);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -2950,12 +3004,12 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								.setTrg(definitions);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
-
-						// create link
 						__definitionsToPackageDeclaration_target_packageDeclaration
 								.setTrg(packageDeclaration);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(
+								packageDeclaration);
 
 						// create link
 						__packageDeclaration_actors_actor
@@ -2978,20 +3032,20 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								definitionsToPackageDeclaration);
 
 						// create link
+						__useCase_flows_basicFlow.setSrc(useCase);
+
+						// create link
 						__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(useCase);
 
 						// create link
-						__useCase_flows_basicFlow.setSrc(useCase);
+						isApplicableMatch.getAllContextElements()
+								.add(basicFlow);
 
 						// create link
 						__useCase_flows_basicFlow.setTrg(basicFlow);
-
-						// create link
-						isApplicableMatch.getAllContextElements()
-								.add(basicFlow);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(actor);
@@ -3000,11 +3054,9 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						__packageDeclaration_actors_actor.setTrg(actor);
 
 						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__definitionsToPackageDeclaration_target_packageDeclaration,
-										"allContextElements");
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __useCase_flows_basicFlow,
+								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil
@@ -3020,14 +3072,16 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								"allContextElements");
 
 						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__packageDeclaration_actors_actor,
-								"allContextElements");
+						org.moflon.util.eMoflonEMFUtil
+								.addOppositeReference(
+										isApplicableMatch,
+										__definitionsToPackageDeclaration_target_packageDeclaration,
+										"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __useCase_flows_basicFlow,
+								isApplicableMatch,
+								__packageDeclaration_actors_actor,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -3296,7 +3350,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_437(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_110(
 			EMoflonEdge _edge_rootElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3304,11 +3358,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_sequenceFlow_flowElements_84346 = null;
-		FlowElementsContainer __DEC_startEvent_flowElements_244070 = null;
-		Definitions __DEC_process_rootElements_374879 = null;
-		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_75597 = null;
-		SequenceFlow __DEC_startEvent_targetRef_75597 = null;
+		FlowElementsContainer __DEC_sequenceFlow_flowElements_899487 = null;
+		FlowElementsContainer __DEC_startEvent_flowElements_442202 = null;
+		Definitions __DEC_process_rootElements_614882 = null;
+		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_205381 = null;
+		SequenceFlow __DEC_startEvent_targetRef_205381 = null;
 		Match match = null;
 		Iterator fujaba__IterProcessToStartEvent = null;
 		StartEvent startEvent = null;
@@ -3407,7 +3461,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							// ensure correct type and really bound of object startEvent
 							JavaSDM.ensure(_TmpObject instanceof StartEvent);
 							startEvent = (StartEvent) _TmpObject;
-							// check link sourceRef from sequenceFlow to startEvent
+							// check link outgoing from sequenceFlow to startEvent
 							JavaSDM.ensure(startEvent.equals(sequenceFlow
 									.getSourceRef()));
 
@@ -3420,20 +3474,20 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_sequenceFlow_flowElements_84346 = sequenceFlow
+									__DEC_sequenceFlow_flowElements_899487 = sequenceFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) sequenceFlow
 											.eContainer() : null;
 
-									// check object __DEC_sequenceFlow_flowElements_84346 is really bound
-									JavaSDM.ensure(__DEC_sequenceFlow_flowElements_84346 != null);
+									// check object __DEC_sequenceFlow_flowElements_899487 is really bound
+									JavaSDM.ensure(__DEC_sequenceFlow_flowElements_899487 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_sequenceFlow_flowElements_84346
+									JavaSDM.ensure(__DEC_sequenceFlow_flowElements_899487
 											.getFlowElements().contains(
 													sequenceFlow));
 
-									// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_84346 and process 
-									JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_84346
+									// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_899487 and process 
+									JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_899487
 											.equals(process));
 
 									fujaba__Success = true;
@@ -3450,20 +3504,20 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_startEvent_flowElements_244070 = startEvent
+									__DEC_startEvent_flowElements_442202 = startEvent
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) startEvent
 											.eContainer() : null;
 
-									// check object __DEC_startEvent_flowElements_244070 is really bound
-									JavaSDM.ensure(__DEC_startEvent_flowElements_244070 != null);
+									// check object __DEC_startEvent_flowElements_442202 is really bound
+									JavaSDM.ensure(__DEC_startEvent_flowElements_442202 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_startEvent_flowElements_244070
+									JavaSDM.ensure(__DEC_startEvent_flowElements_442202
 											.getFlowElements().contains(
 													startEvent));
 
-									// check isomorphic binding between objects __DEC_startEvent_flowElements_244070 and process 
-									JavaSDM.ensure(!__DEC_startEvent_flowElements_244070
+									// check isomorphic binding between objects __DEC_startEvent_flowElements_442202 and process 
+									JavaSDM.ensure(!__DEC_startEvent_flowElements_442202
 											.equals(process));
 
 									fujaba__Success = true;
@@ -3480,20 +3534,20 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_process_rootElements_374879 = process
+									__DEC_process_rootElements_614882 = process
 											.eContainer() instanceof Definitions ? (Definitions) process
 											.eContainer() : null;
 
-									// check object __DEC_process_rootElements_374879 is really bound
-									JavaSDM.ensure(__DEC_process_rootElements_374879 != null);
+									// check object __DEC_process_rootElements_614882 is really bound
+									JavaSDM.ensure(__DEC_process_rootElements_614882 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_process_rootElements_374879
+									JavaSDM.ensure(__DEC_process_rootElements_614882
 											.getRootElements()
 											.contains(process));
 
-									// check isomorphic binding between objects __DEC_process_rootElements_374879 and definitions 
-									JavaSDM.ensure(!__DEC_process_rootElements_374879
+									// check isomorphic binding between objects __DEC_process_rootElements_614882 and definitions 
+									JavaSDM.ensure(!__DEC_process_rootElements_614882
 											.equals(definitions));
 
 									fujaba__Success = true;
@@ -3519,24 +3573,24 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link targetRef from startEvent to __DEC_startEvent_targetRef_75597
+									// iterate to-many link incoming from startEvent to __DEC_startEvent_targetRef_205381
 									fujaba__Success = false;
 
-									fujaba__IterStartEventTo__DEC_startEvent_targetRef_75597 = new ArrayList(
+									fujaba__IterStartEventTo__DEC_startEvent_targetRef_205381 = new ArrayList(
 											startEvent.getIncoming())
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_75597
+											&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_205381
 													.hasNext()) {
 										try {
-											__DEC_startEvent_targetRef_75597 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_75597
+											__DEC_startEvent_targetRef_205381 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_205381
 													.next();
 
-											// check object __DEC_startEvent_targetRef_75597 is really bound
-											JavaSDM.ensure(__DEC_startEvent_targetRef_75597 != null);
-											// check isomorphic binding between objects __DEC_startEvent_targetRef_75597 and sequenceFlow 
-											JavaSDM.ensure(!__DEC_startEvent_targetRef_75597
+											// check object __DEC_startEvent_targetRef_205381 is really bound
+											JavaSDM.ensure(__DEC_startEvent_targetRef_205381 != null);
+											// check isomorphic binding between objects __DEC_startEvent_targetRef_205381 and sequenceFlow 
+											JavaSDM.ensure(!__DEC_startEvent_targetRef_205381
 													.equals(sequenceFlow));
 
 											fujaba__Success = true;
@@ -3573,21 +3627,21 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(process.equals(startEvent
 										.eContainer()));
 
+								// check link incoming from sequenceFlow to startEvent
+								JavaSDM.ensure(!(startEvent.equals(sequenceFlow
+										.getTargetRef())));
+
+								// check link outgoing from sequenceFlow to startEvent
+								JavaSDM.ensure(startEvent.equals(sequenceFlow
+										.getSourceRef()));
+
 								// check link rootElements from process to definitions
 								JavaSDM.ensure(definitions.equals(process
 										.eContainer()));
 
-								// check link sourceRef from sequenceFlow to startEvent
-								JavaSDM.ensure(startEvent.equals(sequenceFlow
-										.getSourceRef()));
-
 								// check link src from _edge_rootElements to definitions
 								JavaSDM.ensure(definitions
 										.equals(_edge_rootElements.getSrc()));
-
-								// check link targetRef from sequenceFlow to startEvent
-								JavaSDM.ensure(!(startEvent.equals(sequenceFlow
-										.getTargetRef())));
 
 								// check link trg from _edge_rootElements to process
 								JavaSDM.ensure(process
@@ -3673,7 +3727,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_185(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_47(
 			EMoflonEdge _edge_useCases) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3681,9 +3735,9 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_955818 = null;
-		UseCase __DEC_basicFlow_flows_779240 = null;
-		PackageDeclaration __DEC_useCase_useCases_995951 = null;
+		PackageDeclaration __DEC_actor_actors_581645 = null;
+		UseCase __DEC_basicFlow_flows_166808 = null;
+		PackageDeclaration __DEC_useCase_useCases_451656 = null;
 		Match match = null;
 		Iterator fujaba__IterUseCaseToBasicFlow = null;
 		BasicFlow basicFlow = null;
@@ -3791,19 +3845,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_actor_actors_955818 = actor
+									__DEC_actor_actors_581645 = actor
 											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
 											.eContainer() : null;
 
-									// check object __DEC_actor_actors_955818 is really bound
-									JavaSDM.ensure(__DEC_actor_actors_955818 != null);
+									// check object __DEC_actor_actors_581645 is really bound
+									JavaSDM.ensure(__DEC_actor_actors_581645 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_actor_actors_955818
+									JavaSDM.ensure(__DEC_actor_actors_581645
 											.getActors().contains(actor));
 
-									// check isomorphic binding between objects __DEC_actor_actors_955818 and packageDeclaration 
-									JavaSDM.ensure(!__DEC_actor_actors_955818
+									// check isomorphic binding between objects __DEC_actor_actors_581645 and packageDeclaration 
+									JavaSDM.ensure(!__DEC_actor_actors_581645
 											.equals(packageDeclaration));
 
 									fujaba__Success = true;
@@ -3820,19 +3874,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_basicFlow_flows_779240 = basicFlow
+									__DEC_basicFlow_flows_166808 = basicFlow
 											.eContainer() instanceof UseCase ? (UseCase) basicFlow
 											.eContainer() : null;
 
-									// check object __DEC_basicFlow_flows_779240 is really bound
-									JavaSDM.ensure(__DEC_basicFlow_flows_779240 != null);
+									// check object __DEC_basicFlow_flows_166808 is really bound
+									JavaSDM.ensure(__DEC_basicFlow_flows_166808 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_basicFlow_flows_779240
+									JavaSDM.ensure(__DEC_basicFlow_flows_166808
 											.getFlows().contains(basicFlow));
 
-									// check isomorphic binding between objects __DEC_basicFlow_flows_779240 and useCase 
-									JavaSDM.ensure(!__DEC_basicFlow_flows_779240
+									// check isomorphic binding between objects __DEC_basicFlow_flows_166808 and useCase 
+									JavaSDM.ensure(!__DEC_basicFlow_flows_166808
 											.equals(useCase));
 
 									fujaba__Success = true;
@@ -3849,19 +3903,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_useCase_useCases_995951 = useCase
+									__DEC_useCase_useCases_451656 = useCase
 											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 											.eContainer() : null;
 
-									// check object __DEC_useCase_useCases_995951 is really bound
-									JavaSDM.ensure(__DEC_useCase_useCases_995951 != null);
+									// check object __DEC_useCase_useCases_451656 is really bound
+									JavaSDM.ensure(__DEC_useCase_useCases_451656 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_useCase_useCases_995951
+									JavaSDM.ensure(__DEC_useCase_useCases_451656
 											.getUseCases().contains(useCase));
 
-									// check isomorphic binding between objects __DEC_useCase_useCases_995951 and packageDeclaration 
-									JavaSDM.ensure(!__DEC_useCase_useCases_995951
+									// check isomorphic binding between objects __DEC_useCase_useCases_451656 and packageDeclaration 
+									JavaSDM.ensure(!__DEC_useCase_useCases_451656
 											.equals(packageDeclaration));
 
 									fujaba__Success = true;
@@ -3983,7 +4037,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_186(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_48(
 			EMoflonEdge _edge_actors) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3991,9 +4045,9 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_610722 = null;
-		UseCase __DEC_basicFlow_flows_922920 = null;
-		PackageDeclaration __DEC_useCase_useCases_458376 = null;
+		PackageDeclaration __DEC_actor_actors_85471 = null;
+		UseCase __DEC_basicFlow_flows_573393 = null;
+		PackageDeclaration __DEC_useCase_useCases_668612 = null;
 		Match match = null;
 		Iterator fujaba__IterUseCaseToBasicFlow = null;
 		BasicFlow basicFlow = null;
@@ -4101,19 +4155,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_actor_actors_610722 = actor
+									__DEC_actor_actors_85471 = actor
 											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
 											.eContainer() : null;
 
-									// check object __DEC_actor_actors_610722 is really bound
-									JavaSDM.ensure(__DEC_actor_actors_610722 != null);
+									// check object __DEC_actor_actors_85471 is really bound
+									JavaSDM.ensure(__DEC_actor_actors_85471 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_actor_actors_610722
+									JavaSDM.ensure(__DEC_actor_actors_85471
 											.getActors().contains(actor));
 
-									// check isomorphic binding between objects __DEC_actor_actors_610722 and packageDeclaration 
-									JavaSDM.ensure(!__DEC_actor_actors_610722
+									// check isomorphic binding between objects __DEC_actor_actors_85471 and packageDeclaration 
+									JavaSDM.ensure(!__DEC_actor_actors_85471
 											.equals(packageDeclaration));
 
 									fujaba__Success = true;
@@ -4130,19 +4184,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_basicFlow_flows_922920 = basicFlow
+									__DEC_basicFlow_flows_573393 = basicFlow
 											.eContainer() instanceof UseCase ? (UseCase) basicFlow
 											.eContainer() : null;
 
-									// check object __DEC_basicFlow_flows_922920 is really bound
-									JavaSDM.ensure(__DEC_basicFlow_flows_922920 != null);
+									// check object __DEC_basicFlow_flows_573393 is really bound
+									JavaSDM.ensure(__DEC_basicFlow_flows_573393 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_basicFlow_flows_922920
+									JavaSDM.ensure(__DEC_basicFlow_flows_573393
 											.getFlows().contains(basicFlow));
 
-									// check isomorphic binding between objects __DEC_basicFlow_flows_922920 and useCase 
-									JavaSDM.ensure(!__DEC_basicFlow_flows_922920
+									// check isomorphic binding between objects __DEC_basicFlow_flows_573393 and useCase 
+									JavaSDM.ensure(!__DEC_basicFlow_flows_573393
 											.equals(useCase));
 
 									fujaba__Success = true;
@@ -4159,19 +4213,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_useCase_useCases_458376 = useCase
+									__DEC_useCase_useCases_668612 = useCase
 											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 											.eContainer() : null;
 
-									// check object __DEC_useCase_useCases_458376 is really bound
-									JavaSDM.ensure(__DEC_useCase_useCases_458376 != null);
+									// check object __DEC_useCase_useCases_668612 is really bound
+									JavaSDM.ensure(__DEC_useCase_useCases_668612 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_useCase_useCases_458376
+									JavaSDM.ensure(__DEC_useCase_useCases_668612
 											.getUseCases().contains(useCase));
 
-									// check isomorphic binding between objects __DEC_useCase_useCases_458376 and packageDeclaration 
-									JavaSDM.ensure(!__DEC_useCase_useCases_458376
+									// check isomorphic binding between objects __DEC_useCase_useCases_668612 and packageDeclaration 
+									JavaSDM.ensure(!__DEC_useCase_useCases_668612
 											.equals(packageDeclaration));
 
 									fujaba__Success = true;
@@ -4293,7 +4347,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_438(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_111(
 			EMoflonEdge _edge_flowElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4301,11 +4355,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_sequenceFlow_flowElements_351146 = null;
-		FlowElementsContainer __DEC_startEvent_flowElements_820056 = null;
-		Definitions __DEC_process_rootElements_369756 = null;
-		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_219127 = null;
-		SequenceFlow __DEC_startEvent_targetRef_219127 = null;
+		FlowElementsContainer __DEC_sequenceFlow_flowElements_4842 = null;
+		FlowElementsContainer __DEC_startEvent_flowElements_863443 = null;
+		Definitions __DEC_process_rootElements_421676 = null;
+		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_135842 = null;
+		SequenceFlow __DEC_startEvent_targetRef_135842 = null;
 		Match match = null;
 		Iterator fujaba__IterProcessToSequenceFlow = null;
 		SequenceFlow sequenceFlow = null;
@@ -4400,7 +4454,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					// ensure correct type and really bound of object sequenceFlow
 					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
 					sequenceFlow = (SequenceFlow) _TmpObject;
-					// check link sourceRef from sequenceFlow to startEvent
+					// check link outgoing from sequenceFlow to startEvent
 					JavaSDM.ensure(startEvent.equals(sequenceFlow
 							.getSourceRef()));
 
@@ -4413,19 +4467,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_sequenceFlow_flowElements_351146 = sequenceFlow
+							__DEC_sequenceFlow_flowElements_4842 = sequenceFlow
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) sequenceFlow
 									.eContainer() : null;
 
-							// check object __DEC_sequenceFlow_flowElements_351146 is really bound
-							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_351146 != null);
+							// check object __DEC_sequenceFlow_flowElements_4842 is really bound
+							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_4842 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_351146
+							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_4842
 									.getFlowElements().contains(sequenceFlow));
 
-							// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_351146 and process 
-							JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_351146
+							// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_4842 and process 
+							JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_4842
 									.equals(process));
 
 							fujaba__Success = true;
@@ -4442,19 +4496,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_startEvent_flowElements_820056 = startEvent
+							__DEC_startEvent_flowElements_863443 = startEvent
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) startEvent
 									.eContainer() : null;
 
-							// check object __DEC_startEvent_flowElements_820056 is really bound
-							JavaSDM.ensure(__DEC_startEvent_flowElements_820056 != null);
+							// check object __DEC_startEvent_flowElements_863443 is really bound
+							JavaSDM.ensure(__DEC_startEvent_flowElements_863443 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_startEvent_flowElements_820056
+							JavaSDM.ensure(__DEC_startEvent_flowElements_863443
 									.getFlowElements().contains(startEvent));
 
-							// check isomorphic binding between objects __DEC_startEvent_flowElements_820056 and process 
-							JavaSDM.ensure(!__DEC_startEvent_flowElements_820056
+							// check isomorphic binding between objects __DEC_startEvent_flowElements_863443 and process 
+							JavaSDM.ensure(!__DEC_startEvent_flowElements_863443
 									.equals(process));
 
 							fujaba__Success = true;
@@ -4471,19 +4525,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_process_rootElements_369756 = process
+							__DEC_process_rootElements_421676 = process
 									.eContainer() instanceof Definitions ? (Definitions) process
 									.eContainer() : null;
 
-							// check object __DEC_process_rootElements_369756 is really bound
-							JavaSDM.ensure(__DEC_process_rootElements_369756 != null);
+							// check object __DEC_process_rootElements_421676 is really bound
+							JavaSDM.ensure(__DEC_process_rootElements_421676 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_process_rootElements_369756
+							JavaSDM.ensure(__DEC_process_rootElements_421676
 									.getRootElements().contains(process));
 
-							// check isomorphic binding between objects __DEC_process_rootElements_369756 and definitions 
-							JavaSDM.ensure(!__DEC_process_rootElements_369756
+							// check isomorphic binding between objects __DEC_process_rootElements_421676 and definitions 
+							JavaSDM.ensure(!__DEC_process_rootElements_421676
 									.equals(definitions));
 
 							fujaba__Success = true;
@@ -4508,23 +4562,23 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from startEvent to __DEC_startEvent_targetRef_219127
+							// iterate to-many link incoming from startEvent to __DEC_startEvent_targetRef_135842
 							fujaba__Success = false;
 
-							fujaba__IterStartEventTo__DEC_startEvent_targetRef_219127 = new ArrayList(
+							fujaba__IterStartEventTo__DEC_startEvent_targetRef_135842 = new ArrayList(
 									startEvent.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_219127
+									&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_135842
 											.hasNext()) {
 								try {
-									__DEC_startEvent_targetRef_219127 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_219127
+									__DEC_startEvent_targetRef_135842 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_135842
 											.next();
 
-									// check object __DEC_startEvent_targetRef_219127 is really bound
-									JavaSDM.ensure(__DEC_startEvent_targetRef_219127 != null);
-									// check isomorphic binding between objects __DEC_startEvent_targetRef_219127 and sequenceFlow 
-									JavaSDM.ensure(!__DEC_startEvent_targetRef_219127
+									// check object __DEC_startEvent_targetRef_135842 is really bound
+									JavaSDM.ensure(__DEC_startEvent_targetRef_135842 != null);
+									// check isomorphic binding between objects __DEC_startEvent_targetRef_135842 and sequenceFlow 
+									JavaSDM.ensure(!__DEC_startEvent_targetRef_135842
 											.equals(sequenceFlow));
 
 									fujaba__Success = true;
@@ -4559,20 +4613,20 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						// check link flowElements from startEvent to process
 						JavaSDM.ensure(process.equals(startEvent.eContainer()));
 
-						// check link rootElements from process to definitions
-						JavaSDM.ensure(definitions.equals(process.eContainer()));
+						// check link incoming from sequenceFlow to startEvent
+						JavaSDM.ensure(!(startEvent.equals(sequenceFlow
+								.getTargetRef())));
 
-						// check link sourceRef from sequenceFlow to startEvent
+						// check link outgoing from sequenceFlow to startEvent
 						JavaSDM.ensure(startEvent.equals(sequenceFlow
 								.getSourceRef()));
+
+						// check link rootElements from process to definitions
+						JavaSDM.ensure(definitions.equals(process.eContainer()));
 
 						// check link src from _edge_flowElements to process
 						JavaSDM.ensure(process.equals(_edge_flowElements
 								.getSrc()));
-
-						// check link targetRef from sequenceFlow to startEvent
-						JavaSDM.ensure(!(startEvent.equals(sequenceFlow
-								.getTargetRef())));
 
 						// check link trg from _edge_flowElements to startEvent
 						JavaSDM.ensure(startEvent.equals(_edge_flowElements
@@ -4647,7 +4701,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_439(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_112(
 			EMoflonEdge _edge_flowElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4655,12 +4709,13 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_sequenceFlow_flowElements_111204 = null;
-		FlowElementsContainer __DEC_startEvent_flowElements_458669 = null;
-		Definitions __DEC_process_rootElements_110571 = null;
-		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_226890 = null;
-		SequenceFlow __DEC_startEvent_targetRef_226890 = null;
+		FlowElementsContainer __DEC_sequenceFlow_flowElements_771176 = null;
+		FlowElementsContainer __DEC_startEvent_flowElements_410199 = null;
+		Definitions __DEC_process_rootElements_82053 = null;
+		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_628098 = null;
+		SequenceFlow __DEC_startEvent_targetRef_628098 = null;
 		Match match = null;
+		Iterator fujaba__IterProcessToStartEvent = null;
 		StartEvent startEvent = null;
 		SequenceFlow sequenceFlow = null;
 		Definitions definitions = null;
@@ -4740,232 +4795,252 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			// check link flowElements from sequenceFlow to process
 			JavaSDM.ensure(process.equals(sequenceFlow.eContainer()));
 
-			// bind object
-			_TmpObject = sequenceFlow.getSourceRef();
+			// iterate to-many link flowElements from process to startEvent
+			fujaba__Success = false;
 
-			// ensure correct type and really bound of object startEvent
-			JavaSDM.ensure(_TmpObject instanceof StartEvent);
-			startEvent = (StartEvent) _TmpObject;
+			fujaba__IterProcessToStartEvent = new ArrayList(
+					process.getFlowElements()).iterator();
 
-			// check link flowElements from startEvent to process
-			JavaSDM.ensure(process.equals(startEvent.eContainer()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check negative bindings
+			while (fujaba__IterProcessToStartEvent.hasNext()) {
 				try {
-					fujaba__Success = false;
+					_TmpObject = fujaba__IterProcessToStartEvent.next();
 
-					// bind object
-					__DEC_sequenceFlow_flowElements_111204 = sequenceFlow
-							.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) sequenceFlow
-							.eContainer() : null;
+					// ensure correct type and really bound of object startEvent
+					JavaSDM.ensure(_TmpObject instanceof StartEvent);
+					startEvent = (StartEvent) _TmpObject;
+					// check link outgoing from sequenceFlow to startEvent
+					JavaSDM.ensure(startEvent.equals(sequenceFlow
+							.getSourceRef()));
 
-					// check object __DEC_sequenceFlow_flowElements_111204 is really bound
-					JavaSDM.ensure(__DEC_sequenceFlow_flowElements_111204 != null);
+					// story node 'test core match and DECs'
+					try {
+						fujaba__Success = false;
 
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_sequenceFlow_flowElements_111204
-							.getFlowElements().contains(sequenceFlow));
-
-					// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_111204 and process 
-					JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_111204
-							.equals(process));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_startEvent_flowElements_458669 = startEvent
-							.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) startEvent
-							.eContainer() : null;
-
-					// check object __DEC_startEvent_flowElements_458669 is really bound
-					JavaSDM.ensure(__DEC_startEvent_flowElements_458669 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_startEvent_flowElements_458669
-							.getFlowElements().contains(startEvent));
-
-					// check isomorphic binding between objects __DEC_startEvent_flowElements_458669 and process 
-					JavaSDM.ensure(!__DEC_startEvent_flowElements_458669
-							.equals(process));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_process_rootElements_110571 = process.eContainer() instanceof Definitions ? (Definitions) process
-							.eContainer() : null;
-
-					// check object __DEC_process_rootElements_110571 is really bound
-					JavaSDM.ensure(__DEC_process_rootElements_110571 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_process_rootElements_110571
-							.getRootElements().contains(process));
-
-					// check isomorphic binding between objects __DEC_process_rootElements_110571 and definitions 
-					JavaSDM.ensure(!__DEC_process_rootElements_110571
-							.equals(definitions));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// negative check for link default from sequenceFlow
-				JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(sequenceFlow,
-								ExclusiveGateway.class, "default").size() == 0);
-				// negative check for link flowNodeRefs from startEvent
-				JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(startEvent, Lane.class,
-								"flowNodeRefs").size() == 0);
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link targetRef from startEvent to __DEC_startEvent_targetRef_226890
-					fujaba__Success = false;
-
-					fujaba__IterStartEventTo__DEC_startEvent_targetRef_226890 = new ArrayList(
-							startEvent.getIncoming()).iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_226890
-									.hasNext()) {
-						try {
-							__DEC_startEvent_targetRef_226890 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_226890
-									.next();
-
-							// check object __DEC_startEvent_targetRef_226890 is really bound
-							JavaSDM.ensure(__DEC_startEvent_targetRef_226890 != null);
-							// check isomorphic binding between objects __DEC_startEvent_targetRef_226890 and sequenceFlow 
-							JavaSDM.ensure(!__DEC_startEvent_targetRef_226890
-									.equals(sequenceFlow));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_flowElements is really bound
-				JavaSDM.ensure(_edge_flowElements != null);
-				// check object definitions is really bound
-				JavaSDM.ensure(definitions != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check object sequenceFlow is really bound
-				JavaSDM.ensure(sequenceFlow != null);
-				// check object startEvent is really bound
-				JavaSDM.ensure(startEvent != null);
-				// check link flowElements from sequenceFlow to process
-				JavaSDM.ensure(process.equals(sequenceFlow.eContainer()));
-
-				// check link flowElements from startEvent to process
-				JavaSDM.ensure(process.equals(startEvent.eContainer()));
-
-				// check link rootElements from process to definitions
-				JavaSDM.ensure(definitions.equals(process.eContainer()));
-
-				// check link sourceRef from sequenceFlow to startEvent
-				JavaSDM.ensure(startEvent.equals(sequenceFlow.getSourceRef()));
-
-				// check link src from _edge_flowElements to process
-				JavaSDM.ensure(process.equals(_edge_flowElements.getSrc()));
-
-				// check link targetRef from sequenceFlow to startEvent
-				JavaSDM.ensure(!(startEvent.equals(sequenceFlow.getTargetRef())));
-
-				// check link trg from _edge_flowElements to sequenceFlow
-				JavaSDM.ensure(sequenceFlow.equals(_edge_flowElements.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, definitions,
-						process, startEvent, sequenceFlow);
-				if (fujaba__Success) {
-					// statement node ''
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
+						// check negative bindings
 						try {
 							fujaba__Success = false;
 
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
+							// bind object
+							__DEC_sequenceFlow_flowElements_771176 = sequenceFlow
+									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) sequenceFlow
+									.eContainer() : null;
 
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
+							// check object __DEC_sequenceFlow_flowElements_771176 is really bound
+							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_771176 != null);
 
-							// create link
-							__result.getContents().add(match);
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_771176
+									.getFlowElements().contains(sequenceFlow));
+
+							// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_771176 and process 
+							JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_771176
+									.equals(process));
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
 							fujaba__Success = false;
 						}
 
-					} else {
+						fujaba__Success = !(fujaba__Success);
 
+						JavaSDM.ensure(fujaba__Success);
+
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// bind object
+							__DEC_startEvent_flowElements_410199 = startEvent
+									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) startEvent
+									.eContainer() : null;
+
+							// check object __DEC_startEvent_flowElements_410199 is really bound
+							JavaSDM.ensure(__DEC_startEvent_flowElements_410199 != null);
+
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_startEvent_flowElements_410199
+									.getFlowElements().contains(startEvent));
+
+							// check isomorphic binding between objects __DEC_startEvent_flowElements_410199 and process 
+							JavaSDM.ensure(!__DEC_startEvent_flowElements_410199
+									.equals(process));
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// bind object
+							__DEC_process_rootElements_82053 = process
+									.eContainer() instanceof Definitions ? (Definitions) process
+									.eContainer() : null;
+
+							// check object __DEC_process_rootElements_82053 is really bound
+							JavaSDM.ensure(__DEC_process_rootElements_82053 != null);
+
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_process_rootElements_82053
+									.getRootElements().contains(process));
+
+							// check isomorphic binding between objects __DEC_process_rootElements_82053 and definitions 
+							JavaSDM.ensure(!__DEC_process_rootElements_82053
+									.equals(definitions));
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// negative check for link default from sequenceFlow
+						JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
+								.getOppositeReference(sequenceFlow,
+										ExclusiveGateway.class, "default")
+								.size() == 0);
+						// negative check for link flowNodeRefs from startEvent
+						JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
+								.getOppositeReference(startEvent, Lane.class,
+										"flowNodeRefs").size() == 0);
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// iterate to-many link incoming from startEvent to __DEC_startEvent_targetRef_628098
+							fujaba__Success = false;
+
+							fujaba__IterStartEventTo__DEC_startEvent_targetRef_628098 = new ArrayList(
+									startEvent.getIncoming()).iterator();
+
+							while (!(fujaba__Success)
+									&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_628098
+											.hasNext()) {
+								try {
+									__DEC_startEvent_targetRef_628098 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_628098
+											.next();
+
+									// check object __DEC_startEvent_targetRef_628098 is really bound
+									JavaSDM.ensure(__DEC_startEvent_targetRef_628098 != null);
+									// check isomorphic binding between objects __DEC_startEvent_targetRef_628098 and sequenceFlow 
+									JavaSDM.ensure(!__DEC_startEvent_targetRef_628098
+											.equals(sequenceFlow));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+							}
+							JavaSDM.ensure(fujaba__Success);
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// check object _edge_flowElements is really bound
+						JavaSDM.ensure(_edge_flowElements != null);
+						// check object definitions is really bound
+						JavaSDM.ensure(definitions != null);
+						// check object process is really bound
+						JavaSDM.ensure(process != null);
+						// check object sequenceFlow is really bound
+						JavaSDM.ensure(sequenceFlow != null);
+						// check object startEvent is really bound
+						JavaSDM.ensure(startEvent != null);
+						// check link flowElements from sequenceFlow to process
+						JavaSDM.ensure(process.equals(sequenceFlow.eContainer()));
+
+						// check link flowElements from startEvent to process
+						JavaSDM.ensure(process.equals(startEvent.eContainer()));
+
+						// check link incoming from sequenceFlow to startEvent
+						JavaSDM.ensure(!(startEvent.equals(sequenceFlow
+								.getTargetRef())));
+
+						// check link outgoing from sequenceFlow to startEvent
+						JavaSDM.ensure(startEvent.equals(sequenceFlow
+								.getSourceRef()));
+
+						// check link rootElements from process to definitions
+						JavaSDM.ensure(definitions.equals(process.eContainer()));
+
+						// check link src from _edge_flowElements to process
+						JavaSDM.ensure(process.equals(_edge_flowElements
+								.getSrc()));
+
+						// check link trg from _edge_flowElements to sequenceFlow
+						JavaSDM.ensure(sequenceFlow.equals(_edge_flowElements
+								.getTrg()));
+
+						// create object match
+						match = TGGRuntimeFactory.eINSTANCE.createMatch();
+
+						// assign attribute match
+						match.setRuleName(__eClass.getName());
+						// statement node 'bookkeeping with generic isAppropriate method'
+						fujaba__Success = this.isAppropriate_FWD(match,
+								definitions, process, startEvent, sequenceFlow);
+						if (fujaba__Success) {
+							// statement node ''
+							fujaba__Success = this.checkTypes_FWD(match);
+							if (fujaba__Success) {
+								// story node 'Add match to rule result'
+								try {
+									fujaba__Success = false;
+
+									// check object __performOperation is really bound
+									JavaSDM.ensure(__performOperation != null);
+									// check object __result is really bound
+									JavaSDM.ensure(__result != null);
+									// check object match is really bound
+									JavaSDM.ensure(match != null);
+
+									// create link
+									org.moflon.util.eMoflonEMFUtil
+											.addOppositeReference(match,
+													__performOperation,
+													"isApplicableOperation");
+
+									// create link
+									__result.getContents().add(match);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+							} else {
+
+							}
+
+						} else {
+
+						}
+						fujaba__Success = true;
+					} catch (JavaSDMException fujaba__InternalException) {
+						fujaba__Success = false;
 					}
 
-				} else {
-
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
 			}
+			JavaSDM.ensure(fujaba__Success);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -4980,7 +5055,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_187(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_49(
 			EMoflonEdge _edge_flows) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4988,9 +5063,9 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_345764 = null;
-		UseCase __DEC_basicFlow_flows_696848 = null;
-		PackageDeclaration __DEC_useCase_useCases_41468 = null;
+		PackageDeclaration __DEC_actor_actors_194601 = null;
+		UseCase __DEC_basicFlow_flows_679623 = null;
+		PackageDeclaration __DEC_useCase_useCases_438971 = null;
 		Match match = null;
 		Iterator fujaba__IterPackageDeclarationToActor = null;
 		Actor actor = null;
@@ -5094,18 +5169,18 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_actor_actors_345764 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+							__DEC_actor_actors_194601 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
 									.eContainer() : null;
 
-							// check object __DEC_actor_actors_345764 is really bound
-							JavaSDM.ensure(__DEC_actor_actors_345764 != null);
+							// check object __DEC_actor_actors_194601 is really bound
+							JavaSDM.ensure(__DEC_actor_actors_194601 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_actor_actors_345764
+							JavaSDM.ensure(__DEC_actor_actors_194601
 									.getActors().contains(actor));
 
-							// check isomorphic binding between objects __DEC_actor_actors_345764 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_actor_actors_345764
+							// check isomorphic binding between objects __DEC_actor_actors_194601 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_actor_actors_194601
 									.equals(packageDeclaration));
 
 							fujaba__Success = true;
@@ -5122,19 +5197,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_basicFlow_flows_696848 = basicFlow
+							__DEC_basicFlow_flows_679623 = basicFlow
 									.eContainer() instanceof UseCase ? (UseCase) basicFlow
 									.eContainer() : null;
 
-							// check object __DEC_basicFlow_flows_696848 is really bound
-							JavaSDM.ensure(__DEC_basicFlow_flows_696848 != null);
+							// check object __DEC_basicFlow_flows_679623 is really bound
+							JavaSDM.ensure(__DEC_basicFlow_flows_679623 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_basicFlow_flows_696848
+							JavaSDM.ensure(__DEC_basicFlow_flows_679623
 									.getFlows().contains(basicFlow));
 
-							// check isomorphic binding between objects __DEC_basicFlow_flows_696848 and useCase 
-							JavaSDM.ensure(!__DEC_basicFlow_flows_696848
+							// check isomorphic binding between objects __DEC_basicFlow_flows_679623 and useCase 
+							JavaSDM.ensure(!__DEC_basicFlow_flows_679623
 									.equals(useCase));
 
 							fujaba__Success = true;
@@ -5151,18 +5226,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_useCase_useCases_41468 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+							__DEC_useCase_useCases_438971 = useCase
+									.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 									.eContainer() : null;
 
-							// check object __DEC_useCase_useCases_41468 is really bound
-							JavaSDM.ensure(__DEC_useCase_useCases_41468 != null);
+							// check object __DEC_useCase_useCases_438971 is really bound
+							JavaSDM.ensure(__DEC_useCase_useCases_438971 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_useCase_useCases_41468
+							JavaSDM.ensure(__DEC_useCase_useCases_438971
 									.getUseCases().contains(useCase));
 
-							// check isomorphic binding between objects __DEC_useCase_useCases_41468 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_useCase_useCases_41468
+							// check isomorphic binding between objects __DEC_useCase_useCases_438971 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_useCase_useCases_438971
 									.equals(packageDeclaration));
 
 							fujaba__Success = true;
@@ -5270,7 +5346,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_440(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_113(
 			EMoflonEdge _edge_sourceRef) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5278,11 +5354,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_sequenceFlow_flowElements_193432 = null;
-		FlowElementsContainer __DEC_startEvent_flowElements_760628 = null;
-		Definitions __DEC_process_rootElements_905270 = null;
-		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_665284 = null;
-		SequenceFlow __DEC_startEvent_targetRef_665284 = null;
+		FlowElementsContainer __DEC_sequenceFlow_flowElements_595781 = null;
+		FlowElementsContainer __DEC_startEvent_flowElements_185370 = null;
+		Definitions __DEC_process_rootElements_862093 = null;
+		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_574062 = null;
+		SequenceFlow __DEC_startEvent_targetRef_574062 = null;
 		Match match = null;
 		Definitions definitions = null;
 		Process process = null;
@@ -5364,6 +5440,9 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			// check link flowElements from sequenceFlow to process
 			JavaSDM.ensure(process.equals(sequenceFlow.eContainer()));
 
+			// check link outgoing from sequenceFlow to startEvent
+			JavaSDM.ensure(startEvent.equals(sequenceFlow.getSourceRef()));
+
 			// bind object
 			definitions = process.eContainer() instanceof Definitions ? (Definitions) process
 					.eContainer() : null;
@@ -5374,9 +5453,6 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			// check if contained via correct reference
 			JavaSDM.ensure(definitions.getRootElements().contains(process));
 
-			// check link sourceRef from sequenceFlow to startEvent
-			JavaSDM.ensure(startEvent.equals(sequenceFlow.getSourceRef()));
-
 			// story node 'test core match and DECs'
 			try {
 				fujaba__Success = false;
@@ -5386,19 +5462,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_sequenceFlow_flowElements_193432 = sequenceFlow
+					__DEC_sequenceFlow_flowElements_595781 = sequenceFlow
 							.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) sequenceFlow
 							.eContainer() : null;
 
-					// check object __DEC_sequenceFlow_flowElements_193432 is really bound
-					JavaSDM.ensure(__DEC_sequenceFlow_flowElements_193432 != null);
+					// check object __DEC_sequenceFlow_flowElements_595781 is really bound
+					JavaSDM.ensure(__DEC_sequenceFlow_flowElements_595781 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_sequenceFlow_flowElements_193432
+					JavaSDM.ensure(__DEC_sequenceFlow_flowElements_595781
 							.getFlowElements().contains(sequenceFlow));
 
-					// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_193432 and process 
-					JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_193432
+					// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_595781 and process 
+					JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_595781
 							.equals(process));
 
 					fujaba__Success = true;
@@ -5415,19 +5491,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_startEvent_flowElements_760628 = startEvent
+					__DEC_startEvent_flowElements_185370 = startEvent
 							.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) startEvent
 							.eContainer() : null;
 
-					// check object __DEC_startEvent_flowElements_760628 is really bound
-					JavaSDM.ensure(__DEC_startEvent_flowElements_760628 != null);
+					// check object __DEC_startEvent_flowElements_185370 is really bound
+					JavaSDM.ensure(__DEC_startEvent_flowElements_185370 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_startEvent_flowElements_760628
+					JavaSDM.ensure(__DEC_startEvent_flowElements_185370
 							.getFlowElements().contains(startEvent));
 
-					// check isomorphic binding between objects __DEC_startEvent_flowElements_760628 and process 
-					JavaSDM.ensure(!__DEC_startEvent_flowElements_760628
+					// check isomorphic binding between objects __DEC_startEvent_flowElements_185370 and process 
+					JavaSDM.ensure(!__DEC_startEvent_flowElements_185370
 							.equals(process));
 
 					fujaba__Success = true;
@@ -5444,18 +5520,18 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_process_rootElements_905270 = process.eContainer() instanceof Definitions ? (Definitions) process
+					__DEC_process_rootElements_862093 = process.eContainer() instanceof Definitions ? (Definitions) process
 							.eContainer() : null;
 
-					// check object __DEC_process_rootElements_905270 is really bound
-					JavaSDM.ensure(__DEC_process_rootElements_905270 != null);
+					// check object __DEC_process_rootElements_862093 is really bound
+					JavaSDM.ensure(__DEC_process_rootElements_862093 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_process_rootElements_905270
+					JavaSDM.ensure(__DEC_process_rootElements_862093
 							.getRootElements().contains(process));
 
-					// check isomorphic binding between objects __DEC_process_rootElements_905270 and definitions 
-					JavaSDM.ensure(!__DEC_process_rootElements_905270
+					// check isomorphic binding between objects __DEC_process_rootElements_862093 and definitions 
+					JavaSDM.ensure(!__DEC_process_rootElements_862093
 							.equals(definitions));
 
 					fujaba__Success = true;
@@ -5479,23 +5555,23 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link targetRef from startEvent to __DEC_startEvent_targetRef_665284
+					// iterate to-many link incoming from startEvent to __DEC_startEvent_targetRef_574062
 					fujaba__Success = false;
 
-					fujaba__IterStartEventTo__DEC_startEvent_targetRef_665284 = new ArrayList(
+					fujaba__IterStartEventTo__DEC_startEvent_targetRef_574062 = new ArrayList(
 							startEvent.getIncoming()).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_665284
+							&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_574062
 									.hasNext()) {
 						try {
-							__DEC_startEvent_targetRef_665284 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_665284
+							__DEC_startEvent_targetRef_574062 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_574062
 									.next();
 
-							// check object __DEC_startEvent_targetRef_665284 is really bound
-							JavaSDM.ensure(__DEC_startEvent_targetRef_665284 != null);
-							// check isomorphic binding between objects __DEC_startEvent_targetRef_665284 and sequenceFlow 
-							JavaSDM.ensure(!__DEC_startEvent_targetRef_665284
+							// check object __DEC_startEvent_targetRef_574062 is really bound
+							JavaSDM.ensure(__DEC_startEvent_targetRef_574062 != null);
+							// check isomorphic binding between objects __DEC_startEvent_targetRef_574062 and sequenceFlow 
+							JavaSDM.ensure(!__DEC_startEvent_targetRef_574062
 									.equals(sequenceFlow));
 
 							fujaba__Success = true;
@@ -5530,17 +5606,17 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				// check link flowElements from startEvent to process
 				JavaSDM.ensure(process.equals(startEvent.eContainer()));
 
+				// check link incoming from sequenceFlow to startEvent
+				JavaSDM.ensure(!(startEvent.equals(sequenceFlow.getTargetRef())));
+
+				// check link outgoing from sequenceFlow to startEvent
+				JavaSDM.ensure(startEvent.equals(sequenceFlow.getSourceRef()));
+
 				// check link rootElements from process to definitions
 				JavaSDM.ensure(definitions.equals(process.eContainer()));
 
-				// check link sourceRef from sequenceFlow to startEvent
-				JavaSDM.ensure(startEvent.equals(sequenceFlow.getSourceRef()));
-
 				// check link src from _edge_sourceRef to sequenceFlow
 				JavaSDM.ensure(sequenceFlow.equals(_edge_sourceRef.getSrc()));
-
-				// check link targetRef from sequenceFlow to startEvent
-				JavaSDM.ensure(!(startEvent.equals(sequenceFlow.getTargetRef())));
 
 				// check link trg from _edge_sourceRef to startEvent
 				JavaSDM.ensure(startEvent.equals(_edge_sourceRef.getTrg()));
@@ -5607,7 +5683,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_441(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_114(
 			EMoflonEdge _edge_outgoing) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5615,17 +5691,17 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_sequenceFlow_flowElements_691457 = null;
-		FlowElementsContainer __DEC_startEvent_flowElements_615336 = null;
-		Definitions __DEC_process_rootElements_656653 = null;
-		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_787533 = null;
-		SequenceFlow __DEC_startEvent_targetRef_787533 = null;
+		FlowElementsContainer __DEC_sequenceFlow_flowElements_473430 = null;
+		FlowElementsContainer __DEC_startEvent_flowElements_832004 = null;
+		Definitions __DEC_process_rootElements_24734 = null;
+		Iterator fujaba__IterStartEventTo__DEC_startEvent_targetRef_830896 = null;
+		SequenceFlow __DEC_startEvent_targetRef_830896 = null;
 		Match match = null;
-		Iterator fujaba__IterSequenceFlowTo_edge_sourceRef = null;
+		Iterator fujaba__IterStartEventTo_edge_sourceRef = null;
 		EMoflonEdge _edge_sourceRef = null;
+		SequenceFlow sequenceFlow = null;
 		Definitions definitions = null;
 		Process process = null;
-		SequenceFlow sequenceFlow = null;
 		StartEvent startEvent = null;
 
 		// story node 'prepare return value'
@@ -5683,14 +5759,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			startEvent = (StartEvent) _TmpObject;
 
 			// bind object
-			_TmpObject = _edge_outgoing.getTrg();
-
-			// ensure correct type and really bound of object sequenceFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			sequenceFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = sequenceFlow.eContainer() instanceof Process ? (Process) sequenceFlow
+			_TmpObject = startEvent.eContainer() instanceof Process ? (Process) startEvent
 					.eContainer() : null;
 
 			// ensure correct type and really bound of object process
@@ -5698,10 +5767,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			process = (Process) _TmpObject;
 
 			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(sequenceFlow));
-
-			// check link flowElements from startEvent to process
-			JavaSDM.ensure(process.equals(startEvent.eContainer()));
+			JavaSDM.ensure(process.getFlowElements().contains(startEvent));
 
 			// bind object
 			definitions = process.eContainer() instanceof Definitions ? (Definitions) process
@@ -5713,19 +5779,29 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			// check if contained via correct reference
 			JavaSDM.ensure(definitions.getRootElements().contains(process));
 
-			// check link sourceRef from sequenceFlow to startEvent
+			// bind object
+			_TmpObject = _edge_outgoing.getTrg();
+
+			// ensure correct type and really bound of object sequenceFlow
+			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+			sequenceFlow = (SequenceFlow) _TmpObject;
+
+			// check link flowElements from sequenceFlow to process
+			JavaSDM.ensure(process.equals(sequenceFlow.eContainer()));
+
+			// check link outgoing from sequenceFlow to startEvent
 			JavaSDM.ensure(startEvent.equals(sequenceFlow.getSourceRef()));
 
-			// iterate to-many link src from sequenceFlow to _edge_sourceRef
+			// iterate to-many link trg from startEvent to _edge_sourceRef
 			fujaba__Success = false;
 
-			fujaba__IterSequenceFlowTo_edge_sourceRef = new ArrayList(
+			fujaba__IterStartEventTo_edge_sourceRef = new ArrayList(
 					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							sequenceFlow, EMoflonEdge.class, "src")).iterator();
+							startEvent, EMoflonEdge.class, "trg")).iterator();
 
-			while (fujaba__IterSequenceFlowTo_edge_sourceRef.hasNext()) {
+			while (fujaba__IterStartEventTo_edge_sourceRef.hasNext()) {
 				try {
-					_edge_sourceRef = (EMoflonEdge) fujaba__IterSequenceFlowTo_edge_sourceRef
+					_edge_sourceRef = (EMoflonEdge) fujaba__IterStartEventTo_edge_sourceRef
 							.next();
 
 					// check object _edge_sourceRef is really bound
@@ -5733,8 +5809,8 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 					// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
 					JavaSDM.ensure(!_edge_sourceRef.equals(_edge_outgoing));
 
-					// check link trg from _edge_sourceRef to startEvent
-					JavaSDM.ensure(startEvent.equals(_edge_sourceRef.getTrg()));
+					// check link src from _edge_sourceRef to sequenceFlow
+					JavaSDM.ensure(sequenceFlow.equals(_edge_sourceRef.getSrc()));
 
 					// story node 'test core match and DECs'
 					try {
@@ -5745,19 +5821,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_sequenceFlow_flowElements_691457 = sequenceFlow
+							__DEC_sequenceFlow_flowElements_473430 = sequenceFlow
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) sequenceFlow
 									.eContainer() : null;
 
-							// check object __DEC_sequenceFlow_flowElements_691457 is really bound
-							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_691457 != null);
+							// check object __DEC_sequenceFlow_flowElements_473430 is really bound
+							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_473430 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_691457
+							JavaSDM.ensure(__DEC_sequenceFlow_flowElements_473430
 									.getFlowElements().contains(sequenceFlow));
 
-							// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_691457 and process 
-							JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_691457
+							// check isomorphic binding between objects __DEC_sequenceFlow_flowElements_473430 and process 
+							JavaSDM.ensure(!__DEC_sequenceFlow_flowElements_473430
 									.equals(process));
 
 							fujaba__Success = true;
@@ -5774,19 +5850,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_startEvent_flowElements_615336 = startEvent
+							__DEC_startEvent_flowElements_832004 = startEvent
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) startEvent
 									.eContainer() : null;
 
-							// check object __DEC_startEvent_flowElements_615336 is really bound
-							JavaSDM.ensure(__DEC_startEvent_flowElements_615336 != null);
+							// check object __DEC_startEvent_flowElements_832004 is really bound
+							JavaSDM.ensure(__DEC_startEvent_flowElements_832004 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_startEvent_flowElements_615336
+							JavaSDM.ensure(__DEC_startEvent_flowElements_832004
 									.getFlowElements().contains(startEvent));
 
-							// check isomorphic binding between objects __DEC_startEvent_flowElements_615336 and process 
-							JavaSDM.ensure(!__DEC_startEvent_flowElements_615336
+							// check isomorphic binding between objects __DEC_startEvent_flowElements_832004 and process 
+							JavaSDM.ensure(!__DEC_startEvent_flowElements_832004
 									.equals(process));
 
 							fujaba__Success = true;
@@ -5803,19 +5879,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_process_rootElements_656653 = process
+							__DEC_process_rootElements_24734 = process
 									.eContainer() instanceof Definitions ? (Definitions) process
 									.eContainer() : null;
 
-							// check object __DEC_process_rootElements_656653 is really bound
-							JavaSDM.ensure(__DEC_process_rootElements_656653 != null);
+							// check object __DEC_process_rootElements_24734 is really bound
+							JavaSDM.ensure(__DEC_process_rootElements_24734 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_process_rootElements_656653
+							JavaSDM.ensure(__DEC_process_rootElements_24734
 									.getRootElements().contains(process));
 
-							// check isomorphic binding between objects __DEC_process_rootElements_656653 and definitions 
-							JavaSDM.ensure(!__DEC_process_rootElements_656653
+							// check isomorphic binding between objects __DEC_process_rootElements_24734 and definitions 
+							JavaSDM.ensure(!__DEC_process_rootElements_24734
 									.equals(definitions));
 
 							fujaba__Success = true;
@@ -5840,23 +5916,23 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from startEvent to __DEC_startEvent_targetRef_787533
+							// iterate to-many link incoming from startEvent to __DEC_startEvent_targetRef_830896
 							fujaba__Success = false;
 
-							fujaba__IterStartEventTo__DEC_startEvent_targetRef_787533 = new ArrayList(
+							fujaba__IterStartEventTo__DEC_startEvent_targetRef_830896 = new ArrayList(
 									startEvent.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_787533
+									&& fujaba__IterStartEventTo__DEC_startEvent_targetRef_830896
 											.hasNext()) {
 								try {
-									__DEC_startEvent_targetRef_787533 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_787533
+									__DEC_startEvent_targetRef_830896 = (SequenceFlow) fujaba__IterStartEventTo__DEC_startEvent_targetRef_830896
 											.next();
 
-									// check object __DEC_startEvent_targetRef_787533 is really bound
-									JavaSDM.ensure(__DEC_startEvent_targetRef_787533 != null);
-									// check isomorphic binding between objects __DEC_startEvent_targetRef_787533 and sequenceFlow 
-									JavaSDM.ensure(!__DEC_startEvent_targetRef_787533
+									// check object __DEC_startEvent_targetRef_830896 is really bound
+									JavaSDM.ensure(__DEC_startEvent_targetRef_830896 != null);
+									// check isomorphic binding between objects __DEC_startEvent_targetRef_830896 and sequenceFlow 
+									JavaSDM.ensure(!__DEC_startEvent_targetRef_830896
 											.equals(sequenceFlow));
 
 									fujaba__Success = true;
@@ -5896,12 +5972,16 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						// check link flowElements from startEvent to process
 						JavaSDM.ensure(process.equals(startEvent.eContainer()));
 
-						// check link rootElements from process to definitions
-						JavaSDM.ensure(definitions.equals(process.eContainer()));
+						// check link incoming from sequenceFlow to startEvent
+						JavaSDM.ensure(!(startEvent.equals(sequenceFlow
+								.getTargetRef())));
 
-						// check link sourceRef from sequenceFlow to startEvent
+						// check link outgoing from sequenceFlow to startEvent
 						JavaSDM.ensure(startEvent.equals(sequenceFlow
 								.getSourceRef()));
+
+						// check link rootElements from process to definitions
+						JavaSDM.ensure(definitions.equals(process.eContainer()));
 
 						// check link src from _edge_outgoing to startEvent
 						JavaSDM.ensure(startEvent.equals(_edge_outgoing
@@ -5910,10 +5990,6 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						// check link src from _edge_sourceRef to sequenceFlow
 						JavaSDM.ensure(sequenceFlow.equals(_edge_sourceRef
 								.getSrc()));
-
-						// check link targetRef from sequenceFlow to startEvent
-						JavaSDM.ensure(!(startEvent.equals(sequenceFlow
-								.getTargetRef())));
 
 						// check link trg from _edge_outgoing to sequenceFlow
 						JavaSDM.ensure(sequenceFlow.equals(_edge_outgoing
@@ -6029,8 +6105,8 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Process process = null;
 		Actor actor = null;
 		UseCase useCase = null;
-		SequenceFlow sequenceFlow = null;
 		StartEvent startEvent = null;
+		SequenceFlow sequenceFlow = null;
 		ProcessToActor processToActor = null;
 		ProcessToUseCase processToUseCase = null;
 		BasicFlow basicFlow = null;
@@ -6162,13 +6238,13 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									useCase = UseCaseDSLFactory.eINSTANCE
 											.createUseCase();
 
-									// create object sequenceFlow
-									sequenceFlow = Bpmn2Factory.eINSTANCE
-											.createSequenceFlow();
-
 									// create object startEvent
 									startEvent = Bpmn2Factory.eINSTANCE
 											.createStartEvent();
+
+									// create object sequenceFlow
+									sequenceFlow = Bpmn2Factory.eINSTANCE
+											.createSequenceFlow();
 
 									// create object processToActor
 									processToActor = BpmnToUseCaseIntegrationFactory.eINSTANCE
@@ -6236,19 +6312,19 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 											useCase); // add link
 
 									// create link
-									process.getFlowElements().add(sequenceFlow); // add link
-
-									// create link
 									process.getFlowElements().add(startEvent); // add link
 
 									// create link
-									ruleResult.getSourceObjects().add(process);
+									process.getFlowElements().add(sequenceFlow); // add link
 
 									// create link
 									processToActor.setSource(process);
 
 									// create link
 									processToUseCase.setSource(process);
+
+									// create link
+									ruleResult.getSourceObjects().add(process);
 
 									// create link
 									useCase.getFlows().add(basicFlow); // add link
@@ -6264,18 +6340,14 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 											processToUseCase);
 
 									// create link
+									sequenceFlow.setSourceRef(startEvent);
+
+									// create link
 									ruleResult.getSourceObjects().add(
 											startEvent);
 
 									// create link
-									sequenceFlow.setSourceRef(startEvent);
-
-									// create link
 									startEventToBasicFlow.setSource(startEvent);
-
-									// create link
-									sequenceFlowToBasicFlow
-											.setTarget(basicFlow);
 
 									// create link
 									ruleResult.getTargetObjects()
@@ -6283,6 +6355,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 									// create link
 									startEventToBasicFlow.setTarget(basicFlow);
+
+									// create link
+									sequenceFlowToBasicFlow
+											.setTarget(basicFlow);
 
 									// create link
 									ruleResult.getCorrObjects().add(
@@ -6532,29 +6608,29 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.PROCESS_TO_USE_CASE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_437__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_437((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_110__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_110((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_185__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_185((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_47__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_47((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_186__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_186((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_48__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_48((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_438__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_438((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_111__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_111((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_439__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_439((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_112__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_112((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_187__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_187((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_49__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_49((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_440__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_440((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_113__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_113((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_441__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_441((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_114__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_114((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PROCESS_TO_USE_CASE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

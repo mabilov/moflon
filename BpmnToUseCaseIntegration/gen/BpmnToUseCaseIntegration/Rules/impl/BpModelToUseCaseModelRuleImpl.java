@@ -138,6 +138,60 @@ import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 
 // [user defined imports] -->
 
@@ -265,8 +319,8 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 		DocumentRootToUseCasesModel documentRootToUseCasesModel = null;
 		UseCasesModel useCasesModel = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge documentRootToUseCasesModel__source__documentRoot = null;
 		EMoflonEdge documentRootToUseCasesModel__target__useCasesModel = null;
+		EMoflonEdge documentRootToUseCasesModel__source__documentRoot = null;
 
 		// story node 'perform transformation'
 		try {
@@ -336,15 +390,15 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					documentRoot, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					useCasesModel, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					documentRootToUseCasesModel, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRoot, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -371,12 +425,12 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCasesModel and documentRootToUseCasesModel 
 			JavaSDM.ensure(!useCasesModel.equals(documentRootToUseCasesModel));
 
-			// create object documentRootToUseCasesModel__source__documentRoot
-			documentRootToUseCasesModel__source__documentRoot = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object documentRootToUseCasesModel__target__useCasesModel
 			documentRootToUseCasesModel__target__useCasesModel = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object documentRootToUseCasesModel__source__documentRoot
+			documentRootToUseCasesModel__source__documentRoot = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -389,12 +443,12 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRootToUseCasesModel__source__documentRoot,
+					documentRootToUseCasesModel__target__useCasesModel,
 					"createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRootToUseCasesModel__target__useCasesModel,
+					documentRootToUseCasesModel__source__documentRoot,
 					"createdEdges");
 
 			// create link
@@ -406,11 +460,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 					.setTrg(useCasesModel);
 
 			// create link
-			documentRootToUseCasesModel__source__documentRoot
+			documentRootToUseCasesModel__target__useCasesModel
 					.setSrc(documentRootToUseCasesModel);
 
 			// create link
-			documentRootToUseCasesModel__target__useCasesModel
+			documentRootToUseCasesModel__source__documentRoot
 					.setSrc(documentRootToUseCasesModel);
 
 			fujaba__Success = true;
@@ -746,8 +800,8 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 		DocumentRoot documentRoot = null;
 		DocumentRootToUseCasesModel documentRootToUseCasesModel = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge documentRootToUseCasesModel__target__useCasesModel = null;
 		EMoflonEdge documentRootToUseCasesModel__source__documentRoot = null;
+		EMoflonEdge documentRootToUseCasesModel__target__useCasesModel = null;
 
 		// story node 'perform transformation'
 		try {
@@ -817,7 +871,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRoot, "createdElements");
+					useCasesModel, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -825,7 +879,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCasesModel, "translatedElements");
+					documentRoot, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -852,12 +906,12 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCasesModel and documentRootToUseCasesModel 
 			JavaSDM.ensure(!useCasesModel.equals(documentRootToUseCasesModel));
 
-			// create object documentRootToUseCasesModel__target__useCasesModel
-			documentRootToUseCasesModel__target__useCasesModel = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object documentRootToUseCasesModel__source__documentRoot
 			documentRootToUseCasesModel__source__documentRoot = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object documentRootToUseCasesModel__target__useCasesModel
+			documentRootToUseCasesModel__target__useCasesModel = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -870,12 +924,12 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRootToUseCasesModel__target__useCasesModel,
+					documentRootToUseCasesModel__source__documentRoot,
 					"createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRootToUseCasesModel__source__documentRoot,
+					documentRootToUseCasesModel__target__useCasesModel,
 					"createdEdges");
 
 			// create link
@@ -1142,7 +1196,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_DocumentRoot_4(
+	public EObjectContainer isAppropriate_FWD_DocumentRoot_1(
 			DocumentRoot documentRoot) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1266,7 +1320,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_UseCasesModel_4(
+	public EObjectContainer isAppropriate_BWD_UseCasesModel_1(
 			UseCasesModel useCasesModel) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1609,11 +1663,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_FWD_DOCUMENT_ROOT_4__DOCUMENTROOT:
-			return isAppropriate_FWD_DocumentRoot_4((DocumentRoot) arguments
+		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_FWD_DOCUMENT_ROOT_1__DOCUMENTROOT:
+			return isAppropriate_FWD_DocumentRoot_1((DocumentRoot) arguments
 					.get(0));
-		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_BWD_USE_CASES_MODEL_4__USECASESMODEL:
-			return isAppropriate_BWD_UseCasesModel_4((UseCasesModel) arguments
+		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_BWD_USE_CASES_MODEL_1__USECASESMODEL:
+			return isAppropriate_BWD_UseCasesModel_1((UseCasesModel) arguments
 					.get(0));
 		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

@@ -12,7 +12,7 @@ package bpmn2;
  *
  *
  * @see bpmn2.Bpmn2Package#getEvent()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Event extends FlowNode, InteractionNode { // <-- [user code injected with eMoflon]

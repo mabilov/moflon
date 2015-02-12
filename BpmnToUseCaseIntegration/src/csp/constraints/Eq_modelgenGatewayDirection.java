@@ -1,22 +1,26 @@
 package csp.constraints;
 
+import bpmn2.GatewayDirection;
 import TGGLanguage.csp.Variable;
 import TGGLanguage.csp.impl.TGGConstraintImpl;
 
 public class Eq_modelgenGatewayDirection extends TGGConstraintImpl {
 	public void solve(Variable var_0, Variable var_1){
+		GatewayDirection attributeValue = (GatewayDirection) var_0.getValue();
+		GatewayDirection literalValue = GatewayDirection.valueOf(var_1.toString());
+		
     	String bindingStates = getBindingStates(var_0, var_1);
     	
     	switch(bindingStates){
     	case "BB":
-    		// TODO Implement BB-operation
-    		throw new UnsupportedOperationException("This case in the constraint has not been implemented yet.");
+    		setSatisfied(attributeValue.equals(literalValue));
+    		break;
     	case "BF":
-    		// TODO Implement BF-operation
-    		throw new UnsupportedOperationException("This case in the constraint has not been implemented yet.");
+    		// Cannot assign new value to enum literal
+    		setSatisfied(true);
     	case "FB":
-    		// TODO Implement FB-operation
-    		throw new UnsupportedOperationException("This case in the constraint has not been implemented yet.");
+    		var_0.setValue(literalValue);
+    		setSatisfied(true);
     	}
     	
   	}	  

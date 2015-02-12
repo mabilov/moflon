@@ -12,7 +12,7 @@ package bpmn2;
  *
  *
  * @see bpmn2.Bpmn2Package#getCatchEvent()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface CatchEvent extends Event { // <-- [user code injected with eMoflon]

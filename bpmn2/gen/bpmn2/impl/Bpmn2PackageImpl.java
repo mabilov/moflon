@@ -1022,20 +1022,20 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBaseElement_Id(), ecorePackage.getEString(), "id",
 				null, 1, 1, BaseElement.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED,
 				!IS_ORDERED);
 
 		initEClass(rootElementEClass, RootElement.class, "RootElement",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(flowElementEClass, FlowElement.class, "FlowElement",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFlowElement_Name(), ecorePackage.getEString(),
 				"name", null, 1, 1, FlowElement.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, !IS_ORDERED);
 
-		initEClass(flowNodeEClass, FlowNode.class, "FlowNode", !IS_ABSTRACT,
+		initEClass(flowNodeEClass, FlowNode.class, "FlowNode", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFlowNode_Outgoing(), this.getSequenceFlow(),
 				this.getSequenceFlow_SourceRef(), "outgoing", null, 0, -1,
@@ -1078,7 +1078,7 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 				!IS_DERIVED, !IS_ORDERED);
 
 		initEClass(catchEventEClass, CatchEvent.class, "CatchEvent",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(definitionsEClass, Definitions.class, "Definitions",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1124,7 +1124,7 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(flowElementsContainerEClass, FlowElementsContainer.class,
-				"FlowElementsContainer", !IS_ABSTRACT, !IS_INTERFACE,
+				"FlowElementsContainer", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFlowElementsContainer_LaneSets(), this.getLaneSet(),
 				null, "laneSets", null, 0, -1, FlowElementsContainer.class,
@@ -1145,7 +1145,7 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, !IS_ORDERED);
 
-		initEClass(gatewayEClass, Gateway.class, "Gateway", !IS_ABSTRACT,
+		initEClass(gatewayEClass, Gateway.class, "Gateway", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGateway_GatewayDirection(),
 				this.getGatewayDirection(), "gatewayDirection", null, 1, 1,
@@ -1172,7 +1172,7 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLane_Id(), ecorePackage.getEString(), "id", null, 1,
 				1, Lane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+				!IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getLane_Name(), ecorePackage.getEString(), "name", null,
 				1, 1, Lane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1185,7 +1185,7 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLaneSet_Id(), ecorePackage.getEString(), "id", null,
 				1, 1, LaneSet.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED,
 				!IS_ORDERED);
 		initEAttribute(getLaneSet_Name(), ecorePackage.getEString(), "name",
 				null, 1, 1, LaneSet.class, !IS_TRANSIENT, !IS_VOLATILE,
@@ -1211,11 +1211,11 @@ public class Bpmn2PackageImpl extends EPackageImpl implements Bpmn2Package {
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT,
+		initEClass(eventEClass, Event.class, "Event", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(throwEventEClass, ThrowEvent.class, "ThrowEvent",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(userTaskEClass, UserTask.class, "UserTask", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

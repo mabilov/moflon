@@ -139,6 +139,60 @@ import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 
 // [user defined imports] -->
 
@@ -182,13 +236,13 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __process_flowElements_task = null;
-		EMoflonEdge __task_incoming_inFlow = null;
 		EMoflonEdge __task_outgoing_outFlow = null;
 		EMoflonEdge __inFlow_targetRef_task = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge __process_flowElements_task = null;
 		EMoflonEdge __outFlow_sourceRef_task = null;
 		EMoflonEdge __lane_flowNodeRefs_task = null;
+		EMoflonEdge __task_incoming_inFlow = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
 
 		// story node 'initial bindings'
@@ -252,18 +306,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects outFlow and inFlow 
 				JavaSDM.ensure(!outFlow.equals(inFlow));
 
-				// create object __process_flowElements_outFlow
-				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_task
-				__process_flowElements_task = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __task_incoming_inFlow
-				__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __task_outgoing_outFlow
 				__task_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -272,12 +314,24 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				__inFlow_targetRef_task = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __process_flowElements_outFlow
+				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_flowElements_task
+				__process_flowElements_task = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __outFlow_sourceRef_task
 				__outFlow_sourceRef_task = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __lane_flowNodeRefs_task
 				__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __task_incoming_inFlow
+				__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __lane_flowNodeRefs_task
@@ -297,31 +351,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__task_outgoing_outFlow, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__inFlow_targetRef_task, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__process_flowElements_outFlow, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__process_flowElements_task, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						task, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__task_incoming_inFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__task_outgoing_outFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_task, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -332,13 +374,22 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 						__lane_flowNodeRefs_task, "toBeTranslatedEdges");
 
 				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__task_incoming_inFlow, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						outFlow, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						task, "toBeTranslatedNodes");
+
+				// create link
 				__outFlow_sourceRef_task.setTrg(task);
 
 				// create link
-				__lane_flowNodeRefs_task.setTrg(task);
-
-				// create link
-				__task_incoming_inFlow.setSrc(task);
+				__task_outgoing_outFlow.setSrc(task);
 
 				// create link
 				__process_flowElements_task.setTrg(task);
@@ -347,31 +398,34 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				__inFlow_targetRef_task.setTrg(task);
 
 				// create link
-				__task_outgoing_outFlow.setSrc(task);
+				__task_incoming_inFlow.setSrc(task);
+
+				// create link
+				__lane_flowNodeRefs_task.setTrg(task);
 
 				// create link
 				__lane_flowNodeRefs_task.setSrc(lane);
 
 				// create link
-				__task_incoming_inFlow.setTrg(inFlow);
-
-				// create link
 				__inFlow_targetRef_task.setSrc(inFlow);
 
 				// create link
-				__process_flowElements_outFlow.setSrc(process);
+				__task_incoming_inFlow.setTrg(inFlow);
 
 				// create link
 				__process_flowElements_task.setSrc(process);
 
 				// create link
-				__outFlow_sourceRef_task.setSrc(outFlow);
+				__process_flowElements_outFlow.setSrc(process);
 
 				// create link
 				__task_outgoing_outFlow.setTrg(outFlow);
 
 				// create link
 				__process_flowElements_outFlow.setTrg(outFlow);
+
+				// create link
+				__outFlow_sourceRef_task.setSrc(outFlow);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -406,19 +460,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						process, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
+						__process_flowElements_inFlow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
+						inFlow, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						lane, "contextNodes");
 
 				// create link
 				__process_flowElements_inFlow.setTrg(inFlow);
@@ -468,22 +522,22 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		SequenceFlowToStep outFlowToNormalStep = null;
 		SequenceFlowToUCFlow outFlowToFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge prevStep__next__normalStep = null;
-		EMoflonEdge __task_outgoing_outFlow = null;
-		EMoflonEdge __process_flowElements_task = null;
-		EMoflonEdge taskToNormalStep__target__normalStep = null;
 		EMoflonEdge __lane_flowNodeRefs_task = null;
-		EMoflonEdge taskToNormalStep__source__task = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __task_incoming_inFlow = null;
+		EMoflonEdge normalStep__actor__actor = null;
+		EMoflonEdge __task_outgoing_outFlow = null;
 		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
-		EMoflonEdge outFlowToFlow__source__outFlow = null;
-		EMoflonEdge __inFlow_targetRef_task = null;
-		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
+		EMoflonEdge __process_flowElements_task = null;
 		EMoflonEdge flow__steps__normalStep = null;
 		EMoflonEdge __outFlow_sourceRef_task = null;
+		EMoflonEdge __task_incoming_inFlow = null;
 		EMoflonEdge outFlowToFlow__target__flow = null;
-		EMoflonEdge normalStep__actor__actor = null;
+		EMoflonEdge outFlowToFlow__source__outFlow = null;
+		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
+		EMoflonEdge taskToNormalStep__source__task = null;
+		EMoflonEdge taskToNormalStep__target__normalStep = null;
+		EMoflonEdge __inFlow_targetRef_task = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge prevStep__next__normalStep = null;
 
 		// story node 'perform transformation'
 		try {
@@ -596,10 +650,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					"normalStep", "label").getValue());
 
 			// create link
-			outFlowToNormalStep.setSource(outFlow);
+			outFlowToFlow.setSource(outFlow);
 
 			// create link
-			outFlowToFlow.setSource(outFlow);
+			outFlowToNormalStep.setSource(outFlow);
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToFlow,
@@ -616,13 +670,13 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					normalStep, "next");
 
 			// create link
-			outFlowToNormalStep.setTarget(normalStep);
-
-			// create link
 			flow.getSteps().add(normalStep);
 
 			// create link
 			taskToNormalStep.setTarget(normalStep);
+
+			// create link
+			outFlowToNormalStep.setTarget(normalStep);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -650,10 +704,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToNormalStep, "createdLinkElements");
 
 			// create link
@@ -662,15 +712,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					task, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToFlow, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					normalStep, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					taskToNormalStep, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					task, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1027,52 +1081,24 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects taskToNormalStep and task 
 			JavaSDM.ensure(!taskToNormalStep.equals(task));
 
-			// create object prevStep__next__normalStep
-			prevStep__next__normalStep = TGGRuntimeFactory.eINSTANCE
+			// create object __lane_flowNodeRefs_task
+			__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object normalStep__actor__actor
+			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __task_outgoing_outFlow
 			__task_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __process_flowElements_task
-			__process_flowElements_task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object taskToNormalStep__target__normalStep
-			taskToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __lane_flowNodeRefs_task
-			__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object taskToNormalStep__source__task
-			taskToNormalStep__source__task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_outFlow
-			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __task_incoming_inFlow
-			__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object outFlowToNormalStep__target__normalStep
 			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __inFlow_targetRef_task
-			__inFlow_targetRef_task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __process_flowElements_task
+			__process_flowElements_task = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object flow__steps__normalStep
@@ -1083,12 +1109,40 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			__outFlow_sourceRef_task = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object __task_incoming_inFlow
+			__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object outFlowToFlow__target__flow
 			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object normalStep__actor__actor
-			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
+			// create object outFlowToFlow__source__outFlow
+			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToNormalStep__source__outFlow
+			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object taskToNormalStep__source__task
+			taskToNormalStep__source__task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object taskToNormalStep__target__normalStep
+			taskToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __inFlow_targetRef_task
+			__inFlow_targetRef_task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __process_flowElements_outFlow
+			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object prevStep__next__normalStep
+			prevStep__next__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1128,7 +1182,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					prevStep__next__normalStep, "createdEdges");
+					__lane_flowNodeRefs_task, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					normalStep__actor__actor, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1136,43 +1194,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_task, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					taskToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__lane_flowNodeRefs_task, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					taskToNormalStep__source__task, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__task_incoming_inFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToNormalStep__target__normalStep, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__inFlow_targetRef_task, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__source__outFlow, "createdEdges");
+					__process_flowElements_task, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1184,32 +1210,60 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__task_incoming_inFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToFlow__target__flow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep__actor__actor, "createdEdges");
+					outFlowToFlow__source__outFlow, "createdEdges");
 
 			// create link
-			taskToNormalStep__source__task.setTrg(task);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep__source__outFlow, "createdEdges");
 
 			// create link
-			__outFlow_sourceRef_task.setTrg(task);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					taskToNormalStep__source__task, "createdEdges");
 
 			// create link
-			__lane_flowNodeRefs_task.setTrg(task);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					taskToNormalStep__target__normalStep, "createdEdges");
 
 			// create link
-			__task_incoming_inFlow.setSrc(task);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__inFlow_targetRef_task, "translatedEdges");
 
 			// create link
-			__task_outgoing_outFlow.setSrc(task);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__process_flowElements_outFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					prevStep__next__normalStep, "createdEdges");
 
 			// create link
 			__process_flowElements_task.setTrg(task);
 
 			// create link
+			taskToNormalStep__source__task.setTrg(task);
+
+			// create link
 			__inFlow_targetRef_task.setTrg(task);
+
+			// create link
+			__task_incoming_inFlow.setSrc(task);
+
+			// create link
+			__lane_flowNodeRefs_task.setTrg(task);
+
+			// create link
+			__outFlow_sourceRef_task.setTrg(task);
+
+			// create link
+			__task_outgoing_outFlow.setSrc(task);
 
 			// create link
 			__lane_flowNodeRefs_task.setSrc(lane);
@@ -1218,16 +1272,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			normalStep__actor__actor.setTrg(actor);
 
 			// create link
-			__inFlow_targetRef_task.setSrc(inFlow);
+			__task_incoming_inFlow.setTrg(inFlow);
 
 			// create link
-			__task_incoming_inFlow.setTrg(inFlow);
+			__inFlow_targetRef_task.setSrc(inFlow);
 
 			// create link
 			prevStep__next__normalStep.setSrc(prevStep);
 
 			// create link
-			prevStep__next__normalStep.setTrg(normalStep);
+			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
 
 			// create link
 			normalStep__actor__actor.setSrc(normalStep);
@@ -1236,7 +1290,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			taskToNormalStep__target__normalStep.setTrg(normalStep);
 
 			// create link
-			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
+			prevStep__next__normalStep.setTrg(normalStep);
 
 			// create link
 			flow__steps__normalStep.setTrg(normalStep);
@@ -1248,6 +1302,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			__process_flowElements_outFlow.setSrc(process);
 
 			// create link
+			__process_flowElements_outFlow.setTrg(outFlow);
+
+			// create link
+			outFlowToFlow__source__outFlow.setTrg(outFlow);
+
+			// create link
 			__outFlow_sourceRef_task.setSrc(outFlow);
 
 			// create link
@@ -1257,22 +1317,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
 
 			// create link
-			__process_flowElements_outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToFlow__source__outFlow.setTrg(outFlow);
+			taskToNormalStep__target__normalStep.setSrc(taskToNormalStep);
 
 			// create link
 			taskToNormalStep__source__task.setSrc(taskToNormalStep);
 
 			// create link
-			taskToNormalStep__target__normalStep.setSrc(taskToNormalStep);
+			outFlowToFlow__source__outFlow.setSrc(outFlowToFlow);
 
 			// create link
 			outFlowToFlow__target__flow.setSrc(outFlowToFlow);
-
-			// create link
-			outFlowToFlow__source__outFlow.setSrc(outFlowToFlow);
 
 			// create link
 			outFlowToNormalStep__target__normalStep.setSrc(outFlowToNormalStep);
@@ -1318,17 +1372,17 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		SequenceFlow outFlow = null;
 		Process process = null;
 		UserTask task = null;
-		EMoflonEdge __lane_flowNodeRefs_task = null;
-		EMoflonEdge __process_flowElements_task = null;
 		EMoflonEdge __task_outgoing_outFlow = null;
+		EMoflonEdge __lane_flowNodeRefs_task = null;
 		EMoflonEdge __outFlow_sourceRef_task = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __task_incoming_inFlow = null;
 		EMoflonEdge __inFlow_targetRef_task = null;
+		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __process_flowElements_task = null;
 		EMoflonEdge __laneToActor_source_lane = null;
 		EMoflonEdge __laneToActor_target_actor = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
 		EMoflonEdge __inFlowToFlow_source_inFlow = null;
+		EMoflonEdge __process_flowElements_inFlow = null;
 		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
 		EMoflonEdge __inFlowToPrevStep_target_prevStep = null;
 		EMoflonEdge __process_flowElements_outFlow = null;
@@ -1533,6 +1587,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process.equals(task
 												.eContainer()));
 
+										// check link incoming from inFlow to task
+										JavaSDM.ensure(task.equals(inFlow
+												.getTargetRef()));
+
+										// check link outgoing from outFlow to task
+										JavaSDM.ensure(task.equals(outFlow
+												.getSourceRef()));
+
 										// check link source from inFlowToFlow to inFlow
 										JavaSDM.ensure(inFlow
 												.equals(inFlowToFlow
@@ -1547,10 +1609,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(lane.equals(laneToActor
 												.getSource()));
 
-										// check link sourceRef from outFlow to task
-										JavaSDM.ensure(task.equals(outFlow
-												.getSourceRef()));
-
 										// check link target from inFlowToFlow to flow
 										JavaSDM.ensure(flow.equals(inFlowToFlow
 												.getTarget()));
@@ -1564,33 +1622,21 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(actor.equals(laneToActor
 												.getTarget()));
 
-										// check link targetRef from inFlow to task
-										JavaSDM.ensure(task.equals(inFlow
-												.getTargetRef()));
-
 										// check link flowNodeRefs from lane to task
 										JavaSDM.ensure(lane.getFlowNodeRefs()
 												.contains(task));
-
-										// create object __lane_flowNodeRefs_task
-										__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_task
-										__process_flowElements_task = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
 
 										// create object __task_outgoing_outFlow
 										__task_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
+										// create object __lane_flowNodeRefs_task
+										__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
 										// create object __outFlow_sourceRef_task
 										__outFlow_sourceRef_task = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
-
-										// create object isApplicableMatch
-										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-												.createIsApplicableMatch();
 
 										// create object __task_incoming_inFlow
 										__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
@@ -1598,6 +1644,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 										// create object __inFlow_targetRef_task
 										__inFlow_targetRef_task = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object isApplicableMatch
+										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+												.createIsApplicableMatch();
+
+										// create object __process_flowElements_task
+										__process_flowElements_task = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __laneToActor_source_lane
@@ -1608,12 +1662,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										__laneToActor_target_actor = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __process_flowElements_inFlow
-										__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
 										// create object __inFlowToFlow_source_inFlow
 										__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __process_flowElements_inFlow
+										__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __inFlowToPrevStep_source_inFlow
@@ -1676,22 +1730,13 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setName("target");
 
 										// create link
-										__lane_flowNodeRefs_task.setTrg(task);
-
-										// create link
-										__process_flowElements_task
-												.setTrg(task);
-
-										// create link
 										__task_outgoing_outFlow.setSrc(task);
 
 										// create link
-										__outFlow_sourceRef_task.setTrg(task);
+										__lane_flowNodeRefs_task.setTrg(task);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														task);
+										__outFlow_sourceRef_task.setTrg(task);
 
 										// create link
 										__task_incoming_inFlow.setSrc(task);
@@ -1700,7 +1745,13 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										__inFlow_targetRef_task.setTrg(task);
 
 										// create link
-										__lane_flowNodeRefs_task.setSrc(lane);
+										isApplicableMatch
+												.getAllContextElements().add(
+														task);
+
+										// create link
+										__process_flowElements_task
+												.setTrg(task);
 
 										// create link
 										isApplicableMatch
@@ -1711,13 +1762,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										__laneToActor_source_lane.setTrg(lane);
 
 										// create link
-										__laneToActor_target_actor
-												.setTrg(actor);
+										__lane_flowNodeRefs_task.setSrc(lane);
 
 										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														actor);
+
+										// create link
+										__laneToActor_target_actor
+												.setTrg(actor);
 
 										// create link
 										__laneToActor_target_actor
@@ -1736,7 +1790,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										__inFlow_targetRef_task.setSrc(inFlow);
 
 										// create link
-										__process_flowElements_inFlow
+										__inFlowToFlow_source_inFlow
 												.setTrg(inFlow);
 
 										// create link
@@ -1745,7 +1799,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 														inFlow);
 
 										// create link
-										__inFlowToFlow_source_inFlow
+										__process_flowElements_inFlow
+												.setTrg(inFlow);
+
+										// create link
+										__inFlowToPrevStep_source_inFlow
 												.setTrg(inFlow);
 
 										// create link
@@ -1753,20 +1811,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 										// create link
 										__inFlowToPrevStep_source_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										__inFlowToPrevStep_source_inFlow
-												.setSrc(inFlowToPrevStep);
-
-										// create link
-										__inFlowToPrevStep_target_prevStep
 												.setSrc(inFlowToPrevStep);
 
 										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														inFlowToPrevStep);
+
+										// create link
+										__inFlowToPrevStep_target_prevStep
+												.setSrc(inFlowToPrevStep);
 
 										// create link
 										isApplicableMatch
@@ -1778,6 +1832,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setTrg(prevStep);
 
 										// create link
+										__process_flowElements_outFlow
+												.setSrc(process);
+
+										// create link
 										__process_flowElements_task
 												.setSrc(process);
 
@@ -1787,21 +1845,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 														process);
 
 										// create link
-										__process_flowElements_outFlow
-												.setSrc(process);
-
-										// create link
 										__process_flowElements_inFlow
 												.setSrc(process);
-
-										// create link
-										__outFlow_sourceRef_task
-												.setSrc(outFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														outFlow);
 
 										// create link
 										__task_outgoing_outFlow.setTrg(outFlow);
@@ -1809,6 +1854,15 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										// create link
 										__process_flowElements_outFlow
 												.setTrg(outFlow);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														outFlow);
+
+										// create link
+										__outFlow_sourceRef_task
+												.setSrc(outFlow);
 
 										// create link
 										__inFlowToFlow_source_inFlow
@@ -1824,74 +1878,18 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 														inFlowToFlow);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														flow);
-
-										// create link
 										__inFlowToFlow_target_flow.setTrg(flow);
 
 										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__laneToActor_source_lane,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__task_incoming_inFlow,
-														"allContextElements");
+										isApplicableMatch
+												.getAllContextElements().add(
+														flow);
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
 														__task_outgoing_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__laneToActor_target_actor,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlow_targetRef_task,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__lane_flowNodeRefs_task,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToFlow_source_inFlow,
 														"allContextElements");
 
 										// create link
@@ -1905,14 +1903,28 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__inFlowToPrevStep_source_inFlow,
+														__inFlowToFlow_target_flow,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__outFlow_sourceRef_task,
+														__process_flowElements_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__laneToActor_source_lane,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__lane_flowNodeRefs_task,
 														"allContextElements");
 
 										// create link
@@ -1926,7 +1938,49 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__inFlowToFlow_target_flow,
+														__outFlow_sourceRef_task,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__laneToActor_target_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__task_incoming_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlow_targetRef_task,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToFlow_source_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__process_flowElements_outFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToPrevStep_source_inFlow,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -2185,9 +2239,9 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __prevStep_next_normalStep = null;
-		EMoflonEdge __normalStep_actor_actor = null;
 		EMoflonEdge __flow_steps_normalStep = null;
+		EMoflonEdge __normalStep_actor_actor = null;
+		EMoflonEdge __prevStep_next_normalStep = null;
 
 		// story node 'initial bindings'
 		try {
@@ -2246,16 +2300,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects prevStep and normalStep 
 				JavaSDM.ensure(!prevStep.equals(normalStep));
 
-				// create object __prevStep_next_normalStep
-				__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
+				// create object __flow_steps_normalStep
+				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __normalStep_actor_actor
 				__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __flow_steps_normalStep
-				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
+				// create object __prevStep_next_normalStep
+				__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __prevStep_next_normalStep
@@ -2267,7 +2321,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__prevStep_next_normalStep, "toBeTranslatedEdges");
+						__flow_steps_normalStep, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						normalStep, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -2275,11 +2333,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_normalStep, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						normalStep, "toBeTranslatedNodes");
+						__prevStep_next_normalStep, "toBeTranslatedEdges");
 
 				// create link
 				__normalStep_actor_actor.setTrg(actor);
@@ -2323,7 +2377,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
+						actor, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -2331,7 +2385,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "contextNodes");
+						flow, "contextNodes");
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
 				fujaba__Success = false;
@@ -2369,27 +2423,27 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__IterIsApplicableMatchToCsp = null;
 		CSP csp = null;
 		UserTask task = null;
-		FlowNodeToStep taskToNormalStep = null;
 		SequenceFlow outFlow = null;
+		FlowNodeToStep taskToNormalStep = null;
 		SequenceFlowToStep outFlowToNormalStep = null;
 		SequenceFlowToUCFlow outFlowToFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __prevStep_next_normalStep = null;
-		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
-		EMoflonEdge outFlowToFlow__source__outFlow = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
-		EMoflonEdge outFlow__sourceRef__task = null;
-		EMoflonEdge task__outgoing__outFlow = null;
-		EMoflonEdge __normalStep_actor_actor = null;
-		EMoflonEdge inFlow__targetRef__task = null;
-		EMoflonEdge outFlowToFlow__target__flow = null;
 		EMoflonEdge lane__flowNodeRefs__task = null;
-		EMoflonEdge taskToNormalStep__source__task = null;
-		EMoflonEdge process__flowElements__task = null;
-		EMoflonEdge process__flowElements__outFlow = null;
-		EMoflonEdge task__incoming__inFlow = null;
+		EMoflonEdge __flow_steps_normalStep = null;
+		EMoflonEdge outFlowToFlow__source__outFlow = null;
+		EMoflonEdge outFlow__sourceRef__task = null;
 		EMoflonEdge taskToNormalStep__target__normalStep = null;
+		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
+		EMoflonEdge process__flowElements__task = null;
+		EMoflonEdge outFlowToFlow__target__flow = null;
+		EMoflonEdge process__flowElements__outFlow = null;
+		EMoflonEdge inFlow__targetRef__task = null;
+		EMoflonEdge __prevStep_next_normalStep = null;
+		EMoflonEdge task__incoming__inFlow = null;
+		EMoflonEdge task__outgoing__outFlow = null;
+		EMoflonEdge taskToNormalStep__source__task = null;
+		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
+		EMoflonEdge __normalStep_actor_actor = null;
 
 		// story node 'perform transformation'
 		try {
@@ -2477,12 +2531,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// create object task
 			task = Bpmn2Factory.eINSTANCE.createUserTask();
 
+			// create object outFlow
+			outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
+
 			// create object taskToNormalStep
 			taskToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createFlowNodeToStep();
-
-			// create object outFlow
-			outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
 
 			// create object outFlowToNormalStep
 			outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
@@ -2500,10 +2554,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					"name").getValue());
 
 			// create link
-			outFlowToNormalStep.setTarget(normalStep);
+			taskToNormalStep.setTarget(normalStep);
 
 			// create link
-			taskToNormalStep.setTarget(normalStep);
+			outFlowToNormalStep.setTarget(normalStep);
 
 			// create link
 			process.getFlowElements().add(outFlow); // add link
@@ -2519,12 +2573,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					flow, "target");
 
 			// create link
-			lane.getFlowNodeRefs().add(task);
-
-			// create link
-			taskToNormalStep.setSource(task);
-
-			// create link
 			inFlow.setTargetRef(task);
 
 			// create link
@@ -2532,6 +2580,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			process.getFlowElements().add(task);
+
+			// create link
+			lane.getFlowNodeRefs().add(task);
+
+			// create link
+			taskToNormalStep.setSource(task);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -2559,19 +2613,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					task, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					taskToNormalStep, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2579,7 +2621,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlow, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					taskToNormalStep, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToFlow, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -2936,68 +2990,68 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects taskToNormalStep and task 
 			JavaSDM.ensure(!taskToNormalStep.equals(task));
 
-			// create object __prevStep_next_normalStep
-			__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object lane__flowNodeRefs__task
+			lane__flowNodeRefs__task = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __flow_steps_normalStep
 			__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+			// create object outFlowToFlow__source__outFlow
+			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object outFlow__sourceRef__task
 			outFlow__sourceRef__task = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object task__outgoing__outFlow
-			task__outgoing__outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object taskToNormalStep__target__normalStep
+			taskToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __normalStep_actor_actor
-			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object inFlow__targetRef__task
-			inFlow__targetRef__task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__target__flow
-			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object lane__flowNodeRefs__task
-			lane__flowNodeRefs__task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object taskToNormalStep__source__task
-			taskToNormalStep__source__task = TGGRuntimeFactory.eINSTANCE
+			// create object outFlowToNormalStep__source__outFlow
+			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object process__flowElements__task
 			process__flowElements__task = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object outFlowToFlow__target__flow
+			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object process__flowElements__outFlow
 			process__flowElements__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object inFlow__targetRef__task
+			inFlow__targetRef__task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __prevStep_next_normalStep
+			__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object task__incoming__inFlow
 			task__incoming__inFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object taskToNormalStep__target__normalStep
-			taskToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+			// create object task__outgoing__outFlow
+			task__outgoing__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object taskToNormalStep__source__task
+			taskToNormalStep__source__task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToNormalStep__target__normalStep
+			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __normalStep_actor_actor
+			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -3037,15 +3091,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__prevStep_next_normalStep, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__source__outFlow, "createdEdges");
+					lane__flowNodeRefs__task, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3053,7 +3099,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__target__normalStep, "createdEdges");
+					outFlowToFlow__source__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3061,27 +3107,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					task__outgoing__outFlow, "createdEdges");
+					taskToNormalStep__target__normalStep, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__normalStep_actor_actor, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					inFlow__targetRef__task, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__target__flow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					lane__flowNodeRefs__task, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					taskToNormalStep__source__task, "createdEdges");
+					outFlowToNormalStep__source__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3089,7 +3119,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToFlow__target__flow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					process__flowElements__outFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					inFlow__targetRef__task, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__prevStep_next_normalStep, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3097,25 +3139,37 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					taskToNormalStep__target__normalStep, "createdEdges");
+					task__outgoing__outFlow, "createdEdges");
 
 			// create link
-			inFlow__targetRef__task.setTrg(task);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					taskToNormalStep__source__task, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep__target__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__normalStep_actor_actor, "translatedEdges");
+
+			// create link
+			process__flowElements__task.setTrg(task);
+
+			// create link
+			taskToNormalStep__source__task.setTrg(task);
 
 			// create link
 			outFlow__sourceRef__task.setTrg(task);
+
+			// create link
+			inFlow__targetRef__task.setTrg(task);
 
 			// create link
 			lane__flowNodeRefs__task.setTrg(task);
 
 			// create link
 			task__incoming__inFlow.setSrc(task);
-
-			// create link
-			taskToNormalStep__source__task.setTrg(task);
-
-			// create link
-			process__flowElements__task.setTrg(task);
 
 			// create link
 			task__outgoing__outFlow.setSrc(task);
@@ -3127,46 +3181,46 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			__normalStep_actor_actor.setTrg(actor);
 
 			// create link
-			task__incoming__inFlow.setTrg(inFlow);
+			inFlow__targetRef__task.setSrc(inFlow);
 
 			// create link
-			inFlow__targetRef__task.setSrc(inFlow);
+			task__incoming__inFlow.setTrg(inFlow);
 
 			// create link
 			__prevStep_next_normalStep.setSrc(prevStep);
 
 			// create link
-			taskToNormalStep__target__normalStep.setTrg(normalStep);
-
-			// create link
 			__prevStep_next_normalStep.setTrg(normalStep);
-
-			// create link
-			__normalStep_actor_actor.setSrc(normalStep);
 
 			// create link
 			__flow_steps_normalStep.setTrg(normalStep);
 
 			// create link
-			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
+			taskToNormalStep__target__normalStep.setTrg(normalStep);
 
 			// create link
-			process__flowElements__task.setSrc(process);
+			__normalStep_actor_actor.setSrc(normalStep);
+
+			// create link
+			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
 
 			// create link
 			process__flowElements__outFlow.setSrc(process);
 
 			// create link
+			process__flowElements__task.setSrc(process);
+
+			// create link
 			outFlowToFlow__source__outFlow.setTrg(outFlow);
 
 			// create link
-			outFlow__sourceRef__task.setSrc(outFlow);
+			task__outgoing__outFlow.setTrg(outFlow);
 
 			// create link
 			process__flowElements__outFlow.setTrg(outFlow);
 
 			// create link
-			task__outgoing__outFlow.setTrg(outFlow);
+			outFlow__sourceRef__task.setSrc(outFlow);
 
 			// create link
 			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
@@ -3190,10 +3244,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			outFlowToNormalStep__source__outFlow.setSrc(outFlowToNormalStep);
 
 			// create link
-			__flow_steps_normalStep.setSrc(flow);
+			outFlowToFlow__target__flow.setTrg(flow);
 
 			// create link
-			outFlowToFlow__target__flow.setTrg(flow);
+			__flow_steps_normalStep.setSrc(flow);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -3226,8 +3280,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Flow flow = null;
 		NormalStep normalStep = null;
 		Step prevStep = null;
-		EMoflonEdge __laneToActor_source_lane = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __laneToActor_source_lane = null;
 		EMoflonEdge __normalStep_actor_actor = null;
 		EMoflonEdge __laneToActor_target_actor = null;
 		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
@@ -3467,13 +3521,13 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(actor.equals(laneToActor
 												.getTarget()));
 
-										// create object __laneToActor_source_lane
-										__laneToActor_source_lane = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
 										// create object isApplicableMatch
 										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 												.createIsApplicableMatch();
+
+										// create object __laneToActor_source_lane
+										__laneToActor_source_lane = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
 
 										// create object __normalStep_actor_actor
 										__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
@@ -3543,12 +3597,17 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setName("steps");
 
 										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														lane);
+
+										// create link
 										__laneToActor_source_lane.setTrg(lane);
 
 										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
-														lane);
+														actor);
 
 										// create link
 										__normalStep_actor_actor.setTrg(actor);
@@ -3556,11 +3615,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										// create link
 										__laneToActor_target_actor
 												.setTrg(actor);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														actor);
 
 										// create link
 										__laneToActor_target_actor
@@ -3584,16 +3638,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setTrg(inFlow);
 
 										// create link
-										__process_flowElements_inFlow
-												.setTrg(inFlow);
-
-										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														inFlow);
 
 										// create link
+										__process_flowElements_inFlow
+												.setTrg(inFlow);
+
+										// create link
 										__inFlowToPrevStep_target_prevStep
+												.setSrc(inFlowToPrevStep);
+
+										// create link
+										__inFlowToPrevStep_source_inFlow
 												.setSrc(inFlowToPrevStep);
 
 										// create link
@@ -3602,8 +3660,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 														inFlowToPrevStep);
 
 										// create link
-										__inFlowToPrevStep_source_inFlow
-												.setSrc(inFlowToPrevStep);
+										__prevStep_next_normalStep
+												.setSrc(prevStep);
 
 										// create link
 										isApplicableMatch
@@ -3615,15 +3673,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setTrg(prevStep);
 
 										// create link
-										__prevStep_next_normalStep
-												.setSrc(prevStep);
-
-										// create link
 										__normalStep_actor_actor
 												.setSrc(normalStep);
 
 										// create link
-										__flow_steps_normalStep
+										__prevStep_next_normalStep
 												.setTrg(normalStep);
 
 										// create link
@@ -3632,7 +3686,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 														normalStep);
 
 										// create link
-										__prevStep_next_normalStep
+										__flow_steps_normalStep
 												.setTrg(normalStep);
 
 										// create link
@@ -3645,49 +3699,28 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 														process);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														inFlowToFlow);
+										__inFlowToFlow_target_flow
+												.setSrc(inFlowToFlow);
 
 										// create link
 										__inFlowToFlow_source_inFlow
 												.setSrc(inFlowToFlow);
 
 										// create link
-										__inFlowToFlow_target_flow
-												.setSrc(inFlowToFlow);
-
-										// create link
-										__inFlowToFlow_target_flow.setTrg(flow);
+										isApplicableMatch
+												.getAllContextElements().add(
+														inFlowToFlow);
 
 										// create link
 										__flow_steps_normalStep.setSrc(flow);
 
 										// create link
+										__inFlowToFlow_target_flow.setTrg(flow);
+
+										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														flow);
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_source_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_target_prevStep,
-														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
@@ -3700,14 +3733,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__inFlowToFlow_source_inFlow,
+														__flow_steps_normalStep,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__laneToActor_target_actor,
+														__process_flowElements_inFlow,
 														"allContextElements");
 
 										// create link
@@ -3721,6 +3754,27 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
+														__inFlowToPrevStep_target_prevStep,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToPrevStep_source_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToFlow_source_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
 														__prevStep_next_normalStep,
 														"allContextElements");
 
@@ -3728,14 +3782,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__laneToActor_source_lane,
+														__laneToActor_target_actor,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__flow_steps_normalStep,
+														__laneToActor_source_lane,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -3984,7 +4038,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_461(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_134(
 			EMoflonEdge _edge_flowNodeRefs) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3992,17 +4046,17 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_645694 = null;
-		FlowElementsContainer __DEC_task_flowElements_59141 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_679706 = null;
-		Lane __DEC_task_flowNodeRefs_679706 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_498824 = null;
-		SequenceFlow __DEC_task_targetRef_498824 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_847495 = null;
+		FlowElementsContainer __DEC_task_flowElements_284748 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_199131 = null;
+		Lane __DEC_task_flowNodeRefs_199131 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_670041 = null;
+		SequenceFlow __DEC_task_targetRef_670041 = null;
 		Match match = null;
-		Iterator fujaba__IterTaskToInFlow = null;
-		SequenceFlow inFlow = null;
 		Iterator fujaba__IterTaskToOutFlow = null;
 		SequenceFlow outFlow = null;
+		Iterator fujaba__IterTaskToInFlow = null;
+		SequenceFlow inFlow = null;
 		Process process = null;
 		UserTask task = null;
 		Lane lane = null;
@@ -4082,39 +4136,39 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check link flowNodeRefs from lane to task
 			JavaSDM.ensure(lane.getFlowNodeRefs().contains(task));
 
-			// iterate to-many link sourceRef from task to outFlow
+			// iterate to-many link incoming from task to inFlow
 			fujaba__Success = false;
 
-			fujaba__IterTaskToOutFlow = new ArrayList(task.getOutgoing())
+			fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
 					.iterator();
 
-			while (fujaba__IterTaskToOutFlow.hasNext()) {
+			while (fujaba__IterTaskToInFlow.hasNext()) {
 				try {
-					outFlow = (SequenceFlow) fujaba__IterTaskToOutFlow.next();
+					inFlow = (SequenceFlow) fujaba__IterTaskToInFlow.next();
 
-					// check object outFlow is really bound
-					JavaSDM.ensure(outFlow != null);
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
+					// check object inFlow is really bound
+					JavaSDM.ensure(inFlow != null);
+					// check link flowElements from inFlow to process
+					JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-					// iterate to-many link targetRef from task to inFlow
+					// iterate to-many link outgoing from task to outFlow
 					fujaba__Success = false;
 
-					fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
-							.iterator();
+					fujaba__IterTaskToOutFlow = new ArrayList(
+							task.getOutgoing()).iterator();
 
-					while (fujaba__IterTaskToInFlow.hasNext()) {
+					while (fujaba__IterTaskToOutFlow.hasNext()) {
 						try {
-							inFlow = (SequenceFlow) fujaba__IterTaskToInFlow
+							outFlow = (SequenceFlow) fujaba__IterTaskToOutFlow
 									.next();
 
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
+							// check object outFlow is really bound
+							JavaSDM.ensure(outFlow != null);
 							// check isomorphic binding between objects outFlow and inFlow 
 							JavaSDM.ensure(!outFlow.equals(inFlow));
 
-							// check link flowElements from inFlow to process
-							JavaSDM.ensure(process.equals(inFlow.eContainer()));
+							// check link flowElements from outFlow to process
+							JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
 							// story node 'test core match and DECs'
 							try {
@@ -4125,20 +4179,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_645694 = outFlow
+									__DEC_outFlow_flowElements_847495 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_645694 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_645694 != null);
+									// check object __DEC_outFlow_flowElements_847495 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_847495 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_645694
+									JavaSDM.ensure(__DEC_outFlow_flowElements_847495
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_645694 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_645694
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_847495 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_847495
 											.equals(process));
 
 									fujaba__Success = true;
@@ -4155,19 +4209,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_task_flowElements_59141 = task
+									__DEC_task_flowElements_284748 = task
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 											.eContainer() : null;
 
-									// check object __DEC_task_flowElements_59141 is really bound
-									JavaSDM.ensure(__DEC_task_flowElements_59141 != null);
+									// check object __DEC_task_flowElements_284748 is really bound
+									JavaSDM.ensure(__DEC_task_flowElements_284748 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_task_flowElements_59141
+									JavaSDM.ensure(__DEC_task_flowElements_284748
 											.getFlowElements().contains(task));
 
-									// check isomorphic binding between objects __DEC_task_flowElements_59141 and process 
-									JavaSDM.ensure(!__DEC_task_flowElements_59141
+									// check isomorphic binding between objects __DEC_task_flowElements_284748 and process 
+									JavaSDM.ensure(!__DEC_task_flowElements_284748
 											.equals(process));
 
 									fujaba__Success = true;
@@ -4188,10 +4242,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_679706
+									// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_199131
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_flowNodeRefs_679706 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_flowNodeRefs_199131 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(task,
 															Lane.class,
@@ -4199,16 +4253,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_679706
+											&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_199131
 													.hasNext()) {
 										try {
-											__DEC_task_flowNodeRefs_679706 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_679706
+											__DEC_task_flowNodeRefs_199131 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_199131
 													.next();
 
-											// check object __DEC_task_flowNodeRefs_679706 is really bound
-											JavaSDM.ensure(__DEC_task_flowNodeRefs_679706 != null);
-											// check isomorphic binding between objects __DEC_task_flowNodeRefs_679706 and lane 
-											JavaSDM.ensure(!__DEC_task_flowNodeRefs_679706
+											// check object __DEC_task_flowNodeRefs_199131 is really bound
+											JavaSDM.ensure(__DEC_task_flowNodeRefs_199131 != null);
+											// check isomorphic binding between objects __DEC_task_flowNodeRefs_199131 and lane 
+											JavaSDM.ensure(!__DEC_task_flowNodeRefs_199131
 													.equals(lane));
 
 											fujaba__Success = true;
@@ -4231,27 +4285,27 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link targetRef from task to __DEC_task_targetRef_498824
+									// iterate to-many link incoming from task to __DEC_task_targetRef_670041
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_targetRef_498824 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_targetRef_670041 = new ArrayList(
 											task.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_targetRef_498824
+											&& fujaba__IterTaskTo__DEC_task_targetRef_670041
 													.hasNext()) {
 										try {
-											__DEC_task_targetRef_498824 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_498824
+											__DEC_task_targetRef_670041 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_670041
 													.next();
 
-											// check object __DEC_task_targetRef_498824 is really bound
-											JavaSDM.ensure(__DEC_task_targetRef_498824 != null);
-											// check isomorphic binding between objects __DEC_task_targetRef_498824 and inFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_498824
+											// check object __DEC_task_targetRef_670041 is really bound
+											JavaSDM.ensure(__DEC_task_targetRef_670041 != null);
+											// check isomorphic binding between objects __DEC_task_targetRef_670041 and inFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_670041
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_task_targetRef_498824 and outFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_498824
+											// check isomorphic binding between objects __DEC_task_targetRef_670041 and outFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_670041
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -4296,21 +4350,21 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								// check link flowElements from task to process
 								JavaSDM.ensure(process.equals(task.eContainer()));
 
-								// check link sourceRef from outFlow to task
+								// check link incoming from inFlow to task
+								JavaSDM.ensure(task.equals(inFlow
+										.getTargetRef()));
+
+								// check link incoming from outFlow to task
+								JavaSDM.ensure(!(task.equals(outFlow
+										.getTargetRef())));
+
+								// check link outgoing from outFlow to task
 								JavaSDM.ensure(task.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_flowNodeRefs to lane
 								JavaSDM.ensure(lane.equals(_edge_flowNodeRefs
 										.getSrc()));
-
-								// check link targetRef from inFlow to task
-								JavaSDM.ensure(task.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to task
-								JavaSDM.ensure(!(task.equals(outFlow
-										.getTargetRef())));
 
 								// check link trg from _edge_flowNodeRefs to task
 								JavaSDM.ensure(task.equals(_edge_flowNodeRefs
@@ -4399,7 +4453,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_196(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_58(
 			EMoflonEdge _edge_next) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4407,9 +4461,9 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_161696 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_630254 = null;
-		Step __DEC_normalStep_next_630254 = null;
+		Flow __DEC_normalStep_steps_845084 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_44508 = null;
+		Step __DEC_normalStep_next_44508 = null;
 		Match match = null;
 		Flow flow = null;
 		Actor actor = null;
@@ -4508,18 +4562,18 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_normalStep_steps_161696 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
+					__DEC_normalStep_steps_845084 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
 							.eContainer() : null;
 
-					// check object __DEC_normalStep_steps_161696 is really bound
-					JavaSDM.ensure(__DEC_normalStep_steps_161696 != null);
+					// check object __DEC_normalStep_steps_845084 is really bound
+					JavaSDM.ensure(__DEC_normalStep_steps_845084 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_normalStep_steps_161696.getSteps()
+					JavaSDM.ensure(__DEC_normalStep_steps_845084.getSteps()
 							.contains(normalStep));
 
-					// check isomorphic binding between objects __DEC_normalStep_steps_161696 and flow 
-					JavaSDM.ensure(!__DEC_normalStep_steps_161696.equals(flow));
+					// check isomorphic binding between objects __DEC_normalStep_steps_845084 and flow 
+					JavaSDM.ensure(!__DEC_normalStep_steps_845084.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -4534,29 +4588,29 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link next from normalStep to __DEC_normalStep_next_630254
+					// iterate to-many link next from normalStep to __DEC_normalStep_next_44508
 					fujaba__Success = false;
 
-					fujaba__IterNormalStepTo__DEC_normalStep_next_630254 = new ArrayList(
+					fujaba__IterNormalStepTo__DEC_normalStep_next_44508 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(normalStep,
 											Step.class, "next")).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterNormalStepTo__DEC_normalStep_next_630254
+							&& fujaba__IterNormalStepTo__DEC_normalStep_next_44508
 									.hasNext()) {
 						try {
-							__DEC_normalStep_next_630254 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_630254
+							__DEC_normalStep_next_44508 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_44508
 									.next();
 
-							// check object __DEC_normalStep_next_630254 is really bound
-							JavaSDM.ensure(__DEC_normalStep_next_630254 != null);
-							// check isomorphic binding between objects __DEC_normalStep_next_630254 and normalStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_630254
+							// check object __DEC_normalStep_next_44508 is really bound
+							JavaSDM.ensure(__DEC_normalStep_next_44508 != null);
+							// check isomorphic binding between objects __DEC_normalStep_next_44508 and normalStep 
+							JavaSDM.ensure(!__DEC_normalStep_next_44508
 									.equals(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_next_630254 and prevStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_630254
+							// check isomorphic binding between objects __DEC_normalStep_next_44508 and prevStep 
+							JavaSDM.ensure(!__DEC_normalStep_next_44508
 									.equals(prevStep));
 
 							fujaba__Success = true;
@@ -4675,7 +4729,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_462(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_135(
 			EMoflonEdge _edge_targetRef) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4683,12 +4737,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_909872 = null;
-		FlowElementsContainer __DEC_task_flowElements_839739 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_343171 = null;
-		Lane __DEC_task_flowNodeRefs_343171 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_866237 = null;
-		SequenceFlow __DEC_task_targetRef_866237 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_770855 = null;
+		FlowElementsContainer __DEC_task_flowElements_824712 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_595421 = null;
+		Lane __DEC_task_flowNodeRefs_595421 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_951803 = null;
+		SequenceFlow __DEC_task_targetRef_951803 = null;
 		Match match = null;
 		Iterator fujaba__IterTaskToOutFlow = null;
 		SequenceFlow outFlow = null;
@@ -4773,7 +4827,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check link flowElements from inFlow to process
 			JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-			// check link targetRef from inFlow to task
+			// check link incoming from inFlow to task
 			JavaSDM.ensure(task.equals(inFlow.getTargetRef()));
 
 			// iterate to-many link flowNodeRefs from task to lane
@@ -4789,7 +4843,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
-					// iterate to-many link sourceRef from task to outFlow
+					// iterate to-many link outgoing from task to outFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToOutFlow = new ArrayList(
@@ -4817,20 +4871,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_909872 = outFlow
+									__DEC_outFlow_flowElements_770855 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_909872 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_909872 != null);
+									// check object __DEC_outFlow_flowElements_770855 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_770855 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_909872
+									JavaSDM.ensure(__DEC_outFlow_flowElements_770855
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_909872 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_909872
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_770855 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_770855
 											.equals(process));
 
 									fujaba__Success = true;
@@ -4847,19 +4901,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_task_flowElements_839739 = task
+									__DEC_task_flowElements_824712 = task
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 											.eContainer() : null;
 
-									// check object __DEC_task_flowElements_839739 is really bound
-									JavaSDM.ensure(__DEC_task_flowElements_839739 != null);
+									// check object __DEC_task_flowElements_824712 is really bound
+									JavaSDM.ensure(__DEC_task_flowElements_824712 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_task_flowElements_839739
+									JavaSDM.ensure(__DEC_task_flowElements_824712
 											.getFlowElements().contains(task));
 
-									// check isomorphic binding between objects __DEC_task_flowElements_839739 and process 
-									JavaSDM.ensure(!__DEC_task_flowElements_839739
+									// check isomorphic binding between objects __DEC_task_flowElements_824712 and process 
+									JavaSDM.ensure(!__DEC_task_flowElements_824712
 											.equals(process));
 
 									fujaba__Success = true;
@@ -4880,10 +4934,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_343171
+									// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_595421
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_flowNodeRefs_343171 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_flowNodeRefs_595421 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(task,
 															Lane.class,
@@ -4891,16 +4945,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_343171
+											&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_595421
 													.hasNext()) {
 										try {
-											__DEC_task_flowNodeRefs_343171 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_343171
+											__DEC_task_flowNodeRefs_595421 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_595421
 													.next();
 
-											// check object __DEC_task_flowNodeRefs_343171 is really bound
-											JavaSDM.ensure(__DEC_task_flowNodeRefs_343171 != null);
-											// check isomorphic binding between objects __DEC_task_flowNodeRefs_343171 and lane 
-											JavaSDM.ensure(!__DEC_task_flowNodeRefs_343171
+											// check object __DEC_task_flowNodeRefs_595421 is really bound
+											JavaSDM.ensure(__DEC_task_flowNodeRefs_595421 != null);
+											// check isomorphic binding between objects __DEC_task_flowNodeRefs_595421 and lane 
+											JavaSDM.ensure(!__DEC_task_flowNodeRefs_595421
 													.equals(lane));
 
 											fujaba__Success = true;
@@ -4923,27 +4977,27 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link targetRef from task to __DEC_task_targetRef_866237
+									// iterate to-many link incoming from task to __DEC_task_targetRef_951803
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_targetRef_866237 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_targetRef_951803 = new ArrayList(
 											task.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_targetRef_866237
+											&& fujaba__IterTaskTo__DEC_task_targetRef_951803
 													.hasNext()) {
 										try {
-											__DEC_task_targetRef_866237 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_866237
+											__DEC_task_targetRef_951803 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_951803
 													.next();
 
-											// check object __DEC_task_targetRef_866237 is really bound
-											JavaSDM.ensure(__DEC_task_targetRef_866237 != null);
-											// check isomorphic binding between objects __DEC_task_targetRef_866237 and inFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_866237
+											// check object __DEC_task_targetRef_951803 is really bound
+											JavaSDM.ensure(__DEC_task_targetRef_951803 != null);
+											// check isomorphic binding between objects __DEC_task_targetRef_951803 and inFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_951803
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_task_targetRef_866237 and outFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_866237
+											// check isomorphic binding between objects __DEC_task_targetRef_951803 and outFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_951803
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -4988,21 +5042,21 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								// check link flowElements from task to process
 								JavaSDM.ensure(process.equals(task.eContainer()));
 
-								// check link sourceRef from outFlow to task
+								// check link incoming from inFlow to task
+								JavaSDM.ensure(task.equals(inFlow
+										.getTargetRef()));
+
+								// check link incoming from outFlow to task
+								JavaSDM.ensure(!(task.equals(outFlow
+										.getTargetRef())));
+
+								// check link outgoing from outFlow to task
 								JavaSDM.ensure(task.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_targetRef to inFlow
 								JavaSDM.ensure(inFlow.equals(_edge_targetRef
 										.getSrc()));
-
-								// check link targetRef from inFlow to task
-								JavaSDM.ensure(task.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to task
-								JavaSDM.ensure(!(task.equals(outFlow
-										.getTargetRef())));
 
 								// check link trg from _edge_targetRef to task
 								JavaSDM.ensure(task.equals(_edge_targetRef
@@ -5091,7 +5145,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_463(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_136(
 			EMoflonEdge _edge_incoming) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5099,12 +5153,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_706068 = null;
-		FlowElementsContainer __DEC_task_flowElements_996606 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_216147 = null;
-		Lane __DEC_task_flowNodeRefs_216147 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_451007 = null;
-		SequenceFlow __DEC_task_targetRef_451007 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_496090 = null;
+		FlowElementsContainer __DEC_task_flowElements_947568 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_891172 = null;
+		Lane __DEC_task_flowNodeRefs_891172 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_979996 = null;
+		SequenceFlow __DEC_task_targetRef_979996 = null;
 		Match match = null;
 		Iterator fujaba__IterTaskTo_edge_targetRef = null;
 		EMoflonEdge _edge_targetRef = null;
@@ -5191,7 +5245,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check link flowElements from inFlow to process
 			JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-			// check link targetRef from inFlow to task
+			// check link incoming from inFlow to task
 			JavaSDM.ensure(task.equals(inFlow.getTargetRef()));
 
 			// iterate to-many link flowNodeRefs from task to lane
@@ -5207,7 +5261,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
-					// iterate to-many link sourceRef from task to outFlow
+					// iterate to-many link outgoing from task to outFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToOutFlow = new ArrayList(
@@ -5259,20 +5313,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_outFlow_flowElements_706068 = outFlow
+											__DEC_outFlow_flowElements_496090 = outFlow
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 													.eContainer() : null;
 
-											// check object __DEC_outFlow_flowElements_706068 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_706068 != null);
+											// check object __DEC_outFlow_flowElements_496090 is really bound
+											JavaSDM.ensure(__DEC_outFlow_flowElements_496090 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_706068
+											JavaSDM.ensure(__DEC_outFlow_flowElements_496090
 													.getFlowElements()
 													.contains(outFlow));
 
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_706068 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_706068
+											// check isomorphic binding between objects __DEC_outFlow_flowElements_496090 and process 
+											JavaSDM.ensure(!__DEC_outFlow_flowElements_496090
 													.equals(process));
 
 											fujaba__Success = true;
@@ -5289,20 +5343,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_task_flowElements_996606 = task
+											__DEC_task_flowElements_947568 = task
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 													.eContainer() : null;
 
-											// check object __DEC_task_flowElements_996606 is really bound
-											JavaSDM.ensure(__DEC_task_flowElements_996606 != null);
+											// check object __DEC_task_flowElements_947568 is really bound
+											JavaSDM.ensure(__DEC_task_flowElements_947568 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_task_flowElements_996606
+											JavaSDM.ensure(__DEC_task_flowElements_947568
 													.getFlowElements()
 													.contains(task));
 
-											// check isomorphic binding between objects __DEC_task_flowElements_996606 and process 
-											JavaSDM.ensure(!__DEC_task_flowElements_996606
+											// check isomorphic binding between objects __DEC_task_flowElements_947568 and process 
+											JavaSDM.ensure(!__DEC_task_flowElements_947568
 													.equals(process));
 
 											fujaba__Success = true;
@@ -5323,10 +5377,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_216147
+											// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_891172
 											fujaba__Success = false;
 
-											fujaba__IterTaskTo__DEC_task_flowNodeRefs_216147 = new ArrayList(
+											fujaba__IterTaskTo__DEC_task_flowNodeRefs_891172 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	task,
@@ -5335,16 +5389,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_216147
+													&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_891172
 															.hasNext()) {
 												try {
-													__DEC_task_flowNodeRefs_216147 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_216147
+													__DEC_task_flowNodeRefs_891172 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_891172
 															.next();
 
-													// check object __DEC_task_flowNodeRefs_216147 is really bound
-													JavaSDM.ensure(__DEC_task_flowNodeRefs_216147 != null);
-													// check isomorphic binding between objects __DEC_task_flowNodeRefs_216147 and lane 
-													JavaSDM.ensure(!__DEC_task_flowNodeRefs_216147
+													// check object __DEC_task_flowNodeRefs_891172 is really bound
+													JavaSDM.ensure(__DEC_task_flowNodeRefs_891172 != null);
+													// check isomorphic binding between objects __DEC_task_flowNodeRefs_891172 and lane 
+													JavaSDM.ensure(!__DEC_task_flowNodeRefs_891172
 															.equals(lane));
 
 													fujaba__Success = true;
@@ -5367,28 +5421,28 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link targetRef from task to __DEC_task_targetRef_451007
+											// iterate to-many link incoming from task to __DEC_task_targetRef_979996
 											fujaba__Success = false;
 
-											fujaba__IterTaskTo__DEC_task_targetRef_451007 = new ArrayList(
+											fujaba__IterTaskTo__DEC_task_targetRef_979996 = new ArrayList(
 													task.getIncoming())
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterTaskTo__DEC_task_targetRef_451007
+													&& fujaba__IterTaskTo__DEC_task_targetRef_979996
 															.hasNext()) {
 												try {
-													__DEC_task_targetRef_451007 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_451007
+													__DEC_task_targetRef_979996 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_979996
 															.next();
 
-													// check object __DEC_task_targetRef_451007 is really bound
-													JavaSDM.ensure(__DEC_task_targetRef_451007 != null);
-													// check isomorphic binding between objects __DEC_task_targetRef_451007 and inFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_451007
+													// check object __DEC_task_targetRef_979996 is really bound
+													JavaSDM.ensure(__DEC_task_targetRef_979996 != null);
+													// check isomorphic binding between objects __DEC_task_targetRef_979996 and inFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_979996
 															.equals(inFlow));
 
-													// check isomorphic binding between objects __DEC_task_targetRef_451007 and outFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_451007
+													// check isomorphic binding between objects __DEC_task_targetRef_979996 and outFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_979996
 															.equals(outFlow));
 
 													fujaba__Success = true;
@@ -5440,7 +5494,15 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process.equals(task
 												.eContainer()));
 
-										// check link sourceRef from outFlow to task
+										// check link incoming from inFlow to task
+										JavaSDM.ensure(task.equals(inFlow
+												.getTargetRef()));
+
+										// check link incoming from outFlow to task
+										JavaSDM.ensure(!(task.equals(outFlow
+												.getTargetRef())));
+
+										// check link outgoing from outFlow to task
 										JavaSDM.ensure(task.equals(outFlow
 												.getSourceRef()));
 
@@ -5452,14 +5514,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(inFlow
 												.equals(_edge_targetRef
 														.getSrc()));
-
-										// check link targetRef from inFlow to task
-										JavaSDM.ensure(task.equals(inFlow
-												.getTargetRef()));
-
-										// check link targetRef from outFlow to task
-										JavaSDM.ensure(!(task.equals(outFlow
-												.getTargetRef())));
 
 										// check link trg from _edge_incoming to inFlow
 										JavaSDM.ensure(inFlow
@@ -5563,7 +5617,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_464(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_137(
 			EMoflonEdge _edge_flowElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5571,17 +5625,17 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_491793 = null;
-		FlowElementsContainer __DEC_task_flowElements_298252 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_445183 = null;
-		Lane __DEC_task_flowNodeRefs_445183 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_933906 = null;
-		SequenceFlow __DEC_task_targetRef_933906 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_101269 = null;
+		FlowElementsContainer __DEC_task_flowElements_244279 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_575028 = null;
+		Lane __DEC_task_flowNodeRefs_575028 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_937473 = null;
+		SequenceFlow __DEC_task_targetRef_937473 = null;
 		Match match = null;
-		Iterator fujaba__IterTaskToInFlow = null;
-		SequenceFlow inFlow = null;
 		Iterator fujaba__IterTaskToOutFlow = null;
 		SequenceFlow outFlow = null;
+		Iterator fujaba__IterTaskToInFlow = null;
+		SequenceFlow inFlow = null;
 		Iterator fujaba__IterTaskToLane = null;
 		Lane lane = null;
 		UserTask task = null;
@@ -5664,40 +5718,40 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
-					// iterate to-many link sourceRef from task to outFlow
+					// iterate to-many link incoming from task to inFlow
 					fujaba__Success = false;
 
-					fujaba__IterTaskToOutFlow = new ArrayList(
-							task.getOutgoing()).iterator();
+					fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
+							.iterator();
 
-					while (fujaba__IterTaskToOutFlow.hasNext()) {
+					while (fujaba__IterTaskToInFlow.hasNext()) {
 						try {
-							outFlow = (SequenceFlow) fujaba__IterTaskToOutFlow
+							inFlow = (SequenceFlow) fujaba__IterTaskToInFlow
 									.next();
 
-							// check object outFlow is really bound
-							JavaSDM.ensure(outFlow != null);
-							// check link flowElements from outFlow to process
-							JavaSDM.ensure(process.equals(outFlow.eContainer()));
+							// check object inFlow is really bound
+							JavaSDM.ensure(inFlow != null);
+							// check link flowElements from inFlow to process
+							JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-							// iterate to-many link targetRef from task to inFlow
+							// iterate to-many link outgoing from task to outFlow
 							fujaba__Success = false;
 
-							fujaba__IterTaskToInFlow = new ArrayList(
-									task.getIncoming()).iterator();
+							fujaba__IterTaskToOutFlow = new ArrayList(
+									task.getOutgoing()).iterator();
 
-							while (fujaba__IterTaskToInFlow.hasNext()) {
+							while (fujaba__IterTaskToOutFlow.hasNext()) {
 								try {
-									inFlow = (SequenceFlow) fujaba__IterTaskToInFlow
+									outFlow = (SequenceFlow) fujaba__IterTaskToOutFlow
 											.next();
 
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
+									// check object outFlow is really bound
+									JavaSDM.ensure(outFlow != null);
 									// check isomorphic binding between objects outFlow and inFlow 
 									JavaSDM.ensure(!outFlow.equals(inFlow));
 
-									// check link flowElements from inFlow to process
-									JavaSDM.ensure(process.equals(inFlow
+									// check link flowElements from outFlow to process
+									JavaSDM.ensure(process.equals(outFlow
 											.eContainer()));
 
 									// story node 'test core match and DECs'
@@ -5709,20 +5763,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_outFlow_flowElements_491793 = outFlow
+											__DEC_outFlow_flowElements_101269 = outFlow
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 													.eContainer() : null;
 
-											// check object __DEC_outFlow_flowElements_491793 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_491793 != null);
+											// check object __DEC_outFlow_flowElements_101269 is really bound
+											JavaSDM.ensure(__DEC_outFlow_flowElements_101269 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_491793
+											JavaSDM.ensure(__DEC_outFlow_flowElements_101269
 													.getFlowElements()
 													.contains(outFlow));
 
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_491793 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_491793
+											// check isomorphic binding between objects __DEC_outFlow_flowElements_101269 and process 
+											JavaSDM.ensure(!__DEC_outFlow_flowElements_101269
 													.equals(process));
 
 											fujaba__Success = true;
@@ -5739,20 +5793,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_task_flowElements_298252 = task
+											__DEC_task_flowElements_244279 = task
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 													.eContainer() : null;
 
-											// check object __DEC_task_flowElements_298252 is really bound
-											JavaSDM.ensure(__DEC_task_flowElements_298252 != null);
+											// check object __DEC_task_flowElements_244279 is really bound
+											JavaSDM.ensure(__DEC_task_flowElements_244279 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_task_flowElements_298252
+											JavaSDM.ensure(__DEC_task_flowElements_244279
 													.getFlowElements()
 													.contains(task));
 
-											// check isomorphic binding between objects __DEC_task_flowElements_298252 and process 
-											JavaSDM.ensure(!__DEC_task_flowElements_298252
+											// check isomorphic binding between objects __DEC_task_flowElements_244279 and process 
+											JavaSDM.ensure(!__DEC_task_flowElements_244279
 													.equals(process));
 
 											fujaba__Success = true;
@@ -5773,10 +5827,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_445183
+											// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_575028
 											fujaba__Success = false;
 
-											fujaba__IterTaskTo__DEC_task_flowNodeRefs_445183 = new ArrayList(
+											fujaba__IterTaskTo__DEC_task_flowNodeRefs_575028 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	task,
@@ -5785,16 +5839,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_445183
+													&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_575028
 															.hasNext()) {
 												try {
-													__DEC_task_flowNodeRefs_445183 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_445183
+													__DEC_task_flowNodeRefs_575028 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_575028
 															.next();
 
-													// check object __DEC_task_flowNodeRefs_445183 is really bound
-													JavaSDM.ensure(__DEC_task_flowNodeRefs_445183 != null);
-													// check isomorphic binding between objects __DEC_task_flowNodeRefs_445183 and lane 
-													JavaSDM.ensure(!__DEC_task_flowNodeRefs_445183
+													// check object __DEC_task_flowNodeRefs_575028 is really bound
+													JavaSDM.ensure(__DEC_task_flowNodeRefs_575028 != null);
+													// check isomorphic binding between objects __DEC_task_flowNodeRefs_575028 and lane 
+													JavaSDM.ensure(!__DEC_task_flowNodeRefs_575028
 															.equals(lane));
 
 													fujaba__Success = true;
@@ -5817,28 +5871,28 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link targetRef from task to __DEC_task_targetRef_933906
+											// iterate to-many link incoming from task to __DEC_task_targetRef_937473
 											fujaba__Success = false;
 
-											fujaba__IterTaskTo__DEC_task_targetRef_933906 = new ArrayList(
+											fujaba__IterTaskTo__DEC_task_targetRef_937473 = new ArrayList(
 													task.getIncoming())
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterTaskTo__DEC_task_targetRef_933906
+													&& fujaba__IterTaskTo__DEC_task_targetRef_937473
 															.hasNext()) {
 												try {
-													__DEC_task_targetRef_933906 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_933906
+													__DEC_task_targetRef_937473 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_937473
 															.next();
 
-													// check object __DEC_task_targetRef_933906 is really bound
-													JavaSDM.ensure(__DEC_task_targetRef_933906 != null);
-													// check isomorphic binding between objects __DEC_task_targetRef_933906 and inFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_933906
+													// check object __DEC_task_targetRef_937473 is really bound
+													JavaSDM.ensure(__DEC_task_targetRef_937473 != null);
+													// check isomorphic binding between objects __DEC_task_targetRef_937473 and inFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_937473
 															.equals(inFlow));
 
-													// check isomorphic binding between objects __DEC_task_targetRef_933906 and outFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_933906
+													// check isomorphic binding between objects __DEC_task_targetRef_937473 and outFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_937473
 															.equals(outFlow));
 
 													fujaba__Success = true;
@@ -5884,7 +5938,15 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process.equals(task
 												.eContainer()));
 
-										// check link sourceRef from outFlow to task
+										// check link incoming from inFlow to task
+										JavaSDM.ensure(task.equals(inFlow
+												.getTargetRef()));
+
+										// check link incoming from outFlow to task
+										JavaSDM.ensure(!(task.equals(outFlow
+												.getTargetRef())));
+
+										// check link outgoing from outFlow to task
 										JavaSDM.ensure(task.equals(outFlow
 												.getSourceRef()));
 
@@ -5892,14 +5954,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process
 												.equals(_edge_flowElements
 														.getSrc()));
-
-										// check link targetRef from inFlow to task
-										JavaSDM.ensure(task.equals(inFlow
-												.getTargetRef()));
-
-										// check link targetRef from outFlow to task
-										JavaSDM.ensure(!(task.equals(outFlow
-												.getTargetRef())));
 
 										// check link trg from _edge_flowElements to task
 										JavaSDM.ensure(task
@@ -5999,7 +6053,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_465(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_138(
 			EMoflonEdge _edge_flowElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -6007,12 +6061,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_118546 = null;
-		FlowElementsContainer __DEC_task_flowElements_727488 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_8006 = null;
-		Lane __DEC_task_flowNodeRefs_8006 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_427348 = null;
-		SequenceFlow __DEC_task_targetRef_427348 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_837151 = null;
+		FlowElementsContainer __DEC_task_flowElements_127062 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_163577 = null;
+		Lane __DEC_task_flowNodeRefs_163577 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_308251 = null;
+		SequenceFlow __DEC_task_targetRef_308251 = null;
 		Match match = null;
 		Iterator fujaba__IterTaskToInFlow = null;
 		SequenceFlow inFlow = null;
@@ -6109,7 +6163,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
-					// iterate to-many link targetRef from task to inFlow
+					// iterate to-many link incoming from task to inFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
@@ -6137,20 +6191,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_118546 = outFlow
+									__DEC_outFlow_flowElements_837151 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_118546 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_118546 != null);
+									// check object __DEC_outFlow_flowElements_837151 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_837151 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_118546
+									JavaSDM.ensure(__DEC_outFlow_flowElements_837151
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_118546 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_118546
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_837151 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_837151
 											.equals(process));
 
 									fujaba__Success = true;
@@ -6167,19 +6221,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_task_flowElements_727488 = task
+									__DEC_task_flowElements_127062 = task
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 											.eContainer() : null;
 
-									// check object __DEC_task_flowElements_727488 is really bound
-									JavaSDM.ensure(__DEC_task_flowElements_727488 != null);
+									// check object __DEC_task_flowElements_127062 is really bound
+									JavaSDM.ensure(__DEC_task_flowElements_127062 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_task_flowElements_727488
+									JavaSDM.ensure(__DEC_task_flowElements_127062
 											.getFlowElements().contains(task));
 
-									// check isomorphic binding between objects __DEC_task_flowElements_727488 and process 
-									JavaSDM.ensure(!__DEC_task_flowElements_727488
+									// check isomorphic binding between objects __DEC_task_flowElements_127062 and process 
+									JavaSDM.ensure(!__DEC_task_flowElements_127062
 											.equals(process));
 
 									fujaba__Success = true;
@@ -6200,10 +6254,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_8006
+									// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_163577
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_flowNodeRefs_8006 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_flowNodeRefs_163577 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(task,
 															Lane.class,
@@ -6211,16 +6265,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_8006
+											&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_163577
 													.hasNext()) {
 										try {
-											__DEC_task_flowNodeRefs_8006 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_8006
+											__DEC_task_flowNodeRefs_163577 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_163577
 													.next();
 
-											// check object __DEC_task_flowNodeRefs_8006 is really bound
-											JavaSDM.ensure(__DEC_task_flowNodeRefs_8006 != null);
-											// check isomorphic binding between objects __DEC_task_flowNodeRefs_8006 and lane 
-											JavaSDM.ensure(!__DEC_task_flowNodeRefs_8006
+											// check object __DEC_task_flowNodeRefs_163577 is really bound
+											JavaSDM.ensure(__DEC_task_flowNodeRefs_163577 != null);
+											// check isomorphic binding between objects __DEC_task_flowNodeRefs_163577 and lane 
+											JavaSDM.ensure(!__DEC_task_flowNodeRefs_163577
 													.equals(lane));
 
 											fujaba__Success = true;
@@ -6243,27 +6297,27 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link targetRef from task to __DEC_task_targetRef_427348
+									// iterate to-many link incoming from task to __DEC_task_targetRef_308251
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_targetRef_427348 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_targetRef_308251 = new ArrayList(
 											task.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_targetRef_427348
+											&& fujaba__IterTaskTo__DEC_task_targetRef_308251
 													.hasNext()) {
 										try {
-											__DEC_task_targetRef_427348 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_427348
+											__DEC_task_targetRef_308251 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_308251
 													.next();
 
-											// check object __DEC_task_targetRef_427348 is really bound
-											JavaSDM.ensure(__DEC_task_targetRef_427348 != null);
-											// check isomorphic binding between objects __DEC_task_targetRef_427348 and inFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_427348
+											// check object __DEC_task_targetRef_308251 is really bound
+											JavaSDM.ensure(__DEC_task_targetRef_308251 != null);
+											// check isomorphic binding between objects __DEC_task_targetRef_308251 and inFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_308251
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_task_targetRef_427348 and outFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_427348
+											// check isomorphic binding between objects __DEC_task_targetRef_308251 and outFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_308251
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -6308,21 +6362,21 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								// check link flowElements from task to process
 								JavaSDM.ensure(process.equals(task.eContainer()));
 
-								// check link sourceRef from outFlow to task
+								// check link incoming from inFlow to task
+								JavaSDM.ensure(task.equals(inFlow
+										.getTargetRef()));
+
+								// check link incoming from outFlow to task
+								JavaSDM.ensure(!(task.equals(outFlow
+										.getTargetRef())));
+
+								// check link outgoing from outFlow to task
 								JavaSDM.ensure(task.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_flowElements to process
 								JavaSDM.ensure(process
 										.equals(_edge_flowElements.getSrc()));
-
-								// check link targetRef from inFlow to task
-								JavaSDM.ensure(task.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to task
-								JavaSDM.ensure(!(task.equals(outFlow
-										.getTargetRef())));
 
 								// check link trg from _edge_flowElements to outFlow
 								JavaSDM.ensure(outFlow
@@ -6411,7 +6465,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_466(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_139(
 			EMoflonEdge _edge_sourceRef) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -6419,12 +6473,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_330146 = null;
-		FlowElementsContainer __DEC_task_flowElements_15623 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_985477 = null;
-		Lane __DEC_task_flowNodeRefs_985477 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_2817 = null;
-		SequenceFlow __DEC_task_targetRef_2817 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_93432 = null;
+		FlowElementsContainer __DEC_task_flowElements_238187 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_433081 = null;
+		Lane __DEC_task_flowNodeRefs_433081 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_494519 = null;
+		SequenceFlow __DEC_task_targetRef_494519 = null;
 		Match match = null;
 		Iterator fujaba__IterTaskToInFlow = null;
 		SequenceFlow inFlow = null;
@@ -6509,7 +6563,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check link flowElements from outFlow to process
 			JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-			// check link sourceRef from outFlow to task
+			// check link outgoing from outFlow to task
 			JavaSDM.ensure(task.equals(outFlow.getSourceRef()));
 
 			// iterate to-many link flowNodeRefs from task to lane
@@ -6525,7 +6579,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
-					// iterate to-many link targetRef from task to inFlow
+					// iterate to-many link incoming from task to inFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
@@ -6553,20 +6607,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_330146 = outFlow
+									__DEC_outFlow_flowElements_93432 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_330146 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_330146 != null);
+									// check object __DEC_outFlow_flowElements_93432 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_93432 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_330146
+									JavaSDM.ensure(__DEC_outFlow_flowElements_93432
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_330146 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_330146
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_93432 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_93432
 											.equals(process));
 
 									fujaba__Success = true;
@@ -6583,19 +6637,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_task_flowElements_15623 = task
+									__DEC_task_flowElements_238187 = task
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 											.eContainer() : null;
 
-									// check object __DEC_task_flowElements_15623 is really bound
-									JavaSDM.ensure(__DEC_task_flowElements_15623 != null);
+									// check object __DEC_task_flowElements_238187 is really bound
+									JavaSDM.ensure(__DEC_task_flowElements_238187 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_task_flowElements_15623
+									JavaSDM.ensure(__DEC_task_flowElements_238187
 											.getFlowElements().contains(task));
 
-									// check isomorphic binding between objects __DEC_task_flowElements_15623 and process 
-									JavaSDM.ensure(!__DEC_task_flowElements_15623
+									// check isomorphic binding between objects __DEC_task_flowElements_238187 and process 
+									JavaSDM.ensure(!__DEC_task_flowElements_238187
 											.equals(process));
 
 									fujaba__Success = true;
@@ -6616,10 +6670,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_985477
+									// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_433081
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_flowNodeRefs_985477 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_flowNodeRefs_433081 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(task,
 															Lane.class,
@@ -6627,16 +6681,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_985477
+											&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_433081
 													.hasNext()) {
 										try {
-											__DEC_task_flowNodeRefs_985477 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_985477
+											__DEC_task_flowNodeRefs_433081 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_433081
 													.next();
 
-											// check object __DEC_task_flowNodeRefs_985477 is really bound
-											JavaSDM.ensure(__DEC_task_flowNodeRefs_985477 != null);
-											// check isomorphic binding between objects __DEC_task_flowNodeRefs_985477 and lane 
-											JavaSDM.ensure(!__DEC_task_flowNodeRefs_985477
+											// check object __DEC_task_flowNodeRefs_433081 is really bound
+											JavaSDM.ensure(__DEC_task_flowNodeRefs_433081 != null);
+											// check isomorphic binding between objects __DEC_task_flowNodeRefs_433081 and lane 
+											JavaSDM.ensure(!__DEC_task_flowNodeRefs_433081
 													.equals(lane));
 
 											fujaba__Success = true;
@@ -6659,27 +6713,27 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link targetRef from task to __DEC_task_targetRef_2817
+									// iterate to-many link incoming from task to __DEC_task_targetRef_494519
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_targetRef_2817 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_targetRef_494519 = new ArrayList(
 											task.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_targetRef_2817
+											&& fujaba__IterTaskTo__DEC_task_targetRef_494519
 													.hasNext()) {
 										try {
-											__DEC_task_targetRef_2817 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_2817
+											__DEC_task_targetRef_494519 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_494519
 													.next();
 
-											// check object __DEC_task_targetRef_2817 is really bound
-											JavaSDM.ensure(__DEC_task_targetRef_2817 != null);
-											// check isomorphic binding between objects __DEC_task_targetRef_2817 and inFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_2817
+											// check object __DEC_task_targetRef_494519 is really bound
+											JavaSDM.ensure(__DEC_task_targetRef_494519 != null);
+											// check isomorphic binding between objects __DEC_task_targetRef_494519 and inFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_494519
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_task_targetRef_2817 and outFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_2817
+											// check isomorphic binding between objects __DEC_task_targetRef_494519 and outFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_494519
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -6724,21 +6778,21 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								// check link flowElements from task to process
 								JavaSDM.ensure(process.equals(task.eContainer()));
 
-								// check link sourceRef from outFlow to task
+								// check link incoming from inFlow to task
+								JavaSDM.ensure(task.equals(inFlow
+										.getTargetRef()));
+
+								// check link incoming from outFlow to task
+								JavaSDM.ensure(!(task.equals(outFlow
+										.getTargetRef())));
+
+								// check link outgoing from outFlow to task
 								JavaSDM.ensure(task.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_sourceRef to outFlow
 								JavaSDM.ensure(outFlow.equals(_edge_sourceRef
 										.getSrc()));
-
-								// check link targetRef from inFlow to task
-								JavaSDM.ensure(task.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to task
-								JavaSDM.ensure(!(task.equals(outFlow
-										.getTargetRef())));
 
 								// check link trg from _edge_sourceRef to task
 								JavaSDM.ensure(task.equals(_edge_sourceRef
@@ -6827,7 +6881,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_467(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_140(
 			EMoflonEdge _edge_outgoing) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -6835,12 +6889,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_36895 = null;
-		FlowElementsContainer __DEC_task_flowElements_145815 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_362171 = null;
-		Lane __DEC_task_flowNodeRefs_362171 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_471670 = null;
-		SequenceFlow __DEC_task_targetRef_471670 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_292756 = null;
+		FlowElementsContainer __DEC_task_flowElements_40977 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_flowNodeRefs_882462 = null;
+		Lane __DEC_task_flowNodeRefs_882462 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_785022 = null;
+		SequenceFlow __DEC_task_targetRef_785022 = null;
 		Match match = null;
 		Iterator fujaba__IterTaskTo_edge_sourceRef = null;
 		EMoflonEdge _edge_sourceRef = null;
@@ -6927,7 +6981,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check link flowElements from outFlow to process
 			JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-			// check link sourceRef from outFlow to task
+			// check link outgoing from outFlow to task
 			JavaSDM.ensure(task.equals(outFlow.getSourceRef()));
 
 			// iterate to-many link flowNodeRefs from task to lane
@@ -6943,7 +6997,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
-					// iterate to-many link targetRef from task to inFlow
+					// iterate to-many link incoming from task to inFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
@@ -6995,20 +7049,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_outFlow_flowElements_36895 = outFlow
+											__DEC_outFlow_flowElements_292756 = outFlow
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 													.eContainer() : null;
 
-											// check object __DEC_outFlow_flowElements_36895 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_36895 != null);
+											// check object __DEC_outFlow_flowElements_292756 is really bound
+											JavaSDM.ensure(__DEC_outFlow_flowElements_292756 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_36895
+											JavaSDM.ensure(__DEC_outFlow_flowElements_292756
 													.getFlowElements()
 													.contains(outFlow));
 
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_36895 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_36895
+											// check isomorphic binding between objects __DEC_outFlow_flowElements_292756 and process 
+											JavaSDM.ensure(!__DEC_outFlow_flowElements_292756
 													.equals(process));
 
 											fujaba__Success = true;
@@ -7025,20 +7079,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_task_flowElements_145815 = task
+											__DEC_task_flowElements_40977 = task
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 													.eContainer() : null;
 
-											// check object __DEC_task_flowElements_145815 is really bound
-											JavaSDM.ensure(__DEC_task_flowElements_145815 != null);
+											// check object __DEC_task_flowElements_40977 is really bound
+											JavaSDM.ensure(__DEC_task_flowElements_40977 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_task_flowElements_145815
+											JavaSDM.ensure(__DEC_task_flowElements_40977
 													.getFlowElements()
 													.contains(task));
 
-											// check isomorphic binding between objects __DEC_task_flowElements_145815 and process 
-											JavaSDM.ensure(!__DEC_task_flowElements_145815
+											// check isomorphic binding between objects __DEC_task_flowElements_40977 and process 
+											JavaSDM.ensure(!__DEC_task_flowElements_40977
 													.equals(process));
 
 											fujaba__Success = true;
@@ -7059,10 +7113,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_362171
+											// iterate to-many link flowNodeRefs from task to __DEC_task_flowNodeRefs_882462
 											fujaba__Success = false;
 
-											fujaba__IterTaskTo__DEC_task_flowNodeRefs_362171 = new ArrayList(
+											fujaba__IterTaskTo__DEC_task_flowNodeRefs_882462 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	task,
@@ -7071,16 +7125,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_362171
+													&& fujaba__IterTaskTo__DEC_task_flowNodeRefs_882462
 															.hasNext()) {
 												try {
-													__DEC_task_flowNodeRefs_362171 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_362171
+													__DEC_task_flowNodeRefs_882462 = (Lane) fujaba__IterTaskTo__DEC_task_flowNodeRefs_882462
 															.next();
 
-													// check object __DEC_task_flowNodeRefs_362171 is really bound
-													JavaSDM.ensure(__DEC_task_flowNodeRefs_362171 != null);
-													// check isomorphic binding between objects __DEC_task_flowNodeRefs_362171 and lane 
-													JavaSDM.ensure(!__DEC_task_flowNodeRefs_362171
+													// check object __DEC_task_flowNodeRefs_882462 is really bound
+													JavaSDM.ensure(__DEC_task_flowNodeRefs_882462 != null);
+													// check isomorphic binding between objects __DEC_task_flowNodeRefs_882462 and lane 
+													JavaSDM.ensure(!__DEC_task_flowNodeRefs_882462
 															.equals(lane));
 
 													fujaba__Success = true;
@@ -7103,28 +7157,28 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link targetRef from task to __DEC_task_targetRef_471670
+											// iterate to-many link incoming from task to __DEC_task_targetRef_785022
 											fujaba__Success = false;
 
-											fujaba__IterTaskTo__DEC_task_targetRef_471670 = new ArrayList(
+											fujaba__IterTaskTo__DEC_task_targetRef_785022 = new ArrayList(
 													task.getIncoming())
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterTaskTo__DEC_task_targetRef_471670
+													&& fujaba__IterTaskTo__DEC_task_targetRef_785022
 															.hasNext()) {
 												try {
-													__DEC_task_targetRef_471670 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_471670
+													__DEC_task_targetRef_785022 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_785022
 															.next();
 
-													// check object __DEC_task_targetRef_471670 is really bound
-													JavaSDM.ensure(__DEC_task_targetRef_471670 != null);
-													// check isomorphic binding between objects __DEC_task_targetRef_471670 and inFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_471670
+													// check object __DEC_task_targetRef_785022 is really bound
+													JavaSDM.ensure(__DEC_task_targetRef_785022 != null);
+													// check isomorphic binding between objects __DEC_task_targetRef_785022 and inFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_785022
 															.equals(inFlow));
 
-													// check isomorphic binding between objects __DEC_task_targetRef_471670 and outFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_471670
+													// check isomorphic binding between objects __DEC_task_targetRef_785022 and outFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_785022
 															.equals(outFlow));
 
 													fujaba__Success = true;
@@ -7176,7 +7230,15 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process.equals(task
 												.eContainer()));
 
-										// check link sourceRef from outFlow to task
+										// check link incoming from inFlow to task
+										JavaSDM.ensure(task.equals(inFlow
+												.getTargetRef()));
+
+										// check link incoming from outFlow to task
+										JavaSDM.ensure(!(task.equals(outFlow
+												.getTargetRef())));
+
+										// check link outgoing from outFlow to task
 										JavaSDM.ensure(task.equals(outFlow
 												.getSourceRef()));
 
@@ -7188,14 +7250,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(outFlow
 												.equals(_edge_sourceRef
 														.getSrc()));
-
-										// check link targetRef from inFlow to task
-										JavaSDM.ensure(task.equals(inFlow
-												.getTargetRef()));
-
-										// check link targetRef from outFlow to task
-										JavaSDM.ensure(!(task.equals(outFlow
-												.getTargetRef())));
 
 										// check link trg from _edge_outgoing to outFlow
 										JavaSDM.ensure(outFlow
@@ -7299,7 +7353,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_197(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_59(
 			EMoflonEdge _edge_actor) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -7307,9 +7361,9 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_773744 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_515002 = null;
-		Step __DEC_normalStep_next_515002 = null;
+		Flow __DEC_normalStep_steps_122491 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_13689 = null;
+		Step __DEC_normalStep_next_13689 = null;
 		Match match = null;
 		Iterator fujaba__IterNormalStepToPrevStep = null;
 		Step prevStep = null;
@@ -7416,19 +7470,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_normalStep_steps_773744 = normalStep
+							__DEC_normalStep_steps_122491 = normalStep
 									.eContainer() instanceof Flow ? (Flow) normalStep
 									.eContainer() : null;
 
-							// check object __DEC_normalStep_steps_773744 is really bound
-							JavaSDM.ensure(__DEC_normalStep_steps_773744 != null);
+							// check object __DEC_normalStep_steps_122491 is really bound
+							JavaSDM.ensure(__DEC_normalStep_steps_122491 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_normalStep_steps_773744
+							JavaSDM.ensure(__DEC_normalStep_steps_122491
 									.getSteps().contains(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_steps_773744 and flow 
-							JavaSDM.ensure(!__DEC_normalStep_steps_773744
+							// check isomorphic binding between objects __DEC_normalStep_steps_122491 and flow 
+							JavaSDM.ensure(!__DEC_normalStep_steps_122491
 									.equals(flow));
 
 							fujaba__Success = true;
@@ -7444,30 +7498,30 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link next from normalStep to __DEC_normalStep_next_515002
+							// iterate to-many link next from normalStep to __DEC_normalStep_next_13689
 							fujaba__Success = false;
 
-							fujaba__IterNormalStepTo__DEC_normalStep_next_515002 = new ArrayList(
+							fujaba__IterNormalStepTo__DEC_normalStep_next_13689 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(normalStep,
 													Step.class, "next"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterNormalStepTo__DEC_normalStep_next_515002
+									&& fujaba__IterNormalStepTo__DEC_normalStep_next_13689
 											.hasNext()) {
 								try {
-									__DEC_normalStep_next_515002 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_515002
+									__DEC_normalStep_next_13689 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_13689
 											.next();
 
-									// check object __DEC_normalStep_next_515002 is really bound
-									JavaSDM.ensure(__DEC_normalStep_next_515002 != null);
-									// check isomorphic binding between objects __DEC_normalStep_next_515002 and normalStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_515002
+									// check object __DEC_normalStep_next_13689 is really bound
+									JavaSDM.ensure(__DEC_normalStep_next_13689 != null);
+									// check isomorphic binding between objects __DEC_normalStep_next_13689 and normalStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_13689
 											.equals(normalStep));
 
-									// check isomorphic binding between objects __DEC_normalStep_next_515002 and prevStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_515002
+									// check isomorphic binding between objects __DEC_normalStep_next_13689 and prevStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_13689
 											.equals(prevStep));
 
 									fujaba__Success = true;
@@ -7595,7 +7649,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_198(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_60(
 			EMoflonEdge _edge_steps) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -7603,9 +7657,9 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_929003 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_569345 = null;
-		Step __DEC_normalStep_next_569345 = null;
+		Flow __DEC_normalStep_steps_838862 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_720839 = null;
+		Step __DEC_normalStep_next_720839 = null;
 		Match match = null;
 		Iterator fujaba__IterNormalStepToPrevStep = null;
 		Step prevStep = null;
@@ -7708,19 +7762,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_normalStep_steps_929003 = normalStep
+							__DEC_normalStep_steps_838862 = normalStep
 									.eContainer() instanceof Flow ? (Flow) normalStep
 									.eContainer() : null;
 
-							// check object __DEC_normalStep_steps_929003 is really bound
-							JavaSDM.ensure(__DEC_normalStep_steps_929003 != null);
+							// check object __DEC_normalStep_steps_838862 is really bound
+							JavaSDM.ensure(__DEC_normalStep_steps_838862 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_normalStep_steps_929003
+							JavaSDM.ensure(__DEC_normalStep_steps_838862
 									.getSteps().contains(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_steps_929003 and flow 
-							JavaSDM.ensure(!__DEC_normalStep_steps_929003
+							// check isomorphic binding between objects __DEC_normalStep_steps_838862 and flow 
+							JavaSDM.ensure(!__DEC_normalStep_steps_838862
 									.equals(flow));
 
 							fujaba__Success = true;
@@ -7736,30 +7790,30 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link next from normalStep to __DEC_normalStep_next_569345
+							// iterate to-many link next from normalStep to __DEC_normalStep_next_720839
 							fujaba__Success = false;
 
-							fujaba__IterNormalStepTo__DEC_normalStep_next_569345 = new ArrayList(
+							fujaba__IterNormalStepTo__DEC_normalStep_next_720839 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(normalStep,
 													Step.class, "next"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterNormalStepTo__DEC_normalStep_next_569345
+									&& fujaba__IterNormalStepTo__DEC_normalStep_next_720839
 											.hasNext()) {
 								try {
-									__DEC_normalStep_next_569345 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_569345
+									__DEC_normalStep_next_720839 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_720839
 											.next();
 
-									// check object __DEC_normalStep_next_569345 is really bound
-									JavaSDM.ensure(__DEC_normalStep_next_569345 != null);
-									// check isomorphic binding between objects __DEC_normalStep_next_569345 and normalStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_569345
+									// check object __DEC_normalStep_next_720839 is really bound
+									JavaSDM.ensure(__DEC_normalStep_next_720839 != null);
+									// check isomorphic binding between objects __DEC_normalStep_next_720839 and normalStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_720839
 											.equals(normalStep));
 
-									// check isomorphic binding between objects __DEC_normalStep_next_569345 and prevStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_569345
+									// check isomorphic binding between objects __DEC_normalStep_next_720839 and prevStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_720839
 											.equals(prevStep));
 
 									fujaba__Success = true;
@@ -8211,14 +8265,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 																	.setSuccess(true);
 
 															// create link
-															lane.getFlowNodeRefs()
-																	.add(task);
+															inFlow.setTargetRef(task);
 
 															// create link
 															outFlow.setSourceRef(task);
 
 															// create link
-															inFlow.setTargetRef(task);
+															lane.getFlowNodeRefs()
+																	.add(task);
 
 															// create link
 															process.getFlowElements()
@@ -8245,20 +8299,20 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 																			"next");
 
 															// create link
-															taskToNormalStep
-																	.setTarget(normalStep);
-
-															// create link
 															ruleResult
 																	.getTargetObjects()
 																	.add(normalStep);
+
+															// create link
+															outFlowToNormalStep
+																	.setTarget(normalStep);
 
 															// create link
 															flow.getSteps()
 																	.add(normalStep);
 
 															// create link
-															outFlowToNormalStep
+															taskToNormalStep
 																	.setTarget(normalStep);
 
 															// create link
@@ -8525,35 +8579,35 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.USER_TASK_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_461__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_461((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_134__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_134((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_196__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_196((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_58__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_58((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_462__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_462((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_135__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_135((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_463__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_463((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_136__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_136((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_464__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_464((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_137__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_137((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_465__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_465((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_138__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_138((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_466__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_466((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_139__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_139((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_467__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_467((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_140__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_140((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_197__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_197((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_59__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_59((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_198__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_198((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_60__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_60((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USER_TASK_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

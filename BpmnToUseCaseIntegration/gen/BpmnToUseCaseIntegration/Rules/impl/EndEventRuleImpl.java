@@ -115,6 +115,36 @@ import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 
 // [user defined imports] -->
 
@@ -158,8 +188,8 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		Object _TmpObject = null;
 		CSP csp = null;
 		EMoflonEdge __process_flowElements_endEvent = null;
-		EMoflonEdge __inFlow_targetRef_endEvent = null;
 		EMoflonEdge __endEvent_incoming_inFlow = null;
+		EMoflonEdge __inFlow_targetRef_endEvent = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
 
 		// story node 'initial bindings'
@@ -213,12 +243,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				__process_flowElements_endEvent = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __inFlow_targetRef_endEvent
-				__inFlow_targetRef_endEvent = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __endEvent_incoming_inFlow
 				__endEvent_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __inFlow_targetRef_endEvent
+				__inFlow_targetRef_endEvent = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __process_flowElements_endEvent
@@ -230,11 +260,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_endEvent, "toBeTranslatedEdges");
+						endEvent, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_endEvent, "toBeTranslatedEdges");
+						__process_flowElements_endEvent, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -242,22 +272,22 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						endEvent, "toBeTranslatedNodes");
+						__inFlow_targetRef_endEvent, "toBeTranslatedEdges");
 
 				// create link
 				__process_flowElements_endEvent.setSrc(process);
 
 				// create link
-				__endEvent_incoming_inFlow.setTrg(inFlow);
-
-				// create link
 				__inFlow_targetRef_endEvent.setSrc(inFlow);
 
 				// create link
-				__endEvent_incoming_inFlow.setSrc(endEvent);
+				__endEvent_incoming_inFlow.setTrg(inFlow);
 
 				// create link
 				__inFlow_targetRef_endEvent.setTrg(endEvent);
+
+				// create link
+				__endEvent_incoming_inFlow.setSrc(endEvent);
 
 				// create link
 				__process_flowElements_endEvent.setTrg(endEvent);
@@ -288,15 +318,15 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_inFlow, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						inFlow, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
 
 				// create link
 				__process_flowElements_inFlow.setSrc(process);
@@ -336,11 +366,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		CSP csp = null;
 		EndEventToFlow endEventToFlow = null;
 		PerformRuleResult ruleresult = null;
+		EMoflonEdge endEventToFlow__source__endEvent = null;
 		EMoflonEdge __inFlow_targetRef_endEvent = null;
 		EMoflonEdge __process_flowElements_endEvent = null;
-		EMoflonEdge endEventToFlow__target__flow = null;
 		EMoflonEdge __endEvent_incoming_inFlow = null;
-		EMoflonEdge endEventToFlow__source__endEvent = null;
+		EMoflonEdge endEventToFlow__target__flow = null;
 
 		// story node 'perform transformation'
 		try {
@@ -498,6 +528,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			// check isomorphic binding between objects process and inFlowToFlow 
 			JavaSDM.ensure(!process.equals(inFlowToFlow));
 
+			// create object endEventToFlow__source__endEvent
+			endEventToFlow__source__endEvent = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object __inFlow_targetRef_endEvent
 			__inFlow_targetRef_endEvent = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
@@ -506,16 +540,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			__process_flowElements_endEvent = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object endEventToFlow__target__flow
-			endEventToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __endEvent_incoming_inFlow
 			__endEvent_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object endEventToFlow__source__endEvent
-			endEventToFlow__source__endEvent = TGGRuntimeFactory.eINSTANCE
+			// create object endEventToFlow__target__flow
+			endEventToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -533,6 +563,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					endEventToFlow__source__endEvent, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__inFlow_targetRef_endEvent, "translatedEdges");
 
 			// create link
@@ -541,24 +575,26 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					endEventToFlow__target__flow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__endEvent_incoming_inFlow, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					endEventToFlow__source__endEvent, "createdEdges");
+					endEventToFlow__target__flow, "createdEdges");
 
 			// create link
 			__process_flowElements_endEvent.setSrc(process);
 
 			// create link
+			__endEvent_incoming_inFlow.setTrg(inFlow);
+
+			// create link
 			__inFlow_targetRef_endEvent.setSrc(inFlow);
 
 			// create link
-			__endEvent_incoming_inFlow.setTrg(inFlow);
+			__process_flowElements_endEvent.setTrg(endEvent);
+
+			// create link
+			endEventToFlow__source__endEvent.setTrg(endEvent);
 
 			// create link
 			__inFlow_targetRef_endEvent.setTrg(endEvent);
@@ -567,19 +603,13 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			__endEvent_incoming_inFlow.setSrc(endEvent);
 
 			// create link
-			endEventToFlow__source__endEvent.setTrg(endEvent);
-
-			// create link
-			__process_flowElements_endEvent.setTrg(endEvent);
-
-			// create link
 			endEventToFlow__target__flow.setTrg(flow);
 
 			// create link
-			endEventToFlow__target__flow.setSrc(endEventToFlow);
+			endEventToFlow__source__endEvent.setSrc(endEventToFlow);
 
 			// create link
-			endEventToFlow__source__endEvent.setSrc(endEventToFlow);
+			endEventToFlow__target__flow.setSrc(endEventToFlow);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -610,11 +640,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		SequenceFlow inFlow = null;
 		Process process = null;
 		EMoflonEdge __process_flowElements_endEvent = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __process_flowElements_inFlow = null;
+		EMoflonEdge __inFlowToFlow_source_inFlow = null;
 		EMoflonEdge __endEvent_incoming_inFlow = null;
 		EMoflonEdge __inFlow_targetRef_endEvent = null;
-		EMoflonEdge __inFlowToFlow_source_inFlow = null;
 		EMoflonEdge __inFlowToFlow_target_flow = null;
 		CSP csp = null;
 		Flow flow = null;
@@ -732,26 +762,30 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						// check link flowElements from inFlow to process
 						JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
+						// check link incoming from inFlow to endEvent
+						JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
+
 						// check link source from inFlowToFlow to inFlow
 						JavaSDM.ensure(inFlow.equals(inFlowToFlow.getSource()));
 
 						// check link target from inFlowToFlow to flow
 						JavaSDM.ensure(flow.equals(inFlowToFlow.getTarget()));
 
-						// check link targetRef from inFlow to endEvent
-						JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
-
 						// create object __process_flowElements_endEvent
 						__process_flowElements_endEvent = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __process_flowElements_inFlow
-						__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object isApplicableMatch
 						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 								.createIsApplicableMatch();
+
+						// create object __process_flowElements_inFlow
+						__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
+
+						// create object __inFlowToFlow_source_inFlow
+						__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
 
 						// create object __endEvent_incoming_inFlow
 						__endEvent_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
@@ -759,10 +793,6 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 						// create object __inFlow_targetRef_endEvent
 						__inFlow_targetRef_endEvent = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __inFlowToFlow_source_inFlow
-						__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object __inFlowToFlow_target_flow
@@ -786,19 +816,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						__process_flowElements_endEvent.setSrc(process);
 
 						// create link
-						__process_flowElements_inFlow.setSrc(process);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(process);
 
 						// create link
-						__endEvent_incoming_inFlow.setTrg(inFlow);
-
-						// create link
-						__inFlow_targetRef_endEvent.setSrc(inFlow);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(inFlow);
+						__process_flowElements_inFlow.setSrc(process);
 
 						// create link
 						__process_flowElements_inFlow.setTrg(inFlow);
@@ -807,10 +828,13 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						__inFlowToFlow_source_inFlow.setTrg(inFlow);
 
 						// create link
-						__process_flowElements_endEvent.setTrg(endEvent);
+						isApplicableMatch.getAllContextElements().add(inFlow);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(endEvent);
+						__endEvent_incoming_inFlow.setTrg(inFlow);
+
+						// create link
+						__inFlow_targetRef_endEvent.setSrc(inFlow);
 
 						// create link
 						__endEvent_incoming_inFlow.setSrc(endEvent);
@@ -819,14 +843,16 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						__inFlow_targetRef_endEvent.setTrg(endEvent);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(flow);
+						isApplicableMatch.getAllContextElements().add(endEvent);
+
+						// create link
+						__process_flowElements_endEvent.setTrg(endEvent);
 
 						// create link
 						__inFlowToFlow_target_flow.setTrg(flow);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								inFlowToFlow);
+						isApplicableMatch.getAllContextElements().add(flow);
 
 						// create link
 						__inFlowToFlow_target_flow.setSrc(inFlowToFlow);
@@ -835,9 +861,23 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						__inFlowToFlow_source_inFlow.setSrc(inFlowToFlow);
 
 						// create link
+						isApplicableMatch.getAllContextElements().add(
+								inFlowToFlow);
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __inFlowToFlow_target_flow,
+								"allContextElements");
+
+						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
 								__inFlowToFlow_source_inFlow,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __endEvent_incoming_inFlow,
 								"allContextElements");
 
 						// create link
@@ -848,23 +888,13 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __endEvent_incoming_inFlow,
+								isApplicableMatch,
+								__process_flowElements_endEvent,
 								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch, __inFlow_targetRef_endEvent,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __inFlowToFlow_target_flow,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__process_flowElements_endEvent,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -1060,7 +1090,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_480(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_153(
 			EMoflonEdge _edge_flowElements) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1068,9 +1098,9 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_endEvent_flowElements_79234 = null;
-		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_145421 = null;
-		SequenceFlow __DEC_endEvent_targetRef_145421 = null;
+		FlowElementsContainer __DEC_endEvent_flowElements_828813 = null;
+		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_647097 = null;
+		SequenceFlow __DEC_endEvent_targetRef_647097 = null;
 		Match match = null;
 		Iterator fujaba__IterProcessToInFlow = null;
 		SequenceFlow inFlow = null;
@@ -1154,7 +1184,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 					// ensure correct type and really bound of object inFlow
 					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
 					inFlow = (SequenceFlow) _TmpObject;
-					// check link targetRef from inFlow to endEvent
+					// check link incoming from inFlow to endEvent
 					JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
 
 					// story node 'test core match and DECs'
@@ -1166,19 +1196,19 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_endEvent_flowElements_79234 = endEvent
+							__DEC_endEvent_flowElements_828813 = endEvent
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) endEvent
 									.eContainer() : null;
 
-							// check object __DEC_endEvent_flowElements_79234 is really bound
-							JavaSDM.ensure(__DEC_endEvent_flowElements_79234 != null);
+							// check object __DEC_endEvent_flowElements_828813 is really bound
+							JavaSDM.ensure(__DEC_endEvent_flowElements_828813 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_endEvent_flowElements_79234
+							JavaSDM.ensure(__DEC_endEvent_flowElements_828813
 									.getFlowElements().contains(endEvent));
 
-							// check isomorphic binding between objects __DEC_endEvent_flowElements_79234 and process 
-							JavaSDM.ensure(!__DEC_endEvent_flowElements_79234
+							// check isomorphic binding between objects __DEC_endEvent_flowElements_828813 and process 
+							JavaSDM.ensure(!__DEC_endEvent_flowElements_828813
 									.equals(process));
 
 							fujaba__Success = true;
@@ -1198,23 +1228,23 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from endEvent to __DEC_endEvent_targetRef_145421
+							// iterate to-many link incoming from endEvent to __DEC_endEvent_targetRef_647097
 							fujaba__Success = false;
 
-							fujaba__IterEndEventTo__DEC_endEvent_targetRef_145421 = new ArrayList(
+							fujaba__IterEndEventTo__DEC_endEvent_targetRef_647097 = new ArrayList(
 									endEvent.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_145421
+									&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_647097
 											.hasNext()) {
 								try {
-									__DEC_endEvent_targetRef_145421 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_145421
+									__DEC_endEvent_targetRef_647097 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_647097
 											.next();
 
-									// check object __DEC_endEvent_targetRef_145421 is really bound
-									JavaSDM.ensure(__DEC_endEvent_targetRef_145421 != null);
-									// check isomorphic binding between objects __DEC_endEvent_targetRef_145421 and inFlow 
-									JavaSDM.ensure(!__DEC_endEvent_targetRef_145421
+									// check object __DEC_endEvent_targetRef_647097 is really bound
+									JavaSDM.ensure(__DEC_endEvent_targetRef_647097 != null);
+									// check isomorphic binding between objects __DEC_endEvent_targetRef_647097 and inFlow 
+									JavaSDM.ensure(!__DEC_endEvent_targetRef_647097
 											.equals(inFlow));
 
 									fujaba__Success = true;
@@ -1247,12 +1277,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						// check link flowElements from inFlow to process
 						JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
+						// check link incoming from inFlow to endEvent
+						JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
+
 						// check link src from _edge_flowElements to process
 						JavaSDM.ensure(process.equals(_edge_flowElements
 								.getSrc()));
-
-						// check link targetRef from inFlow to endEvent
-						JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
 
 						// check link trg from _edge_flowElements to endEvent
 						JavaSDM.ensure(endEvent.equals(_edge_flowElements
@@ -1327,7 +1357,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_481(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_154(
 			EMoflonEdge _edge_targetRef) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1335,13 +1365,13 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_endEvent_flowElements_322081 = null;
-		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_927046 = null;
-		SequenceFlow __DEC_endEvent_targetRef_927046 = null;
+		FlowElementsContainer __DEC_endEvent_flowElements_156951 = null;
+		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_863936 = null;
+		SequenceFlow __DEC_endEvent_targetRef_863936 = null;
 		Match match = null;
 		Process process = null;
-		EndEvent endEvent = null;
 		SequenceFlow inFlow = null;
+		EndEvent endEvent = null;
 
 		// story node 'prepare return value'
 		try {
@@ -1391,13 +1421,6 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			// check object _edge_targetRef is really bound
 			JavaSDM.ensure(_edge_targetRef != null);
 			// bind object
-			_TmpObject = _edge_targetRef.getSrc();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
 			_TmpObject = _edge_targetRef.getTrg();
 
 			// ensure correct type and really bound of object endEvent
@@ -1405,7 +1428,14 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			endEvent = (EndEvent) _TmpObject;
 
 			// bind object
-			_TmpObject = endEvent.eContainer() instanceof Process ? (Process) endEvent
+			_TmpObject = _edge_targetRef.getSrc();
+
+			// ensure correct type and really bound of object inFlow
+			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+			inFlow = (SequenceFlow) _TmpObject;
+
+			// bind object
+			_TmpObject = inFlow.eContainer() instanceof Process ? (Process) inFlow
 					.eContainer() : null;
 
 			// ensure correct type and really bound of object process
@@ -1413,12 +1443,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			process = (Process) _TmpObject;
 
 			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(endEvent));
+			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
 
-			// check link flowElements from inFlow to process
-			JavaSDM.ensure(process.equals(inFlow.eContainer()));
+			// check link flowElements from endEvent to process
+			JavaSDM.ensure(process.equals(endEvent.eContainer()));
 
-			// check link targetRef from inFlow to endEvent
+			// check link incoming from inFlow to endEvent
 			JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
 
 			// story node 'test core match and DECs'
@@ -1430,18 +1460,18 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_endEvent_flowElements_322081 = endEvent.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) endEvent
+					__DEC_endEvent_flowElements_156951 = endEvent.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) endEvent
 							.eContainer() : null;
 
-					// check object __DEC_endEvent_flowElements_322081 is really bound
-					JavaSDM.ensure(__DEC_endEvent_flowElements_322081 != null);
+					// check object __DEC_endEvent_flowElements_156951 is really bound
+					JavaSDM.ensure(__DEC_endEvent_flowElements_156951 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_endEvent_flowElements_322081
+					JavaSDM.ensure(__DEC_endEvent_flowElements_156951
 							.getFlowElements().contains(endEvent));
 
-					// check isomorphic binding between objects __DEC_endEvent_flowElements_322081 and process 
-					JavaSDM.ensure(!__DEC_endEvent_flowElements_322081
+					// check isomorphic binding between objects __DEC_endEvent_flowElements_156951 and process 
+					JavaSDM.ensure(!__DEC_endEvent_flowElements_156951
 							.equals(process));
 
 					fujaba__Success = true;
@@ -1461,23 +1491,23 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link targetRef from endEvent to __DEC_endEvent_targetRef_927046
+					// iterate to-many link incoming from endEvent to __DEC_endEvent_targetRef_863936
 					fujaba__Success = false;
 
-					fujaba__IterEndEventTo__DEC_endEvent_targetRef_927046 = new ArrayList(
+					fujaba__IterEndEventTo__DEC_endEvent_targetRef_863936 = new ArrayList(
 							endEvent.getIncoming()).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_927046
+							&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_863936
 									.hasNext()) {
 						try {
-							__DEC_endEvent_targetRef_927046 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_927046
+							__DEC_endEvent_targetRef_863936 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_863936
 									.next();
 
-							// check object __DEC_endEvent_targetRef_927046 is really bound
-							JavaSDM.ensure(__DEC_endEvent_targetRef_927046 != null);
-							// check isomorphic binding between objects __DEC_endEvent_targetRef_927046 and inFlow 
-							JavaSDM.ensure(!__DEC_endEvent_targetRef_927046
+							// check object __DEC_endEvent_targetRef_863936 is really bound
+							JavaSDM.ensure(__DEC_endEvent_targetRef_863936 != null);
+							// check isomorphic binding between objects __DEC_endEvent_targetRef_863936 and inFlow 
+							JavaSDM.ensure(!__DEC_endEvent_targetRef_863936
 									.equals(inFlow));
 
 							fujaba__Success = true;
@@ -1510,11 +1540,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				// check link flowElements from inFlow to process
 				JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
+				// check link incoming from inFlow to endEvent
+				JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
+
 				// check link src from _edge_targetRef to inFlow
 				JavaSDM.ensure(inFlow.equals(_edge_targetRef.getSrc()));
-
-				// check link targetRef from inFlow to endEvent
-				JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
 
 				// check link trg from _edge_targetRef to endEvent
 				JavaSDM.ensure(endEvent.equals(_edge_targetRef.getTrg()));
@@ -1581,7 +1611,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_482(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_155(
 			EMoflonEdge _edge_incoming) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1589,9 +1619,9 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_endEvent_flowElements_204063 = null;
-		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_62667 = null;
-		SequenceFlow __DEC_endEvent_targetRef_62667 = null;
+		FlowElementsContainer __DEC_endEvent_flowElements_201686 = null;
+		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_354169 = null;
+		SequenceFlow __DEC_endEvent_targetRef_354169 = null;
 		Match match = null;
 		Iterator fujaba__IterEndEventTo_edge_targetRef = null;
 		EMoflonEdge _edge_targetRef = null;
@@ -1674,7 +1704,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			// check link flowElements from inFlow to process
 			JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
-			// check link targetRef from inFlow to endEvent
+			// check link incoming from inFlow to endEvent
 			JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
 
 			// iterate to-many link trg from endEvent to _edge_targetRef
@@ -1706,19 +1736,19 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_endEvent_flowElements_204063 = endEvent
+							__DEC_endEvent_flowElements_201686 = endEvent
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) endEvent
 									.eContainer() : null;
 
-							// check object __DEC_endEvent_flowElements_204063 is really bound
-							JavaSDM.ensure(__DEC_endEvent_flowElements_204063 != null);
+							// check object __DEC_endEvent_flowElements_201686 is really bound
+							JavaSDM.ensure(__DEC_endEvent_flowElements_201686 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_endEvent_flowElements_204063
+							JavaSDM.ensure(__DEC_endEvent_flowElements_201686
 									.getFlowElements().contains(endEvent));
 
-							// check isomorphic binding between objects __DEC_endEvent_flowElements_204063 and process 
-							JavaSDM.ensure(!__DEC_endEvent_flowElements_204063
+							// check isomorphic binding between objects __DEC_endEvent_flowElements_201686 and process 
+							JavaSDM.ensure(!__DEC_endEvent_flowElements_201686
 									.equals(process));
 
 							fujaba__Success = true;
@@ -1738,23 +1768,23 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link targetRef from endEvent to __DEC_endEvent_targetRef_62667
+							// iterate to-many link incoming from endEvent to __DEC_endEvent_targetRef_354169
 							fujaba__Success = false;
 
-							fujaba__IterEndEventTo__DEC_endEvent_targetRef_62667 = new ArrayList(
+							fujaba__IterEndEventTo__DEC_endEvent_targetRef_354169 = new ArrayList(
 									endEvent.getIncoming()).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_62667
+									&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_354169
 											.hasNext()) {
 								try {
-									__DEC_endEvent_targetRef_62667 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_62667
+									__DEC_endEvent_targetRef_354169 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_354169
 											.next();
 
-									// check object __DEC_endEvent_targetRef_62667 is really bound
-									JavaSDM.ensure(__DEC_endEvent_targetRef_62667 != null);
-									// check isomorphic binding between objects __DEC_endEvent_targetRef_62667 and inFlow 
-									JavaSDM.ensure(!__DEC_endEvent_targetRef_62667
+									// check object __DEC_endEvent_targetRef_354169 is really bound
+									JavaSDM.ensure(__DEC_endEvent_targetRef_354169 != null);
+									// check isomorphic binding between objects __DEC_endEvent_targetRef_354169 and inFlow 
+									JavaSDM.ensure(!__DEC_endEvent_targetRef_354169
 											.equals(inFlow));
 
 									fujaba__Success = true;
@@ -1792,14 +1822,14 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						// check link flowElements from inFlow to process
 						JavaSDM.ensure(process.equals(inFlow.eContainer()));
 
+						// check link incoming from inFlow to endEvent
+						JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
+
 						// check link src from _edge_incoming to endEvent
 						JavaSDM.ensure(endEvent.equals(_edge_incoming.getSrc()));
 
 						// check link src from _edge_targetRef to inFlow
 						JavaSDM.ensure(inFlow.equals(_edge_targetRef.getSrc()));
-
-						// check link targetRef from inFlow to endEvent
-						JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
 
 						// check link trg from _edge_incoming to inFlow
 						JavaSDM.ensure(inFlow.equals(_edge_incoming.getTrg()));
@@ -2182,14 +2212,14 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			return null;
 		case RulesPackage.END_EVENT_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_480__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_480((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_153__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_153((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_481__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_481((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_154__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_154((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_482__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_482((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_155__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_155((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.END_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

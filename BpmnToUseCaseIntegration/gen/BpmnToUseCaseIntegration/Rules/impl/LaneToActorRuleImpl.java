@@ -139,6 +139,60 @@ import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
 
 // [user defined imports] -->
 
@@ -183,8 +237,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Object _TmpObject = null;
 		CSP csp = null;
 		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge __definitions_rootElements_process = null;
 		EMoflonEdge __process_laneSets_laneSet = null;
+		EMoflonEdge __definitions_rootElements_process = null;
 
 		// story node 'initial bindings'
 		try {
@@ -246,11 +300,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__laneSet_lanes_lane, "toBeTranslatedEdges");
+						lane, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "toBeTranslatedNodes");
+						__laneSet_lanes_lane, "toBeTranslatedEdges");
 
 				// create link
 				__laneSet_lanes_lane.setSrc(laneSet);
@@ -277,22 +331,18 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(match != null);
 				// check object process is really bound
 				JavaSDM.ensure(process != null);
-				// create object __definitions_rootElements_process
-				__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __process_laneSets_laneSet
 				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __definitions_rootElements_process
+				__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __process_laneSets_laneSet
 				__process_laneSets_laneSet.setName("laneSets");
 				// assign attribute __definitions_rootElements_process
 				__definitions_rootElements_process.setName("rootElements");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__definitions_rootElements_process, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -304,11 +354,15 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
+						definitions, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						definitions, "contextNodes");
+						__definitions_rootElements_process, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						process, "contextNodes");
 
 				// create link
 				__process_laneSets_laneSet.setTrg(laneSet);
@@ -481,11 +535,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					laneToActor, "createdLinkElements");
+					actor, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actor, "createdElements");
+					laneToActor, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -755,11 +809,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Lane lane = null;
 		LaneSet laneSet = null;
 		Process process = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __processToUseCase_source_process = null;
+		EMoflonEdge __laneSet_lanes_lane = null;
+		EMoflonEdge __process_laneSets_laneSet = null;
 		EMoflonEdge __definitions_rootElements_process = null;
+		EMoflonEdge __processToUseCase_source_process = null;
 		EMoflonEdge __definitionsToPackageDeclaration_source_definitions = null;
 		EMoflonEdge __definitionsToPackageDeclaration_target_packageDeclaration = null;
 		EMoflonEdge __packageDeclaration_useCases_useCase = null;
@@ -946,24 +1000,24 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(packageDeclaration
 										.equals(useCase.eContainer()));
 
-								// create object __process_laneSets_laneSet
-								__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
+								// create object isApplicableMatch
+								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+										.createIsApplicableMatch();
 
 								// create object __laneSet_lanes_lane
 								__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object isApplicableMatch
-								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-										.createIsApplicableMatch();
-
-								// create object __processToUseCase_source_process
-								__processToUseCase_source_process = TGGRuntimeFactory.eINSTANCE
+								// create object __process_laneSets_laneSet
+								__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __definitions_rootElements_process
 								__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __processToUseCase_source_process
+								__processToUseCase_source_process = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __definitionsToPackageDeclaration_source_definitions
@@ -1006,22 +1060,14 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										.setName("target");
 
 								// create link
-								__process_laneSets_laneSet.setTrg(laneSet);
+								isApplicableMatch.getAllContextElements().add(
+										laneSet);
 
 								// create link
 								__laneSet_lanes_lane.setSrc(laneSet);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										laneSet);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										process);
-
-								// create link
-								__processToUseCase_source_process
-										.setTrg(process);
+								__process_laneSets_laneSet.setTrg(laneSet);
 
 								// create link
 								__process_laneSets_laneSet.setSrc(process);
@@ -1029,6 +1075,14 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								// create link
 								__definitions_rootElements_process
 										.setTrg(process);
+
+								// create link
+								__processToUseCase_source_process
+										.setTrg(process);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										process);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
@@ -1055,20 +1109,16 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										packageDeclaration);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										definitionsToPackageDeclaration);
+								__definitionsToPackageDeclaration_source_definitions
+										.setSrc(definitionsToPackageDeclaration);
 
 								// create link
 								__definitionsToPackageDeclaration_target_packageDeclaration
 										.setSrc(definitionsToPackageDeclaration);
 
 								// create link
-								__definitionsToPackageDeclaration_source_definitions
-										.setSrc(definitionsToPackageDeclaration);
-
-								// create link
 								isApplicableMatch.getAllContextElements().add(
-										useCase);
+										definitionsToPackageDeclaration);
 
 								// create link
 								__packageDeclaration_useCases_useCase
@@ -1079,7 +1129,15 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										.setTrg(useCase);
 
 								// create link
+								isApplicableMatch.getAllContextElements().add(
+										useCase);
+
+								// create link
 								__processToUseCase_target_useCase
+										.setSrc(processToUseCase);
+
+								// create link
+								__processToUseCase_source_process
 										.setSrc(processToUseCase);
 
 								// create link
@@ -1087,28 +1145,17 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										processToUseCase);
 
 								// create link
-								__processToUseCase_source_process
-										.setSrc(processToUseCase);
+								isApplicableMatch.getAllContextElements().add(
+										lane);
 
 								// create link
 								__laneSet_lanes_lane.setTrg(lane);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										lane);
-
-								// create link
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__packageDeclaration_useCases_useCase,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__process_laneSets_laneSet,
+												__definitions_rootElements_process,
 												"allContextElements");
 
 								// create link
@@ -1122,21 +1169,28 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
+												__process_laneSets_laneSet,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__laneSet_lanes_lane,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__packageDeclaration_useCases_useCase,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
 												__definitionsToPackageDeclaration_source_definitions,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__processToUseCase_source_process,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__definitions_rootElements_process,
 												"allContextElements");
 
 								// create link
@@ -1150,7 +1204,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__laneSet_lanes_lane,
+												__processToUseCase_source_process,
 												"allContextElements");
 								// story node 'solve CSP'
 								try {
@@ -1459,12 +1513,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__packageDeclaration_actors_actor,
-						"toBeTranslatedEdges");
+						actor, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "toBeTranslatedNodes");
+						__packageDeclaration_actors_actor,
+						"toBeTranslatedEdges");
 
 				// create link
 				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
@@ -1498,11 +1552,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						packageDeclaration, "contextNodes");
+						useCase, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
+						packageDeclaration, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1552,10 +1606,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Lane lane = null;
 		LaneToActor laneToActor = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
-		EMoflonEdge laneToActor__target__actor = null;
-		EMoflonEdge laneSet__lanes__lane = null;
 		EMoflonEdge laneToActor__source__lane = null;
+		EMoflonEdge laneToActor__target__actor = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge laneSet__lanes__lane = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1848,20 +1902,20 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and processToUseCase 
 			JavaSDM.ensure(!useCase.equals(processToUseCase));
 
-			// create object __packageDeclaration_actors_actor
-			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+			// create object laneToActor__source__lane
+			laneToActor__source__lane = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object laneToActor__target__actor
 			laneToActor__target__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object laneSet__lanes__lane
-			laneSet__lanes__lane = TGGRuntimeFactory.eINSTANCE
+			// create object __packageDeclaration_actors_actor
+			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object laneToActor__source__lane
-			laneToActor__source__lane = TGGRuntimeFactory.eINSTANCE
+			// create object laneSet__lanes__lane
+			laneSet__lanes__lane = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1877,7 +1931,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__packageDeclaration_actors_actor, "translatedEdges");
+					laneToActor__source__lane, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1885,11 +1939,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					laneSet__lanes__lane, "createdEdges");
+					__packageDeclaration_actors_actor, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					laneToActor__source__lane, "createdEdges");
+					laneSet__lanes__lane, "createdEdges");
 
 			// create link
 			laneSet__lanes__lane.setSrc(laneSet);
@@ -1904,16 +1958,16 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			laneSet__lanes__lane.setTrg(lane);
 
 			// create link
-			__packageDeclaration_actors_actor.setTrg(actor);
-
-			// create link
 			laneToActor__target__actor.setTrg(actor);
 
 			// create link
-			laneToActor__source__lane.setSrc(laneToActor);
+			__packageDeclaration_actors_actor.setTrg(actor);
 
 			// create link
 			laneToActor__target__actor.setSrc(laneToActor);
+
+			// create link
+			laneToActor__source__lane.setSrc(laneToActor);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1944,14 +1998,14 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Actor actor = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __process_laneSets_laneSet = null;
 		EMoflonEdge __definitions_rootElements_process = null;
 		EMoflonEdge __processToUseCase_source_process = null;
 		EMoflonEdge __definitionsToPackageDeclaration_source_definitions = null;
 		EMoflonEdge __definitionsToPackageDeclaration_target_packageDeclaration = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __processToUseCase_target_useCase = null;
 		CSP csp = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
@@ -2140,13 +2194,13 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 										// check object laneSet is really bound
 										JavaSDM.ensure(laneSet != null);
-										// create object __process_laneSets_laneSet
-										__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
 										// create object isApplicableMatch
 										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 												.createIsApplicableMatch();
+
+										// create object __process_laneSets_laneSet
+										__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
 
 										// create object __definitions_rootElements_process
 										__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
@@ -2164,12 +2218,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										__definitionsToPackageDeclaration_target_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __packageDeclaration_useCases_useCase
-										__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
 										// create object __packageDeclaration_actors_actor
 										__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __processToUseCase_target_useCase
@@ -2202,13 +2256,13 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.setName("target");
 
 										// create link
-										__process_laneSets_laneSet
-												.setTrg(laneSet);
-
-										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														laneSet);
+
+										// create link
+										__process_laneSets_laneSet
+												.setTrg(laneSet);
 
 										// create link
 										__definitions_rootElements_process
@@ -2219,13 +2273,17 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.setTrg(process);
 
 										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														process);
+
+										// create link
 										__process_laneSets_laneSet
 												.setSrc(process);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														process);
+										__definitions_rootElements_process
+												.setSrc(definitions);
 
 										// create link
 										isApplicableMatch
@@ -2233,12 +2291,16 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 														definitions);
 
 										// create link
-										__definitions_rootElements_process
-												.setSrc(definitions);
-
-										// create link
 										__definitionsToPackageDeclaration_source_definitions
 												.setTrg(definitions);
+
+										// create link
+										__definitionsToPackageDeclaration_target_packageDeclaration
+												.setTrg(packageDeclaration);
+
+										// create link
+										__packageDeclaration_actors_actor
+												.setSrc(packageDeclaration);
 
 										// create link
 										isApplicableMatch
@@ -2246,15 +2308,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 														packageDeclaration);
 
 										// create link
-										__definitionsToPackageDeclaration_target_packageDeclaration
-												.setTrg(packageDeclaration);
-
-										// create link
 										__packageDeclaration_useCases_useCase
-												.setSrc(packageDeclaration);
-
-										// create link
-										__packageDeclaration_actors_actor
 												.setSrc(packageDeclaration);
 
 										// create link
@@ -2271,6 +2325,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.add(definitionsToPackageDeclaration);
 
 										// create link
+										__packageDeclaration_useCases_useCase
+												.setTrg(useCase);
+
+										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														useCase);
@@ -2280,11 +2338,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.setTrg(useCase);
 
 										// create link
-										__packageDeclaration_useCases_useCase
-												.setTrg(useCase);
+										__processToUseCase_target_useCase
+												.setSrc(processToUseCase);
 
 										// create link
-										__processToUseCase_target_useCase
+										__processToUseCase_source_process
 												.setSrc(processToUseCase);
 
 										// create link
@@ -2293,17 +2351,13 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 														processToUseCase);
 
 										// create link
-										__processToUseCase_source_process
-												.setSrc(processToUseCase);
+										isApplicableMatch
+												.getAllContextElements().add(
+														actor);
 
 										// create link
 										__packageDeclaration_actors_actor
 												.setTrg(actor);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														actor);
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
@@ -2316,7 +2370,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__processToUseCase_target_useCase,
+														__process_laneSets_laneSet,
 														"allContextElements");
 
 										// create link
@@ -2324,6 +2378,20 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.addOppositeReference(
 														isApplicableMatch,
 														__packageDeclaration_useCases_useCase,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__definitionsToPackageDeclaration_target_packageDeclaration,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__processToUseCase_target_useCase,
 														"allContextElements");
 
 										// create link
@@ -2344,21 +2412,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__definitionsToPackageDeclaration_target_packageDeclaration,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
 														__definitions_rootElements_process,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_laneSets_laneSet,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -2612,7 +2666,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_455(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_128(
 			EMoflonEdge _edge_lanes) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -2620,7 +2674,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		LaneSet __DEC_lane_lanes_699671 = null;
+		LaneSet __DEC_lane_lanes_799805 = null;
 		Match match = null;
 		Lane lane = null;
 		Definitions definitions = null;
@@ -2721,18 +2775,18 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_lane_lanes_699671 = lane.eContainer() instanceof LaneSet ? (LaneSet) lane
+					__DEC_lane_lanes_799805 = lane.eContainer() instanceof LaneSet ? (LaneSet) lane
 							.eContainer() : null;
 
-					// check object __DEC_lane_lanes_699671 is really bound
-					JavaSDM.ensure(__DEC_lane_lanes_699671 != null);
+					// check object __DEC_lane_lanes_799805 is really bound
+					JavaSDM.ensure(__DEC_lane_lanes_799805 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_lane_lanes_699671.getLanes().contains(
+					JavaSDM.ensure(__DEC_lane_lanes_799805.getLanes().contains(
 							lane));
 
-					// check isomorphic binding between objects __DEC_lane_lanes_699671 and laneSet 
-					JavaSDM.ensure(!__DEC_lane_lanes_699671.equals(laneSet));
+					// check isomorphic binding between objects __DEC_lane_lanes_799805 and laneSet 
+					JavaSDM.ensure(!__DEC_lane_lanes_799805.equals(laneSet));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -2830,7 +2884,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_192(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_54(
 			EMoflonEdge _edge_actors) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -2838,7 +2892,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_254149 = null;
+		PackageDeclaration __DEC_actor_actors_943116 = null;
 		Match match = null;
 		Iterator fujaba__IterPackageDeclarationToUseCase = null;
 		UseCase useCase = null;
@@ -2931,18 +2985,18 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_actor_actors_254149 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+							__DEC_actor_actors_943116 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
 									.eContainer() : null;
 
-							// check object __DEC_actor_actors_254149 is really bound
-							JavaSDM.ensure(__DEC_actor_actors_254149 != null);
+							// check object __DEC_actor_actors_943116 is really bound
+							JavaSDM.ensure(__DEC_actor_actors_943116 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_actor_actors_254149
+							JavaSDM.ensure(__DEC_actor_actors_943116
 									.getActors().contains(actor));
 
-							// check isomorphic binding between objects __DEC_actor_actors_254149 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_actor_actors_254149
+							// check isomorphic binding between objects __DEC_actor_actors_943116 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_actor_actors_943116
 									.equals(packageDeclaration));
 
 							fujaba__Success = true;
@@ -3331,22 +3385,22 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 																	.add(actor); // add link
 
 															// create link
+															laneToActor
+																	.setSource(lane);
+
+															// create link
 															ruleResult
 																	.getSourceObjects()
 																	.add(lane);
 
 															// create link
 															laneToActor
-																	.setSource(lane);
+																	.setTarget(actor);
 
 															// create link
 															ruleResult
 																	.getTargetObjects()
 																	.add(actor);
-
-															// create link
-															laneToActor
-																	.setTarget(actor);
 
 															// create link
 															ruleResult
@@ -3576,11 +3630,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.LANE_TO_ACTOR_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_455__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_455((EMoflonEdge) arguments
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_128__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_128((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_192__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_192((EMoflonEdge) arguments
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_54__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_54((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

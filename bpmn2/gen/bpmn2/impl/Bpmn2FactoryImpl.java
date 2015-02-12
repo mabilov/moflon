@@ -93,18 +93,12 @@ public class Bpmn2FactoryImpl extends EFactoryImpl implements Bpmn2Factory {
 			return createBaseElement();
 		case Bpmn2Package.ROOT_ELEMENT:
 			return createRootElement();
-		case Bpmn2Package.FLOW_ELEMENT:
-			return createFlowElement();
-		case Bpmn2Package.FLOW_NODE:
-			return createFlowNode();
 		case Bpmn2Package.SEQUENCE_FLOW:
 			return createSequenceFlow();
 		case Bpmn2Package.ACTIVITY:
 			return createActivity();
 		case Bpmn2Package.CALLABLE_ELEMENT:
 			return createCallableElement();
-		case Bpmn2Package.CATCH_EVENT:
-			return createCatchEvent();
 		case Bpmn2Package.DEFINITIONS:
 			return createDefinitions();
 		case Bpmn2Package.DOCUMENT_ROOT:
@@ -117,12 +111,8 @@ public class Bpmn2FactoryImpl extends EFactoryImpl implements Bpmn2Factory {
 			return createExclusiveGateway();
 		case Bpmn2Package.EXPRESSION:
 			return createExpression();
-		case Bpmn2Package.FLOW_ELEMENTS_CONTAINER:
-			return createFlowElementsContainer();
 		case Bpmn2Package.FORMAL_EXPRESSION:
 			return createFormalExpression();
-		case Bpmn2Package.GATEWAY:
-			return createGateway();
 		case Bpmn2Package.INTERACTION_NODE:
 			return createInteractionNode();
 		case Bpmn2Package.INTERMEDIATE_CATCH_EVENT:
@@ -145,10 +135,6 @@ public class Bpmn2FactoryImpl extends EFactoryImpl implements Bpmn2Factory {
 			return createStartEvent();
 		case Bpmn2Package.TASK:
 			return createTask();
-		case Bpmn2Package.EVENT:
-			return createEvent();
-		case Bpmn2Package.THROW_EVENT:
-			return createThrowEvent();
 		case Bpmn2Package.USER_TASK:
 			return createUserTask();
 		default:
@@ -214,26 +200,6 @@ public class Bpmn2FactoryImpl extends EFactoryImpl implements Bpmn2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FlowElement createFlowElement() {
-		FlowElementImpl flowElement = new FlowElementImpl();
-		return flowElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FlowNode createFlowNode() {
-		FlowNodeImpl flowNode = new FlowNodeImpl();
-		return flowNode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SequenceFlow createSequenceFlow() {
 		SequenceFlowImpl sequenceFlow = new SequenceFlowImpl();
 		return sequenceFlow;
@@ -257,16 +223,6 @@ public class Bpmn2FactoryImpl extends EFactoryImpl implements Bpmn2Factory {
 	public CallableElement createCallableElement() {
 		CallableElementImpl callableElement = new CallableElementImpl();
 		return callableElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CatchEvent createCatchEvent() {
-		CatchEventImpl catchEvent = new CatchEventImpl();
-		return catchEvent;
 	}
 
 	/**
@@ -334,29 +290,9 @@ public class Bpmn2FactoryImpl extends EFactoryImpl implements Bpmn2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FlowElementsContainer createFlowElementsContainer() {
-		FlowElementsContainerImpl flowElementsContainer = new FlowElementsContainerImpl();
-		return flowElementsContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public FormalExpression createFormalExpression() {
 		FormalExpressionImpl formalExpression = new FormalExpressionImpl();
 		return formalExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Gateway createGateway() {
-		GatewayImpl gateway = new GatewayImpl();
-		return gateway;
 	}
 
 	/**
@@ -467,26 +403,6 @@ public class Bpmn2FactoryImpl extends EFactoryImpl implements Bpmn2Factory {
 	public Task createTask() {
 		TaskImpl task = new TaskImpl();
 		return task;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event createEvent() {
-		EventImpl event = new EventImpl();
-		return event;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ThrowEvent createThrowEvent() {
-		ThrowEventImpl throwEvent = new ThrowEventImpl();
-		return throwEvent;
 	}
 
 	/**
