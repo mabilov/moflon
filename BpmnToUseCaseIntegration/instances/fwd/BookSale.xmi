@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:bpmn2="platform:/plugin/bpmn2/model/Bpmn2.ecore"
-    xsi:schemaLocation="platform:/plugin/bpmn2/model/Bpmn2.ecore ../../bpmn2/model/Bpmn2.ecore">
+    xsi:schemaLocation="platform:/plugin/bpmn2/model/Bpmn2.ecore ../../../bpmn2/model/Bpmn2.ecore">
   <definitions
       targetNamespace="http://de.abilov.booksale"
       name="Book Sale">

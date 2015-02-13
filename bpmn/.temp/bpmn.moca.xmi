@@ -10053,7 +10053,7 @@
           </children>
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
           <attribute name="name" value="Flow" index="0" />
-          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isAbstract" value="true" index="1" />
           <attribute name="isInterface" value="false" index="2" />
           <attribute name="guid" value="{DB9FC044-3FEE-4df0-AB8A-0122523DD13F}" index="3" />
           <attribute name="alias" value="" index="4" />
@@ -10106,7 +10106,7 @@
           </children>
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
           <attribute name="name" value="NamedFlow" index="0" />
-          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isAbstract" value="true" index="1" />
           <attribute name="isInterface" value="false" index="2" />
           <attribute name="guid" value="{42E77F3B-B450-4c58-ACFD-623110E261DA}" index="3" />
           <attribute name="alias" value="" index="4" />
@@ -10274,7 +10274,7 @@
           </children>
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
           <attribute name="name" value="Step" index="0" />
-          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isAbstract" value="true" index="1" />
           <attribute name="isInterface" value="false" index="2" />
           <attribute name="guid" value="{962710EE-6A03-46ae-99C2-AB2DB3E719B1}" index="3" />
           <attribute name="alias" value="" index="4" />
@@ -10305,7 +10305,7 @@
           </children>
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
           <attribute name="name" value="StepAlternative" index="0" />
-          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isAbstract" value="true" index="1" />
           <attribute name="isInterface" value="false" index="2" />
           <attribute name="guid" value="{5B7721A0-1610-4f49-94FF-C20904E6B5D3}" index="3" />
           <attribute name="alias" value="" index="4" />

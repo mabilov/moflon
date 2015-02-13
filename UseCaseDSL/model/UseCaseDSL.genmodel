@@ -31,7 +31,7 @@
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ExceptionFlow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ExceptionFlow/condition"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Flow">
+    <genClasses image="false" ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Flow">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Flow/steps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Flow/finalState"/>
     </genClasses>
@@ -39,7 +39,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//LocalAlternative/invokedUseCase"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//LocalAlternative/description"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NamedFlow">
+    <genClasses image="false" ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NamedFlow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NamedFlow/name"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep">
@@ -57,13 +57,13 @@
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ParallelStep">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ParallelStep/invokedFlows"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step">
+    <genClasses image="false" ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step/next"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step/invokedUseCase"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step/name"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepAlternative">
+    <genClasses image="false" ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepAlternative">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepAlternative/continuation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepAlternative/condition"/>
     </genClasses>
