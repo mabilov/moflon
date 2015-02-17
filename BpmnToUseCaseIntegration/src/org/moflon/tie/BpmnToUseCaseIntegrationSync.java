@@ -29,17 +29,17 @@ public class BpmnToUseCaseIntegrationSync extends SynchronizationHelper {
 
 		// Propagate changes made to source
         BpmnToUseCaseIntegrationSync helper = new BpmnToUseCaseIntegrationSync();
-		helper.syncForward("instances/fwd.corr.xmi");
+		helper.syncForward("instances/sync.fwd.corr.xmi");
 		
 		// Propagate changes made to target
-		helper = new BpmnToUseCaseIntegrationSync();
-		helper.syncBackward("instances/fwd.corr.xmi");
+		//helper = new BpmnToUseCaseIntegrationSync();
+		//helper.syncBackward("instances/sync.fwd.corr.xmi");
 	}
 
 	public void syncForward(String corr) {
 		setChangeSrc(root -> {});
 		loadTriple(corr);
-		loadSynchronizationProtocol("instances/fwd.protocol.xmi");
+		loadSynchronizationProtocol("instances/sync.fwd.protocol.xmi");
 		integrateForward();
 		saveResult("fwd");
 		
