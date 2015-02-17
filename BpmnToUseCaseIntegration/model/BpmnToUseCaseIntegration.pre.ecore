@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BpmnToUseCaseIntegration" nsURI="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore" nsPrefix="BpmnToUseCaseIntegration">
-  <eClassifiers xsi:type="ecore:EClass" name="DocumentRootToUseCasesModel">
+  <eClassifiers xsi:type="ecore:EClass" name="DocRootToUCModel">
     <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractCorrespondence"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1">
       <eType xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//DocumentRoot"/>
@@ -9,7 +9,7 @@
       <eType xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCasesModel"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionsToPackageDeclaration">
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionsToPackage">
     <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractCorrespondence"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1">
       <eType xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions"/>
@@ -90,7 +90,7 @@
       <eType xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Actor"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SequenceFlowToAlternativeFlowAlternative">
+  <eClassifiers xsi:type="ecore:EClass" name="SeqFlowToAltFlowAlt">
     <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractCorrespondence"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1">
       <eType xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
@@ -99,7 +99,7 @@
       <eType xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//AlternativeFlowAlternative"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntermediateCatchEventToAlternativeFlow">
+  <eClassifiers xsi:type="ecore:EClass" name="ICEToAltFlow">
     <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractCorrespondence"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1">
       <eType xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateCatchEvent"/>
@@ -156,16 +156,16 @@
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/TaskToStepRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IntermediateEventToStepCoreRule" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="InterEventToStepCoreRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IntermediateThrowEventToStepRule">
+    <eClassifiers xsi:type="ecore:EClass" name="InterThrowEventToStepRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/IntermediateEventToStepRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/InterEventToStepRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IntermediateCatchEventToStepRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/IntermediateEventToStepRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/InterEventToStepRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EndEventRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
@@ -173,28 +173,28 @@
     <eClassifiers xsi:type="ecore:EClass" name="ExclusiveGatewayToStepCoreRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IntermediateEventToStepRule" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="InterEventToStepRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/IntermediateEventToStepCoreRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/InterEventToStepCoreRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="FirstIntermediateThrowEventToStepRule">
+    <eClassifiers xsi:type="ecore:EClass" name="FirstInterThrowEventToStepRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/IntermediateEventToStepCoreRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/InterEventToStepCoreRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="FirstIntermediateCatchEventToStepRule">
+    <eClassifiers xsi:type="ecore:EClass" name="FirstInterCatchEventToStepRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/IntermediateEventToStepCoreRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/InterEventToStepCoreRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParallelGatewayToParallelStepCoreRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepCoreRule">
+    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepCoreRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExclusiveConvergingGatewayRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParallelConvergingGatewayRule">
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelConvergingGatewayRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SeqFlowAfterEGToAltFlowRule">
@@ -203,7 +203,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="SeqFlowAfterPGToParallelFlowRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CatchEventAfterEBGToStepRule">
+    <eClassifiers xsi:type="ecore:EClass" name="CatchEventAfterEBGToStepRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExclusiveGatewayToStepRule">
@@ -214,9 +214,20 @@
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepCoreRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepRule">
+    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepCoreRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LaneStartEventRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExclusiveConvergingGatewayDefaultSeqFlowRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveConvergingGatewayRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelConvergingGatewayTwoInputsRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

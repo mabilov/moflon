@@ -26,7 +26,7 @@ public class BpmnToUseCaseIntegrationTrafo extends SynchronizationHelper {
 
 		// Forward Transformation
         BpmnToUseCaseIntegrationTrafo helper = new BpmnToUseCaseIntegrationTrafo();
-		helper.performForward("instances/fwd/BookSale.xmi");
+		helper.performForward("instances/fwd.src1.xmi");
 		
 		// Backward Transformation
 		//helper = new BpmnToUseCaseIntegrationTrafo();
@@ -43,9 +43,9 @@ public class BpmnToUseCaseIntegrationTrafo extends SynchronizationHelper {
 		
 		integrateForward();
 		
-		saveTrg("instances/fwd/BookSaleUC.xmi");
-		saveCorr("instances/fwd/corr.xmi");
-		saveSynchronizationProtocol("instances/fwd/protocol.xmi");
+		saveTrg("instances/fwd.trg1.xmi");
+		saveCorr("instances/fwd.corr1.xmi");
+		saveSynchronizationProtocol("instances/fwd.protocol1.xmi");
 		
 		System.out.println("Completed forward transformation!");
 	}

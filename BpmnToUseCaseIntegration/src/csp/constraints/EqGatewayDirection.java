@@ -8,7 +8,13 @@ public class EqGatewayDirection extends TGGConstraintImpl {
 	public void solve(Variable var_0, Variable var_1){
 		GatewayDirection attributeValue = (GatewayDirection) var_0.getValue();
 		String literalValueStr = var_1.getValue().toString();
-		GatewayDirection literalValue = GatewayDirection.valueOf(literalValueStr.toUpperCase());
+		GatewayDirection literalValue;
+		try{
+			literalValue = GatewayDirection.valueOf(literalValueStr.toUpperCase());
+		} catch (IllegalArgumentException e) { // Unable to parse literal value
+			setSatisfied(false);
+			return;
+		}
 		
     	String bindingStates = getBindingStates(var_0, var_1);
     	

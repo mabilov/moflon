@@ -50,8 +50,8 @@
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//PackageDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//PackageDeclaration/useCases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//PackageDeclaration/actors"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//PackageDeclaration/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//PackageDeclaration/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//PackageDeclaration/name"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ParallelFlow"/>
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ParallelStep">
@@ -72,8 +72,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCase/flows"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCase/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCase/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCase/preConditions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCase/postcondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCase/preConditions"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCasesModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCasesModel/packages"/>

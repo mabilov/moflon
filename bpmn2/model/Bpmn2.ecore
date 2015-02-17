@@ -33,10 +33,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Definitions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rootElements" upperBound="-1"
         eType="#//RootElement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNamespace" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNamespace" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"

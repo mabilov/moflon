@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ASCII"?>
+<bpmn2:DocumentRoot
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bpmn2="platform:/plugin/bpmn2/model/Bpmn2.ecore"
+    xsi:schemaLocation="platform:/plugin/bpmn2/model/Bpmn2.ecore ../../bpmn2/model/Bpmn2.ecore">
+  <definitions
+      name="Book sale"
+      targetNamespace="http://de.abilov.booksale">
+    <rootElements
+        xsi:type="bpmn2:Process"
+        name="Book Sale Process"
+        id="booksale">
+      <laneSets
+          id="ls1"
+          name="Lane set 1">
+        <lanes
+            flowNodeRefs="order_received record_order check_stock"
+            id="sales"
+            name="Sales"/>
+        <lanes
+            flowNodeRefs="ecg1 all_books_available"
+            id="financing"
+            name="Financing"/>
+        <lanes
+            flowNodeRefs="books_delivered deliver_books_to_stock"
+            id="shipping"
+            name="Shipping"/>
+      </laneSets>
+      <flowElements
+          xsi:type="bpmn2:StartEvent"
+          id="order_received"
+          name="Order Received"
+          outgoing="sf1"/>
+      <flowElements
+          xsi:type="bpmn2:ServiceTask"
+          id="record_order"
+          name="Record Order"
+          outgoing="sf2"
+          incoming="sf1"/>
+      <flowElements
+          xsi:type="bpmn2:EndEvent"
+          id="books_delivered"
+          name="Books delivered"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf1"
+          name="sf1"
+          sourceRef="order_received"
+          targetRef="record_order"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf2"
+          name="sf2"
+          sourceRef="record_order"
+          targetRef="check_stock"/>
+      <flowElements
+          xsi:type="bpmn2:ServiceTask"
+          id="check_stock"
+          name="Check Stock"
+          outgoing="sf3"
+          incoming="sf2"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf3"
+          name="sf3"
+          sourceRef="check_stock"
+          targetRef="all_books_available"/>
+      <flowElements
+          xsi:type="bpmn2:ExclusiveGateway"
+          id="all_books_available"
+          name="All books available"
+          outgoing="not_all_books_available sf4"
+          incoming="sf3"
+          gatewayDirection="Diverging"
+          default="sf4"/>
+      <flowElements
+          xsi:type="bpmn2:UserTask"
+          id="deliver_books_to_stock"
+          name="Deliver books to stock"
+          outgoing="sf5"
+          incoming="not_all_books_available"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="not_all_books_available"
+          name="No"
+          sourceRef="all_books_available"
+          targetRef="deliver_books_to_stock"/>
+      <flowElements
+          xsi:type="bpmn2:ExclusiveGateway"
+          id="ecg1"
+          name="ecg1"
+          incoming="sf4 sf5"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf4"
+          name="Yes"
+          sourceRef="all_books_available"
+          targetRef="ecg1"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf4"
+          name="sf4"/>
+      <flowElements
+          xsi:type="bpmn2:SequenceFlow"
+          id="sf5"
+          name="sf5"
+          sourceRef="deliver_books_to_stock"
+          targetRef="ecg1"/>
+    </rootElements>
+  </definitions>
+</bpmn2:DocumentRoot>

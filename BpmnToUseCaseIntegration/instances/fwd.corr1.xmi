@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TGGRuntime:CorrespondenceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BpmnToUseCaseIntegration="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore" xmlns:TGGRuntime="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore" xmlns:UseCaseDSL="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore" xmlns:bpmn2="platform:/plugin/bpmn2/model/Bpmn2.ecore">
+  <correspondences xsi:type="BpmnToUseCaseIntegration:DocRootToUCModel">
+    <source href="fwd.src1.xmi#/"/>
+    <target href="fwd.trg1.xmi#/"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:DefinitionsToPackage">
+    <source href="fwd.src1.xmi#//@definitions.0"/>
+    <target href="fwd.trg1.xmi#de.abilov.booksale"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:StartEventToBasicFlow">
+    <source href="fwd.src1.xmi#order_received"/>
+    <target href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:ProcessToActor">
+    <source href="fwd.src1.xmi#booksale"/>
+    <target href="fwd.trg1.xmi#sys"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf1"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:ProcessToUseCase">
+    <source href="fwd.src1.xmi#booksale"/>
+    <target href="fwd.trg1.xmi#booksale"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:LaneToActor">
+    <source href="fwd.src1.xmi#financing"/>
+    <target href="fwd.trg1.xmi#financing"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:LaneToActor">
+    <source href="fwd.src1.xmi#shipping"/>
+    <target href="fwd.trg1.xmi#shipping"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:LaneToActor">
+    <source href="fwd.src1.xmi#sales"/>
+    <target href="fwd.trg1.xmi#sales"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:ServiceTask" href="fwd.src1.xmi#record_order"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#record_order"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf3"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#record_order"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf3"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf4"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf4"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#check_stock"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:ServiceTask" href="fwd.src1.xmi#check_stock"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#check_stock"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf_yes"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:ExclusiveGateway" href="fwd.src1.xmi#all_books_available"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#all_books_available"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf_yes"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#all_books_available"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf_no"/>
+    <target xsi:type="UseCaseDSL:AlternativeFlow" href="fwd.trg1.xmi#sf_no"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SeqFlowToAltFlowAlt">
+    <source href="fwd.src1.xmi#sf_no"/>
+    <target href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0/@steps.2/@stepAlternative.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf5"/>
+    <target xsi:type="UseCaseDSL:AlternativeFlow" href="fwd.trg1.xmi#sf_no"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:UserTask" href="fwd.src1.xmi#deliver_books"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf5"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf6"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:ExclusiveGateway" href="fwd.src1.xmi#ecg1"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#all_books_available"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf6"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#all_books_available"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:ParallelGateway" href="fwd.src1.xmi#pgw1"/>
+    <target xsi:type="UseCaseDSL:ParallelStep" href="fwd.trg1.xmi#pgw1"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#payment"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="fwd.trg1.xmi#payment"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:ServiceTask" href="fwd.src1.xmi#charge_issue"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#charge_issue"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf7"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#charge_issue"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf7"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="fwd.trg1.xmi#payment"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#shipment_prepare"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="fwd.trg1.xmi#shipment_prepare"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf8"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="fwd.trg1.xmi#payment"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf8"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#payment_received"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:IntermediateCatchEvent" href="fwd.src1.xmi#payment_received"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#payment_received"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf9"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="fwd.trg1.xmi#payment"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:UserTask" href="fwd.src1.xmi#issue_invoice"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#issue_invoice"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf9"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#issue_invoice"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf10"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="fwd.trg1.xmi#shipment_prepare"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:UserTask" href="fwd.src1.xmi#separate_books"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#separate_books"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf10"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#separate_books"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf11"/>
+    <target xsi:type="UseCaseDSL:ParallelStep" href="fwd.trg1.xmi#pgw1"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf11"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:UserTask" href="fwd.src1.xmi#deliver_books"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf12"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf12"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="fwd.src1.xmi#sf13"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="fwd.src1.xmi#sf13"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#delivery_confirmed"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:IntermediateCatchEvent" href="fwd.src1.xmi#delivery_confirmed"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#delivery_confirmed"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:EndEventToFlow">
+    <source href="fwd.src1.xmi#end_event"/>
+    <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <source href="fwd.src1.xmi#/"/>
+  <target href="fwd.trg1.xmi#/"/>
+</TGGRuntime:CorrespondenceModel>

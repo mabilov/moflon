@@ -5,4 +5,5 @@ UseCaseDSL/bin/
 UseCaseDSL/gen/
 BpmnToUseCaseIntegration/bin/
 BpmnToUseCaseIntegration/gen/
-bpmn/bpmn.ldp
+BpmnToUseCaseIntegration/visualisation/
+bpmn/bpmn.ldb

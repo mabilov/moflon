@@ -32,8 +32,8 @@
     <genClasses image="false" ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//CatchEvent"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions/rootElements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions/targetNamespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions/targetNamespace"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//DocumentRoot">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/bpmn2/model/Bpmn2.ecore#//DocumentRoot/definitions"/>

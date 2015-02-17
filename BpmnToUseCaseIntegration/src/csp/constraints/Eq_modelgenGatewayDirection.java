@@ -7,7 +7,14 @@ import TGGLanguage.csp.impl.TGGConstraintImpl;
 public class Eq_modelgenGatewayDirection extends TGGConstraintImpl {
 	public void solve(Variable var_0, Variable var_1){
 		GatewayDirection attributeValue = (GatewayDirection) var_0.getValue();
-		GatewayDirection literalValue = GatewayDirection.valueOf(var_1.toString());
+		String literalValueStr = var_1.getValue().toString();
+		GatewayDirection literalValue;
+		try{
+			literalValue = GatewayDirection.valueOf(literalValueStr.toUpperCase());
+		} catch (IllegalArgumentException e) { // Unable to parse literal value
+			setSatisfied(false);
+			return;
+		}
 		
     	String bindingStates = getBindingStates(var_0, var_1);
     	
