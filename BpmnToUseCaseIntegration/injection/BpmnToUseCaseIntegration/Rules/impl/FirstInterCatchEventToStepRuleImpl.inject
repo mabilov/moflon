@@ -1,0 +1,20 @@
+
+partial class FirstInterCatchEventToStepRuleImpl {
+
+
+
+@model checkAttributes_FWD (TripleMatch tripleMatch) <--
+
+		
+		RuleResult r = TGGRuntimeFactory.eINSTANCE.createRuleResult();
+		r.setRule(tripleMatch.getRuleName());
+		if (tripleMatch.getContextElements().stream()
+				.filter(e -> e instanceof EventBasedGateway).count() > 0) {
+			r.setSuccess(false);
+		} else {
+			r.setSuccess(true);
+		}
+		return r;
+-->
+
+}

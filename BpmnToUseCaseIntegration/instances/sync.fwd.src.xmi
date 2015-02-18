@@ -23,8 +23,8 @@
       <flowElements xsi:type="bpmn2:ParallelGateway" id="pgw1" name="pgw1" outgoing="payment shipment_prepare" incoming="sf6" gatewayDirection="Diverging"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="payment" name="payment" sourceRef="pgw1" targetRef="charge_issue"/>
       <flowElements xsi:type="bpmn2:ServiceTask" id="charge_issue" name="Charge Issue" outgoing="sf7" incoming="payment"/>
-      <flowElements xsi:type="bpmn2:SequenceFlow" id="sf7" name="sf7" sourceRef="charge_issue" targetRef="payment_received"/>
-      <flowElements xsi:type="bpmn2:IntermediateCatchEvent" id="payment_received" name="Payment Received" outgoing="sf8" incoming="sf7"/>
+      <flowElements xsi:type="bpmn2:SequenceFlow" id="sf7" name="sf7" sourceRef="charge_issue" targetRef="eventGw1"/>
+      <flowElements xsi:type="bpmn2:IntermediateCatchEvent" id="payment_received" name="Payment Received" outgoing="sf8" incoming="sf14"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf8" name="sf8" sourceRef="payment_received" targetRef="issue_invoice"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf9" name="sf9" sourceRef="issue_invoice" targetRef="pcgw1"/>
       <flowElements xsi:type="bpmn2:UserTask" id="issue_invoice" name="Issue invoice" outgoing="sf9" incoming="sf8"/>
@@ -38,6 +38,8 @@
       <flowElements xsi:type="bpmn2:IntermediateCatchEvent" id="delivery_confirmed" name="Delivery confirmed" outgoing="sf13" incoming="sf12"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf13" name="sf13" sourceRef="delivery_confirmed" targetRef="end_event"/>
       <flowElements xsi:type="bpmn2:EndEvent" id="end_event" name="Order processed successfully" incoming="sf13"/>
+      <flowElements xsi:type="bpmn2:EventBasedGateway" id="eventGw1" name="eventGw1" outgoing="sf14" incoming="sf7"/>
+      <flowElements xsi:type="bpmn2:SequenceFlow" id="sf14" name="sf14" sourceRef="eventGw1" targetRef="payment_received"/>
     </rootElements>
   </definitions>
 </bpmn2:DocumentRoot>

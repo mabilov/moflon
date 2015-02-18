@@ -188,13 +188,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="ParallelGatewayToParallelStepCoreRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepCoreRule" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepCoreRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExclusiveConvergingGatewayRule">
+    <eClassifiers xsi:type="ecore:EClass" name="ExclusiveConvergingGatewayRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParallelConvergingGatewayRule" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelConvergingGatewayRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SeqFlowAfterEGToAltFlowRule">
@@ -203,7 +203,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="SeqFlowAfterPGToParallelFlowRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CatchEventAfterEBGToStepRule" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="CatchEventAfterEBGToStepRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExclusiveGatewayToStepRule">
@@ -214,20 +214,35 @@
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepCoreRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepRule" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepCoreRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LaneStartEventRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExclusiveConvergingGatewayDefaultSeqFlowRule">
+    <eClassifiers xsi:type="ecore:EClass" name="ExcConvGwAfterEventGwRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveConvergingGatewayRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExcConvGwDefaultSeqFlowRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParallelConvergingGatewayTwoInputsRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExcConvGwAfterExDivGwRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveConvergingGatewayRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExConvGwAfterEventGwIceSeqFlowRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContinuationRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
