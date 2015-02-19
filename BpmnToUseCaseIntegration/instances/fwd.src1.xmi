@@ -23,7 +23,7 @@
             id="financing"
             name="Financing"/>
         <lanes
-            flowNodeRefs="deliver_books separate_books pcgw1 deliver_books delivery_confirmed end_event"
+            flowNodeRefs="deliver_books_stock separate_books pcgw1 deliver_books_stock delivery_confirmed end_event"
             id="shipping"
             name="Shipping"/>
       </laneSets>
@@ -81,10 +81,10 @@
           id="sf_no"
           name="No"
           sourceRef="all_books_available"
-          targetRef="deliver_books"/>
+          targetRef="deliver_books_stock"/>
       <flowElements
           xsi:type="bpmn2:UserTask"
-          id="deliver_books"
+          id="deliver_books_stock"
           name="Deliver books to stock"
           outgoing="sf5"
           incoming="sf_no"/>
@@ -92,7 +92,7 @@
           xsi:type="bpmn2:SequenceFlow"
           id="sf5"
           name="sf5"
-          sourceRef="deliver_books"
+          sourceRef="deliver_books_stock"
           targetRef="ecg1"/>
       <flowElements
           xsi:type="bpmn2:ExclusiveGateway"
@@ -184,10 +184,10 @@
           id="sf11"
           name="sf11"
           sourceRef="pcgw1"
-          targetRef="deliver_books"/>
+          targetRef="deliver_books_customer"/>
       <flowElements
           xsi:type="bpmn2:UserTask"
-          id="deliver_books"
+          id="deliver_books_customer"
           name="Deliver books to customer"
           outgoing="sf12"
           incoming="sf11"/>
@@ -195,7 +195,7 @@
           xsi:type="bpmn2:SequenceFlow"
           id="sf12"
           name="sf12"
-          sourceRef="deliver_books"
+          sourceRef="deliver_books_customer"
           targetRef="delivery_confirmed"/>
       <flowElements
           xsi:type="bpmn2:IntermediateCatchEvent"

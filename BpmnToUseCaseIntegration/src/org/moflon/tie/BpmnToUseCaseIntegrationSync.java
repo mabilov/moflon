@@ -57,8 +57,8 @@ public class BpmnToUseCaseIntegrationSync extends SynchronizationHelper {
 						.filter(l -> l.getId().equals("financing")).findFirst().get();			
 			
 			EventBasedGateway wait_for_event = Bpmn2Factory.eINSTANCE.createEventBasedGateway();
-			wait_for_event.setId("eventGw1");
-			wait_for_event.setName("eventGw1");
+			wait_for_event.setId("wait_for_event");
+			wait_for_event.setName("Wait for event");
 			wait_for_event.setGatewayDirection(GatewayDirection.DIVERGING);
 			process.getFlowElements().add(wait_for_event);
 			lane.getFlowNodeRefs().add(wait_for_event);

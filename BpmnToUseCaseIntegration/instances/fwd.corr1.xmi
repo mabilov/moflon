@@ -85,12 +85,12 @@
     <target xsi:type="UseCaseDSL:AlternativeFlow" href="fwd.trg1.xmi#sf_no"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
-    <source xsi:type="bpmn2:UserTask" href="fwd.src1.xmi#deliver_books"/>
-    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books"/>
+    <source xsi:type="bpmn2:UserTask" href="fwd.src1.xmi#deliver_books_stock"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books_stock"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
     <source href="fwd.src1.xmi#sf5"/>
-    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books_stock"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
     <source xsi:type="bpmn2:ExclusiveGateway" href="fwd.src1.xmi#ecg1"/>
@@ -206,15 +206,15 @@
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
     <source href="fwd.src1.xmi#sf12"/>
-    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books_customer"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
     <source href="fwd.src1.xmi#sf12"/>
     <target xsi:type="UseCaseDSL:BasicFlow" href="fwd.trg1.xmi#//@packages.0/@useCases.0/@flows.0"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
-    <source xsi:type="bpmn2:UserTask" href="fwd.src1.xmi#deliver_books"/>
-    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books"/>
+    <source xsi:type="bpmn2:UserTask" href="fwd.src1.xmi#deliver_books_customer"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="fwd.trg1.xmi#deliver_books_customer"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
     <source href="fwd.src1.xmi#sf13"/>
