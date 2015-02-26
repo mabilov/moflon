@@ -19,17 +19,22 @@ public class EqActorType extends TGGConstraintImpl {
 
 		String bindingStates = getBindingStates(var_0, var_1);
 
-		switch (bindingStates) {
-		case "BB":
+		switch(bindingStates){
+    	case "BB":
 			setSatisfied(attributeValue.equals(literalValue));
 			break;
 		case "BF":
 			// Cannot assign new value to enum literal
 			setSatisfied(true);
+			break;
 		case "FB":
 			var_0.setValue(literalValue);
 			setSatisfied(true);
-		}
+			break;
+    	default: 
+    		setSatisfied(false);
+    		break;
+    	}
 
 	}
 }

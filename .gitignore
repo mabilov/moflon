@@ -6,4 +6,6 @@ UseCaseDSL/gen/
 BpmnToUseCaseIntegration/bin/
 BpmnToUseCaseIntegration/gen/
 BpmnToUseCaseIntegration/visualisation/
+UseCaseCodeAdapter/bin/
+UseCaseCodeAdapter/gen/
 bpmn/bpmn.ldb

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BpmnToUseCaseIntegration">
-  <domain name="Source" metamodel="//@metamodel.0" type="SOURCE"/>
+<TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BpmnToUseCaseIntegration">
+  <domain name="Source" metamodel="//@metamodel.2" type="SOURCE"/>
   <domain name="Target" metamodel="//@metamodel.1" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.2"/>
-  <tggRule name="BpModelToUseCaseModelRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <domain name="Correspondence" metamodel="//@metamodel.0"/>
+  <tggRule name="BpModelToUseCaseModelRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="documentRoot" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//DocumentRoot"/>
     </objectVariable>
@@ -20,7 +20,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//DocRootToUCModel/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="DefinitionsToPackageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="addPrefix(&quot;http://&quot;, packageDeclaration.name, definitions.targetNamespace)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="DefinitionsToPackageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="definitions" incomingLink="//@tggRule.1/@linkVariable.0 //@tggRule.1/@linkVariable.2" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions"/>
     </objectVariable>
@@ -57,8 +57,28 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.1/@objectVariable.4" source="//@tggRule.1/@objectVariable.5" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//DocRootToUCModel/target"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.1/@csp/@variables.0 //@tggRule.1/@csp/@variables.1 //@tggRule.1/@csp/@variables.2" name="addPrefix">
+        <signature type="EString"/>
+        <signature type="EString" index="1"/>
+        <signature type="EString" index="2"/>
+        <allowedAdornments value="BBB"/>
+        <allowedAdornments value="BBF"/>
+        <allowedAdornments value="BFB"/>
+        <allowedAdornments value="FBB"/>
+        <modelgenAdornments value="BBB"/>
+        <modelgenAdornments value="BBF"/>
+        <modelgenAdornments value="BFB"/>
+        <modelgenAdornments value="FBB"/>
+        <modelgenAdornments value="BFF"/>
+        <modelgenAdornments value="FBF"/>
+      </constraints>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000922687474703A2F2F22"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="packageDeclaration"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="targetNamespace" objectVariable="definitions"/>
+    </csp>
   </tggRule>
-  <tggRule name="ProcessToUseCaseRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eq(process.id, useCase.name)eq(process.name, useCase.description)eq(startEvent.name, useCase.preConditions)eq(actor.name, &quot;sys&quot;)eqActorType(actor.type, &quot;SYSTEM&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ProcessToUseCaseRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="definitions" incomingLink="//@tggRule.2/@linkVariable.3" outgoingLink="//@tggRule.2/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Definitions"/>
     </objectVariable>
@@ -149,8 +169,71 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.2/@objectVariable.11" source="//@tggRule.2/@objectVariable.12" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ProcessToActor/target"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.2/@csp/@variables.0 //@tggRule.2/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.2/@csp/@variables.2 //@tggRule.2/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.2/@csp/@variables.4 //@tggRule.2/@csp/@variables.5" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.2/@csp/@variables.6 //@tggRule.2/@csp/@variables.7" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.2/@csp/@variables.8 //@tggRule.2/@csp/@variables.9" name="eqActorType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="process"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="process"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="description" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="startEvent"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="preConditions" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400052273797322"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082253595354454D22"/>
+    </csp>
   </tggRule>
-  <tggRule name="TaskToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true" cspSpec="eq(task.id, normalStep.name)eq(task.name, normalStep.label)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="TaskToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.3/@linkVariable.2 //@tggRule.3/@linkVariable.13" outgoingLink="//@tggRule.3/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -244,8 +327,36 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowNodeRefs" target="//@tggRule.3/@objectVariable.2" source="//@tggRule.3/@objectVariable.12" bindingOperator="CREATE" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Lane/flowNodeRefs"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.3/@csp/@variables.0 //@tggRule.3/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.3/@csp/@variables.2 //@tggRule.3/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="label" objectVariable="normalStep"/>
+    </csp>
   </tggRule>
-  <tggRule name="FirstServiceTaskToStepRule" refines="//@tggRule.3" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="FirstServiceTaskToStepRule" refines="//@tggRule.3" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.4/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -265,7 +376,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ProcessToActor/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="FirstUserTaskToStepRule" refines="//@tggRule.3" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="FirstUserTaskToStepRule" refines="//@tggRule.3" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="lane" incomingLink="//@tggRule.5/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Lane"/>
     </objectVariable>
@@ -285,7 +396,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//LaneToActor/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="LaneSetRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="LaneSetRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.6/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -296,7 +407,7 @@
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/laneSets"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="LaneToActorRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eq(lane.id, actor.name)eq(lane.name, actor.description)eqActorType(actor.type, &quot;PERSON&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="LaneToActorRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="laneSet" incomingLink="//@tggRule.7/@linkVariable.1" outgoingLink="//@tggRule.7/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//LaneSet"/>
     </objectVariable>
@@ -360,8 +471,45 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.7/@objectVariable.8" source="//@tggRule.7/@objectVariable.9" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//LaneToActor/target"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.7/@csp/@variables.0 //@tggRule.7/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.7/@csp/@variables.2 //@tggRule.7/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.7/@csp/@variables.4 //@tggRule.7/@csp/@variables.5" name="eqActorType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="lane"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="lane"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="description" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822504552534F4E22"/>
+    </csp>
   </tggRule>
-  <tggRule name="TaskToStepRule" refines="//@tggRule.3" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="TaskToStepRule" refines="//@tggRule.3" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.8/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -384,7 +532,7 @@
       <type href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step/next"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="ServiceTaskToStepRule" refines="//@tggRule.8" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ServiceTaskToStepRule" refines="//@tggRule.8" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ServiceTask"/>
     </objectVariable>
@@ -404,7 +552,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ProcessToActor/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="UserTaskToStepRule" refines="//@tggRule.8" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="UserTaskToStepRule" refines="//@tggRule.8" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//UserTask"/>
     </objectVariable>
@@ -424,7 +572,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//LaneToActor/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="InterEventToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true" cspSpec="eq(event.id, normalStep.name)eq(event.name, normalStep.label)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="InterEventToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.11/@linkVariable.6" outgoingLink="//@tggRule.11/@linkVariable.0 //@tggRule.11/@linkVariable.1 //@tggRule.11/@linkVariable.2 //@tggRule.11/@linkVariable.3" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -533,18 +681,46 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="lanes" target="//@tggRule.11/@objectVariable.13" source="//@tggRule.11/@objectVariable.14" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//LaneSet/lanes"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.11/@csp/@variables.0 //@tggRule.11/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.11/@csp/@variables.2 //@tggRule.11/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="label" objectVariable="normalStep"/>
+    </csp>
   </tggRule>
-  <tggRule name="InterThrowEventToStepRule" refines="//@tggRule.16" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ITEToStepRule" refines="//@tggRule.16" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="event" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateThrowEvent"/>
     </objectVariable>
   </tggRule>
-  <tggRule name="IntermediateCatchEventToStepRule" refines="//@tggRule.16" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ICEToStepRule" refines="//@tggRule.16" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="event" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateCatchEvent"/>
     </objectVariable>
   </tggRule>
-  <tggRule name="EndEventRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="setCheckEqStr(endEvent.name, flow.finalState)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="EndEventRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.14/@linkVariable.9" outgoingLink="//@tggRule.14/@linkVariable.0 //@tggRule.14/@linkVariable.1 //@tggRule.14/@linkVariable.2" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -614,8 +790,19 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="lanes" target="//@tggRule.14/@objectVariable.8" source="//@tggRule.14/@objectVariable.9" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//LaneSet/lanes"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.14/@csp/@variables.0 //@tggRule.14/@csp/@variables.1" name="setCheckEqStr" userDefined="true">
+        <signature type="EString"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="endEvent"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="finalState" objectVariable="flow"/>
+    </csp>
   </tggRule>
-  <tggRule name="ExclusiveGatewayToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eq(exclusiveGateway.id, normalStep.name)eq(exclusiveGateway.name, normalStep.label)eqGatewayDirection(exclusiveGateway.gatewayDirection, &quot;Diverging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ExclusiveGatewayToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" incomingLink="//@tggRule.15/@linkVariable.13 //@tggRule.15/@linkVariable.15 //@tggRule.15/@linkVariable.16" outgoingLink="//@tggRule.15/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep"/>
     </objectVariable>
@@ -721,8 +908,45 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="lanes" target="//@tggRule.15/@objectVariable.12" source="//@tggRule.15/@objectVariable.13" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//LaneSet/lanes"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.15/@csp/@variables.0 //@tggRule.15/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.15/@csp/@variables.2 //@tggRule.15/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.15/@csp/@variables.4 //@tggRule.15/@csp/@variables.5" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
   </tggRule>
-  <tggRule name="InterEventToStepRule" refines="//@tggRule.11" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="InterEventToStepRule" refines="//@tggRule.11" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.16/@linkVariable.1" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -745,17 +969,17 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToStep/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="FirstInterThrowEventToStepRule" refines="//@tggRule.11" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="FirstInterThrowEventToStepRule" refines="//@tggRule.11" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="event" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateThrowEvent"/>
     </objectVariable>
   </tggRule>
-  <tggRule name="FirstInterCatchEventToStepRule" refines="//@tggRule.11" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="FirstICEToStepRule" refines="//@tggRule.11" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="event" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateCatchEvent"/>
     </objectVariable>
   </tggRule>
-  <tggRule name="ParallelGatewayToParallelStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eq(parallelGateway.id, parallelStep.name)eq(parallelGateway.name, parallelStep.label)eqGatewayDirection(parallelGateway.gatewayDirection, &quot;Diverging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ParallelGatewayToParallelStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.19/@linkVariable.0 //@tggRule.19/@linkVariable.1 //@tggRule.19/@linkVariable.2" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -816,8 +1040,45 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowNodeRefs" target="//@tggRule.19/@objectVariable.2" source="//@tggRule.19/@objectVariable.8" bindingOperator="CREATE" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Lane/flowNodeRefs"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.19/@csp/@variables.0 //@tggRule.19/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.19/@csp/@variables.2 //@tggRule.19/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.19/@csp/@variables.4 //@tggRule.19/@csp/@variables.5" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="parallelStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="label" objectVariable="parallelStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
   </tggRule>
-  <tggRule name="EventBasedGatewayToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eq(eventBasedGateway.id, normalStep.name)eq(eventBasedGateway.name, normalStep.label)eqGatewayDirection(eventBasedGateway.gatewayDirection, &quot;Diverging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="EventBasedGatewayToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.20/@linkVariable.4" outgoingLink="//@tggRule.20/@linkVariable.0 //@tggRule.20/@linkVariable.1 //@tggRule.20/@linkVariable.2" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -893,8 +1154,45 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="lanes" target="//@tggRule.20/@objectVariable.9" source="//@tggRule.20/@objectVariable.10" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//LaneSet/lanes"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.20/@csp/@variables.0 //@tggRule.20/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.20/@csp/@variables.2 //@tggRule.20/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.20/@csp/@variables.4 //@tggRule.20/@csp/@variables.5" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
   </tggRule>
-  <tggRule name="ExclusiveConvergingGatewayRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true" cspSpec="eqGatewayDirection(exConvGateway.gatewayDirection, &quot;Converging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ExclusiveConvergingGatewayRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.21/@linkVariable.0 //@tggRule.21/@linkVariable.1 //@tggRule.21/@linkVariable.2 //@tggRule.21/@linkVariable.3" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -994,8 +1292,19 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="lanes" target="//@tggRule.21/@objectVariable.12" source="//@tggRule.21/@objectVariable.13" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//LaneSet/lanes"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.21/@csp/@variables.0 //@tggRule.21/@csp/@variables.1" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="exConvGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+    </csp>
   </tggRule>
-  <tggRule name="ParallelConvergingGatewayRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eqGatewayDirection(parallelConvGateway.gatewayDirection, &quot;Converging&quot;)eqGatewayDirection(parallelGateway.gatewayDirection, &quot;Diverging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ParallelConvergingGatewayRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.22/@linkVariable.0 //@tggRule.22/@linkVariable.1 //@tggRule.22/@linkVariable.2 //@tggRule.22/@linkVariable.3 //@tggRule.22/@linkVariable.4 //@tggRule.22/@linkVariable.5" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -1143,8 +1452,28 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.22/@objectVariable.4" source="//@tggRule.22/@objectVariable.18" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow/target"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.22/@csp/@variables.0 //@tggRule.22/@csp/@variables.1" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <constraints variables="//@tggRule.22/@csp/@variables.2 //@tggRule.22/@csp/@variables.3" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="parallelConvGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
   </tggRule>
-  <tggRule name="SeqFlowAfterEGToAltFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eq(outFlow.id, alternativeFlow.name)eq(outFlow.name, alt.condition)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="SeqFlowAfterEGToAltFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCase" incomingLink="//@tggRule.23/@linkVariable.3" outgoingLink="//@tggRule.23/@linkVariable.0 //@tggRule.23/@linkVariable.1" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCase"/>
     </objectVariable>
@@ -1250,8 +1579,36 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.23/@objectVariable.13" source="//@tggRule.23/@objectVariable.12" bindingOperator="CREATE" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.23/@csp/@variables.0 //@tggRule.23/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.23/@csp/@variables.2 //@tggRule.23/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="outFlow"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="alternativeFlow"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="outFlow"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="condition" objectVariable="alt"/>
+    </csp>
   </tggRule>
-  <tggRule name="SeqFlowAfterPGToParallelFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eq(sequenceFlow.id, parallelFlow.name)eqGatewayDirection(parallelGateway.gatewayDirection, &quot;Diverging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="SeqFlowAfterPGToParallelFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.24/@linkVariable.10" outgoingLink="//@tggRule.24/@linkVariable.0 //@tggRule.24/@linkVariable.1 //@tggRule.24/@linkVariable.2" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -1339,8 +1696,32 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.24/@objectVariable.10" source="//@tggRule.24/@objectVariable.11" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow/target"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.24/@csp/@variables.0 //@tggRule.24/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.24/@csp/@variables.2 //@tggRule.24/@csp/@variables.3" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="sequenceFlow"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="parallelFlow"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
   </tggRule>
-  <tggRule name="CatchEventAfterEBGToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eq(intermediateCatchEvent.id, alternativeFlow.name)eq(intermediateCatchEvent.name, alt.condition)eqGatewayDirection(eventBasedGateway.gatewayDirection, &quot;Diverging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="CatchEventAfterEBGToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.25/@linkVariable.12" outgoingLink="//@tggRule.25/@linkVariable.0 //@tggRule.25/@linkVariable.1 //@tggRule.25/@linkVariable.2 //@tggRule.25/@linkVariable.3 //@tggRule.25/@linkVariable.4 //@tggRule.25/@linkVariable.5" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -1485,8 +1866,45 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.25/@objectVariable.13" source="//@tggRule.25/@objectVariable.18" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow/target"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.25/@csp/@variables.0 //@tggRule.25/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.25/@csp/@variables.2 //@tggRule.25/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.25/@csp/@variables.4 //@tggRule.25/@csp/@variables.5" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="intermediateCatchEvent"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="alternativeFlow"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="intermediateCatchEvent"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="condition" objectVariable="alt"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
   </tggRule>
-  <tggRule name="ExclusiveGatewayToStepRule" refines="//@tggRule.15" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ExclusiveGatewayToStepRule" refines="//@tggRule.15" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.26/@linkVariable.1" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -1509,7 +1927,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToStep/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="ParallelGatewayToParallelStepRule" refines="//@tggRule.19" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ParallelGatewayToParallelStepRule" refines="//@tggRule.19" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.27/@linkVariable.1" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -1532,7 +1950,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToStep/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="EventBasedGatewayToStepRule" refines="//@tggRule.20" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="EventBasedGatewayToStepRule" refines="//@tggRule.20" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.28/@linkVariable.1" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -1555,7 +1973,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToStep/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="LaneStartEventRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="LaneStartEventRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="lane" incomingLink="//@tggRule.29/@linkVariable.3" outgoingLink="//@tggRule.29/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Lane"/>
     </objectVariable>
@@ -1581,7 +1999,7 @@
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//LaneSet/lanes"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="ExcConvGwAfterEventGwRule" refines="//@tggRule.21" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ExcConvGwAfterEventGwRule" refines="//@tggRule.21" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.30/@linkVariable.0 //@tggRule.30/@linkVariable.1 //@tggRule.30/@linkVariable.2" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -1646,7 +2064,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ICEToAltFlow/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="ExcConvGwDefaultSeqFlowRule" refines="//@tggRule.33" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ExcConvGwDefaultSeqFlowRule" refines="//@tggRule.33" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="defaultFlow" outgoingLink="//@tggRule.31/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -1657,7 +2075,7 @@
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow/targetRef"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="ParallelConvergingGatewayTwoInputsRule" refines="//@tggRule.22" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ParallelConvergingGatewayTwoInputsRule" refines="//@tggRule.22" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.32/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -1725,7 +2143,7 @@
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow/target"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="ExcConvGwAfterExDivGwRule" refines="//@tggRule.21" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eqGatewayDirection(exclusiveGateway.gatewayDirection, &quot;Diverging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ExcConvGwAfterExDivGwRule" refines="//@tggRule.21" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.33/@linkVariable.1" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -1825,8 +2243,19 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.33/@objectVariable.13" source="//@tggRule.33/@objectVariable.14" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow/target"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.33/@csp/@variables.0 //@tggRule.33/@csp/@variables.1" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
   </tggRule>
-  <tggRule name="ExConvGwAfterEventGwIceSeqFlowRule" refines="//@tggRule.30" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ExConvGwAfterEventGwIceSeqFlowRule" refines="//@tggRule.30" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="ice" incomingLink="//@tggRule.34/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateCatchEvent"/>
     </objectVariable>
@@ -1837,7 +2266,7 @@
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow/sourceRef"/>
     </linkVariable>
   </tggRule>
-  <tggRule name="ContinuationRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" cspSpec="eqGatewayDirection(excConvGw.gatewayDirection, &quot;Converging&quot;)notInstanceOf[BB](EObject,EString)eqGatewayDirection[BB, BF, FB](EObject,EString)setCheckEqStr[BB, BF, FB](EString,EString)eqActorType[BB, BF, FB](EObject,EString)">
+  <tggRule name="ContinuationRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.35/@linkVariable.5" outgoingLink="//@tggRule.35/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
@@ -1910,14 +2339,104 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.35/@objectVariable.9" source="//@tggRule.35/@objectVariable.10" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//FlowNodeToStep/target"/>
     </linkVariable>
+    <csp>
+      <constraints variables="//@tggRule.35/@csp/@variables.0 //@tggRule.35/@csp/@variables.1" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="excConvGw"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+    </csp>
   </tggRule>
-  <metamodel name="bpmn2">
-    <outermostPackage href="platform:/plugin/bpmn2/model/Bpmn2.ecore#/"/>
+  <tggRule name="ICEToStepAfterSERule" refines="//@tggRule.18" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flowNode" domain="//@domain.0">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//StartEvent"/>
+    </objectVariable>
+  </tggRule>
+  <tggRule name="ICEToStepAfterExGwRule" refines="//@tggRule.18" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flowNode" domain="//@domain.0">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ExclusiveGateway"/>
+    </objectVariable>
+    <csp>
+      <constraints variables="//@tggRule.37/@csp/@variables.0 //@tggRule.37/@csp/@variables.1" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
+  </tggRule>
+  <tggRule name="ICEToStepAfterPGRule" refines="//@tggRule.18" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flowNode" domain="//@domain.0">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ParallelGateway"/>
+    </objectVariable>
+    <csp>
+      <constraints variables="//@tggRule.38/@csp/@variables.0 //@tggRule.38/@csp/@variables.1" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+    </csp>
+  </tggRule>
+  <tggRule name="ICEToStepAfterTaskRule" refines="//@tggRule.13" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flowNode" domain="//@domain.0">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Task"/>
+    </objectVariable>
+  </tggRule>
+  <tggRule name="ICEToStepAfterEventRule" refines="//@tggRule.13" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flowNode" domain="//@domain.0">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Event"/>
+    </objectVariable>
+  </tggRule>
+  <tggRule name="ICEToStepAfterExConvGwRule" refines="//@tggRule.13" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flowNode" domain="//@domain.0">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ExclusiveGateway"/>
+    </objectVariable>
+    <csp>
+      <constraints variables="//@tggRule.41/@csp/@variables.0 //@tggRule.41/@csp/@variables.1" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+    </csp>
+  </tggRule>
+  <tggRule name="ICEToStepAfterPConvGwRule" refines="//@tggRule.13" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flowNode" domain="//@domain.0">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ParallelGateway"/>
+    </objectVariable>
+    <csp>
+      <constraints variables="//@tggRule.42/@csp/@variables.0 //@tggRule.42/@csp/@variables.1" name="eqGatewayDirection" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+    </csp>
+  </tggRule>
+  <metamodel name="BpmnToUseCaseIntegration">
+    <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>
   </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
-  <metamodel name="BpmnToUseCaseIntegration">
-    <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>
+  <metamodel name="bpmn2">
+    <outermostPackage href="platform:/plugin/bpmn2/model/Bpmn2.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

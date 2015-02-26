@@ -69,7 +69,11 @@
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ManualTask"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ParallelGateway"/>
-    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
+    <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process">
+      <genOperations ecoreOperation="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process/removeNode">
+        <genParameters ecoreParameter="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process/removeNode/node"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ServiceTask"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//StartEvent"/>
     <genClasses ecoreClass="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Task"/>

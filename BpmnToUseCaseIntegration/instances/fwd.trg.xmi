@@ -4,19 +4,19 @@
     <useCases description="Book Sale Process" name="booksale" preConditions="Order Received">
       <flows xsi:type="UseCaseDSL:BasicFlow">
         <steps xsi:type="UseCaseDSL:NormalStep" label="Record Order" name="record_order" actor="sys"/>
-        <steps xsi:type="UseCaseDSL:NormalStep" label="Check Stock" name="check_stock" actor="sys"/>
-        <steps xsi:type="UseCaseDSL:NormalStep" label="All books available" name="all_books_available" actor="sys">
+        <steps xsi:type="UseCaseDSL:NormalStep" next="all_books_available" label="Check Stock" name="check_stock" actor="sys"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" next="pgw1" label="All books available" name="all_books_available" actor="sys">
           <stepAlternative xsi:type="UseCaseDSL:AlternativeFlowAlternative" condition="No" ref="sf_no"/>
         </steps>
         <steps xsi:type="UseCaseDSL:ParallelStep" next="deliver_books_customer" label="pgw1" name="pgw1" invokedFlows="shipment_prepare payment"/>
-        <steps xsi:type="UseCaseDSL:NormalStep" label="Deliver books to customer" name="deliver_books_customer" actor="sales"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" next="delivery_confirmed" label="Deliver books to customer" name="deliver_books_customer" actor="sales"/>
         <steps xsi:type="UseCaseDSL:NormalStep" label="Delivery confirmed" name="delivery_confirmed" actor="sys"/>
       </flows>
       <flows xsi:type="UseCaseDSL:AlternativeFlow" name="sf_no">
-        <steps xsi:type="UseCaseDSL:NormalStep" label="Deliver books to stock" name="deliver_books_stock" actor="financing"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Deliver books to stock" name="deliver_books_stock" actor="sales"/>
       </flows>
       <flows xsi:type="UseCaseDSL:ParallelFlow" name="shipment_prepare">
-        <steps xsi:type="UseCaseDSL:NormalStep" label="Separate books of the request" name="separate_books" actor="financing"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Separate books of the request" name="separate_books" actor="shipping"/>
       </flows>
       <flows xsi:type="UseCaseDSL:ParallelFlow" name="payment">
         <steps xsi:type="UseCaseDSL:NormalStep" next="payment_received" label="Charge Issue" name="charge_issue" actor="sys"/>
@@ -25,8 +25,8 @@
       </flows>
     </useCases>
     <actors name="sys" type="system"/>
-    <actors description="Sales" name="sales"/>
     <actors description="Shipping" name="shipping"/>
+    <actors description="Sales" name="sales"/>
     <actors description="Financing" name="financing"/>
   </packages>
 </UseCaseDSL:UseCasesModel>
