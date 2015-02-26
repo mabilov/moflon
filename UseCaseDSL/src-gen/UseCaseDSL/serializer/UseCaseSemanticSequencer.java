@@ -148,7 +148,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (name=ID steps+=Step? finalState=STRING?)
+	 *     (name=ID steps+=Step* finalState=STRING?)
 	 */
 	protected void sequence_AlternativeFlow(EObject context, AlternativeFlow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -157,7 +157,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (steps+=Step? finalState=STRING?)
+	 *     (steps+=Step* finalState=STRING?)
 	 */
 	protected void sequence_BasicFlow(EObject context, BasicFlow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -175,7 +175,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (name=ID condition=STRING steps+=Step? finalState=STRING?)
+	 *     (name=ID condition=STRING steps+=Step* finalState=STRING?)
 	 */
 	protected void sequence_ExceptionFlow(EObject context, ExceptionFlow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -218,7 +218,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (name=ID steps+=Step? finalState=STRING?)
+	 *     (name=ID steps+=Step* finalState=STRING?)
 	 */
 	protected void sequence_ParallelFlow(EObject context, ParallelFlow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

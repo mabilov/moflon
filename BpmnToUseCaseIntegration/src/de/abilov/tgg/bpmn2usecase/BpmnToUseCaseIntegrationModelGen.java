@@ -1,4 +1,4 @@
-package org.moflon.tie;
+package de.abilov.tgg.bpmn2usecase;
 
 import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
@@ -28,9 +28,9 @@ public class BpmnToUseCaseIntegrationModelGen extends SynchronizationHelper {
 		BasicConfigurator.configure();
 
 		AbstractModelGenerationController controller = new DefaultModelGenController();
-		//controller.getDeadlineControllers().add(new MaxRulePerformCounterController(20));
-		controller.setRuleSelector(new LimitedRandomRuleSelector().addRuleLimit("CHANGE_ME", 1));
-		controller.setEObjectSelector(new RandomEObjectSelector());
+		controller.addContinuationController(new MaxRulePerformCounterController(20));
+		controller.addContinuationController(new TimeoutController(5000));
+		controller.setRuleSelector(new LimitedRandomRuleSelector().addRuleLimit("(Context_Rule_Name)", 1));
 
 		ModelGenerator gen = new ModelGenerator(BpmnToUseCaseIntegrationPackage.eINSTANCE, controller);
 		gen.generate();

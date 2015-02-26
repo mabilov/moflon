@@ -310,10 +310,10 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinalStateSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
 		
 		//BasicFlow:
-		//	"basic flow" {BasicFlow} steps+=Step? "end flow" ("with postcondition" finalState=STRING)?;
+		//	"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
 		public ParserRule getRule() { return rule; }
 
-		//"basic flow" {BasicFlow} steps+=Step? "end flow" ("with postcondition" finalState=STRING)?
+		//"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=STRING)?
 		public Group getGroup() { return cGroup; }
 
 		//"basic flow"
@@ -322,7 +322,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//{BasicFlow}
 		public Action getBasicFlowAction_1() { return cBasicFlowAction_1; }
 
-		//steps+=Step?
+		//steps+=Step*
 		public Assignment getStepsAssignment_2() { return cStepsAssignment_2; }
 
 		//Step
@@ -387,11 +387,11 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinalStateSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cFinalStateAssignment_7_1.eContents().get(0);
 		
 		//ExceptionFlow:
-		//	"exception flow" name=ID "if" condition=STRING "then" steps+=Step? "end flow" ("with postcondition"
+		//	"exception flow" name=ID "if" condition=STRING "then" steps+=Step* "end flow" ("with postcondition"
 		//	finalState=STRING)?;
 		public ParserRule getRule() { return rule; }
 
-		//"exception flow" name=ID "if" condition=STRING "then" steps+=Step? "end flow" ("with postcondition" finalState=STRING)?
+		//"exception flow" name=ID "if" condition=STRING "then" steps+=Step* "end flow" ("with postcondition" finalState=STRING)?
 		public Group getGroup() { return cGroup; }
 
 		//"exception flow"
@@ -415,7 +415,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//"then"
 		public Keyword getThenKeyword_4() { return cThenKeyword_4; }
 
-		//steps+=Step?
+		//steps+=Step*
 		public Assignment getStepsAssignment_5() { return cStepsAssignment_5; }
 
 		//Step
@@ -452,10 +452,10 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinalStateSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
 		
 		//AlternativeFlow:
-		//	"alternative flow" name=ID steps+=Step? "end flow" ("with postcondition" finalState=STRING)?;
+		//	"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
 		public ParserRule getRule() { return rule; }
 
-		//"alternative flow" name=ID steps+=Step? "end flow" ("with postcondition" finalState=STRING)?
+		//"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?
 		public Group getGroup() { return cGroup; }
 
 		//"alternative flow"
@@ -467,7 +467,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//steps+=Step?
+		//steps+=Step*
 		public Assignment getStepsAssignment_2() { return cStepsAssignment_2; }
 
 		//Step
@@ -504,10 +504,10 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinalStateSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
 		
 		//ParallelFlow:
-		//	"parallel flow" name=ID steps+=Step? "end flow" ("with postcondition" finalState=STRING)?;
+		//	"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
 		public ParserRule getRule() { return rule; }
 
-		//"parallel flow" name=ID steps+=Step? "end flow" ("with postcondition" finalState=STRING)?
+		//"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?
 		public Group getGroup() { return cGroup; }
 
 		//"parallel flow"
@@ -519,7 +519,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//steps+=Step?
+		//steps+=Step*
 		public Assignment getStepsAssignment_2() { return cStepsAssignment_2; }
 
 		//Step
@@ -1225,7 +1225,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BasicFlow:
-	//	"basic flow" {BasicFlow} steps+=Step? "end flow" ("with postcondition" finalState=STRING)?;
+	//	"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
 	public BasicFlowElements getBasicFlowAccess() {
 		return pBasicFlow;
 	}
@@ -1245,7 +1245,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExceptionFlow:
-	//	"exception flow" name=ID "if" condition=STRING "then" steps+=Step? "end flow" ("with postcondition"
+	//	"exception flow" name=ID "if" condition=STRING "then" steps+=Step* "end flow" ("with postcondition"
 	//	finalState=STRING)?;
 	public ExceptionFlowElements getExceptionFlowAccess() {
 		return pExceptionFlow;
@@ -1256,7 +1256,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AlternativeFlow:
-	//	"alternative flow" name=ID steps+=Step? "end flow" ("with postcondition" finalState=STRING)?;
+	//	"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
 	public AlternativeFlowElements getAlternativeFlowAccess() {
 		return pAlternativeFlow;
 	}
@@ -1266,7 +1266,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParallelFlow:
-	//	"parallel flow" name=ID steps+=Step? "end flow" ("with postcondition" finalState=STRING)?;
+	//	"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
 	public ParallelFlowElements getParallelFlowAccess() {
 		return pParallelFlow;
 	}

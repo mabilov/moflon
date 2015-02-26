@@ -1,4 +1,4 @@
-package org.moflon.tie;
+package de.abilov.tgg.bpmn2usecase;
 
 import java.io.IOException;
 

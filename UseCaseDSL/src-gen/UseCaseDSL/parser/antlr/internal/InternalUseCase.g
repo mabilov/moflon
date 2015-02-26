@@ -610,7 +610,7 @@ ruleBasicFlow returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_3='end flow' 
+)*	otherlv_3='end flow' 
     {
     	newLeafNode(otherlv_3, grammarAccess.getBasicFlowAccess().getEndFlowKeyword_3());
     }
@@ -773,7 +773,7 @@ ruleExceptionFlow returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_6='end flow' 
+)*	otherlv_6='end flow' 
     {
     	newLeafNode(otherlv_6, grammarAccess.getExceptionFlowAccess().getEndFlowKeyword_6());
     }
@@ -860,7 +860,7 @@ ruleAlternativeFlow returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_3='end flow' 
+)*	otherlv_3='end flow' 
     {
     	newLeafNode(otherlv_3, grammarAccess.getAlternativeFlowAccess().getEndFlowKeyword_3());
     }
@@ -947,7 +947,7 @@ ruleParallelFlow returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_3='end flow' 
+)*	otherlv_3='end flow' 
     {
     	newLeafNode(otherlv_3, grammarAccess.getParallelFlowAccess().getEndFlowKeyword_3());
     }

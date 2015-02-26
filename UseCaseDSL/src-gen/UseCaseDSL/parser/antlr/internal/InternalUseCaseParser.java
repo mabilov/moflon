@@ -1386,7 +1386,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleBasicFlow"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:581:1: ruleBasicFlow returns [EObject current=null] : (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) ;
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:581:1: ruleBasicFlow returns [EObject current=null] : (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) ;
 	public final EObject ruleBasicFlow() throws RecognitionException {
 		EObject current = null;
 
@@ -1400,11 +1400,11 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		 enterRule(); 
 		    
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:584:28: ( (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:585:3: (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:584:28: ( (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:585:3: (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:585:3: (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:585:3: otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )?
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:585:3: (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:585:3: otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )?
 			{
 			otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleBasicFlow1241); 
 
@@ -1420,13 +1420,16 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			    
 			}
 
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:595:2: ( (lv_steps_2_0= ruleStep ) )?
-			int alt14=2;
-			int LA14_0 = input.LA(1);
-			if ( (LA14_0==35||LA14_0==40) ) {
-				alt14=1;
-			}
-			switch (alt14) {
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:595:2: ( (lv_steps_2_0= ruleStep ) )*
+			loop14:
+			while (true) {
+				int alt14=2;
+				int LA14_0 = input.LA(1);
+				if ( (LA14_0==35||LA14_0==40) ) {
+					alt14=1;
+				}
+
+				switch (alt14) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:596:3: (lv_steps_2_0= ruleStep )
 					{
@@ -1456,6 +1459,9 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 					}
 					break;
 
+				default :
+					break loop14;
+				}
 			}
 
 			otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleBasicFlow1284); 
@@ -1711,7 +1717,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleExceptionFlow"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:706:1: ruleExceptionFlow returns [EObject current=null] : (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )? otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )? ) ;
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:706:1: ruleExceptionFlow returns [EObject current=null] : (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )* otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )? ) ;
 	public final EObject ruleExceptionFlow() throws RecognitionException {
 		EObject current = null;
 
@@ -1729,11 +1735,11 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		 enterRule(); 
 		    
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:709:28: ( (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )? otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )? ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:710:3: (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )? otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:709:28: ( (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )* otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )? ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:710:3: (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )* otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )? )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:710:3: (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )? otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )? )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:710:3: otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )? otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )?
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:710:3: (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )* otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:710:3: otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )* otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= RULE_STRING ) ) )?
 			{
 			otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleExceptionFlow1550); 
 
@@ -1795,13 +1801,16 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 			    	newLeafNode(otherlv_4, grammarAccess.getExceptionFlowAccess().getThenKeyword_4());
 			    
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:758:3: ( (lv_steps_5_0= ruleStep ) )?
-			int alt17=2;
-			int LA17_0 = input.LA(1);
-			if ( (LA17_0==35||LA17_0==40) ) {
-				alt17=1;
-			}
-			switch (alt17) {
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:758:3: ( (lv_steps_5_0= ruleStep ) )*
+			loop17:
+			while (true) {
+				int alt17=2;
+				int LA17_0 = input.LA(1);
+				if ( (LA17_0==35||LA17_0==40) ) {
+					alt17=1;
+				}
+
+				switch (alt17) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:759:3: (lv_steps_5_0= ruleStep )
 					{
@@ -1831,6 +1840,9 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 					}
 					break;
 
+				default :
+					break loop17;
+				}
 			}
 
 			otherlv_6=(Token)match(input,21,FOLLOW_21_in_ruleExceptionFlow1652); 
@@ -1939,7 +1951,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleAlternativeFlow"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:819:1: ruleAlternativeFlow returns [EObject current=null] : (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) ;
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:819:1: ruleAlternativeFlow returns [EObject current=null] : (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) ;
 	public final EObject ruleAlternativeFlow() throws RecognitionException {
 		EObject current = null;
 
@@ -1954,11 +1966,11 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		 enterRule(); 
 		    
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:822:28: ( (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:823:3: (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:822:28: ( (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:823:3: (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:823:3: (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:823:3: otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )?
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:823:3: (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:823:3: otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )?
 			{
 			otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleAlternativeFlow1772); 
 
@@ -1988,13 +2000,16 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 			}
 
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:845:2: ( (lv_steps_2_0= ruleStep ) )?
-			int alt19=2;
-			int LA19_0 = input.LA(1);
-			if ( (LA19_0==35||LA19_0==40) ) {
-				alt19=1;
-			}
-			switch (alt19) {
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:845:2: ( (lv_steps_2_0= ruleStep ) )*
+			loop19:
+			while (true) {
+				int alt19=2;
+				int LA19_0 = input.LA(1);
+				if ( (LA19_0==35||LA19_0==40) ) {
+					alt19=1;
+				}
+
+				switch (alt19) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:846:3: (lv_steps_2_0= ruleStep )
 					{
@@ -2024,6 +2039,9 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 					}
 					break;
 
+				default :
+					break loop19;
+				}
 			}
 
 			otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleAlternativeFlow1828); 
@@ -2132,7 +2150,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleParallelFlow"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:906:1: ruleParallelFlow returns [EObject current=null] : (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) ;
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:906:1: ruleParallelFlow returns [EObject current=null] : (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) ;
 	public final EObject ruleParallelFlow() throws RecognitionException {
 		EObject current = null;
 
@@ -2147,11 +2165,11 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		 enterRule(); 
 		    
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:909:28: ( (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:910:3: (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:909:28: ( (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:910:3: (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:910:3: (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:910:3: otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )? otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )?
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:910:3: (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:910:3: otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= RULE_STRING ) ) )?
 			{
 			otherlv_0=(Token)match(input,34,FOLLOW_34_in_ruleParallelFlow1948); 
 
@@ -2181,13 +2199,16 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 			}
 
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:932:2: ( (lv_steps_2_0= ruleStep ) )?
-			int alt21=2;
-			int LA21_0 = input.LA(1);
-			if ( (LA21_0==35||LA21_0==40) ) {
-				alt21=1;
-			}
-			switch (alt21) {
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:932:2: ( (lv_steps_2_0= ruleStep ) )*
+			loop21:
+			while (true) {
+				int alt21=2;
+				int LA21_0 = input.LA(1);
+				if ( (LA21_0==35||LA21_0==40) ) {
+					alt21=1;
+				}
+
+				switch (alt21) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:933:3: (lv_steps_2_0= ruleStep )
 					{
@@ -2217,6 +2238,9 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 					}
 					break;
 
+				default :
+					break loop21;
+				}
 			}
 
 			otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleParallelFlow2004); 
@@ -4058,7 +4082,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_ruleBasicFlow_in_entryRuleBasicFlow1194 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleBasicFlow1204 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_17_in_ruleBasicFlow1241 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_ruleStep_in_ruleBasicFlow1271 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_ruleStep_in_ruleBasicFlow1271 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_21_in_ruleBasicFlow1284 = new BitSet(new long[]{0x0000200000000002L});
 	public static final BitSet FOLLOW_45_in_ruleBasicFlow1297 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleBasicFlow1314 = new BitSet(new long[]{0x0000000000000002L});
@@ -4074,7 +4098,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_26_in_ruleExceptionFlow1584 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleExceptionFlow1601 = new BitSet(new long[]{0x0000040000000000L});
 	public static final BitSet FOLLOW_42_in_ruleExceptionFlow1618 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_ruleStep_in_ruleExceptionFlow1639 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_ruleStep_in_ruleExceptionFlow1639 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_21_in_ruleExceptionFlow1652 = new BitSet(new long[]{0x0000200000000002L});
 	public static final BitSet FOLLOW_45_in_ruleExceptionFlow1665 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleExceptionFlow1682 = new BitSet(new long[]{0x0000000000000002L});
@@ -4082,7 +4106,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_EOF_in_entryRuleAlternativeFlow1735 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_14_in_ruleAlternativeFlow1772 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_RULE_ID_in_ruleAlternativeFlow1789 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_ruleStep_in_ruleAlternativeFlow1815 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_ruleStep_in_ruleAlternativeFlow1815 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_21_in_ruleAlternativeFlow1828 = new BitSet(new long[]{0x0000200000000002L});
 	public static final BitSet FOLLOW_45_in_ruleAlternativeFlow1841 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleAlternativeFlow1858 = new BitSet(new long[]{0x0000000000000002L});
@@ -4090,7 +4114,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_EOF_in_entryRuleParallelFlow1911 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_34_in_ruleParallelFlow1948 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_RULE_ID_in_ruleParallelFlow1965 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_ruleStep_in_ruleParallelFlow1991 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_ruleStep_in_ruleParallelFlow1991 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_21_in_ruleParallelFlow2004 = new BitSet(new long[]{0x0000200000000002L});
 	public static final BitSet FOLLOW_45_in_ruleParallelFlow2017 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleParallelFlow2034 = new BitSet(new long[]{0x0000000000000002L});

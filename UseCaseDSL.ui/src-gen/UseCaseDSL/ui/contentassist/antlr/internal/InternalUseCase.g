@@ -1782,7 +1782,7 @@ rule__BasicFlow__Group__2__Impl
 :
 (
 { before(grammarAccess.getBasicFlowAccess().getStepsAssignment_2()); }
-(rule__BasicFlow__StepsAssignment_2)?
+(rule__BasicFlow__StepsAssignment_2)*
 { after(grammarAccess.getBasicFlowAccess().getStepsAssignment_2()); }
 )
 
@@ -2094,7 +2094,7 @@ rule__ExceptionFlow__Group__5__Impl
 :
 (
 { before(grammarAccess.getExceptionFlowAccess().getStepsAssignment_5()); }
-(rule__ExceptionFlow__StepsAssignment_5)?
+(rule__ExceptionFlow__StepsAssignment_5)*
 { after(grammarAccess.getExceptionFlowAccess().getStepsAssignment_5()); }
 )
 
@@ -2321,7 +2321,7 @@ rule__AlternativeFlow__Group__2__Impl
 :
 (
 { before(grammarAccess.getAlternativeFlowAccess().getStepsAssignment_2()); }
-(rule__AlternativeFlow__StepsAssignment_2)?
+(rule__AlternativeFlow__StepsAssignment_2)*
 { after(grammarAccess.getAlternativeFlowAccess().getStepsAssignment_2()); }
 )
 
@@ -2542,7 +2542,7 @@ rule__ParallelFlow__Group__2__Impl
 :
 (
 { before(grammarAccess.getParallelFlowAccess().getStepsAssignment_2()); }
-(rule__ParallelFlow__StepsAssignment_2)?
+(rule__ParallelFlow__StepsAssignment_2)*
 { after(grammarAccess.getParallelFlowAccess().getStepsAssignment_2()); }
 )
 
