@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated UseCaseDSL -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="UseCaseDSL.presentation.UseCaseDSLModelWizardID"
+            name="%_UI_UseCaseDSLModelWizard_label"
+            class="UseCaseDSL.presentation.UseCaseDSLModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/UseCaseDSLModelFile.gif">
+         <description>%_UI_UseCaseDSLModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated UseCaseDSL -->
+      <editor
+            id="UseCaseDSL.presentation.UseCaseDSLEditorID"
+            name="%_UI_UseCaseDSLEditor_label"
+            icon="icons/full/obj16/UseCaseDSLModelFile.gif"
+            extensions="usecasedsl"
+            class="UseCaseDSL.presentation.UseCaseDSLEditor"
+            contributorClass="UseCaseDSL.presentation.UseCaseDSLActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

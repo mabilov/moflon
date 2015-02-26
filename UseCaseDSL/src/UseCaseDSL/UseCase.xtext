@@ -1,0 +1,130 @@
+grammar UseCaseDSL.UseCase with org.eclipse.xtext.common.Terminals
+
+//generate scenario "http://de.abilov.dsl.scenario"
+import "platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore"
+
+UseCasesModel:
+	packages += PackageDeclaration*
+;
+
+PackageDeclaration:
+	'package' name = QualifiedName 
+	(description = STRING)? 
+	('actors' actors += Actor+ )? 
+	useCases += UseCase*
+	'end package'
+;
+
+UseCase:
+	'usecase' name = ID 
+		(description = STRING)? 
+		('extends' superCase = [UseCase])? 
+		(
+			('preconditions' preConditions = STRING)? &
+			('postcondition' postcondition = STRING)? 
+		) 
+		flows += Flow*
+	'end usecase'
+;
+	
+Actor:
+	name = ID 
+	'as' type = ActorType
+	(description = STRING)?  
+	('extends' extends=[Actor])?
+;
+
+Step:
+	NormalStep | ParallelStep
+;
+
+Flow:
+	BasicFlow | NamedFlow 
+;
+
+BasicFlow:
+	'basic flow' {BasicFlow} 
+	(steps += Step+)?
+	'end flow'
+	('with postcondition' finalState = STRING)?
+;
+
+NamedFlow:
+	ExceptionFlow | AlternativeFlow | ParallelFlow
+;
+
+ExceptionFlow:
+	'exception flow' name = ID 
+	'if' condition = STRING 'then' 
+	(steps += Step+)?
+	'end flow'
+	('with postcondition' finalState = STRING)?
+;
+
+AlternativeFlow:
+	'alternative flow' name = ID
+	(steps += Step+)?
+	'end flow'
+	('with postcondition' finalState = STRING)?
+;
+
+ParallelFlow:
+	'parallel flow' name = ID
+	(steps += Step+)?
+	'end flow'
+	('with postcondition' finalState = STRING)?
+;
+
+StepAlternative:
+	Condition | LocalAlternative | AlternativeFlowAlternative
+;
+
+Condition:
+	'if' condition = STRING 'then' 
+	('continue with step' continuation = [Step])?
+;
+
+LocalAlternative:
+	'if' condition = STRING 'then' 
+	(
+		(description = STRING) |
+		('invoke usecase' invokedUseCase = [UseCase])
+	)
+	('continue with step' continuation = [Step])?
+;
+
+AlternativeFlowAlternative:
+	'if' condition = STRING 'then' 
+	'alternative flow' ref = [NamedFlow]
+	('continue with step' continuation = [Step])?
+;
+
+ParallelStep:
+	'parallel step' name = ID 
+	(label = STRING)? 
+	invokedFlows += [ParallelFlow] (',' invokedFlows += [ParallelFlow])*
+	(next = [Step])?
+;
+
+NormalStep:
+	'step' name = ID 
+		(label = STRING)? 
+		'by' actor = [Actor]  
+		('type' customStepType = CustomStepType)? 
+		(
+			('alternatives' stepAlternative += StepAlternative+ 'else') |
+			('invoke usecase' invokedUseCase = [UseCase])
+		)?
+		(next = [Step])?
+;
+
+QualifiedName:
+	ID ('.' ID)*
+;
+	
+enum ActorType: 
+	PERSON='person' | SYSTEM = 'system' | ORGANIZATION = 'organization'
+;
+
+enum CustomStepType:
+	INPUT = 'input' | OUTPUT = 'output' | PROCESS = 'process' | MIX = 'mix';

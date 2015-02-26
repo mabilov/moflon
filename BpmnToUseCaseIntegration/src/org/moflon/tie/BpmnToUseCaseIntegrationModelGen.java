@@ -28,7 +28,7 @@ public class BpmnToUseCaseIntegrationModelGen extends SynchronizationHelper {
 		BasicConfigurator.configure();
 
 		AbstractModelGenerationController controller = new DefaultModelGenController();
-		controller.getDeadlineControllers().add(new MaxRulePerformCounterController(20));
+		//controller.getDeadlineControllers().add(new MaxRulePerformCounterController(20));
 		controller.setRuleSelector(new LimitedRandomRuleSelector().addRuleLimit("CHANGE_ME", 1));
 		controller.setEObjectSelector(new RandomEObjectSelector());
 

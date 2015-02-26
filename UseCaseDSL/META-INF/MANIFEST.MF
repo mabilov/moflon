@@ -2,13 +2,36 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: UseCaseDSL;singleton:=true
 Export-Package: UseCaseDSL,
  UseCaseDSL.impl,
- UseCaseDSL.util
+ UseCaseDSL.util,
+ UseCaseDSL.services,
+ UseCaseDSL.serializer,
+ UseCaseDSL.parser.antlr,
+ UseCaseDSL.parser.antlr.internal,
+ UseCaseDSL.validation,
+ UseCaseDSL.scoping,
+ UseCaseDSL.generator,
+ UseCaseDSL.formatting
 Bundle-Name: UseCaseDSL
 Bundle-Version: 1.0
-Require-Bundle: org.eclipse.emf.ecore,
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.ecore;bundle-version="2.7.3",
  org.eclipse.emf.ecore.xmi,
  org.moflon.dependencies
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: TU Darmstadt
+Bundle-Vendor: Marat Abilov
+Import-Package: org.apache.log4j

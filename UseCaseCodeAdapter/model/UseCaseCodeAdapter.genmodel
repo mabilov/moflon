@@ -111,11 +111,11 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_FWD_File_19">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_FWD_File_19/file"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_FWD_File_0">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_FWD_File_0/file"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_BWD_UseCasesModel_19">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_BWD_UseCasesModel_19/ucModel"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_BWD_UseCasesModel_0">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_BWD_UseCasesModel_0/ucModel"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/checkAttributes_FWD/tripleMatch"/>
@@ -230,14 +230,14 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_BWD_EMoflonEdge_90">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_BWD_EMoflonEdge_90/_edge_packages"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_BWD_EMoflonEdge_0">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_BWD_EMoflonEdge_0/_edge_packages"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_534">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_534/_edge_file"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_0">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_0/_edge_file"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_535">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_535/_edge_rootNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_1">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_1/_edge_rootNode"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/checkAttributes_FWD/tripleMatch"/>
@@ -308,11 +308,11 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/checkTypes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/checkTypes_FWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_536">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_536/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_2">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_2/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_537">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_537/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_3">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_3/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/checkAttributes_FWD/tripleMatch"/>
@@ -445,26 +445,26 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_538">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_538/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_4">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_4/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_539">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_539/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_5">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_5/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_BWD_EMoflonEdge_91">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_BWD_EMoflonEdge_91/_edge_actors"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_BWD_EMoflonEdge_1">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_BWD_EMoflonEdge_1/_edge_actors"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_540">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_540/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_6">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_6/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_541">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_541/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_7">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_7/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_542">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_542/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_8">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_8/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_543">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_543/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_9">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_9/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/checkAttributes_FWD/tripleMatch"/>
@@ -615,38 +615,38 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_544">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_544/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_10">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_10/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_545">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_545/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_11">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_11/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_546">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_546/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_12">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_12/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_547">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_547/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_13">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_13/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_548">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_548/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_14">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_14/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_549">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_549/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_15">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_15/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_BWD_EMoflonEdge_92">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_BWD_EMoflonEdge_92/_edge_actors"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_BWD_EMoflonEdge_2">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_BWD_EMoflonEdge_2/_edge_actors"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_550">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_550/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_16">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_16/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_551">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_551/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_17">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_17/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_552">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_552/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_18">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_18/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_553">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_553/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_19">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_19/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/checkAttributes_FWD/tripleMatch"/>
@@ -785,20 +785,20 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_BWD_EMoflonEdge_93">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_BWD_EMoflonEdge_93/_edge_superCase"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_BWD_EMoflonEdge_3">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_BWD_EMoflonEdge_3/_edge_superCase"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_554">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_554/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_20">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_20/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_555">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_555/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_21">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_21/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_556">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_556/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_22">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_22/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_557">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_557/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_23">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_23/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/checkAttributes_FWD/tripleMatch"/>
@@ -872,11 +872,11 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/checkTypes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/checkTypes_FWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_558">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_558/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_24">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_24/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_559">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_559/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_25">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_25/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/checkAttributes_FWD/tripleMatch"/>
@@ -997,14 +997,14 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_560">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_560/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_26">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_26/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_561">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_561/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_27">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_27/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_BWD_EMoflonEdge_94">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_BWD_EMoflonEdge_94/_edge_useCases"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_BWD_EMoflonEdge_4">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_BWD_EMoflonEdge_4/_edge_useCases"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/checkAttributes_FWD/tripleMatch"/>
@@ -1141,26 +1141,26 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_562">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_562/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_28">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_28/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_563">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_563/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_29">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_29/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_564">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_564/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_30">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_30/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_565">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_565/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_31">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_31/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_566">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_566/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_32">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_32/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_567">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_567/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_33">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_33/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_BWD_EMoflonEdge_95">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_BWD_EMoflonEdge_95/_edge_useCases"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_BWD_EMoflonEdge_5">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_BWD_EMoflonEdge_5/_edge_useCases"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/checkAttributes_FWD/tripleMatch"/>
@@ -1310,38 +1310,38 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_568">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_568/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_34">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_34/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_569">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_569/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_35">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_35/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_570">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_570/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_36">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_36/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_571">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_571/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_37">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_37/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_572">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_572/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_38">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_38/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_573">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_573/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_39">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_39/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_574">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_574/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_40">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_40/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_575">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_575/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_41">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_41/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_576">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_576/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_42">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_42/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_577">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_577/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_43">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_43/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_BWD_EMoflonEdge_96">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_BWD_EMoflonEdge_96/_edge_useCases"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_BWD_EMoflonEdge_6">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_BWD_EMoflonEdge_6/_edge_useCases"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/checkAttributes_FWD/tripleMatch"/>
@@ -1476,26 +1476,26 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_BWD_EMoflonEdge_97">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_BWD_EMoflonEdge_97/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_BWD_EMoflonEdge_7">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_BWD_EMoflonEdge_7/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_578">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_578/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_44">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_44/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_579">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_579/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_45">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_45/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_580">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_580/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_46">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_46/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_581">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_581/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_47">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_47/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_582">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_582/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_48">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_48/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_583">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_583/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_49">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_49/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/checkAttributes_FWD/tripleMatch"/>
@@ -1633,26 +1633,26 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_584">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_584/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_50">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_50/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_585">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_585/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_51">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_51/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_586">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_586/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_52">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_52/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_587">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_587/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_53">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_53/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_588">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_588/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_54">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_54/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_589">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_589/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_55">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_55/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_BWD_EMoflonEdge_98">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_BWD_EMoflonEdge_98/_edge_useCases"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_BWD_EMoflonEdge_8">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_BWD_EMoflonEdge_8/_edge_useCases"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/checkAttributes_FWD/tripleMatch"/>
@@ -1773,14 +1773,14 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_BWD_EMoflonEdge_99">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_BWD_EMoflonEdge_99/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_BWD_EMoflonEdge_9">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_BWD_EMoflonEdge_9/_edge_flows"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_590">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_590/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_56">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_56/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_591">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_591/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_57">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_57/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/checkAttributes_FWD/tripleMatch"/>
@@ -1911,26 +1911,26 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_BWD_EMoflonEdge_100">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_BWD_EMoflonEdge_100/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_BWD_EMoflonEdge_10">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_BWD_EMoflonEdge_10/_edge_flows"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_592">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_592/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_58">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_58/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_593">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_593/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_59">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_59/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_594">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_594/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_60">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_60/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_595">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_595/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_61">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_61/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_596">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_596/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_62">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_62/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_597">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_597/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_63">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_63/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/checkAttributes_FWD/tripleMatch"/>
@@ -2063,26 +2063,26 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_BWD_EMoflonEdge_101">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_BWD_EMoflonEdge_101/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_BWD_EMoflonEdge_11">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_BWD_EMoflonEdge_11/_edge_flows"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_598">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_598/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_64">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_64/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_599">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_599/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_65">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_65/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_600">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_600/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_66">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_66/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_601">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_601/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_67">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_67/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_602">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_602/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_68">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_68/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_603">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_603/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_69">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_69/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/checkAttributes_FWD/tripleMatch"/>
@@ -2213,26 +2213,26 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_604">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_604/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_70">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_70/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_605">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_605/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_71">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_71/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_606">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_606/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_72">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_72/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_607">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_607/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_73">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_73/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_102">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_102/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_12">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_12/_edge_flows"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_608">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_608/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_74">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_74/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_609">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_609/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_75">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_75/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/checkAttributes_FWD/tripleMatch"/>
@@ -2368,20 +2368,20 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_610">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_610/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_76">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_76/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_611">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_611/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_77">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_77/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_612">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_612/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_78">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_78/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_613">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_613/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_79">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_79/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_BWD_EMoflonEdge_103">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_BWD_EMoflonEdge_103/_edge_extends"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_BWD_EMoflonEdge_13">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_BWD_EMoflonEdge_13/_edge_extends"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/checkAttributes_FWD/tripleMatch"/>
@@ -2525,38 +2525,38 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_614">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_614/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_80">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_80/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_615">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_615/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_81">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_81/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_616">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_616/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_82">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_82/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_617">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_617/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_83">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_83/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_104">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_104/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_14">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_14/_edge_flows"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_618">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_618/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_84">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_84/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_619">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_619/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_85">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_85/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_620">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_620/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_86">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_86/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_621">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_621/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_87">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_87/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_622">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_622/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_88">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_88/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_623">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_623/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_89">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_89/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/checkAttributes_FWD/tripleMatch"/>
@@ -2700,38 +2700,38 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_624">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_624/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_90">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_90/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_625">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_625/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_91">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_91/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_626">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_626/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_92">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_92/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_627">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_627/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_93">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_93/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_105">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_105/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_15">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_15/_edge_flows"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_628">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_628/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_94">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_94/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_629">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_629/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_95">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_95/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_630">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_630/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_96">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_96/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_631">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_631/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_97">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_97/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_632">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_632/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_98">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_98/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_633">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_633/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_99">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_99/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/checkAttributes_FWD/tripleMatch"/>
@@ -2884,41 +2884,41 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_106">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_106/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_16">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_16/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_634">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_634/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_100">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_100/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_635">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_635/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_101">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_101/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_636">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_636/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_102">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_102/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_637">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_637/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_103">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_103/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_638">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_638/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_104">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_104/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_639">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_639/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_105">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_105/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_107">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_107/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_17">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_17/_edge_actor"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_640">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_640/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_106">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_106/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_641">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_641/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_107">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_107/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_642">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_642/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_108">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_108/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_643">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_643/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_109">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_109/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/checkAttributes_FWD/tripleMatch"/>
@@ -3084,53 +3084,53 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_644">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_644/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_110">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_110/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_645">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_645/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_111">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_111/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_646">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_646/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_112">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_112/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_647">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_647/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_113">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_113/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_108">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_108/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_18">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_18/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_648">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_648/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_114">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_114/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_649">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_649/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_115">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_115/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_650">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_650/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_116">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_116/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_651">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_651/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_117">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_117/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_652">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_652/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_118">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_118/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_653">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_653/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_119">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_119/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_109">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_109/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_19">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_19/_edge_actor"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_654">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_654/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_120">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_120/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_655">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_655/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_121">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_121/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_656">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_656/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_122">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_122/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_657">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_657/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_123">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_123/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/checkAttributes_FWD/tripleMatch"/>
@@ -3278,38 +3278,38 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_658">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_658/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_124">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_124/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_659">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_659/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_125">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_125/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_660">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_660/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_126">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_126/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_661">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_661/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_127">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_127/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_BWD_EMoflonEdge_110">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_BWD_EMoflonEdge_110/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_BWD_EMoflonEdge_20">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_BWD_EMoflonEdge_20/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_662">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_662/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_128">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_128/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_663">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_663/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_129">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_129/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_664">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_664/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_130">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_130/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_665">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_665/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_131">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_131/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_666">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_666/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_132">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_132/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_667">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_667/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_133">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_133/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/checkAttributes_FWD/tripleMatch"/>
@@ -3383,11 +3383,11 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/checkTypes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/checkTypes_FWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_668">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_668/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_134">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_134/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_669">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_669/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_135">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_135/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/checkAttributes_FWD/tripleMatch"/>
@@ -3533,35 +3533,35 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_670">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_670/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_136">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_136/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_671">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_671/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_137">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_137/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_111">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_111/_edge_stepAlternative"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_21">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_21/_edge_stepAlternative"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_672">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_672/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_138">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_138/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_673">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_673/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_139">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_139/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_674">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_674/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_140">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_140/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_675">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_675/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_141">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_141/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_112">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_112/_edge_ref"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_22">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_22/_edge_ref"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_676">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_676/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_142">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_142/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_677">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_677/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_143">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_143/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/checkAttributes_FWD/tripleMatch"/>
@@ -3691,20 +3691,20 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_BWD_EMoflonEdge_113">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_BWD_EMoflonEdge_113/_edge_continuation"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_BWD_EMoflonEdge_23">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_BWD_EMoflonEdge_23/_edge_continuation"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_678">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_678/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_144">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_144/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_679">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_679/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_145">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_145/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_680">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_680/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_146">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_146/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_681">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_681/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_147">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_147/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/checkAttributes_FWD/tripleMatch"/>
@@ -3776,11 +3776,11 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/checkTypes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/checkTypes_FWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_682">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_682/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_148">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_148/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_683">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_683/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_149">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_149/_edge_children"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/checkAttributes_FWD/tripleMatch"/>
@@ -3900,14 +3900,14 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_684">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_684/_edge_parentNode"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_150">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_150/_edge_parentNode"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_685">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_685/_edge_children"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_151">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_151/_edge_children"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_BWD_EMoflonEdge_114">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_BWD_EMoflonEdge_114/_edge_invokedFlows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_BWD_EMoflonEdge_24">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_BWD_EMoflonEdge_24/_edge_invokedFlows"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/checkAttributes_FWD/tripleMatch"/>
