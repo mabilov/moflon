@@ -27,7 +27,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 		"'.'", "'actors'", "'alternative flow'", "'alternatives'", "'as'", "'basic flow'", 
 		"'by'", "'continue with step'", "'else'", "'end flow'", "'end package'", 
 		"'end usecase'", "'exception flow'", "'extends'", "'if'", "'input'", "'invoke usecase'", 
-		"'mix'", "'organization'", "'output'", "'package'", "'parallel flow'", 
+		"'mix'", "'next'", "'organization'", "'output'", "'package'", "'parallel flow'", 
 		"'parallel step'", "'person'", "'postcondition'", "'preconditions'", "'process'", 
 		"'step'", "'system'", "'then'", "'type'", "'usecase'", "'with postcondition'"
 	};
@@ -66,6 +66,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final int T__42=42;
 	public static final int T__43=43;
 	public static final int T__44=44;
+	public static final int T__45=45;
 	public static final int RULE_ANY_OTHER=4;
 	public static final int RULE_ID=5;
 	public static final int RULE_INT=6;
@@ -161,7 +162,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			while (true) {
 				int alt1=2;
 				int LA1_0 = input.LA(1);
-				if ( (LA1_0==32) ) {
+				if ( (LA1_0==33) ) {
 					alt1=1;
 				}
 
@@ -1541,10 +1542,10 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:606:1: ( ( ruleNormalStep ) | ( ruleParallelStep ) )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
-			if ( (LA2_0==39) ) {
+			if ( (LA2_0==40) ) {
 				alt2=1;
 			}
-			else if ( (LA2_0==34) ) {
+			else if ( (LA2_0==35) ) {
 				alt2=2;
 			}
 
@@ -1618,7 +1619,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			if ( (LA3_0==17) ) {
 				alt3=1;
 			}
-			else if ( (LA3_0==14||LA3_0==24||LA3_0==33) ) {
+			else if ( (LA3_0==14||LA3_0==24||LA3_0==34) ) {
 				alt3=2;
 			}
 
@@ -1699,7 +1700,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 				alt4=2;
 				}
 				break;
-			case 33:
+			case 34:
 				{
 				alt4=3;
 				}
@@ -1790,7 +1791,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 				int LA5_1 = input.LA(2);
 				if ( (LA5_1==RULE_STRING) ) {
 					int LA5_2 = input.LA(3);
-					if ( (LA5_2==41) ) {
+					if ( (LA5_2==42) ) {
 						switch ( input.LA(4) ) {
 						case EOF:
 						case 19:
@@ -2107,17 +2108,17 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:750:1: ( ( ( 'person' ) ) | ( ( 'system' ) ) | ( ( 'organization' ) ) )
 			int alt8=3;
 			switch ( input.LA(1) ) {
-			case 35:
+			case 36:
 				{
 				alt8=1;
 				}
 				break;
-			case 40:
+			case 41:
 				{
 				alt8=2;
 				}
 				break;
-			case 30:
+			case 31:
 				{
 				alt8=3;
 				}
@@ -2138,7 +2139,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:753:3: ( 'person' )
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:753:3: 'person'
 					{
-					match(input,35,FOLLOW_35_in_rule__ActorType__Alternatives1556); 
+					match(input,36,FOLLOW_36_in_rule__ActorType__Alternatives1556); 
 					}
 
 					 after(grammarAccess.getActorTypeAccess().getPERSONEnumLiteralDeclaration_0()); 
@@ -2156,7 +2157,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:760:3: ( 'system' )
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:760:3: 'system'
 					{
-					match(input,40,FOLLOW_40_in_rule__ActorType__Alternatives1577); 
+					match(input,41,FOLLOW_41_in_rule__ActorType__Alternatives1577); 
 					}
 
 					 after(grammarAccess.getActorTypeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
@@ -2174,7 +2175,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:767:3: ( 'organization' )
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:767:3: 'organization'
 					{
-					match(input,30,FOLLOW_30_in_rule__ActorType__Alternatives1598); 
+					match(input,31,FOLLOW_31_in_rule__ActorType__Alternatives1598); 
 					}
 
 					 after(grammarAccess.getActorTypeAccess().getORGANIZATIONEnumLiteralDeclaration_2()); 
@@ -2215,12 +2216,12 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 				alt9=1;
 				}
 				break;
-			case 31:
+			case 32:
 				{
 				alt9=2;
 				}
 				break;
-			case 38:
+			case 39:
 				{
 				alt9=3;
 				}
@@ -2264,7 +2265,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:791:3: ( 'output' )
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:791:3: 'output'
 					{
-					match(input,31,FOLLOW_31_in_rule__CustomStepType__Alternatives1655); 
+					match(input,32,FOLLOW_32_in_rule__CustomStepType__Alternatives1655); 
 					}
 
 					 after(grammarAccess.getCustomStepTypeAccess().getOUTPUTEnumLiteralDeclaration_1()); 
@@ -2282,7 +2283,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:798:3: ( 'process' )
 					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:798:3: 'process'
 					{
-					match(input,38,FOLLOW_38_in_rule__CustomStepType__Alternatives1676); 
+					match(input,39,FOLLOW_39_in_rule__CustomStepType__Alternatives1676); 
 					}
 
 					 after(grammarAccess.getCustomStepTypeAccess().getPROCESSEnumLiteralDeclaration_2()); 
@@ -2376,7 +2377,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:835:1: 'package'
 			{
 			 before(grammarAccess.getPackageDeclarationAccess().getPackageKeyword_0()); 
-			match(input,32,FOLLOW_32_in_rule__PackageDeclaration__Group__0__Impl1761); 
+			match(input,33,FOLLOW_33_in_rule__PackageDeclaration__Group__0__Impl1761); 
 			 after(grammarAccess.getPackageDeclarationAccess().getPackageKeyword_0()); 
 			}
 
@@ -2713,7 +2714,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			while (true) {
 				int alt12=2;
 				int LA12_0 = input.LA(1);
-				if ( (LA12_0==43) ) {
+				if ( (LA12_0==44) ) {
 					alt12=1;
 				}
 
@@ -3057,7 +3058,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:1094:1: 'usecase'
 			{
 			 before(grammarAccess.getUseCaseAccess().getUsecaseKeyword_0()); 
-			match(input,43,FOLLOW_43_in_rule__UseCase__Group__0__Impl2277); 
+			match(input,44,FOLLOW_44_in_rule__UseCase__Group__0__Impl2277); 
 			 after(grammarAccess.getUseCaseAccess().getUsecaseKeyword_0()); 
 			}
 
@@ -3474,7 +3475,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			while (true) {
 				int alt16=2;
 				int LA16_0 = input.LA(1);
-				if ( (LA16_0==14||LA16_0==17||LA16_0==24||LA16_0==33) ) {
+				if ( (LA16_0==14||LA16_0==17||LA16_0==24||LA16_0==34) ) {
 					alt16=1;
 				}
 
@@ -3781,7 +3782,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:1377:1: 'preconditions'
 			{
 			 before(grammarAccess.getUseCaseAccess().getPreconditionsKeyword_4_0_0()); 
-			match(input,37,FOLLOW_37_in_rule__UseCase__Group_4_0__0__Impl2838); 
+			match(input,38,FOLLOW_38_in_rule__UseCase__Group_4_0__0__Impl2838); 
 			 after(grammarAccess.getUseCaseAccess().getPreconditionsKeyword_4_0_0()); 
 			}
 
@@ -3929,7 +3930,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:1440:1: 'postcondition'
 			{
 			 before(grammarAccess.getUseCaseAccess().getPostconditionKeyword_4_1_0()); 
-			match(input,36,FOLLOW_36_in_rule__UseCase__Group_4_1__0__Impl2961); 
+			match(input,37,FOLLOW_37_in_rule__UseCase__Group_4_1__0__Impl2961); 
 			 after(grammarAccess.getUseCaseAccess().getPostconditionKeyword_4_1_0()); 
 			}
 
@@ -4780,7 +4781,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:1785:2: ( rule__BasicFlow__StepsAssignment_2 )?
 			int alt19=2;
 			int LA19_0 = input.LA(1);
-			if ( (LA19_0==34||LA19_0==39) ) {
+			if ( (LA19_0==35||LA19_0==40) ) {
 				alt19=1;
 			}
 			switch (alt19) {
@@ -4938,7 +4939,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:1844:2: ( rule__BasicFlow__Group_4__0 )?
 			int alt20=2;
 			int LA20_0 = input.LA(1);
-			if ( (LA20_0==44) ) {
+			if ( (LA20_0==45) ) {
 				alt20=1;
 			}
 			switch (alt20) {
@@ -5025,7 +5026,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:1882:1: 'with postcondition'
 			{
 			 before(grammarAccess.getBasicFlowAccess().getWithPostconditionKeyword_4_0()); 
-			match(input,44,FOLLOW_44_in_rule__BasicFlow__Group_4__0__Impl3832); 
+			match(input,45,FOLLOW_45_in_rule__BasicFlow__Group_4__0__Impl3832); 
 			 after(grammarAccess.getBasicFlowAccess().getWithPostconditionKeyword_4_0()); 
 			}
 
@@ -5477,7 +5478,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2065:1: 'then'
 			{
 			 before(grammarAccess.getExceptionFlowAccess().getThenKeyword_4()); 
-			match(input,41,FOLLOW_41_in_rule__ExceptionFlow__Group__4__Impl4199); 
+			match(input,42,FOLLOW_42_in_rule__ExceptionFlow__Group__4__Impl4199); 
 			 after(grammarAccess.getExceptionFlowAccess().getThenKeyword_4()); 
 			}
 
@@ -5552,7 +5553,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2097:2: ( rule__ExceptionFlow__StepsAssignment_5 )?
 			int alt21=2;
 			int LA21_0 = input.LA(1);
-			if ( (LA21_0==34||LA21_0==39) ) {
+			if ( (LA21_0==35||LA21_0==40) ) {
 				alt21=1;
 			}
 			switch (alt21) {
@@ -5710,7 +5711,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2156:2: ( rule__ExceptionFlow__Group_7__0 )?
 			int alt22=2;
 			int LA22_0 = input.LA(1);
-			if ( (LA22_0==44) ) {
+			if ( (LA22_0==45) ) {
 				alt22=1;
 			}
 			switch (alt22) {
@@ -5797,7 +5798,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2200:1: 'with postcondition'
 			{
 			 before(grammarAccess.getExceptionFlowAccess().getWithPostconditionKeyword_7_0()); 
-			match(input,44,FOLLOW_44_in_rule__ExceptionFlow__Group_7__0__Impl4458); 
+			match(input,45,FOLLOW_45_in_rule__ExceptionFlow__Group_7__0__Impl4458); 
 			 after(grammarAccess.getExceptionFlowAccess().getWithPostconditionKeyword_7_0()); 
 			}
 
@@ -6100,7 +6101,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2324:2: ( rule__AlternativeFlow__StepsAssignment_2 )?
 			int alt23=2;
 			int LA23_0 = input.LA(1);
-			if ( (LA23_0==34||LA23_0==39) ) {
+			if ( (LA23_0==35||LA23_0==40) ) {
 				alt23=1;
 			}
 			switch (alt23) {
@@ -6258,7 +6259,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2383:2: ( rule__AlternativeFlow__Group_4__0 )?
 			int alt24=2;
 			int LA24_0 = input.LA(1);
-			if ( (LA24_0==44) ) {
+			if ( (LA24_0==45) ) {
 				alt24=1;
 			}
 			switch (alt24) {
@@ -6345,7 +6346,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2421:1: 'with postcondition'
 			{
 			 before(grammarAccess.getAlternativeFlowAccess().getWithPostconditionKeyword_4_0()); 
-			match(input,44,FOLLOW_44_in_rule__AlternativeFlow__Group_4__0__Impl4894); 
+			match(input,45,FOLLOW_45_in_rule__AlternativeFlow__Group_4__0__Impl4894); 
 			 after(grammarAccess.getAlternativeFlowAccess().getWithPostconditionKeyword_4_0()); 
 			}
 
@@ -6493,7 +6494,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2484:1: 'parallel flow'
 			{
 			 before(grammarAccess.getParallelFlowAccess().getParallelFlowKeyword_0()); 
-			match(input,33,FOLLOW_33_in_rule__ParallelFlow__Group__0__Impl5017); 
+			match(input,34,FOLLOW_34_in_rule__ParallelFlow__Group__0__Impl5017); 
 			 after(grammarAccess.getParallelFlowAccess().getParallelFlowKeyword_0()); 
 			}
 
@@ -6648,7 +6649,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2545:2: ( rule__ParallelFlow__StepsAssignment_2 )?
 			int alt25=2;
 			int LA25_0 = input.LA(1);
-			if ( (LA25_0==34||LA25_0==39) ) {
+			if ( (LA25_0==35||LA25_0==40) ) {
 				alt25=1;
 			}
 			switch (alt25) {
@@ -6806,7 +6807,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2604:2: ( rule__ParallelFlow__Group_4__0 )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
-			if ( (LA26_0==44) ) {
+			if ( (LA26_0==45) ) {
 				alt26=1;
 			}
 			switch (alt26) {
@@ -6893,7 +6894,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2642:1: 'with postcondition'
 			{
 			 before(grammarAccess.getParallelFlowAccess().getWithPostconditionKeyword_4_0()); 
-			match(input,44,FOLLOW_44_in_rule__ParallelFlow__Group_4__0__Impl5330); 
+			match(input,45,FOLLOW_45_in_rule__ParallelFlow__Group_4__0__Impl5330); 
 			 after(grammarAccess.getParallelFlowAccess().getWithPostconditionKeyword_4_0()); 
 			}
 
@@ -7193,7 +7194,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2765:1: 'then'
 			{
 			 before(grammarAccess.getConditionAccess().getThenKeyword_2()); 
-			match(input,41,FOLLOW_41_in_rule__Condition__Group__2__Impl5575); 
+			match(input,42,FOLLOW_42_in_rule__Condition__Group__2__Impl5575); 
 			 after(grammarAccess.getConditionAccess().getThenKeyword_2()); 
 			}
 
@@ -7651,7 +7652,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:2955:1: 'then'
 			{
 			 before(grammarAccess.getLocalAlternativeAccess().getThenKeyword_2()); 
-			match(input,41,FOLLOW_41_in_rule__LocalAlternative__Group__2__Impl5948); 
+			match(input,42,FOLLOW_42_in_rule__LocalAlternative__Group__2__Impl5948); 
 			 after(grammarAccess.getLocalAlternativeAccess().getThenKeyword_2()); 
 			}
 
@@ -8337,7 +8338,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3239:1: 'then'
 			{
 			 before(grammarAccess.getAlternativeFlowAlternativeAccess().getThenKeyword_2()); 
-			match(input,41,FOLLOW_41_in_rule__AlternativeFlowAlternative__Group__2__Impl6506); 
+			match(input,42,FOLLOW_42_in_rule__AlternativeFlowAlternative__Group__2__Impl6506); 
 			 after(grammarAccess.getAlternativeFlowAlternativeAccess().getThenKeyword_2()); 
 			}
 
@@ -8795,7 +8796,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3433:1: 'parallel step'
 			{
 			 before(grammarAccess.getParallelStepAccess().getParallelStepKeyword_0()); 
-			match(input,34,FOLLOW_34_in_rule__ParallelStep__Group__0__Impl6883); 
+			match(input,35,FOLLOW_35_in_rule__ParallelStep__Group__0__Impl6883); 
 			 after(grammarAccess.getParallelStepAccess().getParallelStepKeyword_0()); 
 			}
 
@@ -9196,31 +9197,31 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ParallelStep__Group__5__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3573:1: rule__ParallelStep__Group__5__Impl : ( ( rule__ParallelStep__NextAssignment_5 )? ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3573:1: rule__ParallelStep__Group__5__Impl : ( ( rule__ParallelStep__Group_5__0 )? ) ;
 	public final void rule__ParallelStep__Group__5__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3577:1: ( ( ( rule__ParallelStep__NextAssignment_5 )? ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3578:1: ( ( rule__ParallelStep__NextAssignment_5 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3577:1: ( ( ( rule__ParallelStep__Group_5__0 )? ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3578:1: ( ( rule__ParallelStep__Group_5__0 )? )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3578:1: ( ( rule__ParallelStep__NextAssignment_5 )? )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3579:1: ( rule__ParallelStep__NextAssignment_5 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3578:1: ( ( rule__ParallelStep__Group_5__0 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3579:1: ( rule__ParallelStep__Group_5__0 )?
 			{
-			 before(grammarAccess.getParallelStepAccess().getNextAssignment_5()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3580:2: ( rule__ParallelStep__NextAssignment_5 )?
+			 before(grammarAccess.getParallelStepAccess().getGroup_5()); 
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3580:2: ( rule__ParallelStep__Group_5__0 )?
 			int alt32=2;
 			int LA32_0 = input.LA(1);
-			if ( (LA32_0==RULE_ID) ) {
+			if ( (LA32_0==30) ) {
 				alt32=1;
 			}
 			switch (alt32) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3580:2: rule__ParallelStep__NextAssignment_5
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3580:2: rule__ParallelStep__Group_5__0
 					{
-					pushFollow(FOLLOW_rule__ParallelStep__NextAssignment_5_in_rule__ParallelStep__Group__5__Impl7183);
-					rule__ParallelStep__NextAssignment_5();
+					pushFollow(FOLLOW_rule__ParallelStep__Group_5__0_in_rule__ParallelStep__Group__5__Impl7183);
+					rule__ParallelStep__Group_5__0();
 					state._fsp--;
 
 					}
@@ -9228,7 +9229,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 			}
 
-			 after(grammarAccess.getParallelStepAccess().getNextAssignment_5()); 
+			 after(grammarAccess.getParallelStepAccess().getGroup_5()); 
 			}
 
 			}
@@ -9397,21 +9398,169 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 
+	// $ANTLR start "rule__ParallelStep__Group_5__0"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3665:1: rule__ParallelStep__Group_5__0 : rule__ParallelStep__Group_5__0__Impl rule__ParallelStep__Group_5__1 ;
+	public final void rule__ParallelStep__Group_5__0() throws RecognitionException {
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3669:2: ( rule__ParallelStep__Group_5__0__Impl rule__ParallelStep__Group_5__1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3670:2: rule__ParallelStep__Group_5__0__Impl rule__ParallelStep__Group_5__1
+			{
+			pushFollow(FOLLOW_rule__ParallelStep__Group_5__0__Impl_in_rule__ParallelStep__Group_5__07349);
+			rule__ParallelStep__Group_5__0__Impl();
+			state._fsp--;
+
+			pushFollow(FOLLOW_rule__ParallelStep__Group_5__1_in_rule__ParallelStep__Group_5__07352);
+			rule__ParallelStep__Group_5__1();
+			state._fsp--;
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__ParallelStep__Group_5__0"
+
+
+
+	// $ANTLR start "rule__ParallelStep__Group_5__0__Impl"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3677:1: rule__ParallelStep__Group_5__0__Impl : ( 'next' ) ;
+	public final void rule__ParallelStep__Group_5__0__Impl() throws RecognitionException {
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3681:1: ( ( 'next' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3682:1: ( 'next' )
+			{
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3682:1: ( 'next' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3683:1: 'next'
+			{
+			 before(grammarAccess.getParallelStepAccess().getNextKeyword_5_0()); 
+			match(input,30,FOLLOW_30_in_rule__ParallelStep__Group_5__0__Impl7380); 
+			 after(grammarAccess.getParallelStepAccess().getNextKeyword_5_0()); 
+			}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__ParallelStep__Group_5__0__Impl"
+
+
+
+	// $ANTLR start "rule__ParallelStep__Group_5__1"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3696:1: rule__ParallelStep__Group_5__1 : rule__ParallelStep__Group_5__1__Impl ;
+	public final void rule__ParallelStep__Group_5__1() throws RecognitionException {
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3700:2: ( rule__ParallelStep__Group_5__1__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3701:2: rule__ParallelStep__Group_5__1__Impl
+			{
+			pushFollow(FOLLOW_rule__ParallelStep__Group_5__1__Impl_in_rule__ParallelStep__Group_5__17411);
+			rule__ParallelStep__Group_5__1__Impl();
+			state._fsp--;
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__ParallelStep__Group_5__1"
+
+
+
+	// $ANTLR start "rule__ParallelStep__Group_5__1__Impl"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3707:1: rule__ParallelStep__Group_5__1__Impl : ( ( rule__ParallelStep__NextAssignment_5_1 ) ) ;
+	public final void rule__ParallelStep__Group_5__1__Impl() throws RecognitionException {
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3711:1: ( ( ( rule__ParallelStep__NextAssignment_5_1 ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3712:1: ( ( rule__ParallelStep__NextAssignment_5_1 ) )
+			{
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3712:1: ( ( rule__ParallelStep__NextAssignment_5_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3713:1: ( rule__ParallelStep__NextAssignment_5_1 )
+			{
+			 before(grammarAccess.getParallelStepAccess().getNextAssignment_5_1()); 
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3714:2: ( rule__ParallelStep__NextAssignment_5_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3714:2: rule__ParallelStep__NextAssignment_5_1
+			{
+			pushFollow(FOLLOW_rule__ParallelStep__NextAssignment_5_1_in_rule__ParallelStep__Group_5__1__Impl7438);
+			rule__ParallelStep__NextAssignment_5_1();
+			state._fsp--;
+
+			}
+
+			 after(grammarAccess.getParallelStepAccess().getNextAssignment_5_1()); 
+			}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__ParallelStep__Group_5__1__Impl"
+
+
+
 	// $ANTLR start "rule__NormalStep__Group__0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3665:1: rule__NormalStep__Group__0 : rule__NormalStep__Group__0__Impl rule__NormalStep__Group__1 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3728:1: rule__NormalStep__Group__0 : rule__NormalStep__Group__0__Impl rule__NormalStep__Group__1 ;
 	public final void rule__NormalStep__Group__0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3669:2: ( rule__NormalStep__Group__0__Impl rule__NormalStep__Group__1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3670:2: rule__NormalStep__Group__0__Impl rule__NormalStep__Group__1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3732:2: ( rule__NormalStep__Group__0__Impl rule__NormalStep__Group__1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3733:2: rule__NormalStep__Group__0__Impl rule__NormalStep__Group__1
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group__0__Impl_in_rule__NormalStep__Group__07349);
+			pushFollow(FOLLOW_rule__NormalStep__Group__0__Impl_in_rule__NormalStep__Group__07472);
 			rule__NormalStep__Group__0__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group__1_in_rule__NormalStep__Group__07352);
+			pushFollow(FOLLOW_rule__NormalStep__Group__1_in_rule__NormalStep__Group__07475);
 			rule__NormalStep__Group__1();
 			state._fsp--;
 
@@ -9434,20 +9583,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__0__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3677:1: rule__NormalStep__Group__0__Impl : ( 'step' ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3740:1: rule__NormalStep__Group__0__Impl : ( 'step' ) ;
 	public final void rule__NormalStep__Group__0__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3681:1: ( ( 'step' ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3682:1: ( 'step' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3744:1: ( ( 'step' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3745:1: ( 'step' )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3682:1: ( 'step' )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3683:1: 'step'
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3745:1: ( 'step' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3746:1: 'step'
 			{
 			 before(grammarAccess.getNormalStepAccess().getStepKeyword_0()); 
-			match(input,39,FOLLOW_39_in_rule__NormalStep__Group__0__Impl7380); 
+			match(input,40,FOLLOW_40_in_rule__NormalStep__Group__0__Impl7503); 
 			 after(grammarAccess.getNormalStepAccess().getStepKeyword_0()); 
 			}
 
@@ -9470,20 +9619,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3696:1: rule__NormalStep__Group__1 : rule__NormalStep__Group__1__Impl rule__NormalStep__Group__2 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3759:1: rule__NormalStep__Group__1 : rule__NormalStep__Group__1__Impl rule__NormalStep__Group__2 ;
 	public final void rule__NormalStep__Group__1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3700:2: ( rule__NormalStep__Group__1__Impl rule__NormalStep__Group__2 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3701:2: rule__NormalStep__Group__1__Impl rule__NormalStep__Group__2
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3763:2: ( rule__NormalStep__Group__1__Impl rule__NormalStep__Group__2 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3764:2: rule__NormalStep__Group__1__Impl rule__NormalStep__Group__2
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group__1__Impl_in_rule__NormalStep__Group__17411);
+			pushFollow(FOLLOW_rule__NormalStep__Group__1__Impl_in_rule__NormalStep__Group__17534);
 			rule__NormalStep__Group__1__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group__2_in_rule__NormalStep__Group__17414);
+			pushFollow(FOLLOW_rule__NormalStep__Group__2_in_rule__NormalStep__Group__17537);
 			rule__NormalStep__Group__2();
 			state._fsp--;
 
@@ -9506,23 +9655,23 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__1__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3708:1: rule__NormalStep__Group__1__Impl : ( ( rule__NormalStep__NameAssignment_1 ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3771:1: rule__NormalStep__Group__1__Impl : ( ( rule__NormalStep__NameAssignment_1 ) ) ;
 	public final void rule__NormalStep__Group__1__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3712:1: ( ( ( rule__NormalStep__NameAssignment_1 ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3713:1: ( ( rule__NormalStep__NameAssignment_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3775:1: ( ( ( rule__NormalStep__NameAssignment_1 ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3776:1: ( ( rule__NormalStep__NameAssignment_1 ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3713:1: ( ( rule__NormalStep__NameAssignment_1 ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3714:1: ( rule__NormalStep__NameAssignment_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3776:1: ( ( rule__NormalStep__NameAssignment_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3777:1: ( rule__NormalStep__NameAssignment_1 )
 			{
 			 before(grammarAccess.getNormalStepAccess().getNameAssignment_1()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3715:2: ( rule__NormalStep__NameAssignment_1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3715:2: rule__NormalStep__NameAssignment_1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3778:2: ( rule__NormalStep__NameAssignment_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3778:2: rule__NormalStep__NameAssignment_1
 			{
-			pushFollow(FOLLOW_rule__NormalStep__NameAssignment_1_in_rule__NormalStep__Group__1__Impl7441);
+			pushFollow(FOLLOW_rule__NormalStep__NameAssignment_1_in_rule__NormalStep__Group__1__Impl7564);
 			rule__NormalStep__NameAssignment_1();
 			state._fsp--;
 
@@ -9550,20 +9699,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3725:1: rule__NormalStep__Group__2 : rule__NormalStep__Group__2__Impl rule__NormalStep__Group__3 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3788:1: rule__NormalStep__Group__2 : rule__NormalStep__Group__2__Impl rule__NormalStep__Group__3 ;
 	public final void rule__NormalStep__Group__2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3729:2: ( rule__NormalStep__Group__2__Impl rule__NormalStep__Group__3 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3730:2: rule__NormalStep__Group__2__Impl rule__NormalStep__Group__3
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3792:2: ( rule__NormalStep__Group__2__Impl rule__NormalStep__Group__3 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3793:2: rule__NormalStep__Group__2__Impl rule__NormalStep__Group__3
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group__2__Impl_in_rule__NormalStep__Group__27471);
+			pushFollow(FOLLOW_rule__NormalStep__Group__2__Impl_in_rule__NormalStep__Group__27594);
 			rule__NormalStep__Group__2__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group__3_in_rule__NormalStep__Group__27474);
+			pushFollow(FOLLOW_rule__NormalStep__Group__3_in_rule__NormalStep__Group__27597);
 			rule__NormalStep__Group__3();
 			state._fsp--;
 
@@ -9586,20 +9735,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__2__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3737:1: rule__NormalStep__Group__2__Impl : ( ( rule__NormalStep__LabelAssignment_2 )? ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3800:1: rule__NormalStep__Group__2__Impl : ( ( rule__NormalStep__LabelAssignment_2 )? ) ;
 	public final void rule__NormalStep__Group__2__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3741:1: ( ( ( rule__NormalStep__LabelAssignment_2 )? ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3742:1: ( ( rule__NormalStep__LabelAssignment_2 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3804:1: ( ( ( rule__NormalStep__LabelAssignment_2 )? ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3805:1: ( ( rule__NormalStep__LabelAssignment_2 )? )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3742:1: ( ( rule__NormalStep__LabelAssignment_2 )? )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3743:1: ( rule__NormalStep__LabelAssignment_2 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3805:1: ( ( rule__NormalStep__LabelAssignment_2 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3806:1: ( rule__NormalStep__LabelAssignment_2 )?
 			{
 			 before(grammarAccess.getNormalStepAccess().getLabelAssignment_2()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3744:2: ( rule__NormalStep__LabelAssignment_2 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3807:2: ( rule__NormalStep__LabelAssignment_2 )?
 			int alt33=2;
 			int LA33_0 = input.LA(1);
 			if ( (LA33_0==RULE_STRING) ) {
@@ -9607,9 +9756,9 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			}
 			switch (alt33) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3744:2: rule__NormalStep__LabelAssignment_2
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3807:2: rule__NormalStep__LabelAssignment_2
 					{
-					pushFollow(FOLLOW_rule__NormalStep__LabelAssignment_2_in_rule__NormalStep__Group__2__Impl7501);
+					pushFollow(FOLLOW_rule__NormalStep__LabelAssignment_2_in_rule__NormalStep__Group__2__Impl7624);
 					rule__NormalStep__LabelAssignment_2();
 					state._fsp--;
 
@@ -9640,20 +9789,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__3"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3754:1: rule__NormalStep__Group__3 : rule__NormalStep__Group__3__Impl rule__NormalStep__Group__4 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3817:1: rule__NormalStep__Group__3 : rule__NormalStep__Group__3__Impl rule__NormalStep__Group__4 ;
 	public final void rule__NormalStep__Group__3() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3758:2: ( rule__NormalStep__Group__3__Impl rule__NormalStep__Group__4 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3759:2: rule__NormalStep__Group__3__Impl rule__NormalStep__Group__4
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3821:2: ( rule__NormalStep__Group__3__Impl rule__NormalStep__Group__4 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3822:2: rule__NormalStep__Group__3__Impl rule__NormalStep__Group__4
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group__3__Impl_in_rule__NormalStep__Group__37532);
+			pushFollow(FOLLOW_rule__NormalStep__Group__3__Impl_in_rule__NormalStep__Group__37655);
 			rule__NormalStep__Group__3__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group__4_in_rule__NormalStep__Group__37535);
+			pushFollow(FOLLOW_rule__NormalStep__Group__4_in_rule__NormalStep__Group__37658);
 			rule__NormalStep__Group__4();
 			state._fsp--;
 
@@ -9676,20 +9825,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__3__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3766:1: rule__NormalStep__Group__3__Impl : ( 'by' ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3829:1: rule__NormalStep__Group__3__Impl : ( 'by' ) ;
 	public final void rule__NormalStep__Group__3__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3770:1: ( ( 'by' ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3771:1: ( 'by' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3833:1: ( ( 'by' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3834:1: ( 'by' )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3771:1: ( 'by' )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3772:1: 'by'
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3834:1: ( 'by' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3835:1: 'by'
 			{
 			 before(grammarAccess.getNormalStepAccess().getByKeyword_3()); 
-			match(input,18,FOLLOW_18_in_rule__NormalStep__Group__3__Impl7563); 
+			match(input,18,FOLLOW_18_in_rule__NormalStep__Group__3__Impl7686); 
 			 after(grammarAccess.getNormalStepAccess().getByKeyword_3()); 
 			}
 
@@ -9712,20 +9861,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__4"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3785:1: rule__NormalStep__Group__4 : rule__NormalStep__Group__4__Impl rule__NormalStep__Group__5 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3848:1: rule__NormalStep__Group__4 : rule__NormalStep__Group__4__Impl rule__NormalStep__Group__5 ;
 	public final void rule__NormalStep__Group__4() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3789:2: ( rule__NormalStep__Group__4__Impl rule__NormalStep__Group__5 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3790:2: rule__NormalStep__Group__4__Impl rule__NormalStep__Group__5
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3852:2: ( rule__NormalStep__Group__4__Impl rule__NormalStep__Group__5 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3853:2: rule__NormalStep__Group__4__Impl rule__NormalStep__Group__5
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group__4__Impl_in_rule__NormalStep__Group__47594);
+			pushFollow(FOLLOW_rule__NormalStep__Group__4__Impl_in_rule__NormalStep__Group__47717);
 			rule__NormalStep__Group__4__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group__5_in_rule__NormalStep__Group__47597);
+			pushFollow(FOLLOW_rule__NormalStep__Group__5_in_rule__NormalStep__Group__47720);
 			rule__NormalStep__Group__5();
 			state._fsp--;
 
@@ -9748,23 +9897,23 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__4__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3797:1: rule__NormalStep__Group__4__Impl : ( ( rule__NormalStep__ActorAssignment_4 ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3860:1: rule__NormalStep__Group__4__Impl : ( ( rule__NormalStep__ActorAssignment_4 ) ) ;
 	public final void rule__NormalStep__Group__4__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3801:1: ( ( ( rule__NormalStep__ActorAssignment_4 ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3802:1: ( ( rule__NormalStep__ActorAssignment_4 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3864:1: ( ( ( rule__NormalStep__ActorAssignment_4 ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3865:1: ( ( rule__NormalStep__ActorAssignment_4 ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3802:1: ( ( rule__NormalStep__ActorAssignment_4 ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3803:1: ( rule__NormalStep__ActorAssignment_4 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3865:1: ( ( rule__NormalStep__ActorAssignment_4 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3866:1: ( rule__NormalStep__ActorAssignment_4 )
 			{
 			 before(grammarAccess.getNormalStepAccess().getActorAssignment_4()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3804:2: ( rule__NormalStep__ActorAssignment_4 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3804:2: rule__NormalStep__ActorAssignment_4
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3867:2: ( rule__NormalStep__ActorAssignment_4 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3867:2: rule__NormalStep__ActorAssignment_4
 			{
-			pushFollow(FOLLOW_rule__NormalStep__ActorAssignment_4_in_rule__NormalStep__Group__4__Impl7624);
+			pushFollow(FOLLOW_rule__NormalStep__ActorAssignment_4_in_rule__NormalStep__Group__4__Impl7747);
 			rule__NormalStep__ActorAssignment_4();
 			state._fsp--;
 
@@ -9792,20 +9941,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__5"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3814:1: rule__NormalStep__Group__5 : rule__NormalStep__Group__5__Impl rule__NormalStep__Group__6 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3877:1: rule__NormalStep__Group__5 : rule__NormalStep__Group__5__Impl rule__NormalStep__Group__6 ;
 	public final void rule__NormalStep__Group__5() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3818:2: ( rule__NormalStep__Group__5__Impl rule__NormalStep__Group__6 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3819:2: rule__NormalStep__Group__5__Impl rule__NormalStep__Group__6
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3881:2: ( rule__NormalStep__Group__5__Impl rule__NormalStep__Group__6 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3882:2: rule__NormalStep__Group__5__Impl rule__NormalStep__Group__6
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group__5__Impl_in_rule__NormalStep__Group__57654);
+			pushFollow(FOLLOW_rule__NormalStep__Group__5__Impl_in_rule__NormalStep__Group__57777);
 			rule__NormalStep__Group__5__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group__6_in_rule__NormalStep__Group__57657);
+			pushFollow(FOLLOW_rule__NormalStep__Group__6_in_rule__NormalStep__Group__57780);
 			rule__NormalStep__Group__6();
 			state._fsp--;
 
@@ -9828,30 +9977,30 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__5__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3826:1: rule__NormalStep__Group__5__Impl : ( ( rule__NormalStep__Group_5__0 )? ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3889:1: rule__NormalStep__Group__5__Impl : ( ( rule__NormalStep__Group_5__0 )? ) ;
 	public final void rule__NormalStep__Group__5__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3830:1: ( ( ( rule__NormalStep__Group_5__0 )? ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3831:1: ( ( rule__NormalStep__Group_5__0 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3893:1: ( ( ( rule__NormalStep__Group_5__0 )? ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3894:1: ( ( rule__NormalStep__Group_5__0 )? )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3831:1: ( ( rule__NormalStep__Group_5__0 )? )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3832:1: ( rule__NormalStep__Group_5__0 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3894:1: ( ( rule__NormalStep__Group_5__0 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3895:1: ( rule__NormalStep__Group_5__0 )?
 			{
 			 before(grammarAccess.getNormalStepAccess().getGroup_5()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3833:2: ( rule__NormalStep__Group_5__0 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3896:2: ( rule__NormalStep__Group_5__0 )?
 			int alt34=2;
 			int LA34_0 = input.LA(1);
-			if ( (LA34_0==42) ) {
+			if ( (LA34_0==43) ) {
 				alt34=1;
 			}
 			switch (alt34) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3833:2: rule__NormalStep__Group_5__0
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3896:2: rule__NormalStep__Group_5__0
 					{
-					pushFollow(FOLLOW_rule__NormalStep__Group_5__0_in_rule__NormalStep__Group__5__Impl7684);
+					pushFollow(FOLLOW_rule__NormalStep__Group_5__0_in_rule__NormalStep__Group__5__Impl7807);
 					rule__NormalStep__Group_5__0();
 					state._fsp--;
 
@@ -9882,20 +10031,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__6"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3843:1: rule__NormalStep__Group__6 : rule__NormalStep__Group__6__Impl rule__NormalStep__Group__7 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3906:1: rule__NormalStep__Group__6 : rule__NormalStep__Group__6__Impl rule__NormalStep__Group__7 ;
 	public final void rule__NormalStep__Group__6() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3847:2: ( rule__NormalStep__Group__6__Impl rule__NormalStep__Group__7 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3848:2: rule__NormalStep__Group__6__Impl rule__NormalStep__Group__7
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3910:2: ( rule__NormalStep__Group__6__Impl rule__NormalStep__Group__7 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3911:2: rule__NormalStep__Group__6__Impl rule__NormalStep__Group__7
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group__6__Impl_in_rule__NormalStep__Group__67715);
+			pushFollow(FOLLOW_rule__NormalStep__Group__6__Impl_in_rule__NormalStep__Group__67838);
 			rule__NormalStep__Group__6__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group__7_in_rule__NormalStep__Group__67718);
+			pushFollow(FOLLOW_rule__NormalStep__Group__7_in_rule__NormalStep__Group__67841);
 			rule__NormalStep__Group__7();
 			state._fsp--;
 
@@ -9918,20 +10067,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__6__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3855:1: rule__NormalStep__Group__6__Impl : ( ( rule__NormalStep__Alternatives_6 )? ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3918:1: rule__NormalStep__Group__6__Impl : ( ( rule__NormalStep__Alternatives_6 )? ) ;
 	public final void rule__NormalStep__Group__6__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3859:1: ( ( ( rule__NormalStep__Alternatives_6 )? ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3860:1: ( ( rule__NormalStep__Alternatives_6 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3922:1: ( ( ( rule__NormalStep__Alternatives_6 )? ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3923:1: ( ( rule__NormalStep__Alternatives_6 )? )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3860:1: ( ( rule__NormalStep__Alternatives_6 )? )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3861:1: ( rule__NormalStep__Alternatives_6 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3923:1: ( ( rule__NormalStep__Alternatives_6 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3924:1: ( rule__NormalStep__Alternatives_6 )?
 			{
 			 before(grammarAccess.getNormalStepAccess().getAlternatives_6()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3862:2: ( rule__NormalStep__Alternatives_6 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3925:2: ( rule__NormalStep__Alternatives_6 )?
 			int alt35=2;
 			int LA35_0 = input.LA(1);
 			if ( (LA35_0==15||LA35_0==28) ) {
@@ -9939,9 +10088,9 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			}
 			switch (alt35) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3862:2: rule__NormalStep__Alternatives_6
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3925:2: rule__NormalStep__Alternatives_6
 					{
-					pushFollow(FOLLOW_rule__NormalStep__Alternatives_6_in_rule__NormalStep__Group__6__Impl7745);
+					pushFollow(FOLLOW_rule__NormalStep__Alternatives_6_in_rule__NormalStep__Group__6__Impl7868);
 					rule__NormalStep__Alternatives_6();
 					state._fsp--;
 
@@ -9972,16 +10121,16 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__7"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3872:1: rule__NormalStep__Group__7 : rule__NormalStep__Group__7__Impl ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3935:1: rule__NormalStep__Group__7 : rule__NormalStep__Group__7__Impl ;
 	public final void rule__NormalStep__Group__7() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3876:2: ( rule__NormalStep__Group__7__Impl )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3877:2: rule__NormalStep__Group__7__Impl
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3939:2: ( rule__NormalStep__Group__7__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3940:2: rule__NormalStep__Group__7__Impl
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group__7__Impl_in_rule__NormalStep__Group__77776);
+			pushFollow(FOLLOW_rule__NormalStep__Group__7__Impl_in_rule__NormalStep__Group__77899);
 			rule__NormalStep__Group__7__Impl();
 			state._fsp--;
 
@@ -10004,31 +10153,31 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group__7__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3883:1: rule__NormalStep__Group__7__Impl : ( ( rule__NormalStep__NextAssignment_7 )? ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3946:1: rule__NormalStep__Group__7__Impl : ( ( rule__NormalStep__Group_7__0 )? ) ;
 	public final void rule__NormalStep__Group__7__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3887:1: ( ( ( rule__NormalStep__NextAssignment_7 )? ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3888:1: ( ( rule__NormalStep__NextAssignment_7 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3950:1: ( ( ( rule__NormalStep__Group_7__0 )? ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3951:1: ( ( rule__NormalStep__Group_7__0 )? )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3888:1: ( ( rule__NormalStep__NextAssignment_7 )? )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3889:1: ( rule__NormalStep__NextAssignment_7 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3951:1: ( ( rule__NormalStep__Group_7__0 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3952:1: ( rule__NormalStep__Group_7__0 )?
 			{
-			 before(grammarAccess.getNormalStepAccess().getNextAssignment_7()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3890:2: ( rule__NormalStep__NextAssignment_7 )?
+			 before(grammarAccess.getNormalStepAccess().getGroup_7()); 
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3953:2: ( rule__NormalStep__Group_7__0 )?
 			int alt36=2;
 			int LA36_0 = input.LA(1);
-			if ( (LA36_0==RULE_ID) ) {
+			if ( (LA36_0==30) ) {
 				alt36=1;
 			}
 			switch (alt36) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3890:2: rule__NormalStep__NextAssignment_7
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3953:2: rule__NormalStep__Group_7__0
 					{
-					pushFollow(FOLLOW_rule__NormalStep__NextAssignment_7_in_rule__NormalStep__Group__7__Impl7803);
-					rule__NormalStep__NextAssignment_7();
+					pushFollow(FOLLOW_rule__NormalStep__Group_7__0_in_rule__NormalStep__Group__7__Impl7926);
+					rule__NormalStep__Group_7__0();
 					state._fsp--;
 
 					}
@@ -10036,7 +10185,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 			}
 
-			 after(grammarAccess.getNormalStepAccess().getNextAssignment_7()); 
+			 after(grammarAccess.getNormalStepAccess().getGroup_7()); 
 			}
 
 			}
@@ -10058,20 +10207,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_5__0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3916:1: rule__NormalStep__Group_5__0 : rule__NormalStep__Group_5__0__Impl rule__NormalStep__Group_5__1 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3979:1: rule__NormalStep__Group_5__0 : rule__NormalStep__Group_5__0__Impl rule__NormalStep__Group_5__1 ;
 	public final void rule__NormalStep__Group_5__0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3920:2: ( rule__NormalStep__Group_5__0__Impl rule__NormalStep__Group_5__1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3921:2: rule__NormalStep__Group_5__0__Impl rule__NormalStep__Group_5__1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3983:2: ( rule__NormalStep__Group_5__0__Impl rule__NormalStep__Group_5__1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3984:2: rule__NormalStep__Group_5__0__Impl rule__NormalStep__Group_5__1
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group_5__0__Impl_in_rule__NormalStep__Group_5__07850);
+			pushFollow(FOLLOW_rule__NormalStep__Group_5__0__Impl_in_rule__NormalStep__Group_5__07973);
 			rule__NormalStep__Group_5__0__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group_5__1_in_rule__NormalStep__Group_5__07853);
+			pushFollow(FOLLOW_rule__NormalStep__Group_5__1_in_rule__NormalStep__Group_5__07976);
 			rule__NormalStep__Group_5__1();
 			state._fsp--;
 
@@ -10094,20 +10243,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_5__0__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3928:1: rule__NormalStep__Group_5__0__Impl : ( 'type' ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3991:1: rule__NormalStep__Group_5__0__Impl : ( 'type' ) ;
 	public final void rule__NormalStep__Group_5__0__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3932:1: ( ( 'type' ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3933:1: ( 'type' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3995:1: ( ( 'type' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3996:1: ( 'type' )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3933:1: ( 'type' )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3934:1: 'type'
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3996:1: ( 'type' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3997:1: 'type'
 			{
 			 before(grammarAccess.getNormalStepAccess().getTypeKeyword_5_0()); 
-			match(input,42,FOLLOW_42_in_rule__NormalStep__Group_5__0__Impl7881); 
+			match(input,43,FOLLOW_43_in_rule__NormalStep__Group_5__0__Impl8004); 
 			 after(grammarAccess.getNormalStepAccess().getTypeKeyword_5_0()); 
 			}
 
@@ -10130,16 +10279,16 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_5__1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3947:1: rule__NormalStep__Group_5__1 : rule__NormalStep__Group_5__1__Impl ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4010:1: rule__NormalStep__Group_5__1 : rule__NormalStep__Group_5__1__Impl ;
 	public final void rule__NormalStep__Group_5__1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3951:2: ( rule__NormalStep__Group_5__1__Impl )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3952:2: rule__NormalStep__Group_5__1__Impl
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4014:2: ( rule__NormalStep__Group_5__1__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4015:2: rule__NormalStep__Group_5__1__Impl
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group_5__1__Impl_in_rule__NormalStep__Group_5__17912);
+			pushFollow(FOLLOW_rule__NormalStep__Group_5__1__Impl_in_rule__NormalStep__Group_5__18035);
 			rule__NormalStep__Group_5__1__Impl();
 			state._fsp--;
 
@@ -10162,23 +10311,23 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_5__1__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3958:1: rule__NormalStep__Group_5__1__Impl : ( ( rule__NormalStep__CustomStepTypeAssignment_5_1 ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4021:1: rule__NormalStep__Group_5__1__Impl : ( ( rule__NormalStep__CustomStepTypeAssignment_5_1 ) ) ;
 	public final void rule__NormalStep__Group_5__1__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3962:1: ( ( ( rule__NormalStep__CustomStepTypeAssignment_5_1 ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3963:1: ( ( rule__NormalStep__CustomStepTypeAssignment_5_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4025:1: ( ( ( rule__NormalStep__CustomStepTypeAssignment_5_1 ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4026:1: ( ( rule__NormalStep__CustomStepTypeAssignment_5_1 ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3963:1: ( ( rule__NormalStep__CustomStepTypeAssignment_5_1 ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3964:1: ( rule__NormalStep__CustomStepTypeAssignment_5_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4026:1: ( ( rule__NormalStep__CustomStepTypeAssignment_5_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4027:1: ( rule__NormalStep__CustomStepTypeAssignment_5_1 )
 			{
 			 before(grammarAccess.getNormalStepAccess().getCustomStepTypeAssignment_5_1()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3965:2: ( rule__NormalStep__CustomStepTypeAssignment_5_1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3965:2: rule__NormalStep__CustomStepTypeAssignment_5_1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4028:2: ( rule__NormalStep__CustomStepTypeAssignment_5_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4028:2: rule__NormalStep__CustomStepTypeAssignment_5_1
 			{
-			pushFollow(FOLLOW_rule__NormalStep__CustomStepTypeAssignment_5_1_in_rule__NormalStep__Group_5__1__Impl7939);
+			pushFollow(FOLLOW_rule__NormalStep__CustomStepTypeAssignment_5_1_in_rule__NormalStep__Group_5__1__Impl8062);
 			rule__NormalStep__CustomStepTypeAssignment_5_1();
 			state._fsp--;
 
@@ -10206,20 +10355,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_0__0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3979:1: rule__NormalStep__Group_6_0__0 : rule__NormalStep__Group_6_0__0__Impl rule__NormalStep__Group_6_0__1 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4042:1: rule__NormalStep__Group_6_0__0 : rule__NormalStep__Group_6_0__0__Impl rule__NormalStep__Group_6_0__1 ;
 	public final void rule__NormalStep__Group_6_0__0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3983:2: ( rule__NormalStep__Group_6_0__0__Impl rule__NormalStep__Group_6_0__1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3984:2: rule__NormalStep__Group_6_0__0__Impl rule__NormalStep__Group_6_0__1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4046:2: ( rule__NormalStep__Group_6_0__0__Impl rule__NormalStep__Group_6_0__1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4047:2: rule__NormalStep__Group_6_0__0__Impl rule__NormalStep__Group_6_0__1
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__0__Impl_in_rule__NormalStep__Group_6_0__07973);
+			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__0__Impl_in_rule__NormalStep__Group_6_0__08096);
 			rule__NormalStep__Group_6_0__0__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__1_in_rule__NormalStep__Group_6_0__07976);
+			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__1_in_rule__NormalStep__Group_6_0__08099);
 			rule__NormalStep__Group_6_0__1();
 			state._fsp--;
 
@@ -10242,20 +10391,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_0__0__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3991:1: rule__NormalStep__Group_6_0__0__Impl : ( 'alternatives' ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4054:1: rule__NormalStep__Group_6_0__0__Impl : ( 'alternatives' ) ;
 	public final void rule__NormalStep__Group_6_0__0__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3995:1: ( ( 'alternatives' ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3996:1: ( 'alternatives' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4058:1: ( ( 'alternatives' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4059:1: ( 'alternatives' )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3996:1: ( 'alternatives' )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:3997:1: 'alternatives'
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4059:1: ( 'alternatives' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4060:1: 'alternatives'
 			{
 			 before(grammarAccess.getNormalStepAccess().getAlternativesKeyword_6_0_0()); 
-			match(input,15,FOLLOW_15_in_rule__NormalStep__Group_6_0__0__Impl8004); 
+			match(input,15,FOLLOW_15_in_rule__NormalStep__Group_6_0__0__Impl8127); 
 			 after(grammarAccess.getNormalStepAccess().getAlternativesKeyword_6_0_0()); 
 			}
 
@@ -10278,20 +10427,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_0__1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4010:1: rule__NormalStep__Group_6_0__1 : rule__NormalStep__Group_6_0__1__Impl rule__NormalStep__Group_6_0__2 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4073:1: rule__NormalStep__Group_6_0__1 : rule__NormalStep__Group_6_0__1__Impl rule__NormalStep__Group_6_0__2 ;
 	public final void rule__NormalStep__Group_6_0__1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4014:2: ( rule__NormalStep__Group_6_0__1__Impl rule__NormalStep__Group_6_0__2 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4015:2: rule__NormalStep__Group_6_0__1__Impl rule__NormalStep__Group_6_0__2
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4077:2: ( rule__NormalStep__Group_6_0__1__Impl rule__NormalStep__Group_6_0__2 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4078:2: rule__NormalStep__Group_6_0__1__Impl rule__NormalStep__Group_6_0__2
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__1__Impl_in_rule__NormalStep__Group_6_0__18035);
+			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__1__Impl_in_rule__NormalStep__Group_6_0__18158);
 			rule__NormalStep__Group_6_0__1__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__2_in_rule__NormalStep__Group_6_0__18038);
+			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__2_in_rule__NormalStep__Group_6_0__18161);
 			rule__NormalStep__Group_6_0__2();
 			state._fsp--;
 
@@ -10314,26 +10463,26 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_0__1__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4022:1: rule__NormalStep__Group_6_0__1__Impl : ( ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4085:1: rule__NormalStep__Group_6_0__1__Impl : ( ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* ) ) ;
 	public final void rule__NormalStep__Group_6_0__1__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4026:1: ( ( ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4027:1: ( ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4089:1: ( ( ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4090:1: ( ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4027:1: ( ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4028:1: ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4090:1: ( ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4091:1: ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) ) ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4028:1: ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4029:1: ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4091:1: ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4092:1: ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )
 			{
 			 before(grammarAccess.getNormalStepAccess().getStepAlternativeAssignment_6_0_1()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4030:2: ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4030:2: rule__NormalStep__StepAlternativeAssignment_6_0_1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4093:2: ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4093:2: rule__NormalStep__StepAlternativeAssignment_6_0_1
 			{
-			pushFollow(FOLLOW_rule__NormalStep__StepAlternativeAssignment_6_0_1_in_rule__NormalStep__Group_6_0__1__Impl8067);
+			pushFollow(FOLLOW_rule__NormalStep__StepAlternativeAssignment_6_0_1_in_rule__NormalStep__Group_6_0__1__Impl8190);
 			rule__NormalStep__StepAlternativeAssignment_6_0_1();
 			state._fsp--;
 
@@ -10342,11 +10491,11 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 			 after(grammarAccess.getNormalStepAccess().getStepAlternativeAssignment_6_0_1()); 
 			}
 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4033:1: ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4034:1: ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )*
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4096:1: ( ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )* )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4097:1: ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )*
 			{
 			 before(grammarAccess.getNormalStepAccess().getStepAlternativeAssignment_6_0_1()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4035:2: ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )*
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4098:2: ( rule__NormalStep__StepAlternativeAssignment_6_0_1 )*
 			loop37:
 			while (true) {
 				int alt37=2;
@@ -10357,9 +10506,9 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 				switch (alt37) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4035:2: rule__NormalStep__StepAlternativeAssignment_6_0_1
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4098:2: rule__NormalStep__StepAlternativeAssignment_6_0_1
 					{
-					pushFollow(FOLLOW_rule__NormalStep__StepAlternativeAssignment_6_0_1_in_rule__NormalStep__Group_6_0__1__Impl8079);
+					pushFollow(FOLLOW_rule__NormalStep__StepAlternativeAssignment_6_0_1_in_rule__NormalStep__Group_6_0__1__Impl8202);
 					rule__NormalStep__StepAlternativeAssignment_6_0_1();
 					state._fsp--;
 
@@ -10395,16 +10544,16 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_0__2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4046:1: rule__NormalStep__Group_6_0__2 : rule__NormalStep__Group_6_0__2__Impl ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4109:1: rule__NormalStep__Group_6_0__2 : rule__NormalStep__Group_6_0__2__Impl ;
 	public final void rule__NormalStep__Group_6_0__2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4050:2: ( rule__NormalStep__Group_6_0__2__Impl )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4051:2: rule__NormalStep__Group_6_0__2__Impl
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4113:2: ( rule__NormalStep__Group_6_0__2__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4114:2: rule__NormalStep__Group_6_0__2__Impl
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__2__Impl_in_rule__NormalStep__Group_6_0__28112);
+			pushFollow(FOLLOW_rule__NormalStep__Group_6_0__2__Impl_in_rule__NormalStep__Group_6_0__28235);
 			rule__NormalStep__Group_6_0__2__Impl();
 			state._fsp--;
 
@@ -10427,20 +10576,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_0__2__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4057:1: rule__NormalStep__Group_6_0__2__Impl : ( 'else' ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4120:1: rule__NormalStep__Group_6_0__2__Impl : ( 'else' ) ;
 	public final void rule__NormalStep__Group_6_0__2__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4061:1: ( ( 'else' ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4062:1: ( 'else' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4124:1: ( ( 'else' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4125:1: ( 'else' )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4062:1: ( 'else' )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4063:1: 'else'
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4125:1: ( 'else' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4126:1: 'else'
 			{
 			 before(grammarAccess.getNormalStepAccess().getElseKeyword_6_0_2()); 
-			match(input,20,FOLLOW_20_in_rule__NormalStep__Group_6_0__2__Impl8140); 
+			match(input,20,FOLLOW_20_in_rule__NormalStep__Group_6_0__2__Impl8263); 
 			 after(grammarAccess.getNormalStepAccess().getElseKeyword_6_0_2()); 
 			}
 
@@ -10463,20 +10612,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_1__0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4082:1: rule__NormalStep__Group_6_1__0 : rule__NormalStep__Group_6_1__0__Impl rule__NormalStep__Group_6_1__1 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4145:1: rule__NormalStep__Group_6_1__0 : rule__NormalStep__Group_6_1__0__Impl rule__NormalStep__Group_6_1__1 ;
 	public final void rule__NormalStep__Group_6_1__0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4086:2: ( rule__NormalStep__Group_6_1__0__Impl rule__NormalStep__Group_6_1__1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4087:2: rule__NormalStep__Group_6_1__0__Impl rule__NormalStep__Group_6_1__1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4149:2: ( rule__NormalStep__Group_6_1__0__Impl rule__NormalStep__Group_6_1__1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4150:2: rule__NormalStep__Group_6_1__0__Impl rule__NormalStep__Group_6_1__1
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group_6_1__0__Impl_in_rule__NormalStep__Group_6_1__08177);
+			pushFollow(FOLLOW_rule__NormalStep__Group_6_1__0__Impl_in_rule__NormalStep__Group_6_1__08300);
 			rule__NormalStep__Group_6_1__0__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__NormalStep__Group_6_1__1_in_rule__NormalStep__Group_6_1__08180);
+			pushFollow(FOLLOW_rule__NormalStep__Group_6_1__1_in_rule__NormalStep__Group_6_1__08303);
 			rule__NormalStep__Group_6_1__1();
 			state._fsp--;
 
@@ -10499,20 +10648,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_1__0__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4094:1: rule__NormalStep__Group_6_1__0__Impl : ( 'invoke usecase' ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4157:1: rule__NormalStep__Group_6_1__0__Impl : ( 'invoke usecase' ) ;
 	public final void rule__NormalStep__Group_6_1__0__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4098:1: ( ( 'invoke usecase' ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4099:1: ( 'invoke usecase' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4161:1: ( ( 'invoke usecase' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4162:1: ( 'invoke usecase' )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4099:1: ( 'invoke usecase' )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4100:1: 'invoke usecase'
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4162:1: ( 'invoke usecase' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4163:1: 'invoke usecase'
 			{
 			 before(grammarAccess.getNormalStepAccess().getInvokeUsecaseKeyword_6_1_0()); 
-			match(input,28,FOLLOW_28_in_rule__NormalStep__Group_6_1__0__Impl8208); 
+			match(input,28,FOLLOW_28_in_rule__NormalStep__Group_6_1__0__Impl8331); 
 			 after(grammarAccess.getNormalStepAccess().getInvokeUsecaseKeyword_6_1_0()); 
 			}
 
@@ -10535,16 +10684,16 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_1__1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4113:1: rule__NormalStep__Group_6_1__1 : rule__NormalStep__Group_6_1__1__Impl ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4176:1: rule__NormalStep__Group_6_1__1 : rule__NormalStep__Group_6_1__1__Impl ;
 	public final void rule__NormalStep__Group_6_1__1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4117:2: ( rule__NormalStep__Group_6_1__1__Impl )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4118:2: rule__NormalStep__Group_6_1__1__Impl
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4180:2: ( rule__NormalStep__Group_6_1__1__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4181:2: rule__NormalStep__Group_6_1__1__Impl
 			{
-			pushFollow(FOLLOW_rule__NormalStep__Group_6_1__1__Impl_in_rule__NormalStep__Group_6_1__18239);
+			pushFollow(FOLLOW_rule__NormalStep__Group_6_1__1__Impl_in_rule__NormalStep__Group_6_1__18362);
 			rule__NormalStep__Group_6_1__1__Impl();
 			state._fsp--;
 
@@ -10567,23 +10716,23 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__Group_6_1__1__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4124:1: rule__NormalStep__Group_6_1__1__Impl : ( ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4187:1: rule__NormalStep__Group_6_1__1__Impl : ( ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 ) ) ;
 	public final void rule__NormalStep__Group_6_1__1__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4128:1: ( ( ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4129:1: ( ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4191:1: ( ( ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4192:1: ( ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4129:1: ( ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4130:1: ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4192:1: ( ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4193:1: ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 )
 			{
 			 before(grammarAccess.getNormalStepAccess().getInvokedUseCaseAssignment_6_1_1()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4131:2: ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4131:2: rule__NormalStep__InvokedUseCaseAssignment_6_1_1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4194:2: ( rule__NormalStep__InvokedUseCaseAssignment_6_1_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4194:2: rule__NormalStep__InvokedUseCaseAssignment_6_1_1
 			{
-			pushFollow(FOLLOW_rule__NormalStep__InvokedUseCaseAssignment_6_1_1_in_rule__NormalStep__Group_6_1__1__Impl8266);
+			pushFollow(FOLLOW_rule__NormalStep__InvokedUseCaseAssignment_6_1_1_in_rule__NormalStep__Group_6_1__1__Impl8389);
 			rule__NormalStep__InvokedUseCaseAssignment_6_1_1();
 			state._fsp--;
 
@@ -10610,21 +10759,169 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 
+	// $ANTLR start "rule__NormalStep__Group_7__0"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4208:1: rule__NormalStep__Group_7__0 : rule__NormalStep__Group_7__0__Impl rule__NormalStep__Group_7__1 ;
+	public final void rule__NormalStep__Group_7__0() throws RecognitionException {
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4212:2: ( rule__NormalStep__Group_7__0__Impl rule__NormalStep__Group_7__1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4213:2: rule__NormalStep__Group_7__0__Impl rule__NormalStep__Group_7__1
+			{
+			pushFollow(FOLLOW_rule__NormalStep__Group_7__0__Impl_in_rule__NormalStep__Group_7__08423);
+			rule__NormalStep__Group_7__0__Impl();
+			state._fsp--;
+
+			pushFollow(FOLLOW_rule__NormalStep__Group_7__1_in_rule__NormalStep__Group_7__08426);
+			rule__NormalStep__Group_7__1();
+			state._fsp--;
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__NormalStep__Group_7__0"
+
+
+
+	// $ANTLR start "rule__NormalStep__Group_7__0__Impl"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4220:1: rule__NormalStep__Group_7__0__Impl : ( 'next' ) ;
+	public final void rule__NormalStep__Group_7__0__Impl() throws RecognitionException {
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4224:1: ( ( 'next' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4225:1: ( 'next' )
+			{
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4225:1: ( 'next' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4226:1: 'next'
+			{
+			 before(grammarAccess.getNormalStepAccess().getNextKeyword_7_0()); 
+			match(input,30,FOLLOW_30_in_rule__NormalStep__Group_7__0__Impl8454); 
+			 after(grammarAccess.getNormalStepAccess().getNextKeyword_7_0()); 
+			}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__NormalStep__Group_7__0__Impl"
+
+
+
+	// $ANTLR start "rule__NormalStep__Group_7__1"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4239:1: rule__NormalStep__Group_7__1 : rule__NormalStep__Group_7__1__Impl ;
+	public final void rule__NormalStep__Group_7__1() throws RecognitionException {
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4243:2: ( rule__NormalStep__Group_7__1__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4244:2: rule__NormalStep__Group_7__1__Impl
+			{
+			pushFollow(FOLLOW_rule__NormalStep__Group_7__1__Impl_in_rule__NormalStep__Group_7__18485);
+			rule__NormalStep__Group_7__1__Impl();
+			state._fsp--;
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__NormalStep__Group_7__1"
+
+
+
+	// $ANTLR start "rule__NormalStep__Group_7__1__Impl"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4250:1: rule__NormalStep__Group_7__1__Impl : ( ( rule__NormalStep__NextAssignment_7_1 ) ) ;
+	public final void rule__NormalStep__Group_7__1__Impl() throws RecognitionException {
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4254:1: ( ( ( rule__NormalStep__NextAssignment_7_1 ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4255:1: ( ( rule__NormalStep__NextAssignment_7_1 ) )
+			{
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4255:1: ( ( rule__NormalStep__NextAssignment_7_1 ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4256:1: ( rule__NormalStep__NextAssignment_7_1 )
+			{
+			 before(grammarAccess.getNormalStepAccess().getNextAssignment_7_1()); 
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4257:2: ( rule__NormalStep__NextAssignment_7_1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4257:2: rule__NormalStep__NextAssignment_7_1
+			{
+			pushFollow(FOLLOW_rule__NormalStep__NextAssignment_7_1_in_rule__NormalStep__Group_7__1__Impl8512);
+			rule__NormalStep__NextAssignment_7_1();
+			state._fsp--;
+
+			}
+
+			 after(grammarAccess.getNormalStepAccess().getNextAssignment_7_1()); 
+			}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__NormalStep__Group_7__1__Impl"
+
+
+
 	// $ANTLR start "rule__QualifiedName__Group__0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4145:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4271:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
 	public final void rule__QualifiedName__Group__0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4149:2: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4150:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4275:2: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4276:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
 			{
-			pushFollow(FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__08300);
+			pushFollow(FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__08546);
 			rule__QualifiedName__Group__0__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__08303);
+			pushFollow(FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__08549);
 			rule__QualifiedName__Group__1();
 			state._fsp--;
 
@@ -10647,20 +10944,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__QualifiedName__Group__0__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4157:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4283:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
 	public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4161:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4162:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4287:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4288:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4162:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4163:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4288:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4289:1: RULE_ID
 			{
 			 before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl8330); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl8576); 
 			 after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
 			}
 
@@ -10683,16 +10980,16 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__QualifiedName__Group__1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4174:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4300:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
 	public final void rule__QualifiedName__Group__1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4178:2: ( rule__QualifiedName__Group__1__Impl )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4179:2: rule__QualifiedName__Group__1__Impl
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4304:2: ( rule__QualifiedName__Group__1__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4305:2: rule__QualifiedName__Group__1__Impl
 			{
-			pushFollow(FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__18359);
+			pushFollow(FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__18605);
 			rule__QualifiedName__Group__1__Impl();
 			state._fsp--;
 
@@ -10715,20 +11012,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__QualifiedName__Group__1__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4185:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4311:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
 	public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4189:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4190:1: ( ( rule__QualifiedName__Group_1__0 )* )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4315:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4316:1: ( ( rule__QualifiedName__Group_1__0 )* )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4190:1: ( ( rule__QualifiedName__Group_1__0 )* )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4191:1: ( rule__QualifiedName__Group_1__0 )*
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4316:1: ( ( rule__QualifiedName__Group_1__0 )* )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4317:1: ( rule__QualifiedName__Group_1__0 )*
 			{
 			 before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4192:2: ( rule__QualifiedName__Group_1__0 )*
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4318:2: ( rule__QualifiedName__Group_1__0 )*
 			loop38:
 			while (true) {
 				int alt38=2;
@@ -10739,9 +11036,9 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 				switch (alt38) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4192:2: rule__QualifiedName__Group_1__0
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4318:2: rule__QualifiedName__Group_1__0
 					{
-					pushFollow(FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl8386);
+					pushFollow(FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl8632);
 					rule__QualifiedName__Group_1__0();
 					state._fsp--;
 
@@ -10775,20 +11072,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__QualifiedName__Group_1__0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4206:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4332:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
 	public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4210:2: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4211:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4336:2: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4337:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
 			{
-			pushFollow(FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__08421);
+			pushFollow(FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__08667);
 			rule__QualifiedName__Group_1__0__Impl();
 			state._fsp--;
 
-			pushFollow(FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__08424);
+			pushFollow(FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__08670);
 			rule__QualifiedName__Group_1__1();
 			state._fsp--;
 
@@ -10811,20 +11108,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4218:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4344:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
 	public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4222:1: ( ( '.' ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4223:1: ( '.' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4348:1: ( ( '.' ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4349:1: ( '.' )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4223:1: ( '.' )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4224:1: '.'
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4349:1: ( '.' )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4350:1: '.'
 			{
 			 before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
-			match(input,12,FOLLOW_12_in_rule__QualifiedName__Group_1__0__Impl8452); 
+			match(input,12,FOLLOW_12_in_rule__QualifiedName__Group_1__0__Impl8698); 
 			 after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
 			}
 
@@ -10847,16 +11144,16 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__QualifiedName__Group_1__1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4237:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4363:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
 	public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4241:2: ( rule__QualifiedName__Group_1__1__Impl )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4242:2: rule__QualifiedName__Group_1__1__Impl
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4367:2: ( rule__QualifiedName__Group_1__1__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4368:2: rule__QualifiedName__Group_1__1__Impl
 			{
-			pushFollow(FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__18483);
+			pushFollow(FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__18729);
 			rule__QualifiedName__Group_1__1__Impl();
 			state._fsp--;
 
@@ -10879,20 +11176,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4248:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4374:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
 	public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4252:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4253:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4378:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4379:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4253:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4254:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4379:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4380:1: RULE_ID
 			{
 			 before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl8510); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl8756); 
 			 after(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
 			}
 
@@ -10915,30 +11212,30 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__UnorderedGroup_4"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4270:1: rule__UseCase__UnorderedGroup_4 : ( rule__UseCase__UnorderedGroup_4__0 )? ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4396:1: rule__UseCase__UnorderedGroup_4 : ( rule__UseCase__UnorderedGroup_4__0 )? ;
 	public final void rule__UseCase__UnorderedGroup_4() throws RecognitionException {
 
 		    	int stackSize = keepStackSize();
 				getUnorderedGroupHelper().enter(grammarAccess.getUseCaseAccess().getUnorderedGroup_4());
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4275:2: ( ( rule__UseCase__UnorderedGroup_4__0 )? )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4276:2: ( rule__UseCase__UnorderedGroup_4__0 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4401:2: ( ( rule__UseCase__UnorderedGroup_4__0 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4402:2: ( rule__UseCase__UnorderedGroup_4__0 )?
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4276:2: ( rule__UseCase__UnorderedGroup_4__0 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4402:2: ( rule__UseCase__UnorderedGroup_4__0 )?
 			int alt39=2;
 			int LA39_0 = input.LA(1);
-			if ( LA39_0 ==37 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0) ) {
+			if ( LA39_0 ==38 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0) ) {
 				alt39=1;
 			}
-			else if ( LA39_0 ==36 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1) ) {
+			else if ( LA39_0 ==37 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1) ) {
 				alt39=1;
 			}
 			switch (alt39) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4276:2: rule__UseCase__UnorderedGroup_4__0
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4402:2: rule__UseCase__UnorderedGroup_4__0
 					{
-					pushFollow(FOLLOW_rule__UseCase__UnorderedGroup_4__0_in_rule__UseCase__UnorderedGroup_48544);
+					pushFollow(FOLLOW_rule__UseCase__UnorderedGroup_4__0_in_rule__UseCase__UnorderedGroup_48790);
 					rule__UseCase__UnorderedGroup_4__0();
 					state._fsp--;
 
@@ -10967,38 +11264,38 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__UnorderedGroup_4__Impl"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4286:1: rule__UseCase__UnorderedGroup_4__Impl : ( ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) ) | ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4412:1: rule__UseCase__UnorderedGroup_4__Impl : ( ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) ) | ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) ) ) ;
 	public final void rule__UseCase__UnorderedGroup_4__Impl() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 				boolean selected = false;
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4291:3: ( ( ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) ) | ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4292:3: ( ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) ) | ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4417:3: ( ( ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) ) | ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4418:3: ( ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) ) | ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4292:3: ( ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) ) | ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4418:3: ( ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) ) | ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) ) )
 			int alt40=2;
 			int LA40_0 = input.LA(1);
-			if ( LA40_0 ==37 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0) ) {
+			if ( LA40_0 ==38 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0) ) {
 				alt40=1;
 			}
-			else if ( LA40_0 ==36 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1) ) {
+			else if ( LA40_0 ==37 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1) ) {
 				alt40=2;
 			}
 
 			switch (alt40) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4294:4: ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4420:4: ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) )
 					{
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4294:4: ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) )
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4295:5: {...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4420:4: ({...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4421:5: {...}? => ( ( ( rule__UseCase__Group_4_0__0 ) ) )
 					{
 					if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0) ) {
 						throw new FailedPredicateException(input, "rule__UseCase__UnorderedGroup_4__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0)");
 					}
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4295:104: ( ( ( rule__UseCase__Group_4_0__0 ) ) )
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4296:6: ( ( rule__UseCase__Group_4_0__0 ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4421:104: ( ( ( rule__UseCase__Group_4_0__0 ) ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4422:6: ( ( rule__UseCase__Group_4_0__0 ) )
 					{
 					 
 						 				  getUnorderedGroupHelper().select(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0);
@@ -11006,14 +11303,14 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 						 				  selected = true;
 						 				
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4302:6: ( ( rule__UseCase__Group_4_0__0 ) )
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4304:7: ( rule__UseCase__Group_4_0__0 )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4428:6: ( ( rule__UseCase__Group_4_0__0 ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4430:7: ( rule__UseCase__Group_4_0__0 )
 					{
 					 before(grammarAccess.getUseCaseAccess().getGroup_4_0()); 
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4305:7: ( rule__UseCase__Group_4_0__0 )
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4305:8: rule__UseCase__Group_4_0__0
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4431:7: ( rule__UseCase__Group_4_0__0 )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4431:8: rule__UseCase__Group_4_0__0
 					{
-					pushFollow(FOLLOW_rule__UseCase__Group_4_0__0_in_rule__UseCase__UnorderedGroup_4__Impl8631);
+					pushFollow(FOLLOW_rule__UseCase__Group_4_0__0_in_rule__UseCase__UnorderedGroup_4__Impl8877);
 					rule__UseCase__Group_4_0__0();
 					state._fsp--;
 
@@ -11029,16 +11326,16 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 					}
 					break;
 				case 2 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4311:4: ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4437:4: ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) )
 					{
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4311:4: ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) )
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4312:5: {...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4437:4: ({...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4438:5: {...}? => ( ( ( rule__UseCase__Group_4_1__0 ) ) )
 					{
 					if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1) ) {
 						throw new FailedPredicateException(input, "rule__UseCase__UnorderedGroup_4__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1)");
 					}
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4312:104: ( ( ( rule__UseCase__Group_4_1__0 ) ) )
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4313:6: ( ( rule__UseCase__Group_4_1__0 ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4438:104: ( ( ( rule__UseCase__Group_4_1__0 ) ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4439:6: ( ( rule__UseCase__Group_4_1__0 ) )
 					{
 					 
 						 				  getUnorderedGroupHelper().select(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1);
@@ -11046,14 +11343,14 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 						 				  selected = true;
 						 				
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4319:6: ( ( rule__UseCase__Group_4_1__0 ) )
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4321:7: ( rule__UseCase__Group_4_1__0 )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4445:6: ( ( rule__UseCase__Group_4_1__0 ) )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4447:7: ( rule__UseCase__Group_4_1__0 )
 					{
 					 before(grammarAccess.getUseCaseAccess().getGroup_4_1()); 
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4322:7: ( rule__UseCase__Group_4_1__0 )
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4322:8: rule__UseCase__Group_4_1__0
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4448:7: ( rule__UseCase__Group_4_1__0 )
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4448:8: rule__UseCase__Group_4_1__0
 					{
-					pushFollow(FOLLOW_rule__UseCase__Group_4_1__0_in_rule__UseCase__UnorderedGroup_4__Impl8722);
+					pushFollow(FOLLOW_rule__UseCase__Group_4_1__0_in_rule__UseCase__UnorderedGroup_4__Impl8968);
 					rule__UseCase__Group_4_1__0();
 					state._fsp--;
 
@@ -11092,33 +11389,33 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__UnorderedGroup_4__0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4337:1: rule__UseCase__UnorderedGroup_4__0 : rule__UseCase__UnorderedGroup_4__Impl ( rule__UseCase__UnorderedGroup_4__1 )? ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4463:1: rule__UseCase__UnorderedGroup_4__0 : rule__UseCase__UnorderedGroup_4__Impl ( rule__UseCase__UnorderedGroup_4__1 )? ;
 	public final void rule__UseCase__UnorderedGroup_4__0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4341:2: ( rule__UseCase__UnorderedGroup_4__Impl ( rule__UseCase__UnorderedGroup_4__1 )? )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4342:2: rule__UseCase__UnorderedGroup_4__Impl ( rule__UseCase__UnorderedGroup_4__1 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4467:2: ( rule__UseCase__UnorderedGroup_4__Impl ( rule__UseCase__UnorderedGroup_4__1 )? )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4468:2: rule__UseCase__UnorderedGroup_4__Impl ( rule__UseCase__UnorderedGroup_4__1 )?
 			{
-			pushFollow(FOLLOW_rule__UseCase__UnorderedGroup_4__Impl_in_rule__UseCase__UnorderedGroup_4__08781);
+			pushFollow(FOLLOW_rule__UseCase__UnorderedGroup_4__Impl_in_rule__UseCase__UnorderedGroup_4__09027);
 			rule__UseCase__UnorderedGroup_4__Impl();
 			state._fsp--;
 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4343:2: ( rule__UseCase__UnorderedGroup_4__1 )?
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4469:2: ( rule__UseCase__UnorderedGroup_4__1 )?
 			int alt41=2;
 			int LA41_0 = input.LA(1);
-			if ( LA41_0 ==37 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0) ) {
+			if ( LA41_0 ==38 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 0) ) {
 				alt41=1;
 			}
-			else if ( LA41_0 ==36 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1) ) {
+			else if ( LA41_0 ==37 && getUnorderedGroupHelper().canSelect(grammarAccess.getUseCaseAccess().getUnorderedGroup_4(), 1) ) {
 				alt41=1;
 			}
 			switch (alt41) {
 				case 1 :
-					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4343:2: rule__UseCase__UnorderedGroup_4__1
+					// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4469:2: rule__UseCase__UnorderedGroup_4__1
 					{
-					pushFollow(FOLLOW_rule__UseCase__UnorderedGroup_4__1_in_rule__UseCase__UnorderedGroup_4__08784);
+					pushFollow(FOLLOW_rule__UseCase__UnorderedGroup_4__1_in_rule__UseCase__UnorderedGroup_4__09030);
 					rule__UseCase__UnorderedGroup_4__1();
 					state._fsp--;
 
@@ -11146,16 +11443,16 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__UnorderedGroup_4__1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4350:1: rule__UseCase__UnorderedGroup_4__1 : rule__UseCase__UnorderedGroup_4__Impl ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4476:1: rule__UseCase__UnorderedGroup_4__1 : rule__UseCase__UnorderedGroup_4__Impl ;
 	public final void rule__UseCase__UnorderedGroup_4__1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4354:2: ( rule__UseCase__UnorderedGroup_4__Impl )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4355:2: rule__UseCase__UnorderedGroup_4__Impl
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4480:2: ( rule__UseCase__UnorderedGroup_4__Impl )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4481:2: rule__UseCase__UnorderedGroup_4__Impl
 			{
-			pushFollow(FOLLOW_rule__UseCase__UnorderedGroup_4__Impl_in_rule__UseCase__UnorderedGroup_4__18809);
+			pushFollow(FOLLOW_rule__UseCase__UnorderedGroup_4__Impl_in_rule__UseCase__UnorderedGroup_4__19055);
 			rule__UseCase__UnorderedGroup_4__Impl();
 			state._fsp--;
 
@@ -11178,20 +11475,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCasesModel__PackagesAssignment"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4366:1: rule__UseCasesModel__PackagesAssignment : ( rulePackageDeclaration ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4492:1: rule__UseCasesModel__PackagesAssignment : ( rulePackageDeclaration ) ;
 	public final void rule__UseCasesModel__PackagesAssignment() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4370:1: ( ( rulePackageDeclaration ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4371:1: ( rulePackageDeclaration )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4496:1: ( ( rulePackageDeclaration ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4497:1: ( rulePackageDeclaration )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4371:1: ( rulePackageDeclaration )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4372:1: rulePackageDeclaration
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4497:1: ( rulePackageDeclaration )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4498:1: rulePackageDeclaration
 			{
 			 before(grammarAccess.getUseCasesModelAccess().getPackagesPackageDeclarationParserRuleCall_0()); 
-			pushFollow(FOLLOW_rulePackageDeclaration_in_rule__UseCasesModel__PackagesAssignment8841);
+			pushFollow(FOLLOW_rulePackageDeclaration_in_rule__UseCasesModel__PackagesAssignment9087);
 			rulePackageDeclaration();
 			state._fsp--;
 
@@ -11217,20 +11514,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__PackageDeclaration__NameAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4381:1: rule__PackageDeclaration__NameAssignment_1 : ( ruleQualifiedName ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4507:1: rule__PackageDeclaration__NameAssignment_1 : ( ruleQualifiedName ) ;
 	public final void rule__PackageDeclaration__NameAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4385:1: ( ( ruleQualifiedName ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4386:1: ( ruleQualifiedName )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4511:1: ( ( ruleQualifiedName ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4512:1: ( ruleQualifiedName )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4386:1: ( ruleQualifiedName )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4387:1: ruleQualifiedName
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4512:1: ( ruleQualifiedName )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4513:1: ruleQualifiedName
 			{
 			 before(grammarAccess.getPackageDeclarationAccess().getNameQualifiedNameParserRuleCall_1_0()); 
-			pushFollow(FOLLOW_ruleQualifiedName_in_rule__PackageDeclaration__NameAssignment_18872);
+			pushFollow(FOLLOW_ruleQualifiedName_in_rule__PackageDeclaration__NameAssignment_19118);
 			ruleQualifiedName();
 			state._fsp--;
 
@@ -11256,20 +11553,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__PackageDeclaration__DescriptionAssignment_2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4396:1: rule__PackageDeclaration__DescriptionAssignment_2 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4522:1: rule__PackageDeclaration__DescriptionAssignment_2 : ( RULE_STRING ) ;
 	public final void rule__PackageDeclaration__DescriptionAssignment_2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4400:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4401:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4526:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4527:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4401:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4402:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4527:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4528:1: RULE_STRING
 			{
 			 before(grammarAccess.getPackageDeclarationAccess().getDescriptionSTRINGTerminalRuleCall_2_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__PackageDeclaration__DescriptionAssignment_28903); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__PackageDeclaration__DescriptionAssignment_29149); 
 			 after(grammarAccess.getPackageDeclarationAccess().getDescriptionSTRINGTerminalRuleCall_2_0()); 
 			}
 
@@ -11292,20 +11589,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__PackageDeclaration__ActorsAssignment_3_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4411:1: rule__PackageDeclaration__ActorsAssignment_3_1 : ( ruleActor ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4537:1: rule__PackageDeclaration__ActorsAssignment_3_1 : ( ruleActor ) ;
 	public final void rule__PackageDeclaration__ActorsAssignment_3_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4415:1: ( ( ruleActor ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4416:1: ( ruleActor )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4541:1: ( ( ruleActor ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4542:1: ( ruleActor )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4416:1: ( ruleActor )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4417:1: ruleActor
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4542:1: ( ruleActor )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4543:1: ruleActor
 			{
 			 before(grammarAccess.getPackageDeclarationAccess().getActorsActorParserRuleCall_3_1_0()); 
-			pushFollow(FOLLOW_ruleActor_in_rule__PackageDeclaration__ActorsAssignment_3_18934);
+			pushFollow(FOLLOW_ruleActor_in_rule__PackageDeclaration__ActorsAssignment_3_19180);
 			ruleActor();
 			state._fsp--;
 
@@ -11331,20 +11628,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__PackageDeclaration__UseCasesAssignment_4"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4426:1: rule__PackageDeclaration__UseCasesAssignment_4 : ( ruleUseCase ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4552:1: rule__PackageDeclaration__UseCasesAssignment_4 : ( ruleUseCase ) ;
 	public final void rule__PackageDeclaration__UseCasesAssignment_4() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4430:1: ( ( ruleUseCase ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4431:1: ( ruleUseCase )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4556:1: ( ( ruleUseCase ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4557:1: ( ruleUseCase )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4431:1: ( ruleUseCase )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4432:1: ruleUseCase
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4557:1: ( ruleUseCase )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4558:1: ruleUseCase
 			{
 			 before(grammarAccess.getPackageDeclarationAccess().getUseCasesUseCaseParserRuleCall_4_0()); 
-			pushFollow(FOLLOW_ruleUseCase_in_rule__PackageDeclaration__UseCasesAssignment_48965);
+			pushFollow(FOLLOW_ruleUseCase_in_rule__PackageDeclaration__UseCasesAssignment_49211);
 			ruleUseCase();
 			state._fsp--;
 
@@ -11370,20 +11667,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__NameAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4441:1: rule__UseCase__NameAssignment_1 : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4567:1: rule__UseCase__NameAssignment_1 : ( RULE_ID ) ;
 	public final void rule__UseCase__NameAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4445:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4446:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4571:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4572:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4446:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4447:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4572:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4573:1: RULE_ID
 			{
 			 before(grammarAccess.getUseCaseAccess().getNameIDTerminalRuleCall_1_0()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__UseCase__NameAssignment_18996); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__UseCase__NameAssignment_19242); 
 			 after(grammarAccess.getUseCaseAccess().getNameIDTerminalRuleCall_1_0()); 
 			}
 
@@ -11406,20 +11703,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__DescriptionAssignment_2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4456:1: rule__UseCase__DescriptionAssignment_2 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4582:1: rule__UseCase__DescriptionAssignment_2 : ( RULE_STRING ) ;
 	public final void rule__UseCase__DescriptionAssignment_2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4460:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4461:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4586:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4587:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4461:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4462:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4587:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4588:1: RULE_STRING
 			{
 			 before(grammarAccess.getUseCaseAccess().getDescriptionSTRINGTerminalRuleCall_2_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__UseCase__DescriptionAssignment_29027); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__UseCase__DescriptionAssignment_29273); 
 			 after(grammarAccess.getUseCaseAccess().getDescriptionSTRINGTerminalRuleCall_2_0()); 
 			}
 
@@ -11442,24 +11739,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__SuperCaseAssignment_3_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4471:1: rule__UseCase__SuperCaseAssignment_3_1 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4597:1: rule__UseCase__SuperCaseAssignment_3_1 : ( ( RULE_ID ) ) ;
 	public final void rule__UseCase__SuperCaseAssignment_3_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4475:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4476:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4601:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4602:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4476:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4477:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4602:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4603:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getUseCaseAccess().getSuperCaseUseCaseCrossReference_3_1_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4478:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4479:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4604:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4605:1: RULE_ID
 			{
 			 before(grammarAccess.getUseCaseAccess().getSuperCaseUseCaseIDTerminalRuleCall_3_1_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__UseCase__SuperCaseAssignment_3_19062); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__UseCase__SuperCaseAssignment_3_19308); 
 			 after(grammarAccess.getUseCaseAccess().getSuperCaseUseCaseIDTerminalRuleCall_3_1_0_1()); 
 			}
 
@@ -11485,20 +11782,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__PreConditionsAssignment_4_0_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4490:1: rule__UseCase__PreConditionsAssignment_4_0_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4616:1: rule__UseCase__PreConditionsAssignment_4_0_1 : ( RULE_STRING ) ;
 	public final void rule__UseCase__PreConditionsAssignment_4_0_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4494:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4495:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4620:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4621:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4495:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4496:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4621:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4622:1: RULE_STRING
 			{
 			 before(grammarAccess.getUseCaseAccess().getPreConditionsSTRINGTerminalRuleCall_4_0_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__UseCase__PreConditionsAssignment_4_0_19097); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__UseCase__PreConditionsAssignment_4_0_19343); 
 			 after(grammarAccess.getUseCaseAccess().getPreConditionsSTRINGTerminalRuleCall_4_0_1_0()); 
 			}
 
@@ -11521,20 +11818,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__PostconditionAssignment_4_1_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4505:1: rule__UseCase__PostconditionAssignment_4_1_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4631:1: rule__UseCase__PostconditionAssignment_4_1_1 : ( RULE_STRING ) ;
 	public final void rule__UseCase__PostconditionAssignment_4_1_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4509:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4510:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4635:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4636:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4510:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4511:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4636:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4637:1: RULE_STRING
 			{
 			 before(grammarAccess.getUseCaseAccess().getPostconditionSTRINGTerminalRuleCall_4_1_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__UseCase__PostconditionAssignment_4_1_19128); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__UseCase__PostconditionAssignment_4_1_19374); 
 			 after(grammarAccess.getUseCaseAccess().getPostconditionSTRINGTerminalRuleCall_4_1_1_0()); 
 			}
 
@@ -11557,20 +11854,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__UseCase__FlowsAssignment_5"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4520:1: rule__UseCase__FlowsAssignment_5 : ( ruleFlow ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4646:1: rule__UseCase__FlowsAssignment_5 : ( ruleFlow ) ;
 	public final void rule__UseCase__FlowsAssignment_5() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4524:1: ( ( ruleFlow ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4525:1: ( ruleFlow )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4650:1: ( ( ruleFlow ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4651:1: ( ruleFlow )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4525:1: ( ruleFlow )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4526:1: ruleFlow
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4651:1: ( ruleFlow )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4652:1: ruleFlow
 			{
 			 before(grammarAccess.getUseCaseAccess().getFlowsFlowParserRuleCall_5_0()); 
-			pushFollow(FOLLOW_ruleFlow_in_rule__UseCase__FlowsAssignment_59159);
+			pushFollow(FOLLOW_ruleFlow_in_rule__UseCase__FlowsAssignment_59405);
 			ruleFlow();
 			state._fsp--;
 
@@ -11596,20 +11893,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__Actor__NameAssignment_0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4535:1: rule__Actor__NameAssignment_0 : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4661:1: rule__Actor__NameAssignment_0 : ( RULE_ID ) ;
 	public final void rule__Actor__NameAssignment_0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4539:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4540:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4665:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4666:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4540:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4541:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4666:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4667:1: RULE_ID
 			{
 			 before(grammarAccess.getActorAccess().getNameIDTerminalRuleCall_0_0()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Actor__NameAssignment_09190); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Actor__NameAssignment_09436); 
 			 after(grammarAccess.getActorAccess().getNameIDTerminalRuleCall_0_0()); 
 			}
 
@@ -11632,20 +11929,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__Actor__TypeAssignment_2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4550:1: rule__Actor__TypeAssignment_2 : ( ruleActorType ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4676:1: rule__Actor__TypeAssignment_2 : ( ruleActorType ) ;
 	public final void rule__Actor__TypeAssignment_2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4554:1: ( ( ruleActorType ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4555:1: ( ruleActorType )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4680:1: ( ( ruleActorType ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4681:1: ( ruleActorType )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4555:1: ( ruleActorType )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4556:1: ruleActorType
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4681:1: ( ruleActorType )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4682:1: ruleActorType
 			{
 			 before(grammarAccess.getActorAccess().getTypeActorTypeEnumRuleCall_2_0()); 
-			pushFollow(FOLLOW_ruleActorType_in_rule__Actor__TypeAssignment_29221);
+			pushFollow(FOLLOW_ruleActorType_in_rule__Actor__TypeAssignment_29467);
 			ruleActorType();
 			state._fsp--;
 
@@ -11671,20 +11968,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__Actor__DescriptionAssignment_3"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4565:1: rule__Actor__DescriptionAssignment_3 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4691:1: rule__Actor__DescriptionAssignment_3 : ( RULE_STRING ) ;
 	public final void rule__Actor__DescriptionAssignment_3() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4569:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4570:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4695:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4696:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4570:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4571:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4696:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4697:1: RULE_STRING
 			{
 			 before(grammarAccess.getActorAccess().getDescriptionSTRINGTerminalRuleCall_3_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Actor__DescriptionAssignment_39252); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Actor__DescriptionAssignment_39498); 
 			 after(grammarAccess.getActorAccess().getDescriptionSTRINGTerminalRuleCall_3_0()); 
 			}
 
@@ -11707,24 +12004,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__Actor__ExtendsAssignment_4_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4580:1: rule__Actor__ExtendsAssignment_4_1 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4706:1: rule__Actor__ExtendsAssignment_4_1 : ( ( RULE_ID ) ) ;
 	public final void rule__Actor__ExtendsAssignment_4_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4584:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4585:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4710:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4711:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4585:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4586:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4711:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4712:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getActorAccess().getExtendsActorCrossReference_4_1_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4587:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4588:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4713:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4714:1: RULE_ID
 			{
 			 before(grammarAccess.getActorAccess().getExtendsActorIDTerminalRuleCall_4_1_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Actor__ExtendsAssignment_4_19287); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Actor__ExtendsAssignment_4_19533); 
 			 after(grammarAccess.getActorAccess().getExtendsActorIDTerminalRuleCall_4_1_0_1()); 
 			}
 
@@ -11750,20 +12047,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__BasicFlow__StepsAssignment_2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4599:1: rule__BasicFlow__StepsAssignment_2 : ( ruleStep ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4725:1: rule__BasicFlow__StepsAssignment_2 : ( ruleStep ) ;
 	public final void rule__BasicFlow__StepsAssignment_2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4603:1: ( ( ruleStep ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4604:1: ( ruleStep )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4729:1: ( ( ruleStep ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4730:1: ( ruleStep )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4604:1: ( ruleStep )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4605:1: ruleStep
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4730:1: ( ruleStep )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4731:1: ruleStep
 			{
 			 before(grammarAccess.getBasicFlowAccess().getStepsStepParserRuleCall_2_0()); 
-			pushFollow(FOLLOW_ruleStep_in_rule__BasicFlow__StepsAssignment_29322);
+			pushFollow(FOLLOW_ruleStep_in_rule__BasicFlow__StepsAssignment_29568);
 			ruleStep();
 			state._fsp--;
 
@@ -11789,20 +12086,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__BasicFlow__FinalStateAssignment_4_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4614:1: rule__BasicFlow__FinalStateAssignment_4_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4740:1: rule__BasicFlow__FinalStateAssignment_4_1 : ( RULE_STRING ) ;
 	public final void rule__BasicFlow__FinalStateAssignment_4_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4618:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4619:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4744:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4745:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4619:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4620:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4745:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4746:1: RULE_STRING
 			{
 			 before(grammarAccess.getBasicFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__BasicFlow__FinalStateAssignment_4_19353); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__BasicFlow__FinalStateAssignment_4_19599); 
 			 after(grammarAccess.getBasicFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
 			}
 
@@ -11825,20 +12122,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ExceptionFlow__NameAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4629:1: rule__ExceptionFlow__NameAssignment_1 : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4755:1: rule__ExceptionFlow__NameAssignment_1 : ( RULE_ID ) ;
 	public final void rule__ExceptionFlow__NameAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4633:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4634:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4759:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4760:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4634:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4635:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4760:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4761:1: RULE_ID
 			{
 			 before(grammarAccess.getExceptionFlowAccess().getNameIDTerminalRuleCall_1_0()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExceptionFlow__NameAssignment_19384); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ExceptionFlow__NameAssignment_19630); 
 			 after(grammarAccess.getExceptionFlowAccess().getNameIDTerminalRuleCall_1_0()); 
 			}
 
@@ -11861,20 +12158,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ExceptionFlow__ConditionAssignment_3"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4644:1: rule__ExceptionFlow__ConditionAssignment_3 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4770:1: rule__ExceptionFlow__ConditionAssignment_3 : ( RULE_STRING ) ;
 	public final void rule__ExceptionFlow__ConditionAssignment_3() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4648:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4649:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4774:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4775:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4649:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4650:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4775:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4776:1: RULE_STRING
 			{
 			 before(grammarAccess.getExceptionFlowAccess().getConditionSTRINGTerminalRuleCall_3_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ExceptionFlow__ConditionAssignment_39415); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ExceptionFlow__ConditionAssignment_39661); 
 			 after(grammarAccess.getExceptionFlowAccess().getConditionSTRINGTerminalRuleCall_3_0()); 
 			}
 
@@ -11897,20 +12194,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ExceptionFlow__StepsAssignment_5"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4659:1: rule__ExceptionFlow__StepsAssignment_5 : ( ruleStep ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4785:1: rule__ExceptionFlow__StepsAssignment_5 : ( ruleStep ) ;
 	public final void rule__ExceptionFlow__StepsAssignment_5() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4663:1: ( ( ruleStep ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4664:1: ( ruleStep )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4789:1: ( ( ruleStep ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4790:1: ( ruleStep )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4664:1: ( ruleStep )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4665:1: ruleStep
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4790:1: ( ruleStep )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4791:1: ruleStep
 			{
 			 before(grammarAccess.getExceptionFlowAccess().getStepsStepParserRuleCall_5_0()); 
-			pushFollow(FOLLOW_ruleStep_in_rule__ExceptionFlow__StepsAssignment_59446);
+			pushFollow(FOLLOW_ruleStep_in_rule__ExceptionFlow__StepsAssignment_59692);
 			ruleStep();
 			state._fsp--;
 
@@ -11936,20 +12233,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ExceptionFlow__FinalStateAssignment_7_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4674:1: rule__ExceptionFlow__FinalStateAssignment_7_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4800:1: rule__ExceptionFlow__FinalStateAssignment_7_1 : ( RULE_STRING ) ;
 	public final void rule__ExceptionFlow__FinalStateAssignment_7_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4678:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4679:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4804:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4805:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4679:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4680:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4805:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4806:1: RULE_STRING
 			{
 			 before(grammarAccess.getExceptionFlowAccess().getFinalStateSTRINGTerminalRuleCall_7_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ExceptionFlow__FinalStateAssignment_7_19477); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ExceptionFlow__FinalStateAssignment_7_19723); 
 			 after(grammarAccess.getExceptionFlowAccess().getFinalStateSTRINGTerminalRuleCall_7_1_0()); 
 			}
 
@@ -11972,20 +12269,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__AlternativeFlow__NameAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4689:1: rule__AlternativeFlow__NameAssignment_1 : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4815:1: rule__AlternativeFlow__NameAssignment_1 : ( RULE_ID ) ;
 	public final void rule__AlternativeFlow__NameAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4693:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4694:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4819:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4820:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4694:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4695:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4820:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4821:1: RULE_ID
 			{
 			 before(grammarAccess.getAlternativeFlowAccess().getNameIDTerminalRuleCall_1_0()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AlternativeFlow__NameAssignment_19508); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AlternativeFlow__NameAssignment_19754); 
 			 after(grammarAccess.getAlternativeFlowAccess().getNameIDTerminalRuleCall_1_0()); 
 			}
 
@@ -12008,20 +12305,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__AlternativeFlow__StepsAssignment_2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4704:1: rule__AlternativeFlow__StepsAssignment_2 : ( ruleStep ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4830:1: rule__AlternativeFlow__StepsAssignment_2 : ( ruleStep ) ;
 	public final void rule__AlternativeFlow__StepsAssignment_2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4708:1: ( ( ruleStep ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4709:1: ( ruleStep )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4834:1: ( ( ruleStep ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4835:1: ( ruleStep )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4709:1: ( ruleStep )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4710:1: ruleStep
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4835:1: ( ruleStep )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4836:1: ruleStep
 			{
 			 before(grammarAccess.getAlternativeFlowAccess().getStepsStepParserRuleCall_2_0()); 
-			pushFollow(FOLLOW_ruleStep_in_rule__AlternativeFlow__StepsAssignment_29539);
+			pushFollow(FOLLOW_ruleStep_in_rule__AlternativeFlow__StepsAssignment_29785);
 			ruleStep();
 			state._fsp--;
 
@@ -12047,20 +12344,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__AlternativeFlow__FinalStateAssignment_4_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4719:1: rule__AlternativeFlow__FinalStateAssignment_4_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4845:1: rule__AlternativeFlow__FinalStateAssignment_4_1 : ( RULE_STRING ) ;
 	public final void rule__AlternativeFlow__FinalStateAssignment_4_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4723:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4724:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4849:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4850:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4724:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4725:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4850:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4851:1: RULE_STRING
 			{
 			 before(grammarAccess.getAlternativeFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AlternativeFlow__FinalStateAssignment_4_19570); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AlternativeFlow__FinalStateAssignment_4_19816); 
 			 after(grammarAccess.getAlternativeFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
 			}
 
@@ -12083,20 +12380,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ParallelFlow__NameAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4734:1: rule__ParallelFlow__NameAssignment_1 : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4860:1: rule__ParallelFlow__NameAssignment_1 : ( RULE_ID ) ;
 	public final void rule__ParallelFlow__NameAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4738:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4739:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4864:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4865:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4739:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4740:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4865:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4866:1: RULE_ID
 			{
 			 before(grammarAccess.getParallelFlowAccess().getNameIDTerminalRuleCall_1_0()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelFlow__NameAssignment_19601); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelFlow__NameAssignment_19847); 
 			 after(grammarAccess.getParallelFlowAccess().getNameIDTerminalRuleCall_1_0()); 
 			}
 
@@ -12119,20 +12416,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ParallelFlow__StepsAssignment_2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4749:1: rule__ParallelFlow__StepsAssignment_2 : ( ruleStep ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4875:1: rule__ParallelFlow__StepsAssignment_2 : ( ruleStep ) ;
 	public final void rule__ParallelFlow__StepsAssignment_2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4753:1: ( ( ruleStep ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4754:1: ( ruleStep )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4879:1: ( ( ruleStep ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4880:1: ( ruleStep )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4754:1: ( ruleStep )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4755:1: ruleStep
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4880:1: ( ruleStep )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4881:1: ruleStep
 			{
 			 before(grammarAccess.getParallelFlowAccess().getStepsStepParserRuleCall_2_0()); 
-			pushFollow(FOLLOW_ruleStep_in_rule__ParallelFlow__StepsAssignment_29632);
+			pushFollow(FOLLOW_ruleStep_in_rule__ParallelFlow__StepsAssignment_29878);
 			ruleStep();
 			state._fsp--;
 
@@ -12158,20 +12455,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ParallelFlow__FinalStateAssignment_4_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4764:1: rule__ParallelFlow__FinalStateAssignment_4_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4890:1: rule__ParallelFlow__FinalStateAssignment_4_1 : ( RULE_STRING ) ;
 	public final void rule__ParallelFlow__FinalStateAssignment_4_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4768:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4769:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4894:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4895:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4769:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4770:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4895:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4896:1: RULE_STRING
 			{
 			 before(grammarAccess.getParallelFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ParallelFlow__FinalStateAssignment_4_19663); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ParallelFlow__FinalStateAssignment_4_19909); 
 			 after(grammarAccess.getParallelFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
 			}
 
@@ -12194,20 +12491,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__Condition__ConditionAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4779:1: rule__Condition__ConditionAssignment_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4905:1: rule__Condition__ConditionAssignment_1 : ( RULE_STRING ) ;
 	public final void rule__Condition__ConditionAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4783:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4784:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4909:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4910:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4784:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4785:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4910:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4911:1: RULE_STRING
 			{
 			 before(grammarAccess.getConditionAccess().getConditionSTRINGTerminalRuleCall_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Condition__ConditionAssignment_19694); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Condition__ConditionAssignment_19940); 
 			 after(grammarAccess.getConditionAccess().getConditionSTRINGTerminalRuleCall_1_0()); 
 			}
 
@@ -12230,24 +12527,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__Condition__ContinuationAssignment_3_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4794:1: rule__Condition__ContinuationAssignment_3_1 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4920:1: rule__Condition__ContinuationAssignment_3_1 : ( ( RULE_ID ) ) ;
 	public final void rule__Condition__ContinuationAssignment_3_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4798:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4799:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4924:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4925:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4799:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4800:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4925:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4926:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getConditionAccess().getContinuationStepCrossReference_3_1_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4801:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4802:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4927:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4928:1: RULE_ID
 			{
 			 before(grammarAccess.getConditionAccess().getContinuationStepIDTerminalRuleCall_3_1_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Condition__ContinuationAssignment_3_19729); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Condition__ContinuationAssignment_3_19975); 
 			 after(grammarAccess.getConditionAccess().getContinuationStepIDTerminalRuleCall_3_1_0_1()); 
 			}
 
@@ -12273,20 +12570,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__LocalAlternative__ConditionAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4813:1: rule__LocalAlternative__ConditionAssignment_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4939:1: rule__LocalAlternative__ConditionAssignment_1 : ( RULE_STRING ) ;
 	public final void rule__LocalAlternative__ConditionAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4817:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4818:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4943:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4944:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4818:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4819:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4944:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4945:1: RULE_STRING
 			{
 			 before(grammarAccess.getLocalAlternativeAccess().getConditionSTRINGTerminalRuleCall_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LocalAlternative__ConditionAssignment_19764); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LocalAlternative__ConditionAssignment_110010); 
 			 after(grammarAccess.getLocalAlternativeAccess().getConditionSTRINGTerminalRuleCall_1_0()); 
 			}
 
@@ -12309,20 +12606,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__LocalAlternative__DescriptionAssignment_3_0"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4828:1: rule__LocalAlternative__DescriptionAssignment_3_0 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4954:1: rule__LocalAlternative__DescriptionAssignment_3_0 : ( RULE_STRING ) ;
 	public final void rule__LocalAlternative__DescriptionAssignment_3_0() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4832:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4833:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4958:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4959:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4833:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4834:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4959:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4960:1: RULE_STRING
 			{
 			 before(grammarAccess.getLocalAlternativeAccess().getDescriptionSTRINGTerminalRuleCall_3_0_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LocalAlternative__DescriptionAssignment_3_09795); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__LocalAlternative__DescriptionAssignment_3_010041); 
 			 after(grammarAccess.getLocalAlternativeAccess().getDescriptionSTRINGTerminalRuleCall_3_0_0()); 
 			}
 
@@ -12345,24 +12642,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__LocalAlternative__InvokedUseCaseAssignment_3_1_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4843:1: rule__LocalAlternative__InvokedUseCaseAssignment_3_1_1 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4969:1: rule__LocalAlternative__InvokedUseCaseAssignment_3_1_1 : ( ( RULE_ID ) ) ;
 	public final void rule__LocalAlternative__InvokedUseCaseAssignment_3_1_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4847:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4848:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4973:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4974:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4848:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4849:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4974:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4975:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getLocalAlternativeAccess().getInvokedUseCaseUseCaseCrossReference_3_1_1_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4850:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4851:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4976:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4977:1: RULE_ID
 			{
 			 before(grammarAccess.getLocalAlternativeAccess().getInvokedUseCaseUseCaseIDTerminalRuleCall_3_1_1_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LocalAlternative__InvokedUseCaseAssignment_3_1_19830); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LocalAlternative__InvokedUseCaseAssignment_3_1_110076); 
 			 after(grammarAccess.getLocalAlternativeAccess().getInvokedUseCaseUseCaseIDTerminalRuleCall_3_1_1_0_1()); 
 			}
 
@@ -12388,24 +12685,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__LocalAlternative__ContinuationAssignment_4_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4862:1: rule__LocalAlternative__ContinuationAssignment_4_1 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4988:1: rule__LocalAlternative__ContinuationAssignment_4_1 : ( ( RULE_ID ) ) ;
 	public final void rule__LocalAlternative__ContinuationAssignment_4_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4866:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4867:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4992:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4993:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4867:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4868:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4993:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4994:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getLocalAlternativeAccess().getContinuationStepCrossReference_4_1_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4869:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4870:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4995:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4996:1: RULE_ID
 			{
 			 before(grammarAccess.getLocalAlternativeAccess().getContinuationStepIDTerminalRuleCall_4_1_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LocalAlternative__ContinuationAssignment_4_19869); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LocalAlternative__ContinuationAssignment_4_110115); 
 			 after(grammarAccess.getLocalAlternativeAccess().getContinuationStepIDTerminalRuleCall_4_1_0_1()); 
 			}
 
@@ -12431,20 +12728,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__AlternativeFlowAlternative__ConditionAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4881:1: rule__AlternativeFlowAlternative__ConditionAssignment_1 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5007:1: rule__AlternativeFlowAlternative__ConditionAssignment_1 : ( RULE_STRING ) ;
 	public final void rule__AlternativeFlowAlternative__ConditionAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4885:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4886:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5011:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5012:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4886:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4887:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5012:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5013:1: RULE_STRING
 			{
 			 before(grammarAccess.getAlternativeFlowAlternativeAccess().getConditionSTRINGTerminalRuleCall_1_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AlternativeFlowAlternative__ConditionAssignment_19904); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__AlternativeFlowAlternative__ConditionAssignment_110150); 
 			 after(grammarAccess.getAlternativeFlowAlternativeAccess().getConditionSTRINGTerminalRuleCall_1_0()); 
 			}
 
@@ -12467,24 +12764,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__AlternativeFlowAlternative__RefAssignment_4"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4896:1: rule__AlternativeFlowAlternative__RefAssignment_4 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5022:1: rule__AlternativeFlowAlternative__RefAssignment_4 : ( ( RULE_ID ) ) ;
 	public final void rule__AlternativeFlowAlternative__RefAssignment_4() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4900:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4901:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5026:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5027:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4901:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4902:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5027:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5028:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getAlternativeFlowAlternativeAccess().getRefNamedFlowCrossReference_4_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4903:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4904:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5029:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5030:1: RULE_ID
 			{
 			 before(grammarAccess.getAlternativeFlowAlternativeAccess().getRefNamedFlowIDTerminalRuleCall_4_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AlternativeFlowAlternative__RefAssignment_49939); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AlternativeFlowAlternative__RefAssignment_410185); 
 			 after(grammarAccess.getAlternativeFlowAlternativeAccess().getRefNamedFlowIDTerminalRuleCall_4_0_1()); 
 			}
 
@@ -12510,24 +12807,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__AlternativeFlowAlternative__ContinuationAssignment_5_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4915:1: rule__AlternativeFlowAlternative__ContinuationAssignment_5_1 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5041:1: rule__AlternativeFlowAlternative__ContinuationAssignment_5_1 : ( ( RULE_ID ) ) ;
 	public final void rule__AlternativeFlowAlternative__ContinuationAssignment_5_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4919:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4920:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5045:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5046:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4920:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4921:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5046:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5047:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getAlternativeFlowAlternativeAccess().getContinuationStepCrossReference_5_1_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4922:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4923:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5048:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5049:1: RULE_ID
 			{
 			 before(grammarAccess.getAlternativeFlowAlternativeAccess().getContinuationStepIDTerminalRuleCall_5_1_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AlternativeFlowAlternative__ContinuationAssignment_5_19978); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__AlternativeFlowAlternative__ContinuationAssignment_5_110224); 
 			 after(grammarAccess.getAlternativeFlowAlternativeAccess().getContinuationStepIDTerminalRuleCall_5_1_0_1()); 
 			}
 
@@ -12553,20 +12850,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ParallelStep__NameAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4934:1: rule__ParallelStep__NameAssignment_1 : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5060:1: rule__ParallelStep__NameAssignment_1 : ( RULE_ID ) ;
 	public final void rule__ParallelStep__NameAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4938:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4939:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5064:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5065:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4939:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4940:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5065:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5066:1: RULE_ID
 			{
 			 before(grammarAccess.getParallelStepAccess().getNameIDTerminalRuleCall_1_0()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelStep__NameAssignment_110013); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelStep__NameAssignment_110259); 
 			 after(grammarAccess.getParallelStepAccess().getNameIDTerminalRuleCall_1_0()); 
 			}
 
@@ -12589,20 +12886,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ParallelStep__LabelAssignment_2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4949:1: rule__ParallelStep__LabelAssignment_2 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5075:1: rule__ParallelStep__LabelAssignment_2 : ( RULE_STRING ) ;
 	public final void rule__ParallelStep__LabelAssignment_2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4953:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4954:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5079:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5080:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4954:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4955:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5080:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5081:1: RULE_STRING
 			{
 			 before(grammarAccess.getParallelStepAccess().getLabelSTRINGTerminalRuleCall_2_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ParallelStep__LabelAssignment_210044); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ParallelStep__LabelAssignment_210290); 
 			 after(grammarAccess.getParallelStepAccess().getLabelSTRINGTerminalRuleCall_2_0()); 
 			}
 
@@ -12625,24 +12922,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ParallelStep__InvokedFlowsAssignment_3"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4964:1: rule__ParallelStep__InvokedFlowsAssignment_3 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5090:1: rule__ParallelStep__InvokedFlowsAssignment_3 : ( ( RULE_ID ) ) ;
 	public final void rule__ParallelStep__InvokedFlowsAssignment_3() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4968:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4969:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5094:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5095:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4969:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4970:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5095:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5096:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getParallelStepAccess().getInvokedFlowsParallelFlowCrossReference_3_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4971:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4972:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5097:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5098:1: RULE_ID
 			{
 			 before(grammarAccess.getParallelStepAccess().getInvokedFlowsParallelFlowIDTerminalRuleCall_3_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelStep__InvokedFlowsAssignment_310079); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelStep__InvokedFlowsAssignment_310325); 
 			 after(grammarAccess.getParallelStepAccess().getInvokedFlowsParallelFlowIDTerminalRuleCall_3_0_1()); 
 			}
 
@@ -12668,24 +12965,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__ParallelStep__InvokedFlowsAssignment_4_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4983:1: rule__ParallelStep__InvokedFlowsAssignment_4_1 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5109:1: rule__ParallelStep__InvokedFlowsAssignment_4_1 : ( ( RULE_ID ) ) ;
 	public final void rule__ParallelStep__InvokedFlowsAssignment_4_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4987:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4988:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5113:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5114:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4988:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4989:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5114:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5115:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getParallelStepAccess().getInvokedFlowsParallelFlowCrossReference_4_1_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4990:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:4991:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5116:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5117:1: RULE_ID
 			{
 			 before(grammarAccess.getParallelStepAccess().getInvokedFlowsParallelFlowIDTerminalRuleCall_4_1_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelStep__InvokedFlowsAssignment_4_110118); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelStep__InvokedFlowsAssignment_4_110364); 
 			 after(grammarAccess.getParallelStepAccess().getInvokedFlowsParallelFlowIDTerminalRuleCall_4_1_0_1()); 
 			}
 
@@ -12710,29 +13007,29 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 
-	// $ANTLR start "rule__ParallelStep__NextAssignment_5"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5002:1: rule__ParallelStep__NextAssignment_5 : ( ( RULE_ID ) ) ;
-	public final void rule__ParallelStep__NextAssignment_5() throws RecognitionException {
+	// $ANTLR start "rule__ParallelStep__NextAssignment_5_1"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5128:1: rule__ParallelStep__NextAssignment_5_1 : ( ( RULE_ID ) ) ;
+	public final void rule__ParallelStep__NextAssignment_5_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5006:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5007:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5132:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5133:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5007:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5008:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5133:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5134:1: ( RULE_ID )
 			{
-			 before(grammarAccess.getParallelStepAccess().getNextStepCrossReference_5_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5009:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5010:1: RULE_ID
+			 before(grammarAccess.getParallelStepAccess().getNextStepCrossReference_5_1_0()); 
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5135:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5136:1: RULE_ID
 			{
-			 before(grammarAccess.getParallelStepAccess().getNextStepIDTerminalRuleCall_5_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelStep__NextAssignment_510157); 
-			 after(grammarAccess.getParallelStepAccess().getNextStepIDTerminalRuleCall_5_0_1()); 
+			 before(grammarAccess.getParallelStepAccess().getNextStepIDTerminalRuleCall_5_1_0_1()); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__ParallelStep__NextAssignment_5_110403); 
+			 after(grammarAccess.getParallelStepAccess().getNextStepIDTerminalRuleCall_5_1_0_1()); 
 			}
 
-			 after(grammarAccess.getParallelStepAccess().getNextStepCrossReference_5_0()); 
+			 after(grammarAccess.getParallelStepAccess().getNextStepCrossReference_5_1_0()); 
 			}
 
 			}
@@ -12749,25 +13046,25 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 		}
 	}
-	// $ANTLR end "rule__ParallelStep__NextAssignment_5"
+	// $ANTLR end "rule__ParallelStep__NextAssignment_5_1"
 
 
 
 	// $ANTLR start "rule__NormalStep__NameAssignment_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5021:1: rule__NormalStep__NameAssignment_1 : ( RULE_ID ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5147:1: rule__NormalStep__NameAssignment_1 : ( RULE_ID ) ;
 	public final void rule__NormalStep__NameAssignment_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5025:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5026:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5151:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5152:1: ( RULE_ID )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5026:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5027:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5152:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5153:1: RULE_ID
 			{
 			 before(grammarAccess.getNormalStepAccess().getNameIDTerminalRuleCall_1_0()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NormalStep__NameAssignment_110192); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NormalStep__NameAssignment_110438); 
 			 after(grammarAccess.getNormalStepAccess().getNameIDTerminalRuleCall_1_0()); 
 			}
 
@@ -12790,20 +13087,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__LabelAssignment_2"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5036:1: rule__NormalStep__LabelAssignment_2 : ( RULE_STRING ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5162:1: rule__NormalStep__LabelAssignment_2 : ( RULE_STRING ) ;
 	public final void rule__NormalStep__LabelAssignment_2() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5040:1: ( ( RULE_STRING ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5041:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5166:1: ( ( RULE_STRING ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5167:1: ( RULE_STRING )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5041:1: ( RULE_STRING )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5042:1: RULE_STRING
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5167:1: ( RULE_STRING )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5168:1: RULE_STRING
 			{
 			 before(grammarAccess.getNormalStepAccess().getLabelSTRINGTerminalRuleCall_2_0()); 
-			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__NormalStep__LabelAssignment_210223); 
+			match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__NormalStep__LabelAssignment_210469); 
 			 after(grammarAccess.getNormalStepAccess().getLabelSTRINGTerminalRuleCall_2_0()); 
 			}
 
@@ -12826,24 +13123,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__ActorAssignment_4"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5051:1: rule__NormalStep__ActorAssignment_4 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5177:1: rule__NormalStep__ActorAssignment_4 : ( ( RULE_ID ) ) ;
 	public final void rule__NormalStep__ActorAssignment_4() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5055:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5056:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5181:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5182:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5056:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5057:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5182:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5183:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getNormalStepAccess().getActorActorCrossReference_4_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5058:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5059:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5184:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5185:1: RULE_ID
 			{
 			 before(grammarAccess.getNormalStepAccess().getActorActorIDTerminalRuleCall_4_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NormalStep__ActorAssignment_410258); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NormalStep__ActorAssignment_410504); 
 			 after(grammarAccess.getNormalStepAccess().getActorActorIDTerminalRuleCall_4_0_1()); 
 			}
 
@@ -12869,20 +13166,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__CustomStepTypeAssignment_5_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5070:1: rule__NormalStep__CustomStepTypeAssignment_5_1 : ( ruleCustomStepType ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5196:1: rule__NormalStep__CustomStepTypeAssignment_5_1 : ( ruleCustomStepType ) ;
 	public final void rule__NormalStep__CustomStepTypeAssignment_5_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5074:1: ( ( ruleCustomStepType ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5075:1: ( ruleCustomStepType )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5200:1: ( ( ruleCustomStepType ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5201:1: ( ruleCustomStepType )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5075:1: ( ruleCustomStepType )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5076:1: ruleCustomStepType
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5201:1: ( ruleCustomStepType )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5202:1: ruleCustomStepType
 			{
 			 before(grammarAccess.getNormalStepAccess().getCustomStepTypeCustomStepTypeEnumRuleCall_5_1_0()); 
-			pushFollow(FOLLOW_ruleCustomStepType_in_rule__NormalStep__CustomStepTypeAssignment_5_110293);
+			pushFollow(FOLLOW_ruleCustomStepType_in_rule__NormalStep__CustomStepTypeAssignment_5_110539);
 			ruleCustomStepType();
 			state._fsp--;
 
@@ -12908,20 +13205,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__StepAlternativeAssignment_6_0_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5085:1: rule__NormalStep__StepAlternativeAssignment_6_0_1 : ( ruleStepAlternative ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5211:1: rule__NormalStep__StepAlternativeAssignment_6_0_1 : ( ruleStepAlternative ) ;
 	public final void rule__NormalStep__StepAlternativeAssignment_6_0_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5089:1: ( ( ruleStepAlternative ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5090:1: ( ruleStepAlternative )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5215:1: ( ( ruleStepAlternative ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5216:1: ( ruleStepAlternative )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5090:1: ( ruleStepAlternative )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5091:1: ruleStepAlternative
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5216:1: ( ruleStepAlternative )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5217:1: ruleStepAlternative
 			{
 			 before(grammarAccess.getNormalStepAccess().getStepAlternativeStepAlternativeParserRuleCall_6_0_1_0()); 
-			pushFollow(FOLLOW_ruleStepAlternative_in_rule__NormalStep__StepAlternativeAssignment_6_0_110324);
+			pushFollow(FOLLOW_ruleStepAlternative_in_rule__NormalStep__StepAlternativeAssignment_6_0_110570);
 			ruleStepAlternative();
 			state._fsp--;
 
@@ -12947,24 +13244,24 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__NormalStep__InvokedUseCaseAssignment_6_1_1"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5100:1: rule__NormalStep__InvokedUseCaseAssignment_6_1_1 : ( ( RULE_ID ) ) ;
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5226:1: rule__NormalStep__InvokedUseCaseAssignment_6_1_1 : ( ( RULE_ID ) ) ;
 	public final void rule__NormalStep__InvokedUseCaseAssignment_6_1_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5104:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5105:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5230:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5231:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5105:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5106:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5231:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5232:1: ( RULE_ID )
 			{
 			 before(grammarAccess.getNormalStepAccess().getInvokedUseCaseUseCaseCrossReference_6_1_1_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5107:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5108:1: RULE_ID
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5233:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5234:1: RULE_ID
 			{
 			 before(grammarAccess.getNormalStepAccess().getInvokedUseCaseUseCaseIDTerminalRuleCall_6_1_1_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NormalStep__InvokedUseCaseAssignment_6_1_110359); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NormalStep__InvokedUseCaseAssignment_6_1_110605); 
 			 after(grammarAccess.getNormalStepAccess().getInvokedUseCaseUseCaseIDTerminalRuleCall_6_1_1_0_1()); 
 			}
 
@@ -12989,29 +13286,29 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
 
-	// $ANTLR start "rule__NormalStep__NextAssignment_7"
-	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5119:1: rule__NormalStep__NextAssignment_7 : ( ( RULE_ID ) ) ;
-	public final void rule__NormalStep__NextAssignment_7() throws RecognitionException {
+	// $ANTLR start "rule__NormalStep__NextAssignment_7_1"
+	// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5245:1: rule__NormalStep__NextAssignment_7_1 : ( ( RULE_ID ) ) ;
+	public final void rule__NormalStep__NextAssignment_7_1() throws RecognitionException {
 
 				int stackSize = keepStackSize();
 		    
 		try {
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5123:1: ( ( ( RULE_ID ) ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5124:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5249:1: ( ( ( RULE_ID ) ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5250:1: ( ( RULE_ID ) )
 			{
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5124:1: ( ( RULE_ID ) )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5125:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5250:1: ( ( RULE_ID ) )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5251:1: ( RULE_ID )
 			{
-			 before(grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_0()); 
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5126:1: ( RULE_ID )
-			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5127:1: RULE_ID
+			 before(grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_1_0()); 
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5252:1: ( RULE_ID )
+			// ../UseCaseDSL.ui/src-gen/UseCaseDSL/ui/contentassist/antlr/internal/InternalUseCase.g:5253:1: RULE_ID
 			{
-			 before(grammarAccess.getNormalStepAccess().getNextStepIDTerminalRuleCall_7_0_1()); 
-			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NormalStep__NextAssignment_710398); 
-			 after(grammarAccess.getNormalStepAccess().getNextStepIDTerminalRuleCall_7_0_1()); 
+			 before(grammarAccess.getNormalStepAccess().getNextStepIDTerminalRuleCall_7_1_0_1()); 
+			match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NormalStep__NextAssignment_7_110644); 
+			 after(grammarAccess.getNormalStepAccess().getNextStepIDTerminalRuleCall_7_1_0_1()); 
 			}
 
-			 after(grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_0()); 
+			 after(grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_1_0()); 
 			}
 
 			}
@@ -13028,7 +13325,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 		}
 	}
-	// $ANTLR end "rule__NormalStep__NextAssignment_7"
+	// $ANTLR end "rule__NormalStep__NextAssignment_7_1"
 
 	// Delegated rules
 
@@ -13036,7 +13333,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 	public static final BitSet FOLLOW_ruleUseCasesModel_in_entryRuleUseCasesModel61 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleUseCasesModel68 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCasesModel__PackagesAssignment_in_ruleUseCasesModel94 = new BitSet(new long[]{0x0000000100000002L});
+	public static final BitSet FOLLOW_rule__UseCasesModel__PackagesAssignment_in_ruleUseCasesModel94 = new BitSet(new long[]{0x0000000200000002L});
 	public static final BitSet FOLLOW_rulePackageDeclaration_in_entryRulePackageDeclaration122 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRulePackageDeclaration129 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__0_in_rulePackageDeclaration155 = new BitSet(new long[]{0x0000000000000002L});
@@ -13104,28 +13401,28 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final BitSet FOLLOW_rule__LocalAlternative__Group_3_1__0_in_rule__LocalAlternative__Alternatives_31471 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__0_in_rule__NormalStep__Alternatives_61504 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__NormalStep__Group_6_1__0_in_rule__NormalStep__Alternatives_61522 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_35_in_rule__ActorType__Alternatives1556 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_40_in_rule__ActorType__Alternatives1577 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_30_in_rule__ActorType__Alternatives1598 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_36_in_rule__ActorType__Alternatives1556 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_41_in_rule__ActorType__Alternatives1577 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_31_in_rule__ActorType__Alternatives1598 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_27_in_rule__CustomStepType__Alternatives1634 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_31_in_rule__CustomStepType__Alternatives1655 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_38_in_rule__CustomStepType__Alternatives1676 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_32_in_rule__CustomStepType__Alternatives1655 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_39_in_rule__CustomStepType__Alternatives1676 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_29_in_rule__CustomStepType__Alternatives1697 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__0__Impl_in_rule__PackageDeclaration__Group__01730 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__1_in_rule__PackageDeclaration__Group__01733 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_32_in_rule__PackageDeclaration__Group__0__Impl1761 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__1__Impl_in_rule__PackageDeclaration__Group__11792 = new BitSet(new long[]{0x0000080000402200L});
+	public static final BitSet FOLLOW_33_in_rule__PackageDeclaration__Group__0__Impl1761 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__1__Impl_in_rule__PackageDeclaration__Group__11792 = new BitSet(new long[]{0x0000100000402200L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__2_in_rule__PackageDeclaration__Group__11795 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__NameAssignment_1_in_rule__PackageDeclaration__Group__1__Impl1822 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__2__Impl_in_rule__PackageDeclaration__Group__21852 = new BitSet(new long[]{0x0000080000402000L});
+	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__2__Impl_in_rule__PackageDeclaration__Group__21852 = new BitSet(new long[]{0x0000100000402000L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__3_in_rule__PackageDeclaration__Group__21855 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__DescriptionAssignment_2_in_rule__PackageDeclaration__Group__2__Impl1882 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__3__Impl_in_rule__PackageDeclaration__Group__31913 = new BitSet(new long[]{0x0000080000400000L});
+	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__3__Impl_in_rule__PackageDeclaration__Group__31913 = new BitSet(new long[]{0x0000100000400000L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__4_in_rule__PackageDeclaration__Group__31916 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group_3__0_in_rule__PackageDeclaration__Group__3__Impl1943 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__4__Impl_in_rule__PackageDeclaration__Group__41974 = new BitSet(new long[]{0x0000000000400000L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__5_in_rule__PackageDeclaration__Group__41977 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__PackageDeclaration__UseCasesAssignment_4_in_rule__PackageDeclaration__Group__4__Impl2004 = new BitSet(new long[]{0x0000080000000002L});
+	public static final BitSet FOLLOW_rule__PackageDeclaration__UseCasesAssignment_4_in_rule__PackageDeclaration__Group__4__Impl2004 = new BitSet(new long[]{0x0000100000000002L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group__5__Impl_in_rule__PackageDeclaration__Group__52035 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_22_in_rule__PackageDeclaration__Group__5__Impl2063 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__PackageDeclaration__Group_3__0__Impl_in_rule__PackageDeclaration__Group_3__02106 = new BitSet(new long[]{0x0000000000000020L});
@@ -13136,22 +13433,22 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final BitSet FOLLOW_rule__PackageDeclaration__ActorsAssignment_3_1_in_rule__PackageDeclaration__Group_3__1__Impl2209 = new BitSet(new long[]{0x0000000000000022L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__0__Impl_in_rule__UseCase__Group__02246 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__1_in_rule__UseCase__Group__02249 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_43_in_rule__UseCase__Group__0__Impl2277 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__Group__1__Impl_in_rule__UseCase__Group__12308 = new BitSet(new long[]{0x0000003002000200L});
+	public static final BitSet FOLLOW_44_in_rule__UseCase__Group__0__Impl2277 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__UseCase__Group__1__Impl_in_rule__UseCase__Group__12308 = new BitSet(new long[]{0x0000006002000200L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__2_in_rule__UseCase__Group__12311 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__NameAssignment_1_in_rule__UseCase__Group__1__Impl2338 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__Group__2__Impl_in_rule__UseCase__Group__22368 = new BitSet(new long[]{0x0000003002000000L});
+	public static final BitSet FOLLOW_rule__UseCase__Group__2__Impl_in_rule__UseCase__Group__22368 = new BitSet(new long[]{0x0000006002000000L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__3_in_rule__UseCase__Group__22371 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__DescriptionAssignment_2_in_rule__UseCase__Group__2__Impl2398 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__Group__3__Impl_in_rule__UseCase__Group__32429 = new BitSet(new long[]{0x0000003000000000L});
+	public static final BitSet FOLLOW_rule__UseCase__Group__3__Impl_in_rule__UseCase__Group__32429 = new BitSet(new long[]{0x0000006000000000L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__4_in_rule__UseCase__Group__32432 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__Group_3__0_in_rule__UseCase__Group__3__Impl2459 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__Group__4__Impl_in_rule__UseCase__Group__42490 = new BitSet(new long[]{0x0000000201824000L});
+	public static final BitSet FOLLOW_rule__UseCase__Group__4__Impl_in_rule__UseCase__Group__42490 = new BitSet(new long[]{0x0000000401824000L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__5_in_rule__UseCase__Group__42493 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4_in_rule__UseCase__Group__4__Impl2520 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__5__Impl_in_rule__UseCase__Group__52550 = new BitSet(new long[]{0x0000000000800000L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__6_in_rule__UseCase__Group__52553 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__FlowsAssignment_5_in_rule__UseCase__Group__5__Impl2580 = new BitSet(new long[]{0x0000000201024002L});
+	public static final BitSet FOLLOW_rule__UseCase__FlowsAssignment_5_in_rule__UseCase__Group__5__Impl2580 = new BitSet(new long[]{0x0000000401024002L});
 	public static final BitSet FOLLOW_rule__UseCase__Group__6__Impl_in_rule__UseCase__Group__62611 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_23_in_rule__UseCase__Group__6__Impl2639 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__Group_3__0__Impl_in_rule__UseCase__Group_3__02684 = new BitSet(new long[]{0x0000000000000020L});
@@ -13161,18 +13458,18 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final BitSet FOLLOW_rule__UseCase__SuperCaseAssignment_3_1_in_rule__UseCase__Group_3__1__Impl2773 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__Group_4_0__0__Impl_in_rule__UseCase__Group_4_0__02807 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__UseCase__Group_4_0__1_in_rule__UseCase__Group_4_0__02810 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_37_in_rule__UseCase__Group_4_0__0__Impl2838 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_38_in_rule__UseCase__Group_4_0__0__Impl2838 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__Group_4_0__1__Impl_in_rule__UseCase__Group_4_0__12869 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__PreConditionsAssignment_4_0_1_in_rule__UseCase__Group_4_0__1__Impl2896 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__Group_4_1__0__Impl_in_rule__UseCase__Group_4_1__02930 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__UseCase__Group_4_1__1_in_rule__UseCase__Group_4_1__02933 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_36_in_rule__UseCase__Group_4_1__0__Impl2961 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_37_in_rule__UseCase__Group_4_1__0__Impl2961 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__Group_4_1__1__Impl_in_rule__UseCase__Group_4_1__12992 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__UseCase__PostconditionAssignment_4_1_1_in_rule__UseCase__Group_4_1__1__Impl3019 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Actor__Group__0__Impl_in_rule__Actor__Group__03053 = new BitSet(new long[]{0x0000000000010000L});
 	public static final BitSet FOLLOW_rule__Actor__Group__1_in_rule__Actor__Group__03056 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Actor__NameAssignment_0_in_rule__Actor__Group__0__Impl3083 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__Actor__Group__1__Impl_in_rule__Actor__Group__13113 = new BitSet(new long[]{0x0000010840000000L});
+	public static final BitSet FOLLOW_rule__Actor__Group__1__Impl_in_rule__Actor__Group__13113 = new BitSet(new long[]{0x0000021080000000L});
 	public static final BitSet FOLLOW_rule__Actor__Group__2_in_rule__Actor__Group__13116 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_16_in_rule__Actor__Group__1__Impl3144 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Actor__Group__2__Impl_in_rule__Actor__Group__23175 = new BitSet(new long[]{0x0000000002000200L});
@@ -13188,22 +13485,22 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final BitSet FOLLOW_25_in_rule__Actor__Group_4__0__Impl3395 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Actor__Group_4__1__Impl_in_rule__Actor__Group_4__13426 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Actor__ExtendsAssignment_4_1_in_rule__Actor__Group_4__1__Impl3453 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__BasicFlow__Group__0__Impl_in_rule__BasicFlow__Group__03487 = new BitSet(new long[]{0x0000008400200000L});
+	public static final BitSet FOLLOW_rule__BasicFlow__Group__0__Impl_in_rule__BasicFlow__Group__03487 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group__1_in_rule__BasicFlow__Group__03490 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_17_in_rule__BasicFlow__Group__0__Impl3518 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__BasicFlow__Group__1__Impl_in_rule__BasicFlow__Group__13549 = new BitSet(new long[]{0x0000008400200000L});
+	public static final BitSet FOLLOW_rule__BasicFlow__Group__1__Impl_in_rule__BasicFlow__Group__13549 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group__2_in_rule__BasicFlow__Group__13552 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group__2__Impl_in_rule__BasicFlow__Group__23610 = new BitSet(new long[]{0x0000000000200000L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group__3_in_rule__BasicFlow__Group__23613 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__BasicFlow__StepsAssignment_2_in_rule__BasicFlow__Group__2__Impl3640 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__BasicFlow__Group__3__Impl_in_rule__BasicFlow__Group__33671 = new BitSet(new long[]{0x0000100000000000L});
+	public static final BitSet FOLLOW_rule__BasicFlow__Group__3__Impl_in_rule__BasicFlow__Group__33671 = new BitSet(new long[]{0x0000200000000000L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group__4_in_rule__BasicFlow__Group__33674 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_21_in_rule__BasicFlow__Group__3__Impl3702 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group__4__Impl_in_rule__BasicFlow__Group__43733 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group_4__0_in_rule__BasicFlow__Group__4__Impl3760 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group_4__0__Impl_in_rule__BasicFlow__Group_4__03801 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group_4__1_in_rule__BasicFlow__Group_4__03804 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_44_in_rule__BasicFlow__Group_4__0__Impl3832 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_45_in_rule__BasicFlow__Group_4__0__Impl3832 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__BasicFlow__Group_4__1__Impl_in_rule__BasicFlow__Group_4__13863 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__BasicFlow__FinalStateAssignment_4_1_in_rule__BasicFlow__Group_4__1__Impl3890 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__0__Impl_in_rule__ExceptionFlow__Group__03924 = new BitSet(new long[]{0x0000000000000020L});
@@ -13215,72 +13512,72 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__2__Impl_in_rule__ExceptionFlow__Group__24046 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__3_in_rule__ExceptionFlow__Group__24049 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_26_in_rule__ExceptionFlow__Group__2__Impl4077 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__3__Impl_in_rule__ExceptionFlow__Group__34108 = new BitSet(new long[]{0x0000020000000000L});
+	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__3__Impl_in_rule__ExceptionFlow__Group__34108 = new BitSet(new long[]{0x0000040000000000L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__4_in_rule__ExceptionFlow__Group__34111 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__ConditionAssignment_3_in_rule__ExceptionFlow__Group__3__Impl4138 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__4__Impl_in_rule__ExceptionFlow__Group__44168 = new BitSet(new long[]{0x0000008400200000L});
+	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__4__Impl_in_rule__ExceptionFlow__Group__44168 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__5_in_rule__ExceptionFlow__Group__44171 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_41_in_rule__ExceptionFlow__Group__4__Impl4199 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_42_in_rule__ExceptionFlow__Group__4__Impl4199 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__5__Impl_in_rule__ExceptionFlow__Group__54230 = new BitSet(new long[]{0x0000000000200000L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__6_in_rule__ExceptionFlow__Group__54233 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__StepsAssignment_5_in_rule__ExceptionFlow__Group__5__Impl4260 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__6__Impl_in_rule__ExceptionFlow__Group__64291 = new BitSet(new long[]{0x0000100000000000L});
+	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__6__Impl_in_rule__ExceptionFlow__Group__64291 = new BitSet(new long[]{0x0000200000000000L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__7_in_rule__ExceptionFlow__Group__64294 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_21_in_rule__ExceptionFlow__Group__6__Impl4322 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group__7__Impl_in_rule__ExceptionFlow__Group__74353 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group_7__0_in_rule__ExceptionFlow__Group__7__Impl4380 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group_7__0__Impl_in_rule__ExceptionFlow__Group_7__04427 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group_7__1_in_rule__ExceptionFlow__Group_7__04430 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_44_in_rule__ExceptionFlow__Group_7__0__Impl4458 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_45_in_rule__ExceptionFlow__Group_7__0__Impl4458 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__Group_7__1__Impl_in_rule__ExceptionFlow__Group_7__14489 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ExceptionFlow__FinalStateAssignment_7_1_in_rule__ExceptionFlow__Group_7__1__Impl4516 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__0__Impl_in_rule__AlternativeFlow__Group__04550 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__1_in_rule__AlternativeFlow__Group__04553 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_14_in_rule__AlternativeFlow__Group__0__Impl4581 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__1__Impl_in_rule__AlternativeFlow__Group__14612 = new BitSet(new long[]{0x0000008400200000L});
+	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__1__Impl_in_rule__AlternativeFlow__Group__14612 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__2_in_rule__AlternativeFlow__Group__14615 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__NameAssignment_1_in_rule__AlternativeFlow__Group__1__Impl4642 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__2__Impl_in_rule__AlternativeFlow__Group__24672 = new BitSet(new long[]{0x0000000000200000L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__3_in_rule__AlternativeFlow__Group__24675 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__StepsAssignment_2_in_rule__AlternativeFlow__Group__2__Impl4702 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__3__Impl_in_rule__AlternativeFlow__Group__34733 = new BitSet(new long[]{0x0000100000000000L});
+	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__3__Impl_in_rule__AlternativeFlow__Group__34733 = new BitSet(new long[]{0x0000200000000000L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__4_in_rule__AlternativeFlow__Group__34736 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_21_in_rule__AlternativeFlow__Group__3__Impl4764 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group__4__Impl_in_rule__AlternativeFlow__Group__44795 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group_4__0_in_rule__AlternativeFlow__Group__4__Impl4822 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group_4__0__Impl_in_rule__AlternativeFlow__Group_4__04863 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group_4__1_in_rule__AlternativeFlow__Group_4__04866 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_44_in_rule__AlternativeFlow__Group_4__0__Impl4894 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_45_in_rule__AlternativeFlow__Group_4__0__Impl4894 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__Group_4__1__Impl_in_rule__AlternativeFlow__Group_4__14925 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlow__FinalStateAssignment_4_1_in_rule__AlternativeFlow__Group_4__1__Impl4952 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group__0__Impl_in_rule__ParallelFlow__Group__04986 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group__1_in_rule__ParallelFlow__Group__04989 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_33_in_rule__ParallelFlow__Group__0__Impl5017 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__ParallelFlow__Group__1__Impl_in_rule__ParallelFlow__Group__15048 = new BitSet(new long[]{0x0000008400200000L});
+	public static final BitSet FOLLOW_34_in_rule__ParallelFlow__Group__0__Impl5017 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__ParallelFlow__Group__1__Impl_in_rule__ParallelFlow__Group__15048 = new BitSet(new long[]{0x0000010800200000L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group__2_in_rule__ParallelFlow__Group__15051 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__NameAssignment_1_in_rule__ParallelFlow__Group__1__Impl5078 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group__2__Impl_in_rule__ParallelFlow__Group__25108 = new BitSet(new long[]{0x0000000000200000L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group__3_in_rule__ParallelFlow__Group__25111 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__StepsAssignment_2_in_rule__ParallelFlow__Group__2__Impl5138 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__ParallelFlow__Group__3__Impl_in_rule__ParallelFlow__Group__35169 = new BitSet(new long[]{0x0000100000000000L});
+	public static final BitSet FOLLOW_rule__ParallelFlow__Group__3__Impl_in_rule__ParallelFlow__Group__35169 = new BitSet(new long[]{0x0000200000000000L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group__4_in_rule__ParallelFlow__Group__35172 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_21_in_rule__ParallelFlow__Group__3__Impl5200 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group__4__Impl_in_rule__ParallelFlow__Group__45231 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group_4__0_in_rule__ParallelFlow__Group__4__Impl5258 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group_4__0__Impl_in_rule__ParallelFlow__Group_4__05299 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group_4__1_in_rule__ParallelFlow__Group_4__05302 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_44_in_rule__ParallelFlow__Group_4__0__Impl5330 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_45_in_rule__ParallelFlow__Group_4__0__Impl5330 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__Group_4__1__Impl_in_rule__ParallelFlow__Group_4__15361 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelFlow__FinalStateAssignment_4_1_in_rule__ParallelFlow__Group_4__1__Impl5388 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Condition__Group__0__Impl_in_rule__Condition__Group__05422 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__Condition__Group__1_in_rule__Condition__Group__05425 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_26_in_rule__Condition__Group__0__Impl5453 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__Condition__Group__1__Impl_in_rule__Condition__Group__15484 = new BitSet(new long[]{0x0000020000000000L});
+	public static final BitSet FOLLOW_rule__Condition__Group__1__Impl_in_rule__Condition__Group__15484 = new BitSet(new long[]{0x0000040000000000L});
 	public static final BitSet FOLLOW_rule__Condition__Group__2_in_rule__Condition__Group__15487 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Condition__ConditionAssignment_1_in_rule__Condition__Group__1__Impl5514 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Condition__Group__2__Impl_in_rule__Condition__Group__25544 = new BitSet(new long[]{0x0000000000080000L});
 	public static final BitSet FOLLOW_rule__Condition__Group__3_in_rule__Condition__Group__25547 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_41_in_rule__Condition__Group__2__Impl5575 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_42_in_rule__Condition__Group__2__Impl5575 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Condition__Group__3__Impl_in_rule__Condition__Group__35606 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Condition__Group_3__0_in_rule__Condition__Group__3__Impl5633 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__Condition__Group_3__0__Impl_in_rule__Condition__Group_3__05672 = new BitSet(new long[]{0x0000000000000020L});
@@ -13291,12 +13588,12 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final BitSet FOLLOW_rule__LocalAlternative__Group__0__Impl_in_rule__LocalAlternative__Group__05795 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__LocalAlternative__Group__1_in_rule__LocalAlternative__Group__05798 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_26_in_rule__LocalAlternative__Group__0__Impl5826 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__LocalAlternative__Group__1__Impl_in_rule__LocalAlternative__Group__15857 = new BitSet(new long[]{0x0000020000000000L});
+	public static final BitSet FOLLOW_rule__LocalAlternative__Group__1__Impl_in_rule__LocalAlternative__Group__15857 = new BitSet(new long[]{0x0000040000000000L});
 	public static final BitSet FOLLOW_rule__LocalAlternative__Group__2_in_rule__LocalAlternative__Group__15860 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__LocalAlternative__ConditionAssignment_1_in_rule__LocalAlternative__Group__1__Impl5887 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__LocalAlternative__Group__2__Impl_in_rule__LocalAlternative__Group__25917 = new BitSet(new long[]{0x0000000010000200L});
 	public static final BitSet FOLLOW_rule__LocalAlternative__Group__3_in_rule__LocalAlternative__Group__25920 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_41_in_rule__LocalAlternative__Group__2__Impl5948 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_42_in_rule__LocalAlternative__Group__2__Impl5948 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__LocalAlternative__Group__3__Impl_in_rule__LocalAlternative__Group__35979 = new BitSet(new long[]{0x0000000000080000L});
 	public static final BitSet FOLLOW_rule__LocalAlternative__Group__4_in_rule__LocalAlternative__Group__35982 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__LocalAlternative__Alternatives_3_in_rule__LocalAlternative__Group__3__Impl6009 = new BitSet(new long[]{0x0000000000000002L});
@@ -13315,12 +13612,12 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__0__Impl_in_rule__AlternativeFlowAlternative__Group__06353 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__1_in_rule__AlternativeFlowAlternative__Group__06356 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_26_in_rule__AlternativeFlowAlternative__Group__0__Impl6384 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__1__Impl_in_rule__AlternativeFlowAlternative__Group__16415 = new BitSet(new long[]{0x0000020000000000L});
+	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__1__Impl_in_rule__AlternativeFlowAlternative__Group__16415 = new BitSet(new long[]{0x0000040000000000L});
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__2_in_rule__AlternativeFlowAlternative__Group__16418 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__ConditionAssignment_1_in_rule__AlternativeFlowAlternative__Group__1__Impl6445 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__2__Impl_in_rule__AlternativeFlowAlternative__Group__26475 = new BitSet(new long[]{0x0000000000004000L});
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__3_in_rule__AlternativeFlowAlternative__Group__26478 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_41_in_rule__AlternativeFlowAlternative__Group__2__Impl6506 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_42_in_rule__AlternativeFlowAlternative__Group__2__Impl6506 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__3__Impl_in_rule__AlternativeFlowAlternative__Group__36537 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__Group__4_in_rule__AlternativeFlowAlternative__Group__36540 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_14_in_rule__AlternativeFlowAlternative__Group__3__Impl6568 = new BitSet(new long[]{0x0000000000000002L});
@@ -13336,130 +13633,140 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 	public static final BitSet FOLLOW_rule__AlternativeFlowAlternative__ContinuationAssignment_5_1_in_rule__AlternativeFlowAlternative__Group_5__1__Impl6818 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__0__Impl_in_rule__ParallelStep__Group__06852 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__1_in_rule__ParallelStep__Group__06855 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_34_in_rule__ParallelStep__Group__0__Impl6883 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_35_in_rule__ParallelStep__Group__0__Impl6883 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__1__Impl_in_rule__ParallelStep__Group__16914 = new BitSet(new long[]{0x0000000000000220L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__2_in_rule__ParallelStep__Group__16917 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__NameAssignment_1_in_rule__ParallelStep__Group__1__Impl6944 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__2__Impl_in_rule__ParallelStep__Group__26974 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__3_in_rule__ParallelStep__Group__26977 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__LabelAssignment_2_in_rule__ParallelStep__Group__2__Impl7004 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__ParallelStep__Group__3__Impl_in_rule__ParallelStep__Group__37035 = new BitSet(new long[]{0x0000000000000820L});
+	public static final BitSet FOLLOW_rule__ParallelStep__Group__3__Impl_in_rule__ParallelStep__Group__37035 = new BitSet(new long[]{0x0000000040000800L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__4_in_rule__ParallelStep__Group__37038 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__InvokedFlowsAssignment_3_in_rule__ParallelStep__Group__3__Impl7065 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__ParallelStep__Group__4__Impl_in_rule__ParallelStep__Group__47095 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_rule__ParallelStep__Group__4__Impl_in_rule__ParallelStep__Group__47095 = new BitSet(new long[]{0x0000000040000000L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__5_in_rule__ParallelStep__Group__47098 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group_4__0_in_rule__ParallelStep__Group__4__Impl7125 = new BitSet(new long[]{0x0000000000000802L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group__5__Impl_in_rule__ParallelStep__Group__57156 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__ParallelStep__NextAssignment_5_in_rule__ParallelStep__Group__5__Impl7183 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__ParallelStep__Group_5__0_in_rule__ParallelStep__Group__5__Impl7183 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group_4__0__Impl_in_rule__ParallelStep__Group_4__07226 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group_4__1_in_rule__ParallelStep__Group_4__07229 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_11_in_rule__ParallelStep__Group_4__0__Impl7257 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__Group_4__1__Impl_in_rule__ParallelStep__Group_4__17288 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_rule__ParallelStep__InvokedFlowsAssignment_4_1_in_rule__ParallelStep__Group_4__1__Impl7315 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__0__Impl_in_rule__NormalStep__Group__07349 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__1_in_rule__NormalStep__Group__07352 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_39_in_rule__NormalStep__Group__0__Impl7380 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__1__Impl_in_rule__NormalStep__Group__17411 = new BitSet(new long[]{0x0000000000040200L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__2_in_rule__NormalStep__Group__17414 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__NameAssignment_1_in_rule__NormalStep__Group__1__Impl7441 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__2__Impl_in_rule__NormalStep__Group__27471 = new BitSet(new long[]{0x0000000000040000L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__3_in_rule__NormalStep__Group__27474 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__LabelAssignment_2_in_rule__NormalStep__Group__2__Impl7501 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__3__Impl_in_rule__NormalStep__Group__37532 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__4_in_rule__NormalStep__Group__37535 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_18_in_rule__NormalStep__Group__3__Impl7563 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__4__Impl_in_rule__NormalStep__Group__47594 = new BitSet(new long[]{0x0000040010008020L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__5_in_rule__NormalStep__Group__47597 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__ActorAssignment_4_in_rule__NormalStep__Group__4__Impl7624 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__5__Impl_in_rule__NormalStep__Group__57654 = new BitSet(new long[]{0x0000000010008020L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__6_in_rule__NormalStep__Group__57657 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_5__0_in_rule__NormalStep__Group__5__Impl7684 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__6__Impl_in_rule__NormalStep__Group__67715 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__7_in_rule__NormalStep__Group__67718 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Alternatives_6_in_rule__NormalStep__Group__6__Impl7745 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group__7__Impl_in_rule__NormalStep__Group__77776 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__NextAssignment_7_in_rule__NormalStep__Group__7__Impl7803 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_5__0__Impl_in_rule__NormalStep__Group_5__07850 = new BitSet(new long[]{0x00000040A8000000L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_5__1_in_rule__NormalStep__Group_5__07853 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_42_in_rule__NormalStep__Group_5__0__Impl7881 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_5__1__Impl_in_rule__NormalStep__Group_5__17912 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__CustomStepTypeAssignment_5_1_in_rule__NormalStep__Group_5__1__Impl7939 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__0__Impl_in_rule__NormalStep__Group_6_0__07973 = new BitSet(new long[]{0x0000000004000000L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__1_in_rule__NormalStep__Group_6_0__07976 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_15_in_rule__NormalStep__Group_6_0__0__Impl8004 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__1__Impl_in_rule__NormalStep__Group_6_0__18035 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__2_in_rule__NormalStep__Group_6_0__18038 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__StepAlternativeAssignment_6_0_1_in_rule__NormalStep__Group_6_0__1__Impl8067 = new BitSet(new long[]{0x0000000004000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__StepAlternativeAssignment_6_0_1_in_rule__NormalStep__Group_6_0__1__Impl8079 = new BitSet(new long[]{0x0000000004000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__2__Impl_in_rule__NormalStep__Group_6_0__28112 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_20_in_rule__NormalStep__Group_6_0__2__Impl8140 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_6_1__0__Impl_in_rule__NormalStep__Group_6_1__08177 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_6_1__1_in_rule__NormalStep__Group_6_1__08180 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_28_in_rule__NormalStep__Group_6_1__0__Impl8208 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__Group_6_1__1__Impl_in_rule__NormalStep__Group_6_1__18239 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__NormalStep__InvokedUseCaseAssignment_6_1_1_in_rule__NormalStep__Group_6_1__1__Impl8266 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__08300 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__08303 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl8330 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__18359 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl8386 = new BitSet(new long[]{0x0000000000001002L});
-	public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__08421 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__08424 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_12_in_rule__QualifiedName__Group_1__0__Impl8452 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__18483 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl8510 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4__0_in_rule__UseCase__UnorderedGroup_48544 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__Group_4_0__0_in_rule__UseCase__UnorderedGroup_4__Impl8631 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__Group_4_1__0_in_rule__UseCase__UnorderedGroup_4__Impl8722 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4__Impl_in_rule__UseCase__UnorderedGroup_4__08781 = new BitSet(new long[]{0x0000003000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4__1_in_rule__UseCase__UnorderedGroup_4__08784 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4__Impl_in_rule__UseCase__UnorderedGroup_4__18809 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rulePackageDeclaration_in_rule__UseCasesModel__PackagesAssignment8841 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleQualifiedName_in_rule__PackageDeclaration__NameAssignment_18872 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__PackageDeclaration__DescriptionAssignment_28903 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleActor_in_rule__PackageDeclaration__ActorsAssignment_3_18934 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleUseCase_in_rule__PackageDeclaration__UseCasesAssignment_48965 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__UseCase__NameAssignment_18996 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__DescriptionAssignment_29027 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__UseCase__SuperCaseAssignment_3_19062 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__PreConditionsAssignment_4_0_19097 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__PostconditionAssignment_4_1_19128 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleFlow_in_rule__UseCase__FlowsAssignment_59159 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__Actor__NameAssignment_09190 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleActorType_in_rule__Actor__TypeAssignment_29221 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__Actor__DescriptionAssignment_39252 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__Actor__ExtendsAssignment_4_19287 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleStep_in_rule__BasicFlow__StepsAssignment_29322 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__BasicFlow__FinalStateAssignment_4_19353 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__ExceptionFlow__NameAssignment_19384 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__ExceptionFlow__ConditionAssignment_39415 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleStep_in_rule__ExceptionFlow__StepsAssignment_59446 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__ExceptionFlow__FinalStateAssignment_7_19477 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__AlternativeFlow__NameAssignment_19508 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleStep_in_rule__AlternativeFlow__StepsAssignment_29539 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__AlternativeFlow__FinalStateAssignment_4_19570 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelFlow__NameAssignment_19601 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleStep_in_rule__ParallelFlow__StepsAssignment_29632 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__ParallelFlow__FinalStateAssignment_4_19663 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__Condition__ConditionAssignment_19694 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__Condition__ContinuationAssignment_3_19729 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__LocalAlternative__ConditionAssignment_19764 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__LocalAlternative__DescriptionAssignment_3_09795 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__LocalAlternative__InvokedUseCaseAssignment_3_1_19830 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__LocalAlternative__ContinuationAssignment_4_19869 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__AlternativeFlowAlternative__ConditionAssignment_19904 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__AlternativeFlowAlternative__RefAssignment_49939 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__AlternativeFlowAlternative__ContinuationAssignment_5_19978 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelStep__NameAssignment_110013 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__ParallelStep__LabelAssignment_210044 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelStep__InvokedFlowsAssignment_310079 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelStep__InvokedFlowsAssignment_4_110118 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelStep__NextAssignment_510157 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__NormalStep__NameAssignment_110192 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rule__NormalStep__LabelAssignment_210223 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__NormalStep__ActorAssignment_410258 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleCustomStepType_in_rule__NormalStep__CustomStepTypeAssignment_5_110293 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleStepAlternative_in_rule__NormalStep__StepAlternativeAssignment_6_0_110324 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__NormalStep__InvokedUseCaseAssignment_6_1_110359 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_rule__NormalStep__NextAssignment_710398 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__ParallelStep__Group_5__0__Impl_in_rule__ParallelStep__Group_5__07349 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_rule__ParallelStep__Group_5__1_in_rule__ParallelStep__Group_5__07352 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_30_in_rule__ParallelStep__Group_5__0__Impl7380 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__ParallelStep__Group_5__1__Impl_in_rule__ParallelStep__Group_5__17411 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__ParallelStep__NextAssignment_5_1_in_rule__ParallelStep__Group_5__1__Impl7438 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__0__Impl_in_rule__NormalStep__Group__07472 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__1_in_rule__NormalStep__Group__07475 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_40_in_rule__NormalStep__Group__0__Impl7503 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__1__Impl_in_rule__NormalStep__Group__17534 = new BitSet(new long[]{0x0000000000040200L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__2_in_rule__NormalStep__Group__17537 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__NameAssignment_1_in_rule__NormalStep__Group__1__Impl7564 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__2__Impl_in_rule__NormalStep__Group__27594 = new BitSet(new long[]{0x0000000000040000L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__3_in_rule__NormalStep__Group__27597 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__LabelAssignment_2_in_rule__NormalStep__Group__2__Impl7624 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__3__Impl_in_rule__NormalStep__Group__37655 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__4_in_rule__NormalStep__Group__37658 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_18_in_rule__NormalStep__Group__3__Impl7686 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__4__Impl_in_rule__NormalStep__Group__47717 = new BitSet(new long[]{0x0000080050008000L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__5_in_rule__NormalStep__Group__47720 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__ActorAssignment_4_in_rule__NormalStep__Group__4__Impl7747 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__5__Impl_in_rule__NormalStep__Group__57777 = new BitSet(new long[]{0x0000000050008000L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__6_in_rule__NormalStep__Group__57780 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_5__0_in_rule__NormalStep__Group__5__Impl7807 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__6__Impl_in_rule__NormalStep__Group__67838 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__7_in_rule__NormalStep__Group__67841 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Alternatives_6_in_rule__NormalStep__Group__6__Impl7868 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group__7__Impl_in_rule__NormalStep__Group__77899 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_7__0_in_rule__NormalStep__Group__7__Impl7926 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_5__0__Impl_in_rule__NormalStep__Group_5__07973 = new BitSet(new long[]{0x0000008128000000L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_5__1_in_rule__NormalStep__Group_5__07976 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_43_in_rule__NormalStep__Group_5__0__Impl8004 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_5__1__Impl_in_rule__NormalStep__Group_5__18035 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__CustomStepTypeAssignment_5_1_in_rule__NormalStep__Group_5__1__Impl8062 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__0__Impl_in_rule__NormalStep__Group_6_0__08096 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__1_in_rule__NormalStep__Group_6_0__08099 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_15_in_rule__NormalStep__Group_6_0__0__Impl8127 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__1__Impl_in_rule__NormalStep__Group_6_0__18158 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__2_in_rule__NormalStep__Group_6_0__18161 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__StepAlternativeAssignment_6_0_1_in_rule__NormalStep__Group_6_0__1__Impl8190 = new BitSet(new long[]{0x0000000004000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__StepAlternativeAssignment_6_0_1_in_rule__NormalStep__Group_6_0__1__Impl8202 = new BitSet(new long[]{0x0000000004000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_6_0__2__Impl_in_rule__NormalStep__Group_6_0__28235 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_20_in_rule__NormalStep__Group_6_0__2__Impl8263 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_6_1__0__Impl_in_rule__NormalStep__Group_6_1__08300 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_6_1__1_in_rule__NormalStep__Group_6_1__08303 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_28_in_rule__NormalStep__Group_6_1__0__Impl8331 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_6_1__1__Impl_in_rule__NormalStep__Group_6_1__18362 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__InvokedUseCaseAssignment_6_1_1_in_rule__NormalStep__Group_6_1__1__Impl8389 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_7__0__Impl_in_rule__NormalStep__Group_7__08423 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_7__1_in_rule__NormalStep__Group_7__08426 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_30_in_rule__NormalStep__Group_7__0__Impl8454 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__Group_7__1__Impl_in_rule__NormalStep__Group_7__18485 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__NormalStep__NextAssignment_7_1_in_rule__NormalStep__Group_7__1__Impl8512 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__08546 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__08549 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group__0__Impl8576 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__18605 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl8632 = new BitSet(new long[]{0x0000000000001002L});
+	public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__08667 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__08670 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_12_in_rule__QualifiedName__Group_1__0__Impl8698 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__18729 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__QualifiedName__Group_1__1__Impl8756 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4__0_in_rule__UseCase__UnorderedGroup_48790 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__UseCase__Group_4_0__0_in_rule__UseCase__UnorderedGroup_4__Impl8877 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__UseCase__Group_4_1__0_in_rule__UseCase__UnorderedGroup_4__Impl8968 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4__Impl_in_rule__UseCase__UnorderedGroup_4__09027 = new BitSet(new long[]{0x0000006000000002L});
+	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4__1_in_rule__UseCase__UnorderedGroup_4__09030 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rule__UseCase__UnorderedGroup_4__Impl_in_rule__UseCase__UnorderedGroup_4__19055 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rulePackageDeclaration_in_rule__UseCasesModel__PackagesAssignment9087 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleQualifiedName_in_rule__PackageDeclaration__NameAssignment_19118 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__PackageDeclaration__DescriptionAssignment_29149 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleActor_in_rule__PackageDeclaration__ActorsAssignment_3_19180 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleUseCase_in_rule__PackageDeclaration__UseCasesAssignment_49211 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__UseCase__NameAssignment_19242 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__DescriptionAssignment_29273 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__UseCase__SuperCaseAssignment_3_19308 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__PreConditionsAssignment_4_0_19343 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__PostconditionAssignment_4_1_19374 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleFlow_in_rule__UseCase__FlowsAssignment_59405 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__Actor__NameAssignment_09436 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleActorType_in_rule__Actor__TypeAssignment_29467 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__Actor__DescriptionAssignment_39498 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__Actor__ExtendsAssignment_4_19533 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleStep_in_rule__BasicFlow__StepsAssignment_29568 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__BasicFlow__FinalStateAssignment_4_19599 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__ExceptionFlow__NameAssignment_19630 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__ExceptionFlow__ConditionAssignment_39661 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleStep_in_rule__ExceptionFlow__StepsAssignment_59692 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__ExceptionFlow__FinalStateAssignment_7_19723 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__AlternativeFlow__NameAssignment_19754 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleStep_in_rule__AlternativeFlow__StepsAssignment_29785 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__AlternativeFlow__FinalStateAssignment_4_19816 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelFlow__NameAssignment_19847 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleStep_in_rule__ParallelFlow__StepsAssignment_29878 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__ParallelFlow__FinalStateAssignment_4_19909 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__Condition__ConditionAssignment_19940 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__Condition__ContinuationAssignment_3_19975 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__LocalAlternative__ConditionAssignment_110010 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__LocalAlternative__DescriptionAssignment_3_010041 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__LocalAlternative__InvokedUseCaseAssignment_3_1_110076 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__LocalAlternative__ContinuationAssignment_4_110115 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__AlternativeFlowAlternative__ConditionAssignment_110150 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__AlternativeFlowAlternative__RefAssignment_410185 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__AlternativeFlowAlternative__ContinuationAssignment_5_110224 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelStep__NameAssignment_110259 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__ParallelStep__LabelAssignment_210290 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelStep__InvokedFlowsAssignment_310325 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelStep__InvokedFlowsAssignment_4_110364 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__ParallelStep__NextAssignment_5_110403 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__NormalStep__NameAssignment_110438 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rule__NormalStep__LabelAssignment_210469 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__NormalStep__ActorAssignment_410504 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleCustomStepType_in_rule__NormalStep__CustomStepTypeAssignment_5_110539 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleStepAlternative_in_rule__NormalStep__StepAlternativeAssignment_6_0_110570 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__NormalStep__InvokedUseCaseAssignment_6_1_110605 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_rule__NormalStep__NextAssignment_7_110644 = new BitSet(new long[]{0x0000000000000002L});
 }

@@ -1359,20 +1359,24 @@ ruleParallelStep returns [EObject current=null]
 	}
 
 )
-))*(
+))*(	otherlv_6='next' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getParallelStepAccess().getNextKeyword_5_0());
+    }
+(
 (
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getParallelStepRule());
 	        }
         }
-	otherlv_6=RULE_ID
+	otherlv_7=RULE_ID
 	{
-		newLeafNode(otherlv_6, grammarAccess.getParallelStepAccess().getNextStepCrossReference_5_0()); 
+		newLeafNode(otherlv_7, grammarAccess.getParallelStepAccess().getNextStepCrossReference_5_1_0()); 
 	}
 
 )
-)?)
+))?)
 ;
 
 
@@ -1516,20 +1520,24 @@ ruleNormalStep returns [EObject current=null]
 	}
 
 )
-)))?(
+)))?(	otherlv_12='next' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getNormalStepAccess().getNextKeyword_7_0());
+    }
+(
 (
 		{
 			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getNormalStepRule());
 	        }
         }
-	otherlv_12=RULE_ID
+	otherlv_13=RULE_ID
 	{
-		newLeafNode(otherlv_12, grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_0()); 
+		newLeafNode(otherlv_13, grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_1_0()); 
 	}
 
 )
-)?)
+))?)
 ;
 
 

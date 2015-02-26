@@ -775,15 +775,19 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInvokedFlowsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final CrossReference cInvokedFlowsParallelFlowCrossReference_4_1_0 = (CrossReference)cInvokedFlowsAssignment_4_1.eContents().get(0);
 		private final RuleCall cInvokedFlowsParallelFlowIDTerminalRuleCall_4_1_0_1 = (RuleCall)cInvokedFlowsParallelFlowCrossReference_4_1_0.eContents().get(1);
-		private final Assignment cNextAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cNextStepCrossReference_5_0 = (CrossReference)cNextAssignment_5.eContents().get(0);
-		private final RuleCall cNextStepIDTerminalRuleCall_5_0_1 = (RuleCall)cNextStepCrossReference_5_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cNextKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cNextAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cNextStepCrossReference_5_1_0 = (CrossReference)cNextAssignment_5_1.eContents().get(0);
+		private final RuleCall cNextStepIDTerminalRuleCall_5_1_0_1 = (RuleCall)cNextStepCrossReference_5_1_0.eContents().get(1);
 		
 		//ParallelStep:
-		//	"parallel step" name=ID label=STRING? invokedFlows+=[ParallelFlow] ("," invokedFlows+=[ParallelFlow])* next=[Step]?;
+		//	"parallel step" name=ID label=STRING? invokedFlows+=[ParallelFlow] ("," invokedFlows+=[ParallelFlow])* ("next"
+		//	next=[Step])?;
 		public ParserRule getRule() { return rule; }
 
-		//"parallel step" name=ID label=STRING? invokedFlows+=[ParallelFlow] ("," invokedFlows+=[ParallelFlow])* next=[Step]?
+		//"parallel step" name=ID label=STRING? invokedFlows+=[ParallelFlow] ("," invokedFlows+=[ParallelFlow])* ("next"
+		//next=[Step])?
 		public Group getGroup() { return cGroup; }
 
 		//"parallel step"
@@ -825,14 +829,20 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getInvokedFlowsParallelFlowIDTerminalRuleCall_4_1_0_1() { return cInvokedFlowsParallelFlowIDTerminalRuleCall_4_1_0_1; }
 
-		//next=[Step]?
-		public Assignment getNextAssignment_5() { return cNextAssignment_5; }
+		//("next" next=[Step])?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"next"
+		public Keyword getNextKeyword_5_0() { return cNextKeyword_5_0; }
+
+		//next=[Step]
+		public Assignment getNextAssignment_5_1() { return cNextAssignment_5_1; }
 
 		//[Step]
-		public CrossReference getNextStepCrossReference_5_0() { return cNextStepCrossReference_5_0; }
+		public CrossReference getNextStepCrossReference_5_1_0() { return cNextStepCrossReference_5_1_0; }
 
 		//ID
-		public RuleCall getNextStepIDTerminalRuleCall_5_0_1() { return cNextStepIDTerminalRuleCall_5_0_1; }
+		public RuleCall getNextStepIDTerminalRuleCall_5_1_0_1() { return cNextStepIDTerminalRuleCall_5_1_0_1; }
 	}
 
 	public class NormalStepElements extends AbstractParserRuleElementFinder {
@@ -862,17 +872,19 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInvokedUseCaseAssignment_6_1_1 = (Assignment)cGroup_6_1.eContents().get(1);
 		private final CrossReference cInvokedUseCaseUseCaseCrossReference_6_1_1_0 = (CrossReference)cInvokedUseCaseAssignment_6_1_1.eContents().get(0);
 		private final RuleCall cInvokedUseCaseUseCaseIDTerminalRuleCall_6_1_1_0_1 = (RuleCall)cInvokedUseCaseUseCaseCrossReference_6_1_1_0.eContents().get(1);
-		private final Assignment cNextAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cNextStepCrossReference_7_0 = (CrossReference)cNextAssignment_7.eContents().get(0);
-		private final RuleCall cNextStepIDTerminalRuleCall_7_0_1 = (RuleCall)cNextStepCrossReference_7_0.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cNextKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cNextAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cNextStepCrossReference_7_1_0 = (CrossReference)cNextAssignment_7_1.eContents().get(0);
+		private final RuleCall cNextStepIDTerminalRuleCall_7_1_0_1 = (RuleCall)cNextStepCrossReference_7_1_0.eContents().get(1);
 		
 		//NormalStep:
 		//	"step" name=ID label=STRING? "by" actor=[Actor] ("type" customStepType=CustomStepType)? ("alternatives"
-		//	stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? next=[Step]?;
+		//	stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?;
 		public ParserRule getRule() { return rule; }
 
 		//"step" name=ID label=STRING? "by" actor=[Actor] ("type" customStepType=CustomStepType)? ("alternatives"
-		//stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? next=[Step]?
+		//stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?
 		public Group getGroup() { return cGroup; }
 
 		//"step"
@@ -947,14 +959,20 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getInvokedUseCaseUseCaseIDTerminalRuleCall_6_1_1_0_1() { return cInvokedUseCaseUseCaseIDTerminalRuleCall_6_1_1_0_1; }
 
-		//next=[Step]?
-		public Assignment getNextAssignment_7() { return cNextAssignment_7; }
+		//("next" next=[Step])?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"next"
+		public Keyword getNextKeyword_7_0() { return cNextKeyword_7_0; }
+
+		//next=[Step]
+		public Assignment getNextAssignment_7_1() { return cNextAssignment_7_1; }
 
 		//[Step]
-		public CrossReference getNextStepCrossReference_7_0() { return cNextStepCrossReference_7_0; }
+		public CrossReference getNextStepCrossReference_7_1_0() { return cNextStepCrossReference_7_1_0; }
 
 		//ID
-		public RuleCall getNextStepIDTerminalRuleCall_7_0_1() { return cNextStepIDTerminalRuleCall_7_0_1; }
+		public RuleCall getNextStepIDTerminalRuleCall_7_1_0_1() { return cNextStepIDTerminalRuleCall_7_1_0_1; }
 	}
 
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
@@ -1299,7 +1317,8 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParallelStep:
-	//	"parallel step" name=ID label=STRING? invokedFlows+=[ParallelFlow] ("," invokedFlows+=[ParallelFlow])* next=[Step]?;
+	//	"parallel step" name=ID label=STRING? invokedFlows+=[ParallelFlow] ("," invokedFlows+=[ParallelFlow])* ("next"
+	//	next=[Step])?;
 	public ParallelStepElements getParallelStepAccess() {
 		return pParallelStep;
 	}
@@ -1310,7 +1329,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 
 	//NormalStep:
 	//	"step" name=ID label=STRING? "by" actor=[Actor] ("type" customStepType=CustomStepType)? ("alternatives"
-	//	stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? next=[Step]?;
+	//	stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?;
 	public NormalStepElements getNormalStepAccess() {
 		return pNormalStep;
 	}
