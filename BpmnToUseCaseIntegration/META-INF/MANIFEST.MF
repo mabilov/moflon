@@ -16,8 +16,9 @@ Require-Bundle: bpmn2,
  MocaTree,
  SDMLanguage,
  TGGLanguage,
- TGGRuntime
+ TGGRuntime,
+ org.eclipse.emf.compare;bundle-version="3.1.2"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: TU Darmstadt
+Bundle-Vendor: Marat Abilov

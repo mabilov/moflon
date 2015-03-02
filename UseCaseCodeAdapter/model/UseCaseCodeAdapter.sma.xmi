@@ -5,286 +5,286 @@
       <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_FWD_File_0"/>
     </rules>
     <rules ruleName="PackageRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_0"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_1"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_193"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_FWD_EMoflonEdge_194"/>
     </rules>
     <rules ruleName="ActorsRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_2"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_3"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_195"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorsRule/isAppropriate_FWD_EMoflonEdge_196"/>
     </rules>
     <rules ruleName="ActorRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_4"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_5"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_6"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_7"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_8"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_9"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_197"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_198"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_199"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_200"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_201"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_FWD_EMoflonEdge_202"/>
     </rules>
     <rules ruleName="ActorDescRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_10"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_11"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_12"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_13"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_14"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_15"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_16"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_17"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_18"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_19"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_203"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_204"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_205"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_206"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_207"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_208"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_209"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_210"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_211"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_FWD_EMoflonEdge_212"/>
     </rules>
     <rules ruleName="UseCaseExtendsRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_20"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_21"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_22"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_23"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_213"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_214"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_215"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_FWD_EMoflonEdge_216"/>
     </rules>
     <rules ruleName="UseCasesRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_24"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_25"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_217"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasesRule/isAppropriate_FWD_EMoflonEdge_218"/>
     </rules>
     <rules ruleName="UseCaseRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_26"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_27"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_219"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_FWD_EMoflonEdge_220"/>
     </rules>
     <rules ruleName="UseCaseDescRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_28"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_29"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_30"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_31"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_32"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_33"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_221"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_222"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_223"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_224"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_225"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_FWD_EMoflonEdge_226"/>
     </rules>
     <rules ruleName="UseCaseDescPreCondRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_34"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_35"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_36"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_37"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_38"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_39"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_40"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_41"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_42"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_43"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_227"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_228"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_229"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_230"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_231"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_232"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_233"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_234"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_235"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_FWD_EMoflonEdge_236"/>
     </rules>
     <rules ruleName="ParallelStepRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_44"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_45"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_46"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_47"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_48"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_49"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_237"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_238"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_239"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_240"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_241"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_FWD_EMoflonEdge_242"/>
     </rules>
     <rules ruleName="UseCasePreCondRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_50"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_51"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_52"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_53"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_54"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_55"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_243"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_244"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_245"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_246"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_247"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_FWD_EMoflonEdge_248"/>
     </rules>
     <rules ruleName="BasicFlowRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_56"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_57"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_249"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_FWD_EMoflonEdge_250"/>
     </rules>
     <rules ruleName="AlternativeFlowRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_58"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_59"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_60"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_61"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_62"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_63"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_251"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_252"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_253"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_254"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_255"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_FWD_EMoflonEdge_256"/>
     </rules>
     <rules ruleName="ParallelFlowRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_64"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_65"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_66"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_67"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_68"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_69"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_257"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_258"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_259"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_260"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_261"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_FWD_EMoflonEdge_262"/>
     </rules>
     <rules ruleName="BasicFlowFinalStateRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_70"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_71"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_72"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_73"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_74"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_75"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_263"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_264"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_265"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_266"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_267"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_268"/>
     </rules>
     <rules ruleName="ActorExtendsRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_76"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_77"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_78"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_79"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_269"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_270"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_271"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_FWD_EMoflonEdge_272"/>
     </rules>
     <rules ruleName="AltFlowFinalStateRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_80"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_81"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_82"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_83"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_84"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_85"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_86"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_87"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_88"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_89"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_273"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_274"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_275"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_276"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_277"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_278"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_279"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_280"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_281"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_282"/>
     </rules>
     <rules ruleName="ParallelFlowFinalStateRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_90"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_91"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_92"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_93"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_94"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_95"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_96"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_97"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_98"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_99"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_283"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_284"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_285"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_286"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_287"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_288"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_289"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_290"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_291"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_FWD_EMoflonEdge_292"/>
     </rules>
     <rules ruleName="StepRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_100"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_101"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_102"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_103"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_104"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_105"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_106"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_107"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_108"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_109"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_293"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_294"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_295"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_296"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_297"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_298"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_299"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_300"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_301"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_FWD_EMoflonEdge_302"/>
     </rules>
     <rules ruleName="StepDescRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_110"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_111"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_112"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_113"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_114"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_115"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_116"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_117"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_118"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_119"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_120"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_121"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_122"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_123"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_303"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_304"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_305"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_306"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_307"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_308"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_309"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_310"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_311"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_312"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_313"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_314"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_315"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_FWD_EMoflonEdge_316"/>
     </rules>
     <rules ruleName="ParallelStepDescRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_124"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_125"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_126"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_127"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_128"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_129"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_130"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_131"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_132"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_133"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_317"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_318"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_319"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_320"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_321"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_322"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_323"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_324"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_325"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_FWD_EMoflonEdge_326"/>
     </rules>
     <rules ruleName="StepAlternativesRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_134"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_135"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_327"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepAlternativesRule/isAppropriate_FWD_EMoflonEdge_328"/>
     </rules>
     <rules ruleName="AltFlowAltRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_136"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_137"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_138"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_139"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_140"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_141"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_142"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_143"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_329"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_330"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_331"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_332"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_333"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_334"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_335"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_FWD_EMoflonEdge_336"/>
     </rules>
     <rules ruleName="AltFlowAltContinueRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_144"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_145"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_146"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_147"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_337"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_338"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_339"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_FWD_EMoflonEdge_340"/>
     </rules>
     <rules ruleName="ParallelFlowInvokeRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_148"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_149"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_341"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowInvokeRule/isAppropriate_FWD_EMoflonEdge_342"/>
     </rules>
     <rules ruleName="ParallelStepInvokeRefRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_150"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_151"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_343"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_FWD_EMoflonEdge_344"/>
     </rules>
   </sourceRules>
   <targetRules>
     <rules ruleName="FileToUCModel">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_BWD_UseCasesModel_0"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/FileToUCModel/isAppropriate_BWD_UseCasesModel_1"/>
     </rules>
     <rules ruleName="PackageRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_BWD_EMoflonEdge_0"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/PackageRule/isAppropriate_BWD_EMoflonEdge_60"/>
     </rules>
     <rules ruleName="ActorsRule"/>
     <rules ruleName="ActorRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_BWD_EMoflonEdge_1"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule/isAppropriate_BWD_EMoflonEdge_61"/>
     </rules>
     <rules ruleName="ActorDescRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_BWD_EMoflonEdge_2"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorDescRule/isAppropriate_BWD_EMoflonEdge_62"/>
     </rules>
     <rules ruleName="UseCaseExtendsRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_BWD_EMoflonEdge_3"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseExtendsRule/isAppropriate_BWD_EMoflonEdge_63"/>
     </rules>
     <rules ruleName="UseCasesRule"/>
     <rules ruleName="UseCaseRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_BWD_EMoflonEdge_4"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule/isAppropriate_BWD_EMoflonEdge_64"/>
     </rules>
     <rules ruleName="UseCaseDescRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_BWD_EMoflonEdge_5"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule/isAppropriate_BWD_EMoflonEdge_65"/>
     </rules>
     <rules ruleName="UseCaseDescPreCondRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_BWD_EMoflonEdge_6"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescPreCondRule/isAppropriate_BWD_EMoflonEdge_66"/>
     </rules>
     <rules ruleName="ParallelStepRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_BWD_EMoflonEdge_7"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule/isAppropriate_BWD_EMoflonEdge_67"/>
     </rules>
     <rules ruleName="UseCasePreCondRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_BWD_EMoflonEdge_8"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCasePreCondRule/isAppropriate_BWD_EMoflonEdge_68"/>
     </rules>
     <rules ruleName="BasicFlowRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_BWD_EMoflonEdge_9"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule/isAppropriate_BWD_EMoflonEdge_69"/>
     </rules>
     <rules ruleName="AlternativeFlowRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_BWD_EMoflonEdge_10"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule/isAppropriate_BWD_EMoflonEdge_70"/>
     </rules>
     <rules ruleName="ParallelFlowRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_BWD_EMoflonEdge_11"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule/isAppropriate_BWD_EMoflonEdge_71"/>
     </rules>
     <rules ruleName="BasicFlowFinalStateRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_12"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_72"/>
     </rules>
     <rules ruleName="ActorExtendsRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_BWD_EMoflonEdge_13"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorExtendsRule/isAppropriate_BWD_EMoflonEdge_73"/>
     </rules>
     <rules ruleName="AltFlowFinalStateRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_14"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_74"/>
     </rules>
     <rules ruleName="ParallelFlowFinalStateRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_15"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowFinalStateRule/isAppropriate_BWD_EMoflonEdge_75"/>
     </rules>
     <rules ruleName="StepRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_16"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_17"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_76"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule/isAppropriate_BWD_EMoflonEdge_77"/>
     </rules>
     <rules ruleName="StepDescRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_18"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_19"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_78"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepDescRule/isAppropriate_BWD_EMoflonEdge_79"/>
     </rules>
     <rules ruleName="ParallelStepDescRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_BWD_EMoflonEdge_20"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepDescRule/isAppropriate_BWD_EMoflonEdge_80"/>
     </rules>
     <rules ruleName="StepAlternativesRule"/>
     <rules ruleName="AltFlowAltRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_21"/>
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_22"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_81"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltRule/isAppropriate_BWD_EMoflonEdge_82"/>
     </rules>
     <rules ruleName="AltFlowAltContinueRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_BWD_EMoflonEdge_23"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AltFlowAltContinueRule/isAppropriate_BWD_EMoflonEdge_83"/>
     </rules>
     <rules ruleName="ParallelFlowInvokeRule"/>
     <rules ruleName="ParallelStepInvokeRefRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_BWD_EMoflonEdge_24"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepInvokeRefRule/isAppropriate_BWD_EMoflonEdge_84"/>
     </rules>
   </targetRules>
 </analysis:StaticAnalysis>

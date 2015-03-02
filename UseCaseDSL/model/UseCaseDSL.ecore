@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UseCaseDSL" nsURI="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore" nsPrefix="UseCaseDSL">
   <eClassifiers xsi:type="ecore:EClass" name="Actor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="//Actor"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1" iD="true">
@@ -23,13 +23,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1" eType="//Step" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalState" ordered="false" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalState" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocalAlternative" eSuperTypes="//StepAlternative">
     <eStructuralFeatures xsi:type="ecore:EReference" name="invokedUseCase" eType="//UseCase"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -41,12 +41,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="NormalStep" eSuperTypes="//Step">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stepAlternative" upperBound="-1" eType="//StepAlternative" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="//Actor"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customStepType" ordered="false" lowerBound="1" eType="//CustomStepType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customStepType" ordered="false" eType="//CustomStepType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="useCases" upperBound="-1" eType="//UseCase" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1" eType="//Actor" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1" iD="true">
@@ -60,7 +60,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Step" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="//Step"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="invokedUseCase" eType="//UseCase"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" ordered="false" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1" iD="true">
@@ -76,16 +76,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="UseCase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="superCase" eType="//UseCase"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1" eType="//Flow" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1" iD="true">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postcondition" ordered="false" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postcondition" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preConditions" ordered="false" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preConditions" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>

@@ -10153,7 +10153,7 @@
               <attribute name="name" value="description" index="2" />
               <attribute name="guid" value="{D586337B-1E71-456c-B5F6-3F060F1217F5}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10279,7 +10279,7 @@
               <attribute name="name" value="finalState" index="2" />
               <attribute name="guid" value="{3474E6E8-CC7E-4f61-B17F-E8D7446B299A}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10310,7 +10310,7 @@
               <attribute name="name" value="description" index="2" />
               <attribute name="guid" value="{21DF1B25-B988-4c26-AB38-FCB825A2D1E1}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10371,7 +10371,7 @@
               <attribute name="name" value="customStepType" index="2" />
               <attribute name="guid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10410,7 +10410,7 @@
               <attribute name="name" value="description" index="2" />
               <attribute name="guid" value="{2751B91A-5088-496f-9755-C3DD6DDF76EA}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10490,7 +10490,7 @@
               <attribute name="name" value="label" index="2" />
               <attribute name="guid" value="{CB980E2D-C1F1-4be5-A406-843B7791E078}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10570,7 +10570,7 @@
               <attribute name="name" value="description" index="2" />
               <attribute name="guid" value="{5AB29915-FD80-41f9-90B0-62C7AD2C4C08}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10590,7 +10590,7 @@
               <attribute name="name" value="postcondition" index="2" />
               <attribute name="guid" value="{4ADA3CAA-44BD-4fb6-BF0B-1299111AD842}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10600,7 +10600,7 @@
               <attribute name="name" value="preConditions" index="2" />
               <attribute name="guid" value="{B70EF8F3-0C59-4669-933F-8AF8B16CC325}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="1" index="5" />
+              <attribute name="lowerBound" value="0" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>

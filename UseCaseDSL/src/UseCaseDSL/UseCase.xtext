@@ -13,7 +13,7 @@ PackageDeclaration: 'package' name = QualifiedName
 
 UseCase: 'usecase' name = ID 
 	(description = STRING)? 
-	('extends' superCase = [UseCase])? 
+	('extends' superCase = [UseCase|ID])? 
 	(('preconditions' preConditions = STRING)? &
 		('postcondition' postcondition = STRING)?) 
 	flows += Flow*
@@ -22,7 +22,7 @@ UseCase: 'usecase' name = ID
 Actor: name = ID 
 	'as' type = ActorType
 	(description = STRING)?  
-	('extends' extends=[Actor])?;
+	('extends' extends=[Actor|ID])?;
 
 Step: NormalStep | ParallelStep;
 
@@ -54,28 +54,28 @@ ParallelFlow: 'parallel flow' name = ID
 StepAlternative: Condition | LocalAlternative | AlternativeFlowAlternative;
 
 Condition: 'if' condition = STRING 'then' 
-	('continue with step' continuation = [Step])?;
+	('continue with step' continuation = [Step|ID])?;
 
 LocalAlternative: 'if' condition = STRING 'then' 
-	((description = STRING) | ('invoke usecase' invokedUseCase = [UseCase]))
-	('continue with step' continuation = [Step])?;
+	((description = STRING) | ('invoke usecase' invokedUseCase = [UseCase|ID]))
+	('continue with step' continuation = [Step|ID])?;
 
 AlternativeFlowAlternative: 'if' condition = STRING 'then' 
-	'alternative flow' ref = [NamedFlow]
-	('continue with step' continuation = [Step])?;
+	'alternative flow' ref = [NamedFlow|ID]
+	('continue with step' continuation = [Step|ID])?;
 
 ParallelStep: 'parallel step' name = ID 
 	(label = STRING)? 
-	invokedFlows += [ParallelFlow] (',' invokedFlows += [ParallelFlow])*
-	('next' next = [Step])?;
+	invokedFlows += [ParallelFlow|ID] (',' invokedFlows += [ParallelFlow])*
+	('next' next = [Step|ID])?;
 
 NormalStep: 'step' name = ID 
 	(label = STRING)? 
-	'by' actor = [Actor]  
+	'by' actor = [Actor|ID]  
 	('type' customStepType = CustomStepType)? 
 	(('alternatives' stepAlternative += StepAlternative+ 'else') |
-		('invoke usecase' invokedUseCase = [UseCase]))?
-	('next' next = [Step])?;
+		('invoke usecase' invokedUseCase = [UseCase|ID]))?
+	('next' next = [Step|ID])?;
 
 QualifiedName: ID ('.' ID)*;
 	

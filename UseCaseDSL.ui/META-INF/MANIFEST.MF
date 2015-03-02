@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UseCaseDSL.ui
-Bundle-Vendor: My Company
+Bundle-Vendor: Marat Abilov
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: UseCaseDSL.ui; singleton:=true
 Bundle-ActivationPolicy: lazy

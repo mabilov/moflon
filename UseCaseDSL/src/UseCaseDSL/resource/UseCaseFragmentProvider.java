@@ -9,6 +9,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.IFragmentProvider;
+
+import UseCaseDSL.StepAlternative;
+
 import com.google.inject.Inject;
 
 public class UseCaseFragmentProvider implements IFragmentProvider {
@@ -19,7 +22,14 @@ public class UseCaseFragmentProvider implements IFragmentProvider {
 	@Override
 	public String getFragment(EObject obj, Fallback fallback) {
 		if (obj instanceof UseCaseDSL.BasicFlow) {
-			return qualifiedNameProvider.getFullyQualifiedName(obj.eContainer()).toString() + ".basic_flow";
+			QualifiedName containerName = qualifiedNameProvider.getFullyQualifiedName(obj.eContainer());
+			return containerName.toString() + ".basic_flow";
+		} else if (obj instanceof UseCaseDSL.StepAlternative) {
+			String cond = ((StepAlternative)obj).getCondition().trim()
+					.toLowerCase().replaceAll("[^\\w\\d]", "_");
+			QualifiedName containerName = qualifiedNameProvider.getFullyQualifiedName(obj.eContainer());
+			
+			return containerName.toString() + "." + cond;
 		}
 		QualifiedName qName = qualifiedNameProvider.getFullyQualifiedName(obj);
 		return qName != null ? qName.toString() : fallback.getFragment(obj);

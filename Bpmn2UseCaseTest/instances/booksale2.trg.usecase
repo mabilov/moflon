@@ -1,0 +1,18 @@
+package de.abilov.booksale actors sys as system financing as person "Financing"
+sales as person "Sales" shipping as person "Shipping" usecase booksale
+"Book Sale Process" preconditions "Order Received" basic flow step
+record_order "Record Order" by sys step check_stock "Check Stock" by sys next
+all_books_available step all_books_available "All books available" by sys
+alternatives if "No" then alternative flow sf_no else parallel step pgw1
+"pgw1" shipment_prepare , payment next deliver_books_customer step
+deliver_books_customer "Deliver books to customer" by sales next
+delivery_confirmed step delivery_confirmed "Delivery confirmed" by sys
+end flow alternative flow sf_no step deliver_books_stock
+"Deliver books to stock" by sales end flow parallel flow shipment_prepare step
+separate_books "Separate books of the request" by shipping end flow
+parallel flow payment step charge_issue "Charge Issue" by sys step
+wait_for_event "Wait for event" by sys alternatives if "delay > 5 days" then
+alternative flow delay_5d if "Payment Received" then alternative flow
+payment_received else end flow alternative flow delay_5d end flow
+alternative flow payment_received step issue_invoice "Issue invoice" by sales
+end flow end usecase end package
