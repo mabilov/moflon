@@ -130,11 +130,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="TaskToStepCoreRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="FirstServiceTaskToStepRule">
+    <eClassifiers xsi:type="ecore:EClass" name="FirstServiceTaskToStepRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/TaskToStepCoreRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="FirstUserTaskToStepRule">
+    <eClassifiers xsi:type="ecore:EClass" name="FirstUserTaskToStepRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/TaskToStepCoreRule"/>
     </eClassifiers>
@@ -271,6 +271,38 @@
     <eClassifiers xsi:type="ecore:EClass" name="ICEToStepAfterPConvGwRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
       <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceTaskToStepAfterSERule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstServiceTaskToStepRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceTaskToStepAfterExGwRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstServiceTaskToStepRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceTaskToStepAfterPGRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstServiceTaskToStepRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceTaskToStepAfterEvGwRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstServiceTaskToStepRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UserTaskToStepAfterSERule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstUserTaskToStepRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UserTaskToStepAfterExGwRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstUserTaskToStepRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UserTaskToStepAfterPGRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstUserTaskToStepRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UserTaskToStepAfterEvGwRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+      <eSuperTypes href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstUserTaskToStepRule"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
