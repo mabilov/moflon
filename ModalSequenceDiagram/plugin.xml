@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?><plugin>
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+    <!-- @generated ModalSequenceDiagram -->
+    <parser class="ModalSequenceDiagram.util.ModalSequenceDiagramResourceFactoryImpl" type="modalsequencediagram"/>
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package class="ModalSequenceDiagram.ModalSequenceDiagramPackage" genModel="model/ModalSequenceDiagram.genmodel" uri="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore"/>
+  </extension>
+</plugin>

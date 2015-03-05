@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ModalSequenceDiagram" nsURI="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore" nsPrefix="ModalSequenceDiagram">
+  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="//Package"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="//PackageableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packagedElement" upperBound="-1" eType="//PackageableElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageableElement" abstract="true" eSuperTypes="//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Collaboration" eSuperTypes="//StructuredClassifier //BehavioredClassifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuredClassifier" abstract="true" eSuperTypes="//Classifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedConnector" upperBound="-1" eType="//Connector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAttribute" upperBound="-1" eType="//Property" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehavioredClassifier" abstract="true" eSuperTypes="//Classifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedBehavior" upperBound="-1" eType="//Behavior" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Classifier" abstract="true" eSuperTypes="//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="//PackageableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="//Behavior //InteractionFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" upperBound="-1" eType="//Lifeline" containment="true" eOpposite="//Lifeline/interaction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragment" upperBound="-1" eType="//InteractionFragment" containment="true" eOpposite="//InteractionFragment/enclosingInteraction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1" eType="//Message" containment="true" eOpposite="//Message/interaction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Behavior" abstract="true" eSuperTypes="//Class"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="//Feature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="2" upperBound="-1" eType="//ConnectorEnd" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lifeline" eSuperTypes="//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interaction" eType="//Interaction" eOpposite="//Interaction/lifeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="represents" eType="//ConnectableElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coveredBy" upperBound="-1" eType="//InteractionFragment" eOpposite="//InteractionFragment/covered"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionFragment" abstract="true" eSuperTypes="//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enclosingInteraction" eType="//Interaction" eOpposite="//Interaction/fragment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="covered" upperBound="-1" eType="//Lifeline" eOpposite="//Lifeline/coveredBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectableElement" abstract="true" eSuperTypes="//TypedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="//ConnectableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Message" eSuperTypes="//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interaction" eType="//Interaction" eOpposite="//Interaction/message"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiveEvent" eType="//MessageEnd"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendEvent" eType="//MessageEnd"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" eType="//Connector"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageEnd" eSuperTypes="//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="//Message"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageOccurrenceSpecification" eSuperTypes="//MessageEnd //OccurrenceSpecification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OccurrenceSpecification" eSuperTypes="//InteractionFragment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StateInvariant" eSuperTypes="//InteractionFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invariant" lowerBound="1" eType="//Constraint" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="//PackageableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specification" lowerBound="1" eType="//ValueSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueSpecification" abstract="true" eSuperTypes="//PackageableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OpaqueExpression" eSuperTypes="//ValueSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" ordered="false" upperBound="-1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedElement" eSuperTypes="//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="//Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RedefinableElement" abstract="true" eSuperTypes="//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="//RedefinableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectorEnd">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" lowerBound="1" eType="//ConnectableElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallEvent" eSuperTypes="//MessageEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1" eType="//Operation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="//BehavioralFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageEvent" abstract="true" eSuperTypes="//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" abstract="true" eSuperTypes="//PackageableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="//BehavioredClassifier //EncapsulatedClassifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedOperation" upperBound="-1" eType="//Operation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehavioralFeature" abstract="true" eSuperTypes="//Feature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EncapsulatedClassifier" abstract="true" eSuperTypes="//StructuredClassifier"/>
+</ecore:EPackage>
