@@ -20,7 +20,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public abstract class NamespaceImpl extends EObjectImpl implements Namespace {
+public abstract class NamespaceImpl extends NamedElementImpl implements
+		Namespace {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: UseCaseToModalSequenceDiagramIntegration;singleto
+ n:=true
+Export-Package: UseCaseToModalSequenceDiagramIntegration.util,
+ UseCaseToModalSequenceDiagramIntegration.Rules,
+ UseCaseToModalSequenceDiagramIntegration,
+ UseCaseToModalSequenceDiagramIntegration.Rules.impl,
+ UseCaseToModalSequenceDiagramIntegration.Rules.util,
+ UseCaseToModalSequenceDiagramIntegration.impl
+Bundle-Name: UseCaseToModalSequenceDiagramIntegration
+Bundle-Version: 1.0
+Require-Bundle: UseCaseDSL,
+ ModalSequenceDiagram,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.moflon.dependencies,
+ MocaTree,
+ SDMLanguage,
+ TGGLanguage,
+ TGGRuntime
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: TU Darmstadt

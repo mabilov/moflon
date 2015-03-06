@@ -15,7 +15,7 @@ package ModalSequenceDiagram;
  * @model abstract="true"
  * @generated
  */
-public interface Classifier extends Type { // <-- [user code injected with eMoflon]
+public interface Classifier extends Type, Namespace { // <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
 } // Classifier

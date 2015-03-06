@@ -2,7 +2,6 @@
 bpmn2/bin/
 UseCaseDSL/bin/
 BpmnToUseCaseIntegration/bin/
-BpmnToUseCaseIntegration/gen/
 BpmnToUseCaseIntegration/visualisation/
 UseCaseCodeAdapter/bin/
 UseCaseCodeAdapter/gen/

@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Package extends PackageableElement {
+public interface Package extends PackageableElement, Namespace {
 	/**
 	 * Returns the value of the '<em><b>Packaged Element</b></em>' containment reference list.
 	 * The list contents are of type {@link ModalSequenceDiagram.PackageableElement}.

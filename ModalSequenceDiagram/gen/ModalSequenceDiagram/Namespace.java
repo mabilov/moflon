@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Namespace extends EObject { // <-- [user code injected with eMoflon]
+public interface Namespace extends NamedElement { // <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
 } // Namespace

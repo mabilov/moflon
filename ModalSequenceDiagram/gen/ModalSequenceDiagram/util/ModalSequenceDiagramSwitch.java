@@ -130,6 +130,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePackageableElement(model);
 			if (result == null)
+				result = caseNamespace(model);
+			if (result == null)
 				result = caseNamedElement(model);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -140,6 +142,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 			T result = casePackage(package_);
 			if (result == null)
 				result = casePackageableElement(package_);
+			if (result == null)
+				result = caseNamespace(package_);
 			if (result == null)
 				result = caseNamedElement(package_);
 			if (result == null)
@@ -167,6 +171,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseType(collaboration);
 			if (result == null)
+				result = caseNamespace(collaboration);
+			if (result == null)
 				result = casePackageableElement(collaboration);
 			if (result == null)
 				result = caseNamedElement(collaboration);
@@ -181,6 +187,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = caseClassifier(structuredClassifier);
 			if (result == null)
 				result = caseType(structuredClassifier);
+			if (result == null)
+				result = caseNamespace(structuredClassifier);
 			if (result == null)
 				result = casePackageableElement(structuredClassifier);
 			if (result == null)
@@ -197,6 +205,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseType(behavioredClassifier);
 			if (result == null)
+				result = caseNamespace(behavioredClassifier);
+			if (result == null)
 				result = casePackageableElement(behavioredClassifier);
 			if (result == null)
 				result = caseNamedElement(behavioredClassifier);
@@ -209,6 +219,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 			T result = caseClassifier(classifier);
 			if (result == null)
 				result = caseType(classifier);
+			if (result == null)
+				result = caseNamespace(classifier);
 			if (result == null)
 				result = casePackageableElement(classifier);
 			if (result == null)
@@ -248,6 +260,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseType(interaction);
 			if (result == null)
+				result = caseNamespace(interaction);
+			if (result == null)
 				result = casePackageableElement(interaction);
 			if (result == null)
 				result = caseNamedElement(interaction);
@@ -270,6 +284,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = caseClassifier(behavior);
 			if (result == null)
 				result = caseType(behavior);
+			if (result == null)
+				result = caseNamespace(behavior);
 			if (result == null)
 				result = casePackageableElement(behavior);
 			if (result == null)
@@ -534,6 +550,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseType(class_);
 			if (result == null)
+				result = caseNamespace(class_);
+			if (result == null)
 				result = casePackageableElement(class_);
 			if (result == null)
 				result = caseNamedElement(class_);
@@ -622,6 +640,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 		case ModalSequenceDiagramPackage.NAMESPACE: {
 			Namespace namespace = (Namespace) theEObject;
 			T result = caseNamespace(namespace);
+			if (result == null)
+				result = caseNamedElement(namespace);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -724,6 +744,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = caseClassifier(encapsulatedClassifier);
 			if (result == null)
 				result = caseType(encapsulatedClassifier);
+			if (result == null)
+				result = caseNamespace(encapsulatedClassifier);
 			if (result == null)
 				result = casePackageableElement(encapsulatedClassifier);
 			if (result == null)
@@ -832,6 +854,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = casePackageableElement(msdSpecification);
 			if (result == null)
+				result = caseNamespace(msdSpecification);
+			if (result == null)
 				result = caseNamedElement(msdSpecification);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -858,6 +882,8 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = caseClassifier(environmentAssumption);
 			if (result == null)
 				result = caseType(environmentAssumption);
+			if (result == null)
+				result = caseNamespace(environmentAssumption);
 			if (result == null)
 				result = casePackageableElement(environmentAssumption);
 			if (result == null)

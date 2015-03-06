@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ModalSequenceDiagram" nsURI="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore" nsPrefix="ModalSequenceDiagram">
   <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="//Package"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="//PackageableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="//PackageableElement //Namespace">
     <eStructuralFeatures xsi:type="ecore:EReference" name="packagedElement" upperBound="-1" eType="//PackageableElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageableElement" abstract="true" eSuperTypes="//NamedElement"/>
@@ -13,7 +13,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BehavioredClassifier" abstract="true" eSuperTypes="//Classifier">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedBehavior" upperBound="-1" eType="//Behavior" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Classifier" abstract="true" eSuperTypes="//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Classifier" abstract="true" eSuperTypes="//Type //Namespace"/>
   <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="//PackageableElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="//Behavior //InteractionFragment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" upperBound="-1" eType="//Lifeline" containment="true" eOpposite="//Lifeline/interaction"/>
@@ -122,7 +122,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BehaviorExecutionSpecification" eSuperTypes="//ExecutionSpecification">
     <eStructuralFeatures xsi:type="ecore:EReference" name="behavior" eType="//Behavior"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Namespace" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Namespace" abstract="true" eSuperTypes="//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConsiderIgnoreFragment" eSuperTypes="//CombinedFragment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="message" upperBound="-1" eType="//NamedElement"/>
   </eClassifiers>

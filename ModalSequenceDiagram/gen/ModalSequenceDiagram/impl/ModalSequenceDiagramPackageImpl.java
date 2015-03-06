@@ -2058,6 +2058,7 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		// Add supertypes to classes
 		modelEClass.getESuperTypes().add(this.getPackage());
 		packageEClass.getESuperTypes().add(this.getPackageableElement());
+		packageEClass.getESuperTypes().add(this.getNamespace());
 		packageableElementEClass.getESuperTypes().add(this.getNamedElement());
 		collaborationEClass.getESuperTypes()
 				.add(this.getStructuredClassifier());
@@ -2066,6 +2067,7 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		structuredClassifierEClass.getESuperTypes().add(this.getClassifier());
 		behavioredClassifierEClass.getESuperTypes().add(this.getClassifier());
 		classifierEClass.getESuperTypes().add(this.getType());
+		classifierEClass.getESuperTypes().add(this.getNamespace());
 		typeEClass.getESuperTypes().add(this.getPackageableElement());
 		interactionEClass.getESuperTypes().add(this.getBehavior());
 		interactionEClass.getESuperTypes().add(this.getInteractionFragment());
@@ -2109,6 +2111,7 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				this.getExecutionSpecification());
 		behaviorExecutionSpecificationEClass.getESuperTypes().add(
 				this.getExecutionSpecification());
+		namespaceEClass.getESuperTypes().add(this.getNamedElement());
 		considerIgnoreFragmentEClass.getESuperTypes().add(
 				this.getCombinedFragment());
 		continuationEClass.getESuperTypes().add(this.getInteractionFragment());

@@ -2531,13 +2531,22 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int NAMESPACE = 39;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__NAME = NAMED_ELEMENT__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Namespace</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE_FEATURE_COUNT = 0;
+	int NAMESPACE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Namespace</em>' class.
@@ -2546,7 +2555,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE_OPERATION_COUNT = 0;
+	int NAMESPACE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.impl.CombinedFragmentImpl <em>Combined Fragment</em>}' class.

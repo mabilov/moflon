@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdmUtil:CompilerInjection xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sdmUtil="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//sdmUtil">
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/registerObjectsToMatch_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModel&quot;,useCasesModel);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isApplicable_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isApplicable_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;ruleresult.registerObject(&quot;model&quot;, model);&#xA;ruleresult.registerObject(&quot;useCasesModelToModel&quot;, useCasesModelToModel);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/registerObjects_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;useCasesModel&quot;).eClass().equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE.getUseCasesModel());">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/checkTypes_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;model&quot;, model);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/registerObjectsToMatch_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;model&quot;,model);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isApplicable_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isApplicable_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;ruleresult.registerObject(&quot;model&quot;, model);&#xA;ruleresult.registerObject(&quot;useCasesModelToModel&quot;, useCasesModelToModel);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/registerObjects_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;model&quot;).eClass().equals(ModalSequenceDiagram.ModalSequenceDiagramPackage.eINSTANCE.getModel());">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/checkTypes_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;match.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/registerObjectsToMatch_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;isApplicableMatch.getAttributeInfo().add(csp);&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;Variable var_packageDeclaration_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;packageDeclaration.name&quot;, true, csp);&#xD;&#xA;var_packageDeclaration_name.setValue(packageDeclaration.getName());&#xD;&#xA;var_packageDeclaration_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;Variable var_p_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;p.name&quot;, csp);&#xD;&#xA;var_p_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;Eq eq = new Eq();&#xD;&#xA;&#xD;&#xA;csp.getConstraints().add(eq);&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;eq.setRuleName(&quot;&quot;);&#xD;&#xA;eq.solve(var_packageDeclaration_name,var_p_name);&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModel&quot;,useCasesModel);&#xD;&#xA;isApplicableMatch.registerObject(&quot;model&quot;,model);&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModelToModel&quot;,useCasesModelToModel);&#xD;&#xA;isApplicableMatch.registerObject(&quot;packageDeclaration&quot;,packageDeclaration);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isApplicable_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isApplicable_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;ruleresult.registerObject(&quot;model&quot;, model);&#xA;ruleresult.registerObject(&quot;useCasesModelToModel&quot;, useCasesModelToModel);&#xA;ruleresult.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;ruleresult.registerObject(&quot;p&quot;, p);&#xA;ruleresult.registerObject(&quot;packageDeclarationToPackage&quot;, packageDeclarationToPackage);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/registerObjects_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;packageDeclaration&quot;).eClass().equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE.getPackageDeclaration());">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/checkTypes_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;model&quot;, model);&#xA;match.registerObject(&quot;p&quot;, p);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/registerObjectsToMatch_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;isApplicableMatch.getAttributeInfo().add(csp);&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;Variable var_p_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;p.name&quot;, true, csp);&#xD;&#xA;var_p_name.setValue(p.getName());&#xD;&#xA;var_p_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;Variable var_packageDeclaration_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;packageDeclaration.name&quot;, csp);&#xD;&#xA;var_packageDeclaration_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;Eq eq = new Eq();&#xD;&#xA;&#xD;&#xA;csp.getConstraints().add(eq);&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;eq.setRuleName(&quot;&quot;);&#xD;&#xA;eq.solve(var_packageDeclaration_name,var_p_name);&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModel&quot;,useCasesModel);&#xD;&#xA;isApplicableMatch.registerObject(&quot;model&quot;,model);&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModelToModel&quot;,useCasesModelToModel);&#xD;&#xA;isApplicableMatch.registerObject(&quot;p&quot;,p);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isApplicable_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isApplicable_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;useCasesModel&quot;, useCasesModel);&#xA;ruleresult.registerObject(&quot;model&quot;, model);&#xA;ruleresult.registerObject(&quot;useCasesModelToModel&quot;, useCasesModelToModel);&#xA;ruleresult.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;ruleresult.registerObject(&quot;p&quot;, p);&#xA;ruleresult.registerObject(&quot;packageDeclarationToPackage&quot;, packageDeclarationToPackage);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/registerObjects_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;p&quot;).eClass().equals(ModalSequenceDiagram.ModalSequenceDiagramPackage.eINSTANCE.getPackage());">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/checkTypes_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/isAppropriate_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;match.registerObject(&quot;useCase&quot;, useCase);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/registerObjectsToMatch_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/isAppropriate_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;isApplicableMatch.getAttributeInfo().add(csp);&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;useCase.name&quot;, true, csp);&#xD;&#xA;var_useCase_name.setValue(useCase.getName());&#xD;&#xA;var_useCase_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;Variable var_collaboration_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;collaboration.name&quot;, csp);&#xD;&#xA;var_collaboration_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;Eq eq = new Eq();&#xD;&#xA;&#xD;&#xA;csp.getConstraints().add(eq);&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;eq.setRuleName(&quot;&quot;);&#xD;&#xA;eq.solve(var_useCase_name,var_collaboration_name);&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;packageDeclaration&quot;,packageDeclaration);&#xD;&#xA;isApplicableMatch.registerObject(&quot;_package&quot;,_package);&#xD;&#xA;isApplicableMatch.registerObject(&quot;packageDeclarationToPackage&quot;,packageDeclarationToPackage);&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCase&quot;,useCase);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/isApplicable_solveCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/isApplicable_checkCsp_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;ruleresult.registerObject(&quot;_package&quot;, _package);&#xA;ruleresult.registerObject(&quot;packageDeclarationToPackage&quot;, packageDeclarationToPackage);&#xA;ruleresult.registerObject(&quot;useCase&quot;, useCase);&#xA;ruleresult.registerObject(&quot;collaboration&quot;, collaboration);&#xA;ruleresult.registerObject(&quot;useCaseToCollaboration&quot;, useCaseToCollaboration);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/registerObjects_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;useCase&quot;).eClass().equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE.getUseCase());">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/checkTypes_FWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/isAppropriate_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="match.registerObject(&quot;_package&quot;, _package);&#xA;match.registerObject(&quot;collaboration&quot;, collaboration);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/registerObjectsToMatch_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/isAppropriate_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;isApplicableMatch.getAttributeInfo().add(csp);&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;Variable var_collaboration_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;collaboration.name&quot;, true, csp);&#xD;&#xA;var_collaboration_name.setValue(collaboration.getName());&#xD;&#xA;var_collaboration_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;useCase.name&quot;, csp);&#xD;&#xA;var_useCase_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;Eq eq = new Eq();&#xD;&#xA;&#xD;&#xA;csp.getConstraints().add(eq);&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;eq.setRuleName(&quot;&quot;);&#xD;&#xA;eq.solve(var_useCase_name,var_collaboration_name);&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;packageDeclaration&quot;,packageDeclaration);&#xD;&#xA;isApplicableMatch.registerObject(&quot;_package&quot;,_package);&#xD;&#xA;isApplicableMatch.registerObject(&quot;packageDeclarationToPackage&quot;,packageDeclarationToPackage);&#xD;&#xA;isApplicableMatch.registerObject(&quot;collaboration&quot;,collaboration);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/isApplicable_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/isApplicable_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="ruleresult.registerObject(&quot;packageDeclaration&quot;, packageDeclaration);&#xA;ruleresult.registerObject(&quot;_package&quot;, _package);&#xA;ruleresult.registerObject(&quot;packageDeclarationToPackage&quot;, packageDeclarationToPackage);&#xA;ruleresult.registerObject(&quot;useCase&quot;, useCase);&#xA;ruleresult.registerObject(&quot;collaboration&quot;, collaboration);&#xA;ruleresult.registerObject(&quot;useCaseToCollaboration&quot;, useCaseToCollaboration);&#xA;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/registerObjects_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;collaboration&quot;).eClass().equals(ModalSequenceDiagram.ModalSequenceDiagramPackage.eINSTANCE.getCollaboration());">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/checkTypes_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/generateModel_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return true;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/generateModel_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;isApplicableMatch.getAttributeInfo().add(csp);&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;Variable var_packageDeclaration_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;packageDeclaration.name&quot;, csp);&#xD;&#xA;var_packageDeclaration_name.setType(&quot;&quot;);&#xD;&#xA;Variable var_p_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;p.name&quot;, csp);&#xD;&#xA;var_p_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;Eq eq = new Eq();&#xD;&#xA;&#xD;&#xA;csp.getConstraints().add(eq);&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;eq.setRuleName(&quot;&quot;);&#xD;&#xA;eq.solve(var_packageDeclaration_name,var_p_name);&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModel&quot;,useCasesModel);&#xD;&#xA;isApplicableMatch.registerObject(&quot;model&quot;,model);&#xD;&#xA;isApplicableMatch.registerObject(&quot;useCasesModelToModel&quot;,useCasesModelToModel);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/generateModel_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/generateModel_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;isApplicableMatch.getAttributeInfo().add(csp);&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;&#xD;&#xA;// Create explicit parameters&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;useCase.name&quot;, csp);&#xD;&#xA;var_useCase_name.setType(&quot;&quot;);&#xD;&#xA;Variable var_collaboration_name = CSPFactoryHelper.eINSTANCE.createVariable(&quot;collaboration.name&quot;, csp);&#xD;&#xA;var_collaboration_name.setType(&quot;&quot;);&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;Eq eq = new Eq();&#xD;&#xA;&#xD;&#xA;csp.getConstraints().add(eq);&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;eq.setRuleName(&quot;&quot;);&#xD;&#xA;eq.solve(var_useCase_name,var_collaboration_name);&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;isApplicableMatch.registerObject(&quot;packageDeclaration&quot;,packageDeclaration);&#xD;&#xA;isApplicableMatch.registerObject(&quot;_package&quot;,_package);&#xD;&#xA;isApplicableMatch.registerObject(&quot;packageDeclarationToPackage&quot;,packageDeclarationToPackage);&#xD;&#xA;return csp;">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/generateModel_solveCsp_BWD"/>
+  </compilerInjectionEntries>
+  <compilerInjectionEntries content="return csp.check();">
+    <eOperation href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule/generateModel_checkCsp_BWD"/>
+  </compilerInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="org.moflon.csp.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="csp.constraints.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule"/>
+  </importInjectionEntries>
+  <importInjectionEntries content="TGGLanguage.csp.*">
+    <eClass href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToCollaborationRule"/>
+  </importInjectionEntries>
+</sdmUtil:CompilerInjection>
