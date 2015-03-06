@@ -2,21 +2,35 @@
  */
 package ModalSequenceDiagram.util;
 
+import ModalSequenceDiagram.Action;
+import ModalSequenceDiagram.ActionExecutionSpecification;
 import ModalSequenceDiagram.Behavior;
+import ModalSequenceDiagram.BehaviorExecutionSpecification;
 import ModalSequenceDiagram.BehavioralFeature;
 import ModalSequenceDiagram.BehavioredClassifier;
 import ModalSequenceDiagram.CallEvent;
 import ModalSequenceDiagram.Classifier;
 import ModalSequenceDiagram.Collaboration;
+import ModalSequenceDiagram.CombinedFragment;
 import ModalSequenceDiagram.ConnectableElement;
 import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.ConnectorEnd;
+import ModalSequenceDiagram.ConsiderIgnoreFragment;
 import ModalSequenceDiagram.Constraint;
+import ModalSequenceDiagram.Continuation;
+import ModalSequenceDiagram.DestructionOccurenceSpecification;
 import ModalSequenceDiagram.EncapsulatedClassifier;
 import ModalSequenceDiagram.Event;
+import ModalSequenceDiagram.ExecutionOccurrenceSpecification;
+import ModalSequenceDiagram.ExecutionSpecification;
 import ModalSequenceDiagram.Feature;
+import ModalSequenceDiagram.Gate;
+import ModalSequenceDiagram.GeneralOrdering;
 import ModalSequenceDiagram.Interaction;
+import ModalSequenceDiagram.InteractionConstraint;
 import ModalSequenceDiagram.InteractionFragment;
+import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
@@ -25,10 +39,12 @@ import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.Model;
 import ModalSequenceDiagram.NamedElement;
+import ModalSequenceDiagram.Namespace;
 import ModalSequenceDiagram.OccurrenceSpecification;
 import ModalSequenceDiagram.OpaqueExpression;
 import ModalSequenceDiagram.Operation;
 import ModalSequenceDiagram.PackageableElement;
+import ModalSequenceDiagram.PartDecomposition;
 import ModalSequenceDiagram.Property;
 import ModalSequenceDiagram.RedefinableElement;
 import ModalSequenceDiagram.StateInvariant;
@@ -272,8 +288,92 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseDestructionOccurenceSpecification(
+				DestructionOccurenceSpecification object) {
+			return createDestructionOccurenceSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseGeneralOrdering(GeneralOrdering object) {
+			return createGeneralOrderingAdapter();
+		}
+
+		@Override
+		public Adapter caseExecutionOccurrenceSpecification(
+				ExecutionOccurrenceSpecification object) {
+			return createExecutionOccurrenceSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseActionExecutionSpecification(
+				ActionExecutionSpecification object) {
+			return createActionExecutionSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseBehaviorExecutionSpecification(
+				BehaviorExecutionSpecification object) {
+			return createBehaviorExecutionSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseNamespace(Namespace object) {
+			return createNamespaceAdapter();
+		}
+
+		@Override
+		public Adapter caseConsiderIgnoreFragment(ConsiderIgnoreFragment object) {
+			return createConsiderIgnoreFragmentAdapter();
+		}
+
+		@Override
+		public Adapter caseContinuation(Continuation object) {
+			return createContinuationAdapter();
+		}
+
+		@Override
+		public Adapter caseInteractionUse(InteractionUse object) {
+			return createInteractionUseAdapter();
+		}
+
+		@Override
 		public Adapter caseEncapsulatedClassifier(EncapsulatedClassifier object) {
 			return createEncapsulatedClassifierAdapter();
+		}
+
+		@Override
+		public Adapter caseInteractionOperand(InteractionOperand object) {
+			return createInteractionOperandAdapter();
+		}
+
+		@Override
+		public Adapter caseCombinedFragment(CombinedFragment object) {
+			return createCombinedFragmentAdapter();
+		}
+
+		@Override
+		public Adapter caseInteractionConstraint(InteractionConstraint object) {
+			return createInteractionConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseExecutionSpecification(ExecutionSpecification object) {
+			return createExecutionSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseGate(Gate object) {
+			return createGateAdapter();
+		}
+
+		@Override
+		public Adapter caseAction(Action object) {
+			return createActionAdapter();
+		}
+
+		@Override
+		public Adapter casePartDecomposition(PartDecomposition object) {
+			return createPartDecompositionAdapter();
 		}
 
 		@Override
@@ -772,6 +872,132 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.DestructionOccurenceSpecification <em>Destruction Occurence Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.DestructionOccurenceSpecification
+	 * @generated
+	 */
+	public Adapter createDestructionOccurenceSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.GeneralOrdering <em>General Ordering</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.GeneralOrdering
+	 * @generated
+	 */
+	public Adapter createGeneralOrderingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.ExecutionOccurrenceSpecification <em>Execution Occurrence Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.ExecutionOccurrenceSpecification
+	 * @generated
+	 */
+	public Adapter createExecutionOccurrenceSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.ActionExecutionSpecification <em>Action Execution Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.ActionExecutionSpecification
+	 * @generated
+	 */
+	public Adapter createActionExecutionSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.BehaviorExecutionSpecification <em>Behavior Execution Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.BehaviorExecutionSpecification
+	 * @generated
+	 */
+	public Adapter createBehaviorExecutionSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.Namespace <em>Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.Namespace
+	 * @generated
+	 */
+	public Adapter createNamespaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.ConsiderIgnoreFragment <em>Consider Ignore Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.ConsiderIgnoreFragment
+	 * @generated
+	 */
+	public Adapter createConsiderIgnoreFragmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.Continuation <em>Continuation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.Continuation
+	 * @generated
+	 */
+	public Adapter createContinuationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.InteractionUse <em>Interaction Use</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.InteractionUse
+	 * @generated
+	 */
+	public Adapter createInteractionUseAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.EncapsulatedClassifier <em>Encapsulated Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -782,6 +1008,104 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEncapsulatedClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.InteractionOperand <em>Interaction Operand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.InteractionOperand
+	 * @generated
+	 */
+	public Adapter createInteractionOperandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.CombinedFragment <em>Combined Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.CombinedFragment
+	 * @generated
+	 */
+	public Adapter createCombinedFragmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.InteractionConstraint <em>Interaction Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.InteractionConstraint
+	 * @generated
+	 */
+	public Adapter createInteractionConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.ExecutionSpecification <em>Execution Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.ExecutionSpecification
+	 * @generated
+	 */
+	public Adapter createExecutionSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.Gate <em>Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.Gate
+	 * @generated
+	 */
+	public Adapter createGateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.Action
+	 * @generated
+	 */
+	public Adapter createActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.PartDecomposition <em>Part Decomposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.PartDecomposition
+	 * @generated
+	 */
+	public Adapter createPartDecompositionAdapter() {
 		return null;
 	}
 

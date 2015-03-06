@@ -2,21 +2,35 @@
  */
 package ModalSequenceDiagram.util;
 
+import ModalSequenceDiagram.Action;
+import ModalSequenceDiagram.ActionExecutionSpecification;
 import ModalSequenceDiagram.Behavior;
+import ModalSequenceDiagram.BehaviorExecutionSpecification;
 import ModalSequenceDiagram.BehavioralFeature;
 import ModalSequenceDiagram.BehavioredClassifier;
 import ModalSequenceDiagram.CallEvent;
 import ModalSequenceDiagram.Classifier;
 import ModalSequenceDiagram.Collaboration;
+import ModalSequenceDiagram.CombinedFragment;
 import ModalSequenceDiagram.ConnectableElement;
 import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.ConnectorEnd;
+import ModalSequenceDiagram.ConsiderIgnoreFragment;
 import ModalSequenceDiagram.Constraint;
+import ModalSequenceDiagram.Continuation;
+import ModalSequenceDiagram.DestructionOccurenceSpecification;
 import ModalSequenceDiagram.EncapsulatedClassifier;
 import ModalSequenceDiagram.Event;
+import ModalSequenceDiagram.ExecutionOccurrenceSpecification;
+import ModalSequenceDiagram.ExecutionSpecification;
 import ModalSequenceDiagram.Feature;
+import ModalSequenceDiagram.Gate;
+import ModalSequenceDiagram.GeneralOrdering;
 import ModalSequenceDiagram.Interaction;
+import ModalSequenceDiagram.InteractionConstraint;
 import ModalSequenceDiagram.InteractionFragment;
+import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
@@ -25,10 +39,12 @@ import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.Model;
 import ModalSequenceDiagram.NamedElement;
+import ModalSequenceDiagram.Namespace;
 import ModalSequenceDiagram.OccurrenceSpecification;
 import ModalSequenceDiagram.OpaqueExpression;
 import ModalSequenceDiagram.Operation;
 import ModalSequenceDiagram.PackageableElement;
+import ModalSequenceDiagram.PartDecomposition;
 import ModalSequenceDiagram.Property;
 import ModalSequenceDiagram.RedefinableElement;
 import ModalSequenceDiagram.StateInvariant;
@@ -531,6 +547,113 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ModalSequenceDiagramPackage.DESTRUCTION_OCCURENCE_SPECIFICATION: {
+			DestructionOccurenceSpecification destructionOccurenceSpecification = (DestructionOccurenceSpecification) theEObject;
+			T result = caseDestructionOccurenceSpecification(destructionOccurenceSpecification);
+			if (result == null)
+				result = caseMessageOccurrenceSpecification(destructionOccurenceSpecification);
+			if (result == null)
+				result = caseMessageEnd(destructionOccurenceSpecification);
+			if (result == null)
+				result = caseOccurrenceSpecification(destructionOccurenceSpecification);
+			if (result == null)
+				result = caseInteractionFragment(destructionOccurenceSpecification);
+			if (result == null)
+				result = caseNamedElement(destructionOccurenceSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.GENERAL_ORDERING: {
+			GeneralOrdering generalOrdering = (GeneralOrdering) theEObject;
+			T result = caseGeneralOrdering(generalOrdering);
+			if (result == null)
+				result = caseNamedElement(generalOrdering);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.EXECUTION_OCCURRENCE_SPECIFICATION: {
+			ExecutionOccurrenceSpecification executionOccurrenceSpecification = (ExecutionOccurrenceSpecification) theEObject;
+			T result = caseExecutionOccurrenceSpecification(executionOccurrenceSpecification);
+			if (result == null)
+				result = caseOccurrenceSpecification(executionOccurrenceSpecification);
+			if (result == null)
+				result = caseInteractionFragment(executionOccurrenceSpecification);
+			if (result == null)
+				result = caseNamedElement(executionOccurrenceSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.ACTION_EXECUTION_SPECIFICATION: {
+			ActionExecutionSpecification actionExecutionSpecification = (ActionExecutionSpecification) theEObject;
+			T result = caseActionExecutionSpecification(actionExecutionSpecification);
+			if (result == null)
+				result = caseExecutionSpecification(actionExecutionSpecification);
+			if (result == null)
+				result = caseInteractionFragment(actionExecutionSpecification);
+			if (result == null)
+				result = caseNamedElement(actionExecutionSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.BEHAVIOR_EXECUTION_SPECIFICATION: {
+			BehaviorExecutionSpecification behaviorExecutionSpecification = (BehaviorExecutionSpecification) theEObject;
+			T result = caseBehaviorExecutionSpecification(behaviorExecutionSpecification);
+			if (result == null)
+				result = caseExecutionSpecification(behaviorExecutionSpecification);
+			if (result == null)
+				result = caseInteractionFragment(behaviorExecutionSpecification);
+			if (result == null)
+				result = caseNamedElement(behaviorExecutionSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.NAMESPACE: {
+			Namespace namespace = (Namespace) theEObject;
+			T result = caseNamespace(namespace);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.CONSIDER_IGNORE_FRAGMENT: {
+			ConsiderIgnoreFragment considerIgnoreFragment = (ConsiderIgnoreFragment) theEObject;
+			T result = caseConsiderIgnoreFragment(considerIgnoreFragment);
+			if (result == null)
+				result = caseCombinedFragment(considerIgnoreFragment);
+			if (result == null)
+				result = caseInteractionFragment(considerIgnoreFragment);
+			if (result == null)
+				result = caseNamedElement(considerIgnoreFragment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.CONTINUATION: {
+			Continuation continuation = (Continuation) theEObject;
+			T result = caseContinuation(continuation);
+			if (result == null)
+				result = caseInteractionFragment(continuation);
+			if (result == null)
+				result = caseNamedElement(continuation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.INTERACTION_USE: {
+			InteractionUse interactionUse = (InteractionUse) theEObject;
+			T result = caseInteractionUse(interactionUse);
+			if (result == null)
+				result = caseInteractionFragment(interactionUse);
+			if (result == null)
+				result = caseNamedElement(interactionUse);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ModalSequenceDiagramPackage.ENCAPSULATED_CLASSIFIER: {
 			EncapsulatedClassifier encapsulatedClassifier = (EncapsulatedClassifier) theEObject;
 			T result = caseEncapsulatedClassifier(encapsulatedClassifier);
@@ -544,6 +667,85 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = casePackageableElement(encapsulatedClassifier);
 			if (result == null)
 				result = caseNamedElement(encapsulatedClassifier);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.INTERACTION_OPERAND: {
+			InteractionOperand interactionOperand = (InteractionOperand) theEObject;
+			T result = caseInteractionOperand(interactionOperand);
+			if (result == null)
+				result = caseInteractionFragment(interactionOperand);
+			if (result == null)
+				result = caseNamespace(interactionOperand);
+			if (result == null)
+				result = caseNamedElement(interactionOperand);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.COMBINED_FRAGMENT: {
+			CombinedFragment combinedFragment = (CombinedFragment) theEObject;
+			T result = caseCombinedFragment(combinedFragment);
+			if (result == null)
+				result = caseInteractionFragment(combinedFragment);
+			if (result == null)
+				result = caseNamedElement(combinedFragment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.INTERACTION_CONSTRAINT: {
+			InteractionConstraint interactionConstraint = (InteractionConstraint) theEObject;
+			T result = caseInteractionConstraint(interactionConstraint);
+			if (result == null)
+				result = caseConstraint(interactionConstraint);
+			if (result == null)
+				result = casePackageableElement(interactionConstraint);
+			if (result == null)
+				result = caseNamedElement(interactionConstraint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.EXECUTION_SPECIFICATION: {
+			ExecutionSpecification executionSpecification = (ExecutionSpecification) theEObject;
+			T result = caseExecutionSpecification(executionSpecification);
+			if (result == null)
+				result = caseInteractionFragment(executionSpecification);
+			if (result == null)
+				result = caseNamedElement(executionSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.GATE: {
+			Gate gate = (Gate) theEObject;
+			T result = caseGate(gate);
+			if (result == null)
+				result = caseMessageEnd(gate);
+			if (result == null)
+				result = caseNamedElement(gate);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.ACTION: {
+			Action action = (Action) theEObject;
+			T result = caseAction(action);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.PART_DECOMPOSITION: {
+			PartDecomposition partDecomposition = (PartDecomposition) theEObject;
+			T result = casePartDecomposition(partDecomposition);
+			if (result == null)
+				result = caseInteractionUse(partDecomposition);
+			if (result == null)
+				result = caseInteractionFragment(partDecomposition);
+			if (result == null)
+				result = caseNamedElement(partDecomposition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1065,6 +1267,145 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Destruction Occurence Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Destruction Occurence Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDestructionOccurenceSpecification(
+			DestructionOccurenceSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>General Ordering</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>General Ordering</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneralOrdering(GeneralOrdering object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Occurrence Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Occurrence Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionOccurrenceSpecification(
+			ExecutionOccurrenceSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action Execution Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action Execution Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActionExecutionSpecification(
+			ActionExecutionSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Behavior Execution Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Behavior Execution Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBehaviorExecutionSpecification(
+			BehaviorExecutionSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamespace(Namespace object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Consider Ignore Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Consider Ignore Fragment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConsiderIgnoreFragment(ConsiderIgnoreFragment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Continuation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Continuation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContinuation(Continuation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interaction Use</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interaction Use</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInteractionUse(InteractionUse object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Encapsulated Classifier</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1076,6 +1417,111 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEncapsulatedClassifier(EncapsulatedClassifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interaction Operand</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interaction Operand</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInteractionOperand(InteractionOperand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Combined Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Combined Fragment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCombinedFragment(CombinedFragment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interaction Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interaction Constraint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInteractionConstraint(InteractionConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionSpecification(ExecutionSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGate(Gate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Part Decomposition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Part Decomposition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePartDecomposition(PartDecomposition object) {
 		return null;
 	}
 

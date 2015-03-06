@@ -8,6 +8,8 @@ import ModalSequenceDiagram.InteractionFragment;
 import ModalSequenceDiagram.Lifeline;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 
+import ModalSequenceDiagram.PartDecomposition;
+import ModalSequenceDiagram.ValueSpecification;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -36,6 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ModalSequenceDiagram.impl.LifelineImpl#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link ModalSequenceDiagram.impl.LifelineImpl#getRepresents <em>Represents</em>}</li>
  *   <li>{@link ModalSequenceDiagram.impl.LifelineImpl#getCoveredBy <em>Covered By</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.impl.LifelineImpl#getSelector <em>Selector</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.impl.LifelineImpl#getDecomposedAs <em>Decomposed As</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +66,26 @@ public class LifelineImpl extends NamedElementImpl implements Lifeline {
 	 * @ordered
 	 */
 	protected EList<InteractionFragment> coveredBy;
+
+	/**
+	 * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelector()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValueSpecification> selector;
+
+	/**
+	 * The cached value of the '{@link #getDecomposedAs() <em>Decomposed As</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDecomposedAs()
+	 * @generated
+	 * @ordered
+	 */
+	protected PartDecomposition decomposedAs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +218,64 @@ public class LifelineImpl extends NamedElementImpl implements Lifeline {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ValueSpecification> getSelector() {
+		if (selector == null) {
+			selector = new EObjectContainmentEList<ValueSpecification>(
+					ValueSpecification.class, this,
+					ModalSequenceDiagramPackage.LIFELINE__SELECTOR);
+		}
+		return selector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PartDecomposition getDecomposedAs() {
+		if (decomposedAs != null && decomposedAs.eIsProxy()) {
+			InternalEObject oldDecomposedAs = (InternalEObject) decomposedAs;
+			decomposedAs = (PartDecomposition) eResolveProxy(oldDecomposedAs);
+			if (decomposedAs != oldDecomposedAs) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(
+							this,
+							Notification.RESOLVE,
+							ModalSequenceDiagramPackage.LIFELINE__DECOMPOSED_AS,
+							oldDecomposedAs, decomposedAs));
+			}
+		}
+		return decomposedAs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PartDecomposition basicGetDecomposedAs() {
+		return decomposedAs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDecomposedAs(PartDecomposition newDecomposedAs) {
+		PartDecomposition oldDecomposedAs = decomposedAs;
+		decomposedAs = newDecomposedAs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					ModalSequenceDiagramPackage.LIFELINE__DECOMPOSED_AS,
+					oldDecomposedAs, decomposedAs));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -222,6 +305,9 @@ public class LifelineImpl extends NamedElementImpl implements Lifeline {
 			return basicSetInteraction(null, msgs);
 		case ModalSequenceDiagramPackage.LIFELINE__COVERED_BY:
 			return ((InternalEList<?>) getCoveredBy()).basicRemove(otherEnd,
+					msgs);
+		case ModalSequenceDiagramPackage.LIFELINE__SELECTOR:
+			return ((InternalEList<?>) getSelector()).basicRemove(otherEnd,
 					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -260,6 +346,12 @@ public class LifelineImpl extends NamedElementImpl implements Lifeline {
 			return basicGetRepresents();
 		case ModalSequenceDiagramPackage.LIFELINE__COVERED_BY:
 			return getCoveredBy();
+		case ModalSequenceDiagramPackage.LIFELINE__SELECTOR:
+			return getSelector();
+		case ModalSequenceDiagramPackage.LIFELINE__DECOMPOSED_AS:
+			if (resolve)
+				return getDecomposedAs();
+			return basicGetDecomposedAs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -284,6 +376,14 @@ public class LifelineImpl extends NamedElementImpl implements Lifeline {
 			getCoveredBy().addAll(
 					(Collection<? extends InteractionFragment>) newValue);
 			return;
+		case ModalSequenceDiagramPackage.LIFELINE__SELECTOR:
+			getSelector().clear();
+			getSelector().addAll(
+					(Collection<? extends ValueSpecification>) newValue);
+			return;
+		case ModalSequenceDiagramPackage.LIFELINE__DECOMPOSED_AS:
+			setDecomposedAs((PartDecomposition) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -305,6 +405,12 @@ public class LifelineImpl extends NamedElementImpl implements Lifeline {
 		case ModalSequenceDiagramPackage.LIFELINE__COVERED_BY:
 			getCoveredBy().clear();
 			return;
+		case ModalSequenceDiagramPackage.LIFELINE__SELECTOR:
+			getSelector().clear();
+			return;
+		case ModalSequenceDiagramPackage.LIFELINE__DECOMPOSED_AS:
+			setDecomposedAs((PartDecomposition) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -323,6 +429,10 @@ public class LifelineImpl extends NamedElementImpl implements Lifeline {
 			return represents != null;
 		case ModalSequenceDiagramPackage.LIFELINE__COVERED_BY:
 			return coveredBy != null && !coveredBy.isEmpty();
+		case ModalSequenceDiagramPackage.LIFELINE__SELECTOR:
+			return selector != null && !selector.isEmpty();
+		case ModalSequenceDiagramPackage.LIFELINE__DECOMPOSED_AS:
+			return decomposedAs != null;
 		}
 		return super.eIsSet(featureID);
 	}

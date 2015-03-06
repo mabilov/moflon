@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link ModalSequenceDiagram.InteractionFragment#getEnclosingInteraction <em>Enclosing Interaction</em>}</li>
  *   <li>{@link ModalSequenceDiagram.InteractionFragment#getCovered <em>Covered</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.InteractionFragment#getEnclosingOperand <em>Enclosing Operand</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.InteractionFragment#getGeneralOrdering <em>General Ordering</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,6 +71,50 @@ public interface InteractionFragment extends NamedElement {
 	 * @generated
 	 */
 	EList<Lifeline> getCovered();
+
+	/**
+	 * Returns the value of the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link ModalSequenceDiagram.InteractionOperand#getFragment <em>Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Enclosing Operand</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Enclosing Operand</em>' container reference.
+	 * @see #setEnclosingOperand(InteractionOperand)
+	 * @see ModalSequenceDiagram.ModalSequenceDiagramPackage#getInteractionFragment_EnclosingOperand()
+	 * @see ModalSequenceDiagram.InteractionOperand#getFragment
+	 * @model opposite="fragment" transient="false"
+	 * @generated
+	 */
+	InteractionOperand getEnclosingOperand();
+
+	/**
+	 * Sets the value of the '{@link ModalSequenceDiagram.InteractionFragment#getEnclosingOperand <em>Enclosing Operand</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enclosing Operand</em>' container reference.
+	 * @see #getEnclosingOperand()
+	 * @generated
+	 */
+	void setEnclosingOperand(InteractionOperand value);
+
+	/**
+	 * Returns the value of the '<em><b>General Ordering</b></em>' containment reference list.
+	 * The list contents are of type {@link ModalSequenceDiagram.GeneralOrdering}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>General Ordering</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>General Ordering</em>' containment reference list.
+	 * @see ModalSequenceDiagram.ModalSequenceDiagramPackage#getInteractionFragment_GeneralOrdering()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GeneralOrdering> getGeneralOrdering();
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

@@ -29351,6 +29351,22 @@
               <attribute name="containment" value="true" index="5" />
               <attribute name="oppositeGuid" value="{100F759C-DCB5-4e2f-A2A0-571A089345FA}Client" index="6" />
             </children>
+            <children name="EReference" index="3" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{D254F9FE-4AF1-40b0-8CA2-F96EDF86D57C}" index="0" />
+              <attribute name="name" value="formalGate" index="1" />
+              <attribute name="guid" value="{284555BC-4E40-47ba-88E9-06BFD3EE982E}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+            <children name="EReference" index="4" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{4676A385-4BC3-4c15-9708-B39FFF4DBA47}" index="0" />
+              <attribute name="name" value="action" index="1" />
+              <attribute name="guid" value="{9DB9A763-778D-4d96-BB33-4FFE577B66A6}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
           </children>
           <children name="attributes" index="1" xsi:type="MocaTree:Node" />
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -29420,6 +29436,22 @@
               <attribute name="containment" value="false" index="5" />
               <attribute name="oppositeGuid" value="{DE7A594A-4DF0-4543-9A38-A9B4B5FFC6EC}Client" index="6" />
             </children>
+            <children name="EReference" index="3" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{B0B5351C-32F2-4147-A266-E4A1D4283964}" index="0" />
+              <attribute name="name" value="selector" index="1" />
+              <attribute name="guid" value="{F6305FAE-3876-48c9-83F0-7DF2CCD00856}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+            <children name="EReference" index="4" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{4B199497-78F9-4163-BCBC-1C65081E40DF}" index="0" />
+              <attribute name="name" value="decomposedAs" index="1" />
+              <attribute name="guid" value="{43DB740C-0BE5-49f7-A5BF-C6AA9CB575C7}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
           </children>
           <children name="attributes" index="1" xsi:type="MocaTree:Node" />
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -29449,6 +29481,23 @@
               <attribute name="upperBound" value="-1" index="4" />
               <attribute name="containment" value="false" index="5" />
               <attribute name="oppositeGuid" value="{DE7A594A-4DF0-4543-9A38-A9B4B5FFC6EC}Supplier" index="6" />
+            </children>
+            <children name="EReference" index="2" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{504EE9A8-0F41-46ef-BEB6-18DF3D9CE87A}" index="0" />
+              <attribute name="name" value="enclosingOperand" index="1" />
+              <attribute name="guid" value="{9079BE67-5ED1-47c5-B4DA-86A2838FA7B3}Client" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+              <attribute name="oppositeGuid" value="{9079BE67-5ED1-47c5-B4DA-86A2838FA7B3}Supplier" index="6" />
+            </children>
+            <children name="EReference" index="3" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{DCC31D99-0931-4b0d-8811-72844BB977A8}" index="0" />
+              <attribute name="name" value="generalOrdering" index="1" />
+              <attribute name="guid" value="{905807A1-6FF7-4757-B873-2A03BEB4B0C5}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
             </children>
           </children>
           <children name="attributes" index="1" xsi:type="MocaTree:Node" />
@@ -29494,6 +29543,22 @@
               <attribute name="oppositeGuid" value="{100F759C-DCB5-4e2f-A2A0-571A089345FA}Supplier" index="6" />
             </children>
             <children name="EReference" index="1" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{6D0BE81C-2EFE-4686-A848-CBE435E9C1E3}" index="0" />
+              <attribute name="name" value="signature" index="1" />
+              <attribute name="guid" value="{8F0D6957-1FE4-4d76-89B1-F20E1FE4F4CB}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
+            <children name="EReference" index="2" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{B0B5351C-32F2-4147-A266-E4A1D4283964}" index="0" />
+              <attribute name="name" value="argument" index="1" />
+              <attribute name="guid" value="{BDA5D0BD-1452-4757-A50F-74397BA8AA3A}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+            <children name="EReference" index="3" xsi:type="MocaTree:Node">
               <attribute name="typeGuid" value="{604E7D91-AF37-4cf4-B88E-627146EAC41C}" index="0" />
               <attribute name="name" value="receiveEvent" index="1" />
               <attribute name="guid" value="{B8CFE873-C886-4cb8-B40F-1B751DD052DE}Supplier" index="2" />
@@ -29501,7 +29566,7 @@
               <attribute name="upperBound" value="1" index="4" />
               <attribute name="containment" value="false" index="5" />
             </children>
-            <children name="EReference" index="2" xsi:type="MocaTree:Node">
+            <children name="EReference" index="4" xsi:type="MocaTree:Node">
               <attribute name="typeGuid" value="{604E7D91-AF37-4cf4-B88E-627146EAC41C}" index="0" />
               <attribute name="name" value="sendEvent" index="1" />
               <attribute name="guid" value="{CD2AFF23-A629-49b4-A925-EA2D1CB87047}Supplier" index="2" />
@@ -29509,7 +29574,7 @@
               <attribute name="upperBound" value="1" index="4" />
               <attribute name="containment" value="false" index="5" />
             </children>
-            <children name="EReference" index="3" xsi:type="MocaTree:Node">
+            <children name="EReference" index="5" xsi:type="MocaTree:Node">
               <attribute name="typeGuid" value="{B25568D5-7BC3-4fa4-94E5-73E68E22F470}" index="0" />
               <attribute name="name" value="connector" index="1" />
               <attribute name="guid" value="{973FBC87-6AAB-4c32-8708-8B7F2CBA80E1}Supplier" index="2" />
@@ -29518,7 +29583,30 @@
               <attribute name="containment" value="false" index="5" />
             </children>
           </children>
-          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="attributes" index="1" xsi:type="MocaTree:Node">
+            <children name="EAttribute" index="0" xsi:type="MocaTree:Node">
+              <attribute name="type" value="MessageKind" index="0" />
+              <attribute name="typeGuid" value="{540D9E46-9A7D-4b52-883E-15D83C1B221C}" index="1" />
+              <attribute name="name" value="messageKind" index="2" />
+              <attribute name="guid" value="{829580E4-C269-40cc-B83C-EA5F56C63373}" index="3" />
+              <attribute name="defaultValueLiteral" value="unknown" index="4" />
+              <attribute name="ordered" value="false" index="5" />
+              <attribute name="lowerBound" value="1" index="6" />
+              <attribute name="upperBound" value="1" index="7" />
+              <attribute name="isId" value="false" index="8" />
+            </children>
+            <children name="EAttribute" index="1" xsi:type="MocaTree:Node">
+              <attribute name="type" value="MessageSort" index="0" />
+              <attribute name="typeGuid" value="{523A8F14-6B4D-4222-849F-8D15BA0EFB47}" index="1" />
+              <attribute name="name" value="messageSort" index="2" />
+              <attribute name="guid" value="{553021E4-F0D5-4101-9D0F-462C05042BF2}" index="3" />
+              <attribute name="defaultValueLiteral" value="synchCall" index="4" />
+              <attribute name="ordered" value="false" index="5" />
+              <attribute name="lowerBound" value="1" index="6" />
+              <attribute name="upperBound" value="1" index="7" />
+              <attribute name="isId" value="false" index="8" />
+            </children>
+          </children>
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
           <attribute name="name" value="Message" index="0" />
           <attribute name="isAbstract" value="false" index="1" />
@@ -29559,7 +29647,26 @@
           <attribute name="baseClasses" value="{604E7D91-AF37-4cf4-B88E-627146EAC41C} {08E9A29A-B78B-4c9c-B442-12BC929B549F} " index="5" />
         </children>
         <children name="EClass" index="18" xsi:type="MocaTree:Node">
-          <children name="references" index="0" xsi:type="MocaTree:Node" />
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{DCC31D99-0931-4b0d-8811-72844BB977A8}" index="0" />
+              <attribute name="name" value="toAfter" index="1" />
+              <attribute name="guid" value="{811C1988-B239-4f8e-85E6-1490011D02CB}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+              <attribute name="oppositeGuid" value="{811C1988-B239-4f8e-85E6-1490011D02CB}Client" index="6" />
+            </children>
+            <children name="EReference" index="1" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{DCC31D99-0931-4b0d-8811-72844BB977A8}" index="0" />
+              <attribute name="name" value="toBefore" index="1" />
+              <attribute name="guid" value="{A23EFA7A-2EC1-4955-8127-F0F406940161}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+              <attribute name="oppositeGuid" value="{A23EFA7A-2EC1-4955-8127-F0F406940161}Client" index="6" />
+            </children>
+          </children>
           <children name="attributes" index="1" xsi:type="MocaTree:Node" />
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
           <attribute name="name" value="OccurrenceSpecification" index="0" />
@@ -29810,7 +29917,268 @@
           <attribute name="alias" value="" index="4" />
           <attribute name="baseClasses" value="{5F36767F-0449-47f5-A049-CFB7E4D9BF86} " index="5" />
         </children>
-        <children name="EClass" index="34" xsi:type="MocaTree:Node">
+        <children name="EEnum" index="34" xsi:type="MocaTree:Node">
+          <children name="literals" index="0" xsi:type="MocaTree:Node">
+            <children name="EEnumLiteral" index="0" xsi:type="MocaTree:Node">
+              <attribute name="name" value="complete" index="0" />
+              <attribute name="value" value="1" index="1" />
+              <attribute name="literal" value="COMPLETE" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="1" xsi:type="MocaTree:Node">
+              <attribute name="name" value="lost" index="0" />
+              <attribute name="value" value="2" index="1" />
+              <attribute name="literal" value="LOST" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="2" xsi:type="MocaTree:Node">
+              <attribute name="name" value="found" index="0" />
+              <attribute name="value" value="3" index="1" />
+              <attribute name="literal" value="FOUND" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="3" xsi:type="MocaTree:Node">
+              <attribute name="name" value="unknown" index="0" />
+              <attribute name="value" value="4" index="1" />
+              <attribute name="literal" value="UNKNOWN" index="2" />
+            </children>
+          </children>
+          <attribute name="name" value="MessageKind" index="0" />
+          <attribute name="guid" value="{540D9E46-9A7D-4b52-883E-15D83C1B221C}" index="1" />
+        </children>
+        <children name="EEnum" index="35" xsi:type="MocaTree:Node">
+          <children name="literals" index="0" xsi:type="MocaTree:Node">
+            <children name="EEnumLiteral" index="0" xsi:type="MocaTree:Node">
+              <attribute name="name" value="synchCall" index="0" />
+              <attribute name="value" value="1" index="1" />
+              <attribute name="literal" value="SYNCHCALL" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="1" xsi:type="MocaTree:Node">
+              <attribute name="name" value="asynchCall" index="0" />
+              <attribute name="value" value="2" index="1" />
+              <attribute name="literal" value="ASYNCHCALL" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="2" xsi:type="MocaTree:Node">
+              <attribute name="name" value="asynchSignal" index="0" />
+              <attribute name="value" value="3" index="1" />
+              <attribute name="literal" value="ASYNCHSIGNAL" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="3" xsi:type="MocaTree:Node">
+              <attribute name="name" value="createMessage" index="0" />
+              <attribute name="value" value="4" index="1" />
+              <attribute name="literal" value="CREATEMESSAGE" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="4" xsi:type="MocaTree:Node">
+              <attribute name="name" value="deleteMessage" index="0" />
+              <attribute name="value" value="5" index="1" />
+              <attribute name="literal" value="DELTEMESSAGE" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="5" xsi:type="MocaTree:Node">
+              <attribute name="name" value="reply" index="0" />
+              <attribute name="value" value="6" index="1" />
+              <attribute name="literal" value="REPLY" index="2" />
+            </children>
+          </children>
+          <attribute name="name" value="MessageSort" index="0" />
+          <attribute name="guid" value="{523A8F14-6B4D-4222-849F-8D15BA0EFB47}" index="1" />
+        </children>
+        <children name="EClass" index="36" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node" />
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="DestructionOccurenceSpecification" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{964E2ED1-EEA8-4b30-B067-33C51644BCF8}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{0DB63BDD-8DBA-489d-9E85-EC3464DF4E4D} " index="5" />
+        </children>
+        <children name="EClass" index="37" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{08E9A29A-B78B-4c9c-B442-12BC929B549F}" index="0" />
+              <attribute name="name" value="before" index="1" />
+              <attribute name="guid" value="{811C1988-B239-4f8e-85E6-1490011D02CB}Client" index="2" />
+              <attribute name="lowerBound" value="1" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+              <attribute name="oppositeGuid" value="{811C1988-B239-4f8e-85E6-1490011D02CB}Supplier" index="6" />
+            </children>
+            <children name="EReference" index="1" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{08E9A29A-B78B-4c9c-B442-12BC929B549F}" index="0" />
+              <attribute name="name" value="after" index="1" />
+              <attribute name="guid" value="{A23EFA7A-2EC1-4955-8127-F0F406940161}Client" index="2" />
+              <attribute name="lowerBound" value="1" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+              <attribute name="oppositeGuid" value="{A23EFA7A-2EC1-4955-8127-F0F406940161}Supplier" index="6" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="GeneralOrdering" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{DCC31D99-0931-4b0d-8811-72844BB977A8}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{6D0BE81C-2EFE-4686-A848-CBE435E9C1E3} " index="5" />
+        </children>
+        <children name="EClass" index="38" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{AC0E98E2-7B16-415a-BC13-0490017BF668}" index="0" />
+              <attribute name="name" value="execution" index="1" />
+              <attribute name="guid" value="{EB8ED81A-4E14-4c8a-A81D-D1D7D684D1A1}Supplier" index="2" />
+              <attribute name="lowerBound" value="1" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="ExecutionOccurrenceSpecification" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{3124501E-8CDC-4210-8E90-CD56F5A3BC17}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{08E9A29A-B78B-4c9c-B442-12BC929B549F} " index="5" />
+        </children>
+        <children name="EClass" index="39" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{4676A385-4BC3-4c15-9708-B39FFF4DBA47}" index="0" />
+              <attribute name="name" value="action" index="1" />
+              <attribute name="guid" value="{86530015-0A04-45d3-91E2-EE64DAC46920}Supplier" index="2" />
+              <attribute name="lowerBound" value="1" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="ActionExecutionSpecification" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{2572F7A0-F0E4-4325-86EC-55CF102D5987}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{AC0E98E2-7B16-415a-BC13-0490017BF668} " index="5" />
+        </children>
+        <children name="EClass" index="40" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{6EC40E7B-6A15-41a4-9DCA-BE85FD80C409}" index="0" />
+              <attribute name="name" value="behavior" index="1" />
+              <attribute name="guid" value="{B8CD814A-9895-4ff4-AC82-1C0930CD428C}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="BehaviorExecutionSpecification" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{64F3F31B-BA65-4090-AAAC-848E3486FE97}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{AC0E98E2-7B16-415a-BC13-0490017BF668} " index="5" />
+        </children>
+        <children name="EClass" index="41" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node" />
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="Namespace" index="0" />
+          <attribute name="isAbstract" value="true" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{805925C5-31CA-4619-A53A-0A031C02B6AA}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="" index="5" />
+        </children>
+        <children name="EClass" index="42" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{6D0BE81C-2EFE-4686-A848-CBE435E9C1E3}" index="0" />
+              <attribute name="name" value="message" index="1" />
+              <attribute name="guid" value="{F0E2E1B5-3405-4df7-ABF4-EBE61AE10345}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="ConsiderIgnoreFragment" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{4E670F39-E62E-4c20-A536-BE75214E6EE3}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{A5EFD664-3532-41e3-A4E3-D08C0D7D90F0} " index="5" />
+        </children>
+        <children name="EClass" index="43" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node" />
+          <children name="attributes" index="1" xsi:type="MocaTree:Node">
+            <children name="EAttribute" index="0" xsi:type="MocaTree:Node">
+              <attribute name="type" value="EBoolean" index="0" />
+              <attribute name="typeGuid" value="" index="1" />
+              <attribute name="name" value="setting" index="2" />
+              <attribute name="guid" value="{D2405733-4B93-420c-9B32-29C1261DA0D2}" index="3" />
+              <attribute name="defaultValueLiteral" value="true" index="4" />
+              <attribute name="ordered" value="false" index="5" />
+              <attribute name="lowerBound" value="1" index="6" />
+              <attribute name="upperBound" value="1" index="7" />
+              <attribute name="isId" value="false" index="8" />
+            </children>
+          </children>
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="Continuation" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{DB9F7ADA-42F6-4b35-BD1C-547AB9E7471F}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{FE0E8B4C-1680-4cf3-A1F0-5D0B9D2B93ED} " index="5" />
+        </children>
+        <children name="EClass" index="44" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{B0B5351C-32F2-4147-A266-E4A1D4283964}" index="0" />
+              <attribute name="name" value="returnValue" index="1" />
+              <attribute name="guid" value="{4C1599A9-5C50-4317-8A6F-C5D3FC16D1C4}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+            <children name="EReference" index="1" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{B0B5351C-32F2-4147-A266-E4A1D4283964}" index="0" />
+              <attribute name="name" value="argument" index="1" />
+              <attribute name="guid" value="{3B05A1F2-5699-4a1e-BE2B-CB1F9B49A662}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+            <children name="EReference" index="2" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{2B754063-FEE9-4f91-B494-E11B3B377E0D}" index="0" />
+              <attribute name="name" value="refersTo" index="1" />
+              <attribute name="guid" value="{FA243B83-97EB-4e46-98F0-532DE1A26322}Supplier" index="2" />
+              <attribute name="lowerBound" value="1" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
+            <children name="EReference" index="3" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{D254F9FE-4AF1-40b0-8CA2-F96EDF86D57C}" index="0" />
+              <attribute name="name" value="actualGate" index="1" />
+              <attribute name="guid" value="{5113A1D6-D8F2-4050-A7F6-AB934ED6662A}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="InteractionUse" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{3BC81B0A-F426-48f9-A8FA-93D94301E73C}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{FE0E8B4C-1680-4cf3-A1F0-5D0B9D2B93ED} " index="5" />
+        </children>
+        <children name="EClass" index="45" xsi:type="MocaTree:Node">
           <children name="references" index="0" xsi:type="MocaTree:Node" />
           <children name="attributes" index="1" xsi:type="MocaTree:Node" />
           <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -29820,6 +30188,230 @@
           <attribute name="guid" value="{66814C07-18BA-4e99-9D68-0938CB2652D7}" index="3" />
           <attribute name="alias" value="" index="4" />
           <attribute name="baseClasses" value="{8B5D9EDF-9AF6-4dd7-B09E-92F9C3F29ECF} " index="5" />
+        </children>
+        <children name="EClass" index="46" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{FE0E8B4C-1680-4cf3-A1F0-5D0B9D2B93ED}" index="0" />
+              <attribute name="name" value="fragment" index="1" />
+              <attribute name="guid" value="{9079BE67-5ED1-47c5-B4DA-86A2838FA7B3}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+              <attribute name="oppositeGuid" value="{9079BE67-5ED1-47c5-B4DA-86A2838FA7B3}Client" index="6" />
+            </children>
+            <children name="EReference" index="1" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{A84FE04E-FFF1-4068-A232-AF30F4F8E640}" index="0" />
+              <attribute name="name" value="guard" index="1" />
+              <attribute name="guid" value="{952997B5-A754-4226-9DAD-99FC74C395CF}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="InteractionOperand" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{504EE9A8-0F41-46ef-BEB6-18DF3D9CE87A}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{FE0E8B4C-1680-4cf3-A1F0-5D0B9D2B93ED} {805925C5-31CA-4619-A53A-0A031C02B6AA} " index="5" />
+        </children>
+        <children name="EClass" index="47" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{504EE9A8-0F41-46ef-BEB6-18DF3D9CE87A}" index="0" />
+              <attribute name="name" value="operand" index="1" />
+              <attribute name="guid" value="{89530BEE-2B83-4d42-A9DE-DFB50427A58B}Supplier" index="2" />
+              <attribute name="lowerBound" value="1" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+            <children name="EReference" index="1" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{D254F9FE-4AF1-40b0-8CA2-F96EDF86D57C}" index="0" />
+              <attribute name="name" value="cfragmentGate" index="1" />
+              <attribute name="guid" value="{2BF18AFD-3CF2-4e47-8AB6-1571CEF41DC9}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="-1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node">
+            <children name="EAttribute" index="0" xsi:type="MocaTree:Node">
+              <attribute name="type" value="InteractionOperatorKind" index="0" />
+              <attribute name="typeGuid" value="{B07D19A0-3A89-4d78-9252-E5A654EE4B85}" index="1" />
+              <attribute name="name" value="interactionOperator" index="2" />
+              <attribute name="guid" value="{3B8E80AD-17B2-4975-B94D-251A61A5CD82}" index="3" />
+              <attribute name="defaultValueLiteral" value="seq" index="4" />
+              <attribute name="ordered" value="false" index="5" />
+              <attribute name="lowerBound" value="1" index="6" />
+              <attribute name="upperBound" value="1" index="7" />
+              <attribute name="isId" value="false" index="8" />
+            </children>
+          </children>
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="CombinedFragment" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{A5EFD664-3532-41e3-A4E3-D08C0D7D90F0}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{FE0E8B4C-1680-4cf3-A1F0-5D0B9D2B93ED} " index="5" />
+        </children>
+        <children name="EEnum" index="48" xsi:type="MocaTree:Node">
+          <children name="literals" index="0" xsi:type="MocaTree:Node">
+            <children name="EEnumLiteral" index="0" xsi:type="MocaTree:Node">
+              <attribute name="name" value="seq" index="0" />
+              <attribute name="value" value="1" index="1" />
+              <attribute name="literal" value="SEQ" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="1" xsi:type="MocaTree:Node">
+              <attribute name="name" value="alt" index="0" />
+              <attribute name="value" value="2" index="1" />
+              <attribute name="literal" value="ALT" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="2" xsi:type="MocaTree:Node">
+              <attribute name="name" value="opt" index="0" />
+              <attribute name="value" value="3" index="1" />
+              <attribute name="literal" value="OPT" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="3" xsi:type="MocaTree:Node">
+              <attribute name="name" value="_break" index="0" />
+              <attribute name="value" value="4" index="1" />
+              <attribute name="literal" value="BREAK" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="4" xsi:type="MocaTree:Node">
+              <attribute name="name" value="par" index="0" />
+              <attribute name="value" value="5" index="1" />
+              <attribute name="literal" value="PAR" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="5" xsi:type="MocaTree:Node">
+              <attribute name="name" value="strict" index="0" />
+              <attribute name="value" value="6" index="1" />
+              <attribute name="literal" value="STRICT" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="6" xsi:type="MocaTree:Node">
+              <attribute name="name" value="loop" index="0" />
+              <attribute name="value" value="7" index="1" />
+              <attribute name="literal" value="LOOP" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="7" xsi:type="MocaTree:Node">
+              <attribute name="name" value="critical" index="0" />
+              <attribute name="value" value="8" index="1" />
+              <attribute name="literal" value="critical" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="8" xsi:type="MocaTree:Node">
+              <attribute name="name" value="neg" index="0" />
+              <attribute name="value" value="9" index="1" />
+              <attribute name="literal" value="NEG" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="9" xsi:type="MocaTree:Node">
+              <attribute name="name" value="_assert" index="0" />
+              <attribute name="value" value="10" index="1" />
+              <attribute name="literal" value="ASSERT" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="10" xsi:type="MocaTree:Node">
+              <attribute name="name" value="ignore" index="0" />
+              <attribute name="value" value="11" index="1" />
+              <attribute name="literal" value="IGNORE" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="11" xsi:type="MocaTree:Node">
+              <attribute name="name" value="consider" index="0" />
+              <attribute name="value" value="12" index="1" />
+              <attribute name="literal" value="CONSIDER" index="2" />
+            </children>
+          </children>
+          <attribute name="name" value="InteractionOperatorKind" index="0" />
+          <attribute name="guid" value="{B07D19A0-3A89-4d78-9252-E5A654EE4B85}" index="1" />
+        </children>
+        <children name="EClass" index="49" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{B0B5351C-32F2-4147-A266-E4A1D4283964}" index="0" />
+              <attribute name="name" value="maxint" index="1" />
+              <attribute name="guid" value="{C08D0E7E-3636-4ac8-A94C-D7C346F2F5DC}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+            <children name="EReference" index="1" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{B0B5351C-32F2-4147-A266-E4A1D4283964}" index="0" />
+              <attribute name="name" value="minint" index="1" />
+              <attribute name="guid" value="{91262203-5338-4261-B7F4-D092A1BD7C3B}Supplier" index="2" />
+              <attribute name="lowerBound" value="0" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="true" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="InteractionConstraint" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{A84FE04E-FFF1-4068-A232-AF30F4F8E640}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{0B8D9197-6C7E-4b1d-A6E1-6A155D315D39} " index="5" />
+        </children>
+        <children name="EClass" index="50" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node">
+            <children name="EReference" index="0" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{08E9A29A-B78B-4c9c-B442-12BC929B549F}" index="0" />
+              <attribute name="name" value="finish" index="1" />
+              <attribute name="guid" value="{84301887-08C1-4cf5-BDF9-CC1441CEB8C8}Supplier" index="2" />
+              <attribute name="lowerBound" value="1" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
+            <children name="EReference" index="1" xsi:type="MocaTree:Node">
+              <attribute name="typeGuid" value="{08E9A29A-B78B-4c9c-B442-12BC929B549F}" index="0" />
+              <attribute name="name" value="start" index="1" />
+              <attribute name="guid" value="{1E956AD8-2A52-45f6-946A-FA4475CC07D1}Supplier" index="2" />
+              <attribute name="lowerBound" value="1" index="3" />
+              <attribute name="upperBound" value="1" index="4" />
+              <attribute name="containment" value="false" index="5" />
+            </children>
+          </children>
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="ExecutionSpecification" index="0" />
+          <attribute name="isAbstract" value="true" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{AC0E98E2-7B16-415a-BC13-0490017BF668}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{FE0E8B4C-1680-4cf3-A1F0-5D0B9D2B93ED} " index="5" />
+        </children>
+        <children name="EClass" index="51" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node" />
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="Gate" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{D254F9FE-4AF1-40b0-8CA2-F96EDF86D57C}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{604E7D91-AF37-4cf4-B88E-627146EAC41C} " index="5" />
+        </children>
+        <children name="EClass" index="52" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node" />
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="Action" index="0" />
+          <attribute name="isAbstract" value="true" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{4676A385-4BC3-4c15-9708-B39FFF4DBA47}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="" index="5" />
+        </children>
+        <children name="EClass" index="53" xsi:type="MocaTree:Node">
+          <children name="references" index="0" xsi:type="MocaTree:Node" />
+          <children name="attributes" index="1" xsi:type="MocaTree:Node" />
+          <children name="operations" index="2" xsi:type="MocaTree:Node" />
+          <attribute name="name" value="PartDecomposition" index="0" />
+          <attribute name="isAbstract" value="false" index="1" />
+          <attribute name="isInterface" value="false" index="2" />
+          <attribute name="guid" value="{4B199497-78F9-4163-BCBC-1C65081E40DF}" index="3" />
+          <attribute name="alias" value="" index="4" />
+          <attribute name="baseClasses" value="{3BC81B0A-F426-48f9-A8FA-93D94301E73C} " index="5" />
         </children>
       </children>
       <children name="packages" index="1" xsi:type="MocaTree:Node" />

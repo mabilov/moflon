@@ -4,6 +4,7 @@ package ModalSequenceDiagram;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -710,7 +711,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getEncapsulatedClassifier()
 	 * @generated
 	 */
-	int ENCAPSULATED_CLASSIFIER = 34;
+	int ENCAPSULATED_CLASSIFIER = 43;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ClassImpl <em>Class</em>}' class.
@@ -912,13 +913,31 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int INTERACTION__COVERED = BEHAVIOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION__ENCLOSING_OPERAND = BEHAVIOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION__GENERAL_ORDERING = BEHAVIOR_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Lifeline</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERACTION__LIFELINE = BEHAVIOR_FEATURE_COUNT + 2;
+	int INTERACTION__LIFELINE = BEHAVIOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Fragment</b></em>' containment reference list.
@@ -927,7 +946,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERACTION__FRAGMENT = BEHAVIOR_FEATURE_COUNT + 3;
+	int INTERACTION__FRAGMENT = BEHAVIOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' containment reference list.
@@ -936,7 +955,25 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERACTION__MESSAGE = BEHAVIOR_FEATURE_COUNT + 4;
+	int INTERACTION__MESSAGE = BEHAVIOR_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Formal Gate</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION__FORMAL_GATE = BEHAVIOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION__ACTION = BEHAVIOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Interaction</em>' class.
@@ -945,7 +982,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERACTION_FEATURE_COUNT = BEHAVIOR_FEATURE_COUNT + 5;
+	int INTERACTION_FEATURE_COUNT = BEHAVIOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Interaction</em>' class.
@@ -1083,13 +1120,31 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int LIFELINE__COVERED_BY = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Selector</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIFELINE__SELECTOR = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Decomposed As</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIFELINE__DECOMPOSED_AS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Lifeline</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIFELINE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int LIFELINE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Lifeline</em>' class.
@@ -1128,13 +1183,31 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int INTERACTION_FRAGMENT__COVERED = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_FRAGMENT__ENCLOSING_OPERAND = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_FRAGMENT__GENERAL_ORDERING = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Interaction Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERACTION_FRAGMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int INTERACTION_FRAGMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Interaction Fragment</em>' class.
@@ -1272,13 +1345,31 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int MESSAGE__INTERACTION = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Signature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE__SIGNATURE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE__ARGUMENT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Receive Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE__RECEIVE_EVENT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int MESSAGE__RECEIVE_EVENT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Send Event</b></em>' reference.
@@ -1287,7 +1378,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE__SEND_EVENT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int MESSAGE__SEND_EVENT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Connector</b></em>' reference.
@@ -1296,7 +1387,25 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE__CONNECTOR = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MESSAGE__CONNECTOR = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Message Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE__MESSAGE_KIND = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Message Sort</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE__MESSAGE_SORT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Message</em>' class.
@@ -1305,7 +1414,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int MESSAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Message</em>' class.
@@ -1389,13 +1498,49 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int MESSAGE_OCCURRENCE_SPECIFICATION__COVERED = MESSAGE_END_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_OCCURRENCE_SPECIFICATION__ENCLOSING_OPERAND = MESSAGE_END_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_OCCURRENCE_SPECIFICATION__GENERAL_ORDERING = MESSAGE_END_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>To After</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_OCCURRENCE_SPECIFICATION__TO_AFTER = MESSAGE_END_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>To Before</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_OCCURRENCE_SPECIFICATION__TO_BEFORE = MESSAGE_END_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Message Occurrence Specification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_OCCURRENCE_SPECIFICATION_FEATURE_COUNT = MESSAGE_END_FEATURE_COUNT + 2;
+	int MESSAGE_OCCURRENCE_SPECIFICATION_FEATURE_COUNT = MESSAGE_END_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Message Occurrence Specification</em>' class.
@@ -1434,13 +1579,49 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int OCCURRENCE_SPECIFICATION__COVERED = INTERACTION_FRAGMENT__COVERED;
 
 	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCURRENCE_SPECIFICATION__ENCLOSING_OPERAND = INTERACTION_FRAGMENT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCURRENCE_SPECIFICATION__GENERAL_ORDERING = INTERACTION_FRAGMENT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>To After</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCURRENCE_SPECIFICATION__TO_AFTER = INTERACTION_FRAGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>To Before</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCURRENCE_SPECIFICATION__TO_BEFORE = INTERACTION_FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Occurrence Specification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OCCURRENCE_SPECIFICATION_FEATURE_COUNT = INTERACTION_FRAGMENT_FEATURE_COUNT + 0;
+	int OCCURRENCE_SPECIFICATION_FEATURE_COUNT = INTERACTION_FRAGMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Occurrence Specification</em>' class.
@@ -1477,6 +1658,24 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATE_INVARIANT__COVERED = INTERACTION_FRAGMENT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_INVARIANT__ENCLOSING_OPERAND = INTERACTION_FRAGMENT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_INVARIANT__GENERAL_ORDERING = INTERACTION_FRAGMENT__GENERAL_ORDERING;
 
 	/**
 	 * The feature id for the '<em><b>Invariant</b></em>' containment reference.
@@ -1776,6 +1975,980 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int OPERATION_OPERATION_COUNT = BEHAVIORAL_FEATURE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.DestructionOccurenceSpecificationImpl <em>Destruction Occurence Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.DestructionOccurenceSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getDestructionOccurenceSpecification()
+	 * @generated
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION = 34;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__NAME = MESSAGE_OCCURRENCE_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__MESSAGE = MESSAGE_OCCURRENCE_SPECIFICATION__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__ENCLOSING_INTERACTION = MESSAGE_OCCURRENCE_SPECIFICATION__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__COVERED = MESSAGE_OCCURRENCE_SPECIFICATION__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__ENCLOSING_OPERAND = MESSAGE_OCCURRENCE_SPECIFICATION__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__GENERAL_ORDERING = MESSAGE_OCCURRENCE_SPECIFICATION__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>To After</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__TO_AFTER = MESSAGE_OCCURRENCE_SPECIFICATION__TO_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>To Before</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__TO_BEFORE = MESSAGE_OCCURRENCE_SPECIFICATION__TO_BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>Destruction Occurence Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION_FEATURE_COUNT = MESSAGE_OCCURRENCE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Destruction Occurence Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION_OPERATION_COUNT = MESSAGE_OCCURRENCE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.GeneralOrderingImpl <em>General Ordering</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.GeneralOrderingImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getGeneralOrdering()
+	 * @generated
+	 */
+	int GENERAL_ORDERING = 35;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERAL_ORDERING__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERAL_ORDERING__BEFORE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERAL_ORDERING__AFTER = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>General Ordering</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERAL_ORDERING_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>General Ordering</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERAL_ORDERING_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ExecutionOccurrenceSpecificationImpl <em>Execution Occurrence Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ExecutionOccurrenceSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getExecutionOccurrenceSpecification()
+	 * @generated
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION = 36;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__NAME = OCCURRENCE_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__ENCLOSING_INTERACTION = OCCURRENCE_SPECIFICATION__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__COVERED = OCCURRENCE_SPECIFICATION__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__ENCLOSING_OPERAND = OCCURRENCE_SPECIFICATION__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__GENERAL_ORDERING = OCCURRENCE_SPECIFICATION__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>To After</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__TO_AFTER = OCCURRENCE_SPECIFICATION__TO_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>To Before</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__TO_BEFORE = OCCURRENCE_SPECIFICATION__TO_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Execution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__EXECUTION = OCCURRENCE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Execution Occurrence Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION_FEATURE_COUNT = OCCURRENCE_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Execution Occurrence Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION_OPERATION_COUNT = OCCURRENCE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ExecutionSpecificationImpl <em>Execution Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ExecutionSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getExecutionSpecification()
+	 * @generated
+	 */
+	int EXECUTION_SPECIFICATION = 47;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION__NAME = INTERACTION_FRAGMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION__ENCLOSING_INTERACTION = INTERACTION_FRAGMENT__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION__COVERED = INTERACTION_FRAGMENT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION__ENCLOSING_OPERAND = INTERACTION_FRAGMENT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION__GENERAL_ORDERING = INTERACTION_FRAGMENT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION__FINISH = INTERACTION_FRAGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION__START = INTERACTION_FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Execution Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION_FEATURE_COUNT = INTERACTION_FRAGMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Execution Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION_OPERATION_COUNT = INTERACTION_FRAGMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ActionExecutionSpecificationImpl <em>Action Execution Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ActionExecutionSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getActionExecutionSpecification()
+	 * @generated
+	 */
+	int ACTION_EXECUTION_SPECIFICATION = 37;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__NAME = EXECUTION_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__ENCLOSING_INTERACTION = EXECUTION_SPECIFICATION__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__COVERED = EXECUTION_SPECIFICATION__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__ENCLOSING_OPERAND = EXECUTION_SPECIFICATION__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__GENERAL_ORDERING = EXECUTION_SPECIFICATION__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__FINISH = EXECUTION_SPECIFICATION__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__START = EXECUTION_SPECIFICATION__START;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__ACTION = EXECUTION_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Action Execution Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION_FEATURE_COUNT = EXECUTION_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Action Execution Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION_OPERATION_COUNT = EXECUTION_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.BehaviorExecutionSpecificationImpl <em>Behavior Execution Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.BehaviorExecutionSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getBehaviorExecutionSpecification()
+	 * @generated
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION = 38;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__NAME = EXECUTION_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__ENCLOSING_INTERACTION = EXECUTION_SPECIFICATION__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__COVERED = EXECUTION_SPECIFICATION__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__ENCLOSING_OPERAND = EXECUTION_SPECIFICATION__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__GENERAL_ORDERING = EXECUTION_SPECIFICATION__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__FINISH = EXECUTION_SPECIFICATION__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__START = EXECUTION_SPECIFICATION__START;
+
+	/**
+	 * The feature id for the '<em><b>Behavior</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__BEHAVIOR = EXECUTION_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Behavior Execution Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION_FEATURE_COUNT = EXECUTION_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Behavior Execution Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION_OPERATION_COUNT = EXECUTION_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.NamespaceImpl <em>Namespace</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.NamespaceImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getNamespace()
+	 * @generated
+	 */
+	int NAMESPACE = 39;
+
+	/**
+	 * The number of structural features of the '<em>Namespace</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Namespace</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.CombinedFragmentImpl <em>Combined Fragment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.CombinedFragmentImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getCombinedFragment()
+	 * @generated
+	 */
+	int COMBINED_FRAGMENT = 45;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__NAME = INTERACTION_FRAGMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__ENCLOSING_INTERACTION = INTERACTION_FRAGMENT__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__COVERED = INTERACTION_FRAGMENT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__ENCLOSING_OPERAND = INTERACTION_FRAGMENT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__GENERAL_ORDERING = INTERACTION_FRAGMENT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Operand</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__OPERAND = INTERACTION_FRAGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Cfragment Gate</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__CFRAGMENT_GATE = INTERACTION_FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Interaction Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__INTERACTION_OPERATOR = INTERACTION_FRAGMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Combined Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT_FEATURE_COUNT = INTERACTION_FRAGMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Combined Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT_OPERATION_COUNT = INTERACTION_FRAGMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConsiderIgnoreFragmentImpl <em>Consider Ignore Fragment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ConsiderIgnoreFragmentImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConsiderIgnoreFragment()
+	 * @generated
+	 */
+	int CONSIDER_IGNORE_FRAGMENT = 40;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__NAME = COMBINED_FRAGMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__ENCLOSING_INTERACTION = COMBINED_FRAGMENT__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__COVERED = COMBINED_FRAGMENT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__ENCLOSING_OPERAND = COMBINED_FRAGMENT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__GENERAL_ORDERING = COMBINED_FRAGMENT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Operand</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__OPERAND = COMBINED_FRAGMENT__OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>Cfragment Gate</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__CFRAGMENT_GATE = COMBINED_FRAGMENT__CFRAGMENT_GATE;
+
+	/**
+	 * The feature id for the '<em><b>Interaction Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__INTERACTION_OPERATOR = COMBINED_FRAGMENT__INTERACTION_OPERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__MESSAGE = COMBINED_FRAGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Consider Ignore Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT_FEATURE_COUNT = COMBINED_FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Consider Ignore Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT_OPERATION_COUNT = COMBINED_FRAGMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ContinuationImpl <em>Continuation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ContinuationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getContinuation()
+	 * @generated
+	 */
+	int CONTINUATION = 41;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION__NAME = INTERACTION_FRAGMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION__ENCLOSING_INTERACTION = INTERACTION_FRAGMENT__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION__COVERED = INTERACTION_FRAGMENT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION__ENCLOSING_OPERAND = INTERACTION_FRAGMENT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION__GENERAL_ORDERING = INTERACTION_FRAGMENT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Setting</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION__SETTING = INTERACTION_FRAGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Continuation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION_FEATURE_COUNT = INTERACTION_FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Continuation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION_OPERATION_COUNT = INTERACTION_FRAGMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.InteractionUseImpl <em>Interaction Use</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.InteractionUseImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionUse()
+	 * @generated
+	 */
+	int INTERACTION_USE = 42;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__NAME = INTERACTION_FRAGMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__ENCLOSING_INTERACTION = INTERACTION_FRAGMENT__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__COVERED = INTERACTION_FRAGMENT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__ENCLOSING_OPERAND = INTERACTION_FRAGMENT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__GENERAL_ORDERING = INTERACTION_FRAGMENT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__RETURN_VALUE = INTERACTION_FRAGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__ARGUMENT = INTERACTION_FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Refers To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__REFERS_TO = INTERACTION_FRAGMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Actual Gate</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__ACTUAL_GATE = INTERACTION_FRAGMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Interaction Use</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE_FEATURE_COUNT = INTERACTION_FRAGMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Interaction Use</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE_OPERATION_COUNT = INTERACTION_FRAGMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1819,6 +2992,374 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENCAPSULATED_CLASSIFIER_OPERATION_COUNT = STRUCTURED_CLASSIFIER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.InteractionOperandImpl <em>Interaction Operand</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.InteractionOperandImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionOperand()
+	 * @generated
+	 */
+	int INTERACTION_OPERAND = 44;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND__NAME = INTERACTION_FRAGMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND__ENCLOSING_INTERACTION = INTERACTION_FRAGMENT__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND__COVERED = INTERACTION_FRAGMENT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND__ENCLOSING_OPERAND = INTERACTION_FRAGMENT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND__GENERAL_ORDERING = INTERACTION_FRAGMENT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Fragment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND__FRAGMENT = INTERACTION_FRAGMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND__GUARD = INTERACTION_FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Interaction Operand</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND_FEATURE_COUNT = INTERACTION_FRAGMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Interaction Operand</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND_OPERATION_COUNT = INTERACTION_FRAGMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.InteractionConstraintImpl <em>Interaction Constraint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.InteractionConstraintImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionConstraint()
+	 * @generated
+	 */
+	int INTERACTION_CONSTRAINT = 46;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_CONSTRAINT__NAME = CONSTRAINT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_CONSTRAINT__SPECIFICATION = CONSTRAINT__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Maxint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_CONSTRAINT__MAXINT = CONSTRAINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Minint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_CONSTRAINT__MININT = CONSTRAINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Interaction Constraint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Interaction Constraint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_CONSTRAINT_OPERATION_COUNT = CONSTRAINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.GateImpl <em>Gate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.GateImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getGate()
+	 * @generated
+	 */
+	int GATE = 48;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATE__NAME = MESSAGE_END__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATE__MESSAGE = MESSAGE_END__MESSAGE;
+
+	/**
+	 * The number of structural features of the '<em>Gate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATE_FEATURE_COUNT = MESSAGE_END_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Gate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATE_OPERATION_COUNT = MESSAGE_END_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ActionImpl <em>Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ActionImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getAction()
+	 * @generated
+	 */
+	int ACTION = 49;
+
+	/**
+	 * The number of structural features of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.PartDecompositionImpl <em>Part Decomposition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.PartDecompositionImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getPartDecomposition()
+	 * @generated
+	 */
+	int PART_DECOMPOSITION = 50;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__NAME = INTERACTION_USE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__ENCLOSING_INTERACTION = INTERACTION_USE__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__COVERED = INTERACTION_USE__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__ENCLOSING_OPERAND = INTERACTION_USE__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__GENERAL_ORDERING = INTERACTION_USE__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__RETURN_VALUE = INTERACTION_USE__RETURN_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__ARGUMENT = INTERACTION_USE__ARGUMENT;
+
+	/**
+	 * The feature id for the '<em><b>Refers To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__REFERS_TO = INTERACTION_USE__REFERS_TO;
+
+	/**
+	 * The feature id for the '<em><b>Actual Gate</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__ACTUAL_GATE = INTERACTION_USE__ACTUAL_GATE;
+
+	/**
+	 * The number of structural features of the '<em>Part Decomposition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION_FEATURE_COUNT = INTERACTION_USE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Part Decomposition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION_OPERATION_COUNT = INTERACTION_USE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.MessageKind
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageKind()
+	 * @generated
+	 */
+	int MESSAGE_KIND = 51;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.MessageSort <em>Message Sort</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.MessageSort
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageSort()
+	 * @generated
+	 */
+	int MESSAGE_SORT = 52;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.InteractionOperatorKind <em>Interaction Operator Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.InteractionOperatorKind
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionOperatorKind()
+	 * @generated
+	 */
+	int INTERACTION_OPERATOR_KIND = 53;
 
 	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.Model <em>Model</em>}'.
@@ -1988,6 +3529,28 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	EReference getInteraction_Message();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.Interaction#getFormalGate <em>Formal Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Formal Gate</em>'.
+	 * @see ModalSequenceDiagram.Interaction#getFormalGate()
+	 * @see #getInteraction()
+	 * @generated
+	 */
+	EReference getInteraction_FormalGate();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.Interaction#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Action</em>'.
+	 * @see ModalSequenceDiagram.Interaction#getAction()
+	 * @see #getInteraction()
+	 * @generated
+	 */
+	EReference getInteraction_Action();
+
+	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.Behavior <em>Behavior</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2062,6 +3625,28 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	EReference getLifeline_CoveredBy();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.Lifeline#getSelector <em>Selector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Selector</em>'.
+	 * @see ModalSequenceDiagram.Lifeline#getSelector()
+	 * @see #getLifeline()
+	 * @generated
+	 */
+	EReference getLifeline_Selector();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.Lifeline#getDecomposedAs <em>Decomposed As</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Decomposed As</em>'.
+	 * @see ModalSequenceDiagram.Lifeline#getDecomposedAs()
+	 * @see #getLifeline()
+	 * @generated
+	 */
+	EReference getLifeline_DecomposedAs();
+
+	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.InteractionFragment <em>Interaction Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2092,6 +3677,28 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInteractionFragment_Covered();
+
+	/**
+	 * Returns the meta object for the container reference '{@link ModalSequenceDiagram.InteractionFragment#getEnclosingOperand <em>Enclosing Operand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Enclosing Operand</em>'.
+	 * @see ModalSequenceDiagram.InteractionFragment#getEnclosingOperand()
+	 * @see #getInteractionFragment()
+	 * @generated
+	 */
+	EReference getInteractionFragment_EnclosingOperand();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.InteractionFragment#getGeneralOrdering <em>General Ordering</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>General Ordering</em>'.
+	 * @see ModalSequenceDiagram.InteractionFragment#getGeneralOrdering()
+	 * @see #getInteractionFragment()
+	 * @generated
+	 */
+	EReference getInteractionFragment_GeneralOrdering();
 
 	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.ConnectableElement <em>Connectable Element</em>}'.
@@ -2135,6 +3742,28 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	EReference getMessage_Interaction();
 
 	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.Message#getSignature <em>Signature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Signature</em>'.
+	 * @see ModalSequenceDiagram.Message#getSignature()
+	 * @see #getMessage()
+	 * @generated
+	 */
+	EReference getMessage_Signature();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.Message#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Argument</em>'.
+	 * @see ModalSequenceDiagram.Message#getArgument()
+	 * @see #getMessage()
+	 * @generated
+	 */
+	EReference getMessage_Argument();
+
+	/**
 	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.Message#getReceiveEvent <em>Receive Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2166,6 +3795,28 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMessage_Connector();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.Message#getMessageKind <em>Message Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Message Kind</em>'.
+	 * @see ModalSequenceDiagram.Message#getMessageKind()
+	 * @see #getMessage()
+	 * @generated
+	 */
+	EAttribute getMessage_MessageKind();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.Message#getMessageSort <em>Message Sort</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Message Sort</em>'.
+	 * @see ModalSequenceDiagram.Message#getMessageSort()
+	 * @see #getMessage()
+	 * @generated
+	 */
+	EAttribute getMessage_MessageSort();
 
 	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.MessageEnd <em>Message End</em>}'.
@@ -2207,6 +3858,28 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOccurrenceSpecification();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ModalSequenceDiagram.OccurrenceSpecification#getToAfter <em>To After</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>To After</em>'.
+	 * @see ModalSequenceDiagram.OccurrenceSpecification#getToAfter()
+	 * @see #getOccurrenceSpecification()
+	 * @generated
+	 */
+	EReference getOccurrenceSpecification_ToAfter();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ModalSequenceDiagram.OccurrenceSpecification#getToBefore <em>To Before</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>To Before</em>'.
+	 * @see ModalSequenceDiagram.OccurrenceSpecification#getToBefore()
+	 * @see #getOccurrenceSpecification()
+	 * @generated
+	 */
+	EReference getOccurrenceSpecification_ToBefore();
 
 	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.StateInvariant <em>State Invariant</em>}'.
@@ -2447,6 +4120,217 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	EClass getBehavioralFeature();
 
 	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.DestructionOccurenceSpecification <em>Destruction Occurence Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Destruction Occurence Specification</em>'.
+	 * @see ModalSequenceDiagram.DestructionOccurenceSpecification
+	 * @generated
+	 */
+	EClass getDestructionOccurenceSpecification();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.GeneralOrdering <em>General Ordering</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>General Ordering</em>'.
+	 * @see ModalSequenceDiagram.GeneralOrdering
+	 * @generated
+	 */
+	EClass getGeneralOrdering();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.GeneralOrdering#getBefore <em>Before</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Before</em>'.
+	 * @see ModalSequenceDiagram.GeneralOrdering#getBefore()
+	 * @see #getGeneralOrdering()
+	 * @generated
+	 */
+	EReference getGeneralOrdering_Before();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.GeneralOrdering#getAfter <em>After</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>After</em>'.
+	 * @see ModalSequenceDiagram.GeneralOrdering#getAfter()
+	 * @see #getGeneralOrdering()
+	 * @generated
+	 */
+	EReference getGeneralOrdering_After();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.ExecutionOccurrenceSpecification <em>Execution Occurrence Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Execution Occurrence Specification</em>'.
+	 * @see ModalSequenceDiagram.ExecutionOccurrenceSpecification
+	 * @generated
+	 */
+	EClass getExecutionOccurrenceSpecification();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.ExecutionOccurrenceSpecification#getExecution <em>Execution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Execution</em>'.
+	 * @see ModalSequenceDiagram.ExecutionOccurrenceSpecification#getExecution()
+	 * @see #getExecutionOccurrenceSpecification()
+	 * @generated
+	 */
+	EReference getExecutionOccurrenceSpecification_Execution();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.ActionExecutionSpecification <em>Action Execution Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action Execution Specification</em>'.
+	 * @see ModalSequenceDiagram.ActionExecutionSpecification
+	 * @generated
+	 */
+	EClass getActionExecutionSpecification();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.ActionExecutionSpecification#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Action</em>'.
+	 * @see ModalSequenceDiagram.ActionExecutionSpecification#getAction()
+	 * @see #getActionExecutionSpecification()
+	 * @generated
+	 */
+	EReference getActionExecutionSpecification_Action();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.BehaviorExecutionSpecification <em>Behavior Execution Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Behavior Execution Specification</em>'.
+	 * @see ModalSequenceDiagram.BehaviorExecutionSpecification
+	 * @generated
+	 */
+	EClass getBehaviorExecutionSpecification();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.BehaviorExecutionSpecification#getBehavior <em>Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Behavior</em>'.
+	 * @see ModalSequenceDiagram.BehaviorExecutionSpecification#getBehavior()
+	 * @see #getBehaviorExecutionSpecification()
+	 * @generated
+	 */
+	EReference getBehaviorExecutionSpecification_Behavior();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.Namespace <em>Namespace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Namespace</em>'.
+	 * @see ModalSequenceDiagram.Namespace
+	 * @generated
+	 */
+	EClass getNamespace();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.ConsiderIgnoreFragment <em>Consider Ignore Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Consider Ignore Fragment</em>'.
+	 * @see ModalSequenceDiagram.ConsiderIgnoreFragment
+	 * @generated
+	 */
+	EClass getConsiderIgnoreFragment();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ModalSequenceDiagram.ConsiderIgnoreFragment#getMessage <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Message</em>'.
+	 * @see ModalSequenceDiagram.ConsiderIgnoreFragment#getMessage()
+	 * @see #getConsiderIgnoreFragment()
+	 * @generated
+	 */
+	EReference getConsiderIgnoreFragment_Message();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.Continuation <em>Continuation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Continuation</em>'.
+	 * @see ModalSequenceDiagram.Continuation
+	 * @generated
+	 */
+	EClass getContinuation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.Continuation#isSetting <em>Setting</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Setting</em>'.
+	 * @see ModalSequenceDiagram.Continuation#isSetting()
+	 * @see #getContinuation()
+	 * @generated
+	 */
+	EAttribute getContinuation_Setting();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.InteractionUse <em>Interaction Use</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interaction Use</em>'.
+	 * @see ModalSequenceDiagram.InteractionUse
+	 * @generated
+	 */
+	EClass getInteractionUse();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ModalSequenceDiagram.InteractionUse#getReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Return Value</em>'.
+	 * @see ModalSequenceDiagram.InteractionUse#getReturnValue()
+	 * @see #getInteractionUse()
+	 * @generated
+	 */
+	EReference getInteractionUse_ReturnValue();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.InteractionUse#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Argument</em>'.
+	 * @see ModalSequenceDiagram.InteractionUse#getArgument()
+	 * @see #getInteractionUse()
+	 * @generated
+	 */
+	EReference getInteractionUse_Argument();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.InteractionUse#getRefersTo <em>Refers To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Refers To</em>'.
+	 * @see ModalSequenceDiagram.InteractionUse#getRefersTo()
+	 * @see #getInteractionUse()
+	 * @generated
+	 */
+	EReference getInteractionUse_RefersTo();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.InteractionUse#getActualGate <em>Actual Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Actual Gate</em>'.
+	 * @see ModalSequenceDiagram.InteractionUse#getActualGate()
+	 * @see #getInteractionUse()
+	 * @generated
+	 */
+	EReference getInteractionUse_ActualGate();
+
+	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.EncapsulatedClassifier <em>Encapsulated Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2455,6 +4339,205 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEncapsulatedClassifier();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.InteractionOperand <em>Interaction Operand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interaction Operand</em>'.
+	 * @see ModalSequenceDiagram.InteractionOperand
+	 * @generated
+	 */
+	EClass getInteractionOperand();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.InteractionOperand#getFragment <em>Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Fragment</em>'.
+	 * @see ModalSequenceDiagram.InteractionOperand#getFragment()
+	 * @see #getInteractionOperand()
+	 * @generated
+	 */
+	EReference getInteractionOperand_Fragment();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ModalSequenceDiagram.InteractionOperand#getGuard <em>Guard</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Guard</em>'.
+	 * @see ModalSequenceDiagram.InteractionOperand#getGuard()
+	 * @see #getInteractionOperand()
+	 * @generated
+	 */
+	EReference getInteractionOperand_Guard();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.CombinedFragment <em>Combined Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Combined Fragment</em>'.
+	 * @see ModalSequenceDiagram.CombinedFragment
+	 * @generated
+	 */
+	EClass getCombinedFragment();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.CombinedFragment#getOperand <em>Operand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operand</em>'.
+	 * @see ModalSequenceDiagram.CombinedFragment#getOperand()
+	 * @see #getCombinedFragment()
+	 * @generated
+	 */
+	EReference getCombinedFragment_Operand();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ModalSequenceDiagram.CombinedFragment#getCfragmentGate <em>Cfragment Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cfragment Gate</em>'.
+	 * @see ModalSequenceDiagram.CombinedFragment#getCfragmentGate()
+	 * @see #getCombinedFragment()
+	 * @generated
+	 */
+	EReference getCombinedFragment_CfragmentGate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.CombinedFragment#getInteractionOperator <em>Interaction Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interaction Operator</em>'.
+	 * @see ModalSequenceDiagram.CombinedFragment#getInteractionOperator()
+	 * @see #getCombinedFragment()
+	 * @generated
+	 */
+	EAttribute getCombinedFragment_InteractionOperator();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.InteractionConstraint <em>Interaction Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interaction Constraint</em>'.
+	 * @see ModalSequenceDiagram.InteractionConstraint
+	 * @generated
+	 */
+	EClass getInteractionConstraint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ModalSequenceDiagram.InteractionConstraint#getMaxint <em>Maxint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Maxint</em>'.
+	 * @see ModalSequenceDiagram.InteractionConstraint#getMaxint()
+	 * @see #getInteractionConstraint()
+	 * @generated
+	 */
+	EReference getInteractionConstraint_Maxint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ModalSequenceDiagram.InteractionConstraint#getMinint <em>Minint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Minint</em>'.
+	 * @see ModalSequenceDiagram.InteractionConstraint#getMinint()
+	 * @see #getInteractionConstraint()
+	 * @generated
+	 */
+	EReference getInteractionConstraint_Minint();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.ExecutionSpecification <em>Execution Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Execution Specification</em>'.
+	 * @see ModalSequenceDiagram.ExecutionSpecification
+	 * @generated
+	 */
+	EClass getExecutionSpecification();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.ExecutionSpecification#getFinish <em>Finish</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Finish</em>'.
+	 * @see ModalSequenceDiagram.ExecutionSpecification#getFinish()
+	 * @see #getExecutionSpecification()
+	 * @generated
+	 */
+	EReference getExecutionSpecification_Finish();
+
+	/**
+	 * Returns the meta object for the reference '{@link ModalSequenceDiagram.ExecutionSpecification#getStart <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Start</em>'.
+	 * @see ModalSequenceDiagram.ExecutionSpecification#getStart()
+	 * @see #getExecutionSpecification()
+	 * @generated
+	 */
+	EReference getExecutionSpecification_Start();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.Gate <em>Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gate</em>'.
+	 * @see ModalSequenceDiagram.Gate
+	 * @generated
+	 */
+	EClass getGate();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action</em>'.
+	 * @see ModalSequenceDiagram.Action
+	 * @generated
+	 */
+	EClass getAction();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.PartDecomposition <em>Part Decomposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Part Decomposition</em>'.
+	 * @see ModalSequenceDiagram.PartDecomposition
+	 * @generated
+	 */
+	EClass getPartDecomposition();
+
+	/**
+	 * Returns the meta object for enum '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Message Kind</em>'.
+	 * @see ModalSequenceDiagram.MessageKind
+	 * @generated
+	 */
+	EEnum getMessageKind();
+
+	/**
+	 * Returns the meta object for enum '{@link ModalSequenceDiagram.MessageSort <em>Message Sort</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Message Sort</em>'.
+	 * @see ModalSequenceDiagram.MessageSort
+	 * @generated
+	 */
+	EEnum getMessageSort();
+
+	/**
+	 * Returns the meta object for enum '{@link ModalSequenceDiagram.InteractionOperatorKind <em>Interaction Operator Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Interaction Operator Kind</em>'.
+	 * @see ModalSequenceDiagram.InteractionOperatorKind
+	 * @generated
+	 */
+	EEnum getInteractionOperatorKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2630,6 +4713,23 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		EReference INTERACTION__MESSAGE = eINSTANCE.getInteraction_Message();
 
 		/**
+		 * The meta object literal for the '<em><b>Formal Gate</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION__FORMAL_GATE = eINSTANCE
+				.getInteraction_FormalGate();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION__ACTION = eINSTANCE.getInteraction_Action();
+
+		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.BehaviorImpl <em>Behavior</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2692,6 +4792,23 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		EReference LIFELINE__COVERED_BY = eINSTANCE.getLifeline_CoveredBy();
 
 		/**
+		 * The meta object literal for the '<em><b>Selector</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIFELINE__SELECTOR = eINSTANCE.getLifeline_Selector();
+
+		/**
+		 * The meta object literal for the '<em><b>Decomposed As</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIFELINE__DECOMPOSED_AS = eINSTANCE
+				.getLifeline_DecomposedAs();
+
+		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.InteractionFragmentImpl <em>Interaction Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2718,6 +4835,24 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		 */
 		EReference INTERACTION_FRAGMENT__COVERED = eINSTANCE
 				.getInteractionFragment_Covered();
+
+		/**
+		 * The meta object literal for the '<em><b>Enclosing Operand</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_FRAGMENT__ENCLOSING_OPERAND = eINSTANCE
+				.getInteractionFragment_EnclosingOperand();
+
+		/**
+		 * The meta object literal for the '<em><b>General Ordering</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_FRAGMENT__GENERAL_ORDERING = eINSTANCE
+				.getInteractionFragment_GeneralOrdering();
 
 		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ConnectableElementImpl <em>Connectable Element</em>}' class.
@@ -2758,6 +4893,22 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		EReference MESSAGE__INTERACTION = eINSTANCE.getMessage_Interaction();
 
 		/**
+		 * The meta object literal for the '<em><b>Signature</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MESSAGE__SIGNATURE = eINSTANCE.getMessage_Signature();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MESSAGE__ARGUMENT = eINSTANCE.getMessage_Argument();
+
+		/**
 		 * The meta object literal for the '<em><b>Receive Event</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2780,6 +4931,22 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MESSAGE__CONNECTOR = eINSTANCE.getMessage_Connector();
+
+		/**
+		 * The meta object literal for the '<em><b>Message Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE__MESSAGE_KIND = eINSTANCE.getMessage_MessageKind();
+
+		/**
+		 * The meta object literal for the '<em><b>Message Sort</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE__MESSAGE_SORT = eINSTANCE.getMessage_MessageSort();
 
 		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.MessageEndImpl <em>Message End</em>}' class.
@@ -2820,6 +4987,24 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		 */
 		EClass OCCURRENCE_SPECIFICATION = eINSTANCE
 				.getOccurrenceSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>To After</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OCCURRENCE_SPECIFICATION__TO_AFTER = eINSTANCE
+				.getOccurrenceSpecification_ToAfter();
+
+		/**
+		 * The meta object literal for the '<em><b>To Before</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OCCURRENCE_SPECIFICATION__TO_BEFORE = eINSTANCE
+				.getOccurrenceSpecification_ToBefore();
 
 		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.StateInvariantImpl <em>State Invariant</em>}' class.
@@ -3039,6 +5224,198 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		EClass BEHAVIORAL_FEATURE = eINSTANCE.getBehavioralFeature();
 
 		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.DestructionOccurenceSpecificationImpl <em>Destruction Occurence Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.DestructionOccurenceSpecificationImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getDestructionOccurenceSpecification()
+		 * @generated
+		 */
+		EClass DESTRUCTION_OCCURENCE_SPECIFICATION = eINSTANCE
+				.getDestructionOccurenceSpecification();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.GeneralOrderingImpl <em>General Ordering</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.GeneralOrderingImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getGeneralOrdering()
+		 * @generated
+		 */
+		EClass GENERAL_ORDERING = eINSTANCE.getGeneralOrdering();
+
+		/**
+		 * The meta object literal for the '<em><b>Before</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERAL_ORDERING__BEFORE = eINSTANCE
+				.getGeneralOrdering_Before();
+
+		/**
+		 * The meta object literal for the '<em><b>After</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERAL_ORDERING__AFTER = eINSTANCE
+				.getGeneralOrdering_After();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ExecutionOccurrenceSpecificationImpl <em>Execution Occurrence Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ExecutionOccurrenceSpecificationImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getExecutionOccurrenceSpecification()
+		 * @generated
+		 */
+		EClass EXECUTION_OCCURRENCE_SPECIFICATION = eINSTANCE
+				.getExecutionOccurrenceSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Execution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_OCCURRENCE_SPECIFICATION__EXECUTION = eINSTANCE
+				.getExecutionOccurrenceSpecification_Execution();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ActionExecutionSpecificationImpl <em>Action Execution Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ActionExecutionSpecificationImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getActionExecutionSpecification()
+		 * @generated
+		 */
+		EClass ACTION_EXECUTION_SPECIFICATION = eINSTANCE
+				.getActionExecutionSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION_EXECUTION_SPECIFICATION__ACTION = eINSTANCE
+				.getActionExecutionSpecification_Action();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.BehaviorExecutionSpecificationImpl <em>Behavior Execution Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.BehaviorExecutionSpecificationImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getBehaviorExecutionSpecification()
+		 * @generated
+		 */
+		EClass BEHAVIOR_EXECUTION_SPECIFICATION = eINSTANCE
+				.getBehaviorExecutionSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Behavior</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEHAVIOR_EXECUTION_SPECIFICATION__BEHAVIOR = eINSTANCE
+				.getBehaviorExecutionSpecification_Behavior();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.NamespaceImpl <em>Namespace</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.NamespaceImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getNamespace()
+		 * @generated
+		 */
+		EClass NAMESPACE = eINSTANCE.getNamespace();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ConsiderIgnoreFragmentImpl <em>Consider Ignore Fragment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ConsiderIgnoreFragmentImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConsiderIgnoreFragment()
+		 * @generated
+		 */
+		EClass CONSIDER_IGNORE_FRAGMENT = eINSTANCE.getConsiderIgnoreFragment();
+
+		/**
+		 * The meta object literal for the '<em><b>Message</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSIDER_IGNORE_FRAGMENT__MESSAGE = eINSTANCE
+				.getConsiderIgnoreFragment_Message();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ContinuationImpl <em>Continuation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ContinuationImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getContinuation()
+		 * @generated
+		 */
+		EClass CONTINUATION = eINSTANCE.getContinuation();
+
+		/**
+		 * The meta object literal for the '<em><b>Setting</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTINUATION__SETTING = eINSTANCE.getContinuation_Setting();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.InteractionUseImpl <em>Interaction Use</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.InteractionUseImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionUse()
+		 * @generated
+		 */
+		EClass INTERACTION_USE = eINSTANCE.getInteractionUse();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_USE__RETURN_VALUE = eINSTANCE
+				.getInteractionUse_ReturnValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Argument</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_USE__ARGUMENT = eINSTANCE
+				.getInteractionUse_Argument();
+
+		/**
+		 * The meta object literal for the '<em><b>Refers To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_USE__REFERS_TO = eINSTANCE
+				.getInteractionUse_RefersTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Actual Gate</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_USE__ACTUAL_GATE = eINSTANCE
+				.getInteractionUse_ActualGate();
+
+		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.EncapsulatedClassifierImpl <em>Encapsulated Classifier</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3047,6 +5424,188 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ENCAPSULATED_CLASSIFIER = eINSTANCE.getEncapsulatedClassifier();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.InteractionOperandImpl <em>Interaction Operand</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.InteractionOperandImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionOperand()
+		 * @generated
+		 */
+		EClass INTERACTION_OPERAND = eINSTANCE.getInteractionOperand();
+
+		/**
+		 * The meta object literal for the '<em><b>Fragment</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_OPERAND__FRAGMENT = eINSTANCE
+				.getInteractionOperand_Fragment();
+
+		/**
+		 * The meta object literal for the '<em><b>Guard</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_OPERAND__GUARD = eINSTANCE
+				.getInteractionOperand_Guard();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.CombinedFragmentImpl <em>Combined Fragment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.CombinedFragmentImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getCombinedFragment()
+		 * @generated
+		 */
+		EClass COMBINED_FRAGMENT = eINSTANCE.getCombinedFragment();
+
+		/**
+		 * The meta object literal for the '<em><b>Operand</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMBINED_FRAGMENT__OPERAND = eINSTANCE
+				.getCombinedFragment_Operand();
+
+		/**
+		 * The meta object literal for the '<em><b>Cfragment Gate</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMBINED_FRAGMENT__CFRAGMENT_GATE = eINSTANCE
+				.getCombinedFragment_CfragmentGate();
+
+		/**
+		 * The meta object literal for the '<em><b>Interaction Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMBINED_FRAGMENT__INTERACTION_OPERATOR = eINSTANCE
+				.getCombinedFragment_InteractionOperator();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.InteractionConstraintImpl <em>Interaction Constraint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.InteractionConstraintImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionConstraint()
+		 * @generated
+		 */
+		EClass INTERACTION_CONSTRAINT = eINSTANCE.getInteractionConstraint();
+
+		/**
+		 * The meta object literal for the '<em><b>Maxint</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_CONSTRAINT__MAXINT = eINSTANCE
+				.getInteractionConstraint_Maxint();
+
+		/**
+		 * The meta object literal for the '<em><b>Minint</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERACTION_CONSTRAINT__MININT = eINSTANCE
+				.getInteractionConstraint_Minint();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ExecutionSpecificationImpl <em>Execution Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ExecutionSpecificationImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getExecutionSpecification()
+		 * @generated
+		 */
+		EClass EXECUTION_SPECIFICATION = eINSTANCE.getExecutionSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Finish</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_SPECIFICATION__FINISH = eINSTANCE
+				.getExecutionSpecification_Finish();
+
+		/**
+		 * The meta object literal for the '<em><b>Start</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_SPECIFICATION__START = eINSTANCE
+				.getExecutionSpecification_Start();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.GateImpl <em>Gate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.GateImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getGate()
+		 * @generated
+		 */
+		EClass GATE = eINSTANCE.getGate();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ActionImpl <em>Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ActionImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getAction()
+		 * @generated
+		 */
+		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.PartDecompositionImpl <em>Part Decomposition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.PartDecompositionImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getPartDecomposition()
+		 * @generated
+		 */
+		EClass PART_DECOMPOSITION = eINSTANCE.getPartDecomposition();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.MessageKind
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageKind()
+		 * @generated
+		 */
+		EEnum MESSAGE_KIND = eINSTANCE.getMessageKind();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.MessageSort <em>Message Sort</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.MessageSort
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageSort()
+		 * @generated
+		 */
+		EEnum MESSAGE_SORT = eINSTANCE.getMessageSort();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.InteractionOperatorKind <em>Interaction Operator Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.InteractionOperatorKind
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionOperatorKind()
+		 * @generated
+		 */
+		EEnum INTERACTION_OPERATOR_KIND = eINSTANCE
+				.getInteractionOperatorKind();
 
 	}
 

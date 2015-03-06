@@ -2,34 +2,53 @@
  */
 package ModalSequenceDiagram.impl;
 
+import ModalSequenceDiagram.Action;
+import ModalSequenceDiagram.ActionExecutionSpecification;
 import ModalSequenceDiagram.Behavior;
+import ModalSequenceDiagram.BehaviorExecutionSpecification;
 import ModalSequenceDiagram.BehavioralFeature;
 import ModalSequenceDiagram.BehavioredClassifier;
 import ModalSequenceDiagram.CallEvent;
 import ModalSequenceDiagram.Classifier;
 import ModalSequenceDiagram.Collaboration;
+import ModalSequenceDiagram.CombinedFragment;
 import ModalSequenceDiagram.ConnectableElement;
 import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.ConnectorEnd;
+import ModalSequenceDiagram.ConsiderIgnoreFragment;
 import ModalSequenceDiagram.Constraint;
+import ModalSequenceDiagram.Continuation;
+import ModalSequenceDiagram.DestructionOccurenceSpecification;
 import ModalSequenceDiagram.EncapsulatedClassifier;
 import ModalSequenceDiagram.Event;
+import ModalSequenceDiagram.ExecutionOccurrenceSpecification;
+import ModalSequenceDiagram.ExecutionSpecification;
 import ModalSequenceDiagram.Feature;
+import ModalSequenceDiagram.Gate;
+import ModalSequenceDiagram.GeneralOrdering;
 import ModalSequenceDiagram.Interaction;
+import ModalSequenceDiagram.InteractionConstraint;
 import ModalSequenceDiagram.InteractionFragment;
+import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.InteractionOperatorKind;
+import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
 import ModalSequenceDiagram.MessageEvent;
+import ModalSequenceDiagram.MessageKind;
 import ModalSequenceDiagram.MessageOccurrenceSpecification;
+import ModalSequenceDiagram.MessageSort;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.Model;
 import ModalSequenceDiagram.NamedElement;
+import ModalSequenceDiagram.Namespace;
 import ModalSequenceDiagram.OccurrenceSpecification;
 import ModalSequenceDiagram.OpaqueExpression;
 import ModalSequenceDiagram.Operation;
 import ModalSequenceDiagram.PackageableElement;
+import ModalSequenceDiagram.PartDecomposition;
 import ModalSequenceDiagram.Property;
 import ModalSequenceDiagram.RedefinableElement;
 import ModalSequenceDiagram.StateInvariant;
@@ -40,6 +59,7 @@ import ModalSequenceDiagram.ValueSpecification;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -296,7 +316,140 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass destructionOccurenceSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass generalOrderingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass executionOccurrenceSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionExecutionSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass behaviorExecutionSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namespaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass considerIgnoreFragmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass continuationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interactionUseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass encapsulatedClassifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interactionOperandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass combinedFragmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interactionConstraintEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass executionSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass partDecompositionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum messageKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum messageSortEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum interactionOperatorKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -515,6 +668,24 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInteraction_FormalGate() {
+		return (EReference) interactionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteraction_Action() {
+		return (EReference) interactionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBehavior() {
 		return behaviorEClass;
 	}
@@ -578,6 +749,24 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLifeline_Selector() {
+		return (EReference) lifelineEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLifeline_DecomposedAs() {
+		return (EReference) lifelineEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInteractionFragment() {
 		return interactionFragmentEClass;
 	}
@@ -600,6 +789,26 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	public EReference getInteractionFragment_Covered() {
 		return (EReference) interactionFragmentEClass.getEStructuralFeatures()
 				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionFragment_EnclosingOperand() {
+		return (EReference) interactionFragmentEClass.getEStructuralFeatures()
+				.get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionFragment_GeneralOrdering() {
+		return (EReference) interactionFragmentEClass.getEStructuralFeatures()
+				.get(3);
 	}
 
 	/**
@@ -643,7 +852,7 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMessage_ReceiveEvent() {
+	public EReference getMessage_Signature() {
 		return (EReference) messageEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -652,7 +861,7 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMessage_SendEvent() {
+	public EReference getMessage_Argument() {
 		return (EReference) messageEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -661,8 +870,44 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMessage_Connector() {
+	public EReference getMessage_ReceiveEvent() {
 		return (EReference) messageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMessage_SendEvent() {
+		return (EReference) messageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMessage_Connector() {
+		return (EReference) messageEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessage_MessageKind() {
+		return (EAttribute) messageEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessage_MessageSort() {
+		return (EAttribute) messageEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -699,6 +944,26 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 */
 	public EClass getOccurrenceSpecification() {
 		return occurrenceSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOccurrenceSpecification_ToAfter() {
+		return (EReference) occurrenceSpecificationEClass
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOccurrenceSpecification_ToBefore() {
+		return (EReference) occurrenceSpecificationEClass
+				.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -915,8 +1180,378 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDestructionOccurenceSpecification() {
+		return destructionOccurenceSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGeneralOrdering() {
+		return generalOrderingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGeneralOrdering_Before() {
+		return (EReference) generalOrderingEClass.getEStructuralFeatures().get(
+				0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGeneralOrdering_After() {
+		return (EReference) generalOrderingEClass.getEStructuralFeatures().get(
+				1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExecutionOccurrenceSpecification() {
+		return executionOccurrenceSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionOccurrenceSpecification_Execution() {
+		return (EReference) executionOccurrenceSpecificationEClass
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getActionExecutionSpecification() {
+		return actionExecutionSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActionExecutionSpecification_Action() {
+		return (EReference) actionExecutionSpecificationEClass
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBehaviorExecutionSpecification() {
+		return behaviorExecutionSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBehaviorExecutionSpecification_Behavior() {
+		return (EReference) behaviorExecutionSpecificationEClass
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamespace() {
+		return namespaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConsiderIgnoreFragment() {
+		return considerIgnoreFragmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsiderIgnoreFragment_Message() {
+		return (EReference) considerIgnoreFragmentEClass
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContinuation() {
+		return continuationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContinuation_Setting() {
+		return (EAttribute) continuationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInteractionUse() {
+		return interactionUseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionUse_ReturnValue() {
+		return (EReference) interactionUseEClass.getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionUse_Argument() {
+		return (EReference) interactionUseEClass.getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionUse_RefersTo() {
+		return (EReference) interactionUseEClass.getEStructuralFeatures()
+				.get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionUse_ActualGate() {
+		return (EReference) interactionUseEClass.getEStructuralFeatures()
+				.get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEncapsulatedClassifier() {
 		return encapsulatedClassifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInteractionOperand() {
+		return interactionOperandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionOperand_Fragment() {
+		return (EReference) interactionOperandEClass.getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionOperand_Guard() {
+		return (EReference) interactionOperandEClass.getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCombinedFragment() {
+		return combinedFragmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCombinedFragment_Operand() {
+		return (EReference) combinedFragmentEClass.getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCombinedFragment_CfragmentGate() {
+		return (EReference) combinedFragmentEClass.getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCombinedFragment_InteractionOperator() {
+		return (EAttribute) combinedFragmentEClass.getEStructuralFeatures()
+				.get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInteractionConstraint() {
+		return interactionConstraintEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionConstraint_Maxint() {
+		return (EReference) interactionConstraintEClass
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInteractionConstraint_Minint() {
+		return (EReference) interactionConstraintEClass
+				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExecutionSpecification() {
+		return executionSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionSpecification_Finish() {
+		return (EReference) executionSpecificationEClass
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionSpecification_Start() {
+		return (EReference) executionSpecificationEClass
+				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGate() {
+		return gateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAction() {
+		return actionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPartDecomposition() {
+		return partDecompositionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMessageKind() {
+		return messageKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMessageSort() {
+		return messageSortEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getInteractionOperatorKind() {
+		return interactionOperatorKindEEnum;
 	}
 
 	/**
@@ -975,6 +1610,8 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		createEReference(interactionEClass, INTERACTION__LIFELINE);
 		createEReference(interactionEClass, INTERACTION__FRAGMENT);
 		createEReference(interactionEClass, INTERACTION__MESSAGE);
+		createEReference(interactionEClass, INTERACTION__FORMAL_GATE);
+		createEReference(interactionEClass, INTERACTION__ACTION);
 
 		behaviorEClass = createEClass(BEHAVIOR);
 
@@ -985,12 +1622,18 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		createEReference(lifelineEClass, LIFELINE__INTERACTION);
 		createEReference(lifelineEClass, LIFELINE__REPRESENTS);
 		createEReference(lifelineEClass, LIFELINE__COVERED_BY);
+		createEReference(lifelineEClass, LIFELINE__SELECTOR);
+		createEReference(lifelineEClass, LIFELINE__DECOMPOSED_AS);
 
 		interactionFragmentEClass = createEClass(INTERACTION_FRAGMENT);
 		createEReference(interactionFragmentEClass,
 				INTERACTION_FRAGMENT__ENCLOSING_INTERACTION);
 		createEReference(interactionFragmentEClass,
 				INTERACTION_FRAGMENT__COVERED);
+		createEReference(interactionFragmentEClass,
+				INTERACTION_FRAGMENT__ENCLOSING_OPERAND);
+		createEReference(interactionFragmentEClass,
+				INTERACTION_FRAGMENT__GENERAL_ORDERING);
 
 		connectableElementEClass = createEClass(CONNECTABLE_ELEMENT);
 
@@ -998,9 +1641,13 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 
 		messageEClass = createEClass(MESSAGE);
 		createEReference(messageEClass, MESSAGE__INTERACTION);
+		createEReference(messageEClass, MESSAGE__SIGNATURE);
+		createEReference(messageEClass, MESSAGE__ARGUMENT);
 		createEReference(messageEClass, MESSAGE__RECEIVE_EVENT);
 		createEReference(messageEClass, MESSAGE__SEND_EVENT);
 		createEReference(messageEClass, MESSAGE__CONNECTOR);
+		createEAttribute(messageEClass, MESSAGE__MESSAGE_KIND);
+		createEAttribute(messageEClass, MESSAGE__MESSAGE_SORT);
 
 		messageEndEClass = createEClass(MESSAGE_END);
 		createEReference(messageEndEClass, MESSAGE_END__MESSAGE);
@@ -1008,6 +1655,10 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		messageOccurrenceSpecificationEClass = createEClass(MESSAGE_OCCURRENCE_SPECIFICATION);
 
 		occurrenceSpecificationEClass = createEClass(OCCURRENCE_SPECIFICATION);
+		createEReference(occurrenceSpecificationEClass,
+				OCCURRENCE_SPECIFICATION__TO_AFTER);
+		createEReference(occurrenceSpecificationEClass,
+				OCCURRENCE_SPECIFICATION__TO_BEFORE);
 
 		stateInvariantEClass = createEClass(STATE_INVARIANT);
 		createEReference(stateInvariantEClass, STATE_INVARIANT__INVARIANT);
@@ -1047,7 +1698,75 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 
 		behavioralFeatureEClass = createEClass(BEHAVIORAL_FEATURE);
 
+		destructionOccurenceSpecificationEClass = createEClass(DESTRUCTION_OCCURENCE_SPECIFICATION);
+
+		generalOrderingEClass = createEClass(GENERAL_ORDERING);
+		createEReference(generalOrderingEClass, GENERAL_ORDERING__BEFORE);
+		createEReference(generalOrderingEClass, GENERAL_ORDERING__AFTER);
+
+		executionOccurrenceSpecificationEClass = createEClass(EXECUTION_OCCURRENCE_SPECIFICATION);
+		createEReference(executionOccurrenceSpecificationEClass,
+				EXECUTION_OCCURRENCE_SPECIFICATION__EXECUTION);
+
+		actionExecutionSpecificationEClass = createEClass(ACTION_EXECUTION_SPECIFICATION);
+		createEReference(actionExecutionSpecificationEClass,
+				ACTION_EXECUTION_SPECIFICATION__ACTION);
+
+		behaviorExecutionSpecificationEClass = createEClass(BEHAVIOR_EXECUTION_SPECIFICATION);
+		createEReference(behaviorExecutionSpecificationEClass,
+				BEHAVIOR_EXECUTION_SPECIFICATION__BEHAVIOR);
+
+		namespaceEClass = createEClass(NAMESPACE);
+
+		considerIgnoreFragmentEClass = createEClass(CONSIDER_IGNORE_FRAGMENT);
+		createEReference(considerIgnoreFragmentEClass,
+				CONSIDER_IGNORE_FRAGMENT__MESSAGE);
+
+		continuationEClass = createEClass(CONTINUATION);
+		createEAttribute(continuationEClass, CONTINUATION__SETTING);
+
+		interactionUseEClass = createEClass(INTERACTION_USE);
+		createEReference(interactionUseEClass, INTERACTION_USE__RETURN_VALUE);
+		createEReference(interactionUseEClass, INTERACTION_USE__ARGUMENT);
+		createEReference(interactionUseEClass, INTERACTION_USE__REFERS_TO);
+		createEReference(interactionUseEClass, INTERACTION_USE__ACTUAL_GATE);
+
 		encapsulatedClassifierEClass = createEClass(ENCAPSULATED_CLASSIFIER);
+
+		interactionOperandEClass = createEClass(INTERACTION_OPERAND);
+		createEReference(interactionOperandEClass,
+				INTERACTION_OPERAND__FRAGMENT);
+		createEReference(interactionOperandEClass, INTERACTION_OPERAND__GUARD);
+
+		combinedFragmentEClass = createEClass(COMBINED_FRAGMENT);
+		createEReference(combinedFragmentEClass, COMBINED_FRAGMENT__OPERAND);
+		createEReference(combinedFragmentEClass,
+				COMBINED_FRAGMENT__CFRAGMENT_GATE);
+		createEAttribute(combinedFragmentEClass,
+				COMBINED_FRAGMENT__INTERACTION_OPERATOR);
+
+		interactionConstraintEClass = createEClass(INTERACTION_CONSTRAINT);
+		createEReference(interactionConstraintEClass,
+				INTERACTION_CONSTRAINT__MAXINT);
+		createEReference(interactionConstraintEClass,
+				INTERACTION_CONSTRAINT__MININT);
+
+		executionSpecificationEClass = createEClass(EXECUTION_SPECIFICATION);
+		createEReference(executionSpecificationEClass,
+				EXECUTION_SPECIFICATION__FINISH);
+		createEReference(executionSpecificationEClass,
+				EXECUTION_SPECIFICATION__START);
+
+		gateEClass = createEClass(GATE);
+
+		actionEClass = createEClass(ACTION);
+
+		partDecompositionEClass = createEClass(PART_DECOMPOSITION);
+
+		// Create enums
+		messageKindEEnum = createEEnum(MESSAGE_KIND);
+		messageSortEEnum = createEEnum(MESSAGE_SORT);
+		interactionOperatorKindEEnum = createEEnum(INTERACTION_OPERATOR_KIND);
 	}
 
 	/**
@@ -1123,8 +1842,32 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		classEClass.getESuperTypes().add(this.getBehavioredClassifier());
 		classEClass.getESuperTypes().add(this.getEncapsulatedClassifier());
 		behavioralFeatureEClass.getESuperTypes().add(this.getFeature());
+		destructionOccurenceSpecificationEClass.getESuperTypes().add(
+				this.getMessageOccurrenceSpecification());
+		generalOrderingEClass.getESuperTypes().add(this.getNamedElement());
+		executionOccurrenceSpecificationEClass.getESuperTypes().add(
+				this.getOccurrenceSpecification());
+		actionExecutionSpecificationEClass.getESuperTypes().add(
+				this.getExecutionSpecification());
+		behaviorExecutionSpecificationEClass.getESuperTypes().add(
+				this.getExecutionSpecification());
+		considerIgnoreFragmentEClass.getESuperTypes().add(
+				this.getCombinedFragment());
+		continuationEClass.getESuperTypes().add(this.getInteractionFragment());
+		interactionUseEClass.getESuperTypes()
+				.add(this.getInteractionFragment());
 		encapsulatedClassifierEClass.getESuperTypes().add(
 				this.getStructuredClassifier());
+		interactionOperandEClass.getESuperTypes().add(
+				this.getInteractionFragment());
+		interactionOperandEClass.getESuperTypes().add(this.getNamespace());
+		combinedFragmentEClass.getESuperTypes().add(
+				this.getInteractionFragment());
+		interactionConstraintEClass.getESuperTypes().add(this.getConstraint());
+		executionSpecificationEClass.getESuperTypes().add(
+				this.getInteractionFragment());
+		gateEClass.getESuperTypes().add(this.getMessageEnd());
+		partDecompositionEClass.getESuperTypes().add(this.getInteractionUse());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT,
@@ -1193,6 +1936,14 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				Interaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getInteraction_FormalGate(), this.getGate(), null,
+				"formalGate", null, 0, -1, Interaction.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInteraction_Action(), this.getAction(), null,
+				"action", null, 0, -1, Interaction.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(behaviorEClass, Behavior.class, "Behavior", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1220,6 +1971,15 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				-1, Lifeline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getLifeline_Selector(), this.getValueSpecification(),
+				null, "selector", null, 0, -1, Lifeline.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLifeline_DecomposedAs(), this.getPartDecomposition(),
+				null, "decomposedAs", null, 0, 1, Lifeline.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(interactionFragmentEClass, InteractionFragment.class,
 				"InteractionFragment", IS_ABSTRACT, !IS_INTERFACE,
@@ -1234,6 +1994,18 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				this.getLifeline_CoveredBy(), "covered", null, 0, -1,
 				InteractionFragment.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInteractionFragment_EnclosingOperand(),
+				this.getInteractionOperand(),
+				this.getInteractionOperand_Fragment(), "enclosingOperand",
+				null, 0, 1, InteractionFragment.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getInteractionFragment_GeneralOrdering(),
+				this.getGeneralOrdering(), null, "generalOrdering", null, 0,
+				-1, InteractionFragment.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectableElementEClass, ConnectableElement.class,
@@ -1250,6 +2022,14 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getMessage_Signature(), this.getNamedElement(), null,
+				"signature", null, 0, 1, Message.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMessage_Argument(), this.getValueSpecification(),
+				null, "argument", null, 0, -1, Message.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMessage_ReceiveEvent(), this.getMessageEnd(), null,
 				"receiveEvent", null, 0, 1, Message.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
@@ -1262,6 +2042,14 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				"connector", null, 0, 1, Message.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessage_MessageKind(), this.getMessageKind(),
+				"messageKind", "unknown", 1, 1, Message.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getMessage_MessageSort(), this.getMessageSort(),
+				"messageSort", "synchCall", 1, 1, Message.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
 
 		initEClass(messageEndEClass, MessageEnd.class, "MessageEnd",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1278,6 +2066,18 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		initEClass(occurrenceSpecificationEClass,
 				OccurrenceSpecification.class, "OccurrenceSpecification",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOccurrenceSpecification_ToAfter(),
+				this.getGeneralOrdering(), this.getGeneralOrdering_Before(),
+				"toAfter", null, 0, -1, OccurrenceSpecification.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getOccurrenceSpecification_ToBefore(),
+				this.getGeneralOrdering(), this.getGeneralOrdering_After(),
+				"toBefore", null, 0, -1, OccurrenceSpecification.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(stateInvariantEClass, StateInvariant.class,
 				"StateInvariant", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1364,9 +2164,216 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				"BehavioralFeature", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(destructionOccurenceSpecificationEClass,
+				DestructionOccurenceSpecification.class,
+				"DestructionOccurenceSpecification", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(generalOrderingEClass, GeneralOrdering.class,
+				"GeneralOrdering", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGeneralOrdering_Before(),
+				this.getOccurrenceSpecification(),
+				this.getOccurrenceSpecification_ToAfter(), "before", null, 1,
+				1, GeneralOrdering.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneralOrdering_After(),
+				this.getOccurrenceSpecification(),
+				this.getOccurrenceSpecification_ToBefore(), "after", null, 1,
+				1, GeneralOrdering.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(executionOccurrenceSpecificationEClass,
+				ExecutionOccurrenceSpecification.class,
+				"ExecutionOccurrenceSpecification", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExecutionOccurrenceSpecification_Execution(),
+				this.getExecutionSpecification(), null, "execution", null, 1,
+				1, ExecutionOccurrenceSpecification.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionExecutionSpecificationEClass,
+				ActionExecutionSpecification.class,
+				"ActionExecutionSpecification", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getActionExecutionSpecification_Action(),
+				this.getAction(), null, "action", null, 1, 1,
+				ActionExecutionSpecification.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(behaviorExecutionSpecificationEClass,
+				BehaviorExecutionSpecification.class,
+				"BehaviorExecutionSpecification", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBehaviorExecutionSpecification_Behavior(),
+				this.getBehavior(), null, "behavior", null, 0, 1,
+				BehaviorExecutionSpecification.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(namespaceEClass, Namespace.class, "Namespace", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(considerIgnoreFragmentEClass, ConsiderIgnoreFragment.class,
+				"ConsiderIgnoreFragment", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConsiderIgnoreFragment_Message(),
+				this.getNamedElement(), null, "message", null, 0, -1,
+				ConsiderIgnoreFragment.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(continuationEClass, Continuation.class, "Continuation",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContinuation_Setting(), ecorePackage.getEBoolean(),
+				"setting", "true", 1, 1, Continuation.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
+
+		initEClass(interactionUseEClass, InteractionUse.class,
+				"InteractionUse", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInteractionUse_ReturnValue(),
+				this.getValueSpecification(), null, "returnValue", null, 0, 1,
+				InteractionUse.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInteractionUse_Argument(),
+				this.getValueSpecification(), null, "argument", null, 0, -1,
+				InteractionUse.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInteractionUse_RefersTo(), this.getInteraction(),
+				null, "refersTo", null, 1, 1, InteractionUse.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getInteractionUse_ActualGate(), this.getGate(), null,
+				"actualGate", null, 0, -1, InteractionUse.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(encapsulatedClassifierEClass, EncapsulatedClassifier.class,
 				"EncapsulatedClassifier", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(interactionOperandEClass, InteractionOperand.class,
+				"InteractionOperand", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInteractionOperand_Fragment(),
+				this.getInteractionFragment(),
+				this.getInteractionFragment_EnclosingOperand(), "fragment",
+				null, 0, -1, InteractionOperand.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInteractionOperand_Guard(),
+				this.getInteractionConstraint(), null, "guard", null, 0, 1,
+				InteractionOperand.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(combinedFragmentEClass, CombinedFragment.class,
+				"CombinedFragment", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCombinedFragment_Operand(),
+				this.getInteractionOperand(), null, "operand", null, 1, -1,
+				CombinedFragment.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCombinedFragment_CfragmentGate(), this.getGate(),
+				null, "cfragmentGate", null, 0, -1, CombinedFragment.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getCombinedFragment_InteractionOperator(),
+				this.getInteractionOperatorKind(), "interactionOperator",
+				"seq", 1, 1, CombinedFragment.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
+
+		initEClass(interactionConstraintEClass, InteractionConstraint.class,
+				"InteractionConstraint", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInteractionConstraint_Maxint(),
+				this.getValueSpecification(), null, "maxint", null, 0, 1,
+				InteractionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInteractionConstraint_Minint(),
+				this.getValueSpecification(), null, "minint", null, 0, 1,
+				InteractionConstraint.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(executionSpecificationEClass, ExecutionSpecification.class,
+				"ExecutionSpecification", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExecutionSpecification_Finish(),
+				this.getOccurrenceSpecification(), null, "finish", null, 1, 1,
+				ExecutionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExecutionSpecification_Start(),
+				this.getOccurrenceSpecification(), null, "start", null, 1, 1,
+				ExecutionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gateEClass, Gate.class, "Gate", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(partDecompositionEClass, PartDecomposition.class,
+				"PartDecomposition", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		// Initialize enums and add enum literals
+		initEEnum(messageKindEEnum, MessageKind.class, "MessageKind");
+		addEEnumLiteral(messageKindEEnum, MessageKind.COMPLETE);
+		addEEnumLiteral(messageKindEEnum, MessageKind.LOST);
+		addEEnumLiteral(messageKindEEnum, MessageKind.FOUND);
+		addEEnumLiteral(messageKindEEnum, MessageKind.UNKNOWN);
+
+		initEEnum(messageSortEEnum, MessageSort.class, "MessageSort");
+		addEEnumLiteral(messageSortEEnum, MessageSort.SYNCH_CALL);
+		addEEnumLiteral(messageSortEEnum, MessageSort.ASYNCH_CALL);
+		addEEnumLiteral(messageSortEEnum, MessageSort.ASYNCH_SIGNAL);
+		addEEnumLiteral(messageSortEEnum, MessageSort.CREATE_MESSAGE);
+		addEEnumLiteral(messageSortEEnum, MessageSort.DELETE_MESSAGE);
+		addEEnumLiteral(messageSortEEnum, MessageSort.REPLY);
+
+		initEEnum(interactionOperatorKindEEnum, InteractionOperatorKind.class,
+				"InteractionOperatorKind");
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.SEQ);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.ALT);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.OPT);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind._BREAK);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.PAR);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.STRICT);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.LOOP);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.CRITICAL);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.NEG);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind._ASSERT);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.IGNORE);
+		addEEnumLiteral(interactionOperatorKindEEnum,
+				InteractionOperatorKind.CONSIDER);
 
 		// Create resource
 		createResource(eNS_URI);

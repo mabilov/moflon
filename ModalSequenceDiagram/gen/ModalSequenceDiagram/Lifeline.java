@@ -17,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ModalSequenceDiagram.Lifeline#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link ModalSequenceDiagram.Lifeline#getRepresents <em>Represents</em>}</li>
  *   <li>{@link ModalSequenceDiagram.Lifeline#getCoveredBy <em>Covered By</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.Lifeline#getSelector <em>Selector</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.Lifeline#getDecomposedAs <em>Decomposed As</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,6 +98,48 @@ public interface Lifeline extends NamedElement {
 	 * @generated
 	 */
 	EList<InteractionFragment> getCoveredBy();
+
+	/**
+	 * Returns the value of the '<em><b>Selector</b></em>' containment reference list.
+	 * The list contents are of type {@link ModalSequenceDiagram.ValueSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selector</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selector</em>' containment reference list.
+	 * @see ModalSequenceDiagram.ModalSequenceDiagramPackage#getLifeline_Selector()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ValueSpecification> getSelector();
+
+	/**
+	 * Returns the value of the '<em><b>Decomposed As</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Decomposed As</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Decomposed As</em>' reference.
+	 * @see #setDecomposedAs(PartDecomposition)
+	 * @see ModalSequenceDiagram.ModalSequenceDiagramPackage#getLifeline_DecomposedAs()
+	 * @model
+	 * @generated
+	 */
+	PartDecomposition getDecomposedAs();
+
+	/**
+	 * Sets the value of the '{@link ModalSequenceDiagram.Lifeline#getDecomposedAs <em>Decomposed As</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Decomposed As</em>' reference.
+	 * @see #getDecomposedAs()
+	 * @generated
+	 */
+	void setDecomposedAs(PartDecomposition value);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

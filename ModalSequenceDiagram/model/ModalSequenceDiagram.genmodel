@@ -6,6 +6,34 @@
     operationReflection="true">
   <foreignModel>ModalSequenceDiagram.ecore</foreignModel>
   <genPackages prefix="ModalSequenceDiagram" disposableProviderFactory="true" ecorePackage="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageKind/complete"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageKind/lost"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageKind/found"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageKind/unknown"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort/synchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort/asynchCall"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort/asynchSignal"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort/createMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort/deleteMessage"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort/reply"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/seq"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/alt"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/opt"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/_break"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/par"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/strict"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/loop"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/critical"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/neg"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/_assert"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/ignore"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/consider"/>
+    </genEnums>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Model"/>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Package">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Package/packagedElement"/>
@@ -25,6 +53,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Interaction/lifeline"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Interaction/fragment"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Interaction/message"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Interaction/formalGate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Interaction/action"/>
     </genClasses>
     <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Behavior"/>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Connector">
@@ -34,24 +64,35 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Lifeline/interaction"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Lifeline/represents"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Lifeline/coveredBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Lifeline/selector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Lifeline/decomposedAs"/>
     </genClasses>
     <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionFragment">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionFragment/enclosingInteraction"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionFragment/covered"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionFragment/enclosingOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionFragment/generalOrdering"/>
     </genClasses>
     <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ConnectableElement"/>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Property"/>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message/interaction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message/signature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message/argument"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message/receiveEvent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message/sendEvent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message/connector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message/messageKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Message/messageSort"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageEnd">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageEnd/message"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageOccurrenceSpecification"/>
-    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//OccurrenceSpecification"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//OccurrenceSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//OccurrenceSpecification/toAfter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//OccurrenceSpecification/toBefore"/>
+    </genClasses>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//StateInvariant">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//StateInvariant/invariant"/>
     </genClasses>
@@ -83,6 +124,53 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Class/ownedOperation"/>
     </genClasses>
     <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//BehavioralFeature"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//DestructionOccurenceSpecification"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//GeneralOrdering">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//GeneralOrdering/before"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//GeneralOrdering/after"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ExecutionOccurrenceSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ExecutionOccurrenceSpecification/execution"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ActionExecutionSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ActionExecutionSpecification/action"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//BehaviorExecutionSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//BehaviorExecutionSpecification/behavior"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Namespace"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ConsiderIgnoreFragment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ConsiderIgnoreFragment/message"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Continuation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Continuation/setting"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionUse">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionUse/returnValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionUse/argument"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionUse/refersTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionUse/actualGate"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//EncapsulatedClassifier"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperand/fragment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperand/guard"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//CombinedFragment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//CombinedFragment/operand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//CombinedFragment/cfragmentGate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//CombinedFragment/interactionOperator"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionConstraint/maxint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionConstraint/minint"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ExecutionSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ExecutionSpecification/finish"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ExecutionSpecification/start"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Gate"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Action"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//PartDecomposition"/>
   </genPackages>
 </genmodel:GenModel>

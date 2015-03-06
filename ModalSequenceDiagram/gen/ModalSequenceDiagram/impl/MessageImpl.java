@@ -6,18 +6,26 @@ import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.Interaction;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
+import ModalSequenceDiagram.MessageKind;
+import ModalSequenceDiagram.MessageSort;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 
+import ModalSequenceDiagram.NamedElement;
+import ModalSequenceDiagram.ValueSpecification;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 // <-- [user defined imports]
 // [user defined imports] -->
 
@@ -29,15 +37,39 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ModalSequenceDiagram.impl.MessageImpl#getInteraction <em>Interaction</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.impl.MessageImpl#getSignature <em>Signature</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.impl.MessageImpl#getArgument <em>Argument</em>}</li>
  *   <li>{@link ModalSequenceDiagram.impl.MessageImpl#getReceiveEvent <em>Receive Event</em>}</li>
  *   <li>{@link ModalSequenceDiagram.impl.MessageImpl#getSendEvent <em>Send Event</em>}</li>
  *   <li>{@link ModalSequenceDiagram.impl.MessageImpl#getConnector <em>Connector</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.impl.MessageImpl#getMessageKind <em>Message Kind</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.impl.MessageImpl#getMessageSort <em>Message Sort</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class MessageImpl extends NamedElementImpl implements Message {
+	/**
+	 * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSignature()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamedElement signature;
+
+	/**
+	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgument()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValueSpecification> argument;
+
 	/**
 	 * The cached value of the '{@link #getReceiveEvent() <em>Receive Event</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -67,6 +99,46 @@ public class MessageImpl extends NamedElementImpl implements Message {
 	 * @ordered
 	 */
 	protected Connector connector;
+
+	/**
+	 * The default value of the '{@link #getMessageKind() <em>Message Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessageKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final MessageKind MESSAGE_KIND_EDEFAULT = MessageKind.COMPLETE;
+
+	/**
+	 * The cached value of the '{@link #getMessageKind() <em>Message Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessageKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected MessageKind messageKind = MESSAGE_KIND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMessageSort() <em>Message Sort</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessageSort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final MessageSort MESSAGE_SORT_EDEFAULT = MessageSort.SYNCH_CALL;
+
+	/**
+	 * The cached value of the '{@link #getMessageSort() <em>Message Sort</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessageSort()
+	 * @generated
+	 * @ordered
+	 */
+	protected MessageSort messageSort = MESSAGE_SORT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,6 +207,62 @@ public class MessageImpl extends NamedElementImpl implements Message {
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					ModalSequenceDiagramPackage.MESSAGE__INTERACTION,
 					newInteraction, newInteraction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedElement getSignature() {
+		if (signature != null && signature.eIsProxy()) {
+			InternalEObject oldSignature = (InternalEObject) signature;
+			signature = (NamedElement) eResolveProxy(oldSignature);
+			if (signature != oldSignature) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							ModalSequenceDiagramPackage.MESSAGE__SIGNATURE,
+							oldSignature, signature));
+			}
+		}
+		return signature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedElement basicGetSignature() {
+		return signature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSignature(NamedElement newSignature) {
+		NamedElement oldSignature = signature;
+		signature = newSignature;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					ModalSequenceDiagramPackage.MESSAGE__SIGNATURE,
+					oldSignature, signature));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ValueSpecification> getArgument() {
+		if (argument == null) {
+			argument = new EObjectContainmentEList<ValueSpecification>(
+					ValueSpecification.class, this,
+					ModalSequenceDiagramPackage.MESSAGE__ARGUMENT);
+		}
+		return argument;
 	}
 
 	/**
@@ -268,6 +396,54 @@ public class MessageImpl extends NamedElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MessageKind getMessageKind() {
+		return messageKind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMessageKind(MessageKind newMessageKind) {
+		MessageKind oldMessageKind = messageKind;
+		messageKind = newMessageKind == null ? MESSAGE_KIND_EDEFAULT
+				: newMessageKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					ModalSequenceDiagramPackage.MESSAGE__MESSAGE_KIND,
+					oldMessageKind, messageKind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessageSort getMessageSort() {
+		return messageSort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMessageSort(MessageSort newMessageSort) {
+		MessageSort oldMessageSort = messageSort;
+		messageSort = newMessageSort == null ? MESSAGE_SORT_EDEFAULT
+				: newMessageSort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					ModalSequenceDiagramPackage.MESSAGE__MESSAGE_SORT,
+					oldMessageSort, messageSort));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -291,6 +467,9 @@ public class MessageImpl extends NamedElementImpl implements Message {
 		switch (featureID) {
 		case ModalSequenceDiagramPackage.MESSAGE__INTERACTION:
 			return basicSetInteraction(null, msgs);
+		case ModalSequenceDiagramPackage.MESSAGE__ARGUMENT:
+			return ((InternalEList<?>) getArgument()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -322,6 +501,12 @@ public class MessageImpl extends NamedElementImpl implements Message {
 		switch (featureID) {
 		case ModalSequenceDiagramPackage.MESSAGE__INTERACTION:
 			return getInteraction();
+		case ModalSequenceDiagramPackage.MESSAGE__SIGNATURE:
+			if (resolve)
+				return getSignature();
+			return basicGetSignature();
+		case ModalSequenceDiagramPackage.MESSAGE__ARGUMENT:
+			return getArgument();
 		case ModalSequenceDiagramPackage.MESSAGE__RECEIVE_EVENT:
 			if (resolve)
 				return getReceiveEvent();
@@ -334,6 +519,10 @@ public class MessageImpl extends NamedElementImpl implements Message {
 			if (resolve)
 				return getConnector();
 			return basicGetConnector();
+		case ModalSequenceDiagramPackage.MESSAGE__MESSAGE_KIND:
+			return getMessageKind();
+		case ModalSequenceDiagramPackage.MESSAGE__MESSAGE_SORT:
+			return getMessageSort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -343,11 +532,20 @@ public class MessageImpl extends NamedElementImpl implements Message {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case ModalSequenceDiagramPackage.MESSAGE__INTERACTION:
 			setInteraction((Interaction) newValue);
+			return;
+		case ModalSequenceDiagramPackage.MESSAGE__SIGNATURE:
+			setSignature((NamedElement) newValue);
+			return;
+		case ModalSequenceDiagramPackage.MESSAGE__ARGUMENT:
+			getArgument().clear();
+			getArgument().addAll(
+					(Collection<? extends ValueSpecification>) newValue);
 			return;
 		case ModalSequenceDiagramPackage.MESSAGE__RECEIVE_EVENT:
 			setReceiveEvent((MessageEnd) newValue);
@@ -357,6 +555,12 @@ public class MessageImpl extends NamedElementImpl implements Message {
 			return;
 		case ModalSequenceDiagramPackage.MESSAGE__CONNECTOR:
 			setConnector((Connector) newValue);
+			return;
+		case ModalSequenceDiagramPackage.MESSAGE__MESSAGE_KIND:
+			setMessageKind((MessageKind) newValue);
+			return;
+		case ModalSequenceDiagramPackage.MESSAGE__MESSAGE_SORT:
+			setMessageSort((MessageSort) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -373,6 +577,12 @@ public class MessageImpl extends NamedElementImpl implements Message {
 		case ModalSequenceDiagramPackage.MESSAGE__INTERACTION:
 			setInteraction((Interaction) null);
 			return;
+		case ModalSequenceDiagramPackage.MESSAGE__SIGNATURE:
+			setSignature((NamedElement) null);
+			return;
+		case ModalSequenceDiagramPackage.MESSAGE__ARGUMENT:
+			getArgument().clear();
+			return;
 		case ModalSequenceDiagramPackage.MESSAGE__RECEIVE_EVENT:
 			setReceiveEvent((MessageEnd) null);
 			return;
@@ -381,6 +591,12 @@ public class MessageImpl extends NamedElementImpl implements Message {
 			return;
 		case ModalSequenceDiagramPackage.MESSAGE__CONNECTOR:
 			setConnector((Connector) null);
+			return;
+		case ModalSequenceDiagramPackage.MESSAGE__MESSAGE_KIND:
+			setMessageKind(MESSAGE_KIND_EDEFAULT);
+			return;
+		case ModalSequenceDiagramPackage.MESSAGE__MESSAGE_SORT:
+			setMessageSort(MESSAGE_SORT_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -396,14 +612,41 @@ public class MessageImpl extends NamedElementImpl implements Message {
 		switch (featureID) {
 		case ModalSequenceDiagramPackage.MESSAGE__INTERACTION:
 			return getInteraction() != null;
+		case ModalSequenceDiagramPackage.MESSAGE__SIGNATURE:
+			return signature != null;
+		case ModalSequenceDiagramPackage.MESSAGE__ARGUMENT:
+			return argument != null && !argument.isEmpty();
 		case ModalSequenceDiagramPackage.MESSAGE__RECEIVE_EVENT:
 			return receiveEvent != null;
 		case ModalSequenceDiagramPackage.MESSAGE__SEND_EVENT:
 			return sendEvent != null;
 		case ModalSequenceDiagramPackage.MESSAGE__CONNECTOR:
 			return connector != null;
+		case ModalSequenceDiagramPackage.MESSAGE__MESSAGE_KIND:
+			return messageKind != MESSAGE_KIND_EDEFAULT;
+		case ModalSequenceDiagramPackage.MESSAGE__MESSAGE_SORT:
+			return messageSort != MESSAGE_SORT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (messageKind: ");
+		result.append(messageKind);
+		result.append(", messageSort: ");
+		result.append(messageSort);
+		result.append(')');
+		return result.toString();
 	}
 	// <-- [user code injected with eMoflon]
 

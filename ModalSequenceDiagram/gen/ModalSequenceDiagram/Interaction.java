@@ -17,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ModalSequenceDiagram.Interaction#getLifeline <em>Lifeline</em>}</li>
  *   <li>{@link ModalSequenceDiagram.Interaction#getFragment <em>Fragment</em>}</li>
  *   <li>{@link ModalSequenceDiagram.Interaction#getMessage <em>Message</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.Interaction#getFormalGate <em>Formal Gate</em>}</li>
+ *   <li>{@link ModalSequenceDiagram.Interaction#getAction <em>Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,6 +80,38 @@ public interface Interaction extends Behavior, InteractionFragment {
 	 * @generated
 	 */
 	EList<Message> getMessage();
+
+	/**
+	 * Returns the value of the '<em><b>Formal Gate</b></em>' containment reference list.
+	 * The list contents are of type {@link ModalSequenceDiagram.Gate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Formal Gate</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Formal Gate</em>' containment reference list.
+	 * @see ModalSequenceDiagram.ModalSequenceDiagramPackage#getInteraction_FormalGate()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Gate> getFormalGate();
+
+	/**
+	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
+	 * The list contents are of type {@link ModalSequenceDiagram.Action}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Action</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Action</em>' containment reference list.
+	 * @see ModalSequenceDiagram.ModalSequenceDiagramPackage#getInteraction_Action()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Action> getAction();
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

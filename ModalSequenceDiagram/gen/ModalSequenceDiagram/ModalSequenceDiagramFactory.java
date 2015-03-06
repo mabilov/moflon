@@ -194,6 +194,123 @@ public interface ModalSequenceDiagramFactory extends EFactory {
 	Class createClass();
 
 	/**
+	 * Returns a new object of class '<em>Destruction Occurence Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Destruction Occurence Specification</em>'.
+	 * @generated
+	 */
+	DestructionOccurenceSpecification createDestructionOccurenceSpecification();
+
+	/**
+	 * Returns a new object of class '<em>General Ordering</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>General Ordering</em>'.
+	 * @generated
+	 */
+	GeneralOrdering createGeneralOrdering();
+
+	/**
+	 * Returns a new object of class '<em>Execution Occurrence Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Execution Occurrence Specification</em>'.
+	 * @generated
+	 */
+	ExecutionOccurrenceSpecification createExecutionOccurrenceSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Action Execution Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action Execution Specification</em>'.
+	 * @generated
+	 */
+	ActionExecutionSpecification createActionExecutionSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Behavior Execution Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Behavior Execution Specification</em>'.
+	 * @generated
+	 */
+	BehaviorExecutionSpecification createBehaviorExecutionSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Consider Ignore Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consider Ignore Fragment</em>'.
+	 * @generated
+	 */
+	ConsiderIgnoreFragment createConsiderIgnoreFragment();
+
+	/**
+	 * Returns a new object of class '<em>Continuation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Continuation</em>'.
+	 * @generated
+	 */
+	Continuation createContinuation();
+
+	/**
+	 * Returns a new object of class '<em>Interaction Use</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interaction Use</em>'.
+	 * @generated
+	 */
+	InteractionUse createInteractionUse();
+
+	/**
+	 * Returns a new object of class '<em>Interaction Operand</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interaction Operand</em>'.
+	 * @generated
+	 */
+	InteractionOperand createInteractionOperand();
+
+	/**
+	 * Returns a new object of class '<em>Combined Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Combined Fragment</em>'.
+	 * @generated
+	 */
+	CombinedFragment createCombinedFragment();
+
+	/**
+	 * Returns a new object of class '<em>Interaction Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interaction Constraint</em>'.
+	 * @generated
+	 */
+	InteractionConstraint createInteractionConstraint();
+
+	/**
+	 * Returns a new object of class '<em>Gate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gate</em>'.
+	 * @generated
+	 */
+	Gate createGate();
+
+	/**
+	 * Returns a new object of class '<em>Part Decomposition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Part Decomposition</em>'.
+	 * @generated
+	 */
+	PartDecomposition createPartDecomposition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
