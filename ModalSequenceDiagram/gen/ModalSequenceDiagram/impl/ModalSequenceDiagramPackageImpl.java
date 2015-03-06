@@ -10,8 +10,10 @@ import ModalSequenceDiagram.BehavioralFeature;
 import ModalSequenceDiagram.BehavioredClassifier;
 import ModalSequenceDiagram.CallEvent;
 import ModalSequenceDiagram.Classifier;
+import ModalSequenceDiagram.ClockReset;
 import ModalSequenceDiagram.Collaboration;
 import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Condition;
 import ModalSequenceDiagram.ConnectableElement;
 import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.ConnectorEnd;
@@ -20,7 +22,9 @@ import ModalSequenceDiagram.Constraint;
 import ModalSequenceDiagram.Continuation;
 import ModalSequenceDiagram.DestructionOccurenceSpecification;
 import ModalSequenceDiagram.EncapsulatedClassifier;
+import ModalSequenceDiagram.EnvironmentAssumption;
 import ModalSequenceDiagram.Event;
+import ModalSequenceDiagram.ExecutionKind;
 import ModalSequenceDiagram.ExecutionOccurrenceSpecification;
 import ModalSequenceDiagram.ExecutionSpecification;
 import ModalSequenceDiagram.Feature;
@@ -33,12 +37,14 @@ import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.InteractionOperatorKind;
 import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.MSDSpecification;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
 import ModalSequenceDiagram.MessageEvent;
 import ModalSequenceDiagram.MessageKind;
 import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.MessageSort;
+import ModalSequenceDiagram.ModalMessage;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.Model;
@@ -49,10 +55,15 @@ import ModalSequenceDiagram.OpaqueExpression;
 import ModalSequenceDiagram.Operation;
 import ModalSequenceDiagram.PackageableElement;
 import ModalSequenceDiagram.PartDecomposition;
+import ModalSequenceDiagram.PartKind;
 import ModalSequenceDiagram.Property;
 import ModalSequenceDiagram.RedefinableElement;
+import ModalSequenceDiagram.SpecificationKind;
+import ModalSequenceDiagram.SpecificationPart;
 import ModalSequenceDiagram.StateInvariant;
 import ModalSequenceDiagram.StructuredClassifier;
+import ModalSequenceDiagram.TemperatureKind;
+import ModalSequenceDiagram.TimeCondition;
 import ModalSequenceDiagram.Type;
 import ModalSequenceDiagram.TypedElement;
 import ModalSequenceDiagram.ValueSpecification;
@@ -379,6 +390,34 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass modalMessageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass timeConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass specificationPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass encapsulatedClassifierEClass = null;
 
 	/**
@@ -435,6 +474,27 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass clockResetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass msdSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass environmentAssumptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum messageKindEEnum = null;
 
 	/**
@@ -449,7 +509,35 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum temperatureKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum partKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum executionKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum interactionOperatorKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum specificationKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1370,6 +1458,79 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getModalMessage() {
+		return modalMessageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModalMessage_Execution() {
+		return (EAttribute) modalMessageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModalMessage_Temperature() {
+		return (EAttribute) modalMessageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCondition() {
+		return conditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCondition_Temperature() {
+		return (EAttribute) conditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTimeCondition() {
+		return timeConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSpecificationPart() {
+		return specificationPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecificationPart_PartKind() {
+		return (EAttribute) specificationPartEClass.getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEncapsulatedClassifier() {
 		return encapsulatedClassifierEClass;
 	}
@@ -1532,6 +1693,43 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getClockReset() {
+		return clockResetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMSDSpecification() {
+		return msdSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMSDSpecification_SpecificationKind() {
+		return (EAttribute) msdSpecificationEClass.getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEnvironmentAssumption() {
+		return environmentAssumptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMessageKind() {
 		return messageKindEEnum;
 	}
@@ -1550,8 +1748,44 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getTemperatureKind() {
+		return temperatureKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPartKind() {
+		return partKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getExecutionKind() {
+		return executionKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getInteractionOperatorKind() {
 		return interactionOperatorKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSpecificationKind() {
+		return specificationKindEEnum;
 	}
 
 	/**
@@ -1731,6 +1965,18 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		createEReference(interactionUseEClass, INTERACTION_USE__REFERS_TO);
 		createEReference(interactionUseEClass, INTERACTION_USE__ACTUAL_GATE);
 
+		modalMessageEClass = createEClass(MODAL_MESSAGE);
+		createEAttribute(modalMessageEClass, MODAL_MESSAGE__EXECUTION);
+		createEAttribute(modalMessageEClass, MODAL_MESSAGE__TEMPERATURE);
+
+		conditionEClass = createEClass(CONDITION);
+		createEAttribute(conditionEClass, CONDITION__TEMPERATURE);
+
+		timeConditionEClass = createEClass(TIME_CONDITION);
+
+		specificationPartEClass = createEClass(SPECIFICATION_PART);
+		createEAttribute(specificationPartEClass, SPECIFICATION_PART__PART_KIND);
+
 		encapsulatedClassifierEClass = createEClass(ENCAPSULATED_CLASSIFIER);
 
 		interactionOperandEClass = createEClass(INTERACTION_OPERAND);
@@ -1763,10 +2009,22 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 
 		partDecompositionEClass = createEClass(PART_DECOMPOSITION);
 
+		clockResetEClass = createEClass(CLOCK_RESET);
+
+		msdSpecificationEClass = createEClass(MSD_SPECIFICATION);
+		createEAttribute(msdSpecificationEClass,
+				MSD_SPECIFICATION__SPECIFICATION_KIND);
+
+		environmentAssumptionEClass = createEClass(ENVIRONMENT_ASSUMPTION);
+
 		// Create enums
 		messageKindEEnum = createEEnum(MESSAGE_KIND);
 		messageSortEEnum = createEEnum(MESSAGE_SORT);
+		temperatureKindEEnum = createEEnum(TEMPERATURE_KIND);
+		partKindEEnum = createEEnum(PART_KIND);
+		executionKindEEnum = createEEnum(EXECUTION_KIND);
 		interactionOperatorKindEEnum = createEEnum(INTERACTION_OPERATOR_KIND);
+		specificationKindEEnum = createEEnum(SPECIFICATION_KIND);
 	}
 
 	/**
@@ -1856,6 +2114,10 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		continuationEClass.getESuperTypes().add(this.getInteractionFragment());
 		interactionUseEClass.getESuperTypes()
 				.add(this.getInteractionFragment());
+		modalMessageEClass.getESuperTypes().add(this.getMessage());
+		conditionEClass.getESuperTypes().add(this.getStateInvariant());
+		timeConditionEClass.getESuperTypes().add(this.getCondition());
+		specificationPartEClass.getESuperTypes().add(this.getProperty());
 		encapsulatedClassifierEClass.getESuperTypes().add(
 				this.getStructuredClassifier());
 		interactionOperandEClass.getESuperTypes().add(
@@ -1868,6 +2130,9 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				this.getInteractionFragment());
 		gateEClass.getESuperTypes().add(this.getMessageEnd());
 		partDecompositionEClass.getESuperTypes().add(this.getInteractionUse());
+		clockResetEClass.getESuperTypes().add(this.getStateInvariant());
+		msdSpecificationEClass.getESuperTypes().add(this.getPackage());
+		environmentAssumptionEClass.getESuperTypes().add(this.getInteraction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT,
@@ -2257,6 +2522,35 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(modalMessageEClass, ModalMessage.class, "ModalMessage",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModalMessage_Execution(), this.getExecutionKind(),
+				"execution", null, 1, 1, ModalMessage.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getModalMessage_Temperature(),
+				this.getTemperatureKind(), "temperature", null, 1, 1,
+				ModalMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCondition_Temperature(), this.getTemperatureKind(),
+				"temperature", null, 1, 1, Condition.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
+
+		initEClass(timeConditionEClass, TimeCondition.class, "TimeCondition",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(specificationPartEClass, SpecificationPart.class,
+				"SpecificationPart", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSpecificationPart_PartKind(), this.getPartKind(),
+				"partKind", null, 1, 1, SpecificationPart.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
+
 		initEClass(encapsulatedClassifierEClass, EncapsulatedClassifier.class,
 				"EncapsulatedClassifier", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2333,6 +2627,22 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				"PartDecomposition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(clockResetEClass, ClockReset.class, "ClockReset",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(msdSpecificationEClass, MSDSpecification.class,
+				"MSDSpecification", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMSDSpecification_SpecificationKind(),
+				this.getSpecificationKind(), "specificationKind", null, 1, 1,
+				MSDSpecification.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
+
+		initEClass(environmentAssumptionEClass, EnvironmentAssumption.class,
+				"EnvironmentAssumption", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(messageKindEEnum, MessageKind.class, "MessageKind");
 		addEEnumLiteral(messageKindEEnum, MessageKind.COMPLETE);
@@ -2347,6 +2657,19 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		addEEnumLiteral(messageSortEEnum, MessageSort.CREATE_MESSAGE);
 		addEEnumLiteral(messageSortEEnum, MessageSort.DELETE_MESSAGE);
 		addEEnumLiteral(messageSortEEnum, MessageSort.REPLY);
+
+		initEEnum(temperatureKindEEnum, TemperatureKind.class,
+				"TemperatureKind");
+		addEEnumLiteral(temperatureKindEEnum, TemperatureKind.COLD);
+		addEEnumLiteral(temperatureKindEEnum, TemperatureKind.HOT);
+
+		initEEnum(partKindEEnum, PartKind.class, "PartKind");
+		addEEnumLiteral(partKindEEnum, PartKind._SYSTEM);
+		addEEnumLiteral(partKindEEnum, PartKind.ENVIRONMENT);
+
+		initEEnum(executionKindEEnum, ExecutionKind.class, "ExecutionKind");
+		addEEnumLiteral(executionKindEEnum, ExecutionKind.MONITOR);
+		addEEnumLiteral(executionKindEEnum, ExecutionKind.EXECUTE);
 
 		initEEnum(interactionOperatorKindEEnum, InteractionOperatorKind.class,
 				"InteractionOperatorKind");
@@ -2374,6 +2697,11 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 				InteractionOperatorKind.IGNORE);
 		addEEnumLiteral(interactionOperatorKindEEnum,
 				InteractionOperatorKind.CONSIDER);
+
+		initEEnum(specificationKindEEnum, SpecificationKind.class,
+				"SpecificationKind");
+		addEEnumLiteral(specificationKindEEnum, SpecificationKind.UNTIMED);
+		addEEnumLiteral(specificationKindEEnum, SpecificationKind.TIMED);
 
 		// Create resource
 		createResource(eNS_URI);

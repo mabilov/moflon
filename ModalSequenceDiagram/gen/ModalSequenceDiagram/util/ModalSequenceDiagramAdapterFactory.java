@@ -10,8 +10,10 @@ import ModalSequenceDiagram.BehavioralFeature;
 import ModalSequenceDiagram.BehavioredClassifier;
 import ModalSequenceDiagram.CallEvent;
 import ModalSequenceDiagram.Classifier;
+import ModalSequenceDiagram.ClockReset;
 import ModalSequenceDiagram.Collaboration;
 import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Condition;
 import ModalSequenceDiagram.ConnectableElement;
 import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.ConnectorEnd;
@@ -20,6 +22,7 @@ import ModalSequenceDiagram.Constraint;
 import ModalSequenceDiagram.Continuation;
 import ModalSequenceDiagram.DestructionOccurenceSpecification;
 import ModalSequenceDiagram.EncapsulatedClassifier;
+import ModalSequenceDiagram.EnvironmentAssumption;
 import ModalSequenceDiagram.Event;
 import ModalSequenceDiagram.ExecutionOccurrenceSpecification;
 import ModalSequenceDiagram.ExecutionSpecification;
@@ -32,10 +35,12 @@ import ModalSequenceDiagram.InteractionFragment;
 import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.MSDSpecification;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
 import ModalSequenceDiagram.MessageEvent;
 import ModalSequenceDiagram.MessageOccurrenceSpecification;
+import ModalSequenceDiagram.ModalMessage;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.Model;
 import ModalSequenceDiagram.NamedElement;
@@ -47,8 +52,10 @@ import ModalSequenceDiagram.PackageableElement;
 import ModalSequenceDiagram.PartDecomposition;
 import ModalSequenceDiagram.Property;
 import ModalSequenceDiagram.RedefinableElement;
+import ModalSequenceDiagram.SpecificationPart;
 import ModalSequenceDiagram.StateInvariant;
 import ModalSequenceDiagram.StructuredClassifier;
+import ModalSequenceDiagram.TimeCondition;
 import ModalSequenceDiagram.Type;
 import ModalSequenceDiagram.TypedElement;
 import ModalSequenceDiagram.ValueSpecification;
@@ -337,6 +344,26 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseModalMessage(ModalMessage object) {
+			return createModalMessageAdapter();
+		}
+
+		@Override
+		public Adapter caseCondition(Condition object) {
+			return createConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseTimeCondition(TimeCondition object) {
+			return createTimeConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseSpecificationPart(SpecificationPart object) {
+			return createSpecificationPartAdapter();
+		}
+
+		@Override
 		public Adapter caseEncapsulatedClassifier(EncapsulatedClassifier object) {
 			return createEncapsulatedClassifierAdapter();
 		}
@@ -374,6 +401,21 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter casePartDecomposition(PartDecomposition object) {
 			return createPartDecompositionAdapter();
+		}
+
+		@Override
+		public Adapter caseClockReset(ClockReset object) {
+			return createClockResetAdapter();
+		}
+
+		@Override
+		public Adapter caseMSDSpecification(MSDSpecification object) {
+			return createMSDSpecificationAdapter();
+		}
+
+		@Override
+		public Adapter caseEnvironmentAssumption(EnvironmentAssumption object) {
+			return createEnvironmentAssumptionAdapter();
 		}
 
 		@Override
@@ -998,6 +1040,62 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.ModalMessage <em>Modal Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.ModalMessage
+	 * @generated
+	 */
+	public Adapter createModalMessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.Condition
+	 * @generated
+	 */
+	public Adapter createConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.TimeCondition <em>Time Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.TimeCondition
+	 * @generated
+	 */
+	public Adapter createTimeConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.SpecificationPart <em>Specification Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.SpecificationPart
+	 * @generated
+	 */
+	public Adapter createSpecificationPartAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.EncapsulatedClassifier <em>Encapsulated Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1106,6 +1204,48 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPartDecompositionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.ClockReset <em>Clock Reset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.ClockReset
+	 * @generated
+	 */
+	public Adapter createClockResetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.MSDSpecification <em>MSD Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.MSDSpecification
+	 * @generated
+	 */
+	public Adapter createMSDSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.EnvironmentAssumption <em>Environment Assumption</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.EnvironmentAssumption
+	 * @generated
+	 */
+	public Adapter createEnvironmentAssumptionAdapter() {
 		return null;
 	}
 

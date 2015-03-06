@@ -20,6 +20,18 @@
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort/deleteMessage"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MessageSort/reply"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//TemperatureKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//TemperatureKind/Cold"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//TemperatureKind/Hot"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//PartKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//PartKind/_System"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//PartKind/Environment"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ExecutionKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ExecutionKind/Monitor"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ExecutionKind/Execute"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind">
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/seq"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/alt"/>
@@ -33,6 +45,10 @@
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/_assert"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/ignore"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperatorKind/consider"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//SpecificationKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//SpecificationKind/Untimed"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//SpecificationKind/Timed"/>
     </genEnums>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Model"/>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Package">
@@ -151,6 +167,17 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionUse/refersTo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionUse/actualGate"/>
     </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ModalMessage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ModalMessage/execution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ModalMessage/temperature"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Condition/temperature"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//TimeCondition"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//SpecificationPart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//SpecificationPart/partKind"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//EncapsulatedClassifier"/>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//InteractionOperand/fragment"/>
@@ -172,5 +199,10 @@
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Gate"/>
     <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Action"/>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//PartDecomposition"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//ClockReset"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MSDSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MSDSpecification/specificationKind"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//EnvironmentAssumption"/>
   </genPackages>
 </genmodel:GenModel>

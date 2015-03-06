@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:expressions="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//expressions" xmlns:patternExpressions="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//patterns/patternExpressions" name="UseCaseCodeAdapter">
-  <domain name="Source" metamodel="//@metamodel.2" type="SOURCE"/>
+  <domain name="Source" metamodel="//@metamodel.0" type="SOURCE"/>
   <domain name="Target" metamodel="//@metamodel.1" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.0"/>
+  <domain name="Correspondence" metamodel="//@metamodel.2"/>
   <tggRule name="FileToUCModel" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="file" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//File"/>
@@ -1473,13 +1473,13 @@
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="flow"/>
     </csp>
   </tggRule>
-  <metamodel name="UseCaseCodeAdapter">
-    <outermostPackage href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#/"/>
+  <metamodel name="MocaTree">
+    <outermostPackage href="platform:/plugin/MocaTree/model/MocaTree.ecore#/"/>
   </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
-  <metamodel name="MocaTree">
-    <outermostPackage href="platform:/plugin/MocaTree/model/MocaTree.ecore#/"/>
+  <metamodel name="UseCaseCodeAdapter">
+    <outermostPackage href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

@@ -266,6 +266,42 @@ public interface ModalSequenceDiagramFactory extends EFactory {
 	InteractionUse createInteractionUse();
 
 	/**
+	 * Returns a new object of class '<em>Modal Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Modal Message</em>'.
+	 * @generated
+	 */
+	ModalMessage createModalMessage();
+
+	/**
+	 * Returns a new object of class '<em>Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Condition</em>'.
+	 * @generated
+	 */
+	Condition createCondition();
+
+	/**
+	 * Returns a new object of class '<em>Time Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time Condition</em>'.
+	 * @generated
+	 */
+	TimeCondition createTimeCondition();
+
+	/**
+	 * Returns a new object of class '<em>Specification Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Specification Part</em>'.
+	 * @generated
+	 */
+	SpecificationPart createSpecificationPart();
+
+	/**
 	 * Returns a new object of class '<em>Interaction Operand</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,6 +345,33 @@ public interface ModalSequenceDiagramFactory extends EFactory {
 	 * @generated
 	 */
 	PartDecomposition createPartDecomposition();
+
+	/**
+	 * Returns a new object of class '<em>Clock Reset</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clock Reset</em>'.
+	 * @generated
+	 */
+	ClockReset createClockReset();
+
+	/**
+	 * Returns a new object of class '<em>MSD Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>MSD Specification</em>'.
+	 * @generated
+	 */
+	MSDSpecification createMSDSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Environment Assumption</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Environment Assumption</em>'.
+	 * @generated
+	 */
+	EnvironmentAssumption createEnvironmentAssumption();
 
 	/**
 	 * Returns the package supported by this factory.

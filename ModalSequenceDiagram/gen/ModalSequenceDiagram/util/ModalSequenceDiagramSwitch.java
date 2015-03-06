@@ -10,8 +10,10 @@ import ModalSequenceDiagram.BehavioralFeature;
 import ModalSequenceDiagram.BehavioredClassifier;
 import ModalSequenceDiagram.CallEvent;
 import ModalSequenceDiagram.Classifier;
+import ModalSequenceDiagram.ClockReset;
 import ModalSequenceDiagram.Collaboration;
 import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Condition;
 import ModalSequenceDiagram.ConnectableElement;
 import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.ConnectorEnd;
@@ -20,6 +22,7 @@ import ModalSequenceDiagram.Constraint;
 import ModalSequenceDiagram.Continuation;
 import ModalSequenceDiagram.DestructionOccurenceSpecification;
 import ModalSequenceDiagram.EncapsulatedClassifier;
+import ModalSequenceDiagram.EnvironmentAssumption;
 import ModalSequenceDiagram.Event;
 import ModalSequenceDiagram.ExecutionOccurrenceSpecification;
 import ModalSequenceDiagram.ExecutionSpecification;
@@ -32,10 +35,12 @@ import ModalSequenceDiagram.InteractionFragment;
 import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.MSDSpecification;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
 import ModalSequenceDiagram.MessageEvent;
 import ModalSequenceDiagram.MessageOccurrenceSpecification;
+import ModalSequenceDiagram.ModalMessage;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.Model;
 import ModalSequenceDiagram.NamedElement;
@@ -47,8 +52,10 @@ import ModalSequenceDiagram.PackageableElement;
 import ModalSequenceDiagram.PartDecomposition;
 import ModalSequenceDiagram.Property;
 import ModalSequenceDiagram.RedefinableElement;
+import ModalSequenceDiagram.SpecificationPart;
 import ModalSequenceDiagram.StateInvariant;
 import ModalSequenceDiagram.StructuredClassifier;
+import ModalSequenceDiagram.TimeCondition;
 import ModalSequenceDiagram.Type;
 import ModalSequenceDiagram.TypedElement;
 import ModalSequenceDiagram.ValueSpecification;
@@ -654,6 +661,60 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ModalSequenceDiagramPackage.MODAL_MESSAGE: {
+			ModalMessage modalMessage = (ModalMessage) theEObject;
+			T result = caseModalMessage(modalMessage);
+			if (result == null)
+				result = caseMessage(modalMessage);
+			if (result == null)
+				result = caseNamedElement(modalMessage);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.CONDITION: {
+			Condition condition = (Condition) theEObject;
+			T result = caseCondition(condition);
+			if (result == null)
+				result = caseStateInvariant(condition);
+			if (result == null)
+				result = caseInteractionFragment(condition);
+			if (result == null)
+				result = caseNamedElement(condition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.TIME_CONDITION: {
+			TimeCondition timeCondition = (TimeCondition) theEObject;
+			T result = caseTimeCondition(timeCondition);
+			if (result == null)
+				result = caseCondition(timeCondition);
+			if (result == null)
+				result = caseStateInvariant(timeCondition);
+			if (result == null)
+				result = caseInteractionFragment(timeCondition);
+			if (result == null)
+				result = caseNamedElement(timeCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.SPECIFICATION_PART: {
+			SpecificationPart specificationPart = (SpecificationPart) theEObject;
+			T result = caseSpecificationPart(specificationPart);
+			if (result == null)
+				result = caseProperty(specificationPart);
+			if (result == null)
+				result = caseConnectableElement(specificationPart);
+			if (result == null)
+				result = caseTypedElement(specificationPart);
+			if (result == null)
+				result = caseNamedElement(specificationPart);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case ModalSequenceDiagramPackage.ENCAPSULATED_CLASSIFIER: {
 			EncapsulatedClassifier encapsulatedClassifier = (EncapsulatedClassifier) theEObject;
 			T result = caseEncapsulatedClassifier(encapsulatedClassifier);
@@ -746,6 +807,61 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = caseInteractionFragment(partDecomposition);
 			if (result == null)
 				result = caseNamedElement(partDecomposition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.CLOCK_RESET: {
+			ClockReset clockReset = (ClockReset) theEObject;
+			T result = caseClockReset(clockReset);
+			if (result == null)
+				result = caseStateInvariant(clockReset);
+			if (result == null)
+				result = caseInteractionFragment(clockReset);
+			if (result == null)
+				result = caseNamedElement(clockReset);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.MSD_SPECIFICATION: {
+			MSDSpecification msdSpecification = (MSDSpecification) theEObject;
+			T result = caseMSDSpecification(msdSpecification);
+			if (result == null)
+				result = casePackage(msdSpecification);
+			if (result == null)
+				result = casePackageableElement(msdSpecification);
+			if (result == null)
+				result = caseNamedElement(msdSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.ENVIRONMENT_ASSUMPTION: {
+			EnvironmentAssumption environmentAssumption = (EnvironmentAssumption) theEObject;
+			T result = caseEnvironmentAssumption(environmentAssumption);
+			if (result == null)
+				result = caseInteraction(environmentAssumption);
+			if (result == null)
+				result = caseBehavior(environmentAssumption);
+			if (result == null)
+				result = caseInteractionFragment(environmentAssumption);
+			if (result == null)
+				result = caseClass(environmentAssumption);
+			if (result == null)
+				result = caseBehavioredClassifier(environmentAssumption);
+			if (result == null)
+				result = caseEncapsulatedClassifier(environmentAssumption);
+			if (result == null)
+				result = caseStructuredClassifier(environmentAssumption);
+			if (result == null)
+				result = caseClassifier(environmentAssumption);
+			if (result == null)
+				result = caseType(environmentAssumption);
+			if (result == null)
+				result = casePackageableElement(environmentAssumption);
+			if (result == null)
+				result = caseNamedElement(environmentAssumption);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1406,6 +1522,66 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Modal Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Modal Message</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModalMessage(ModalMessage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Time Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Time Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTimeCondition(TimeCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specification Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specification Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecificationPart(SpecificationPart object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Encapsulated Classifier</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1522,6 +1698,51 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePartDecomposition(PartDecomposition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Clock Reset</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Clock Reset</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClockReset(ClockReset object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>MSD Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>MSD Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMSDSpecification(MSDSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Environment Assumption</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Environment Assumption</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnvironmentAssumption(EnvironmentAssumption object) {
 		return null;
 	}
 

@@ -5,14 +5,18 @@ package ModalSequenceDiagram.impl;
 import ModalSequenceDiagram.ActionExecutionSpecification;
 import ModalSequenceDiagram.BehaviorExecutionSpecification;
 import ModalSequenceDiagram.CallEvent;
+import ModalSequenceDiagram.ClockReset;
 import ModalSequenceDiagram.Collaboration;
 import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Condition;
 import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.ConnectorEnd;
 import ModalSequenceDiagram.ConsiderIgnoreFragment;
 import ModalSequenceDiagram.Constraint;
 import ModalSequenceDiagram.Continuation;
 import ModalSequenceDiagram.DestructionOccurenceSpecification;
+import ModalSequenceDiagram.EnvironmentAssumption;
+import ModalSequenceDiagram.ExecutionKind;
 import ModalSequenceDiagram.ExecutionOccurrenceSpecification;
 import ModalSequenceDiagram.Gate;
 import ModalSequenceDiagram.GeneralOrdering;
@@ -22,11 +26,13 @@ import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.InteractionOperatorKind;
 import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.MSDSpecification;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
 import ModalSequenceDiagram.MessageKind;
 import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.MessageSort;
+import ModalSequenceDiagram.ModalMessage;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.Model;
@@ -34,8 +40,13 @@ import ModalSequenceDiagram.OccurrenceSpecification;
 import ModalSequenceDiagram.OpaqueExpression;
 import ModalSequenceDiagram.Operation;
 import ModalSequenceDiagram.PartDecomposition;
+import ModalSequenceDiagram.PartKind;
 import ModalSequenceDiagram.Property;
+import ModalSequenceDiagram.SpecificationKind;
+import ModalSequenceDiagram.SpecificationPart;
 import ModalSequenceDiagram.StateInvariant;
+import ModalSequenceDiagram.TemperatureKind;
+import ModalSequenceDiagram.TimeCondition;
 import ModalSequenceDiagram.TypedElement;
 
 import org.eclipse.emf.ecore.EClass;
@@ -146,6 +157,14 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 			return createContinuation();
 		case ModalSequenceDiagramPackage.INTERACTION_USE:
 			return createInteractionUse();
+		case ModalSequenceDiagramPackage.MODAL_MESSAGE:
+			return createModalMessage();
+		case ModalSequenceDiagramPackage.CONDITION:
+			return createCondition();
+		case ModalSequenceDiagramPackage.TIME_CONDITION:
+			return createTimeCondition();
+		case ModalSequenceDiagramPackage.SPECIFICATION_PART:
+			return createSpecificationPart();
 		case ModalSequenceDiagramPackage.INTERACTION_OPERAND:
 			return createInteractionOperand();
 		case ModalSequenceDiagramPackage.COMBINED_FRAGMENT:
@@ -156,6 +175,12 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 			return createGate();
 		case ModalSequenceDiagramPackage.PART_DECOMPOSITION:
 			return createPartDecomposition();
+		case ModalSequenceDiagramPackage.CLOCK_RESET:
+			return createClockReset();
+		case ModalSequenceDiagramPackage.MSD_SPECIFICATION:
+			return createMSDSpecification();
+		case ModalSequenceDiagramPackage.ENVIRONMENT_ASSUMPTION:
+			return createEnvironmentAssumption();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -174,9 +199,17 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 			return createMessageKindFromString(eDataType, initialValue);
 		case ModalSequenceDiagramPackage.MESSAGE_SORT:
 			return createMessageSortFromString(eDataType, initialValue);
+		case ModalSequenceDiagramPackage.TEMPERATURE_KIND:
+			return createTemperatureKindFromString(eDataType, initialValue);
+		case ModalSequenceDiagramPackage.PART_KIND:
+			return createPartKindFromString(eDataType, initialValue);
+		case ModalSequenceDiagramPackage.EXECUTION_KIND:
+			return createExecutionKindFromString(eDataType, initialValue);
 		case ModalSequenceDiagramPackage.INTERACTION_OPERATOR_KIND:
 			return createInteractionOperatorKindFromString(eDataType,
 					initialValue);
+		case ModalSequenceDiagramPackage.SPECIFICATION_KIND:
+			return createSpecificationKindFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -195,9 +228,17 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 			return convertMessageKindToString(eDataType, instanceValue);
 		case ModalSequenceDiagramPackage.MESSAGE_SORT:
 			return convertMessageSortToString(eDataType, instanceValue);
+		case ModalSequenceDiagramPackage.TEMPERATURE_KIND:
+			return convertTemperatureKindToString(eDataType, instanceValue);
+		case ModalSequenceDiagramPackage.PART_KIND:
+			return convertPartKindToString(eDataType, instanceValue);
+		case ModalSequenceDiagramPackage.EXECUTION_KIND:
+			return convertExecutionKindToString(eDataType, instanceValue);
 		case ModalSequenceDiagramPackage.INTERACTION_OPERATOR_KIND:
 			return convertInteractionOperatorKindToString(eDataType,
 					instanceValue);
+		case ModalSequenceDiagramPackage.SPECIFICATION_KIND:
+			return convertSpecificationKindToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -479,6 +520,46 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModalMessage createModalMessage() {
+		ModalMessageImpl modalMessage = new ModalMessageImpl();
+		return modalMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Condition createCondition() {
+		ConditionImpl condition = new ConditionImpl();
+		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimeCondition createTimeCondition() {
+		TimeConditionImpl timeCondition = new TimeConditionImpl();
+		return timeCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecificationPart createSpecificationPart() {
+		SpecificationPartImpl specificationPart = new SpecificationPartImpl();
+		return specificationPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public InteractionOperand createInteractionOperand() {
 		InteractionOperandImpl interactionOperand = new InteractionOperandImpl();
 		return interactionOperand;
@@ -522,6 +603,36 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 	public PartDecomposition createPartDecomposition() {
 		PartDecompositionImpl partDecomposition = new PartDecompositionImpl();
 		return partDecomposition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClockReset createClockReset() {
+		ClockResetImpl clockReset = new ClockResetImpl();
+		return clockReset;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MSDSpecification createMSDSpecification() {
+		MSDSpecificationImpl msdSpecification = new MSDSpecificationImpl();
+		return msdSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnvironmentAssumption createEnvironmentAssumption() {
+		EnvironmentAssumptionImpl environmentAssumption = new EnvironmentAssumptionImpl();
+		return environmentAssumption;
 	}
 
 	/**
@@ -579,6 +690,81 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TemperatureKind createTemperatureKindFromString(EDataType eDataType,
+			String initialValue) {
+		TemperatureKind result = TemperatureKind.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName()
+					+ "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTemperatureKindToString(EDataType eDataType,
+			Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PartKind createPartKindFromString(EDataType eDataType,
+			String initialValue) {
+		PartKind result = PartKind.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName()
+					+ "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPartKindToString(EDataType eDataType,
+			Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutionKind createExecutionKindFromString(EDataType eDataType,
+			String initialValue) {
+		ExecutionKind result = ExecutionKind.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName()
+					+ "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertExecutionKindToString(EDataType eDataType,
+			Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public InteractionOperatorKind createInteractionOperatorKindFromString(
 			EDataType eDataType, String initialValue) {
 		InteractionOperatorKind result = InteractionOperatorKind
@@ -596,6 +782,31 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public String convertInteractionOperatorKindToString(EDataType eDataType,
+			Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecificationKind createSpecificationKindFromString(
+			EDataType eDataType, String initialValue) {
+		SpecificationKind result = SpecificationKind.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName()
+					+ "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSpecificationKindToString(EDataType eDataType,
 			Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}

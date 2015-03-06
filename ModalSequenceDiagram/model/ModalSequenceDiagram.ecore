@@ -137,6 +137,29 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="refersTo" lowerBound="1" eType="//Interaction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actualGate" upperBound="-1" eType="//Gate" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TemperatureKind">
+    <eLiterals name="Cold" value="1" literal="COLD"/>
+    <eLiterals name="Hot" value="2" literal="HOT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PartKind">
+    <eLiterals name="_System" value="1" literal="SYSTEM"/>
+    <eLiterals name="Environment" value="2" literal="ENVIRONMENT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExecutionKind">
+    <eLiterals name="Monitor" value="1" literal="MONITOR"/>
+    <eLiterals name="Execute" value="2" literal="EXECUTE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModalMessage" eSuperTypes="//Message">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="execution" ordered="false" lowerBound="1" eType="//ExecutionKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" ordered="false" lowerBound="1" eType="//TemperatureKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="//StateInvariant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" ordered="false" lowerBound="1" eType="//TemperatureKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeCondition" eSuperTypes="//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecificationPart" eSuperTypes="//Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="partKind" ordered="false" lowerBound="1" eType="//PartKind"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EncapsulatedClassifier" abstract="true" eSuperTypes="//StructuredClassifier"/>
   <eClassifiers xsi:type="ecore:EClass" name="InteractionOperand" eSuperTypes="//InteractionFragment //Namespace">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fragment" upperBound="-1" eType="//InteractionFragment" containment="true" eOpposite="//InteractionFragment/enclosingOperand"/>
@@ -172,4 +195,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="Gate" eSuperTypes="//MessageEnd"/>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="PartDecomposition" eSuperTypes="//InteractionUse"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClockReset" eSuperTypes="//StateInvariant"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="SpecificationKind">
+    <eLiterals name="Untimed" value="1" literal="UNTIMED"/>
+    <eLiterals name="Timed" value="2" literal="TIMED"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MSDSpecification" eSuperTypes="//Package">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specificationKind" ordered="false" lowerBound="1" eType="//SpecificationKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentAssumption" eSuperTypes="//Interaction"/>
 </ecore:EPackage>

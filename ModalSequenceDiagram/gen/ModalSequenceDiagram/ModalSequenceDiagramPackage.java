@@ -711,7 +711,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getEncapsulatedClassifier()
 	 * @generated
 	 */
-	int ENCAPSULATED_CLASSIFIER = 43;
+	int ENCAPSULATED_CLASSIFIER = 47;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ClassImpl <em>Class</em>}' class.
@@ -2237,7 +2237,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getExecutionSpecification()
 	 * @generated
 	 */
-	int EXECUTION_SPECIFICATION = 47;
+	int EXECUTION_SPECIFICATION = 51;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2556,7 +2556,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getCombinedFragment()
 	 * @generated
 	 */
-	int COMBINED_FRAGMENT = 45;
+	int COMBINED_FRAGMENT = 49;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2949,6 +2949,370 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int INTERACTION_USE_OPERATION_COUNT = INTERACTION_FRAGMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ModalMessageImpl <em>Modal Message</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ModalMessageImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getModalMessage()
+	 * @generated
+	 */
+	int MODAL_MESSAGE = 43;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__NAME = MESSAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__INTERACTION = MESSAGE__INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Signature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__SIGNATURE = MESSAGE__SIGNATURE;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__ARGUMENT = MESSAGE__ARGUMENT;
+
+	/**
+	 * The feature id for the '<em><b>Receive Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__RECEIVE_EVENT = MESSAGE__RECEIVE_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Send Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__SEND_EVENT = MESSAGE__SEND_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__CONNECTOR = MESSAGE__CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Message Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__MESSAGE_KIND = MESSAGE__MESSAGE_KIND;
+
+	/**
+	 * The feature id for the '<em><b>Message Sort</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__MESSAGE_SORT = MESSAGE__MESSAGE_SORT;
+
+	/**
+	 * The feature id for the '<em><b>Execution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__EXECUTION = MESSAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Temperature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__TEMPERATURE = MESSAGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Modal Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE_FEATURE_COUNT = MESSAGE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Modal Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE_OPERATION_COUNT = MESSAGE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConditionImpl <em>Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ConditionImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getCondition()
+	 * @generated
+	 */
+	int CONDITION = 44;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__NAME = STATE_INVARIANT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ENCLOSING_INTERACTION = STATE_INVARIANT__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__COVERED = STATE_INVARIANT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ENCLOSING_OPERAND = STATE_INVARIANT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__GENERAL_ORDERING = STATE_INVARIANT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Invariant</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__INVARIANT = STATE_INVARIANT__INVARIANT;
+
+	/**
+	 * The feature id for the '<em><b>Temperature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__TEMPERATURE = STATE_INVARIANT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_FEATURE_COUNT = STATE_INVARIANT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPERATION_COUNT = STATE_INVARIANT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.TimeConditionImpl <em>Time Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.TimeConditionImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getTimeCondition()
+	 * @generated
+	 */
+	int TIME_CONDITION = 45;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION__NAME = CONDITION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION__ENCLOSING_INTERACTION = CONDITION__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION__COVERED = CONDITION__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION__ENCLOSING_OPERAND = CONDITION__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION__GENERAL_ORDERING = CONDITION__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Invariant</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION__INVARIANT = CONDITION__INVARIANT;
+
+	/**
+	 * The feature id for the '<em><b>Temperature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION__TEMPERATURE = CONDITION__TEMPERATURE;
+
+	/**
+	 * The number of structural features of the '<em>Time Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Time Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.SpecificationPartImpl <em>Specification Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.SpecificationPartImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getSpecificationPart()
+	 * @generated
+	 */
+	int SPECIFICATION_PART = 46;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFICATION_PART__NAME = PROPERTY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFICATION_PART__TYPE = PROPERTY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Part Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFICATION_PART__PART_KIND = PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Specification Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFICATION_PART_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Specification Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFICATION_PART_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3001,7 +3365,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionOperand()
 	 * @generated
 	 */
-	int INTERACTION_OPERAND = 44;
+	int INTERACTION_OPERAND = 48;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3092,7 +3456,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionConstraint()
 	 * @generated
 	 */
-	int INTERACTION_CONSTRAINT = 46;
+	int INTERACTION_CONSTRAINT = 50;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3156,7 +3520,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getGate()
 	 * @generated
 	 */
-	int GATE = 48;
+	int GATE = 52;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3202,7 +3566,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 49;
+	int ACTION = 53;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -3230,7 +3594,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getPartDecomposition()
 	 * @generated
 	 */
-	int PART_DECOMPOSITION = 50;
+	int PART_DECOMPOSITION = 54;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3332,6 +3696,297 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int PART_DECOMPOSITION_OPERATION_COUNT = INTERACTION_USE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ClockResetImpl <em>Clock Reset</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ClockResetImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getClockReset()
+	 * @generated
+	 */
+	int CLOCK_RESET = 55;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET__NAME = STATE_INVARIANT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET__ENCLOSING_INTERACTION = STATE_INVARIANT__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET__COVERED = STATE_INVARIANT__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET__ENCLOSING_OPERAND = STATE_INVARIANT__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET__GENERAL_ORDERING = STATE_INVARIANT__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Invariant</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET__INVARIANT = STATE_INVARIANT__INVARIANT;
+
+	/**
+	 * The number of structural features of the '<em>Clock Reset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET_FEATURE_COUNT = STATE_INVARIANT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Clock Reset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET_OPERATION_COUNT = STATE_INVARIANT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MSDSpecificationImpl <em>MSD Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.MSDSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMSDSpecification()
+	 * @generated
+	 */
+	int MSD_SPECIFICATION = 56;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MSD_SPECIFICATION__NAME = PACKAGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Packaged Element</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MSD_SPECIFICATION__PACKAGED_ELEMENT = PACKAGE__PACKAGED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Specification Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MSD_SPECIFICATION__SPECIFICATION_KIND = PACKAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>MSD Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MSD_SPECIFICATION_FEATURE_COUNT = PACKAGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>MSD Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MSD_SPECIFICATION_OPERATION_COUNT = PACKAGE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.EnvironmentAssumptionImpl <em>Environment Assumption</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.EnvironmentAssumptionImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getEnvironmentAssumption()
+	 * @generated
+	 */
+	int ENVIRONMENT_ASSUMPTION = 57;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__NAME = INTERACTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Owned Behavior</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__OWNED_BEHAVIOR = INTERACTION__OWNED_BEHAVIOR;
+
+	/**
+	 * The feature id for the '<em><b>Owned Connector</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__OWNED_CONNECTOR = INTERACTION__OWNED_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Owned Attribute</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__OWNED_ATTRIBUTE = INTERACTION__OWNED_ATTRIBUTE;
+
+	/**
+	 * The feature id for the '<em><b>Owned Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__OWNED_OPERATION = INTERACTION__OWNED_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Interaction</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__ENCLOSING_INTERACTION = INTERACTION__ENCLOSING_INTERACTION;
+
+	/**
+	 * The feature id for the '<em><b>Covered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__COVERED = INTERACTION__COVERED;
+
+	/**
+	 * The feature id for the '<em><b>Enclosing Operand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__ENCLOSING_OPERAND = INTERACTION__ENCLOSING_OPERAND;
+
+	/**
+	 * The feature id for the '<em><b>General Ordering</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__GENERAL_ORDERING = INTERACTION__GENERAL_ORDERING;
+
+	/**
+	 * The feature id for the '<em><b>Lifeline</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__LIFELINE = INTERACTION__LIFELINE;
+
+	/**
+	 * The feature id for the '<em><b>Fragment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__FRAGMENT = INTERACTION__FRAGMENT;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__MESSAGE = INTERACTION__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Formal Gate</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__FORMAL_GATE = INTERACTION__FORMAL_GATE;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__ACTION = INTERACTION__ACTION;
+
+	/**
+	 * The number of structural features of the '<em>Environment Assumption</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION_FEATURE_COUNT = INTERACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Environment Assumption</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION_OPERATION_COUNT = INTERACTION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3339,7 +3994,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageKind()
 	 * @generated
 	 */
-	int MESSAGE_KIND = 51;
+	int MESSAGE_KIND = 58;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.MessageSort <em>Message Sort</em>}' enum.
@@ -3349,7 +4004,37 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageSort()
 	 * @generated
 	 */
-	int MESSAGE_SORT = 52;
+	int MESSAGE_SORT = 59;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.TemperatureKind <em>Temperature Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.TemperatureKind
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getTemperatureKind()
+	 * @generated
+	 */
+	int TEMPERATURE_KIND = 60;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.PartKind <em>Part Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.PartKind
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getPartKind()
+	 * @generated
+	 */
+	int PART_KIND = 61;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.ExecutionKind <em>Execution Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.ExecutionKind
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getExecutionKind()
+	 * @generated
+	 */
+	int EXECUTION_KIND = 62;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.InteractionOperatorKind <em>Interaction Operator Kind</em>}' enum.
@@ -3359,7 +4044,17 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionOperatorKind()
 	 * @generated
 	 */
-	int INTERACTION_OPERATOR_KIND = 53;
+	int INTERACTION_OPERATOR_KIND = 63;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.SpecificationKind <em>Specification Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.SpecificationKind
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getSpecificationKind()
+	 * @generated
+	 */
+	int SPECIFICATION_KIND = 64;
 
 	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.Model <em>Model</em>}'.
@@ -4331,6 +5026,90 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	EReference getInteractionUse_ActualGate();
 
 	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.ModalMessage <em>Modal Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Modal Message</em>'.
+	 * @see ModalSequenceDiagram.ModalMessage
+	 * @generated
+	 */
+	EClass getModalMessage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.ModalMessage#getExecution <em>Execution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Execution</em>'.
+	 * @see ModalSequenceDiagram.ModalMessage#getExecution()
+	 * @see #getModalMessage()
+	 * @generated
+	 */
+	EAttribute getModalMessage_Execution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.ModalMessage#getTemperature <em>Temperature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Temperature</em>'.
+	 * @see ModalSequenceDiagram.ModalMessage#getTemperature()
+	 * @see #getModalMessage()
+	 * @generated
+	 */
+	EAttribute getModalMessage_Temperature();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Condition</em>'.
+	 * @see ModalSequenceDiagram.Condition
+	 * @generated
+	 */
+	EClass getCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.Condition#getTemperature <em>Temperature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Temperature</em>'.
+	 * @see ModalSequenceDiagram.Condition#getTemperature()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_Temperature();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.TimeCondition <em>Time Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Time Condition</em>'.
+	 * @see ModalSequenceDiagram.TimeCondition
+	 * @generated
+	 */
+	EClass getTimeCondition();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.SpecificationPart <em>Specification Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Specification Part</em>'.
+	 * @see ModalSequenceDiagram.SpecificationPart
+	 * @generated
+	 */
+	EClass getSpecificationPart();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.SpecificationPart#getPartKind <em>Part Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Part Kind</em>'.
+	 * @see ModalSequenceDiagram.SpecificationPart#getPartKind()
+	 * @see #getSpecificationPart()
+	 * @generated
+	 */
+	EAttribute getSpecificationPart_PartKind();
+
+	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.EncapsulatedClassifier <em>Encapsulated Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4510,6 +5289,47 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	EClass getPartDecomposition();
 
 	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.ClockReset <em>Clock Reset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Clock Reset</em>'.
+	 * @see ModalSequenceDiagram.ClockReset
+	 * @generated
+	 */
+	EClass getClockReset();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.MSDSpecification <em>MSD Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>MSD Specification</em>'.
+	 * @see ModalSequenceDiagram.MSDSpecification
+	 * @generated
+	 */
+	EClass getMSDSpecification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.MSDSpecification#getSpecificationKind <em>Specification Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Specification Kind</em>'.
+	 * @see ModalSequenceDiagram.MSDSpecification#getSpecificationKind()
+	 * @see #getMSDSpecification()
+	 * @generated
+	 */
+	EAttribute getMSDSpecification_SpecificationKind();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.EnvironmentAssumption <em>Environment Assumption</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Environment Assumption</em>'.
+	 * @see ModalSequenceDiagram.EnvironmentAssumption
+	 * @generated
+	 */
+	EClass getEnvironmentAssumption();
+
+	/**
 	 * Returns the meta object for enum '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4530,6 +5350,36 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	EEnum getMessageSort();
 
 	/**
+	 * Returns the meta object for enum '{@link ModalSequenceDiagram.TemperatureKind <em>Temperature Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Temperature Kind</em>'.
+	 * @see ModalSequenceDiagram.TemperatureKind
+	 * @generated
+	 */
+	EEnum getTemperatureKind();
+
+	/**
+	 * Returns the meta object for enum '{@link ModalSequenceDiagram.PartKind <em>Part Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Part Kind</em>'.
+	 * @see ModalSequenceDiagram.PartKind
+	 * @generated
+	 */
+	EEnum getPartKind();
+
+	/**
+	 * Returns the meta object for enum '{@link ModalSequenceDiagram.ExecutionKind <em>Execution Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Execution Kind</em>'.
+	 * @see ModalSequenceDiagram.ExecutionKind
+	 * @generated
+	 */
+	EEnum getExecutionKind();
+
+	/**
 	 * Returns the meta object for enum '{@link ModalSequenceDiagram.InteractionOperatorKind <em>Interaction Operator Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4538,6 +5388,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getInteractionOperatorKind();
+
+	/**
+	 * Returns the meta object for enum '{@link ModalSequenceDiagram.SpecificationKind <em>Specification Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Specification Kind</em>'.
+	 * @see ModalSequenceDiagram.SpecificationKind
+	 * @generated
+	 */
+	EEnum getSpecificationKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -5416,6 +6276,82 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 				.getInteractionUse_ActualGate();
 
 		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ModalMessageImpl <em>Modal Message</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ModalMessageImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getModalMessage()
+		 * @generated
+		 */
+		EClass MODAL_MESSAGE = eINSTANCE.getModalMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Execution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODAL_MESSAGE__EXECUTION = eINSTANCE
+				.getModalMessage_Execution();
+
+		/**
+		 * The meta object literal for the '<em><b>Temperature</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODAL_MESSAGE__TEMPERATURE = eINSTANCE
+				.getModalMessage_Temperature();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ConditionImpl <em>Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ConditionImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getCondition()
+		 * @generated
+		 */
+		EClass CONDITION = eINSTANCE.getCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Temperature</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__TEMPERATURE = eINSTANCE
+				.getCondition_Temperature();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.TimeConditionImpl <em>Time Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.TimeConditionImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getTimeCondition()
+		 * @generated
+		 */
+		EClass TIME_CONDITION = eINSTANCE.getTimeCondition();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.SpecificationPartImpl <em>Specification Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.SpecificationPartImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getSpecificationPart()
+		 * @generated
+		 */
+		EClass SPECIFICATION_PART = eINSTANCE.getSpecificationPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Part Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIFICATION_PART__PART_KIND = eINSTANCE
+				.getSpecificationPart_PartKind();
+
+		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.EncapsulatedClassifierImpl <em>Encapsulated Classifier</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5577,6 +6513,45 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		EClass PART_DECOMPOSITION = eINSTANCE.getPartDecomposition();
 
 		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.ClockResetImpl <em>Clock Reset</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.ClockResetImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getClockReset()
+		 * @generated
+		 */
+		EClass CLOCK_RESET = eINSTANCE.getClockReset();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.MSDSpecificationImpl <em>MSD Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.MSDSpecificationImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMSDSpecification()
+		 * @generated
+		 */
+		EClass MSD_SPECIFICATION = eINSTANCE.getMSDSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Specification Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MSD_SPECIFICATION__SPECIFICATION_KIND = eINSTANCE
+				.getMSDSpecification_SpecificationKind();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.EnvironmentAssumptionImpl <em>Environment Assumption</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.EnvironmentAssumptionImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getEnvironmentAssumption()
+		 * @generated
+		 */
+		EClass ENVIRONMENT_ASSUMPTION = eINSTANCE.getEnvironmentAssumption();
+
+		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5597,6 +6572,36 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		EEnum MESSAGE_SORT = eINSTANCE.getMessageSort();
 
 		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.TemperatureKind <em>Temperature Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.TemperatureKind
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getTemperatureKind()
+		 * @generated
+		 */
+		EEnum TEMPERATURE_KIND = eINSTANCE.getTemperatureKind();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.PartKind <em>Part Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.PartKind
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getPartKind()
+		 * @generated
+		 */
+		EEnum PART_KIND = eINSTANCE.getPartKind();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.ExecutionKind <em>Execution Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.ExecutionKind
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getExecutionKind()
+		 * @generated
+		 */
+		EEnum EXECUTION_KIND = eINSTANCE.getExecutionKind();
+
+		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.InteractionOperatorKind <em>Interaction Operator Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5606,6 +6611,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		 */
 		EEnum INTERACTION_OPERATOR_KIND = eINSTANCE
 				.getInteractionOperatorKind();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.SpecificationKind <em>Specification Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.SpecificationKind
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getSpecificationKind()
+		 * @generated
+		 */
+		EEnum SPECIFICATION_KIND = eINSTANCE.getSpecificationKind();
 
 	}
 
