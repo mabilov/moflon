@@ -3,6 +3,16 @@
 package UseCaseToModalSequenceDiagramIntegration.Rules.impl;
 
 import ModalSequenceDiagram.Collaboration;
+import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Constraint;
+import ModalSequenceDiagram.Interaction;
+import ModalSequenceDiagram.InteractionConstraint;
+import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralString;
+import ModalSequenceDiagram.Message;
+import ModalSequenceDiagram.MessageEnd;
+import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.Model;
 
@@ -22,17 +32,30 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
+import UseCaseDSL.Actor;
+import UseCaseDSL.AlternativeFlow;
+import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.BasicFlow;
+import UseCaseDSL.Flow;
+import UseCaseDSL.NamedFlow;
+import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
 
+import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
+import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
+import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
+import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage;
 
+import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
@@ -83,7 +106,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RulesPackage.Literals.UC_PACKAGE_TO_MSD_PACKAGE;
+		return RulesPackage.eINSTANCE.getUCPackageToMSDPackage();
 	}
 
 	/**
@@ -215,8 +238,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		PackageDeclaration packageDeclaration = null;
 		UseCasesModel useCasesModel = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
 		EMoflonEdge __useCasesModelToModel_source_useCasesModel = null;
+		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
 		EMoflonEdge __useCasesModelToModel_target_model = null;
 		CSP csp = null;
 		Model model = null;
@@ -339,12 +362,12 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 								.createIsApplicableMatch();
 
-						// create object __useCasesModel_packages_packageDeclaration
-						__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
 						// create object __useCasesModelToModel_source_useCasesModel
 						__useCasesModelToModel_source_useCasesModel = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
+
+						// create object __useCasesModel_packages_packageDeclaration
+						__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object __useCasesModelToModel_target_model
@@ -365,18 +388,18 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								useCasesModel);
 
 						// create link
-						__useCasesModel_packages_packageDeclaration
-								.setSrc(useCasesModel);
-
-						// create link
 						__useCasesModelToModel_source_useCasesModel
 								.setTrg(useCasesModel);
 
 						// create link
-						__useCasesModelToModel_target_model.setTrg(model);
+						__useCasesModel_packages_packageDeclaration
+								.setSrc(useCasesModel);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(model);
+
+						// create link
+						__useCasesModelToModel_target_model.setTrg(model);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(
@@ -391,17 +414,17 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								.setSrc(useCasesModelToModel);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
-
-						// create link
 						__useCasesModel_packages_packageDeclaration
 								.setTrg(packageDeclaration);
 
 						// create link
+						isApplicableMatch.getAllContextElements().add(
+								packageDeclaration);
+
+						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								__useCasesModelToModel_source_useCasesModel,
+								__useCasesModelToModel_target_model,
 								"allContextElements");
 
 						// create link
@@ -413,7 +436,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								__useCasesModelToModel_target_model,
+								__useCasesModelToModel_source_useCasesModel,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -496,9 +519,9 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		ModalSequenceDiagram.Package p = null;
 		PackageDeclarationToPackage packageDeclarationToPackage = null;
 		PerformRuleResult ruleresult = null;
+		EMoflonEdge packageDeclarationToPackage__source__packageDeclaration = null;
 		EMoflonEdge packageDeclarationToPackage__target__p = null;
 		EMoflonEdge model__packagedElement__p = null;
-		EMoflonEdge packageDeclarationToPackage__source__packageDeclaration = null;
 		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
 
 		// story node 'perform transformation'
@@ -670,16 +693,16 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCasesModelToModel and useCasesModel 
 			JavaSDM.ensure(!useCasesModelToModel.equals(useCasesModel));
 
+			// create object packageDeclarationToPackage__source__packageDeclaration
+			packageDeclarationToPackage__source__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object packageDeclarationToPackage__target__p
 			packageDeclarationToPackage__target__p = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object model__packagedElement__p
 			model__packagedElement__p = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclarationToPackage__source__packageDeclaration
-			packageDeclarationToPackage__source__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __useCasesModel_packages_packageDeclaration
@@ -700,16 +723,16 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclarationToPackage__source__packageDeclaration,
+					"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					packageDeclarationToPackage__target__p, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					model__packagedElement__p, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclarationToPackage__source__packageDeclaration,
-					"createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -723,11 +746,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			model__packagedElement__p.setSrc(model);
 
 			// create link
-			__useCasesModel_packages_packageDeclaration
+			packageDeclarationToPackage__source__packageDeclaration
 					.setTrg(packageDeclaration);
 
 			// create link
-			packageDeclarationToPackage__source__packageDeclaration
+			__useCasesModel_packages_packageDeclaration
 					.setTrg(packageDeclaration);
 
 			// create link
@@ -959,12 +982,12 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 				__model_packagedElement_p.setName("packagedElement");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__model_packagedElement_p, "toBeTranslatedEdges");
-
-				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match, p,
 						"toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__model_packagedElement_p, "toBeTranslatedEdges");
 
 				// create link
 				__model_packagedElement_p.setSrc(model);
@@ -1022,8 +1045,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		IsApplicableRuleResult ruleresult = null;
 		Model model = null;
 		ModalSequenceDiagram.Package p = null;
-		EMoflonEdge __useCasesModelToModel_source_useCasesModel = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __useCasesModelToModel_source_useCasesModel = null;
 		EMoflonEdge __useCasesModelToModel_target_model = null;
 		EMoflonEdge __model_packagedElement_p = null;
 		CSP csp = null;
@@ -1146,13 +1169,13 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						JavaSDM.ensure(model.equals(useCasesModelToModel
 								.getTarget()));
 
-						// create object __useCasesModelToModel_source_useCasesModel
-						__useCasesModelToModel_source_useCasesModel = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
 						// create object isApplicableMatch
 						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 								.createIsApplicableMatch();
+
+						// create object __useCasesModelToModel_source_useCasesModel
+						__useCasesModelToModel_source_useCasesModel = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
 
 						// create object __useCasesModelToModel_target_model
 						__useCasesModelToModel_target_model = TGGRuntimeFactory.eINSTANCE
@@ -1171,12 +1194,12 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						__useCasesModelToModel_target_model.setName("target");
 
 						// create link
-						__useCasesModelToModel_source_useCasesModel
-								.setTrg(useCasesModel);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								useCasesModel);
+
+						// create link
+						__useCasesModelToModel_source_useCasesModel
+								.setTrg(useCasesModel);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(model);
@@ -1188,10 +1211,6 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						__model_packagedElement_p.setSrc(model);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCasesModelToModel);
-
-						// create link
 						__useCasesModelToModel_source_useCasesModel
 								.setSrc(useCasesModelToModel);
 
@@ -1200,20 +1219,24 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								.setSrc(useCasesModelToModel);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(p);
+						isApplicableMatch.getAllContextElements().add(
+								useCasesModelToModel);
 
 						// create link
 						__model_packagedElement_p.setTrg(p);
 
 						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __model_packagedElement_p,
-								"allContextElements");
+						isApplicableMatch.getAllContextElements().add(p);
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
 								__useCasesModelToModel_source_useCasesModel,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __model_packagedElement_p,
 								"allContextElements");
 
 						// create link
@@ -1302,10 +1325,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		PackageDeclaration packageDeclaration = null;
 		PackageDeclarationToPackage packageDeclarationToPackage = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge useCasesModel__packages__packageDeclaration = null;
-		EMoflonEdge packageDeclarationToPackage__source__packageDeclaration = null;
-		EMoflonEdge packageDeclarationToPackage__target__p = null;
 		EMoflonEdge __model_packagedElement_p = null;
+		EMoflonEdge packageDeclarationToPackage__source__packageDeclaration = null;
+		EMoflonEdge useCasesModel__packages__packageDeclaration = null;
+		EMoflonEdge packageDeclarationToPackage__target__p = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1402,15 +1425,15 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					packageDeclarationToPackage, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult, p,
 					"translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclaration, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1481,20 +1504,20 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCasesModelToModel and useCasesModel 
 			JavaSDM.ensure(!useCasesModelToModel.equals(useCasesModel));
 
-			// create object useCasesModel__packages__packageDeclaration
-			useCasesModel__packages__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+			// create object __model_packagedElement_p
+			__model_packagedElement_p = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object packageDeclarationToPackage__source__packageDeclaration
 			packageDeclarationToPackage__source__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object packageDeclarationToPackage__target__p
-			packageDeclarationToPackage__target__p = TGGRuntimeFactory.eINSTANCE
+			// create object useCasesModel__packages__packageDeclaration
+			useCasesModel__packages__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __model_packagedElement_p
-			__model_packagedElement_p = TGGRuntimeFactory.eINSTANCE
+			// create object packageDeclarationToPackage__target__p
+			packageDeclarationToPackage__target__p = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1510,10 +1533,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			packageDeclarationToPackage__target__p.setName("target");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							useCasesModel__packages__packageDeclaration,
-							"createdEdges");
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__model_packagedElement_p, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1521,12 +1542,14 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 					"createdEdges");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclarationToPackage__target__p, "createdEdges");
+			org.moflon.util.eMoflonEMFUtil
+					.addOppositeReference(ruleresult,
+							useCasesModel__packages__packageDeclaration,
+							"createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__model_packagedElement_p, "translatedEdges");
+					packageDeclarationToPackage__target__p, "createdEdges");
 
 			// create link
 			useCasesModel__packages__packageDeclaration.setSrc(useCasesModel);
@@ -1543,17 +1566,17 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 					.setTrg(packageDeclaration);
 
 			// create link
-			packageDeclarationToPackage__target__p.setTrg(p);
-
-			// create link
 			__model_packagedElement_p.setTrg(p);
 
 			// create link
-			packageDeclarationToPackage__source__packageDeclaration
-					.setSrc(packageDeclarationToPackage);
+			packageDeclarationToPackage__target__p.setTrg(p);
 
 			// create link
 			packageDeclarationToPackage__target__p
+					.setSrc(packageDeclarationToPackage);
+
+			// create link
+			packageDeclarationToPackage__source__packageDeclaration
 					.setSrc(packageDeclarationToPackage);
 
 			fujaba__Success = true;
@@ -1707,7 +1730,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_4(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_0(
 			EMoflonEdge _edge_packages) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1715,7 +1738,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCasesModel __DEC_packageDeclaration_packages_986212 = null;
+		UseCasesModel __DEC_packageDeclaration_packages_102244 = null;
 		Match match = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCasesModel useCasesModel = null;
@@ -1793,19 +1816,19 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_packageDeclaration_packages_986212 = packageDeclaration
+					__DEC_packageDeclaration_packages_102244 = packageDeclaration
 							.eContainer() instanceof UseCasesModel ? (UseCasesModel) packageDeclaration
 							.eContainer() : null;
 
-					// check object __DEC_packageDeclaration_packages_986212 is really bound
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_986212 != null);
+					// check object __DEC_packageDeclaration_packages_102244 is really bound
+					JavaSDM.ensure(__DEC_packageDeclaration_packages_102244 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_986212
+					JavaSDM.ensure(__DEC_packageDeclaration_packages_102244
 							.getPackages().contains(packageDeclaration));
 
-					// check isomorphic binding between objects __DEC_packageDeclaration_packages_986212 and useCasesModel 
-					JavaSDM.ensure(!__DEC_packageDeclaration_packages_986212
+					// check isomorphic binding between objects __DEC_packageDeclaration_packages_102244 and useCasesModel 
+					JavaSDM.ensure(!__DEC_packageDeclaration_packages_102244
 							.equals(useCasesModel));
 
 					fujaba__Success = true;
@@ -1896,7 +1919,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_4(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_0(
 			EMoflonEdge _edge_packagedElement) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1904,7 +1927,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		ModalSequenceDiagram.Package __DEC_p_packagedElement_955385 = null;
+		ModalSequenceDiagram.Package __DEC_p_packagedElement_402660 = null;
 		Match match = null;
 		ModalSequenceDiagram.Package p = null;
 		Model model = null;
@@ -1985,22 +2008,22 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_p_packagedElement_955385 = p.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) p
+					__DEC_p_packagedElement_402660 = p.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) p
 							.eContainer() : null;
 
-					// check object __DEC_p_packagedElement_955385 is really bound
-					JavaSDM.ensure(__DEC_p_packagedElement_955385 != null);
+					// check object __DEC_p_packagedElement_402660 is really bound
+					JavaSDM.ensure(__DEC_p_packagedElement_402660 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_p_packagedElement_955385
+					JavaSDM.ensure(__DEC_p_packagedElement_402660
 							.getPackagedElement().contains(p));
 
-					// check isomorphic binding between objects __DEC_p_packagedElement_955385 and model 
-					JavaSDM.ensure(!__DEC_p_packagedElement_955385
+					// check isomorphic binding between objects __DEC_p_packagedElement_402660 and model 
+					JavaSDM.ensure(!__DEC_p_packagedElement_402660
 							.equals(model));
 
-					// check isomorphic binding between objects __DEC_p_packagedElement_955385 and p 
-					JavaSDM.ensure(!__DEC_p_packagedElement_955385.equals(p));
+					// check isomorphic binding between objects __DEC_p_packagedElement_402660 and p 
+					JavaSDM.ensure(!__DEC_p_packagedElement_402660.equals(p));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -2465,11 +2488,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_4((EMoflonEdge) arguments
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_0__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_0((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_4__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_4((EMoflonEdge) arguments
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_0__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_0((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

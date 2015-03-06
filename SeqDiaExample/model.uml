@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_HClQEMQeEeSfRPHRQd_Pug" name="model">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_JgI3oMQeEeSfRPHRQd_Pug" name="BookSale">
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_QeslMMQeEeSfRPHRQd_Pug" name="OrderSystem" coveredBy="_V0Q7sMQeEeSfRPHRQd_Pug _tGdP0MQeEeSfRPHRQd_Pug _tGgTIMQeEeSfRPHRQd_Pug _4JWVgMQeEeSfRPHRQd_Pug _4JYKsMQeEeSfRPHRQd_Pug _WyJDwMQfEeSfRPHRQd_Pug _g_awEMQfEeSfRPHRQd_Pug _g_dMUMQfEeSfRPHRQd_Pug _vtoQ8MQfEeSfRPHRQd_Pug _vtpfEMQfEeSfRPHRQd_Pug _5dJqQMQfEeSfRPHRQd_Pug __Q1gIMQfEeSfRPHRQd_Pug _CEhvwMQgEeSfRPHRQd_Pug _HyuBoMQgEeSfRPHRQd_Pug _PeL4gMQgEeSfRPHRQd_Pug _SvhtcMQgEeSfRPHRQd_Pug _bPb5AMQgEeSfRPHRQd_Pug _BQWWQMQfEeSfRPHRQd_Pug _Nn0pQMQfEeSfRPHRQd_Pug"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_8N9acMQeEeSfRPHRQd_Pug" name="Shipping" coveredBy="_WySNsMQfEeSfRPHRQd_Pug _g_awEMQfEeSfRPHRQd_Pug _g_dMUMQfEeSfRPHRQd_Pug _CEhvwMQgEeSfRPHRQd_Pug _HyvPwMQgEeSfRPHRQd_Pug _PeNtsMQgEeSfRPHRQd_Pug _BQWWQMQfEeSfRPHRQd_Pug _Nn0pQMQfEeSfRPHRQd_Pug"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_jwg-sMQfEeSfRPHRQd_Pug" name="Financing" coveredBy="_g_awEMQfEeSfRPHRQd_Pug _g_dMUMQfEeSfRPHRQd_Pug __Q-qEMQfEeSfRPHRQd_Pug _CEhvwMQgEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_V0Q7sMQeEeSfRPHRQd_Pug" name="MessageRecv" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_V0Jm8MQeEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tGdP0MQeEeSfRPHRQd_Pug" name="MessageSend" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_tGYXUMQeEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tGgTIMQeEeSfRPHRQd_Pug" name="MessageRecv0" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_tGYXUMQeEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_4JWVgMQeEeSfRPHRQd_Pug" name="MessageSend0" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_4JSrIMQeEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_4JYKsMQeEeSfRPHRQd_Pug" name="MessageRecv1" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_4JSrIMQeEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:CombinedFragment" xmi:id="_BQWWQMQfEeSfRPHRQd_Pug" name="CombinedFragment" covered="_QeslMMQeEeSfRPHRQd_Pug _8N9acMQeEeSfRPHRQd_Pug" interactionOperator="alt">
+      <operand xmi:type="uml:InteractionOperand" xmi:id="_Nn0pQMQfEeSfRPHRQd_Pug" name="InteractionOperand0" covered="_QeslMMQeEeSfRPHRQd_Pug _8N9acMQeEeSfRPHRQd_Pug">
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WyJDwMQfEeSfRPHRQd_Pug" name="MessageSend" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_WyGAcMQfEeSfRPHRQd_Pug"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WySNsMQfEeSfRPHRQd_Pug" name="MessageRecv" covered="_8N9acMQeEeSfRPHRQd_Pug" message="_WyGAcMQfEeSfRPHRQd_Pug"/>
+        <guard xmi:type="uml:InteractionConstraint" xmi:id="_Nn7W8MQfEeSfRPHRQd_Pug" name="Not all books available">
+          <specification xmi:type="uml:LiteralString" xmi:id="_SE874MQfEeSfRPHRQd_Pug" value="Not all books available"/>
+          <maxint xmi:type="uml:LiteralInteger" xmi:id="_Nn9MIMQfEeSfRPHRQd_Pug" value="1"/>
+          <minint xmi:type="uml:LiteralInteger" xmi:id="_Nn8lEMQfEeSfRPHRQd_Pug"/>
+        </guard>
+      </operand>
+    </fragment>
+    <fragment xmi:type="uml:CombinedFragment" xmi:id="_g_awEMQfEeSfRPHRQd_Pug" name="CombinedFragment0" covered="_QeslMMQeEeSfRPHRQd_Pug _jwg-sMQfEeSfRPHRQd_Pug _8N9acMQeEeSfRPHRQd_Pug" interactionOperator="par">
+      <operand xmi:type="uml:InteractionOperand" xmi:id="_g_dMUMQfEeSfRPHRQd_Pug" name="InteractionOperand" covered="_QeslMMQeEeSfRPHRQd_Pug _jwg-sMQfEeSfRPHRQd_Pug _8N9acMQeEeSfRPHRQd_Pug">
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vtoQ8MQfEeSfRPHRQd_Pug" name="MessageSend" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_vtl0sMQfEeSfRPHRQd_Pug"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vtpfEMQfEeSfRPHRQd_Pug" name="MessageRecv" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_vtl0sMQfEeSfRPHRQd_Pug"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_5dJqQMQfEeSfRPHRQd_Pug" name="MessageRecv0" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_5dCVgMQfEeSfRPHRQd_Pug"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__Q1gIMQfEeSfRPHRQd_Pug" name="MessageSend0" covered="_QeslMMQeEeSfRPHRQd_Pug" message="__QzD4MQfEeSfRPHRQd_Pug"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__Q-qEMQfEeSfRPHRQd_Pug" name="MessageRecv1" covered="_jwg-sMQfEeSfRPHRQd_Pug" message="__QzD4MQfEeSfRPHRQd_Pug"/>
+        <guard xmi:type="uml:InteractionConstraint" xmi:id="_g_eacMQfEeSfRPHRQd_Pug" name="Payment">
+          <specification xmi:type="uml:LiteralString" xmi:id="_rR_zIMQfEeSfRPHRQd_Pug" value="Payment"/>
+          <maxint xmi:type="uml:LiteralInteger" xmi:id="_g_gPoMQfEeSfRPHRQd_Pug" value="1"/>
+          <minint xmi:type="uml:LiteralInteger" xmi:id="_g_fokMQfEeSfRPHRQd_Pug"/>
+        </guard>
+      </operand>
+      <operand xmi:type="uml:InteractionOperand" xmi:id="_CEhvwMQgEeSfRPHRQd_Pug" name="InteractionOperand0" covered="_QeslMMQeEeSfRPHRQd_Pug _jwg-sMQfEeSfRPHRQd_Pug _8N9acMQeEeSfRPHRQd_Pug">
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_HyuBoMQgEeSfRPHRQd_Pug" name="MessageSend" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_Hyq-UMQgEeSfRPHRQd_Pug"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_HyvPwMQgEeSfRPHRQd_Pug" name="MessageRecv" covered="_8N9acMQeEeSfRPHRQd_Pug" message="_Hyq-UMQgEeSfRPHRQd_Pug"/>
+        <guard xmi:type="uml:InteractionConstraint" xmi:id="_CElaIMQgEeSfRPHRQd_Pug">
+          <specification xmi:type="uml:LiteralString" xmi:id="_MiUkUMQgEeSfRPHRQd_Pug" value="ShippingPrepare"/>
+          <maxint xmi:type="uml:LiteralInteger" xmi:id="_CEmBMcQgEeSfRPHRQd_Pug" value="1"/>
+          <minint xmi:type="uml:LiteralInteger" xmi:id="_CEmBMMQgEeSfRPHRQd_Pug"/>
+        </guard>
+      </operand>
+    </fragment>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PeL4gMQgEeSfRPHRQd_Pug" name="MessageSend1" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_PeJcQMQgEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PeNtsMQgEeSfRPHRQd_Pug" name="MessageRecv2" covered="_8N9acMQeEeSfRPHRQd_Pug" message="_PeJcQMQgEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_SvhtcMQgEeSfRPHRQd_Pug" name="MessageRecv3" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_Svf4QMQgEeSfRPHRQd_Pug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bPb5AMQgEeSfRPHRQd_Pug" name="MessageSend2" covered="_QeslMMQeEeSfRPHRQd_Pug" message="_bPY1sMQgEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_V0Jm8MQeEeSfRPHRQd_Pug" name="Order received" messageSort="asynchSignal" receiveEvent="_V0Q7sMQeEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_tGYXUMQeEeSfRPHRQd_Pug" name="Record order" messageSort="asynchCall" receiveEvent="_tGgTIMQeEeSfRPHRQd_Pug" sendEvent="_tGdP0MQeEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_4JSrIMQeEeSfRPHRQd_Pug" name="Check stock" messageSort="asynchCall" receiveEvent="_4JYKsMQeEeSfRPHRQd_Pug" sendEvent="_4JWVgMQeEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_WyGAcMQfEeSfRPHRQd_Pug" name="Deliver books to stock" messageSort="asynchCall" receiveEvent="_WySNsMQfEeSfRPHRQd_Pug" sendEvent="_WyJDwMQfEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_vtl0sMQfEeSfRPHRQd_Pug" name="Charge issue" messageSort="asynchCall" receiveEvent="_vtpfEMQfEeSfRPHRQd_Pug" sendEvent="_vtoQ8MQfEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_5dCVgMQfEeSfRPHRQd_Pug" name="Payment received" messageSort="asynchSignal" receiveEvent="_5dJqQMQfEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="__QzD4MQfEeSfRPHRQd_Pug" name="Issue invoice" messageSort="asynchCall" receiveEvent="__Q-qEMQfEeSfRPHRQd_Pug" sendEvent="__Q1gIMQfEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_Hyq-UMQgEeSfRPHRQd_Pug" name="Separate books of request" messageSort="asynchCall" receiveEvent="_HyvPwMQgEeSfRPHRQd_Pug" sendEvent="_HyuBoMQgEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_PeJcQMQgEeSfRPHRQd_Pug" name="Deliver books to customer" messageSort="asynchCall" receiveEvent="_PeNtsMQgEeSfRPHRQd_Pug" sendEvent="_PeL4gMQgEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_Svf4QMQgEeSfRPHRQd_Pug" name="Delivery confirmed" messageSort="asynchSignal" receiveEvent="_SvhtcMQgEeSfRPHRQd_Pug"/>
+    <message xmi:type="uml:Message" xmi:id="_bPY1sMQgEeSfRPHRQd_Pug" name="Order processed" messageSort="asynchSignal" sendEvent="_bPb5AMQgEeSfRPHRQd_Pug"/>
+  </packagedElement>
+</uml:Model>

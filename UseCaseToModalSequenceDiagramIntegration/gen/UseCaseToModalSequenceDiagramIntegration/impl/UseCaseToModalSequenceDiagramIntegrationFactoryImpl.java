@@ -61,8 +61,18 @@ public class UseCaseToModalSequenceDiagramIntegrationFactoryImpl extends
 			return createUseCasesModelToModel();
 		case UseCaseToModalSequenceDiagramIntegrationPackage.PACKAGE_DECLARATION_TO_PACKAGE:
 			return createPackageDeclarationToPackage();
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION:
-			return createUseCaseToCollaboration();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION:
+			return createUseCaseToInteraction();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.NORMAL_STEP_TO_MESSAGE:
+			return createNormalStepToMessage();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.ACTOR_TO_LIFELINE:
+			return createActorToLifeline();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.FLOW_TO_INTERACTION_FRAGMENT:
+			return createFlowToInteractionFragment();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.STEP_ALTERNATIVE_TO_INTERACTION_OPERAND:
+			return createStepAlternativeToInteractionOperand();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.NORMAL_STEP_TO_COMBINED_FRAGMENT:
+			return createNormalStepToCombinedFragment();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -94,9 +104,59 @@ public class UseCaseToModalSequenceDiagramIntegrationFactoryImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UseCaseToCollaboration createUseCaseToCollaboration() {
-		UseCaseToCollaborationImpl useCaseToCollaboration = new UseCaseToCollaborationImpl();
-		return useCaseToCollaboration;
+	public UseCaseToInteraction createUseCaseToInteraction() {
+		UseCaseToInteractionImpl useCaseToInteraction = new UseCaseToInteractionImpl();
+		return useCaseToInteraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NormalStepToMessage createNormalStepToMessage() {
+		NormalStepToMessageImpl normalStepToMessage = new NormalStepToMessageImpl();
+		return normalStepToMessage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActorToLifeline createActorToLifeline() {
+		ActorToLifelineImpl actorToLifeline = new ActorToLifelineImpl();
+		return actorToLifeline;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlowToInteractionFragment createFlowToInteractionFragment() {
+		FlowToInteractionFragmentImpl flowToInteractionFragment = new FlowToInteractionFragmentImpl();
+		return flowToInteractionFragment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StepAlternativeToInteractionOperand createStepAlternativeToInteractionOperand() {
+		StepAlternativeToInteractionOperandImpl stepAlternativeToInteractionOperand = new StepAlternativeToInteractionOperandImpl();
+		return stepAlternativeToInteractionOperand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NormalStepToCombinedFragment createNormalStepToCombinedFragment() {
+		NormalStepToCombinedFragmentImpl normalStepToCombinedFragment = new NormalStepToCombinedFragmentImpl();
+		return normalStepToCombinedFragment;
 	}
 
 	/**

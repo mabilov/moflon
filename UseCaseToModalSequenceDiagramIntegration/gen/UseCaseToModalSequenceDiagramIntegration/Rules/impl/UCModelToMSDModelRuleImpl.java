@@ -3,6 +3,16 @@
 package UseCaseToModalSequenceDiagramIntegration.Rules.impl;
 
 import ModalSequenceDiagram.Collaboration;
+import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Constraint;
+import ModalSequenceDiagram.Interaction;
+import ModalSequenceDiagram.InteractionConstraint;
+import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralString;
+import ModalSequenceDiagram.Message;
+import ModalSequenceDiagram.MessageEnd;
+import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.Model;
 
@@ -22,17 +32,30 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
+import UseCaseDSL.Actor;
+import UseCaseDSL.AlternativeFlow;
+import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.BasicFlow;
+import UseCaseDSL.Flow;
+import UseCaseDSL.NamedFlow;
+import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
 
+import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
+import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
+import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
+import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule;
 
+import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
@@ -83,7 +106,7 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RulesPackage.Literals.UC_MODEL_TO_MSD_MODEL_RULE;
+		return RulesPackage.eINSTANCE.getUCModelToMSDModelRule();
 	}
 
 	/**
@@ -325,8 +348,8 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 		UseCasesModelToModel useCasesModelToModel = null;
 		Model model = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge useCasesModelToModel__target__model = null;
 		EMoflonEdge useCasesModelToModel__source__useCasesModel = null;
+		EMoflonEdge useCasesModelToModel__target__model = null;
 
 		// story node 'perform transformation'
 		try {
@@ -396,11 +419,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCasesModel, "translatedElements");
+					model, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					model, "createdElements");
+					useCasesModel, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -431,12 +454,12 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCasesModelToModel and useCasesModel 
 			JavaSDM.ensure(!useCasesModelToModel.equals(useCasesModel));
 
-			// create object useCasesModelToModel__target__model
-			useCasesModelToModel__target__model = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object useCasesModelToModel__source__useCasesModel
 			useCasesModelToModel__source__useCasesModel = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCasesModelToModel__target__model
+			useCasesModelToModel__target__model = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -447,14 +470,14 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 			useCasesModelToModel__target__model.setName("target");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCasesModelToModel__target__model, "createdEdges");
-
-			// create link
 			org.moflon.util.eMoflonEMFUtil
 					.addOppositeReference(ruleresult,
 							useCasesModelToModel__source__useCasesModel,
 							"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCasesModelToModel__target__model, "createdEdges");
 
 			// create link
 			useCasesModelToModel__source__useCasesModel.setTrg(useCasesModel);
@@ -463,11 +486,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 			useCasesModelToModel__target__model.setTrg(model);
 
 			// create link
-			useCasesModelToModel__target__model.setSrc(useCasesModelToModel);
-
-			// create link
 			useCasesModelToModel__source__useCasesModel
 					.setSrc(useCasesModelToModel);
+
+			// create link
+			useCasesModelToModel__target__model.setSrc(useCasesModelToModel);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -874,11 +897,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCasesModel, "createdElements");
+					useCasesModelToModel, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCasesModelToModel, "createdLinkElements");
+					useCasesModel, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1045,7 +1068,7 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_UseCasesModel_2(
+	public EObjectContainer isAppropriate_FWD_UseCasesModel_0(
 			UseCasesModel useCasesModel) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1169,14 +1192,14 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_Model_2(Model model) {
+	public EObjectContainer isAppropriate_BWD_Model_0(Model model) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		EClass __eClass = null;
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		ModalSequenceDiagram.Package __DEC_model_packagedElement_835633 = null;
+		ModalSequenceDiagram.Package __DEC_model_packagedElement_330563 = null;
 		Match match = null;
 
 		// story node 'prepare return value'
@@ -1235,18 +1258,18 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_model_packagedElement_835633 = model.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) model
+					__DEC_model_packagedElement_330563 = model.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) model
 							.eContainer() : null;
 
-					// check object __DEC_model_packagedElement_835633 is really bound
-					JavaSDM.ensure(__DEC_model_packagedElement_835633 != null);
+					// check object __DEC_model_packagedElement_330563 is really bound
+					JavaSDM.ensure(__DEC_model_packagedElement_330563 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_model_packagedElement_835633
+					JavaSDM.ensure(__DEC_model_packagedElement_330563
 							.getPackagedElement().contains(model));
 
-					// check isomorphic binding between objects __DEC_model_packagedElement_835633 and model 
-					JavaSDM.ensure(!__DEC_model_packagedElement_835633
+					// check isomorphic binding between objects __DEC_model_packagedElement_330563 and model 
+					JavaSDM.ensure(!__DEC_model_packagedElement_330563
 							.equals(model));
 
 					fujaba__Success = true;
@@ -1549,11 +1572,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_2__USECASESMODEL:
-			return isAppropriate_FWD_UseCasesModel_2((UseCasesModel) arguments
+		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_0__USECASESMODEL:
+			return isAppropriate_FWD_UseCasesModel_0((UseCasesModel) arguments
 					.get(0));
-		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_2__MODEL:
-			return isAppropriate_BWD_Model_2((Model) arguments.get(0));
+		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_0__MODEL:
+			return isAppropriate_BWD_Model_0((Model) arguments.get(0));
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:

@@ -374,6 +374,15 @@ public interface ModalSequenceDiagramFactory extends EFactory {
 	EnvironmentAssumption createEnvironmentAssumption();
 
 	/**
+	 * Returns a new object of class '<em>Literal String</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Literal String</em>'.
+	 * @generated
+	 */
+	LiteralString createLiteralString();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

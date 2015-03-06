@@ -3996,6 +3996,89 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int ENVIRONMENT_ASSUMPTION_OPERATION_COUNT = INTERACTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.LiteralSpecificationImpl <em>Literal Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.LiteralSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getLiteralSpecification()
+	 * @generated
+	 */
+	int LITERAL_SPECIFICATION = 59;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION__NAME = VALUE_SPECIFICATION__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Literal Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION_FEATURE_COUNT = VALUE_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Literal Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.LiteralStringImpl <em>Literal String</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.LiteralStringImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getLiteralString()
+	 * @generated
+	 */
+	int LITERAL_STRING = 58;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING__NAME = LITERAL_SPECIFICATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING__VALUE = LITERAL_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Literal String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING_FEATURE_COUNT = LITERAL_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Literal String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING_OPERATION_COUNT = LITERAL_SPECIFICATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4003,7 +4086,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageKind()
 	 * @generated
 	 */
-	int MESSAGE_KIND = 58;
+	int MESSAGE_KIND = 60;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.MessageSort <em>Message Sort</em>}' enum.
@@ -4013,7 +4096,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageSort()
 	 * @generated
 	 */
-	int MESSAGE_SORT = 59;
+	int MESSAGE_SORT = 61;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.TemperatureKind <em>Temperature Kind</em>}' enum.
@@ -4023,7 +4106,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getTemperatureKind()
 	 * @generated
 	 */
-	int TEMPERATURE_KIND = 60;
+	int TEMPERATURE_KIND = 62;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.PartKind <em>Part Kind</em>}' enum.
@@ -4033,7 +4116,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getPartKind()
 	 * @generated
 	 */
-	int PART_KIND = 61;
+	int PART_KIND = 63;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.ExecutionKind <em>Execution Kind</em>}' enum.
@@ -4043,7 +4126,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getExecutionKind()
 	 * @generated
 	 */
-	int EXECUTION_KIND = 62;
+	int EXECUTION_KIND = 64;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.InteractionOperatorKind <em>Interaction Operator Kind</em>}' enum.
@@ -4053,7 +4136,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionOperatorKind()
 	 * @generated
 	 */
-	int INTERACTION_OPERATOR_KIND = 63;
+	int INTERACTION_OPERATOR_KIND = 65;
 
 	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.SpecificationKind <em>Specification Kind</em>}' enum.
@@ -4063,7 +4146,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getSpecificationKind()
 	 * @generated
 	 */
-	int SPECIFICATION_KIND = 64;
+	int SPECIFICATION_KIND = 66;
 
 	/**
 	 * Returns the meta object for class '{@link ModalSequenceDiagram.Model <em>Model</em>}'.
@@ -5339,6 +5422,37 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	EClass getEnvironmentAssumption();
 
 	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.LiteralString <em>Literal String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal String</em>'.
+	 * @see ModalSequenceDiagram.LiteralString
+	 * @generated
+	 */
+	EClass getLiteralString();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.LiteralString#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see ModalSequenceDiagram.LiteralString#getValue()
+	 * @see #getLiteralString()
+	 * @generated
+	 */
+	EAttribute getLiteralString_Value();
+
+	/**
+	 * Returns the meta object for class '{@link ModalSequenceDiagram.LiteralSpecification <em>Literal Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal Specification</em>'.
+	 * @see ModalSequenceDiagram.LiteralSpecification
+	 * @generated
+	 */
+	EClass getLiteralSpecification();
+
+	/**
 	 * Returns the meta object for enum '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6559,6 +6673,34 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ENVIRONMENT_ASSUMPTION = eINSTANCE.getEnvironmentAssumption();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.LiteralStringImpl <em>Literal String</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.LiteralStringImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getLiteralString()
+		 * @generated
+		 */
+		EClass LITERAL_STRING = eINSTANCE.getLiteralString();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LITERAL_STRING__VALUE = eINSTANCE.getLiteralString_Value();
+
+		/**
+		 * The meta object literal for the '{@link ModalSequenceDiagram.impl.LiteralSpecificationImpl <em>Literal Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ModalSequenceDiagram.impl.LiteralSpecificationImpl
+		 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getLiteralSpecification()
+		 * @generated
+		 */
+		EClass LITERAL_SPECIFICATION = eINSTANCE.getLiteralSpecification();
 
 		/**
 		 * The meta object literal for the '{@link ModalSequenceDiagram.MessageKind <em>Message Kind</em>}' enum.

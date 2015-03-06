@@ -21,11 +21,18 @@ import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramInt
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationPackage;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
+import java.io.IOException;
+import java.net.URL;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +42,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 		EPackageImpl implements UseCaseToModalSequenceDiagramIntegrationPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected String packageFilename = "UseCaseToModalSequenceDiagramIntegration.ecore";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,7 +68,42 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass useCaseToCollaborationEClass = null;
+	private EClass useCaseToInteractionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass normalStepToMessageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actorToLifelineEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flowToInteractionFragmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stepAlternativeToInteractionOperandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass normalStepToCombinedFragmentEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -91,8 +140,6 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
-	 * @see #createPackageContents()
-	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static UseCaseToModalSequenceDiagramIntegrationPackage init() {
@@ -118,15 +165,12 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 				.getEPackage(RulesPackage.eNS_URI) instanceof RulesPackageImpl ? EPackage.Registry.INSTANCE
 				.getEPackage(RulesPackage.eNS_URI) : RulesPackage.eINSTANCE);
 
-		// Create package meta-data objects
-		theUseCaseToModalSequenceDiagramIntegrationPackage
-				.createPackageContents();
-		theRulesPackage.createPackageContents();
+		// Load packages
+		theUseCaseToModalSequenceDiagramIntegrationPackage.loadPackage();
 
-		// Initialize created meta-data
-		theUseCaseToModalSequenceDiagramIntegrationPackage
-				.initializePackageContents();
-		theRulesPackage.initializePackageContents();
+		// Fix loaded packages
+		theUseCaseToModalSequenceDiagramIntegrationPackage.fixPackageContents();
+		theRulesPackage.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theUseCaseToModalSequenceDiagramIntegrationPackage.freeze();
@@ -144,6 +188,12 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * @generated
 	 */
 	public EClass getUseCasesModelToModel() {
+		if (useCasesModelToModelEClass == null) {
+			useCasesModelToModelEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(0);
+		}
 		return useCasesModelToModelEClass;
 	}
 
@@ -153,7 +203,7 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * @generated
 	 */
 	public EReference getUseCasesModelToModel_Source() {
-		return (EReference) useCasesModelToModelEClass.getEStructuralFeatures()
+		return (EReference) getUseCasesModelToModel().getEStructuralFeatures()
 				.get(0);
 	}
 
@@ -163,7 +213,7 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * @generated
 	 */
 	public EReference getUseCasesModelToModel_Target() {
-		return (EReference) useCasesModelToModelEClass.getEStructuralFeatures()
+		return (EReference) getUseCasesModelToModel().getEStructuralFeatures()
 				.get(1);
 	}
 
@@ -173,6 +223,12 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * @generated
 	 */
 	public EClass getPackageDeclarationToPackage() {
+		if (packageDeclarationToPackageEClass == null) {
+			packageDeclarationToPackageEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(1);
+		}
 		return packageDeclarationToPackageEClass;
 	}
 
@@ -182,7 +238,7 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * @generated
 	 */
 	public EReference getPackageDeclarationToPackage_Source() {
-		return (EReference) packageDeclarationToPackageEClass
+		return (EReference) getPackageDeclarationToPackage()
 				.getEStructuralFeatures().get(0);
 	}
 
@@ -192,7 +248,7 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * @generated
 	 */
 	public EReference getPackageDeclarationToPackage_Target() {
-		return (EReference) packageDeclarationToPackageEClass
+		return (EReference) getPackageDeclarationToPackage()
 				.getEStructuralFeatures().get(1);
 	}
 
@@ -201,8 +257,14 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUseCaseToCollaboration() {
-		return useCaseToCollaborationEClass;
+	public EClass getUseCaseToInteraction() {
+		if (useCaseToInteractionEClass == null) {
+			useCaseToInteractionEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(2);
+		}
+		return useCaseToInteractionEClass;
 	}
 
 	/**
@@ -210,8 +272,113 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUseCaseToCollaboration_Source() {
-		return (EReference) useCaseToCollaborationEClass
+	public EReference getUseCaseToInteraction_Source() {
+		return (EReference) getUseCaseToInteraction().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUseCaseToInteraction_Target() {
+		return (EReference) getUseCaseToInteraction().getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNormalStepToMessage() {
+		if (normalStepToMessageEClass == null) {
+			normalStepToMessageEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(3);
+		}
+		return normalStepToMessageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNormalStepToMessage_Source() {
+		return (EReference) getNormalStepToMessage().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNormalStepToMessage_Target() {
+		return (EReference) getNormalStepToMessage().getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getActorToLifeline() {
+		if (actorToLifelineEClass == null) {
+			actorToLifelineEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(4);
+		}
+		return actorToLifelineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActorToLifeline_Source() {
+		return (EReference) getActorToLifeline().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActorToLifeline_Target() {
+		return (EReference) getActorToLifeline().getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFlowToInteractionFragment() {
+		if (flowToInteractionFragmentEClass == null) {
+			flowToInteractionFragmentEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(5);
+		}
+		return flowToInteractionFragmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlowToInteractionFragment_Source() {
+		return (EReference) getFlowToInteractionFragment()
 				.getEStructuralFeatures().get(0);
 	}
 
@@ -220,8 +387,78 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUseCaseToCollaboration_Target() {
-		return (EReference) useCaseToCollaborationEClass
+	public EReference getFlowToInteractionFragment_Target() {
+		return (EReference) getFlowToInteractionFragment()
+				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStepAlternativeToInteractionOperand() {
+		if (stepAlternativeToInteractionOperandEClass == null) {
+			stepAlternativeToInteractionOperandEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(6);
+		}
+		return stepAlternativeToInteractionOperandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStepAlternativeToInteractionOperand_Source() {
+		return (EReference) getStepAlternativeToInteractionOperand()
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStepAlternativeToInteractionOperand_Target() {
+		return (EReference) getStepAlternativeToInteractionOperand()
+				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNormalStepToCombinedFragment() {
+		if (normalStepToCombinedFragmentEClass == null) {
+			normalStepToCombinedFragmentEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(7);
+		}
+		return normalStepToCombinedFragmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNormalStepToCombinedFragment_Source() {
+		return (EReference) getNormalStepToCombinedFragment()
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNormalStepToCombinedFragment_Target() {
+		return (EReference) getNormalStepToCombinedFragment()
 				.getEStructuralFeatures().get(1);
 	}
 
@@ -239,38 +476,34 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private boolean isCreated = false;
+	private boolean isLoaded = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
+	 * Laods the package and any sub-packages from their serialized form.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createPackageContents() {
-		if (isCreated)
+	public void loadPackage() {
+		if (isLoaded)
 			return;
-		isCreated = true;
+		isLoaded = true;
 
-		// Create classes and their features
-		useCasesModelToModelEClass = createEClass(USE_CASES_MODEL_TO_MODEL);
-		createEReference(useCasesModelToModelEClass,
-				USE_CASES_MODEL_TO_MODEL__SOURCE);
-		createEReference(useCasesModelToModelEClass,
-				USE_CASES_MODEL_TO_MODEL__TARGET);
-
-		packageDeclarationToPackageEClass = createEClass(PACKAGE_DECLARATION_TO_PACKAGE);
-		createEReference(packageDeclarationToPackageEClass,
-				PACKAGE_DECLARATION_TO_PACKAGE__SOURCE);
-		createEReference(packageDeclarationToPackageEClass,
-				PACKAGE_DECLARATION_TO_PACKAGE__TARGET);
-
-		useCaseToCollaborationEClass = createEClass(USE_CASE_TO_COLLABORATION);
-		createEReference(useCaseToCollaborationEClass,
-				USE_CASE_TO_COLLABORATION__SOURCE);
-		createEReference(useCaseToCollaborationEClass,
-				USE_CASE_TO_COLLABORATION__TARGET);
+		URL url = getClass().getResource(packageFilename);
+		if (url == null) {
+			throw new RuntimeException("Missing serialized package: "
+					+ packageFilename);
+		}
+		URI uri = URI.createURI(url.toString());
+		Resource resource = new EcoreResourceFactoryImpl().createResource(uri);
+		try {
+			resource.load(null);
+		} catch (IOException exception) {
+			throw new WrappedException(exception);
+		}
+		initializeFromLoadedEPackage(this, (EPackage) resource.getContents()
+				.get(0));
+		createResource(eNS_URI);
 	}
 
 	/**
@@ -278,97 +511,35 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private boolean isInitialized = false;
+	private boolean isFixed = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
+	 * Fixes up the loaded package, to make it appear as if it had been programmatically built.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void initializePackageContents() {
-		if (isInitialized)
+	public void fixPackageContents() {
+		if (isFixed)
 			return;
-		isInitialized = true;
+		isFixed = true;
+		fixEClassifiers();
+	}
 
-		// Initialize package
-		setName(eNAME);
-		setNsPrefix(eNS_PREFIX);
-		setNsURI(eNS_URI);
-
-		// Obtain other dependent packages
-		RulesPackage theRulesPackage = (RulesPackage) EPackage.Registry.INSTANCE
-				.getEPackage(RulesPackage.eNS_URI);
-		TGGRuntimePackage theTGGRuntimePackage = (TGGRuntimePackage) EPackage.Registry.INSTANCE
-				.getEPackage(TGGRuntimePackage.eNS_URI);
-		UseCaseDSLPackage theUseCaseDSLPackage = (UseCaseDSLPackage) EPackage.Registry.INSTANCE
-				.getEPackage(UseCaseDSLPackage.eNS_URI);
-		ModalSequenceDiagramPackage theModalSequenceDiagramPackage = (ModalSequenceDiagramPackage) EPackage.Registry.INSTANCE
-				.getEPackage(ModalSequenceDiagramPackage.eNS_URI);
-
-		// Add subpackages
-		getESubpackages().add(theRulesPackage);
-
-		// Create type parameters
-
-		// Set bounds for type parameters
-
-		// Add supertypes to classes
-		useCasesModelToModelEClass.getESuperTypes().add(
-				theTGGRuntimePackage.getAbstractCorrespondence());
-		packageDeclarationToPackageEClass.getESuperTypes().add(
-				theTGGRuntimePackage.getAbstractCorrespondence());
-		useCaseToCollaborationEClass.getESuperTypes().add(
-				theTGGRuntimePackage.getAbstractCorrespondence());
-
-		// Initialize classes, features, and operations; add parameters
-		initEClass(useCasesModelToModelEClass, UseCasesModelToModel.class,
-				"UseCasesModelToModel", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUseCasesModelToModel_Source(),
-				theUseCaseDSLPackage.getUseCasesModel(), null, "source", null,
-				1, 1, UseCasesModelToModel.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUseCasesModelToModel_Target(),
-				theModalSequenceDiagramPackage.getModel(), null, "target",
-				null, 1, 1, UseCasesModelToModel.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(packageDeclarationToPackageEClass,
-				PackageDeclarationToPackage.class,
-				"PackageDeclarationToPackage", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPackageDeclarationToPackage_Source(),
-				theUseCaseDSLPackage.getPackageDeclaration(), null, "source",
-				null, 1, 1, PackageDeclarationToPackage.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackageDeclarationToPackage_Target(),
-				theModalSequenceDiagramPackage.getPackage(), null, "target",
-				null, 1, 1, PackageDeclarationToPackage.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(useCaseToCollaborationEClass, UseCaseToCollaboration.class,
-				"UseCaseToCollaboration", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUseCaseToCollaboration_Source(),
-				theUseCaseDSLPackage.getUseCase(), null, "source", null, 1, 1,
-				UseCaseToCollaboration.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUseCaseToCollaboration_Target(),
-				theModalSequenceDiagramPackage.getCollaboration(), null,
-				"target", null, 1, 1, UseCaseToCollaboration.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-
-		// Create resource
-		createResource(eNS_URI);
+	/**
+	 * Sets the instance class on the given classifier.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected void fixInstanceClass(EClassifier eClassifier) {
+		if (eClassifier.getInstanceClassName() == null) {
+			eClassifier
+					.setInstanceClassName("UseCaseToModalSequenceDiagramIntegration."
+							+ eClassifier.getName());
+			setGeneratedClassName(eClassifier);
+		}
 	}
 
 } //UseCaseToModalSequenceDiagramIntegrationPackageImpl

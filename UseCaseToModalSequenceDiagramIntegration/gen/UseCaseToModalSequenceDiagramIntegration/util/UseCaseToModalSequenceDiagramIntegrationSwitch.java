@@ -87,11 +87,56 @@ public class UseCaseToModalSequenceDiagramIntegrationSwitch<T> extends
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION: {
-			UseCaseToCollaboration useCaseToCollaboration = (UseCaseToCollaboration) theEObject;
-			T result = caseUseCaseToCollaboration(useCaseToCollaboration);
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION: {
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) theEObject;
+			T result = caseUseCaseToInteraction(useCaseToInteraction);
 			if (result == null)
-				result = caseAbstractCorrespondence(useCaseToCollaboration);
+				result = caseAbstractCorrespondence(useCaseToInteraction);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UseCaseToModalSequenceDiagramIntegrationPackage.NORMAL_STEP_TO_MESSAGE: {
+			NormalStepToMessage normalStepToMessage = (NormalStepToMessage) theEObject;
+			T result = caseNormalStepToMessage(normalStepToMessage);
+			if (result == null)
+				result = caseAbstractCorrespondence(normalStepToMessage);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UseCaseToModalSequenceDiagramIntegrationPackage.ACTOR_TO_LIFELINE: {
+			ActorToLifeline actorToLifeline = (ActorToLifeline) theEObject;
+			T result = caseActorToLifeline(actorToLifeline);
+			if (result == null)
+				result = caseAbstractCorrespondence(actorToLifeline);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UseCaseToModalSequenceDiagramIntegrationPackage.FLOW_TO_INTERACTION_FRAGMENT: {
+			FlowToInteractionFragment flowToInteractionFragment = (FlowToInteractionFragment) theEObject;
+			T result = caseFlowToInteractionFragment(flowToInteractionFragment);
+			if (result == null)
+				result = caseAbstractCorrespondence(flowToInteractionFragment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UseCaseToModalSequenceDiagramIntegrationPackage.STEP_ALTERNATIVE_TO_INTERACTION_OPERAND: {
+			StepAlternativeToInteractionOperand stepAlternativeToInteractionOperand = (StepAlternativeToInteractionOperand) theEObject;
+			T result = caseStepAlternativeToInteractionOperand(stepAlternativeToInteractionOperand);
+			if (result == null)
+				result = caseAbstractCorrespondence(stepAlternativeToInteractionOperand);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UseCaseToModalSequenceDiagramIntegrationPackage.NORMAL_STEP_TO_COMBINED_FRAGMENT: {
+			NormalStepToCombinedFragment normalStepToCombinedFragment = (NormalStepToCombinedFragment) theEObject;
+			T result = caseNormalStepToCombinedFragment(normalStepToCombinedFragment);
+			if (result == null)
+				result = caseAbstractCorrespondence(normalStepToCombinedFragment);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -132,17 +177,94 @@ public class UseCaseToModalSequenceDiagramIntegrationSwitch<T> extends
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Use Case To Collaboration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Use Case To Interaction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Use Case To Collaboration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Use Case To Interaction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUseCaseToCollaboration(UseCaseToCollaboration object) {
+	public T caseUseCaseToInteraction(UseCaseToInteraction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Step To Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Step To Message</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNormalStepToMessage(NormalStepToMessage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Actor To Lifeline</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actor To Lifeline</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActorToLifeline(ActorToLifeline object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flow To Interaction Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flow To Interaction Fragment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlowToInteractionFragment(FlowToInteractionFragment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Step Alternative To Interaction Operand</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Step Alternative To Interaction Operand</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStepAlternativeToInteractionOperand(
+			StepAlternativeToInteractionOperand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Step To Combined Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Step To Combined Fragment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNormalStepToCombinedFragment(
+			NormalStepToCombinedFragment object) {
 		return null;
 	}
 

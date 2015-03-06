@@ -81,8 +81,36 @@ public class UseCaseToModalSequenceDiagramIntegrationAdapterFactory extends
 		}
 
 		@Override
-		public Adapter caseUseCaseToCollaboration(UseCaseToCollaboration object) {
-			return createUseCaseToCollaborationAdapter();
+		public Adapter caseUseCaseToInteraction(UseCaseToInteraction object) {
+			return createUseCaseToInteractionAdapter();
+		}
+
+		@Override
+		public Adapter caseNormalStepToMessage(NormalStepToMessage object) {
+			return createNormalStepToMessageAdapter();
+		}
+
+		@Override
+		public Adapter caseActorToLifeline(ActorToLifeline object) {
+			return createActorToLifelineAdapter();
+		}
+
+		@Override
+		public Adapter caseFlowToInteractionFragment(
+				FlowToInteractionFragment object) {
+			return createFlowToInteractionFragmentAdapter();
+		}
+
+		@Override
+		public Adapter caseStepAlternativeToInteractionOperand(
+				StepAlternativeToInteractionOperand object) {
+			return createStepAlternativeToInteractionOperandAdapter();
+		}
+
+		@Override
+		public Adapter caseNormalStepToCombinedFragment(
+				NormalStepToCombinedFragment object) {
+			return createNormalStepToCombinedFragmentAdapter();
 		}
 
 		@Override
@@ -138,16 +166,86 @@ public class UseCaseToModalSequenceDiagramIntegrationAdapterFactory extends
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration <em>Use Case To Collaboration</em>}'.
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction <em>Use Case To Interaction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration
+	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction
 	 * @generated
 	 */
-	public Adapter createUseCaseToCollaborationAdapter() {
+	public Adapter createUseCaseToInteractionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage <em>Normal Step To Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage
+	 * @generated
+	 */
+	public Adapter createNormalStepToMessageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.ActorToLifeline <em>Actor To Lifeline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.ActorToLifeline
+	 * @generated
+	 */
+	public Adapter createActorToLifelineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment <em>Flow To Interaction Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment
+	 * @generated
+	 */
+	public Adapter createFlowToInteractionFragmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand <em>Step Alternative To Interaction Operand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand
+	 * @generated
+	 */
+	public Adapter createStepAlternativeToInteractionOperandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment <em>Normal Step To Combined Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment
+	 * @generated
+	 */
+	public Adapter createNormalStepToCombinedFragmentAdapter() {
 		return null;
 	}
 

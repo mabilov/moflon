@@ -204,5 +204,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//MSDSpecification/specificationKind"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//EnvironmentAssumption"/>
+    <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//LiteralString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//LiteralString/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//LiteralSpecification"/>
   </genPackages>
 </genmodel:GenModel>

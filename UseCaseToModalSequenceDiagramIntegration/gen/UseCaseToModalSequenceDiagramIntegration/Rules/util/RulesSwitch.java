@@ -86,11 +86,71 @@ public class RulesSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RulesPackage.USE_CASE_TO_COLLABORATION_RULE: {
-			UseCaseToCollaborationRule useCaseToCollaborationRule = (UseCaseToCollaborationRule) theEObject;
-			T result = caseUseCaseToCollaborationRule(useCaseToCollaborationRule);
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE: {
+			UseCaseToInteractionRule useCaseToInteractionRule = (UseCaseToInteractionRule) theEObject;
+			T result = caseUseCaseToInteractionRule(useCaseToInteractionRule);
 			if (result == null)
-				result = caseAbstractRule(useCaseToCollaborationRule);
+				result = caseAbstractRule(useCaseToInteractionRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.ACTOR_TO_CLASS_RULE: {
+			ActorToClassRule actorToClassRule = (ActorToClassRule) theEObject;
+			T result = caseActorToClassRule(actorToClassRule);
+			if (result == null)
+				result = caseAbstractRule(actorToClassRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE: {
+			NormalStepToMessageRule normalStepToMessageRule = (NormalStepToMessageRule) theEObject;
+			T result = caseNormalStepToMessageRule(normalStepToMessageRule);
+			if (result == null)
+				result = caseAbstractRule(normalStepToMessageRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.NORMAL_STEP_BASIC_FLOW_TO_MESSAGE_RULE: {
+			NormalStepBasicFlowToMessageRule normalStepBasicFlowToMessageRule = (NormalStepBasicFlowToMessageRule) theEObject;
+			T result = caseNormalStepBasicFlowToMessageRule(normalStepBasicFlowToMessageRule);
+			if (result == null)
+				result = caseNormalStepToMessageRule(normalStepBasicFlowToMessageRule);
+			if (result == null)
+				result = caseAbstractRule(normalStepBasicFlowToMessageRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.NORMAL_STEP_NAMED_FLOW_TO_MESSAGE_RULE: {
+			NormalStepNamedFlowToMessageRule normalStepNamedFlowToMessageRule = (NormalStepNamedFlowToMessageRule) theEObject;
+			T result = caseNormalStepNamedFlowToMessageRule(normalStepNamedFlowToMessageRule);
+			if (result == null)
+				result = caseNormalStepToMessageRule(normalStepNamedFlowToMessageRule);
+			if (result == null)
+				result = caseAbstractRule(normalStepNamedFlowToMessageRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.STEP_TO_COMBINED_FRAGMENT_RULE: {
+			StepToCombinedFragmentRule stepToCombinedFragmentRule = (StepToCombinedFragmentRule) theEObject;
+			T result = caseStepToCombinedFragmentRule(stepToCombinedFragmentRule);
+			if (result == null)
+				result = caseNormalStepToMessageRule(stepToCombinedFragmentRule);
+			if (result == null)
+				result = caseAbstractRule(stepToCombinedFragmentRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE: {
+			StepAltToOperandRule stepAltToOperandRule = (StepAltToOperandRule) theEObject;
+			T result = caseStepAltToOperandRule(stepAltToOperandRule);
+			if (result == null)
+				result = caseAbstractRule(stepAltToOperandRule);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -131,17 +191,109 @@ public class RulesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Use Case To Collaboration Rule</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Use Case To Interaction Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Use Case To Collaboration Rule</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Use Case To Interaction Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUseCaseToCollaborationRule(UseCaseToCollaborationRule object) {
+	public T caseUseCaseToInteractionRule(UseCaseToInteractionRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Actor To Class Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actor To Class Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActorToClassRule(ActorToClassRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Step To Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Step To Message Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNormalStepToMessageRule(NormalStepToMessageRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Step Basic Flow To Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Step Basic Flow To Message Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNormalStepBasicFlowToMessageRule(
+			NormalStepBasicFlowToMessageRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Step Named Flow To Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Step Named Flow To Message Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNormalStepNamedFlowToMessageRule(
+			NormalStepNamedFlowToMessageRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Step To Combined Fragment Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Step To Combined Fragment Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStepToCombinedFragmentRule(StepToCombinedFragmentRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Step Alt To Operand Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Step Alt To Operand Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStepAltToOperandRule(StepAltToOperandRule object) {
 		return null;
 	}
 

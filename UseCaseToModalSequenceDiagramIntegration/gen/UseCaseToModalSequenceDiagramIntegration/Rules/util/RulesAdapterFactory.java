@@ -79,9 +79,43 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseUseCaseToCollaborationRule(
-				UseCaseToCollaborationRule object) {
-			return createUseCaseToCollaborationRuleAdapter();
+		public Adapter caseUseCaseToInteractionRule(
+				UseCaseToInteractionRule object) {
+			return createUseCaseToInteractionRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseActorToClassRule(ActorToClassRule object) {
+			return createActorToClassRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseNormalStepToMessageRule(
+				NormalStepToMessageRule object) {
+			return createNormalStepToMessageRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseNormalStepBasicFlowToMessageRule(
+				NormalStepBasicFlowToMessageRule object) {
+			return createNormalStepBasicFlowToMessageRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseNormalStepNamedFlowToMessageRule(
+				NormalStepNamedFlowToMessageRule object) {
+			return createNormalStepNamedFlowToMessageRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseStepToCombinedFragmentRule(
+				StepToCombinedFragmentRule object) {
+			return createStepToCombinedFragmentRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseStepAltToOperandRule(StepAltToOperandRule object) {
+			return createStepAltToOperandRuleAdapter();
 		}
 
 		@Override
@@ -137,16 +171,100 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToCollaborationRule <em>Use Case To Collaboration Rule</em>}'.
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule <em>Use Case To Interaction Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToCollaborationRule
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule
 	 * @generated
 	 */
-	public Adapter createUseCaseToCollaborationRuleAdapter() {
+	public Adapter createUseCaseToInteractionRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ActorToClassRule <em>Actor To Class Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ActorToClassRule
+	 * @generated
+	 */
+	public Adapter createActorToClassRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.NormalStepToMessageRule <em>Normal Step To Message Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.NormalStepToMessageRule
+	 * @generated
+	 */
+	public Adapter createNormalStepToMessageRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.NormalStepBasicFlowToMessageRule <em>Normal Step Basic Flow To Message Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.NormalStepBasicFlowToMessageRule
+	 * @generated
+	 */
+	public Adapter createNormalStepBasicFlowToMessageRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.NormalStepNamedFlowToMessageRule <em>Normal Step Named Flow To Message Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.NormalStepNamedFlowToMessageRule
+	 * @generated
+	 */
+	public Adapter createNormalStepNamedFlowToMessageRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepToCombinedFragmentRule <em>Step To Combined Fragment Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepToCombinedFragmentRule
+	 * @generated
+	 */
+	public Adapter createStepToCombinedFragmentRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule <em>Step Alt To Operand Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule
+	 * @generated
+	 */
+	public Adapter createStepAltToOperandRuleAdapter() {
 		return null;
 	}
 

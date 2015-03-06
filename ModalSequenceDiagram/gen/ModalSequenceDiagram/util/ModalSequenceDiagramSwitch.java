@@ -35,6 +35,8 @@ import ModalSequenceDiagram.InteractionFragment;
 import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralSpecification;
+import ModalSequenceDiagram.LiteralString;
 import ModalSequenceDiagram.MSDSpecification;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
@@ -888,6 +890,34 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 				result = casePackageableElement(environmentAssumption);
 			if (result == null)
 				result = caseNamedElement(environmentAssumption);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.LITERAL_STRING: {
+			LiteralString literalString = (LiteralString) theEObject;
+			T result = caseLiteralString(literalString);
+			if (result == null)
+				result = caseLiteralSpecification(literalString);
+			if (result == null)
+				result = caseValueSpecification(literalString);
+			if (result == null)
+				result = casePackageableElement(literalString);
+			if (result == null)
+				result = caseNamedElement(literalString);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ModalSequenceDiagramPackage.LITERAL_SPECIFICATION: {
+			LiteralSpecification literalSpecification = (LiteralSpecification) theEObject;
+			T result = caseLiteralSpecification(literalSpecification);
+			if (result == null)
+				result = caseValueSpecification(literalSpecification);
+			if (result == null)
+				result = casePackageableElement(literalSpecification);
+			if (result == null)
+				result = caseNamedElement(literalSpecification);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1769,6 +1799,36 @@ public class ModalSequenceDiagramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEnvironmentAssumption(EnvironmentAssumption object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal String</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal String</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralString(LiteralString object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteralSpecification(LiteralSpecification object) {
 		return null;
 	}
 

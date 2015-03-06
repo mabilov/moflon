@@ -35,6 +35,8 @@ import ModalSequenceDiagram.InteractionFragment;
 import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralSpecification;
+import ModalSequenceDiagram.LiteralString;
 import ModalSequenceDiagram.MSDSpecification;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
@@ -416,6 +418,16 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseEnvironmentAssumption(EnvironmentAssumption object) {
 			return createEnvironmentAssumptionAdapter();
+		}
+
+		@Override
+		public Adapter caseLiteralString(LiteralString object) {
+			return createLiteralStringAdapter();
+		}
+
+		@Override
+		public Adapter caseLiteralSpecification(LiteralSpecification object) {
+			return createLiteralSpecificationAdapter();
 		}
 
 		@Override
@@ -1246,6 +1258,34 @@ public class ModalSequenceDiagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnvironmentAssumptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.LiteralString <em>Literal String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.LiteralString
+	 * @generated
+	 */
+	public Adapter createLiteralStringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ModalSequenceDiagram.LiteralSpecification <em>Literal Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ModalSequenceDiagram.LiteralSpecification
+	 * @generated
+	 */
+	public Adapter createLiteralSpecificationAdapter() {
 		return null;
 	}
 

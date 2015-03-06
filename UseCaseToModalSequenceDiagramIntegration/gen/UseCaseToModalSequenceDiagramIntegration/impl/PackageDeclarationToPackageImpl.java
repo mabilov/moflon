@@ -3,6 +3,16 @@
 package UseCaseToModalSequenceDiagramIntegration.impl;
 
 import ModalSequenceDiagram.Collaboration;
+import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Constraint;
+import ModalSequenceDiagram.Interaction;
+import ModalSequenceDiagram.InteractionConstraint;
+import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralString;
+import ModalSequenceDiagram.Message;
+import ModalSequenceDiagram.MessageEnd;
+import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.Model;
 
@@ -24,13 +34,26 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractCorrespondenceImpl;
 
+import UseCaseDSL.Actor;
+import UseCaseDSL.AlternativeFlow;
+import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.BasicFlow;
+import UseCaseDSL.Flow;
+import UseCaseDSL.NamedFlow;
+import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
 
+import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
+import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
+import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
+import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
+import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationPackage;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;

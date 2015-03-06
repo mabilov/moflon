@@ -2,7 +2,16 @@
  */
 package UseCaseToModalSequenceDiagramIntegration.impl;
 
-import ModalSequenceDiagram.Collaboration;
+import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Constraint;
+import ModalSequenceDiagram.Interaction;
+import ModalSequenceDiagram.InteractionConstraint;
+import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralString;
+import ModalSequenceDiagram.Message;
+import ModalSequenceDiagram.MessageEnd;
+import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.Model;
 
@@ -24,13 +33,25 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractCorrespondenceImpl;
 
+import UseCaseDSL.Actor;
+import UseCaseDSL.AlternativeFlow;
+import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.BasicFlow;
+import UseCaseDSL.Flow;
+import UseCaseDSL.NamedFlow;
+import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
 
+import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
+import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
+import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
+import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
-import UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration;
+import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationPackage;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
@@ -56,20 +77,20 @@ import org.moflon.csp.CSPFactoryHelper;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Use Case To Collaboration</b></em>'.
+ * An implementation of the model object '<em><b>Use Case To Interaction</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToCollaborationImpl#getSource <em>Source</em>}</li>
- *   <li>{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToCollaborationImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToInteractionImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToInteractionImpl#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
-		implements UseCaseToCollaboration {
+public class UseCaseToInteractionImpl extends AbstractCorrespondenceImpl
+		implements UseCaseToInteraction {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -88,14 +109,14 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected Collaboration target;
+	protected Interaction target;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UseCaseToCollaborationImpl() {
+	protected UseCaseToInteractionImpl() {
 		super();
 	}
 
@@ -106,7 +127,7 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UseCaseToModalSequenceDiagramIntegrationPackage.Literals.USE_CASE_TO_COLLABORATION;
+		return UseCaseToModalSequenceDiagramIntegrationPackage.Literals.USE_CASE_TO_INTERACTION;
 	}
 
 	/**
@@ -123,7 +144,7 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 					eNotify(new ENotificationImpl(
 							this,
 							Notification.RESOLVE,
-							UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__SOURCE,
+							UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__SOURCE,
 							oldSource, source));
 			}
 		}
@@ -151,7 +172,7 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 			eNotify(new ENotificationImpl(
 					this,
 					Notification.SET,
-					UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__SOURCE,
+					UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__SOURCE,
 					oldSource, source));
 	}
 
@@ -160,16 +181,16 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Collaboration getTarget() {
+	public Interaction getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject) target;
-			target = (Collaboration) eResolveProxy(oldTarget);
+			target = (Interaction) eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(
 							this,
 							Notification.RESOLVE,
-							UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__TARGET,
+							UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__TARGET,
 							oldTarget, target));
 			}
 		}
@@ -181,7 +202,7 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Collaboration basicGetTarget() {
+	public Interaction basicGetTarget() {
 		return target;
 	}
 
@@ -190,14 +211,14 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(Collaboration newTarget) {
-		Collaboration oldTarget = target;
+	public void setTarget(Interaction newTarget) {
+		Interaction oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(
 					this,
 					Notification.SET,
-					UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__TARGET,
+					UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__TARGET,
 					oldTarget, target));
 	}
 
@@ -209,11 +230,11 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__SOURCE:
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__SOURCE:
 			if (resolve)
 				return getSource();
 			return basicGetSource();
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__TARGET:
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__TARGET:
 			if (resolve)
 				return getTarget();
 			return basicGetTarget();
@@ -229,11 +250,11 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__SOURCE:
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__SOURCE:
 			setSource((UseCase) newValue);
 			return;
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__TARGET:
-			setTarget((Collaboration) newValue);
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__TARGET:
+			setTarget((Interaction) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -247,11 +268,11 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__SOURCE:
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__SOURCE:
 			setSource((UseCase) null);
 			return;
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__TARGET:
-			setTarget((Collaboration) null);
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__TARGET:
+			setTarget((Interaction) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -265,9 +286,9 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__SOURCE:
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__SOURCE:
 			return source != null;
-		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_COLLABORATION__TARGET:
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_INTERACTION__TARGET:
 			return target != null;
 		}
 		return super.eIsSet(featureID);
@@ -275,4 +296,4 @@ public class UseCaseToCollaborationImpl extends AbstractCorrespondenceImpl
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
-} //UseCaseToCollaborationImpl
+} //UseCaseToInteractionImpl

@@ -37,6 +37,8 @@ import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.InteractionOperatorKind;
 import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralSpecification;
+import ModalSequenceDiagram.LiteralString;
 import ModalSequenceDiagram.MSDSpecification;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
@@ -489,6 +491,20 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass environmentAssumptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalStringEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass literalSpecificationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1730,6 +1746,33 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLiteralString() {
+		return literalStringEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLiteralString_Value() {
+		return (EAttribute) literalStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLiteralSpecification() {
+		return literalSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMessageKind() {
 		return messageKindEEnum;
 	}
@@ -2017,6 +2060,11 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 
 		environmentAssumptionEClass = createEClass(ENVIRONMENT_ASSUMPTION);
 
+		literalStringEClass = createEClass(LITERAL_STRING);
+		createEAttribute(literalStringEClass, LITERAL_STRING__VALUE);
+
+		literalSpecificationEClass = createEClass(LITERAL_SPECIFICATION);
+
 		// Create enums
 		messageKindEEnum = createEEnum(MESSAGE_KIND);
 		messageSortEEnum = createEEnum(MESSAGE_SORT);
@@ -2136,6 +2184,10 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		clockResetEClass.getESuperTypes().add(this.getStateInvariant());
 		msdSpecificationEClass.getESuperTypes().add(this.getPackage());
 		environmentAssumptionEClass.getESuperTypes().add(this.getInteraction());
+		literalStringEClass.getESuperTypes()
+				.add(this.getLiteralSpecification());
+		literalSpecificationEClass.getESuperTypes().add(
+				this.getValueSpecification());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT,
@@ -2644,6 +2696,17 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 
 		initEClass(environmentAssumptionEClass, EnvironmentAssumption.class,
 				"EnvironmentAssumption", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(literalStringEClass, LiteralString.class, "LiteralString",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteralString_Value(), ecorePackage.getEString(),
+				"value", null, 1, 1, LiteralString.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
+
+		initEClass(literalSpecificationEClass, LiteralSpecification.class,
+				"LiteralSpecification", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals

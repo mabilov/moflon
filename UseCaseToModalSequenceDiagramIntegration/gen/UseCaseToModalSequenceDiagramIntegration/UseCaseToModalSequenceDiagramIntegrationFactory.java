@@ -42,13 +42,58 @@ public interface UseCaseToModalSequenceDiagramIntegrationFactory extends
 	PackageDeclarationToPackage createPackageDeclarationToPackage();
 
 	/**
-	 * Returns a new object of class '<em>Use Case To Collaboration</em>'.
+	 * Returns a new object of class '<em>Use Case To Interaction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Use Case To Collaboration</em>'.
+	 * @return a new object of class '<em>Use Case To Interaction</em>'.
 	 * @generated
 	 */
-	UseCaseToCollaboration createUseCaseToCollaboration();
+	UseCaseToInteraction createUseCaseToInteraction();
+
+	/**
+	 * Returns a new object of class '<em>Normal Step To Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Normal Step To Message</em>'.
+	 * @generated
+	 */
+	NormalStepToMessage createNormalStepToMessage();
+
+	/**
+	 * Returns a new object of class '<em>Actor To Lifeline</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Actor To Lifeline</em>'.
+	 * @generated
+	 */
+	ActorToLifeline createActorToLifeline();
+
+	/**
+	 * Returns a new object of class '<em>Flow To Interaction Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flow To Interaction Fragment</em>'.
+	 * @generated
+	 */
+	FlowToInteractionFragment createFlowToInteractionFragment();
+
+	/**
+	 * Returns a new object of class '<em>Step Alternative To Interaction Operand</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Step Alternative To Interaction Operand</em>'.
+	 * @generated
+	 */
+	StepAlternativeToInteractionOperand createStepAlternativeToInteractionOperand();
+
+	/**
+	 * Returns a new object of class '<em>Normal Step To Combined Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Normal Step To Combined Fragment</em>'.
+	 * @generated
+	 */
+	NormalStepToCombinedFragment createNormalStepToCombinedFragment();
 
 	/**
 	 * Returns the package supported by this factory.

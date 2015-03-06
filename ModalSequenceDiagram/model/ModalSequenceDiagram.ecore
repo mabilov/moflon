@@ -204,4 +204,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="specificationKind" ordered="false" lowerBound="1" eType="//SpecificationKind"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnvironmentAssumption" eSuperTypes="//Interaction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralString" eSuperTypes="//LiteralSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralSpecification" abstract="true" eSuperTypes="//ValueSpecification"/>
 </ecore:EPackage>

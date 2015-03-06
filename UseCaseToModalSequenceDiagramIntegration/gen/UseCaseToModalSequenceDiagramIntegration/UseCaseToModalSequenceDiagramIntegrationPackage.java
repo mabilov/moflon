@@ -152,14 +152,14 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	int PACKAGE_DECLARATION_TO_PACKAGE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToCollaborationImpl <em>Use Case To Collaboration</em>}' class.
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToInteractionImpl <em>Use Case To Interaction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToCollaborationImpl
-	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getUseCaseToCollaboration()
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToInteractionImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getUseCaseToInteraction()
 	 * @generated
 	 */
-	int USE_CASE_TO_COLLABORATION = 2;
+	int USE_CASE_TO_INTERACTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -168,7 +168,7 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_TO_COLLABORATION__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+	int USE_CASE_TO_INTERACTION__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -177,25 +177,255 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_TO_COLLABORATION__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+	int USE_CASE_TO_INTERACTION__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Use Case To Collaboration</em>' class.
+	 * The number of structural features of the '<em>Use Case To Interaction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_TO_COLLABORATION_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+	int USE_CASE_TO_INTERACTION_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Use Case To Collaboration</em>' class.
+	 * The number of operations of the '<em>Use Case To Interaction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_TO_COLLABORATION_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+	int USE_CASE_TO_INTERACTION_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToMessageImpl <em>Normal Step To Message</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToMessageImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getNormalStepToMessage()
+	 * @generated
+	 */
+	int NORMAL_STEP_TO_MESSAGE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_STEP_TO_MESSAGE__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_STEP_TO_MESSAGE__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Normal Step To Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_STEP_TO_MESSAGE_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Normal Step To Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_STEP_TO_MESSAGE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.ActorToLifelineImpl <em>Actor To Lifeline</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.ActorToLifelineImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getActorToLifeline()
+	 * @generated
+	 */
+	int ACTOR_TO_LIFELINE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_TO_LIFELINE__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_TO_LIFELINE__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Actor To Lifeline</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_TO_LIFELINE_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Actor To Lifeline</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_TO_LIFELINE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.FlowToInteractionFragmentImpl <em>Flow To Interaction Fragment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.FlowToInteractionFragmentImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getFlowToInteractionFragment()
+	 * @generated
+	 */
+	int FLOW_TO_INTERACTION_FRAGMENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_TO_INTERACTION_FRAGMENT__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_TO_INTERACTION_FRAGMENT__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Flow To Interaction Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_TO_INTERACTION_FRAGMENT_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Flow To Interaction Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_TO_INTERACTION_FRAGMENT_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.StepAlternativeToInteractionOperandImpl <em>Step Alternative To Interaction Operand</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.StepAlternativeToInteractionOperandImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getStepAlternativeToInteractionOperand()
+	 * @generated
+	 */
+	int STEP_ALTERNATIVE_TO_INTERACTION_OPERAND = 6;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP_ALTERNATIVE_TO_INTERACTION_OPERAND__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP_ALTERNATIVE_TO_INTERACTION_OPERAND__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Step Alternative To Interaction Operand</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP_ALTERNATIVE_TO_INTERACTION_OPERAND_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Step Alternative To Interaction Operand</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP_ALTERNATIVE_TO_INTERACTION_OPERAND_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToCombinedFragmentImpl <em>Normal Step To Combined Fragment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToCombinedFragmentImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getNormalStepToCombinedFragment()
+	 * @generated
+	 */
+	int NORMAL_STEP_TO_COMBINED_FRAGMENT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_STEP_TO_COMBINED_FRAGMENT__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_STEP_TO_COMBINED_FRAGMENT__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Normal Step To Combined Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_STEP_TO_COMBINED_FRAGMENT_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Normal Step To Combined Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_STEP_TO_COMBINED_FRAGMENT_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel <em>Use Cases Model To Model</em>}'.
@@ -262,36 +492,196 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	EReference getPackageDeclarationToPackage_Target();
 
 	/**
-	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration <em>Use Case To Collaboration</em>}'.
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction <em>Use Case To Interaction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Use Case To Collaboration</em>'.
-	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration
+	 * @return the meta object for class '<em>Use Case To Interaction</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction
 	 * @generated
 	 */
-	EClass getUseCaseToCollaboration();
+	EClass getUseCaseToInteraction();
 
 	/**
-	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration#getSource <em>Source</em>}'.
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration#getSource()
-	 * @see #getUseCaseToCollaboration()
+	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction#getSource()
+	 * @see #getUseCaseToInteraction()
 	 * @generated
 	 */
-	EReference getUseCaseToCollaboration_Source();
+	EReference getUseCaseToInteraction_Source();
 
 	/**
-	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration#getTarget <em>Target</em>}'.
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration#getTarget()
-	 * @see #getUseCaseToCollaboration()
+	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction#getTarget()
+	 * @see #getUseCaseToInteraction()
 	 * @generated
 	 */
-	EReference getUseCaseToCollaboration_Target();
+	EReference getUseCaseToInteraction_Target();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage <em>Normal Step To Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Normal Step To Message</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage
+	 * @generated
+	 */
+	EClass getNormalStepToMessage();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage#getSource()
+	 * @see #getNormalStepToMessage()
+	 * @generated
+	 */
+	EReference getNormalStepToMessage_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage#getTarget()
+	 * @see #getNormalStepToMessage()
+	 * @generated
+	 */
+	EReference getNormalStepToMessage_Target();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.ActorToLifeline <em>Actor To Lifeline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Actor To Lifeline</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.ActorToLifeline
+	 * @generated
+	 */
+	EClass getActorToLifeline();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.ActorToLifeline#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.ActorToLifeline#getSource()
+	 * @see #getActorToLifeline()
+	 * @generated
+	 */
+	EReference getActorToLifeline_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.ActorToLifeline#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.ActorToLifeline#getTarget()
+	 * @see #getActorToLifeline()
+	 * @generated
+	 */
+	EReference getActorToLifeline_Target();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment <em>Flow To Interaction Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flow To Interaction Fragment</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment
+	 * @generated
+	 */
+	EClass getFlowToInteractionFragment();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment#getSource()
+	 * @see #getFlowToInteractionFragment()
+	 * @generated
+	 */
+	EReference getFlowToInteractionFragment_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment#getTarget()
+	 * @see #getFlowToInteractionFragment()
+	 * @generated
+	 */
+	EReference getFlowToInteractionFragment_Target();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand <em>Step Alternative To Interaction Operand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Step Alternative To Interaction Operand</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand
+	 * @generated
+	 */
+	EClass getStepAlternativeToInteractionOperand();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand#getSource()
+	 * @see #getStepAlternativeToInteractionOperand()
+	 * @generated
+	 */
+	EReference getStepAlternativeToInteractionOperand_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand#getTarget()
+	 * @see #getStepAlternativeToInteractionOperand()
+	 * @generated
+	 */
+	EReference getStepAlternativeToInteractionOperand_Target();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment <em>Normal Step To Combined Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Normal Step To Combined Fragment</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment
+	 * @generated
+	 */
+	EClass getNormalStepToCombinedFragment();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment#getSource()
+	 * @see #getNormalStepToCombinedFragment()
+	 * @generated
+	 */
+	EReference getNormalStepToCombinedFragment_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment#getTarget()
+	 * @see #getNormalStepToCombinedFragment()
+	 * @generated
+	 */
+	EReference getNormalStepToCombinedFragment_Target();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -374,15 +764,14 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 				.getPackageDeclarationToPackage_Target();
 
 		/**
-		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToCollaborationImpl <em>Use Case To Collaboration</em>}' class.
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToInteractionImpl <em>Use Case To Interaction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToCollaborationImpl
-		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getUseCaseToCollaboration()
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToInteractionImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getUseCaseToInteraction()
 		 * @generated
 		 */
-		EClass USE_CASE_TO_COLLABORATION = eINSTANCE
-				.getUseCaseToCollaboration();
+		EClass USE_CASE_TO_INTERACTION = eINSTANCE.getUseCaseToInteraction();
 
 		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
@@ -390,8 +779,8 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference USE_CASE_TO_COLLABORATION__SOURCE = eINSTANCE
-				.getUseCaseToCollaboration_Source();
+		EReference USE_CASE_TO_INTERACTION__SOURCE = eINSTANCE
+				.getUseCaseToInteraction_Source();
 
 		/**
 		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
@@ -399,8 +788,151 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference USE_CASE_TO_COLLABORATION__TARGET = eINSTANCE
-				.getUseCaseToCollaboration_Target();
+		EReference USE_CASE_TO_INTERACTION__TARGET = eINSTANCE
+				.getUseCaseToInteraction_Target();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToMessageImpl <em>Normal Step To Message</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToMessageImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getNormalStepToMessage()
+		 * @generated
+		 */
+		EClass NORMAL_STEP_TO_MESSAGE = eINSTANCE.getNormalStepToMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NORMAL_STEP_TO_MESSAGE__SOURCE = eINSTANCE
+				.getNormalStepToMessage_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NORMAL_STEP_TO_MESSAGE__TARGET = eINSTANCE
+				.getNormalStepToMessage_Target();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.ActorToLifelineImpl <em>Actor To Lifeline</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.ActorToLifelineImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getActorToLifeline()
+		 * @generated
+		 */
+		EClass ACTOR_TO_LIFELINE = eINSTANCE.getActorToLifeline();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR_TO_LIFELINE__SOURCE = eINSTANCE
+				.getActorToLifeline_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR_TO_LIFELINE__TARGET = eINSTANCE
+				.getActorToLifeline_Target();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.FlowToInteractionFragmentImpl <em>Flow To Interaction Fragment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.FlowToInteractionFragmentImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getFlowToInteractionFragment()
+		 * @generated
+		 */
+		EClass FLOW_TO_INTERACTION_FRAGMENT = eINSTANCE
+				.getFlowToInteractionFragment();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOW_TO_INTERACTION_FRAGMENT__SOURCE = eINSTANCE
+				.getFlowToInteractionFragment_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOW_TO_INTERACTION_FRAGMENT__TARGET = eINSTANCE
+				.getFlowToInteractionFragment_Target();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.StepAlternativeToInteractionOperandImpl <em>Step Alternative To Interaction Operand</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.StepAlternativeToInteractionOperandImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getStepAlternativeToInteractionOperand()
+		 * @generated
+		 */
+		EClass STEP_ALTERNATIVE_TO_INTERACTION_OPERAND = eINSTANCE
+				.getStepAlternativeToInteractionOperand();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STEP_ALTERNATIVE_TO_INTERACTION_OPERAND__SOURCE = eINSTANCE
+				.getStepAlternativeToInteractionOperand_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STEP_ALTERNATIVE_TO_INTERACTION_OPERAND__TARGET = eINSTANCE
+				.getStepAlternativeToInteractionOperand_Target();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToCombinedFragmentImpl <em>Normal Step To Combined Fragment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToCombinedFragmentImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getNormalStepToCombinedFragment()
+		 * @generated
+		 */
+		EClass NORMAL_STEP_TO_COMBINED_FRAGMENT = eINSTANCE
+				.getNormalStepToCombinedFragment();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NORMAL_STEP_TO_COMBINED_FRAGMENT__SOURCE = eINSTANCE
+				.getNormalStepToCombinedFragment_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NORMAL_STEP_TO_COMBINED_FRAGMENT__TARGET = eINSTANCE
+				.getNormalStepToCombinedFragment_Target();
 
 	}
 

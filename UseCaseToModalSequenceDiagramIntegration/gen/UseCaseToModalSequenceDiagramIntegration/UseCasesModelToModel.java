@@ -3,6 +3,16 @@
 package UseCaseToModalSequenceDiagramIntegration;
 
 import ModalSequenceDiagram.Collaboration;
+import ModalSequenceDiagram.CombinedFragment;
+import ModalSequenceDiagram.Constraint;
+import ModalSequenceDiagram.Interaction;
+import ModalSequenceDiagram.InteractionConstraint;
+import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralString;
+import ModalSequenceDiagram.Message;
+import ModalSequenceDiagram.MessageEnd;
+import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.Model;
 
@@ -23,6 +33,13 @@ import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
 import TGGRuntime.TripleMatch;
 
+import UseCaseDSL.Actor;
+import UseCaseDSL.AlternativeFlow;
+import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.BasicFlow;
+import UseCaseDSL.Flow;
+import UseCaseDSL.NamedFlow;
+import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;

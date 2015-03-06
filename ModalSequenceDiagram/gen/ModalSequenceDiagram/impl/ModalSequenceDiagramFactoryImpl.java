@@ -26,6 +26,7 @@ import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.InteractionOperatorKind;
 import ModalSequenceDiagram.InteractionUse;
 import ModalSequenceDiagram.Lifeline;
+import ModalSequenceDiagram.LiteralString;
 import ModalSequenceDiagram.MSDSpecification;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
@@ -181,6 +182,8 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 			return createMSDSpecification();
 		case ModalSequenceDiagramPackage.ENVIRONMENT_ASSUMPTION:
 			return createEnvironmentAssumption();
+		case ModalSequenceDiagramPackage.LITERAL_STRING:
+			return createLiteralString();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -633,6 +636,16 @@ public class ModalSequenceDiagramFactoryImpl extends EFactoryImpl implements
 	public EnvironmentAssumption createEnvironmentAssumption() {
 		EnvironmentAssumptionImpl environmentAssumption = new EnvironmentAssumptionImpl();
 		return environmentAssumption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LiteralString createLiteralString() {
+		LiteralStringImpl literalString = new LiteralStringImpl();
+		return literalString;
 	}
 
 	/**
