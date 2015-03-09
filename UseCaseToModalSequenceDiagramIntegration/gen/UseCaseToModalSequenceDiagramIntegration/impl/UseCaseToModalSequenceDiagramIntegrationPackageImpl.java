@@ -6,32 +6,31 @@ import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 
 import TGGLanguage.TGGLanguagePackage;
 
-import TGGRuntime.TGGRuntimePackage;
-
 import UseCaseDSL.UseCaseDSLPackage;
-
-import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.impl.RulesPackageImpl;
 
-import UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationPackage;
-import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
 import java.io.IOException;
+
 import java.net.URL;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipse.emf.ecore.resource.Resource;
+
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 /**
@@ -97,6 +96,13 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * @generated
 	 */
 	private EClass stepAlternativeToInteractionOperandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parallelStepToCombinedFragmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -432,12 +438,47 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getParallelStepToCombinedFragment() {
+		if (parallelStepToCombinedFragmentEClass == null) {
+			parallelStepToCombinedFragmentEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(7);
+		}
+		return parallelStepToCombinedFragmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParallelStepToCombinedFragment_Source() {
+		return (EReference) getParallelStepToCombinedFragment()
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParallelStepToCombinedFragment_Target() {
+		return (EReference) getParallelStepToCombinedFragment()
+				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNormalStepToCombinedFragment() {
 		if (normalStepToCombinedFragmentEClass == null) {
 			normalStepToCombinedFragmentEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(
 							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
-					.getEClassifiers().get(7);
+					.getEClassifiers().get(8);
 		}
 		return normalStepToCombinedFragmentEClass;
 	}

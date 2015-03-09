@@ -87,6 +87,15 @@ public interface UseCaseToModalSequenceDiagramIntegrationFactory extends
 	StepAlternativeToInteractionOperand createStepAlternativeToInteractionOperand();
 
 	/**
+	 * Returns a new object of class '<em>Parallel Step To Combined Fragment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parallel Step To Combined Fragment</em>'.
+	 * @generated
+	 */
+	ParallelStepToCombinedFragment createParallelStepToCombinedFragment();
+
+	/**
 	 * Returns a new object of class '<em>Normal Step To Combined Fragment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

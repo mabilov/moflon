@@ -62,18 +62,44 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createUCPackageToMSDPackage();
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE:
 			return createUseCaseToInteractionRule();
-		case RulesPackage.ACTOR_TO_CLASS_RULE:
-			return createActorToClassRule();
+		case RulesPackage.ACTOR_TO_LIFELINE_RULE:
+			return createActorToLifelineRule();
 		case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE:
 			return createNormalStepToMessageRule();
-		case RulesPackage.NORMAL_STEP_BASIC_FLOW_TO_MESSAGE_RULE:
-			return createNormalStepBasicFlowToMessageRule();
-		case RulesPackage.NORMAL_STEP_NAMED_FLOW_TO_MESSAGE_RULE:
-			return createNormalStepNamedFlowToMessageRule();
-		case RulesPackage.STEP_TO_COMBINED_FRAGMENT_RULE:
-			return createStepToCombinedFragmentRule();
+		case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE:
+			return createNormalStepBFToMessageRule();
+		case RulesPackage.NORMAL_STEP_NF_TO_MESSAGE_RULE:
+			return createNormalStepNFToMessageRule();
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE:
+			return createAltStepToComboRule();
+		case RulesPackage.ALT_STEP_NF_TO_COMBO_RULE:
+			return createAltStepNFToComboRule();
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE:
+			return createParallelStepToCombinedFragmentRule();
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE:
+			return createParallelFlowToOperandRule();
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE:
+			return createUseCasePrecondToFoundMessageRule();
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE:
+			return createSystemStepBFToMessageRule();
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE:
 			return createStepAltToOperandRule();
+		case RulesPackage.ALT_STEP_BF_TO_COMBO_RULE:
+			return createAltStepBFToComboRule();
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE:
+			return createUserStepBFMessageRule();
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE:
+			return createSystemStepNFToMessageRule();
+		case RulesPackage.USER_STEP_NF_TO_MESSAGE_RULE:
+			return createUserStepNfToMessageRule();
+		case RulesPackage.ALT_SYS_STEP_BF_TO_COMBO_RULE:
+			return createAltSysStepBFToComboRule();
+		case RulesPackage.ALT_USER_STEP_BF_TO_COMBO_RULE:
+			return createAltUserStepBFToComboRule();
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE:
+			return createAltSysStepNFToComboRule();
+		case RulesPackage.ALT_USER_STEP_NF_TO_COMBO_RULE:
+			return createAltUserStepNFToComboRule();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -115,9 +141,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActorToClassRule createActorToClassRule() {
-		ActorToClassRuleImpl actorToClassRule = new ActorToClassRuleImpl();
-		return actorToClassRule;
+	public ActorToLifelineRule createActorToLifelineRule() {
+		ActorToLifelineRuleImpl actorToLifelineRule = new ActorToLifelineRuleImpl();
+		return actorToLifelineRule;
 	}
 
 	/**
@@ -135,9 +161,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NormalStepBasicFlowToMessageRule createNormalStepBasicFlowToMessageRule() {
-		NormalStepBasicFlowToMessageRuleImpl normalStepBasicFlowToMessageRule = new NormalStepBasicFlowToMessageRuleImpl();
-		return normalStepBasicFlowToMessageRule;
+	public NormalStepBFToMessageRule createNormalStepBFToMessageRule() {
+		NormalStepBFToMessageRuleImpl normalStepBFToMessageRule = new NormalStepBFToMessageRuleImpl();
+		return normalStepBFToMessageRule;
 	}
 
 	/**
@@ -145,9 +171,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NormalStepNamedFlowToMessageRule createNormalStepNamedFlowToMessageRule() {
-		NormalStepNamedFlowToMessageRuleImpl normalStepNamedFlowToMessageRule = new NormalStepNamedFlowToMessageRuleImpl();
-		return normalStepNamedFlowToMessageRule;
+	public NormalStepNFToMessageRule createNormalStepNFToMessageRule() {
+		NormalStepNFToMessageRuleImpl normalStepNFToMessageRule = new NormalStepNFToMessageRuleImpl();
+		return normalStepNFToMessageRule;
 	}
 
 	/**
@@ -155,9 +181,59 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StepToCombinedFragmentRule createStepToCombinedFragmentRule() {
-		StepToCombinedFragmentRuleImpl stepToCombinedFragmentRule = new StepToCombinedFragmentRuleImpl();
-		return stepToCombinedFragmentRule;
+	public AltStepToComboRule createAltStepToComboRule() {
+		AltStepToComboRuleImpl altStepToComboRule = new AltStepToComboRuleImpl();
+		return altStepToComboRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AltStepNFToComboRule createAltStepNFToComboRule() {
+		AltStepNFToComboRuleImpl altStepNFToComboRule = new AltStepNFToComboRuleImpl();
+		return altStepNFToComboRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParallelStepToCombinedFragmentRule createParallelStepToCombinedFragmentRule() {
+		ParallelStepToCombinedFragmentRuleImpl parallelStepToCombinedFragmentRule = new ParallelStepToCombinedFragmentRuleImpl();
+		return parallelStepToCombinedFragmentRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParallelFlowToOperandRule createParallelFlowToOperandRule() {
+		ParallelFlowToOperandRuleImpl parallelFlowToOperandRule = new ParallelFlowToOperandRuleImpl();
+		return parallelFlowToOperandRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UseCasePrecondToFoundMessageRule createUseCasePrecondToFoundMessageRule() {
+		UseCasePrecondToFoundMessageRuleImpl useCasePrecondToFoundMessageRule = new UseCasePrecondToFoundMessageRuleImpl();
+		return useCasePrecondToFoundMessageRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SystemStepBFToMessageRule createSystemStepBFToMessageRule() {
+		SystemStepBFToMessageRuleImpl systemStepBFToMessageRule = new SystemStepBFToMessageRuleImpl();
+		return systemStepBFToMessageRule;
 	}
 
 	/**
@@ -168,6 +244,86 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	public StepAltToOperandRule createStepAltToOperandRule() {
 		StepAltToOperandRuleImpl stepAltToOperandRule = new StepAltToOperandRuleImpl();
 		return stepAltToOperandRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AltStepBFToComboRule createAltStepBFToComboRule() {
+		AltStepBFToComboRuleImpl altStepBFToComboRule = new AltStepBFToComboRuleImpl();
+		return altStepBFToComboRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UserStepBFMessageRule createUserStepBFMessageRule() {
+		UserStepBFMessageRuleImpl userStepBFMessageRule = new UserStepBFMessageRuleImpl();
+		return userStepBFMessageRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SystemStepNFToMessageRule createSystemStepNFToMessageRule() {
+		SystemStepNFToMessageRuleImpl systemStepNFToMessageRule = new SystemStepNFToMessageRuleImpl();
+		return systemStepNFToMessageRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UserStepNfToMessageRule createUserStepNfToMessageRule() {
+		UserStepNfToMessageRuleImpl userStepNfToMessageRule = new UserStepNfToMessageRuleImpl();
+		return userStepNfToMessageRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AltSysStepBFToComboRule createAltSysStepBFToComboRule() {
+		AltSysStepBFToComboRuleImpl altSysStepBFToComboRule = new AltSysStepBFToComboRuleImpl();
+		return altSysStepBFToComboRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AltUserStepBFToComboRule createAltUserStepBFToComboRule() {
+		AltUserStepBFToComboRuleImpl altUserStepBFToComboRule = new AltUserStepBFToComboRuleImpl();
+		return altUserStepBFToComboRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AltSysStepNFToComboRule createAltSysStepNFToComboRule() {
+		AltSysStepNFToComboRuleImpl altSysStepNFToComboRule = new AltSysStepNFToComboRuleImpl();
+		return altSysStepNFToComboRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AltUserStepNFToComboRule createAltUserStepNFToComboRule() {
+		AltUserStepNFToComboRuleImpl altUserStepNFToComboRule = new AltUserStepNFToComboRuleImpl();
+		return altUserStepNFToComboRule;
 	}
 
 	/**

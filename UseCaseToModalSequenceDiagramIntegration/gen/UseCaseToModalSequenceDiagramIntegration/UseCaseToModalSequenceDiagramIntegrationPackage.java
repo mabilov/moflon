@@ -382,6 +382,52 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	int STEP_ALTERNATIVE_TO_INTERACTION_OPERAND_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.ParallelStepToCombinedFragmentImpl <em>Parallel Step To Combined Fragment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.ParallelStepToCombinedFragmentImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getParallelStepToCombinedFragment()
+	 * @generated
+	 */
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Parallel Step To Combined Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Parallel Step To Combined Fragment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToCombinedFragmentImpl <em>Normal Step To Combined Fragment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,7 +435,7 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getNormalStepToCombinedFragment()
 	 * @generated
 	 */
-	int NORMAL_STEP_TO_COMBINED_FRAGMENT = 7;
+	int NORMAL_STEP_TO_COMBINED_FRAGMENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -652,6 +698,38 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	EReference getStepAlternativeToInteractionOperand_Target();
 
 	/**
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment <em>Parallel Step To Combined Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parallel Step To Combined Fragment</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment
+	 * @generated
+	 */
+	EClass getParallelStepToCombinedFragment();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment#getSource()
+	 * @see #getParallelStepToCombinedFragment()
+	 * @generated
+	 */
+	EReference getParallelStepToCombinedFragment_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment#getTarget()
+	 * @see #getParallelStepToCombinedFragment()
+	 * @generated
+	 */
+	EReference getParallelStepToCombinedFragment_Target();
+
+	/**
 	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment <em>Normal Step To Combined Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -904,6 +982,35 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 		 */
 		EReference STEP_ALTERNATIVE_TO_INTERACTION_OPERAND__TARGET = eINSTANCE
 				.getStepAlternativeToInteractionOperand_Target();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.ParallelStepToCombinedFragmentImpl <em>Parallel Step To Combined Fragment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.ParallelStepToCombinedFragmentImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getParallelStepToCombinedFragment()
+		 * @generated
+		 */
+		EClass PARALLEL_STEP_TO_COMBINED_FRAGMENT = eINSTANCE
+				.getParallelStepToCombinedFragment();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARALLEL_STEP_TO_COMBINED_FRAGMENT__SOURCE = eINSTANCE
+				.getParallelStepToCombinedFragment_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARALLEL_STEP_TO_COMBINED_FRAGMENT__TARGET = eINSTANCE
+				.getParallelStepToCombinedFragment_Target();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.NormalStepToCombinedFragmentImpl <em>Normal Step To Combined Fragment</em>}' class.

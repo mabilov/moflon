@@ -17,15 +17,11 @@ import ModalSequenceDiagram.Model;
 
 import TGGLanguage.csp.*;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -41,6 +37,8 @@ import UseCaseDSL.Flow;
 import UseCaseDSL.NamedFlow;
 import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.ParallelFlow;
+import UseCaseDSL.ParallelStep;
 import UseCaseDSL.StepAlternative;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
@@ -51,6 +49,7 @@ import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
 import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
 import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
+import UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment;
 import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;

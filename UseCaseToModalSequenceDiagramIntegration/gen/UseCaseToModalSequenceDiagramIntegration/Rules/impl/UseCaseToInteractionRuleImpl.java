@@ -15,15 +15,11 @@ import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.Model;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -39,6 +35,8 @@ import UseCaseDSL.Flow;
 import UseCaseDSL.NamedFlow;
 import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.ParallelFlow;
+import UseCaseDSL.ParallelStep;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
@@ -48,6 +46,7 @@ import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
 import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
 import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
+import UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule;
@@ -118,8 +117,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __useCase_flows_basicFlow = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 
 		// story node 'initial bindings'
 		try {
@@ -168,12 +167,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(packageDeclaration != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
-				// create object __packageDeclaration_useCases_useCase
-				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __useCase_flows_basicFlow
 				__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __packageDeclaration_useCases_useCase
@@ -183,12 +182,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__packageDeclaration_useCases_useCase,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "toBeTranslatedNodes");
+						basicFlow, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -196,7 +190,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						basicFlow, "toBeTranslatedNodes");
+						useCase, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_useCases_useCase,
+						"toBeTranslatedEdges");
 
 				// create link
 				__packageDeclaration_useCases_useCase
@@ -246,6 +245,406 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			return false;
 
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
+		boolean fujaba__Success = false;
+		Object _TmpObject = null;
+		ModalSequenceDiagram.Package _package = null;
+		BasicFlow basicFlow = null;
+		PackageDeclaration packageDeclaration = null;
+		PackageDeclarationToPackage packageDeclarationToPackage = null;
+		UseCase useCase = null;
+		Iterator fujaba__IterIsApplicableMatchToCsp = null;
+		CSP csp = null;
+		Interaction interaction = null;
+		UseCaseToInteraction useCaseToInteraction = null;
+		FlowToInteractionFragment basicFlowToInteraction = null;
+		PerformRuleResult ruleresult = null;
+		EMoflonEdge _package__packagedElement__interaction = null;
+		EMoflonEdge useCaseToInteraction__target__interaction = null;
+		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
+		EMoflonEdge __useCase_flows_basicFlow = null;
+		EMoflonEdge basicFlowToInteraction__target__interaction = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
+		EMoflonEdge useCaseToInteraction__source__useCase = null;
+
+		// story node 'perform transformation'
+		try {
+			fujaba__Success = false;
+
+			_TmpObject = (isApplicableMatch.getObject("_package"));
+
+			// ensure correct type and really bound of object _package
+			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
+			_package = (ModalSequenceDiagram.Package) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("basicFlow"));
+
+			// ensure correct type and really bound of object basicFlow
+			JavaSDM.ensure(_TmpObject instanceof BasicFlow);
+			basicFlow = (BasicFlow) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
+			_TmpObject = (isApplicableMatch
+					.getObject("packageDeclarationToPackage"));
+
+			// ensure correct type and really bound of object packageDeclarationToPackage
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclarationToPackage);
+			packageDeclarationToPackage = (PackageDeclarationToPackage) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("useCase"));
+
+			// ensure correct type and really bound of object useCase
+			JavaSDM.ensure(_TmpObject instanceof UseCase);
+			useCase = (UseCase) _TmpObject;
+			// check object isApplicableMatch is really bound
+			JavaSDM.ensure(isApplicableMatch != null);
+			// iterate to-many link attributeInfo from isApplicableMatch to csp
+			fujaba__Success = false;
+
+			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
+					.getAttributeInfo().iterator();
+
+			while (!(fujaba__Success)
+					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
+				try {
+					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
+
+					// ensure correct type and really bound of object csp
+					JavaSDM.ensure(_TmpObject instanceof CSP);
+					csp = (CSP) _TmpObject;
+
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
+				}
+			}
+			JavaSDM.ensure(fujaba__Success);
+			// create object interaction
+			interaction = ModalSequenceDiagramFactory.eINSTANCE
+					.createInteraction();
+
+			// create object useCaseToInteraction
+			useCaseToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createUseCaseToInteraction();
+
+			// create object basicFlowToInteraction
+			basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createFlowToInteractionFragment();
+
+			// assign attribute interaction
+			interaction.setName((java.lang.String) csp.getValue("interaction",
+					"name"));
+
+			// create link
+			basicFlowToInteraction.setSource(basicFlow);
+
+			// create link
+			_package.getPackagedElement().add(interaction); // add link
+
+			// create link
+			useCaseToInteraction.setSource(useCase);
+
+			// create link
+			useCaseToInteraction.setTarget(interaction);
+
+			// create link
+			basicFlowToInteraction.setTarget(interaction);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'collect translated elements'
+		try {
+			fujaba__Success = false;
+
+			// check object basicFlow is really bound
+			JavaSDM.ensure(basicFlow != null);
+			// check object basicFlowToInteraction is really bound
+			JavaSDM.ensure(basicFlowToInteraction != null);
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
+			// check object useCase is really bound
+			JavaSDM.ensure(useCase != null);
+			// check object useCaseToInteraction is really bound
+			JavaSDM.ensure(useCaseToInteraction != null);
+			// create object ruleresult
+			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCaseToInteraction, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCase, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlowToInteraction, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlow, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					interaction, "createdElements");
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'bookkeeping for edges'
+		try {
+			fujaba__Success = false;
+
+			// check object _package is really bound
+			JavaSDM.ensure(_package != null);
+			// check object basicFlow is really bound
+			JavaSDM.ensure(basicFlow != null);
+			// check object basicFlowToInteraction is really bound
+			JavaSDM.ensure(basicFlowToInteraction != null);
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+			// check object packageDeclarationToPackage is really bound
+			JavaSDM.ensure(packageDeclarationToPackage != null);
+			// check object ruleresult is really bound
+			JavaSDM.ensure(ruleresult != null);
+			// check object useCase is really bound
+			JavaSDM.ensure(useCase != null);
+			// check object useCaseToInteraction is really bound
+			JavaSDM.ensure(useCaseToInteraction != null);
+			// check isomorphic binding between objects basicFlow and _package 
+			JavaSDM.ensure(!basicFlow.equals(_package));
+
+			// check isomorphic binding between objects basicFlowToInteraction and _package 
+			JavaSDM.ensure(!basicFlowToInteraction.equals(_package));
+
+			// check isomorphic binding between objects interaction and _package 
+			JavaSDM.ensure(!interaction.equals(_package));
+
+			// check isomorphic binding between objects packageDeclaration and _package 
+			JavaSDM.ensure(!packageDeclaration.equals(_package));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and _package 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(_package));
+
+			// check isomorphic binding between objects useCase and _package 
+			JavaSDM.ensure(!useCase.equals(_package));
+
+			// check isomorphic binding between objects useCaseToInteraction and _package 
+			JavaSDM.ensure(!useCaseToInteraction.equals(_package));
+
+			// check isomorphic binding between objects basicFlowToInteraction and basicFlow 
+			JavaSDM.ensure(!basicFlowToInteraction.equals(basicFlow));
+
+			// check isomorphic binding between objects interaction and basicFlow 
+			JavaSDM.ensure(!interaction.equals(basicFlow));
+
+			// check isomorphic binding between objects packageDeclaration and basicFlow 
+			JavaSDM.ensure(!packageDeclaration.equals(basicFlow));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and basicFlow 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(basicFlow));
+
+			// check isomorphic binding between objects useCase and basicFlow 
+			JavaSDM.ensure(!useCase.equals(basicFlow));
+
+			// check isomorphic binding between objects useCaseToInteraction and basicFlow 
+			JavaSDM.ensure(!useCaseToInteraction.equals(basicFlow));
+
+			// check isomorphic binding between objects interaction and basicFlowToInteraction 
+			JavaSDM.ensure(!interaction.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects packageDeclaration and basicFlowToInteraction 
+			JavaSDM.ensure(!packageDeclaration.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and basicFlowToInteraction 
+			JavaSDM.ensure(!packageDeclarationToPackage
+					.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects useCase and basicFlowToInteraction 
+			JavaSDM.ensure(!useCase.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects useCaseToInteraction and basicFlowToInteraction 
+			JavaSDM.ensure(!useCaseToInteraction.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects packageDeclaration and interaction 
+			JavaSDM.ensure(!packageDeclaration.equals(interaction));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and interaction 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(interaction));
+
+			// check isomorphic binding between objects useCase and interaction 
+			JavaSDM.ensure(!useCase.equals(interaction));
+
+			// check isomorphic binding between objects useCaseToInteraction and interaction 
+			JavaSDM.ensure(!useCaseToInteraction.equals(interaction));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
+			JavaSDM.ensure(!packageDeclarationToPackage
+					.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclaration 
+			JavaSDM.ensure(!useCase.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCaseToInteraction and packageDeclaration 
+			JavaSDM.ensure(!useCaseToInteraction.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclarationToPackage 
+			JavaSDM.ensure(!useCase.equals(packageDeclarationToPackage));
+
+			// check isomorphic binding between objects useCaseToInteraction and packageDeclarationToPackage 
+			JavaSDM.ensure(!useCaseToInteraction
+					.equals(packageDeclarationToPackage));
+
+			// check isomorphic binding between objects useCaseToInteraction and useCase 
+			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
+
+			// create object _package__packagedElement__interaction
+			_package__packagedElement__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCaseToInteraction__target__interaction
+			useCaseToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object basicFlowToInteraction__source__basicFlow
+			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __useCase_flows_basicFlow
+			__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object basicFlowToInteraction__target__interaction
+			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __packageDeclaration_useCases_useCase
+			__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCaseToInteraction__source__useCase
+			useCaseToInteraction__source__useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// assign attribute ruleresult
+			ruleresult.setRuleName("UseCaseToInteractionRule");
+			// assign attribute __packageDeclaration_useCases_useCase
+			__packageDeclaration_useCases_useCase.setName("useCases");
+			// assign attribute _package__packagedElement__interaction
+			_package__packagedElement__interaction.setName("packagedElement");
+			// assign attribute __useCase_flows_basicFlow
+			__useCase_flows_basicFlow.setName("flows");
+			// assign attribute useCaseToInteraction__source__useCase
+			useCaseToInteraction__source__useCase.setName("source");
+			// assign attribute useCaseToInteraction__target__interaction
+			useCaseToInteraction__target__interaction.setName("target");
+			// assign attribute basicFlowToInteraction__source__basicFlow
+			basicFlowToInteraction__source__basicFlow.setName("source");
+			// assign attribute basicFlowToInteraction__target__interaction
+			basicFlowToInteraction__target__interaction.setName("target");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					_package__packagedElement__interaction, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCaseToInteraction__target__interaction, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlowToInteraction__source__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__useCase_flows_basicFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil
+					.addOppositeReference(ruleresult,
+							basicFlowToInteraction__target__interaction,
+							"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__packageDeclaration_useCases_useCase, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCaseToInteraction__source__useCase, "createdEdges");
+
+			// create link
+			__packageDeclaration_useCases_useCase.setSrc(packageDeclaration);
+
+			// create link
+			_package__packagedElement__interaction.setSrc(_package);
+
+			// create link
+			__packageDeclaration_useCases_useCase.setTrg(useCase);
+
+			// create link
+			useCaseToInteraction__source__useCase.setTrg(useCase);
+
+			// create link
+			__useCase_flows_basicFlow.setSrc(useCase);
+
+			// create link
+			basicFlowToInteraction__target__interaction.setTrg(interaction);
+
+			// create link
+			useCaseToInteraction__target__interaction.setTrg(interaction);
+
+			// create link
+			_package__packagedElement__interaction.setTrg(interaction);
+
+			// create link
+			useCaseToInteraction__target__interaction
+					.setSrc(useCaseToInteraction);
+
+			// create link
+			useCaseToInteraction__source__useCase.setSrc(useCaseToInteraction);
+
+			// create link
+			__useCase_flows_basicFlow.setTrg(basicFlow);
+
+			// create link
+			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
+
+			// create link
+			basicFlowToInteraction__source__basicFlow
+					.setSrc(basicFlowToInteraction);
+
+			// create link
+			basicFlowToInteraction__target__interaction
+					.setSrc(basicFlowToInteraction);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// statement node 'perform postprocessing'
+		// No post processing method found
+		// statement node 'register objects'
+		this.registerObjects_FWD(ruleresult, packageDeclaration, _package,
+				packageDeclarationToPackage, useCase, interaction,
+				useCaseToInteraction, basicFlow, basicFlowToInteraction);
+		return ruleresult;
 	}
 
 	/**
@@ -448,7 +847,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch.getAllContextElements().add(_package);
 
 						// create link
-						__packageDeclarationToPackage_target__package
+						__packageDeclarationToPackage_source_packageDeclaration
 								.setSrc(packageDeclarationToPackage);
 
 						// create link
@@ -456,17 +855,17 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								packageDeclarationToPackage);
 
 						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
+						__packageDeclarationToPackage_target__package
 								.setSrc(packageDeclarationToPackage);
 
 						// create link
-						__packageDeclaration_useCases_useCase.setTrg(useCase);
+						isApplicableMatch.getAllContextElements().add(useCase);
 
 						// create link
 						__useCase_flows_basicFlow.setSrc(useCase);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(useCase);
+						__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 						// create link
 						isApplicableMatch.getAllContextElements()
@@ -481,17 +880,17 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								"allContextElements");
 
 						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__packageDeclaration_useCases_useCase,
+								"allContextElements");
+
+						// create link
 						org.moflon.util.eMoflonEMFUtil
 								.addOppositeReference(
 										isApplicableMatch,
 										__packageDeclarationToPackage_source_packageDeclaration,
 										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__packageDeclaration_useCases_useCase,
-								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -526,15 +925,15 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(isApplicableMatch != null);
 								// check object ruleresult is really bound
 								JavaSDM.ensure(ruleresult != null);
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
 								// assign attribute isApplicableMatch
 								isApplicableMatch
 										.setRuleName("UseCaseToInteractionRule");
+								// assign attribute ruleresult
+								ruleresult.setSuccess(true);
 
 								// create link
-								isApplicableMatch
-										.setIsApplicableRuleResult(ruleresult);
+								ruleresult.getIsApplicableMatch().add(
+										isApplicableMatch);
 
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
@@ -560,409 +959,6 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 		}
 
-		return ruleresult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		ModalSequenceDiagram.Package _package = null;
-		BasicFlow basicFlow = null;
-		PackageDeclaration packageDeclaration = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		Interaction interaction = null;
-		UseCaseToInteraction useCaseToInteraction = null;
-		FlowToInteractionFragment basicFlowToInteraction = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge useCaseToInteraction__source__useCase = null;
-		EMoflonEdge useCaseToInteraction__target__interaction = null;
-		EMoflonEdge basicFlowToInteraction__target__interaction = null;
-		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
-		EMoflonEdge _package__packagedElement__interaction = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("_package"));
-
-			// ensure correct type and really bound of object _package
-			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
-			_package = (ModalSequenceDiagram.Package) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("basicFlow"));
-
-			// ensure correct type and really bound of object basicFlow
-			JavaSDM.ensure(_TmpObject instanceof BasicFlow);
-			basicFlow = (BasicFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-			_TmpObject = (isApplicableMatch
-					.getObject("packageDeclarationToPackage"));
-
-			// ensure correct type and really bound of object packageDeclarationToPackage
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclarationToPackage);
-			packageDeclarationToPackage = (PackageDeclarationToPackage) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
-			// create object interaction
-			interaction = ModalSequenceDiagramFactory.eINSTANCE
-					.createInteraction();
-
-			// create object useCaseToInteraction
-			useCaseToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createUseCaseToInteraction();
-
-			// create object basicFlowToInteraction
-			basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createFlowToInteractionFragment();
-
-			// assign attribute interaction
-			interaction.setName((java.lang.String) csp.getAttributeVariable(
-					"interaction", "name").getValue());
-
-			// create link
-			basicFlowToInteraction.setSource(basicFlow);
-
-			// create link
-			_package.getPackagedElement().add(interaction); // add link
-
-			// create link
-			useCaseToInteraction.setSource(useCase);
-
-			// create link
-			basicFlowToInteraction.setTarget(interaction);
-
-			// create link
-			useCaseToInteraction.setTarget(interaction);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object basicFlowToInteraction is really bound
-			JavaSDM.ensure(basicFlowToInteraction != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToInteraction is really bound
-			JavaSDM.ensure(useCaseToInteraction != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlow, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase, "translatedElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object basicFlowToInteraction is really bound
-			JavaSDM.ensure(basicFlowToInteraction != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object packageDeclarationToPackage is really bound
-			JavaSDM.ensure(packageDeclarationToPackage != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToInteraction is really bound
-			JavaSDM.ensure(useCaseToInteraction != null);
-			// check isomorphic binding between objects basicFlow and _package 
-			JavaSDM.ensure(!basicFlow.equals(_package));
-
-			// check isomorphic binding between objects basicFlowToInteraction and _package 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(_package));
-
-			// check isomorphic binding between objects interaction and _package 
-			JavaSDM.ensure(!interaction.equals(_package));
-
-			// check isomorphic binding between objects packageDeclaration and _package 
-			JavaSDM.ensure(!packageDeclaration.equals(_package));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and _package 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(_package));
-
-			// check isomorphic binding between objects useCase and _package 
-			JavaSDM.ensure(!useCase.equals(_package));
-
-			// check isomorphic binding between objects useCaseToInteraction and _package 
-			JavaSDM.ensure(!useCaseToInteraction.equals(_package));
-
-			// check isomorphic binding between objects basicFlowToInteraction and basicFlow 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(basicFlow));
-
-			// check isomorphic binding between objects interaction and basicFlow 
-			JavaSDM.ensure(!interaction.equals(basicFlow));
-
-			// check isomorphic binding between objects packageDeclaration and basicFlow 
-			JavaSDM.ensure(!packageDeclaration.equals(basicFlow));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and basicFlow 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(basicFlow));
-
-			// check isomorphic binding between objects useCase and basicFlow 
-			JavaSDM.ensure(!useCase.equals(basicFlow));
-
-			// check isomorphic binding between objects useCaseToInteraction and basicFlow 
-			JavaSDM.ensure(!useCaseToInteraction.equals(basicFlow));
-
-			// check isomorphic binding between objects interaction and basicFlowToInteraction 
-			JavaSDM.ensure(!interaction.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclaration and basicFlowToInteraction 
-			JavaSDM.ensure(!packageDeclaration.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and basicFlowToInteraction 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects useCase and basicFlowToInteraction 
-			JavaSDM.ensure(!useCase.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects useCaseToInteraction and basicFlowToInteraction 
-			JavaSDM.ensure(!useCaseToInteraction.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclaration and interaction 
-			JavaSDM.ensure(!packageDeclaration.equals(interaction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and interaction 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(interaction));
-
-			// check isomorphic binding between objects useCase and interaction 
-			JavaSDM.ensure(!useCase.equals(interaction));
-
-			// check isomorphic binding between objects useCaseToInteraction and interaction 
-			JavaSDM.ensure(!useCaseToInteraction.equals(interaction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCase and packageDeclaration 
-			JavaSDM.ensure(!useCase.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCaseToInteraction and packageDeclaration 
-			JavaSDM.ensure(!useCaseToInteraction.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCase and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCase.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCaseToInteraction and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCaseToInteraction
-					.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCaseToInteraction and useCase 
-			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
-
-			// create object useCaseToInteraction__source__useCase
-			useCaseToInteraction__source__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCaseToInteraction__target__interaction
-			useCaseToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object _package__packagedElement__interaction
-			_package__packagedElement__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __packageDeclaration_useCases_useCase
-			__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __useCase_flows_basicFlow
-			__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("UseCaseToInteractionRule");
-			// assign attribute __packageDeclaration_useCases_useCase
-			__packageDeclaration_useCases_useCase.setName("useCases");
-			// assign attribute _package__packagedElement__interaction
-			_package__packagedElement__interaction.setName("packagedElement");
-			// assign attribute __useCase_flows_basicFlow
-			__useCase_flows_basicFlow.setName("flows");
-			// assign attribute useCaseToInteraction__source__useCase
-			useCaseToInteraction__source__useCase.setName("source");
-			// assign attribute useCaseToInteraction__target__interaction
-			useCaseToInteraction__target__interaction.setName("target");
-			// assign attribute basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow.setName("source");
-			// assign attribute basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction.setName("target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction__source__useCase, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction__target__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							basicFlowToInteraction__target__interaction,
-							"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction__source__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					_package__packagedElement__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__packageDeclaration_useCases_useCase, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCase_flows_basicFlow, "translatedEdges");
-
-			// create link
-			__packageDeclaration_useCases_useCase.setSrc(packageDeclaration);
-
-			// create link
-			_package__packagedElement__interaction.setSrc(_package);
-
-			// create link
-			__useCase_flows_basicFlow.setSrc(useCase);
-
-			// create link
-			useCaseToInteraction__source__useCase.setTrg(useCase);
-
-			// create link
-			__packageDeclaration_useCases_useCase.setTrg(useCase);
-
-			// create link
-			_package__packagedElement__interaction.setTrg(interaction);
-
-			// create link
-			useCaseToInteraction__target__interaction.setTrg(interaction);
-
-			// create link
-			basicFlowToInteraction__target__interaction.setTrg(interaction);
-
-			// create link
-			useCaseToInteraction__source__useCase.setSrc(useCaseToInteraction);
-
-			// create link
-			useCaseToInteraction__target__interaction
-					.setSrc(useCaseToInteraction);
-
-			// create link
-			__useCase_flows_basicFlow.setTrg(basicFlow);
-
-			// create link
-			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
-
-			// create link
-			basicFlowToInteraction__source__basicFlow
-					.setSrc(basicFlowToInteraction);
-
-			// create link
-			basicFlowToInteraction__target__interaction
-					.setSrc(basicFlowToInteraction);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, packageDeclaration, _package,
-				packageDeclarationToPackage, useCase, interaction,
-				useCaseToInteraction, basicFlow, basicFlowToInteraction);
 		return ruleresult;
 	}
 
@@ -1229,6 +1225,405 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
+		boolean fujaba__Success = false;
+		Object _TmpObject = null;
+		ModalSequenceDiagram.Package _package = null;
+		Interaction interaction = null;
+		PackageDeclaration packageDeclaration = null;
+		PackageDeclarationToPackage packageDeclarationToPackage = null;
+		Iterator fujaba__IterIsApplicableMatchToCsp = null;
+		CSP csp = null;
+		UseCase useCase = null;
+		BasicFlow basicFlow = null;
+		UseCaseToInteraction useCaseToInteraction = null;
+		FlowToInteractionFragment basicFlowToInteraction = null;
+		PerformRuleResult ruleresult = null;
+		EMoflonEdge ___package_packagedElement_interaction = null;
+		EMoflonEdge useCaseToInteraction__source__useCase = null;
+		EMoflonEdge basicFlowToInteraction__target__interaction = null;
+		EMoflonEdge packageDeclaration__useCases__useCase = null;
+		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
+		EMoflonEdge useCase__flows__basicFlow = null;
+		EMoflonEdge useCaseToInteraction__target__interaction = null;
+
+		// story node 'perform transformation'
+		try {
+			fujaba__Success = false;
+
+			_TmpObject = (isApplicableMatch.getObject("_package"));
+
+			// ensure correct type and really bound of object _package
+			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
+			_package = (ModalSequenceDiagram.Package) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("interaction"));
+
+			// ensure correct type and really bound of object interaction
+			JavaSDM.ensure(_TmpObject instanceof Interaction);
+			interaction = (Interaction) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
+			_TmpObject = (isApplicableMatch
+					.getObject("packageDeclarationToPackage"));
+
+			// ensure correct type and really bound of object packageDeclarationToPackage
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclarationToPackage);
+			packageDeclarationToPackage = (PackageDeclarationToPackage) _TmpObject;
+			// check object isApplicableMatch is really bound
+			JavaSDM.ensure(isApplicableMatch != null);
+			// iterate to-many link attributeInfo from isApplicableMatch to csp
+			fujaba__Success = false;
+
+			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
+					.getAttributeInfo().iterator();
+
+			while (!(fujaba__Success)
+					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
+				try {
+					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
+
+					// ensure correct type and really bound of object csp
+					JavaSDM.ensure(_TmpObject instanceof CSP);
+					csp = (CSP) _TmpObject;
+
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
+				}
+			}
+			JavaSDM.ensure(fujaba__Success);
+			// create object useCase
+			useCase = UseCaseDSLFactory.eINSTANCE.createUseCase();
+
+			// create object basicFlow
+			basicFlow = UseCaseDSLFactory.eINSTANCE.createBasicFlow();
+
+			// create object useCaseToInteraction
+			useCaseToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createUseCaseToInteraction();
+
+			// create object basicFlowToInteraction
+			basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createFlowToInteractionFragment();
+
+			// assign attribute useCase
+			useCase.setName((java.lang.String) csp.getValue("useCase", "name"));
+
+			// create link
+			basicFlowToInteraction.setTarget(interaction);
+
+			// create link
+			useCaseToInteraction.setTarget(interaction);
+
+			// create link
+			basicFlowToInteraction.setSource(basicFlow);
+
+			// create link
+			packageDeclaration.getUseCases().add(useCase); // add link
+
+			// create link
+			useCase.getFlows().add(basicFlow); // add link
+
+			// create link
+			useCaseToInteraction.setSource(useCase);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'collect translated elements'
+		try {
+			fujaba__Success = false;
+
+			// check object basicFlow is really bound
+			JavaSDM.ensure(basicFlow != null);
+			// check object basicFlowToInteraction is really bound
+			JavaSDM.ensure(basicFlowToInteraction != null);
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
+			// check object useCase is really bound
+			JavaSDM.ensure(useCase != null);
+			// check object useCaseToInteraction is really bound
+			JavaSDM.ensure(useCaseToInteraction != null);
+			// create object ruleresult
+			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlow, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					interaction, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlowToInteraction, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCaseToInteraction, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCase, "createdElements");
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'bookkeeping for edges'
+		try {
+			fujaba__Success = false;
+
+			// check object _package is really bound
+			JavaSDM.ensure(_package != null);
+			// check object basicFlow is really bound
+			JavaSDM.ensure(basicFlow != null);
+			// check object basicFlowToInteraction is really bound
+			JavaSDM.ensure(basicFlowToInteraction != null);
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+			// check object packageDeclarationToPackage is really bound
+			JavaSDM.ensure(packageDeclarationToPackage != null);
+			// check object ruleresult is really bound
+			JavaSDM.ensure(ruleresult != null);
+			// check object useCase is really bound
+			JavaSDM.ensure(useCase != null);
+			// check object useCaseToInteraction is really bound
+			JavaSDM.ensure(useCaseToInteraction != null);
+			// check isomorphic binding between objects basicFlow and _package 
+			JavaSDM.ensure(!basicFlow.equals(_package));
+
+			// check isomorphic binding between objects basicFlowToInteraction and _package 
+			JavaSDM.ensure(!basicFlowToInteraction.equals(_package));
+
+			// check isomorphic binding between objects interaction and _package 
+			JavaSDM.ensure(!interaction.equals(_package));
+
+			// check isomorphic binding between objects packageDeclaration and _package 
+			JavaSDM.ensure(!packageDeclaration.equals(_package));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and _package 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(_package));
+
+			// check isomorphic binding between objects useCase and _package 
+			JavaSDM.ensure(!useCase.equals(_package));
+
+			// check isomorphic binding between objects useCaseToInteraction and _package 
+			JavaSDM.ensure(!useCaseToInteraction.equals(_package));
+
+			// check isomorphic binding between objects basicFlowToInteraction and basicFlow 
+			JavaSDM.ensure(!basicFlowToInteraction.equals(basicFlow));
+
+			// check isomorphic binding between objects interaction and basicFlow 
+			JavaSDM.ensure(!interaction.equals(basicFlow));
+
+			// check isomorphic binding between objects packageDeclaration and basicFlow 
+			JavaSDM.ensure(!packageDeclaration.equals(basicFlow));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and basicFlow 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(basicFlow));
+
+			// check isomorphic binding between objects useCase and basicFlow 
+			JavaSDM.ensure(!useCase.equals(basicFlow));
+
+			// check isomorphic binding between objects useCaseToInteraction and basicFlow 
+			JavaSDM.ensure(!useCaseToInteraction.equals(basicFlow));
+
+			// check isomorphic binding between objects interaction and basicFlowToInteraction 
+			JavaSDM.ensure(!interaction.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects packageDeclaration and basicFlowToInteraction 
+			JavaSDM.ensure(!packageDeclaration.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and basicFlowToInteraction 
+			JavaSDM.ensure(!packageDeclarationToPackage
+					.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects useCase and basicFlowToInteraction 
+			JavaSDM.ensure(!useCase.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects useCaseToInteraction and basicFlowToInteraction 
+			JavaSDM.ensure(!useCaseToInteraction.equals(basicFlowToInteraction));
+
+			// check isomorphic binding between objects packageDeclaration and interaction 
+			JavaSDM.ensure(!packageDeclaration.equals(interaction));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and interaction 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(interaction));
+
+			// check isomorphic binding between objects useCase and interaction 
+			JavaSDM.ensure(!useCase.equals(interaction));
+
+			// check isomorphic binding between objects useCaseToInteraction and interaction 
+			JavaSDM.ensure(!useCaseToInteraction.equals(interaction));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
+			JavaSDM.ensure(!packageDeclarationToPackage
+					.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclaration 
+			JavaSDM.ensure(!useCase.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCaseToInteraction and packageDeclaration 
+			JavaSDM.ensure(!useCaseToInteraction.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclarationToPackage 
+			JavaSDM.ensure(!useCase.equals(packageDeclarationToPackage));
+
+			// check isomorphic binding between objects useCaseToInteraction and packageDeclarationToPackage 
+			JavaSDM.ensure(!useCaseToInteraction
+					.equals(packageDeclarationToPackage));
+
+			// check isomorphic binding between objects useCaseToInteraction and useCase 
+			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
+
+			// create object ___package_packagedElement_interaction
+			___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCaseToInteraction__source__useCase
+			useCaseToInteraction__source__useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object basicFlowToInteraction__target__interaction
+			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object packageDeclaration__useCases__useCase
+			packageDeclaration__useCases__useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object basicFlowToInteraction__source__basicFlow
+			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCase__flows__basicFlow
+			useCase__flows__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCaseToInteraction__target__interaction
+			useCaseToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// assign attribute ruleresult
+			ruleresult.setRuleName("UseCaseToInteractionRule");
+			// assign attribute packageDeclaration__useCases__useCase
+			packageDeclaration__useCases__useCase.setName("useCases");
+			// assign attribute ___package_packagedElement_interaction
+			___package_packagedElement_interaction.setName("packagedElement");
+			// assign attribute useCase__flows__basicFlow
+			useCase__flows__basicFlow.setName("flows");
+			// assign attribute useCaseToInteraction__source__useCase
+			useCaseToInteraction__source__useCase.setName("source");
+			// assign attribute useCaseToInteraction__target__interaction
+			useCaseToInteraction__target__interaction.setName("target");
+			// assign attribute basicFlowToInteraction__source__basicFlow
+			basicFlowToInteraction__source__basicFlow.setName("source");
+			// assign attribute basicFlowToInteraction__target__interaction
+			basicFlowToInteraction__target__interaction.setName("target");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					___package_packagedElement_interaction, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCaseToInteraction__source__useCase, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil
+					.addOppositeReference(ruleresult,
+							basicFlowToInteraction__target__interaction,
+							"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclaration__useCases__useCase, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlowToInteraction__source__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCase__flows__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCaseToInteraction__target__interaction, "createdEdges");
+
+			// create link
+			packageDeclaration__useCases__useCase.setSrc(packageDeclaration);
+
+			// create link
+			___package_packagedElement_interaction.setSrc(_package);
+
+			// create link
+			packageDeclaration__useCases__useCase.setTrg(useCase);
+
+			// create link
+			useCase__flows__basicFlow.setSrc(useCase);
+
+			// create link
+			useCaseToInteraction__source__useCase.setTrg(useCase);
+
+			// create link
+			___package_packagedElement_interaction.setTrg(interaction);
+
+			// create link
+			basicFlowToInteraction__target__interaction.setTrg(interaction);
+
+			// create link
+			useCaseToInteraction__target__interaction.setTrg(interaction);
+
+			// create link
+			useCaseToInteraction__source__useCase.setSrc(useCaseToInteraction);
+
+			// create link
+			useCaseToInteraction__target__interaction
+					.setSrc(useCaseToInteraction);
+
+			// create link
+			useCase__flows__basicFlow.setTrg(basicFlow);
+
+			// create link
+			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
+
+			// create link
+			basicFlowToInteraction__source__basicFlow
+					.setSrc(basicFlowToInteraction);
+
+			// create link
+			basicFlowToInteraction__target__interaction
+					.setSrc(basicFlowToInteraction);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// statement node 'perform postprocessing'
+		// No post processing method found
+		// statement node 'register objects'
+		this.registerObjects_BWD(ruleresult, packageDeclaration, _package,
+				packageDeclarationToPackage, useCase, interaction,
+				useCaseToInteraction, basicFlow, basicFlowToInteraction);
+		return ruleresult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IsApplicableRuleResult isApplicable_BWD(Match match) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1238,8 +1633,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		IsApplicableRuleResult ruleresult = null;
 		ModalSequenceDiagram.Package _package = null;
 		Interaction interaction = null;
-		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
 		EMoflonEdge __packageDeclarationToPackage_target__package = null;
 		EMoflonEdge ___package_packagedElement_interaction = null;
 		CSP csp = null;
@@ -1358,13 +1753,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						JavaSDM.ensure(_package
 								.equals(packageDeclarationToPackage.getTarget()));
 
-						// create object __packageDeclarationToPackage_source_packageDeclaration
-						__packageDeclarationToPackage_source_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
 						// create object isApplicableMatch
 						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 								.createIsApplicableMatch();
+
+						// create object __packageDeclarationToPackage_source_packageDeclaration
+						__packageDeclarationToPackage_source_packageDeclaration = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
 
 						// create object __packageDeclarationToPackage_target__package
 						__packageDeclarationToPackage_target__package = TGGRuntimeFactory.eINSTANCE
@@ -1385,26 +1780,22 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								.setName("target");
 
 						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setTrg(packageDeclaration);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								packageDeclaration);
+
+						// create link
+						__packageDeclarationToPackage_source_packageDeclaration
+								.setTrg(packageDeclaration);
 
 						// create link
 						__packageDeclarationToPackage_target__package
 								.setTrg(_package);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(_package);
-
-						// create link
 						___package_packagedElement_interaction.setSrc(_package);
 
 						// create link
-						__packageDeclarationToPackage_target__package
-								.setSrc(packageDeclarationToPackage);
+						isApplicableMatch.getAllContextElements().add(_package);
 
 						// create link
 						__packageDeclarationToPackage_source_packageDeclaration
@@ -1415,6 +1806,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								packageDeclarationToPackage);
 
 						// create link
+						__packageDeclarationToPackage_target__package
+								.setSrc(packageDeclarationToPackage);
+
+						// create link
 						isApplicableMatch.getAllContextElements().add(
 								interaction);
 
@@ -1423,17 +1818,17 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								.setTrg(interaction);
 
 						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								___package_packagedElement_interaction,
-								"allContextElements");
-
-						// create link
 						org.moflon.util.eMoflonEMFUtil
 								.addOppositeReference(
 										isApplicableMatch,
 										__packageDeclarationToPackage_source_packageDeclaration,
 										"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								___package_packagedElement_interaction,
+								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -1468,15 +1863,15 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(isApplicableMatch != null);
 								// check object ruleresult is really bound
 								JavaSDM.ensure(ruleresult != null);
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
 								// assign attribute isApplicableMatch
 								isApplicableMatch
 										.setRuleName("UseCaseToInteractionRule");
+								// assign attribute ruleresult
+								ruleresult.setSuccess(true);
 
 								// create link
-								isApplicableMatch
-										.setIsApplicableRuleResult(ruleresult);
+								ruleresult.getIsApplicableMatch().add(
+										isApplicableMatch);
 
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
@@ -1502,409 +1897,6 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 		}
 
-		return ruleresult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		ModalSequenceDiagram.Package _package = null;
-		Interaction interaction = null;
-		PackageDeclaration packageDeclaration = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		UseCase useCase = null;
-		BasicFlow basicFlow = null;
-		UseCaseToInteraction useCaseToInteraction = null;
-		FlowToInteractionFragment basicFlowToInteraction = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
-		EMoflonEdge basicFlowToInteraction__target__interaction = null;
-		EMoflonEdge useCaseToInteraction__target__interaction = null;
-		EMoflonEdge ___package_packagedElement_interaction = null;
-		EMoflonEdge useCaseToInteraction__source__useCase = null;
-		EMoflonEdge useCase__flows__basicFlow = null;
-		EMoflonEdge packageDeclaration__useCases__useCase = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("_package"));
-
-			// ensure correct type and really bound of object _package
-			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
-			_package = (ModalSequenceDiagram.Package) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("interaction"));
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-			_TmpObject = (isApplicableMatch
-					.getObject("packageDeclarationToPackage"));
-
-			// ensure correct type and really bound of object packageDeclarationToPackage
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclarationToPackage);
-			packageDeclarationToPackage = (PackageDeclarationToPackage) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
-			// create object useCase
-			useCase = UseCaseDSLFactory.eINSTANCE.createUseCase();
-
-			// create object basicFlow
-			basicFlow = UseCaseDSLFactory.eINSTANCE.createBasicFlow();
-
-			// create object useCaseToInteraction
-			useCaseToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createUseCaseToInteraction();
-
-			// create object basicFlowToInteraction
-			basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createFlowToInteractionFragment();
-
-			// assign attribute useCase
-			useCase.setName((java.lang.String) csp.getAttributeVariable(
-					"useCase", "name").getValue());
-
-			// create link
-			useCaseToInteraction.setTarget(interaction);
-
-			// create link
-			basicFlowToInteraction.setTarget(interaction);
-
-			// create link
-			basicFlowToInteraction.setSource(basicFlow);
-
-			// create link
-			packageDeclaration.getUseCases().add(useCase); // add link
-
-			// create link
-			useCase.getFlows().add(basicFlow); // add link
-
-			// create link
-			useCaseToInteraction.setSource(useCase);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object basicFlowToInteraction is really bound
-			JavaSDM.ensure(basicFlowToInteraction != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToInteraction is really bound
-			JavaSDM.ensure(useCaseToInteraction != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlow, "createdElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object basicFlowToInteraction is really bound
-			JavaSDM.ensure(basicFlowToInteraction != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object packageDeclarationToPackage is really bound
-			JavaSDM.ensure(packageDeclarationToPackage != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToInteraction is really bound
-			JavaSDM.ensure(useCaseToInteraction != null);
-			// check isomorphic binding between objects basicFlow and _package 
-			JavaSDM.ensure(!basicFlow.equals(_package));
-
-			// check isomorphic binding between objects basicFlowToInteraction and _package 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(_package));
-
-			// check isomorphic binding between objects interaction and _package 
-			JavaSDM.ensure(!interaction.equals(_package));
-
-			// check isomorphic binding between objects packageDeclaration and _package 
-			JavaSDM.ensure(!packageDeclaration.equals(_package));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and _package 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(_package));
-
-			// check isomorphic binding between objects useCase and _package 
-			JavaSDM.ensure(!useCase.equals(_package));
-
-			// check isomorphic binding between objects useCaseToInteraction and _package 
-			JavaSDM.ensure(!useCaseToInteraction.equals(_package));
-
-			// check isomorphic binding between objects basicFlowToInteraction and basicFlow 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(basicFlow));
-
-			// check isomorphic binding between objects interaction and basicFlow 
-			JavaSDM.ensure(!interaction.equals(basicFlow));
-
-			// check isomorphic binding between objects packageDeclaration and basicFlow 
-			JavaSDM.ensure(!packageDeclaration.equals(basicFlow));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and basicFlow 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(basicFlow));
-
-			// check isomorphic binding between objects useCase and basicFlow 
-			JavaSDM.ensure(!useCase.equals(basicFlow));
-
-			// check isomorphic binding between objects useCaseToInteraction and basicFlow 
-			JavaSDM.ensure(!useCaseToInteraction.equals(basicFlow));
-
-			// check isomorphic binding between objects interaction and basicFlowToInteraction 
-			JavaSDM.ensure(!interaction.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclaration and basicFlowToInteraction 
-			JavaSDM.ensure(!packageDeclaration.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and basicFlowToInteraction 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects useCase and basicFlowToInteraction 
-			JavaSDM.ensure(!useCase.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects useCaseToInteraction and basicFlowToInteraction 
-			JavaSDM.ensure(!useCaseToInteraction.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclaration and interaction 
-			JavaSDM.ensure(!packageDeclaration.equals(interaction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and interaction 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(interaction));
-
-			// check isomorphic binding between objects useCase and interaction 
-			JavaSDM.ensure(!useCase.equals(interaction));
-
-			// check isomorphic binding between objects useCaseToInteraction and interaction 
-			JavaSDM.ensure(!useCaseToInteraction.equals(interaction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCase and packageDeclaration 
-			JavaSDM.ensure(!useCase.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCaseToInteraction and packageDeclaration 
-			JavaSDM.ensure(!useCaseToInteraction.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCase and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCase.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCaseToInteraction and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCaseToInteraction
-					.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCaseToInteraction and useCase 
-			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
-
-			// create object basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCaseToInteraction__target__interaction
-			useCaseToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object ___package_packagedElement_interaction
-			___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCaseToInteraction__source__useCase
-			useCaseToInteraction__source__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCase__flows__basicFlow
-			useCase__flows__basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclaration__useCases__useCase
-			packageDeclaration__useCases__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("UseCaseToInteractionRule");
-			// assign attribute packageDeclaration__useCases__useCase
-			packageDeclaration__useCases__useCase.setName("useCases");
-			// assign attribute ___package_packagedElement_interaction
-			___package_packagedElement_interaction.setName("packagedElement");
-			// assign attribute useCase__flows__basicFlow
-			useCase__flows__basicFlow.setName("flows");
-			// assign attribute useCaseToInteraction__source__useCase
-			useCaseToInteraction__source__useCase.setName("source");
-			// assign attribute useCaseToInteraction__target__interaction
-			useCaseToInteraction__target__interaction.setName("target");
-			// assign attribute basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow.setName("source");
-			// assign attribute basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction.setName("target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction__source__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							basicFlowToInteraction__target__interaction,
-							"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction__target__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					___package_packagedElement_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction__source__useCase, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase__flows__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration__useCases__useCase, "createdEdges");
-
-			// create link
-			packageDeclaration__useCases__useCase.setSrc(packageDeclaration);
-
-			// create link
-			___package_packagedElement_interaction.setSrc(_package);
-
-			// create link
-			packageDeclaration__useCases__useCase.setTrg(useCase);
-
-			// create link
-			useCaseToInteraction__source__useCase.setTrg(useCase);
-
-			// create link
-			useCase__flows__basicFlow.setSrc(useCase);
-
-			// create link
-			___package_packagedElement_interaction.setTrg(interaction);
-
-			// create link
-			basicFlowToInteraction__target__interaction.setTrg(interaction);
-
-			// create link
-			useCaseToInteraction__target__interaction.setTrg(interaction);
-
-			// create link
-			useCaseToInteraction__target__interaction
-					.setSrc(useCaseToInteraction);
-
-			// create link
-			useCaseToInteraction__source__useCase.setSrc(useCaseToInteraction);
-
-			// create link
-			useCase__flows__basicFlow.setTrg(basicFlow);
-
-			// create link
-			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
-
-			// create link
-			basicFlowToInteraction__target__interaction
-					.setSrc(basicFlowToInteraction);
-
-			// create link
-			basicFlowToInteraction__source__basicFlow
-					.setSrc(basicFlowToInteraction);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_BWD(ruleresult, packageDeclaration, _package,
-				packageDeclarationToPackage, useCase, interaction,
-				useCaseToInteraction, basicFlow, basicFlowToInteraction);
 		return ruleresult;
 	}
 
@@ -2059,8 +2051,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_basicFlow_flows_931450 = null;
-		PackageDeclaration __DEC_useCase_useCases_246596 = null;
+		UseCase __DEC_basicFlow_flows_913239 = null;
+		PackageDeclaration __DEC_useCase_useCases_11345 = null;
 		Match match = null;
 		Iterator fujaba__IterUseCaseToBasicFlow = null;
 		BasicFlow basicFlow = null;
@@ -2153,19 +2145,19 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_basicFlow_flows_931450 = basicFlow
+							__DEC_basicFlow_flows_913239 = basicFlow
 									.eContainer() instanceof UseCase ? (UseCase) basicFlow
 									.eContainer() : null;
 
-							// check object __DEC_basicFlow_flows_931450 is really bound
-							JavaSDM.ensure(__DEC_basicFlow_flows_931450 != null);
+							// check object __DEC_basicFlow_flows_913239 is really bound
+							JavaSDM.ensure(__DEC_basicFlow_flows_913239 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_basicFlow_flows_931450
+							JavaSDM.ensure(__DEC_basicFlow_flows_913239
 									.getFlows().contains(basicFlow));
 
-							// check isomorphic binding between objects __DEC_basicFlow_flows_931450 and useCase 
-							JavaSDM.ensure(!__DEC_basicFlow_flows_931450
+							// check isomorphic binding between objects __DEC_basicFlow_flows_913239 and useCase 
+							JavaSDM.ensure(!__DEC_basicFlow_flows_913239
 									.equals(useCase));
 
 							fujaba__Success = true;
@@ -2182,19 +2174,18 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_useCase_useCases_246596 = useCase
-									.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+							__DEC_useCase_useCases_11345 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 									.eContainer() : null;
 
-							// check object __DEC_useCase_useCases_246596 is really bound
-							JavaSDM.ensure(__DEC_useCase_useCases_246596 != null);
+							// check object __DEC_useCase_useCases_11345 is really bound
+							JavaSDM.ensure(__DEC_useCase_useCases_11345 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_useCase_useCases_246596
+							JavaSDM.ensure(__DEC_useCase_useCases_11345
 									.getUseCases().contains(useCase));
 
-							// check isomorphic binding between objects __DEC_useCase_useCases_246596 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_useCase_useCases_246596
+							// check isomorphic binding between objects __DEC_useCase_useCases_11345 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_useCase_useCases_11345
 									.equals(packageDeclaration));
 
 							fujaba__Success = true;
@@ -2237,7 +2228,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						fujaba__Success = this.isAppropriate_FWD(match,
 								packageDeclaration, useCase, basicFlow);
 						if (fujaba__Success) {
-							// statement node ''
+							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_FWD(match);
 							if (fujaba__Success) {
 								// story node 'Add match to rule result'
@@ -2305,8 +2296,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_875790 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_122914 = null;
+		Interaction __DEC_interaction_enclosingInteraction_543640 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_875639 = null;
 		Match match = null;
 		Interaction interaction = null;
 		ModalSequenceDiagram.Package _package = null;
@@ -2386,14 +2377,14 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_interaction_enclosingInteraction_875790 = interaction
+					__DEC_interaction_enclosingInteraction_543640 = interaction
 							.getEnclosingInteraction();
 
-					// check object __DEC_interaction_enclosingInteraction_875790 is really bound
-					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_875790 != null);
+					// check object __DEC_interaction_enclosingInteraction_543640 is really bound
+					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_543640 != null);
 
-					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_875790 and interaction 
-					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_875790
+					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_543640 and interaction 
+					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_543640
 							.equals(interaction));
 
 					fujaba__Success = true;
@@ -2410,19 +2401,19 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_interaction_packagedElement_122914 = interaction
+					__DEC_interaction_packagedElement_875639 = interaction
 							.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 							.eContainer() : null;
 
-					// check object __DEC_interaction_packagedElement_122914 is really bound
-					JavaSDM.ensure(__DEC_interaction_packagedElement_122914 != null);
+					// check object __DEC_interaction_packagedElement_875639 is really bound
+					JavaSDM.ensure(__DEC_interaction_packagedElement_875639 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_interaction_packagedElement_122914
+					JavaSDM.ensure(__DEC_interaction_packagedElement_875639
 							.getPackagedElement().contains(interaction));
 
-					// check isomorphic binding between objects __DEC_interaction_packagedElement_122914 and _package 
-					JavaSDM.ensure(!__DEC_interaction_packagedElement_122914
+					// check isomorphic binding between objects __DEC_interaction_packagedElement_875639 and _package 
+					JavaSDM.ensure(!__DEC_interaction_packagedElement_875639
 							.equals(_package));
 
 					fujaba__Success = true;
@@ -2434,8 +2425,6 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 				JavaSDM.ensure(fujaba__Success);
 
-				// negative check for link covered from interaction
-				JavaSDM.ensure(interaction.getCovered().size() == 0);
 				// check link fragment from interaction to interaction
 				JavaSDM.ensure(!(interaction.equals(interaction
 						.getEnclosingInteraction())));
@@ -2469,7 +2458,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_BWD(match, _package,
 						interaction);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_BWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -2530,8 +2519,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_basicFlow_flows_463140 = null;
-		PackageDeclaration __DEC_useCase_useCases_536548 = null;
+		UseCase __DEC_basicFlow_flows_218046 = null;
+		PackageDeclaration __DEC_useCase_useCases_360863 = null;
 		Match match = null;
 		PackageDeclaration packageDeclaration = null;
 		BasicFlow basicFlow = null;
@@ -2620,18 +2609,18 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_basicFlow_flows_463140 = basicFlow.eContainer() instanceof UseCase ? (UseCase) basicFlow
+					__DEC_basicFlow_flows_218046 = basicFlow.eContainer() instanceof UseCase ? (UseCase) basicFlow
 							.eContainer() : null;
 
-					// check object __DEC_basicFlow_flows_463140 is really bound
-					JavaSDM.ensure(__DEC_basicFlow_flows_463140 != null);
+					// check object __DEC_basicFlow_flows_218046 is really bound
+					JavaSDM.ensure(__DEC_basicFlow_flows_218046 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_basicFlow_flows_463140.getFlows()
+					JavaSDM.ensure(__DEC_basicFlow_flows_218046.getFlows()
 							.contains(basicFlow));
 
-					// check isomorphic binding between objects __DEC_basicFlow_flows_463140 and useCase 
-					JavaSDM.ensure(!__DEC_basicFlow_flows_463140
+					// check isomorphic binding between objects __DEC_basicFlow_flows_218046 and useCase 
+					JavaSDM.ensure(!__DEC_basicFlow_flows_218046
 							.equals(useCase));
 
 					fujaba__Success = true;
@@ -2648,18 +2637,18 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_useCase_useCases_536548 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					__DEC_useCase_useCases_360863 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 							.eContainer() : null;
 
-					// check object __DEC_useCase_useCases_536548 is really bound
-					JavaSDM.ensure(__DEC_useCase_useCases_536548 != null);
+					// check object __DEC_useCase_useCases_360863 is really bound
+					JavaSDM.ensure(__DEC_useCase_useCases_360863 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_useCase_useCases_536548.getUseCases()
+					JavaSDM.ensure(__DEC_useCase_useCases_360863.getUseCases()
 							.contains(useCase));
 
-					// check isomorphic binding between objects __DEC_useCase_useCases_536548 and packageDeclaration 
-					JavaSDM.ensure(!__DEC_useCase_useCases_536548
+					// check isomorphic binding between objects __DEC_useCase_useCases_360863 and packageDeclaration 
+					JavaSDM.ensure(!__DEC_useCase_useCases_360863
 							.equals(packageDeclaration));
 
 					fujaba__Success = true;
@@ -2700,7 +2689,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_FWD(match,
 						packageDeclaration, useCase, basicFlow);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -2779,297 +2768,6 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			PackageDeclarationToPackage packageDeclarationToPackageDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		UseCase useCase = null;
-		Interaction interaction = null;
-		BasicFlow basicFlow = null;
-		UseCaseToInteraction useCaseToInteraction = null;
-		FlowToInteractionFragment basicFlowToInteraction = null;
-		ModalSequenceDiagram.Package _package = null;
-		PackageDeclaration packageDeclaration = null;
-		Iterator fujaba__IterPackageDeclarationToPackageListToPackageDeclarationToPackage = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-		Iterator fujaba__IterRuleEntryContainerToPackageDeclarationToPackageList = null;
-		RuleEntryList packageDeclarationToPackageList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to packageDeclarationToPackageList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToPackageDeclarationToPackageList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToPackageDeclarationToPackageList
-					.hasNext()) {
-				try {
-					packageDeclarationToPackageList = (RuleEntryList) fujaba__IterRuleEntryContainerToPackageDeclarationToPackageList
-							.next();
-
-					// check object packageDeclarationToPackageList is really bound
-					JavaSDM.ensure(packageDeclarationToPackageList != null);
-					// iterate to-many link entryObjects from packageDeclarationToPackageList to packageDeclarationToPackage
-					fujaba__Success = false;
-
-					fujaba__IterPackageDeclarationToPackageListToPackageDeclarationToPackage = new ArrayList(
-							packageDeclarationToPackageList.getEntryObjects())
-							.iterator();
-
-					while (fujaba__IterPackageDeclarationToPackageListToPackageDeclarationToPackage
-							.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterPackageDeclarationToPackageListToPackageDeclarationToPackage
-									.next();
-
-							// ensure correct type and really bound of object packageDeclarationToPackage
-							JavaSDM.ensure(_TmpObject instanceof PackageDeclarationToPackage);
-							packageDeclarationToPackage = (PackageDeclarationToPackage) _TmpObject;
-							// bind object
-							packageDeclaration = packageDeclarationToPackage
-									.getSource();
-
-							// check object packageDeclaration is really bound
-							JavaSDM.ensure(packageDeclaration != null);
-
-							// bind object
-							_package = packageDeclarationToPackage.getTarget();
-
-							// check object _package is really bound
-							JavaSDM.ensure(_package != null);
-
-							// story node 'solve CSP'
-							try {
-								fujaba__Success = false;
-
-								_TmpObject = (this.generateModel_solveCsp_BWD(
-										isApplicableMatch, packageDeclaration,
-										_package, packageDeclarationToPackage,
-										useCase, interaction,
-										useCaseToInteraction, basicFlow,
-										basicFlowToInteraction, ruleResult));
-
-								// ensure correct type and really bound of object csp
-								JavaSDM.ensure(_TmpObject instanceof CSP);
-								csp = (CSP) _TmpObject;
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							// statement node 'check CSP'
-							fujaba__Success = this
-									.generateModel_checkCsp_BWD(csp);
-							if (fujaba__Success) {
-								// story node 'perform'
-								try {
-									fujaba__Success = false;
-
-									// check object _package is really bound
-									JavaSDM.ensure(_package != null);
-									// check object packageDeclaration is really bound
-									JavaSDM.ensure(packageDeclaration != null);
-									// check object packageDeclarationToPackage is really bound
-									JavaSDM.ensure(packageDeclarationToPackage != null);
-									// check object ruleResult is really bound
-									JavaSDM.ensure(ruleResult != null);
-									// create object useCase
-									useCase = UseCaseDSLFactory.eINSTANCE
-											.createUseCase();
-
-									// create object interaction
-									interaction = ModalSequenceDiagramFactory.eINSTANCE
-											.createInteraction();
-
-									// create object basicFlow
-									basicFlow = UseCaseDSLFactory.eINSTANCE
-											.createBasicFlow();
-
-									// create object useCaseToInteraction
-									useCaseToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-											.createUseCaseToInteraction();
-
-									// create object basicFlowToInteraction
-									basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-											.createFlowToInteractionFragment();
-
-									// assign attribute useCase
-									useCase.setName((java.lang.String) csp
-											.getAttributeVariable("useCase",
-													"name").getValue());
-									// assign attribute interaction
-									interaction.setName((java.lang.String) csp
-											.getAttributeVariable(
-													"interaction", "name")
-											.getValue());
-									// assign attribute ruleResult
-									ruleResult.setSuccess(true);
-
-									// create link
-									packageDeclaration.getUseCases().add(
-											useCase); // add link
-
-									// create link
-									_package.getPackagedElement().add(
-											interaction); // add link
-
-									// create link
-									useCase.getFlows().add(basicFlow); // add link
-
-									// create link
-									ruleResult.getSourceObjects().add(useCase);
-
-									// create link
-									useCaseToInteraction.setSource(useCase);
-
-									// create link
-									ruleResult.getTargetObjects().add(
-											interaction);
-
-									// create link
-									useCaseToInteraction.setTarget(interaction);
-
-									// create link
-									basicFlowToInteraction
-											.setTarget(interaction);
-
-									// create link
-									ruleResult.getCorrObjects().add(
-											useCaseToInteraction);
-
-									// create link
-									ruleResult.getSourceObjects()
-											.add(basicFlow);
-
-									// create link
-									basicFlowToInteraction.setSource(basicFlow);
-
-									// create link
-									ruleResult.getCorrObjects().add(
-											basicFlowToInteraction);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								return ruleResult;
-
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			UseCase useCase, Interaction interaction,
-			UseCaseToInteraction useCaseToInteraction, BasicFlow basicFlow,
-			FlowToInteractionFragment basicFlowToInteraction,
-			ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-
-		// Create attribute variables
-
-		// Create explicit parameters
-
-		// Create unbound variables
-		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"useCase.name", csp);
-		var_useCase_name.setType("");
-		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
-				.createVariable("interaction.name", csp);
-		var_interaction_name.setType("");
-
-		// Create constraints
-		Eq eq = new Eq();
-
-		csp.getConstraints().add(eq);
-
-		// Solve CSP
-		eq.setRuleName("");
-		eq.solve(var_useCase_name, var_interaction_name);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("packageDeclaration",
-				packageDeclaration);
-		isApplicableMatch.registerObject("_package", _package);
-		isApplicableMatch.registerObject("packageDeclarationToPackage",
-				packageDeclarationToPackage);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -3078,10 +2776,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(PackageDeclaration) arguments.get(1),
 					(UseCase) arguments.get(2), (BasicFlow) arguments.get(3));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPLICABLE_FWD__MATCH:
-			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPLICABLE_FWD__MATCH:
+			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PACKAGEDECLARATION_USECASE_BASICFLOW:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(PackageDeclaration) arguments.get(1),
@@ -3115,10 +2813,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			return isAppropriate_BWD((Match) arguments.get(0),
 					(ModalSequenceDiagram.Package) arguments.get(1),
 					(Interaction) arguments.get(2));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPLICABLE_BWD__MATCH:
-			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPLICABLE_BWD__MATCH:
+			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_PACKAGE_INTERACTION:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
 					(ModalSequenceDiagram.Package) arguments.get(1),
@@ -3161,22 +2859,6 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_PACKAGEDECLARATIONTOPACKAGE:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(PackageDeclarationToPackage) arguments.get(1));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_USECASE_INTERACTION_USECASETOINTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(PackageDeclaration) arguments.get(1),
-					(ModalSequenceDiagram.Package) arguments.get(2),
-					(PackageDeclarationToPackage) arguments.get(3),
-					(UseCase) arguments.get(4), (Interaction) arguments.get(5),
-					(UseCaseToInteraction) arguments.get(6),
-					(BasicFlow) arguments.get(7),
-					(FlowToInteractionFragment) arguments.get(8),
-					(ModelgeneratorRuleResult) arguments.get(9));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

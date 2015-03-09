@@ -108,6 +108,12 @@ public class UseCaseToModalSequenceDiagramIntegrationAdapterFactory extends
 		}
 
 		@Override
+		public Adapter caseParallelStepToCombinedFragment(
+				ParallelStepToCombinedFragment object) {
+			return createParallelStepToCombinedFragmentAdapter();
+		}
+
+		@Override
 		public Adapter caseNormalStepToCombinedFragment(
 				NormalStepToCombinedFragment object) {
 			return createNormalStepToCombinedFragmentAdapter();
@@ -232,6 +238,20 @@ public class UseCaseToModalSequenceDiagramIntegrationAdapterFactory extends
 	 * @generated
 	 */
 	public Adapter createStepAlternativeToInteractionOperandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment <em>Parallel Step To Combined Fragment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment
+	 * @generated
+	 */
+	public Adapter createParallelStepToCombinedFragmentAdapter() {
 		return null;
 	}
 

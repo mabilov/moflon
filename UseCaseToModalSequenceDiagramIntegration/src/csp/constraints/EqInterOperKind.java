@@ -17,9 +17,6 @@ public class EqInterOperKind extends TGGConstraintImpl {
     	case "FB":
     		// TODO Implement FB-operation
     		throw new UnsupportedOperationException("This case in the constraint has not been implemented yet: " + bindingStates);
-    	case "FF":
-    		// TODO Implement FF-operation
-    		throw new UnsupportedOperationException("This case in the constraint has not been implemented yet: " + bindingStates);
     	default: 
     		throw new UnsupportedOperationException("This case in the constraint has not been implemented yet: " + bindingStates);
     	}

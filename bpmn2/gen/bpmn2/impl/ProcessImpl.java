@@ -164,10 +164,10 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 		Iterator fujaba__IterThisToOutFlow = null;
 		Object _TmpObject = null;
 		SequenceFlow outFlow = null;
-		Iterator fujaba__IterThisToInFlow = null;
-		SequenceFlow inFlow = null;
 		Iterator fujaba__IterThisToNextNode = null;
 		FlowNode nextNode = null;
+		Iterator fujaba__IterThisToInFlow = null;
+		SequenceFlow inFlow = null;
 
 		// story node 'removeNodeFromProcess'
 		try {
@@ -178,37 +178,37 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 			// check link flowElements from node to this
 			JavaSDM.ensure(this.equals(node.eContainer()));
 
-			// iterate to-many link flowElements from this to nextNode
+			// iterate to-many link flowElements from this to inFlow
 			fujaba__Success = false;
 
-			fujaba__IterThisToNextNode = this.getFlowElements().iterator();
+			fujaba__IterThisToInFlow = this.getFlowElements().iterator();
 
-			while (!(fujaba__Success) && fujaba__IterThisToNextNode.hasNext()) {
+			while (!(fujaba__Success) && fujaba__IterThisToInFlow.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterThisToNextNode.next();
+					_TmpObject = fujaba__IterThisToInFlow.next();
 
-					// ensure correct type and really bound of object nextNode
-					JavaSDM.ensure(_TmpObject instanceof FlowNode);
-					nextNode = (FlowNode) _TmpObject;
-					// check isomorphic binding between objects node and nextNode 
-					JavaSDM.ensure(!node.equals(nextNode));
+					// ensure correct type and really bound of object inFlow
+					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+					inFlow = (SequenceFlow) _TmpObject;
+					// check link incoming from inFlow to node
+					JavaSDM.ensure(node.equals(inFlow.getTargetRef()));
 
-					// iterate to-many link flowElements from this to inFlow
+					// iterate to-many link flowElements from this to nextNode
 					fujaba__Success = false;
 
-					fujaba__IterThisToInFlow = this.getFlowElements()
+					fujaba__IterThisToNextNode = this.getFlowElements()
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterThisToInFlow.hasNext()) {
+							&& fujaba__IterThisToNextNode.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterThisToInFlow.next();
+							_TmpObject = fujaba__IterThisToNextNode.next();
 
-							// ensure correct type and really bound of object inFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							inFlow = (SequenceFlow) _TmpObject;
-							// check link incoming from inFlow to node
-							JavaSDM.ensure(node.equals(inFlow.getTargetRef()));
+							// ensure correct type and really bound of object nextNode
+							JavaSDM.ensure(_TmpObject instanceof FlowNode);
+							nextNode = (FlowNode) _TmpObject;
+							// check isomorphic binding between objects node and nextNode 
+							JavaSDM.ensure(!node.equals(nextNode));
 
 							// iterate to-many link flowElements from this to outFlow
 							fujaba__Success = false;
@@ -263,9 +263,9 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 			this.getFlowElements().remove(outFlow); // delete link
 
 			// destroy link
-			outFlow.setSourceRef(null);
-			// destroy link
 			inFlow.setTargetRef(null);
+			// destroy link
+			outFlow.setSourceRef(null);
 			// destroy link
 			nextNode.getIncoming().remove(outFlow);
 			// delete object node

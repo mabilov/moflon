@@ -50,13 +50,13 @@ public interface RulesFactory extends EFactory {
 	UseCaseToInteractionRule createUseCaseToInteractionRule();
 
 	/**
-	 * Returns a new object of class '<em>Actor To Class Rule</em>'.
+	 * Returns a new object of class '<em>Actor To Lifeline Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Actor To Class Rule</em>'.
+	 * @return a new object of class '<em>Actor To Lifeline Rule</em>'.
 	 * @generated
 	 */
-	ActorToClassRule createActorToClassRule();
+	ActorToLifelineRule createActorToLifelineRule();
 
 	/**
 	 * Returns a new object of class '<em>Normal Step To Message Rule</em>'.
@@ -68,31 +68,76 @@ public interface RulesFactory extends EFactory {
 	NormalStepToMessageRule createNormalStepToMessageRule();
 
 	/**
-	 * Returns a new object of class '<em>Normal Step Basic Flow To Message Rule</em>'.
+	 * Returns a new object of class '<em>Normal Step BF To Message Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Normal Step Basic Flow To Message Rule</em>'.
+	 * @return a new object of class '<em>Normal Step BF To Message Rule</em>'.
 	 * @generated
 	 */
-	NormalStepBasicFlowToMessageRule createNormalStepBasicFlowToMessageRule();
+	NormalStepBFToMessageRule createNormalStepBFToMessageRule();
 
 	/**
-	 * Returns a new object of class '<em>Normal Step Named Flow To Message Rule</em>'.
+	 * Returns a new object of class '<em>Normal Step NF To Message Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Normal Step Named Flow To Message Rule</em>'.
+	 * @return a new object of class '<em>Normal Step NF To Message Rule</em>'.
 	 * @generated
 	 */
-	NormalStepNamedFlowToMessageRule createNormalStepNamedFlowToMessageRule();
+	NormalStepNFToMessageRule createNormalStepNFToMessageRule();
 
 	/**
-	 * Returns a new object of class '<em>Step To Combined Fragment Rule</em>'.
+	 * Returns a new object of class '<em>Alt Step To Combo Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Step To Combined Fragment Rule</em>'.
+	 * @return a new object of class '<em>Alt Step To Combo Rule</em>'.
 	 * @generated
 	 */
-	StepToCombinedFragmentRule createStepToCombinedFragmentRule();
+	AltStepToComboRule createAltStepToComboRule();
+
+	/**
+	 * Returns a new object of class '<em>Alt Step NF To Combo Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alt Step NF To Combo Rule</em>'.
+	 * @generated
+	 */
+	AltStepNFToComboRule createAltStepNFToComboRule();
+
+	/**
+	 * Returns a new object of class '<em>Parallel Step To Combined Fragment Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parallel Step To Combined Fragment Rule</em>'.
+	 * @generated
+	 */
+	ParallelStepToCombinedFragmentRule createParallelStepToCombinedFragmentRule();
+
+	/**
+	 * Returns a new object of class '<em>Parallel Flow To Operand Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parallel Flow To Operand Rule</em>'.
+	 * @generated
+	 */
+	ParallelFlowToOperandRule createParallelFlowToOperandRule();
+
+	/**
+	 * Returns a new object of class '<em>Use Case Precond To Found Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Use Case Precond To Found Message Rule</em>'.
+	 * @generated
+	 */
+	UseCasePrecondToFoundMessageRule createUseCasePrecondToFoundMessageRule();
+
+	/**
+	 * Returns a new object of class '<em>System Step BF To Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>System Step BF To Message Rule</em>'.
+	 * @generated
+	 */
+	SystemStepBFToMessageRule createSystemStepBFToMessageRule();
 
 	/**
 	 * Returns a new object of class '<em>Step Alt To Operand Rule</em>'.
@@ -102,6 +147,78 @@ public interface RulesFactory extends EFactory {
 	 * @generated
 	 */
 	StepAltToOperandRule createStepAltToOperandRule();
+
+	/**
+	 * Returns a new object of class '<em>Alt Step BF To Combo Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alt Step BF To Combo Rule</em>'.
+	 * @generated
+	 */
+	AltStepBFToComboRule createAltStepBFToComboRule();
+
+	/**
+	 * Returns a new object of class '<em>User Step BF Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>User Step BF Message Rule</em>'.
+	 * @generated
+	 */
+	UserStepBFMessageRule createUserStepBFMessageRule();
+
+	/**
+	 * Returns a new object of class '<em>System Step NF To Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>System Step NF To Message Rule</em>'.
+	 * @generated
+	 */
+	SystemStepNFToMessageRule createSystemStepNFToMessageRule();
+
+	/**
+	 * Returns a new object of class '<em>User Step Nf To Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>User Step Nf To Message Rule</em>'.
+	 * @generated
+	 */
+	UserStepNfToMessageRule createUserStepNfToMessageRule();
+
+	/**
+	 * Returns a new object of class '<em>Alt Sys Step BF To Combo Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alt Sys Step BF To Combo Rule</em>'.
+	 * @generated
+	 */
+	AltSysStepBFToComboRule createAltSysStepBFToComboRule();
+
+	/**
+	 * Returns a new object of class '<em>Alt User Step BF To Combo Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alt User Step BF To Combo Rule</em>'.
+	 * @generated
+	 */
+	AltUserStepBFToComboRule createAltUserStepBFToComboRule();
+
+	/**
+	 * Returns a new object of class '<em>Alt Sys Step NF To Combo Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alt Sys Step NF To Combo Rule</em>'.
+	 * @generated
+	 */
+	AltSysStepNFToComboRule createAltSysStepNFToComboRule();
+
+	/**
+	 * Returns a new object of class '<em>Alt User Step NF To Combo Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alt User Step NF To Combo Rule</em>'.
+	 * @generated
+	 */
+	AltUserStepNFToComboRule createAltUserStepNFToComboRule();
 
 	/**
 	 * Returns the package supported by this factory.

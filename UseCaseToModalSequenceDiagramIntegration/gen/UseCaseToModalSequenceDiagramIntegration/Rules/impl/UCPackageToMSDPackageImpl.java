@@ -2,7 +2,6 @@
  */
 package UseCaseToModalSequenceDiagramIntegration.Rules.impl;
 
-import ModalSequenceDiagram.Collaboration;
 import ModalSequenceDiagram.CombinedFragment;
 import ModalSequenceDiagram.Constraint;
 import ModalSequenceDiagram.Interaction;
@@ -16,15 +15,11 @@ import ModalSequenceDiagram.MessageOccurrenceSpecification;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
 import ModalSequenceDiagram.Model;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -40,6 +35,8 @@ import UseCaseDSL.Flow;
 import UseCaseDSL.NamedFlow;
 import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.ParallelFlow;
+import UseCaseDSL.ParallelStep;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
@@ -49,12 +46,12 @@ import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
 import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
 import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
+import UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage;
 
 import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
-import UseCaseToModalSequenceDiagramIntegration.UseCaseToCollaboration;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
@@ -173,12 +170,12 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						packageDeclaration, "toBeTranslatedNodes");
+						__useCasesModel_packages_packageDeclaration,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCasesModel_packages_packageDeclaration,
-						"toBeTranslatedEdges");
+						packageDeclaration, "toBeTranslatedNodes");
 
 				// create link
 				__useCasesModel_packages_packageDeclaration
@@ -228,6 +225,281 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
+		boolean fujaba__Success = false;
+		Object _TmpObject = null;
+		Model model = null;
+		PackageDeclaration packageDeclaration = null;
+		UseCasesModel useCasesModel = null;
+		UseCasesModelToModel useCasesModelToModel = null;
+		Iterator fujaba__IterIsApplicableMatchToCsp = null;
+		CSP csp = null;
+		ModalSequenceDiagram.Package p = null;
+		PackageDeclarationToPackage packageDeclarationToPackage = null;
+		PerformRuleResult ruleresult = null;
+		EMoflonEdge packageDeclarationToPackage__target__p = null;
+		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
+		EMoflonEdge packageDeclarationToPackage__source__packageDeclaration = null;
+		EMoflonEdge model__packagedElement__p = null;
+
+		// story node 'perform transformation'
+		try {
+			fujaba__Success = false;
+
+			_TmpObject = (isApplicableMatch.getObject("model"));
+
+			// ensure correct type and really bound of object model
+			JavaSDM.ensure(_TmpObject instanceof Model);
+			model = (Model) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("useCasesModel"));
+
+			// ensure correct type and really bound of object useCasesModel
+			JavaSDM.ensure(_TmpObject instanceof UseCasesModel);
+			useCasesModel = (UseCasesModel) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("useCasesModelToModel"));
+
+			// ensure correct type and really bound of object useCasesModelToModel
+			JavaSDM.ensure(_TmpObject instanceof UseCasesModelToModel);
+			useCasesModelToModel = (UseCasesModelToModel) _TmpObject;
+			// check object isApplicableMatch is really bound
+			JavaSDM.ensure(isApplicableMatch != null);
+			// iterate to-many link attributeInfo from isApplicableMatch to csp
+			fujaba__Success = false;
+
+			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
+					.getAttributeInfo().iterator();
+
+			while (!(fujaba__Success)
+					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
+				try {
+					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
+
+					// ensure correct type and really bound of object csp
+					JavaSDM.ensure(_TmpObject instanceof CSP);
+					csp = (CSP) _TmpObject;
+
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
+				}
+			}
+			JavaSDM.ensure(fujaba__Success);
+			// create object p
+			p = ModalSequenceDiagramFactory.eINSTANCE.createPackage();
+
+			// create object packageDeclarationToPackage
+			packageDeclarationToPackage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createPackageDeclarationToPackage();
+
+			// assign attribute p
+			p.setName((java.lang.String) csp.getValue("p", "name"));
+
+			// create link
+			model.getPackagedElement().add(p); // add link
+
+			// create link
+			packageDeclarationToPackage.setSource(packageDeclaration);
+
+			// create link
+			packageDeclarationToPackage.setTarget(p);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'collect translated elements'
+		try {
+			fujaba__Success = false;
+
+			// check object p is really bound
+			JavaSDM.ensure(p != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+			// check object packageDeclarationToPackage is really bound
+			JavaSDM.ensure(packageDeclarationToPackage != null);
+			// create object ruleresult
+			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult, p,
+					"createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclarationToPackage, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclaration, "translatedElements");
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'bookkeeping for edges'
+		try {
+			fujaba__Success = false;
+
+			// check object model is really bound
+			JavaSDM.ensure(model != null);
+			// check object p is really bound
+			JavaSDM.ensure(p != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+			// check object packageDeclarationToPackage is really bound
+			JavaSDM.ensure(packageDeclarationToPackage != null);
+			// check object ruleresult is really bound
+			JavaSDM.ensure(ruleresult != null);
+			// check object useCasesModel is really bound
+			JavaSDM.ensure(useCasesModel != null);
+			// check object useCasesModelToModel is really bound
+			JavaSDM.ensure(useCasesModelToModel != null);
+			// check isomorphic binding between objects p and model 
+			JavaSDM.ensure(!p.equals(model));
+
+			// check isomorphic binding between objects packageDeclaration and model 
+			JavaSDM.ensure(!packageDeclaration.equals(model));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and model 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(model));
+
+			// check isomorphic binding between objects useCasesModel and model 
+			JavaSDM.ensure(!useCasesModel.equals(model));
+
+			// check isomorphic binding between objects useCasesModelToModel and model 
+			JavaSDM.ensure(!useCasesModelToModel.equals(model));
+
+			// check isomorphic binding between objects packageDeclaration and p 
+			JavaSDM.ensure(!packageDeclaration.equals(p));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and p 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(p));
+
+			// check isomorphic binding between objects useCasesModel and p 
+			JavaSDM.ensure(!useCasesModel.equals(p));
+
+			// check isomorphic binding between objects useCasesModelToModel and p 
+			JavaSDM.ensure(!useCasesModelToModel.equals(p));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
+			JavaSDM.ensure(!packageDeclarationToPackage
+					.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCasesModel and packageDeclaration 
+			JavaSDM.ensure(!useCasesModel.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCasesModelToModel and packageDeclaration 
+			JavaSDM.ensure(!useCasesModelToModel.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCasesModel and packageDeclarationToPackage 
+			JavaSDM.ensure(!useCasesModel.equals(packageDeclarationToPackage));
+
+			// check isomorphic binding between objects useCasesModelToModel and packageDeclarationToPackage 
+			JavaSDM.ensure(!useCasesModelToModel
+					.equals(packageDeclarationToPackage));
+
+			// check isomorphic binding between objects useCasesModelToModel and useCasesModel 
+			JavaSDM.ensure(!useCasesModelToModel.equals(useCasesModel));
+
+			// create object packageDeclarationToPackage__target__p
+			packageDeclarationToPackage__target__p = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __useCasesModel_packages_packageDeclaration
+			__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object packageDeclarationToPackage__source__packageDeclaration
+			packageDeclarationToPackage__source__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object model__packagedElement__p
+			model__packagedElement__p = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// assign attribute ruleresult
+			ruleresult.setRuleName("UCPackageToMSDPackage");
+			// assign attribute __useCasesModel_packages_packageDeclaration
+			__useCasesModel_packages_packageDeclaration.setName("packages");
+			// assign attribute model__packagedElement__p
+			model__packagedElement__p.setName("packagedElement");
+			// assign attribute packageDeclarationToPackage__source__packageDeclaration
+			packageDeclarationToPackage__source__packageDeclaration
+					.setName("source");
+			// assign attribute packageDeclarationToPackage__target__p
+			packageDeclarationToPackage__target__p.setName("target");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclarationToPackage__target__p, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__useCasesModel_packages_packageDeclaration,
+					"translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclarationToPackage__source__packageDeclaration,
+					"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					model__packagedElement__p, "createdEdges");
+
+			// create link
+			__useCasesModel_packages_packageDeclaration.setSrc(useCasesModel);
+
+			// create link
+			model__packagedElement__p.setSrc(model);
+
+			// create link
+			__useCasesModel_packages_packageDeclaration
+					.setTrg(packageDeclaration);
+
+			// create link
+			packageDeclarationToPackage__source__packageDeclaration
+					.setTrg(packageDeclaration);
+
+			// create link
+			model__packagedElement__p.setTrg(p);
+
+			// create link
+			packageDeclarationToPackage__target__p.setTrg(p);
+
+			// create link
+			packageDeclarationToPackage__source__packageDeclaration
+					.setSrc(packageDeclarationToPackage);
+
+			// create link
+			packageDeclarationToPackage__target__p
+					.setSrc(packageDeclarationToPackage);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// statement node 'perform postprocessing'
+		// No post processing method found
+		// statement node 'register objects'
+		this.registerObjects_FWD(ruleresult, useCasesModel, model,
+				useCasesModelToModel, packageDeclaration, p,
+				packageDeclarationToPackage);
+		return ruleresult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -237,9 +509,9 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		IsApplicableRuleResult ruleresult = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCasesModel useCasesModel = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __useCasesModelToModel_source_useCasesModel = null;
 		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
+		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __useCasesModelToModel_target_model = null;
 		CSP csp = null;
 		Model model = null;
@@ -358,10 +630,6 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						JavaSDM.ensure(model.equals(useCasesModelToModel
 								.getTarget()));
 
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
 						// create object __useCasesModelToModel_source_useCasesModel
 						__useCasesModelToModel_source_useCasesModel = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
@@ -369,6 +637,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						// create object __useCasesModel_packages_packageDeclaration
 						__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
+
+						// create object isApplicableMatch
+						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+								.createIsApplicableMatch();
 
 						// create object __useCasesModelToModel_target_model
 						__useCasesModelToModel_target_model = TGGRuntimeFactory.eINSTANCE
@@ -384,10 +656,6 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						__useCasesModelToModel_target_model.setName("target");
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCasesModel);
-
-						// create link
 						__useCasesModelToModel_source_useCasesModel
 								.setTrg(useCasesModel);
 
@@ -396,14 +664,14 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								.setSrc(useCasesModel);
 
 						// create link
+						isApplicableMatch.getAllContextElements().add(
+								useCasesModel);
+
+						// create link
 						isApplicableMatch.getAllContextElements().add(model);
 
 						// create link
 						__useCasesModelToModel_target_model.setTrg(model);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCasesModelToModel);
 
 						// create link
 						__useCasesModelToModel_target_model
@@ -412,6 +680,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						// create link
 						__useCasesModelToModel_source_useCasesModel
 								.setSrc(useCasesModelToModel);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(
+								useCasesModelToModel);
 
 						// create link
 						__useCasesModel_packages_packageDeclaration
@@ -430,13 +702,13 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								__useCasesModel_packages_packageDeclaration,
+								__useCasesModelToModel_source_useCasesModel,
 								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								__useCasesModelToModel_source_useCasesModel,
+								__useCasesModel_packages_packageDeclaration,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -465,15 +737,15 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(isApplicableMatch != null);
 								// check object ruleresult is really bound
 								JavaSDM.ensure(ruleresult != null);
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
 								// assign attribute isApplicableMatch
 								isApplicableMatch
 										.setRuleName("UCPackageToMSDPackage");
+								// assign attribute ruleresult
+								ruleresult.setSuccess(true);
 
 								// create link
-								isApplicableMatch
-										.setIsApplicableRuleResult(ruleresult);
+								ruleresult.getIsApplicableMatch().add(
+										isApplicableMatch);
 
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
@@ -499,285 +771,6 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 		}
 
-		return ruleresult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		Model model = null;
-		PackageDeclaration packageDeclaration = null;
-		UseCasesModel useCasesModel = null;
-		UseCasesModelToModel useCasesModelToModel = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		ModalSequenceDiagram.Package p = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge packageDeclarationToPackage__source__packageDeclaration = null;
-		EMoflonEdge packageDeclarationToPackage__target__p = null;
-		EMoflonEdge model__packagedElement__p = null;
-		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("model"));
-
-			// ensure correct type and really bound of object model
-			JavaSDM.ensure(_TmpObject instanceof Model);
-			model = (Model) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCasesModel"));
-
-			// ensure correct type and really bound of object useCasesModel
-			JavaSDM.ensure(_TmpObject instanceof UseCasesModel);
-			useCasesModel = (UseCasesModel) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCasesModelToModel"));
-
-			// ensure correct type and really bound of object useCasesModelToModel
-			JavaSDM.ensure(_TmpObject instanceof UseCasesModelToModel);
-			useCasesModelToModel = (UseCasesModelToModel) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
-			// create object p
-			p = ModalSequenceDiagramFactory.eINSTANCE.createPackage();
-
-			// create object packageDeclarationToPackage
-			packageDeclarationToPackage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createPackageDeclarationToPackage();
-
-			// assign attribute p
-			p.setName((java.lang.String) csp.getAttributeVariable("p", "name")
-					.getValue());
-
-			// create link
-			model.getPackagedElement().add(p); // add link
-
-			// create link
-			packageDeclarationToPackage.setSource(packageDeclaration);
-
-			// create link
-			packageDeclarationToPackage.setTarget(p);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object p is really bound
-			JavaSDM.ensure(p != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object packageDeclarationToPackage is really bound
-			JavaSDM.ensure(packageDeclarationToPackage != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclarationToPackage, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult, p,
-					"createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration, "translatedElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object model is really bound
-			JavaSDM.ensure(model != null);
-			// check object p is really bound
-			JavaSDM.ensure(p != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object packageDeclarationToPackage is really bound
-			JavaSDM.ensure(packageDeclarationToPackage != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCasesModel is really bound
-			JavaSDM.ensure(useCasesModel != null);
-			// check object useCasesModelToModel is really bound
-			JavaSDM.ensure(useCasesModelToModel != null);
-			// check isomorphic binding between objects p and model 
-			JavaSDM.ensure(!p.equals(model));
-
-			// check isomorphic binding between objects packageDeclaration and model 
-			JavaSDM.ensure(!packageDeclaration.equals(model));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and model 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(model));
-
-			// check isomorphic binding between objects useCasesModel and model 
-			JavaSDM.ensure(!useCasesModel.equals(model));
-
-			// check isomorphic binding between objects useCasesModelToModel and model 
-			JavaSDM.ensure(!useCasesModelToModel.equals(model));
-
-			// check isomorphic binding between objects packageDeclaration and p 
-			JavaSDM.ensure(!packageDeclaration.equals(p));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and p 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(p));
-
-			// check isomorphic binding between objects useCasesModel and p 
-			JavaSDM.ensure(!useCasesModel.equals(p));
-
-			// check isomorphic binding between objects useCasesModelToModel and p 
-			JavaSDM.ensure(!useCasesModelToModel.equals(p));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCasesModel and packageDeclaration 
-			JavaSDM.ensure(!useCasesModel.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCasesModelToModel and packageDeclaration 
-			JavaSDM.ensure(!useCasesModelToModel.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCasesModel and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCasesModel.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCasesModelToModel and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCasesModelToModel
-					.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCasesModelToModel and useCasesModel 
-			JavaSDM.ensure(!useCasesModelToModel.equals(useCasesModel));
-
-			// create object packageDeclarationToPackage__source__packageDeclaration
-			packageDeclarationToPackage__source__packageDeclaration = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclarationToPackage__target__p
-			packageDeclarationToPackage__target__p = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object model__packagedElement__p
-			model__packagedElement__p = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __useCasesModel_packages_packageDeclaration
-			__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("UCPackageToMSDPackage");
-			// assign attribute __useCasesModel_packages_packageDeclaration
-			__useCasesModel_packages_packageDeclaration.setName("packages");
-			// assign attribute model__packagedElement__p
-			model__packagedElement__p.setName("packagedElement");
-			// assign attribute packageDeclarationToPackage__source__packageDeclaration
-			packageDeclarationToPackage__source__packageDeclaration
-					.setName("source");
-			// assign attribute packageDeclarationToPackage__target__p
-			packageDeclarationToPackage__target__p.setName("target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclarationToPackage__source__packageDeclaration,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclarationToPackage__target__p, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					model__packagedElement__p, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCasesModel_packages_packageDeclaration,
-					"translatedEdges");
-
-			// create link
-			__useCasesModel_packages_packageDeclaration.setSrc(useCasesModel);
-
-			// create link
-			model__packagedElement__p.setSrc(model);
-
-			// create link
-			packageDeclarationToPackage__source__packageDeclaration
-					.setTrg(packageDeclaration);
-
-			// create link
-			__useCasesModel_packages_packageDeclaration
-					.setTrg(packageDeclaration);
-
-			// create link
-			packageDeclarationToPackage__target__p.setTrg(p);
-
-			// create link
-			model__packagedElement__p.setTrg(p);
-
-			// create link
-			packageDeclarationToPackage__source__packageDeclaration
-					.setSrc(packageDeclarationToPackage);
-
-			// create link
-			packageDeclarationToPackage__target__p
-					.setSrc(packageDeclarationToPackage);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, useCasesModel, model,
-				useCasesModelToModel, packageDeclaration, p,
-				packageDeclarationToPackage);
 		return ruleresult;
 	}
 
@@ -1036,6 +1029,287 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
+		boolean fujaba__Success = false;
+		Object _TmpObject = null;
+		Model model = null;
+		ModalSequenceDiagram.Package p = null;
+		UseCasesModel useCasesModel = null;
+		UseCasesModelToModel useCasesModelToModel = null;
+		Iterator fujaba__IterIsApplicableMatchToCsp = null;
+		CSP csp = null;
+		PackageDeclaration packageDeclaration = null;
+		PackageDeclarationToPackage packageDeclarationToPackage = null;
+		PerformRuleResult ruleresult = null;
+		EMoflonEdge packageDeclarationToPackage__source__packageDeclaration = null;
+		EMoflonEdge __model_packagedElement_p = null;
+		EMoflonEdge packageDeclarationToPackage__target__p = null;
+		EMoflonEdge useCasesModel__packages__packageDeclaration = null;
+
+		// story node 'perform transformation'
+		try {
+			fujaba__Success = false;
+
+			_TmpObject = (isApplicableMatch.getObject("model"));
+
+			// ensure correct type and really bound of object model
+			JavaSDM.ensure(_TmpObject instanceof Model);
+			model = (Model) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("p"));
+
+			// ensure correct type and really bound of object p
+			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
+			p = (ModalSequenceDiagram.Package) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("useCasesModel"));
+
+			// ensure correct type and really bound of object useCasesModel
+			JavaSDM.ensure(_TmpObject instanceof UseCasesModel);
+			useCasesModel = (UseCasesModel) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("useCasesModelToModel"));
+
+			// ensure correct type and really bound of object useCasesModelToModel
+			JavaSDM.ensure(_TmpObject instanceof UseCasesModelToModel);
+			useCasesModelToModel = (UseCasesModelToModel) _TmpObject;
+			// check object isApplicableMatch is really bound
+			JavaSDM.ensure(isApplicableMatch != null);
+			// check isomorphic binding between objects p and model 
+			JavaSDM.ensure(!p.equals(model));
+
+			// iterate to-many link attributeInfo from isApplicableMatch to csp
+			fujaba__Success = false;
+
+			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
+					.getAttributeInfo().iterator();
+
+			while (!(fujaba__Success)
+					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
+				try {
+					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
+
+					// ensure correct type and really bound of object csp
+					JavaSDM.ensure(_TmpObject instanceof CSP);
+					csp = (CSP) _TmpObject;
+
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
+				}
+			}
+			JavaSDM.ensure(fujaba__Success);
+			// create object packageDeclaration
+			packageDeclaration = UseCaseDSLFactory.eINSTANCE
+					.createPackageDeclaration();
+
+			// create object packageDeclarationToPackage
+			packageDeclarationToPackage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createPackageDeclarationToPackage();
+
+			// assign attribute packageDeclaration
+			packageDeclaration.setName((java.lang.String) csp.getValue(
+					"packageDeclaration", "name"));
+
+			// create link
+			packageDeclarationToPackage.setTarget(p);
+
+			// create link
+			useCasesModel.getPackages().add(packageDeclaration); // add link
+
+			// create link
+			packageDeclarationToPackage.setSource(packageDeclaration);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'collect translated elements'
+		try {
+			fujaba__Success = false;
+
+			// check object p is really bound
+			JavaSDM.ensure(p != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+			// check object packageDeclarationToPackage is really bound
+			JavaSDM.ensure(packageDeclarationToPackage != null);
+			// create object ruleresult
+			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclaration, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclarationToPackage, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult, p,
+					"translatedElements");
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'bookkeeping for edges'
+		try {
+			fujaba__Success = false;
+
+			// check object model is really bound
+			JavaSDM.ensure(model != null);
+			// check object p is really bound
+			JavaSDM.ensure(p != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+			// check object packageDeclarationToPackage is really bound
+			JavaSDM.ensure(packageDeclarationToPackage != null);
+			// check object ruleresult is really bound
+			JavaSDM.ensure(ruleresult != null);
+			// check object useCasesModel is really bound
+			JavaSDM.ensure(useCasesModel != null);
+			// check object useCasesModelToModel is really bound
+			JavaSDM.ensure(useCasesModelToModel != null);
+			// check isomorphic binding between objects p and model 
+			JavaSDM.ensure(!p.equals(model));
+
+			// check isomorphic binding between objects packageDeclaration and model 
+			JavaSDM.ensure(!packageDeclaration.equals(model));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and model 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(model));
+
+			// check isomorphic binding between objects useCasesModel and model 
+			JavaSDM.ensure(!useCasesModel.equals(model));
+
+			// check isomorphic binding between objects useCasesModelToModel and model 
+			JavaSDM.ensure(!useCasesModelToModel.equals(model));
+
+			// check isomorphic binding between objects packageDeclaration and p 
+			JavaSDM.ensure(!packageDeclaration.equals(p));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and p 
+			JavaSDM.ensure(!packageDeclarationToPackage.equals(p));
+
+			// check isomorphic binding between objects useCasesModel and p 
+			JavaSDM.ensure(!useCasesModel.equals(p));
+
+			// check isomorphic binding between objects useCasesModelToModel and p 
+			JavaSDM.ensure(!useCasesModelToModel.equals(p));
+
+			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
+			JavaSDM.ensure(!packageDeclarationToPackage
+					.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCasesModel and packageDeclaration 
+			JavaSDM.ensure(!useCasesModel.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCasesModelToModel and packageDeclaration 
+			JavaSDM.ensure(!useCasesModelToModel.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCasesModel and packageDeclarationToPackage 
+			JavaSDM.ensure(!useCasesModel.equals(packageDeclarationToPackage));
+
+			// check isomorphic binding between objects useCasesModelToModel and packageDeclarationToPackage 
+			JavaSDM.ensure(!useCasesModelToModel
+					.equals(packageDeclarationToPackage));
+
+			// check isomorphic binding between objects useCasesModelToModel and useCasesModel 
+			JavaSDM.ensure(!useCasesModelToModel.equals(useCasesModel));
+
+			// create object packageDeclarationToPackage__source__packageDeclaration
+			packageDeclarationToPackage__source__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __model_packagedElement_p
+			__model_packagedElement_p = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object packageDeclarationToPackage__target__p
+			packageDeclarationToPackage__target__p = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCasesModel__packages__packageDeclaration
+			useCasesModel__packages__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// assign attribute ruleresult
+			ruleresult.setRuleName("UCPackageToMSDPackage");
+			// assign attribute useCasesModel__packages__packageDeclaration
+			useCasesModel__packages__packageDeclaration.setName("packages");
+			// assign attribute __model_packagedElement_p
+			__model_packagedElement_p.setName("packagedElement");
+			// assign attribute packageDeclarationToPackage__source__packageDeclaration
+			packageDeclarationToPackage__source__packageDeclaration
+					.setName("source");
+			// assign attribute packageDeclarationToPackage__target__p
+			packageDeclarationToPackage__target__p.setName("target");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclarationToPackage__source__packageDeclaration,
+					"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__model_packagedElement_p, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclarationToPackage__target__p, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil
+					.addOppositeReference(ruleresult,
+							useCasesModel__packages__packageDeclaration,
+							"createdEdges");
+
+			// create link
+			useCasesModel__packages__packageDeclaration.setSrc(useCasesModel);
+
+			// create link
+			__model_packagedElement_p.setSrc(model);
+
+			// create link
+			useCasesModel__packages__packageDeclaration
+					.setTrg(packageDeclaration);
+
+			// create link
+			packageDeclarationToPackage__source__packageDeclaration
+					.setTrg(packageDeclaration);
+
+			// create link
+			packageDeclarationToPackage__target__p.setTrg(p);
+
+			// create link
+			__model_packagedElement_p.setTrg(p);
+
+			// create link
+			packageDeclarationToPackage__source__packageDeclaration
+					.setSrc(packageDeclarationToPackage);
+
+			// create link
+			packageDeclarationToPackage__target__p
+					.setSrc(packageDeclarationToPackage);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// statement node 'perform postprocessing'
+		// No post processing method found
+		// statement node 'register objects'
+		this.registerObjects_BWD(ruleresult, useCasesModel, model,
+				useCasesModelToModel, packageDeclaration, p,
+				packageDeclarationToPackage);
+		return ruleresult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IsApplicableRuleResult isApplicable_BWD(Match match) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1047,8 +1321,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		ModalSequenceDiagram.Package p = null;
 		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __useCasesModelToModel_source_useCasesModel = null;
-		EMoflonEdge __useCasesModelToModel_target_model = null;
 		EMoflonEdge __model_packagedElement_p = null;
+		EMoflonEdge __useCasesModelToModel_target_model = null;
 		CSP csp = null;
 		UseCasesModel useCasesModel = null;
 		Iterator fujaba__IterModelToUseCasesModelToModel = null;
@@ -1177,12 +1451,12 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						__useCasesModelToModel_source_useCasesModel = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
-						// create object __useCasesModelToModel_target_model
-						__useCasesModelToModel_target_model = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
 						// create object __model_packagedElement_p
 						__model_packagedElement_p = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
+
+						// create object __useCasesModelToModel_target_model
+						__useCasesModelToModel_target_model = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// assign attribute __model_packagedElement_p
@@ -1205,10 +1479,14 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						isApplicableMatch.getAllContextElements().add(model);
 
 						// create link
+						__model_packagedElement_p.setSrc(model);
+
+						// create link
 						__useCasesModelToModel_target_model.setTrg(model);
 
 						// create link
-						__model_packagedElement_p.setSrc(model);
+						isApplicableMatch.getAllContextElements().add(
+								useCasesModelToModel);
 
 						// create link
 						__useCasesModelToModel_source_useCasesModel
@@ -1219,24 +1497,20 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								.setSrc(useCasesModelToModel);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCasesModelToModel);
+						isApplicableMatch.getAllContextElements().add(p);
 
 						// create link
 						__model_packagedElement_p.setTrg(p);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(p);
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __model_packagedElement_p,
+								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
 								__useCasesModelToModel_source_useCasesModel,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __model_packagedElement_p,
 								"allContextElements");
 
 						// create link
@@ -1271,15 +1545,15 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(isApplicableMatch != null);
 								// check object ruleresult is really bound
 								JavaSDM.ensure(ruleresult != null);
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
 								// assign attribute isApplicableMatch
 								isApplicableMatch
 										.setRuleName("UCPackageToMSDPackage");
+								// assign attribute ruleresult
+								ruleresult.setSuccess(true);
 
 								// create link
-								isApplicableMatch
-										.setIsApplicableRuleResult(ruleresult);
+								ruleresult.getIsApplicableMatch().add(
+										isApplicableMatch);
 
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
@@ -1305,291 +1579,6 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 		}
 
-		return ruleresult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		Model model = null;
-		ModalSequenceDiagram.Package p = null;
-		UseCasesModel useCasesModel = null;
-		UseCasesModelToModel useCasesModelToModel = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		PackageDeclaration packageDeclaration = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge __model_packagedElement_p = null;
-		EMoflonEdge packageDeclarationToPackage__source__packageDeclaration = null;
-		EMoflonEdge useCasesModel__packages__packageDeclaration = null;
-		EMoflonEdge packageDeclarationToPackage__target__p = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("model"));
-
-			// ensure correct type and really bound of object model
-			JavaSDM.ensure(_TmpObject instanceof Model);
-			model = (Model) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("p"));
-
-			// ensure correct type and really bound of object p
-			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
-			p = (ModalSequenceDiagram.Package) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCasesModel"));
-
-			// ensure correct type and really bound of object useCasesModel
-			JavaSDM.ensure(_TmpObject instanceof UseCasesModel);
-			useCasesModel = (UseCasesModel) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCasesModelToModel"));
-
-			// ensure correct type and really bound of object useCasesModelToModel
-			JavaSDM.ensure(_TmpObject instanceof UseCasesModelToModel);
-			useCasesModelToModel = (UseCasesModelToModel) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// check isomorphic binding between objects p and model 
-			JavaSDM.ensure(!p.equals(model));
-
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
-			// create object packageDeclaration
-			packageDeclaration = UseCaseDSLFactory.eINSTANCE
-					.createPackageDeclaration();
-
-			// create object packageDeclarationToPackage
-			packageDeclarationToPackage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createPackageDeclarationToPackage();
-
-			// assign attribute packageDeclaration
-			packageDeclaration.setName((java.lang.String) csp
-					.getAttributeVariable("packageDeclaration", "name")
-					.getValue());
-
-			// create link
-			packageDeclarationToPackage.setTarget(p);
-
-			// create link
-			useCasesModel.getPackages().add(packageDeclaration); // add link
-
-			// create link
-			packageDeclarationToPackage.setSource(packageDeclaration);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object p is really bound
-			JavaSDM.ensure(p != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object packageDeclarationToPackage is really bound
-			JavaSDM.ensure(packageDeclarationToPackage != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclarationToPackage, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult, p,
-					"translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration, "createdElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object model is really bound
-			JavaSDM.ensure(model != null);
-			// check object p is really bound
-			JavaSDM.ensure(p != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object packageDeclarationToPackage is really bound
-			JavaSDM.ensure(packageDeclarationToPackage != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCasesModel is really bound
-			JavaSDM.ensure(useCasesModel != null);
-			// check object useCasesModelToModel is really bound
-			JavaSDM.ensure(useCasesModelToModel != null);
-			// check isomorphic binding between objects p and model 
-			JavaSDM.ensure(!p.equals(model));
-
-			// check isomorphic binding between objects packageDeclaration and model 
-			JavaSDM.ensure(!packageDeclaration.equals(model));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and model 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(model));
-
-			// check isomorphic binding between objects useCasesModel and model 
-			JavaSDM.ensure(!useCasesModel.equals(model));
-
-			// check isomorphic binding between objects useCasesModelToModel and model 
-			JavaSDM.ensure(!useCasesModelToModel.equals(model));
-
-			// check isomorphic binding between objects packageDeclaration and p 
-			JavaSDM.ensure(!packageDeclaration.equals(p));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and p 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(p));
-
-			// check isomorphic binding between objects useCasesModel and p 
-			JavaSDM.ensure(!useCasesModel.equals(p));
-
-			// check isomorphic binding between objects useCasesModelToModel and p 
-			JavaSDM.ensure(!useCasesModelToModel.equals(p));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCasesModel and packageDeclaration 
-			JavaSDM.ensure(!useCasesModel.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCasesModelToModel and packageDeclaration 
-			JavaSDM.ensure(!useCasesModelToModel.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCasesModel and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCasesModel.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCasesModelToModel and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCasesModelToModel
-					.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCasesModelToModel and useCasesModel 
-			JavaSDM.ensure(!useCasesModelToModel.equals(useCasesModel));
-
-			// create object __model_packagedElement_p
-			__model_packagedElement_p = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclarationToPackage__source__packageDeclaration
-			packageDeclarationToPackage__source__packageDeclaration = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCasesModel__packages__packageDeclaration
-			useCasesModel__packages__packageDeclaration = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclarationToPackage__target__p
-			packageDeclarationToPackage__target__p = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("UCPackageToMSDPackage");
-			// assign attribute useCasesModel__packages__packageDeclaration
-			useCasesModel__packages__packageDeclaration.setName("packages");
-			// assign attribute __model_packagedElement_p
-			__model_packagedElement_p.setName("packagedElement");
-			// assign attribute packageDeclarationToPackage__source__packageDeclaration
-			packageDeclarationToPackage__source__packageDeclaration
-					.setName("source");
-			// assign attribute packageDeclarationToPackage__target__p
-			packageDeclarationToPackage__target__p.setName("target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__model_packagedElement_p, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclarationToPackage__source__packageDeclaration,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							useCasesModel__packages__packageDeclaration,
-							"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclarationToPackage__target__p, "createdEdges");
-
-			// create link
-			useCasesModel__packages__packageDeclaration.setSrc(useCasesModel);
-
-			// create link
-			__model_packagedElement_p.setSrc(model);
-
-			// create link
-			packageDeclarationToPackage__source__packageDeclaration
-					.setTrg(packageDeclaration);
-
-			// create link
-			useCasesModel__packages__packageDeclaration
-					.setTrg(packageDeclaration);
-
-			// create link
-			__model_packagedElement_p.setTrg(p);
-
-			// create link
-			packageDeclarationToPackage__target__p.setTrg(p);
-
-			// create link
-			packageDeclarationToPackage__target__p
-					.setSrc(packageDeclarationToPackage);
-
-			// create link
-			packageDeclarationToPackage__source__packageDeclaration
-					.setSrc(packageDeclarationToPackage);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_BWD(ruleresult, useCasesModel, model,
-				useCasesModelToModel, packageDeclaration, p,
-				packageDeclarationToPackage);
 		return ruleresult;
 	}
 
@@ -1738,7 +1727,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCasesModel __DEC_packageDeclaration_packages_102244 = null;
+		UseCasesModel __DEC_packageDeclaration_packages_544069 = null;
 		Match match = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCasesModel useCasesModel = null;
@@ -1816,19 +1805,19 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_packageDeclaration_packages_102244 = packageDeclaration
+					__DEC_packageDeclaration_packages_544069 = packageDeclaration
 							.eContainer() instanceof UseCasesModel ? (UseCasesModel) packageDeclaration
 							.eContainer() : null;
 
-					// check object __DEC_packageDeclaration_packages_102244 is really bound
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_102244 != null);
+					// check object __DEC_packageDeclaration_packages_544069 is really bound
+					JavaSDM.ensure(__DEC_packageDeclaration_packages_544069 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_102244
+					JavaSDM.ensure(__DEC_packageDeclaration_packages_544069
 							.getPackages().contains(packageDeclaration));
 
-					// check isomorphic binding between objects __DEC_packageDeclaration_packages_102244 and useCasesModel 
-					JavaSDM.ensure(!__DEC_packageDeclaration_packages_102244
+					// check isomorphic binding between objects __DEC_packageDeclaration_packages_544069 and useCasesModel 
+					JavaSDM.ensure(!__DEC_packageDeclaration_packages_544069
 							.equals(useCasesModel));
 
 					fujaba__Success = true;
@@ -1866,7 +1855,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_FWD(match, useCasesModel,
 						packageDeclaration);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -1927,7 +1916,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		ModalSequenceDiagram.Package __DEC_p_packagedElement_402660 = null;
+		ModalSequenceDiagram.Package __DEC_p_packagedElement_400085 = null;
 		Match match = null;
 		ModalSequenceDiagram.Package p = null;
 		Model model = null;
@@ -2008,22 +1997,22 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_p_packagedElement_402660 = p.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) p
+					__DEC_p_packagedElement_400085 = p.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) p
 							.eContainer() : null;
 
-					// check object __DEC_p_packagedElement_402660 is really bound
-					JavaSDM.ensure(__DEC_p_packagedElement_402660 != null);
+					// check object __DEC_p_packagedElement_400085 is really bound
+					JavaSDM.ensure(__DEC_p_packagedElement_400085 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_p_packagedElement_402660
+					JavaSDM.ensure(__DEC_p_packagedElement_400085
 							.getPackagedElement().contains(p));
 
-					// check isomorphic binding between objects __DEC_p_packagedElement_402660 and model 
-					JavaSDM.ensure(!__DEC_p_packagedElement_402660
+					// check isomorphic binding between objects __DEC_p_packagedElement_400085 and model 
+					JavaSDM.ensure(!__DEC_p_packagedElement_400085
 							.equals(model));
 
-					// check isomorphic binding between objects __DEC_p_packagedElement_402660 and p 
-					JavaSDM.ensure(!__DEC_p_packagedElement_402660.equals(p));
+					// check isomorphic binding between objects __DEC_p_packagedElement_400085 and p 
+					JavaSDM.ensure(!__DEC_p_packagedElement_400085.equals(p));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -2072,7 +2061,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_BWD(match, model, p);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_BWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -2151,269 +2140,6 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			UseCasesModelToModel useCasesModelToModelDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		PackageDeclaration packageDeclaration = null;
-		ModalSequenceDiagram.Package p = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-		Model model = null;
-		UseCasesModel useCasesModel = null;
-		Iterator fujaba__IterUseCasesModelToModelListToUseCasesModelToModel = null;
-		UseCasesModelToModel useCasesModelToModel = null;
-		Iterator fujaba__IterRuleEntryContainerToUseCasesModelToModelList = null;
-		RuleEntryList useCasesModelToModelList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to useCasesModelToModelList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToUseCasesModelToModelList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToUseCasesModelToModelList
-					.hasNext()) {
-				try {
-					useCasesModelToModelList = (RuleEntryList) fujaba__IterRuleEntryContainerToUseCasesModelToModelList
-							.next();
-
-					// check object useCasesModelToModelList is really bound
-					JavaSDM.ensure(useCasesModelToModelList != null);
-					// iterate to-many link entryObjects from useCasesModelToModelList to useCasesModelToModel
-					fujaba__Success = false;
-
-					fujaba__IterUseCasesModelToModelListToUseCasesModelToModel = new ArrayList(
-							useCasesModelToModelList.getEntryObjects())
-							.iterator();
-
-					while (fujaba__IterUseCasesModelToModelListToUseCasesModelToModel
-							.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterUseCasesModelToModelListToUseCasesModelToModel
-									.next();
-
-							// ensure correct type and really bound of object useCasesModelToModel
-							JavaSDM.ensure(_TmpObject instanceof UseCasesModelToModel);
-							useCasesModelToModel = (UseCasesModelToModel) _TmpObject;
-							// bind object
-							useCasesModel = useCasesModelToModel.getSource();
-
-							// check object useCasesModel is really bound
-							JavaSDM.ensure(useCasesModel != null);
-
-							// bind object
-							model = useCasesModelToModel.getTarget();
-
-							// check object model is really bound
-							JavaSDM.ensure(model != null);
-
-							// story node 'solve CSP'
-							try {
-								fujaba__Success = false;
-
-								_TmpObject = (this
-										.generateModel_solveCsp_BWD(
-												isApplicableMatch,
-												useCasesModel, model,
-												useCasesModelToModel,
-												packageDeclaration, p,
-												packageDeclarationToPackage,
-												ruleResult));
-
-								// ensure correct type and really bound of object csp
-								JavaSDM.ensure(_TmpObject instanceof CSP);
-								csp = (CSP) _TmpObject;
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							// statement node 'check CSP'
-							fujaba__Success = this
-									.generateModel_checkCsp_BWD(csp);
-							if (fujaba__Success) {
-								// story node 'perform'
-								try {
-									fujaba__Success = false;
-
-									// check object model is really bound
-									JavaSDM.ensure(model != null);
-									// check object ruleResult is really bound
-									JavaSDM.ensure(ruleResult != null);
-									// check object useCasesModel is really bound
-									JavaSDM.ensure(useCasesModel != null);
-									// check object useCasesModelToModel is really bound
-									JavaSDM.ensure(useCasesModelToModel != null);
-									// create object packageDeclaration
-									packageDeclaration = UseCaseDSLFactory.eINSTANCE
-											.createPackageDeclaration();
-
-									// create object p
-									p = ModalSequenceDiagramFactory.eINSTANCE
-											.createPackage();
-
-									// create object packageDeclarationToPackage
-									packageDeclarationToPackage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-											.createPackageDeclarationToPackage();
-
-									// assign attribute packageDeclaration
-									packageDeclaration
-											.setName((java.lang.String) csp
-													.getAttributeVariable(
-															"packageDeclaration",
-															"name").getValue());
-									// assign attribute p
-									p.setName((java.lang.String) csp
-											.getAttributeVariable("p", "name")
-											.getValue());
-									// assign attribute ruleResult
-									ruleResult.setSuccess(true);
-
-									// create link
-									useCasesModel.getPackages().add(
-											packageDeclaration); // add link
-
-									// create link
-									model.getPackagedElement().add(p); // add link
-
-									// create link
-									packageDeclarationToPackage
-											.setSource(packageDeclaration);
-
-									// create link
-									ruleResult.getSourceObjects().add(
-											packageDeclaration);
-
-									// create link
-									ruleResult.getTargetObjects().add(p);
-
-									// create link
-									packageDeclarationToPackage.setTarget(p);
-
-									// create link
-									ruleResult.getCorrObjects().add(
-											packageDeclarationToPackage);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								return ruleResult;
-
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			UseCasesModel useCasesModel, Model model,
-			UseCasesModelToModel useCasesModelToModel,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-
-		// Create attribute variables
-
-		// Create explicit parameters
-
-		// Create unbound variables
-		Variable var_packageDeclaration_name = CSPFactoryHelper.eINSTANCE
-				.createVariable("packageDeclaration.name", csp);
-		var_packageDeclaration_name.setType("");
-		Variable var_p_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"p.name", csp);
-		var_p_name.setType("");
-
-		// Create constraints
-		Eq eq = new Eq();
-
-		csp.getConstraints().add(eq);
-
-		// Solve CSP
-		eq.setRuleName("");
-		eq.solve(var_packageDeclaration_name, var_p_name);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("useCasesModel", useCasesModel);
-		isApplicableMatch.registerObject("model", model);
-		isApplicableMatch.registerObject("useCasesModelToModel",
-				useCasesModelToModel);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -2422,10 +2148,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(UseCasesModel) arguments.get(1),
 					(PackageDeclaration) arguments.get(2));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPLICABLE_FWD__MATCH:
-			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPLICABLE_FWD__MATCH:
+			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASESMODEL_PACKAGEDECLARATION:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(UseCasesModel) arguments.get(1),
@@ -2457,10 +2183,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			return isAppropriate_BWD((Match) arguments.get(0),
 					(Model) arguments.get(1),
 					(ModalSequenceDiagram.Package) arguments.get(2));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPLICABLE_BWD__MATCH:
-			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPLICABLE_BWD__MATCH:
+			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_MODEL_PACKAGE:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
 					(Model) arguments.get(1),
@@ -2498,20 +2224,6 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___GENERATE_MODEL__RULEENTRYCONTAINER_USECASESMODELTOMODEL:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(UseCasesModelToModel) arguments.get(1));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASESMODEL_MODEL_USECASESMODELTOMODEL_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(UseCasesModel) arguments.get(1), (Model) arguments.get(2),
-					(UseCasesModelToModel) arguments.get(3),
-					(PackageDeclaration) arguments.get(4),
-					(ModalSequenceDiagram.Package) arguments.get(5),
-					(PackageDeclarationToPackage) arguments.get(6),
-					(ModelgeneratorRuleResult) arguments.get(7));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

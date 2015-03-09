@@ -71,6 +71,8 @@ public class UseCaseToModalSequenceDiagramIntegrationFactoryImpl extends
 			return createFlowToInteractionFragment();
 		case UseCaseToModalSequenceDiagramIntegrationPackage.STEP_ALTERNATIVE_TO_INTERACTION_OPERAND:
 			return createStepAlternativeToInteractionOperand();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT:
+			return createParallelStepToCombinedFragment();
 		case UseCaseToModalSequenceDiagramIntegrationPackage.NORMAL_STEP_TO_COMBINED_FRAGMENT:
 			return createNormalStepToCombinedFragment();
 		default:
@@ -147,6 +149,16 @@ public class UseCaseToModalSequenceDiagramIntegrationFactoryImpl extends
 	public StepAlternativeToInteractionOperand createStepAlternativeToInteractionOperand() {
 		StepAlternativeToInteractionOperandImpl stepAlternativeToInteractionOperand = new StepAlternativeToInteractionOperandImpl();
 		return stepAlternativeToInteractionOperand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParallelStepToCombinedFragment createParallelStepToCombinedFragment() {
+		ParallelStepToCombinedFragmentImpl parallelStepToCombinedFragment = new ParallelStepToCombinedFragmentImpl();
+		return parallelStepToCombinedFragment;
 	}
 
 	/**
