@@ -6,8 +6,6 @@ import ModalSequenceDiagram.Behavior;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 // <-- [user defined imports]
 // [user defined imports] -->
 

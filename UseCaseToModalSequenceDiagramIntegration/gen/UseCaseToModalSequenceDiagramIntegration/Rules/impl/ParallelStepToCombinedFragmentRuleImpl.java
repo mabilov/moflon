@@ -175,11 +175,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						step, "toBeTranslatedNodes");
+						__flow_steps_step, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_step, "toBeTranslatedEdges");
+						step, "toBeTranslatedNodes");
 
 				// create link
 				__flow_steps_step.setSrc(flow);
@@ -213,11 +213,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
+						useCase, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
+						flow, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -262,11 +262,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		CombinedFragment combo = null;
 		ParallelStepToCombinedFragment stepToCombo = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge stepToCombo__source__step = null;
-		EMoflonEdge interaction__fragment__combo = null;
-		EMoflonEdge combo__enclosingInteraction__interaction = null;
 		EMoflonEdge stepToCombo__target__combo = null;
 		EMoflonEdge __flow_steps_step = null;
+		EMoflonEdge interaction__fragment__combo = null;
+		EMoflonEdge stepToCombo__source__step = null;
+		EMoflonEdge combo__enclosingInteraction__interaction = null;
 
 		// story node 'perform transformation'
 		try {
@@ -458,24 +458,24 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 			// check isomorphic binding between objects useCaseToInteraction and useCase 
 			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
 
-			// create object stepToCombo__source__step
-			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object interaction__fragment__combo
-			interaction__fragment__combo = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object combo__enclosingInteraction__interaction
-			combo__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object stepToCombo__target__combo
 			stepToCombo__target__combo = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __flow_steps_step
 			__flow_steps_step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
+			// create object interaction__fragment__combo
+			interaction__fragment__combo = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object stepToCombo__source__step
+			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object combo__enclosingInteraction__interaction
+			combo__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
 
 			// assign attribute ruleresult
 			ruleresult.setRuleName("ParallelStepToCombinedFragmentRule");
@@ -493,7 +493,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__source__step, "createdEdges");
+					stepToCombo__target__combo, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__flow_steps_step, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -501,15 +505,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToCombo__source__step, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					combo__enclosingInteraction__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__target__combo, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__flow_steps_step, "translatedEdges");
 
 			// create link
 			combo__enclosingInteraction__interaction.setTrg(interaction);
@@ -527,19 +527,19 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 			stepToCombo__source__step.setTrg(step);
 
 			// create link
-			stepToCombo__target__combo.setTrg(combo);
-
-			// create link
 			interaction__fragment__combo.setTrg(combo);
 
 			// create link
 			combo__enclosingInteraction__interaction.setSrc(combo);
 
 			// create link
-			stepToCombo__target__combo.setSrc(stepToCombo);
+			stepToCombo__target__combo.setTrg(combo);
 
 			// create link
 			stepToCombo__source__step.setSrc(stepToCombo);
+
+			// create link
+			stepToCombo__target__combo.setSrc(stepToCombo);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -739,39 +739,39 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						isApplicableMatch.getAllContextElements().add(useCase);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								interaction);
-
-						// create link
 						__useCaseToInteraction_target_interaction
 								.setTrg(interaction);
 
 						// create link
-						__useCase_flows_flow.setTrg(flow);
-
-						// create link
-						__flow_steps_step.setSrc(flow);
+						isApplicableMatch.getAllContextElements().add(
+								interaction);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(flow);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCaseToInteraction);
+						__flow_steps_step.setSrc(flow);
+
+						// create link
+						__useCase_flows_flow.setTrg(flow);
+
+						// create link
+						__useCaseToInteraction_target_interaction
+								.setSrc(useCaseToInteraction);
 
 						// create link
 						__useCaseToInteraction_source_useCase
 								.setSrc(useCaseToInteraction);
 
 						// create link
-						__useCaseToInteraction_target_interaction
-								.setSrc(useCaseToInteraction);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(step);
+						isApplicableMatch.getAllContextElements().add(
+								useCaseToInteraction);
 
 						// create link
 						__flow_steps_step.setTrg(step);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(step);
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -1139,9 +1139,9 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		ParallelStepToCombinedFragment stepToCombo = null;
 		PerformRuleResult ruleresult = null;
 		EMoflonEdge flow__steps__step = null;
+		EMoflonEdge stepToCombo__source__step = null;
 		EMoflonEdge stepToCombo__target__combo = null;
 		EMoflonEdge __combo_enclosingInteraction_interaction = null;
-		EMoflonEdge stepToCombo__source__step = null;
 		EMoflonEdge __interaction_fragment_combo = null;
 
 		// story node 'perform transformation'
@@ -1232,15 +1232,15 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					combo, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					step, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					stepToCombo, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					combo, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1332,16 +1332,16 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 			// create object flow__steps__step
 			flow__steps__step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
 
+			// create object stepToCombo__source__step
+			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object stepToCombo__target__combo
 			stepToCombo__target__combo = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __combo_enclosingInteraction_interaction
 			__combo_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object stepToCombo__source__step
-			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __interaction_fragment_combo
@@ -1368,6 +1368,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToCombo__source__step, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					stepToCombo__target__combo, "createdEdges");
 
 			// create link
@@ -1378,41 +1382,37 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__source__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__interaction_fragment_combo, "translatedEdges");
-
-			// create link
-			__combo_enclosingInteraction_interaction.setTrg(interaction);
 
 			// create link
 			__interaction_fragment_combo.setSrc(interaction);
 
 			// create link
-			flow__steps__step.setSrc(flow);
+			__combo_enclosingInteraction_interaction.setTrg(interaction);
 
 			// create link
-			stepToCombo__source__step.setTrg(step);
+			flow__steps__step.setSrc(flow);
 
 			// create link
 			flow__steps__step.setTrg(step);
 
 			// create link
-			__interaction_fragment_combo.setTrg(combo);
-
-			// create link
-			stepToCombo__target__combo.setTrg(combo);
+			stepToCombo__source__step.setTrg(step);
 
 			// create link
 			__combo_enclosingInteraction_interaction.setSrc(combo);
 
 			// create link
-			stepToCombo__source__step.setSrc(stepToCombo);
+			stepToCombo__target__combo.setTrg(combo);
+
+			// create link
+			__interaction_fragment_combo.setTrg(combo);
 
 			// create link
 			stepToCombo__target__combo.setSrc(stepToCombo);
+
+			// create link
+			stepToCombo__source__step.setSrc(stepToCombo);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1441,12 +1441,12 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		IsApplicableRuleResult ruleresult = null;
 		CombinedFragment combo = null;
 		Interaction interaction = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __useCase_flows_flow = null;
 		EMoflonEdge __useCaseToInteraction_source_useCase = null;
+		EMoflonEdge __useCase_flows_flow = null;
+		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __useCaseToInteraction_target_interaction = null;
-		EMoflonEdge __combo_enclosingInteraction_interaction = null;
 		EMoflonEdge __interaction_fragment_combo = null;
+		EMoflonEdge __combo_enclosingInteraction_interaction = null;
 		CSP csp = null;
 		Iterator fujaba__IterUseCaseToFlow = null;
 		Flow flow = null;
@@ -1577,28 +1577,28 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 								// check object flow is really bound
 								JavaSDM.ensure(flow != null);
-								// create object isApplicableMatch
-								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-										.createIsApplicableMatch();
+								// create object __useCaseToInteraction_source_useCase
+								__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
 
 								// create object __useCase_flows_flow
 								__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object __useCaseToInteraction_source_useCase
-								__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
+								// create object isApplicableMatch
+								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+										.createIsApplicableMatch();
 
 								// create object __useCaseToInteraction_target_interaction
 								__useCaseToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object __combo_enclosingInteraction_interaction
-								__combo_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
 								// create object __interaction_fragment_combo
 								__interaction_fragment_combo = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __combo_enclosingInteraction_interaction
+								__combo_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// assign attribute __useCase_flows_flow
@@ -1617,22 +1617,18 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 										.setName("target");
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										useCase);
+								__useCaseToInteraction_source_useCase
+										.setTrg(useCase);
 
 								// create link
 								__useCase_flows_flow.setSrc(useCase);
 
 								// create link
-								__useCaseToInteraction_source_useCase
-										.setTrg(useCase);
+								isApplicableMatch.getAllContextElements().add(
+										useCase);
 
 								// create link
 								__useCaseToInteraction_target_interaction
-										.setTrg(interaction);
-
-								// create link
-								__combo_enclosingInteraction_interaction
 										.setTrg(interaction);
 
 								// create link
@@ -1644,11 +1640,19 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 										.setSrc(interaction);
 
 								// create link
+								__combo_enclosingInteraction_interaction
+										.setTrg(interaction);
+
+								// create link
 								__useCase_flows_flow.setTrg(flow);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										flow);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										useCaseToInteraction);
 
 								// create link
 								__useCaseToInteraction_source_useCase
@@ -1659,19 +1663,22 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 										.setSrc(useCaseToInteraction);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										useCaseToInteraction);
-
-								// create link
-								__interaction_fragment_combo.setTrg(combo);
-
-								// create link
 								__combo_enclosingInteraction_interaction
 										.setSrc(combo);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										combo);
+
+								// create link
+								__interaction_fragment_combo.setTrg(combo);
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__useCaseToInteraction_target_interaction,
+												"allContextElements");
 
 								// create link
 								org.moflon.util.eMoflonEMFUtil
@@ -1691,21 +1698,14 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__useCase_flows_flow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCaseToInteraction_target_interaction,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
 												__useCaseToInteraction_source_useCase,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__useCase_flows_flow,
 												"allContextElements");
 								// story node 'solve CSP'
 								try {
@@ -2295,7 +2295,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_843957 = null;
+		Flow __DEC_step_steps_258704 = null;
 		Match match = null;
 		ParallelStep step = null;
 		UseCase useCase = null;
@@ -2384,18 +2384,18 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_843957 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_258704 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_843957 is really bound
-					JavaSDM.ensure(__DEC_step_steps_843957 != null);
+					// check object __DEC_step_steps_258704 is really bound
+					JavaSDM.ensure(__DEC_step_steps_258704 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_843957.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_258704.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_843957 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_843957.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_258704 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_258704.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {

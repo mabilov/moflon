@@ -3,7 +3,6 @@
 package ModalSequenceDiagram;
 
 import org.eclipse.emf.common.util.EList;
-
 // <-- [user defined imports]
 // [user defined imports] -->
 
@@ -25,7 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface OccurrenceSpecification extends InteractionFragment {
-
 	/**
 	 * Returns the value of the '<em><b>To After</b></em>' reference list.
 	 * The list contents are of type {@link ModalSequenceDiagram.GeneralOrdering}.
@@ -60,7 +58,8 @@ public interface OccurrenceSpecification extends InteractionFragment {
 	 * @model opposite="after"
 	 * @generated
 	 */
-	EList<GeneralOrdering> getToBefore(); // <-- [user code injected with eMoflon]
+	EList<GeneralOrdering> getToBefore();
+	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
 } // OccurrenceSpecification

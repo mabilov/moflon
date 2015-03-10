@@ -117,8 +117,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
 		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge __useCase_flows_basicFlow = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 
 		// story node 'initial bindings'
 		try {
@@ -171,14 +172,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				JavaSDM.ensure(packageDeclaration != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
-				// create object __useCase_flows_basicFlow
-				__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __packageDeclaration_actors_actor
 				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __useCase_flows_basicFlow
+				__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// assign attribute __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase.setName("useCases");
 				// assign attribute __packageDeclaration_actors_actor
 				__packageDeclaration_actors_actor.setName("actors");
 				// assign attribute __useCase_flows_basicFlow
@@ -190,11 +197,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						basicFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_basicFlow, "toBeTranslatedEdges");
+						actor, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -203,13 +206,29 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "toBeTranslatedNodes");
+						__useCase_flows_basicFlow, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						basicFlow, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_useCases_useCase,
+						"toBeTranslatedEdges");
+
+				// create link
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 				// create link
 				__useCase_flows_basicFlow.setSrc(useCase);
 
 				// create link
 				__packageDeclaration_actors_actor.setTrg(actor);
+
+				// create link
+				__packageDeclaration_useCases_useCase
+						.setSrc(packageDeclaration);
 
 				// create link
 				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
@@ -279,22 +298,23 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		FlowToInteractionFragment basicFlowToInteraction = null;
 		ActorToLifeline actorToLine = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge line__coveredBy__messageReceive = null;
-		EMoflonEdge line__interaction__interaction = null;
-		EMoflonEdge _package__packagedElement__interaction = null;
-		EMoflonEdge message__interaction__interaction = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
-		EMoflonEdge actorToLine__target__line = null;
-		EMoflonEdge interaction__message__message = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
-		EMoflonEdge message__receiveEvent__messageReceive = null;
-		EMoflonEdge messageReceive__covered__line = null;
-		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
-		EMoflonEdge messageReceive__enclosingInteraction__interaction = null;
-		EMoflonEdge messageReceive__message__message = null;
-		EMoflonEdge interaction__fragment__messageReceive = null;
 		EMoflonEdge interaction__lifeline__line = null;
+		EMoflonEdge interaction__message__message = null;
+		EMoflonEdge line__coveredBy__messageReceive = null;
+		EMoflonEdge messageReceive__message__message = null;
+		EMoflonEdge messageReceive__covered__line = null;
+		EMoflonEdge __useCase_flows_basicFlow = null;
+		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
+		EMoflonEdge message__interaction__interaction = null;
+		EMoflonEdge _package__packagedElement__interaction = null;
 		EMoflonEdge basicFlowToInteraction__target__interaction = null;
+		EMoflonEdge actorToLine__target__line = null;
+		EMoflonEdge interaction__fragment__messageReceive = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge messageReceive__enclosingInteraction__interaction = null;
+		EMoflonEdge message__receiveEvent__messageReceive = null;
+		EMoflonEdge line__interaction__interaction = null;
 		EMoflonEdge actorToLine__source__actor = null;
 
 		// story node 'perform transformation'
@@ -411,10 +431,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			messageReceive.setEnclosingInteraction(interaction);
 
 			// create link
-			basicFlowToInteraction.setTarget(interaction);
+			_package.getPackagedElement().add(interaction);
 
 			// create link
-			_package.getPackagedElement().add(interaction);
+			basicFlowToInteraction.setTarget(interaction);
 
 			// create link
 			line.getCoveredBy().add(messageReceive);
@@ -461,11 +481,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive, "createdElements");
+					actor, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -473,19 +489,23 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actor, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					basicFlow, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction, "createdLinkElements");
+					messageReceive, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					actorToLine, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlowToInteraction, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -725,68 +745,72 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			// check isomorphic binding between objects useCase and packageDeclarationToPackage 
 			JavaSDM.ensure(!useCase.equals(packageDeclarationToPackage));
 
-			// create object line__coveredBy__messageReceive
-			line__coveredBy__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object line__interaction__interaction
-			line__interaction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object _package__packagedElement__interaction
-			_package__packagedElement__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object message__interaction__interaction
-			message__interaction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __useCase_flows_basicFlow
-			__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object actorToLine__target__line
-			actorToLine__target__line = TGGRuntimeFactory.eINSTANCE
+			// create object interaction__lifeline__line
+			interaction__lifeline__line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object interaction__message__message
 			interaction__message__message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __packageDeclaration_actors_actor
-			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object message__receiveEvent__messageReceive
-			message__receiveEvent__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object messageReceive__covered__line
-			messageReceive__covered__line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object messageReceive__enclosingInteraction__interaction
-			messageReceive__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
+			// create object line__coveredBy__messageReceive
+			line__coveredBy__messageReceive = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object messageReceive__message__message
 			messageReceive__message__message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object interaction__fragment__messageReceive
-			interaction__fragment__messageReceive = TGGRuntimeFactory.eINSTANCE
+			// create object messageReceive__covered__line
+			messageReceive__covered__line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object interaction__lifeline__line
-			interaction__lifeline__line = TGGRuntimeFactory.eINSTANCE
+			// create object __useCase_flows_basicFlow
+			__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object basicFlowToInteraction__source__basicFlow
+			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __packageDeclaration_useCases_useCase
+			__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object message__interaction__interaction
+			message__interaction__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object _package__packagedElement__interaction
+			_package__packagedElement__interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object basicFlowToInteraction__target__interaction
 			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object actorToLine__target__line
+			actorToLine__target__line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object interaction__fragment__messageReceive
+			interaction__fragment__messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __packageDeclaration_actors_actor
+			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object messageReceive__enclosingInteraction__interaction
+			messageReceive__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object message__receiveEvent__messageReceive
+			message__receiveEvent__messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object line__interaction__interaction
+			line__interaction__interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object actorToLine__source__actor
@@ -812,6 +836,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			interaction__fragment__messageReceive.setName("fragment");
 			// assign attribute messageReceive__message__message
 			messageReceive__message__message.setName("message");
+			// assign attribute __packageDeclaration_useCases_useCase
+			__packageDeclaration_useCases_useCase.setName("useCases");
 			// assign attribute __packageDeclaration_actors_actor
 			__packageDeclaration_actors_actor.setName("actors");
 			// assign attribute line__coveredBy__messageReceive
@@ -833,27 +859,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line__coveredBy__messageReceive, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line__interaction__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					_package__packagedElement__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__interaction__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCase_flows_basicFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine__target__line, "createdEdges");
+					interaction__lifeline__line, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -861,24 +867,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__packageDeclaration_actors_actor, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__receiveEvent__messageReceive, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive__covered__line, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction__source__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive__enclosingInteraction__interaction,
-					"createdEdges");
+					line__coveredBy__messageReceive, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -886,11 +875,27 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__fragment__messageReceive, "createdEdges");
+					messageReceive__covered__line, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__lifeline__line, "createdEdges");
+					__useCase_flows_basicFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlowToInteraction__source__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__packageDeclaration_useCases_useCase, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message__interaction__interaction, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					_package__packagedElement__interaction, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil
@@ -900,16 +905,38 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					actorToLine__target__line, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					interaction__fragment__messageReceive, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__packageDeclaration_actors_actor, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					messageReceive__enclosingInteraction__interaction,
+					"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message__receiveEvent__messageReceive, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					line__interaction__interaction, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					actorToLine__source__actor, "createdEdges");
 
 			// create link
 			__useCase_flows_basicFlow.setSrc(useCase);
 
 			// create link
-			message__receiveEvent__messageReceive.setSrc(message);
-
-			// create link
-			interaction__message__message.setTrg(message);
+			__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 			// create link
 			messageReceive__message__message.setTrg(message);
@@ -918,7 +945,13 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			message__interaction__interaction.setSrc(message);
 
 			// create link
-			_package__packagedElement__interaction.setTrg(interaction);
+			message__receiveEvent__messageReceive.setSrc(message);
+
+			// create link
+			interaction__message__message.setTrg(message);
+
+			// create link
+			interaction__message__message.setSrc(interaction);
 
 			// create link
 			messageReceive__enclosingInteraction__interaction
@@ -931,35 +964,35 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			interaction__lifeline__line.setSrc(interaction);
 
 			// create link
-			interaction__message__message.setSrc(interaction);
-
-			// create link
 			basicFlowToInteraction__target__interaction.setTrg(interaction);
 
 			// create link
-			line__interaction__interaction.setTrg(interaction);
+			_package__packagedElement__interaction.setTrg(interaction);
 
 			// create link
 			message__interaction__interaction.setTrg(interaction);
 
 			// create link
-			interaction__fragment__messageReceive.setTrg(messageReceive);
+			line__interaction__interaction.setTrg(interaction);
+
+			// create link
+			line__coveredBy__messageReceive.setTrg(messageReceive);
 
 			// create link
 			messageReceive__message__message.setSrc(messageReceive);
-
-			// create link
-			message__receiveEvent__messageReceive.setTrg(messageReceive);
-
-			// create link
-			messageReceive__covered__line.setSrc(messageReceive);
 
 			// create link
 			messageReceive__enclosingInteraction__interaction
 					.setSrc(messageReceive);
 
 			// create link
-			line__coveredBy__messageReceive.setTrg(messageReceive);
+			interaction__fragment__messageReceive.setTrg(messageReceive);
+
+			// create link
+			message__receiveEvent__messageReceive.setTrg(messageReceive);
+
+			// create link
+			messageReceive__covered__line.setSrc(messageReceive);
 
 			// create link
 			actorToLine__source__actor.setTrg(actor);
@@ -971,34 +1004,37 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			__packageDeclaration_actors_actor.setSrc(packageDeclaration);
 
 			// create link
+			__packageDeclaration_useCases_useCase.setSrc(packageDeclaration);
+
+			// create link
+			line__coveredBy__messageReceive.setSrc(line);
+
+			// create link
+			line__interaction__interaction.setSrc(line);
+
+			// create link
 			interaction__lifeline__line.setTrg(line);
 
 			// create link
 			actorToLine__target__line.setTrg(line);
 
 			// create link
-			line__interaction__interaction.setSrc(line);
-
-			// create link
 			messageReceive__covered__line.setTrg(line);
-
-			// create link
-			line__coveredBy__messageReceive.setSrc(line);
-
-			// create link
-			actorToLine__source__actor.setSrc(actorToLine);
 
 			// create link
 			actorToLine__target__line.setSrc(actorToLine);
 
 			// create link
+			actorToLine__source__actor.setSrc(actorToLine);
+
+			// create link
 			_package__packagedElement__interaction.setSrc(_package);
 
 			// create link
-			__useCase_flows_basicFlow.setTrg(basicFlow);
+			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
 
 			// create link
-			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
+			__useCase_flows_basicFlow.setTrg(basicFlow);
 
 			// create link
 			basicFlowToInteraction__source__basicFlow
@@ -1039,8 +1075,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		BasicFlow basicFlow = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
+		EMoflonEdge __useCase_flows_basicFlow = null;
 		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
 		EMoflonEdge __packageDeclarationToPackage_target__package = null;
@@ -1179,13 +1216,21 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						JavaSDM.ensure(_package
 								.equals(packageDeclarationToPackage.getTarget()));
 
-						// create object __useCase_flows_basicFlow
-						__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
+						// check link useCases from useCase to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(useCase
+								.eContainer()));
 
 						// create object isApplicableMatch
 						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 								.createIsApplicableMatch();
+
+						// create object __packageDeclaration_useCases_useCase
+						__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
+
+						// create object __useCase_flows_basicFlow
+						__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
 
 						// create object __packageDeclaration_actors_actor
 						__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
@@ -1199,6 +1244,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						__packageDeclarationToPackage_target__package = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
+						// assign attribute __packageDeclaration_useCases_useCase
+						__packageDeclaration_useCases_useCase
+								.setName("useCases");
 						// assign attribute __packageDeclaration_actors_actor
 						__packageDeclaration_actors_actor.setName("actors");
 						// assign attribute __packageDeclarationToPackage_source_packageDeclaration
@@ -1211,28 +1259,35 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						__useCase_flows_basicFlow.setName("flows");
 
 						// create link
-						__useCase_flows_basicFlow.setSrc(useCase);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(useCase);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(actor);
+						__packageDeclaration_useCases_useCase.setTrg(useCase);
+
+						// create link
+						__useCase_flows_basicFlow.setSrc(useCase);
 
 						// create link
 						__packageDeclaration_actors_actor.setTrg(actor);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
+						isApplicableMatch.getAllContextElements().add(actor);
+
+						// create link
+						__packageDeclarationToPackage_source_packageDeclaration
+								.setTrg(packageDeclaration);
 
 						// create link
 						__packageDeclaration_actors_actor
 								.setSrc(packageDeclaration);
 
 						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setTrg(packageDeclaration);
+						__packageDeclaration_useCases_useCase
+								.setSrc(packageDeclaration);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(
+								packageDeclaration);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(_package);
@@ -1242,16 +1297,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								.setTrg(_package);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclarationToPackage);
+						__packageDeclarationToPackage_source_packageDeclaration
+								.setSrc(packageDeclarationToPackage);
 
 						// create link
 						__packageDeclarationToPackage_target__package
 								.setSrc(packageDeclarationToPackage);
 
 						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setSrc(packageDeclarationToPackage);
+						isApplicableMatch.getAllContextElements().add(
+								packageDeclarationToPackage);
 
 						// create link
 						isApplicableMatch.getAllContextElements()
@@ -1259,11 +1314,6 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 						// create link
 						__useCase_flows_basicFlow.setTrg(basicFlow);
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __useCase_flows_basicFlow,
-								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -1282,6 +1332,17 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
 								__packageDeclarationToPackage_target__package,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__packageDeclaration_useCases_useCase,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __useCase_flows_basicFlow,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -1575,17 +1636,17 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge ___package_packagedElement_interaction = null;
+		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
+		EMoflonEdge __messageReceive_covered_line = null;
 		EMoflonEdge __interaction_message_message = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
-		EMoflonEdge __interaction_lifeline_line = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __messageReceive_message_message = null;
 		EMoflonEdge __interaction_fragment_messageReceive = null;
-		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge __line_coveredBy_messageReceive = null;
+		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge ___package_packagedElement_interaction = null;
+		EMoflonEdge __message_interaction_interaction = null;
 
 		// story node 'initial bindings'
 		try {
@@ -1642,12 +1703,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				JavaSDM.ensure(message != null);
 				// check object messageReceive is really bound
 				JavaSDM.ensure(messageReceive != null);
-				// create object __message_interaction_interaction
-				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+				// create object __line_interaction_interaction
+				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object ___package_packagedElement_interaction
-				___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
+				// create object __messageReceive_message_message
+				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageReceive_enclosingInteraction_interaction
+				__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageReceive_covered_line
+				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __interaction_message_message
@@ -1658,32 +1727,24 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __line_coveredBy_messageReceive
-				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
+				// create object __interaction_fragment_messageReceive
+				__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageReceive_enclosingInteraction_interaction
-				__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
+				// create object __line_coveredBy_messageReceive
+				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __interaction_lifeline_line
 				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageReceive_covered_line
-				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+				// create object ___package_packagedElement_interaction
+				___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageReceive_message_message
-				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __interaction_fragment_messageReceive
-				__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __line_interaction_interaction
-				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+				// create object __message_interaction_interaction
+				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __message_receiveEvent_messageReceive
@@ -1713,51 +1774,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_interaction_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						line, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						___package_packagedElement_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_message_message, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_receiveEvent_messageReceive,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageReceive, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageReceive_enclosingInteraction_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_lifeline_line, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageReceive_covered_line, "toBeTranslatedEdges");
+						__line_interaction_interaction, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil
@@ -1767,8 +1784,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_fragment_messageReceive,
+						line, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageReceive_enclosingInteraction_interaction,
 						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						messageReceive, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageReceive_covered_line, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1776,72 +1805,104 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_interaction_interaction, "toBeTranslatedEdges");
+						__interaction_message_message, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						interaction, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_receiveEvent_messageReceive,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_fragment_messageReceive,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_lifeline_line, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						___package_packagedElement_interaction,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_interaction_interaction,
+						"toBeTranslatedEdges");
 
 				// create link
 				__interaction_message_message.setTrg(message);
 
 				// create link
-				__message_receiveEvent_messageReceive.setSrc(message);
-
-				// create link
 				__message_interaction_interaction.setSrc(message);
 
 				// create link
+				__message_receiveEvent_messageReceive.setSrc(message);
+
+				// create link
 				__messageReceive_message_message.setTrg(message);
+
+				// create link
+				__line_interaction_interaction.setTrg(interaction);
+
+				// create link
+				__interaction_fragment_messageReceive.setSrc(interaction);
+
+				// create link
+				___package_packagedElement_interaction.setTrg(interaction);
 
 				// create link
 				__messageReceive_enclosingInteraction_interaction
 						.setTrg(interaction);
 
 				// create link
-				__interaction_fragment_messageReceive.setSrc(interaction);
-
-				// create link
-				__message_interaction_interaction.setTrg(interaction);
-
-				// create link
 				__interaction_lifeline_line.setSrc(interaction);
-
-				// create link
-				___package_packagedElement_interaction.setTrg(interaction);
-
-				// create link
-				__line_interaction_interaction.setTrg(interaction);
 
 				// create link
 				__interaction_message_message.setSrc(interaction);
 
 				// create link
-				__message_receiveEvent_messageReceive.setTrg(messageReceive);
+				__message_interaction_interaction.setTrg(interaction);
 
 				// create link
 				__messageReceive_covered_line.setSrc(messageReceive);
 
 				// create link
-				__interaction_fragment_messageReceive.setTrg(messageReceive);
-
-				// create link
 				__messageReceive_message_message.setSrc(messageReceive);
 
 				// create link
+				__message_receiveEvent_messageReceive.setTrg(messageReceive);
+
+				// create link
 				__line_coveredBy_messageReceive.setTrg(messageReceive);
+
+				// create link
+				__interaction_fragment_messageReceive.setTrg(messageReceive);
 
 				// create link
 				__messageReceive_enclosingInteraction_interaction
 						.setSrc(messageReceive);
 
 				// create link
-				__line_interaction_interaction.setSrc(line);
+				__interaction_lifeline_line.setTrg(line);
+
+				// create link
+				__messageReceive_covered_line.setTrg(line);
 
 				// create link
 				__line_coveredBy_messageReceive.setSrc(line);
 
 				// create link
-				__interaction_lifeline_line.setTrg(line);
-
-				// create link
-				__messageReceive_covered_line.setTrg(line);
+				__line_interaction_interaction.setSrc(line);
 
 				// create link
 				___package_packagedElement_interaction.setSrc(_package);
@@ -1910,23 +1971,24 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Actor actor = null;
 		ActorToLifeline actorToLine = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __interaction_lifeline_line = null;
 		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge useCase__flows__basicFlow = null;
+		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
+		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge __interaction_lifeline_line = null;
 		EMoflonEdge packageDeclaration__actors__actor = null;
+		EMoflonEdge actorToLine__source__actor = null;
+		EMoflonEdge actorToLine__target__line = null;
+		EMoflonEdge basicFlowToInteraction__target__interaction = null;
+		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
+		EMoflonEdge useCase__flows__basicFlow = null;
+		EMoflonEdge packageDeclaration__useCases__useCase = null;
+		EMoflonEdge __messageReceive_covered_line = null;
+		EMoflonEdge ___package_packagedElement_interaction = null;
+		EMoflonEdge __interaction_fragment_messageReceive = null;
 		EMoflonEdge __interaction_message_message = null;
 		EMoflonEdge __line_coveredBy_messageReceive = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __line_interaction_interaction = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge actorToLine__source__actor = null;
-		EMoflonEdge ___package_packagedElement_interaction = null;
-		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
-		EMoflonEdge basicFlowToInteraction__target__interaction = null;
-		EMoflonEdge actorToLine__target__line = null;
-		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
 
 		// story node 'perform transformation'
 		try {
@@ -2028,13 +2090,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			useCase.getFlows().add(basicFlow); // add link
 
 			// create link
+			packageDeclaration.getUseCases().add(useCase);
+
+			// create link
 			basicFlowToInteraction.setTarget(interaction);
 
 			// create link
-			actorToLine.setSource(actor);
+			packageDeclaration.getActors().add(actor);
 
 			// create link
-			packageDeclaration.getActors().add(actor);
+			actorToLine.setSource(actor);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -2076,7 +2141,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase, "createdElements");
+					message, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					interaction, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2088,19 +2157,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					basicFlowToInteraction, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine, "createdLinkElements");
+					useCase, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction, "translatedElements");
+					actorToLine, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -2336,10 +2401,6 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			// check isomorphic binding between objects useCase and packageDeclarationToPackage 
 			JavaSDM.ensure(!useCase.equals(packageDeclarationToPackage));
 
-			// create object __interaction_lifeline_line
-			__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __message_interaction_interaction
 			__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
@@ -2348,12 +2409,56 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object useCase__flows__basicFlow
-			useCase__flows__basicFlow = TGGRuntimeFactory.eINSTANCE
+			// create object basicFlowToInteraction__source__basicFlow
+			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __line_interaction_interaction
+			__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __interaction_lifeline_line
+			__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object packageDeclaration__actors__actor
 			packageDeclaration__actors__actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object actorToLine__source__actor
+			actorToLine__source__actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object actorToLine__target__line
+			actorToLine__target__line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object basicFlowToInteraction__target__interaction
+			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __messageReceive_enclosingInteraction_interaction
+			__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCase__flows__basicFlow
+			useCase__flows__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object packageDeclaration__useCases__useCase
+			packageDeclaration__useCases__useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __messageReceive_covered_line
+			__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object ___package_packagedElement_interaction
+			___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __interaction_fragment_messageReceive
+			__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __interaction_message_message
@@ -2366,42 +2471,6 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create object __message_receiveEvent_messageReceive
 			__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __line_interaction_interaction
-			__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __messageReceive_covered_line
-			__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object actorToLine__source__actor
-			actorToLine__source__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object ___package_packagedElement_interaction
-			___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __messageReceive_enclosingInteraction_interaction
-			__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_fragment_messageReceive
-			__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object actorToLine__target__line
-			actorToLine__target__line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -2423,6 +2492,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			__interaction_fragment_messageReceive.setName("fragment");
 			// assign attribute __messageReceive_message_message
 			__messageReceive_message_message.setName("message");
+			// assign attribute packageDeclaration__useCases__useCase
+			packageDeclaration__useCases__useCase.setName("useCases");
 			// assign attribute packageDeclaration__actors__actor
 			packageDeclaration__actors__actor.setName("actors");
 			// assign attribute __line_coveredBy_messageReceive
@@ -2444,10 +2515,6 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_lifeline_line, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__message_interaction_interaction, "translatedEdges");
 
 			// create link
@@ -2456,11 +2523,58 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase__flows__basicFlow, "createdEdges");
+					basicFlowToInteraction__source__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__line_interaction_interaction, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__interaction_lifeline_line, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					packageDeclaration__actors__actor, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					actorToLine__source__actor, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					actorToLine__target__line, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil
+					.addOppositeReference(ruleresult,
+							basicFlowToInteraction__target__interaction,
+							"createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__messageReceive_enclosingInteraction_interaction,
+					"translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCase__flows__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclaration__useCases__useCase, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__messageReceive_covered_line, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					___package_packagedElement_interaction, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__interaction_fragment_messageReceive, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2475,43 +2589,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					__message_receiveEvent_messageReceive, "translatedEdges");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_interaction_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageReceive_covered_line, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine__source__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					___package_packagedElement_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageReceive_enclosingInteraction_interaction,
-					"translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_fragment_messageReceive, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							basicFlowToInteraction__target__interaction,
-							"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine__target__line, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction__source__basicFlow, "createdEdges");
+			packageDeclaration__useCases__useCase.setTrg(useCase);
 
 			// create link
 			useCase__flows__basicFlow.setSrc(useCase);
@@ -2520,28 +2598,22 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			__interaction_message_message.setTrg(message);
 
 			// create link
-			__message_interaction_interaction.setSrc(message);
+			__message_receiveEvent_messageReceive.setSrc(message);
 
 			// create link
-			__message_receiveEvent_messageReceive.setSrc(message);
+			__message_interaction_interaction.setSrc(message);
 
 			// create link
 			__messageReceive_message_message.setTrg(message);
 
 			// create link
-			__interaction_fragment_messageReceive.setSrc(interaction);
-
-			// create link
-			___package_packagedElement_interaction.setTrg(interaction);
+			__line_interaction_interaction.setTrg(interaction);
 
 			// create link
 			__interaction_message_message.setSrc(interaction);
 
 			// create link
-			__message_interaction_interaction.setTrg(interaction);
-
-			// create link
-			__line_interaction_interaction.setTrg(interaction);
+			___package_packagedElement_interaction.setTrg(interaction);
 
 			// create link
 			__messageReceive_enclosingInteraction_interaction
@@ -2551,10 +2623,23 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			basicFlowToInteraction__target__interaction.setTrg(interaction);
 
 			// create link
+			__message_interaction_interaction.setTrg(interaction);
+
+			// create link
 			__interaction_lifeline_line.setSrc(interaction);
 
 			// create link
+			__interaction_fragment_messageReceive.setSrc(interaction);
+
+			// create link
+			__messageReceive_covered_line.setSrc(messageReceive);
+
+			// create link
 			__messageReceive_message_message.setSrc(messageReceive);
+
+			// create link
+			__messageReceive_enclosingInteraction_interaction
+					.setSrc(messageReceive);
 
 			// create link
 			__interaction_fragment_messageReceive.setTrg(messageReceive);
@@ -2566,20 +2651,22 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			__line_coveredBy_messageReceive.setTrg(messageReceive);
 
 			// create link
-			__messageReceive_enclosingInteraction_interaction
-					.setSrc(messageReceive);
-
-			// create link
-			__messageReceive_covered_line.setSrc(messageReceive);
-
-			// create link
 			actorToLine__source__actor.setTrg(actor);
 
 			// create link
 			packageDeclaration__actors__actor.setTrg(actor);
 
 			// create link
+			packageDeclaration__useCases__useCase.setSrc(packageDeclaration);
+
+			// create link
 			packageDeclaration__actors__actor.setSrc(packageDeclaration);
+
+			// create link
+			__line_coveredBy_messageReceive.setSrc(line);
+
+			// create link
+			__interaction_lifeline_line.setTrg(line);
 
 			// create link
 			actorToLine__target__line.setTrg(line);
@@ -2588,13 +2675,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			__line_interaction_interaction.setSrc(line);
 
 			// create link
-			__interaction_lifeline_line.setTrg(line);
-
-			// create link
 			__messageReceive_covered_line.setTrg(line);
-
-			// create link
-			__line_coveredBy_messageReceive.setSrc(line);
 
 			// create link
 			actorToLine__target__line.setSrc(actorToLine);
@@ -2651,16 +2732,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Lifeline line = null;
 		Message message = null;
 		MessageOccurrenceSpecification messageReceive = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __message_receiveEvent_messageReceive = null;
 		EMoflonEdge __interaction_message_message = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __line_interaction_interaction = null;
-		EMoflonEdge ___package_packagedElement_interaction = null;
-		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
+		EMoflonEdge __message_interaction_interaction = null;
+		EMoflonEdge __messageReceive_message_message = null;
 		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge ___package_packagedElement_interaction = null;
+		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge __interaction_fragment_messageReceive = null;
+		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
 		EMoflonEdge __messageReceive_covered_line = null;
 		EMoflonEdge __line_coveredBy_messageReceive = null;
 		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
@@ -2825,12 +2906,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						JavaSDM.ensure(line.getCoveredBy().contains(
 								messageReceive));
 
-						// create object __message_interaction_interaction
-						__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __messageReceive_message_message
-						__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+						// create object __message_receiveEvent_messageReceive
+						__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object __interaction_message_message
@@ -2841,28 +2918,32 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 								.createIsApplicableMatch();
 
-						// create object __message_receiveEvent_messageReceive
-						__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
+						// create object __message_interaction_interaction
+						__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
-						// create object __line_interaction_interaction
-						__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+						// create object __messageReceive_message_message
+						__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
+
+						// create object __interaction_lifeline_line
+						__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object ___package_packagedElement_interaction
 						___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
-						// create object __messageReceive_enclosingInteraction_interaction
-						__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
+						// create object __line_interaction_interaction
+						__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object __interaction_fragment_messageReceive
 						__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
-						// create object __interaction_lifeline_line
-						__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
+						// create object __messageReceive_enclosingInteraction_interaction
+						__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object __messageReceive_covered_line
@@ -2916,10 +2997,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								.setName("target");
 
 						// create link
-						__message_interaction_interaction.setSrc(message);
-
-						// create link
-						__messageReceive_message_message.setTrg(message);
+						__message_receiveEvent_messageReceive.setSrc(message);
 
 						// create link
 						__interaction_message_message.setTrg(message);
@@ -2928,93 +3006,96 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						isApplicableMatch.getAllContextElements().add(message);
 
 						// create link
-						__message_receiveEvent_messageReceive.setSrc(message);
+						__message_interaction_interaction.setSrc(message);
 
 						// create link
-						__line_interaction_interaction.setTrg(interaction);
+						__messageReceive_message_message.setTrg(message);
 
 						// create link
-						___package_packagedElement_interaction
-								.setTrg(interaction);
+						__interaction_lifeline_line.setSrc(interaction);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(
 								interaction);
 
 						// create link
-						__messageReceive_enclosingInteraction_interaction
+						__interaction_message_message.setSrc(interaction);
+
+						// create link
+						___package_packagedElement_interaction
 								.setTrg(interaction);
+
+						// create link
+						__line_interaction_interaction.setTrg(interaction);
 
 						// create link
 						__interaction_fragment_messageReceive
 								.setSrc(interaction);
 
 						// create link
-						__interaction_message_message.setSrc(interaction);
-
-						// create link
-						__interaction_lifeline_line.setSrc(interaction);
+						__messageReceive_enclosingInteraction_interaction
+								.setTrg(interaction);
 
 						// create link
 						__message_interaction_interaction.setTrg(interaction);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								messageReceive);
-
-						// create link
-						__messageReceive_covered_line.setSrc(messageReceive);
-
-						// create link
 						__messageReceive_message_message.setSrc(messageReceive);
-
-						// create link
-						__message_receiveEvent_messageReceive
-								.setTrg(messageReceive);
 
 						// create link
 						__messageReceive_enclosingInteraction_interaction
 								.setSrc(messageReceive);
 
 						// create link
-						__line_coveredBy_messageReceive.setTrg(messageReceive);
-
-						// create link
 						__interaction_fragment_messageReceive
 								.setTrg(messageReceive);
 
 						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setTrg(packageDeclaration);
+						__message_receiveEvent_messageReceive
+								.setTrg(messageReceive);
+
+						// create link
+						__messageReceive_covered_line.setSrc(messageReceive);
+
+						// create link
+						__line_coveredBy_messageReceive.setTrg(messageReceive);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(
+								messageReceive);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(
 								packageDeclaration);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(line);
-
-						// create link
-						__messageReceive_covered_line.setTrg(line);
-
-						// create link
-						__line_coveredBy_messageReceive.setSrc(line);
-
-						// create link
-						__line_interaction_interaction.setSrc(line);
+						__packageDeclarationToPackage_source_packageDeclaration
+								.setTrg(packageDeclaration);
 
 						// create link
 						__interaction_lifeline_line.setTrg(line);
 
 						// create link
-						__packageDeclarationToPackage_target__package
-								.setTrg(_package);
+						__line_interaction_interaction.setSrc(line);
+
+						// create link
+						__messageReceive_covered_line.setTrg(line);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(line);
+
+						// create link
+						__line_coveredBy_messageReceive.setSrc(line);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(_package);
 
 						// create link
 						___package_packagedElement_interaction.setSrc(_package);
+
+						// create link
+						__packageDeclarationToPackage_target__package
+								.setTrg(_package);
 
 						// create link
 						__packageDeclarationToPackage_source_packageDeclaration
@@ -3031,56 +3112,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								__line_coveredBy_messageReceive,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__messageReceive_message_message,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__interaction_fragment_messageReceive,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__messageReceive_enclosingInteraction_interaction,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__packageDeclarationToPackage_source_packageDeclaration,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__message_interaction_interaction,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
 								__packageDeclarationToPackage_target__package,
 								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								__message_receiveEvent_messageReceive,
+								__line_coveredBy_messageReceive,
 								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __interaction_lifeline_line,
+								isApplicableMatch,
+								__message_receiveEvent_messageReceive,
 								"allContextElements");
 
 						// create link
@@ -3092,7 +3136,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								___package_packagedElement_interaction,
+								__messageReceive_covered_line,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __interaction_lifeline_line,
 								"allContextElements");
 
 						// create link
@@ -3102,10 +3151,42 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								"allContextElements");
 
 						// create link
+						org.moflon.util.eMoflonEMFUtil
+								.addOppositeReference(
+										isApplicableMatch,
+										__packageDeclarationToPackage_source_packageDeclaration,
+										"allContextElements");
+
+						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								__messageReceive_covered_line,
+								__interaction_fragment_messageReceive,
 								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__messageReceive_message_message,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								___package_packagedElement_interaction,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__message_interaction_interaction,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil
+								.addOppositeReference(
+										isApplicableMatch,
+										__messageReceive_enclosingInteraction_interaction,
+										"allContextElements");
 						// story node 'solve CSP'
 						try {
 							fujaba__Success = false;
@@ -3408,15 +3489,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_306212 = null;
-		MessageEnd __DEC_message_sendEvent_509267 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_421811 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_834989 = null;
-		MessageEnd __DEC_message_message_834989 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_117306 = null;
-		Message __DEC_messageReceive_receiveEvent_117306 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_850279 = null;
-		Message __DEC_messageReceive_sendEvent_850279 = null;
+		Interaction __DEC_interaction_enclosingInteraction_750514 = null;
+		MessageEnd __DEC_message_sendEvent_217671 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_673638 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_606034 = null;
+		MessageEnd __DEC_message_message_606034 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_252671 = null;
+		Message __DEC_messageReceive_receiveEvent_252671 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_745937 = null;
+		Message __DEC_messageReceive_sendEvent_745937 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -3540,14 +3621,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_enclosingInteraction_306212 = interaction
+							__DEC_interaction_enclosingInteraction_750514 = interaction
 									.getEnclosingInteraction();
 
-							// check object __DEC_interaction_enclosingInteraction_306212 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_306212 != null);
+							// check object __DEC_interaction_enclosingInteraction_750514 is really bound
+							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_750514 != null);
 
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_306212 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_306212
+							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_750514 and interaction 
+							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_750514
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -3564,14 +3645,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_message_sendEvent_509267 = message
+							__DEC_message_sendEvent_217671 = message
 									.getSendEvent();
 
-							// check object __DEC_message_sendEvent_509267 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_509267 != null);
+							// check object __DEC_message_sendEvent_217671 is really bound
+							JavaSDM.ensure(__DEC_message_sendEvent_217671 != null);
 
-							// check isomorphic binding between objects __DEC_message_sendEvent_509267 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_509267
+							// check isomorphic binding between objects __DEC_message_sendEvent_217671 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_sendEvent_217671
 									.equals(messageReceive));
 
 							fujaba__Success = true;
@@ -3588,19 +3669,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_packagedElement_421811 = interaction
+							__DEC_interaction_packagedElement_673638 = interaction
 									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 									.eContainer() : null;
 
-							// check object __DEC_interaction_packagedElement_421811 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_421811 != null);
+							// check object __DEC_interaction_packagedElement_673638 is really bound
+							JavaSDM.ensure(__DEC_interaction_packagedElement_673638 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_421811
+							JavaSDM.ensure(__DEC_interaction_packagedElement_673638
 									.getPackagedElement().contains(interaction));
 
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_421811 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_421811
+							// check isomorphic binding between objects __DEC_interaction_packagedElement_673638 and _package 
+							JavaSDM.ensure(!__DEC_interaction_packagedElement_673638
 									.equals(_package));
 
 							fujaba__Success = true;
@@ -3616,26 +3697,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_834989
+							// iterate to-many link message from message to __DEC_message_message_606034
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_834989 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_606034 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_834989
+									&& fujaba__IterMessageTo__DEC_message_message_606034
 											.hasNext()) {
 								try {
-									__DEC_message_message_834989 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_834989
+									__DEC_message_message_606034 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_606034
 											.next();
 
-									// check object __DEC_message_message_834989 is really bound
-									JavaSDM.ensure(__DEC_message_message_834989 != null);
-									// check isomorphic binding between objects __DEC_message_message_834989 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_834989
+									// check object __DEC_message_message_606034 is really bound
+									JavaSDM.ensure(__DEC_message_message_606034 != null);
+									// check isomorphic binding between objects __DEC_message_message_606034 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_606034
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -3658,10 +3739,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_117306
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_252671
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_117306 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_252671 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -3669,16 +3750,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_117306
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_252671
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_117306 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_117306
+									__DEC_messageReceive_receiveEvent_252671 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_252671
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_117306 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_117306 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_117306 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_117306
+									// check object __DEC_messageReceive_receiveEvent_252671 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_252671 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_252671 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_252671
 											.equals(message));
 
 									fujaba__Success = true;
@@ -3701,10 +3782,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_850279
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_745937
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_850279 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_745937 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -3712,16 +3793,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_850279
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_745937
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_850279 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_850279
+									__DEC_messageReceive_sendEvent_745937 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_745937
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_850279 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_850279 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_850279 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_850279
+									// check object __DEC_messageReceive_sendEvent_745937 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_745937 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_745937 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_745937
 											.equals(message));
 
 									fujaba__Success = true;
@@ -3876,15 +3957,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_498560 = null;
-		MessageEnd __DEC_message_sendEvent_184047 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_596849 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_7037 = null;
-		MessageEnd __DEC_message_message_7037 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_713461 = null;
-		Message __DEC_messageReceive_receiveEvent_713461 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_706277 = null;
-		Message __DEC_messageReceive_sendEvent_706277 = null;
+		Interaction __DEC_interaction_enclosingInteraction_558669 = null;
+		MessageEnd __DEC_message_sendEvent_956190 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_166098 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_718819 = null;
+		MessageEnd __DEC_message_message_718819 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_368480 = null;
+		Message __DEC_messageReceive_receiveEvent_368480 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_827718 = null;
+		Message __DEC_messageReceive_sendEvent_827718 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -4008,14 +4089,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_enclosingInteraction_498560 = interaction
+							__DEC_interaction_enclosingInteraction_558669 = interaction
 									.getEnclosingInteraction();
 
-							// check object __DEC_interaction_enclosingInteraction_498560 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_498560 != null);
+							// check object __DEC_interaction_enclosingInteraction_558669 is really bound
+							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_558669 != null);
 
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_498560 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_498560
+							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_558669 and interaction 
+							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_558669
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -4032,14 +4113,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_message_sendEvent_184047 = message
+							__DEC_message_sendEvent_956190 = message
 									.getSendEvent();
 
-							// check object __DEC_message_sendEvent_184047 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_184047 != null);
+							// check object __DEC_message_sendEvent_956190 is really bound
+							JavaSDM.ensure(__DEC_message_sendEvent_956190 != null);
 
-							// check isomorphic binding between objects __DEC_message_sendEvent_184047 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_184047
+							// check isomorphic binding between objects __DEC_message_sendEvent_956190 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_sendEvent_956190
 									.equals(messageReceive));
 
 							fujaba__Success = true;
@@ -4056,19 +4137,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_packagedElement_596849 = interaction
+							__DEC_interaction_packagedElement_166098 = interaction
 									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 									.eContainer() : null;
 
-							// check object __DEC_interaction_packagedElement_596849 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_596849 != null);
+							// check object __DEC_interaction_packagedElement_166098 is really bound
+							JavaSDM.ensure(__DEC_interaction_packagedElement_166098 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_596849
+							JavaSDM.ensure(__DEC_interaction_packagedElement_166098
 									.getPackagedElement().contains(interaction));
 
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_596849 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_596849
+							// check isomorphic binding between objects __DEC_interaction_packagedElement_166098 and _package 
+							JavaSDM.ensure(!__DEC_interaction_packagedElement_166098
 									.equals(_package));
 
 							fujaba__Success = true;
@@ -4084,26 +4165,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_7037
+							// iterate to-many link message from message to __DEC_message_message_718819
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_7037 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_718819 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_7037
+									&& fujaba__IterMessageTo__DEC_message_message_718819
 											.hasNext()) {
 								try {
-									__DEC_message_message_7037 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_7037
+									__DEC_message_message_718819 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_718819
 											.next();
 
-									// check object __DEC_message_message_7037 is really bound
-									JavaSDM.ensure(__DEC_message_message_7037 != null);
-									// check isomorphic binding between objects __DEC_message_message_7037 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_7037
+									// check object __DEC_message_message_718819 is really bound
+									JavaSDM.ensure(__DEC_message_message_718819 != null);
+									// check isomorphic binding between objects __DEC_message_message_718819 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_718819
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -4126,10 +4207,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_713461
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_368480
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_713461 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_368480 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -4137,16 +4218,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_713461
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_368480
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_713461 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_713461
+									__DEC_messageReceive_receiveEvent_368480 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_368480
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_713461 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_713461 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_713461 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_713461
+									// check object __DEC_messageReceive_receiveEvent_368480 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_368480 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_368480 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_368480
 											.equals(message));
 
 									fujaba__Success = true;
@@ -4169,10 +4250,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_706277
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_827718
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_706277 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_827718 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -4180,16 +4261,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_706277
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_827718
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_706277 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_706277
+									__DEC_messageReceive_sendEvent_827718 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_827718
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_706277 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_706277 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_706277 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_706277
+									// check object __DEC_messageReceive_sendEvent_827718 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_827718 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_827718 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_827718
 											.equals(message));
 
 									fujaba__Success = true;
@@ -4344,15 +4425,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_766976 = null;
-		MessageEnd __DEC_message_sendEvent_729046 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_971953 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_648454 = null;
-		MessageEnd __DEC_message_message_648454 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_71513 = null;
-		Message __DEC_messageReceive_receiveEvent_71513 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_221747 = null;
-		Message __DEC_messageReceive_sendEvent_221747 = null;
+		Interaction __DEC_interaction_enclosingInteraction_701342 = null;
+		MessageEnd __DEC_message_sendEvent_376818 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_911433 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_557998 = null;
+		MessageEnd __DEC_message_message_557998 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_999653 = null;
+		Message __DEC_messageReceive_receiveEvent_999653 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_25651 = null;
+		Message __DEC_messageReceive_sendEvent_25651 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageTo_edge_interaction = null;
 		EMoflonEdge _edge_interaction = null;
@@ -4504,14 +4585,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_interaction_enclosingInteraction_766976 = interaction
+									__DEC_interaction_enclosingInteraction_701342 = interaction
 											.getEnclosingInteraction();
 
-									// check object __DEC_interaction_enclosingInteraction_766976 is really bound
-									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_766976 != null);
+									// check object __DEC_interaction_enclosingInteraction_701342 is really bound
+									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_701342 != null);
 
-									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_766976 and interaction 
-									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_766976
+									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_701342 and interaction 
+									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_701342
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -4528,14 +4609,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_message_sendEvent_729046 = message
+									__DEC_message_sendEvent_376818 = message
 											.getSendEvent();
 
-									// check object __DEC_message_sendEvent_729046 is really bound
-									JavaSDM.ensure(__DEC_message_sendEvent_729046 != null);
+									// check object __DEC_message_sendEvent_376818 is really bound
+									JavaSDM.ensure(__DEC_message_sendEvent_376818 != null);
 
-									// check isomorphic binding between objects __DEC_message_sendEvent_729046 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_sendEvent_729046
+									// check isomorphic binding between objects __DEC_message_sendEvent_376818 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_sendEvent_376818
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -4552,20 +4633,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_interaction_packagedElement_971953 = interaction
+									__DEC_interaction_packagedElement_911433 = interaction
 											.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 											.eContainer() : null;
 
-									// check object __DEC_interaction_packagedElement_971953 is really bound
-									JavaSDM.ensure(__DEC_interaction_packagedElement_971953 != null);
+									// check object __DEC_interaction_packagedElement_911433 is really bound
+									JavaSDM.ensure(__DEC_interaction_packagedElement_911433 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_interaction_packagedElement_971953
+									JavaSDM.ensure(__DEC_interaction_packagedElement_911433
 											.getPackagedElement().contains(
 													interaction));
 
-									// check isomorphic binding between objects __DEC_interaction_packagedElement_971953 and _package 
-									JavaSDM.ensure(!__DEC_interaction_packagedElement_971953
+									// check isomorphic binding between objects __DEC_interaction_packagedElement_911433 and _package 
+									JavaSDM.ensure(!__DEC_interaction_packagedElement_911433
 											.equals(_package));
 
 									fujaba__Success = true;
@@ -4581,10 +4662,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_648454
+									// iterate to-many link message from message to __DEC_message_message_557998
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_648454 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_557998 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -4593,16 +4674,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_648454
+											&& fujaba__IterMessageTo__DEC_message_message_557998
 													.hasNext()) {
 										try {
-											__DEC_message_message_648454 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_648454
+											__DEC_message_message_557998 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_557998
 													.next();
 
-											// check object __DEC_message_message_648454 is really bound
-											JavaSDM.ensure(__DEC_message_message_648454 != null);
-											// check isomorphic binding between objects __DEC_message_message_648454 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_648454
+											// check object __DEC_message_message_557998 is really bound
+											JavaSDM.ensure(__DEC_message_message_557998 != null);
+											// check isomorphic binding between objects __DEC_message_message_557998 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_557998
 													.equals(messageReceive));
 
 											fujaba__Success = true;
@@ -4625,10 +4706,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_71513
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_999653
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_71513 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_999653 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -4637,16 +4718,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_71513
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_999653
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_71513 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_71513
+											__DEC_messageReceive_receiveEvent_999653 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_999653
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_71513 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_71513 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_71513 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_71513
+											// check object __DEC_messageReceive_receiveEvent_999653 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_999653 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_999653 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_999653
 													.equals(message));
 
 											fujaba__Success = true;
@@ -4669,10 +4750,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_221747
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_25651
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_221747 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_25651 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -4681,16 +4762,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_221747
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_25651
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_221747 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_221747
+											__DEC_messageReceive_sendEvent_25651 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_25651
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_221747 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_221747 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_221747 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_221747
+											// check object __DEC_messageReceive_sendEvent_25651 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_25651 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_25651 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_25651
 													.equals(message));
 
 											fujaba__Success = true;
@@ -4872,15 +4953,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_749749 = null;
-		MessageEnd __DEC_message_sendEvent_580160 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_609558 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_827261 = null;
-		MessageEnd __DEC_message_message_827261 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_340876 = null;
-		Message __DEC_messageReceive_receiveEvent_340876 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_426403 = null;
-		Message __DEC_messageReceive_sendEvent_426403 = null;
+		Interaction __DEC_interaction_enclosingInteraction_664633 = null;
+		MessageEnd __DEC_message_sendEvent_511111 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_577423 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_728325 = null;
+		MessageEnd __DEC_message_message_728325 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_376788 = null;
+		Message __DEC_messageReceive_receiveEvent_376788 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_367384 = null;
+		Message __DEC_messageReceive_sendEvent_367384 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Iterator fujaba__IterInteractionToMessage = null;
@@ -5005,14 +5086,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_enclosingInteraction_749749 = interaction
+							__DEC_interaction_enclosingInteraction_664633 = interaction
 									.getEnclosingInteraction();
 
-							// check object __DEC_interaction_enclosingInteraction_749749 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_749749 != null);
+							// check object __DEC_interaction_enclosingInteraction_664633 is really bound
+							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_664633 != null);
 
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_749749 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_749749
+							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_664633 and interaction 
+							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_664633
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -5029,14 +5110,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_message_sendEvent_580160 = message
+							__DEC_message_sendEvent_511111 = message
 									.getSendEvent();
 
-							// check object __DEC_message_sendEvent_580160 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_580160 != null);
+							// check object __DEC_message_sendEvent_511111 is really bound
+							JavaSDM.ensure(__DEC_message_sendEvent_511111 != null);
 
-							// check isomorphic binding between objects __DEC_message_sendEvent_580160 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_580160
+							// check isomorphic binding between objects __DEC_message_sendEvent_511111 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_sendEvent_511111
 									.equals(messageReceive));
 
 							fujaba__Success = true;
@@ -5053,19 +5134,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_packagedElement_609558 = interaction
+							__DEC_interaction_packagedElement_577423 = interaction
 									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 									.eContainer() : null;
 
-							// check object __DEC_interaction_packagedElement_609558 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_609558 != null);
+							// check object __DEC_interaction_packagedElement_577423 is really bound
+							JavaSDM.ensure(__DEC_interaction_packagedElement_577423 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_609558
+							JavaSDM.ensure(__DEC_interaction_packagedElement_577423
 									.getPackagedElement().contains(interaction));
 
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_609558 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_609558
+							// check isomorphic binding between objects __DEC_interaction_packagedElement_577423 and _package 
+							JavaSDM.ensure(!__DEC_interaction_packagedElement_577423
 									.equals(_package));
 
 							fujaba__Success = true;
@@ -5081,26 +5162,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_827261
+							// iterate to-many link message from message to __DEC_message_message_728325
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_827261 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_728325 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_827261
+									&& fujaba__IterMessageTo__DEC_message_message_728325
 											.hasNext()) {
 								try {
-									__DEC_message_message_827261 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_827261
+									__DEC_message_message_728325 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_728325
 											.next();
 
-									// check object __DEC_message_message_827261 is really bound
-									JavaSDM.ensure(__DEC_message_message_827261 != null);
-									// check isomorphic binding between objects __DEC_message_message_827261 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_827261
+									// check object __DEC_message_message_728325 is really bound
+									JavaSDM.ensure(__DEC_message_message_728325 != null);
+									// check isomorphic binding between objects __DEC_message_message_728325 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_728325
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -5123,10 +5204,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_340876
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_376788
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_340876 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_376788 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -5134,16 +5215,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_340876
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_376788
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_340876 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_340876
+									__DEC_messageReceive_receiveEvent_376788 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_376788
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_340876 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_340876 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_340876 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_340876
+									// check object __DEC_messageReceive_receiveEvent_376788 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_376788 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_376788 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_376788
 											.equals(message));
 
 									fujaba__Success = true;
@@ -5166,10 +5247,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_426403
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_367384
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_426403 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_367384 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -5177,16 +5258,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_426403
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_367384
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_426403 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_426403
+									__DEC_messageReceive_sendEvent_367384 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_367384
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_426403 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_426403 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_426403 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_426403
+									// check object __DEC_messageReceive_sendEvent_367384 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_367384 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_367384 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_367384
 											.equals(message));
 
 									fujaba__Success = true;
@@ -5340,15 +5421,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_935832 = null;
-		MessageEnd __DEC_message_sendEvent_585256 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_807480 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_229264 = null;
-		MessageEnd __DEC_message_message_229264 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_984423 = null;
-		Message __DEC_messageReceive_receiveEvent_984423 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_180579 = null;
-		Message __DEC_messageReceive_sendEvent_180579 = null;
+		Interaction __DEC_interaction_enclosingInteraction_708707 = null;
+		MessageEnd __DEC_message_sendEvent_750377 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_317169 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_661548 = null;
+		MessageEnd __DEC_message_message_661548 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_208641 = null;
+		Message __DEC_messageReceive_receiveEvent_208641 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_20824 = null;
+		Message __DEC_messageReceive_sendEvent_20824 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionTo_edge_interaction = null;
 		EMoflonEdge _edge_interaction = null;
@@ -5501,14 +5582,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_interaction_enclosingInteraction_935832 = interaction
+									__DEC_interaction_enclosingInteraction_708707 = interaction
 											.getEnclosingInteraction();
 
-									// check object __DEC_interaction_enclosingInteraction_935832 is really bound
-									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_935832 != null);
+									// check object __DEC_interaction_enclosingInteraction_708707 is really bound
+									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_708707 != null);
 
-									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_935832 and interaction 
-									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_935832
+									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_708707 and interaction 
+									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_708707
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -5525,14 +5606,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_message_sendEvent_585256 = message
+									__DEC_message_sendEvent_750377 = message
 											.getSendEvent();
 
-									// check object __DEC_message_sendEvent_585256 is really bound
-									JavaSDM.ensure(__DEC_message_sendEvent_585256 != null);
+									// check object __DEC_message_sendEvent_750377 is really bound
+									JavaSDM.ensure(__DEC_message_sendEvent_750377 != null);
 
-									// check isomorphic binding between objects __DEC_message_sendEvent_585256 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_sendEvent_585256
+									// check isomorphic binding between objects __DEC_message_sendEvent_750377 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_sendEvent_750377
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -5549,20 +5630,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_interaction_packagedElement_807480 = interaction
+									__DEC_interaction_packagedElement_317169 = interaction
 											.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 											.eContainer() : null;
 
-									// check object __DEC_interaction_packagedElement_807480 is really bound
-									JavaSDM.ensure(__DEC_interaction_packagedElement_807480 != null);
+									// check object __DEC_interaction_packagedElement_317169 is really bound
+									JavaSDM.ensure(__DEC_interaction_packagedElement_317169 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_interaction_packagedElement_807480
+									JavaSDM.ensure(__DEC_interaction_packagedElement_317169
 											.getPackagedElement().contains(
 													interaction));
 
-									// check isomorphic binding between objects __DEC_interaction_packagedElement_807480 and _package 
-									JavaSDM.ensure(!__DEC_interaction_packagedElement_807480
+									// check isomorphic binding between objects __DEC_interaction_packagedElement_317169 and _package 
+									JavaSDM.ensure(!__DEC_interaction_packagedElement_317169
 											.equals(_package));
 
 									fujaba__Success = true;
@@ -5578,10 +5659,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_229264
+									// iterate to-many link message from message to __DEC_message_message_661548
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_229264 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_661548 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -5590,16 +5671,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_229264
+											&& fujaba__IterMessageTo__DEC_message_message_661548
 													.hasNext()) {
 										try {
-											__DEC_message_message_229264 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_229264
+											__DEC_message_message_661548 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_661548
 													.next();
 
-											// check object __DEC_message_message_229264 is really bound
-											JavaSDM.ensure(__DEC_message_message_229264 != null);
-											// check isomorphic binding between objects __DEC_message_message_229264 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_229264
+											// check object __DEC_message_message_661548 is really bound
+											JavaSDM.ensure(__DEC_message_message_661548 != null);
+											// check isomorphic binding between objects __DEC_message_message_661548 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_661548
 													.equals(messageReceive));
 
 											fujaba__Success = true;
@@ -5622,10 +5703,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_984423
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_208641
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_984423 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_208641 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -5634,16 +5715,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_984423
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_208641
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_984423 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_984423
+											__DEC_messageReceive_receiveEvent_208641 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_208641
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_984423 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_984423 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_984423 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_984423
+											// check object __DEC_messageReceive_receiveEvent_208641 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_208641 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_208641 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_208641
 													.equals(message));
 
 											fujaba__Success = true;
@@ -5666,10 +5747,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_180579
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_20824
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_180579 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_20824 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -5678,16 +5759,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_180579
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_20824
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_180579 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_180579
+											__DEC_messageReceive_sendEvent_20824 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_20824
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_180579 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_180579 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_180579 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_180579
+											// check object __DEC_messageReceive_sendEvent_20824 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_20824 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_20824 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_20824
 													.equals(message));
 
 											fujaba__Success = true;
@@ -5869,15 +5950,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_744325 = null;
-		MessageEnd __DEC_message_sendEvent_833822 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_933913 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_190343 = null;
-		MessageEnd __DEC_message_message_190343 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_645894 = null;
-		Message __DEC_messageReceive_receiveEvent_645894 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832254 = null;
-		Message __DEC_messageReceive_sendEvent_832254 = null;
+		Interaction __DEC_interaction_enclosingInteraction_906825 = null;
+		MessageEnd __DEC_message_sendEvent_424843 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_771536 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_107599 = null;
+		MessageEnd __DEC_message_message_107599 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_871844 = null;
+		Message __DEC_messageReceive_receiveEvent_871844 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_880545 = null;
+		Message __DEC_messageReceive_sendEvent_880545 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -6000,14 +6081,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_enclosingInteraction_744325 = interaction
+							__DEC_interaction_enclosingInteraction_906825 = interaction
 									.getEnclosingInteraction();
 
-							// check object __DEC_interaction_enclosingInteraction_744325 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_744325 != null);
+							// check object __DEC_interaction_enclosingInteraction_906825 is really bound
+							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_906825 != null);
 
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_744325 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_744325
+							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_906825 and interaction 
+							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_906825
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -6024,14 +6105,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_message_sendEvent_833822 = message
+							__DEC_message_sendEvent_424843 = message
 									.getSendEvent();
 
-							// check object __DEC_message_sendEvent_833822 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_833822 != null);
+							// check object __DEC_message_sendEvent_424843 is really bound
+							JavaSDM.ensure(__DEC_message_sendEvent_424843 != null);
 
-							// check isomorphic binding between objects __DEC_message_sendEvent_833822 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_833822
+							// check isomorphic binding between objects __DEC_message_sendEvent_424843 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_sendEvent_424843
 									.equals(messageReceive));
 
 							fujaba__Success = true;
@@ -6048,19 +6129,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_packagedElement_933913 = interaction
+							__DEC_interaction_packagedElement_771536 = interaction
 									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 									.eContainer() : null;
 
-							// check object __DEC_interaction_packagedElement_933913 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_933913 != null);
+							// check object __DEC_interaction_packagedElement_771536 is really bound
+							JavaSDM.ensure(__DEC_interaction_packagedElement_771536 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_933913
+							JavaSDM.ensure(__DEC_interaction_packagedElement_771536
 									.getPackagedElement().contains(interaction));
 
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_933913 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_933913
+							// check isomorphic binding between objects __DEC_interaction_packagedElement_771536 and _package 
+							JavaSDM.ensure(!__DEC_interaction_packagedElement_771536
 									.equals(_package));
 
 							fujaba__Success = true;
@@ -6076,26 +6157,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_190343
+							// iterate to-many link message from message to __DEC_message_message_107599
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_190343 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_107599 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_190343
+									&& fujaba__IterMessageTo__DEC_message_message_107599
 											.hasNext()) {
 								try {
-									__DEC_message_message_190343 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_190343
+									__DEC_message_message_107599 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_107599
 											.next();
 
-									// check object __DEC_message_message_190343 is really bound
-									JavaSDM.ensure(__DEC_message_message_190343 != null);
-									// check isomorphic binding between objects __DEC_message_message_190343 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_190343
+									// check object __DEC_message_message_107599 is really bound
+									JavaSDM.ensure(__DEC_message_message_107599 != null);
+									// check isomorphic binding between objects __DEC_message_message_107599 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_107599
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -6118,10 +6199,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_645894
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_871844
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_645894 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_871844 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -6129,16 +6210,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_645894
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_871844
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_645894 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_645894
+									__DEC_messageReceive_receiveEvent_871844 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_871844
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_645894 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_645894 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_645894 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_645894
+									// check object __DEC_messageReceive_receiveEvent_871844 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_871844 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_871844 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_871844
 											.equals(message));
 
 									fujaba__Success = true;
@@ -6161,10 +6242,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_832254
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_880545
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832254 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_880545 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -6172,16 +6253,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832254
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_880545
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_832254 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832254
+									__DEC_messageReceive_sendEvent_880545 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_880545
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_832254 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_832254 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_832254 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_832254
+									// check object __DEC_messageReceive_sendEvent_880545 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_880545 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_880545 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_880545
 											.equals(message));
 
 									fujaba__Success = true;
@@ -6336,15 +6417,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_638944 = null;
-		MessageEnd __DEC_message_sendEvent_618285 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_465837 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_583559 = null;
-		MessageEnd __DEC_message_message_583559 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_897502 = null;
-		Message __DEC_messageReceive_receiveEvent_897502 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_575078 = null;
-		Message __DEC_messageReceive_sendEvent_575078 = null;
+		Interaction __DEC_interaction_enclosingInteraction_912941 = null;
+		MessageEnd __DEC_message_sendEvent_235429 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_728394 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_805055 = null;
+		MessageEnd __DEC_message_message_805055 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_125577 = null;
+		Message __DEC_messageReceive_receiveEvent_125577 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_181619 = null;
+		Message __DEC_messageReceive_sendEvent_181619 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveTo_edge_enclosingInteraction = null;
 		EMoflonEdge _edge_enclosingInteraction = null;
@@ -6495,14 +6576,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_interaction_enclosingInteraction_638944 = interaction
+									__DEC_interaction_enclosingInteraction_912941 = interaction
 											.getEnclosingInteraction();
 
-									// check object __DEC_interaction_enclosingInteraction_638944 is really bound
-									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_638944 != null);
+									// check object __DEC_interaction_enclosingInteraction_912941 is really bound
+									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_912941 != null);
 
-									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_638944 and interaction 
-									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_638944
+									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_912941 and interaction 
+									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_912941
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -6519,14 +6600,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_message_sendEvent_618285 = message
+									__DEC_message_sendEvent_235429 = message
 											.getSendEvent();
 
-									// check object __DEC_message_sendEvent_618285 is really bound
-									JavaSDM.ensure(__DEC_message_sendEvent_618285 != null);
+									// check object __DEC_message_sendEvent_235429 is really bound
+									JavaSDM.ensure(__DEC_message_sendEvent_235429 != null);
 
-									// check isomorphic binding between objects __DEC_message_sendEvent_618285 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_sendEvent_618285
+									// check isomorphic binding between objects __DEC_message_sendEvent_235429 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_sendEvent_235429
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -6543,20 +6624,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_interaction_packagedElement_465837 = interaction
+									__DEC_interaction_packagedElement_728394 = interaction
 											.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 											.eContainer() : null;
 
-									// check object __DEC_interaction_packagedElement_465837 is really bound
-									JavaSDM.ensure(__DEC_interaction_packagedElement_465837 != null);
+									// check object __DEC_interaction_packagedElement_728394 is really bound
+									JavaSDM.ensure(__DEC_interaction_packagedElement_728394 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_interaction_packagedElement_465837
+									JavaSDM.ensure(__DEC_interaction_packagedElement_728394
 											.getPackagedElement().contains(
 													interaction));
 
-									// check isomorphic binding between objects __DEC_interaction_packagedElement_465837 and _package 
-									JavaSDM.ensure(!__DEC_interaction_packagedElement_465837
+									// check isomorphic binding between objects __DEC_interaction_packagedElement_728394 and _package 
+									JavaSDM.ensure(!__DEC_interaction_packagedElement_728394
 											.equals(_package));
 
 									fujaba__Success = true;
@@ -6572,10 +6653,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_583559
+									// iterate to-many link message from message to __DEC_message_message_805055
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_583559 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_805055 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -6584,16 +6665,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_583559
+											&& fujaba__IterMessageTo__DEC_message_message_805055
 													.hasNext()) {
 										try {
-											__DEC_message_message_583559 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_583559
+											__DEC_message_message_805055 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_805055
 													.next();
 
-											// check object __DEC_message_message_583559 is really bound
-											JavaSDM.ensure(__DEC_message_message_583559 != null);
-											// check isomorphic binding between objects __DEC_message_message_583559 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_583559
+											// check object __DEC_message_message_805055 is really bound
+											JavaSDM.ensure(__DEC_message_message_805055 != null);
+											// check isomorphic binding between objects __DEC_message_message_805055 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_805055
 													.equals(messageReceive));
 
 											fujaba__Success = true;
@@ -6616,10 +6697,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_897502
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_125577
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_897502 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_125577 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -6628,16 +6709,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_897502
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_125577
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_897502 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_897502
+											__DEC_messageReceive_receiveEvent_125577 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_125577
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_897502 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_897502 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_897502 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_897502
+											// check object __DEC_messageReceive_receiveEvent_125577 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_125577 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_125577 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_125577
 													.equals(message));
 
 											fujaba__Success = true;
@@ -6660,10 +6741,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_575078
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_181619
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_575078 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_181619 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -6672,16 +6753,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_575078
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_181619
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_575078 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_575078
+											__DEC_messageReceive_sendEvent_181619 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_181619
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_575078 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_575078 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_575078 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_575078
+											// check object __DEC_messageReceive_sendEvent_181619 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_181619 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_181619 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_181619
 													.equals(message));
 
 											fujaba__Success = true;
@@ -6865,15 +6946,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_421979 = null;
-		MessageEnd __DEC_message_sendEvent_358994 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_406657 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_924323 = null;
-		MessageEnd __DEC_message_message_924323 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_856004 = null;
-		Message __DEC_messageReceive_receiveEvent_856004 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_276913 = null;
-		Message __DEC_messageReceive_sendEvent_276913 = null;
+		Interaction __DEC_interaction_enclosingInteraction_118040 = null;
+		MessageEnd __DEC_message_sendEvent_635775 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_755070 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_584761 = null;
+		MessageEnd __DEC_message_message_584761 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_730120 = null;
+		Message __DEC_messageReceive_receiveEvent_730120 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_926000 = null;
+		Message __DEC_messageReceive_sendEvent_926000 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -6997,14 +7078,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_enclosingInteraction_421979 = interaction
+							__DEC_interaction_enclosingInteraction_118040 = interaction
 									.getEnclosingInteraction();
 
-							// check object __DEC_interaction_enclosingInteraction_421979 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_421979 != null);
+							// check object __DEC_interaction_enclosingInteraction_118040 is really bound
+							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_118040 != null);
 
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_421979 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_421979
+							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_118040 and interaction 
+							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_118040
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -7021,14 +7102,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_message_sendEvent_358994 = message
+							__DEC_message_sendEvent_635775 = message
 									.getSendEvent();
 
-							// check object __DEC_message_sendEvent_358994 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_358994 != null);
+							// check object __DEC_message_sendEvent_635775 is really bound
+							JavaSDM.ensure(__DEC_message_sendEvent_635775 != null);
 
-							// check isomorphic binding between objects __DEC_message_sendEvent_358994 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_358994
+							// check isomorphic binding between objects __DEC_message_sendEvent_635775 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_sendEvent_635775
 									.equals(messageReceive));
 
 							fujaba__Success = true;
@@ -7045,19 +7126,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_packagedElement_406657 = interaction
+							__DEC_interaction_packagedElement_755070 = interaction
 									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 									.eContainer() : null;
 
-							// check object __DEC_interaction_packagedElement_406657 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_406657 != null);
+							// check object __DEC_interaction_packagedElement_755070 is really bound
+							JavaSDM.ensure(__DEC_interaction_packagedElement_755070 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_406657
+							JavaSDM.ensure(__DEC_interaction_packagedElement_755070
 									.getPackagedElement().contains(interaction));
 
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_406657 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_406657
+							// check isomorphic binding between objects __DEC_interaction_packagedElement_755070 and _package 
+							JavaSDM.ensure(!__DEC_interaction_packagedElement_755070
 									.equals(_package));
 
 							fujaba__Success = true;
@@ -7073,26 +7154,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_924323
+							// iterate to-many link message from message to __DEC_message_message_584761
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_924323 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_584761 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_924323
+									&& fujaba__IterMessageTo__DEC_message_message_584761
 											.hasNext()) {
 								try {
-									__DEC_message_message_924323 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_924323
+									__DEC_message_message_584761 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_584761
 											.next();
 
-									// check object __DEC_message_message_924323 is really bound
-									JavaSDM.ensure(__DEC_message_message_924323 != null);
-									// check isomorphic binding between objects __DEC_message_message_924323 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_924323
+									// check object __DEC_message_message_584761 is really bound
+									JavaSDM.ensure(__DEC_message_message_584761 != null);
+									// check isomorphic binding between objects __DEC_message_message_584761 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_584761
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -7115,10 +7196,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_856004
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_730120
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_856004 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_730120 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -7126,16 +7207,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_856004
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_730120
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_856004 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_856004
+									__DEC_messageReceive_receiveEvent_730120 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_730120
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_856004 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_856004 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_856004 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_856004
+									// check object __DEC_messageReceive_receiveEvent_730120 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_730120 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_730120 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_730120
 											.equals(message));
 
 									fujaba__Success = true;
@@ -7158,10 +7239,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_276913
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_926000
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_276913 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_926000 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -7169,16 +7250,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_276913
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_926000
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_276913 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_276913
+									__DEC_messageReceive_sendEvent_926000 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_926000
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_276913 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_276913 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_276913 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_276913
+									// check object __DEC_messageReceive_sendEvent_926000 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_926000 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_926000 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_926000
 											.equals(message));
 
 									fujaba__Success = true;
@@ -7325,6 +7406,316 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_21(
+			EMoflonEdge _edge_useCases) {
+		boolean fujaba__Success = false;
+		Object _TmpObject = null;
+		EClass __eClass = null;
+		Iterator fujaba__Iter__eClassTo__performOperation = null;
+		EOperation __performOperation = null;
+		EObjectContainer __result = null;
+		PackageDeclaration __DEC_actor_actors_410526 = null;
+		UseCase __DEC_basicFlow_flows_105364 = null;
+		PackageDeclaration __DEC_useCase_useCases_512181 = null;
+		Match match = null;
+		Iterator fujaba__IterUseCaseToBasicFlow = null;
+		BasicFlow basicFlow = null;
+		Iterator fujaba__IterPackageDeclarationToActor = null;
+		Actor actor = null;
+		UseCase useCase = null;
+		PackageDeclaration packageDeclaration = null;
+
+		// story node 'prepare return value'
+		try {
+			fujaba__Success = false;
+
+			_TmpObject = (this.eClass());
+
+			// ensure correct type and really bound of object __eClass
+			JavaSDM.ensure(_TmpObject instanceof EClass);
+			__eClass = (EClass) _TmpObject;
+			// iterate to-many link eOperations from __eClass to __performOperation
+			fujaba__Success = false;
+
+			fujaba__Iter__eClassTo__performOperation = __eClass
+					.getEOperations().iterator();
+
+			while (!(fujaba__Success)
+					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
+				try {
+					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
+							.next();
+
+					// check object __performOperation is really bound
+					JavaSDM.ensure(__performOperation != null);
+					// attribute condition
+					JavaSDM.ensure(JavaSDM.stringCompare(
+							__performOperation.getName(), "isApplicable_FWD") == 0);
+
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
+				}
+			}
+			JavaSDM.ensure(fujaba__Success);
+			// create object __result
+			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'test core match kernel'
+		try {
+			fujaba__Success = false;
+
+			// check object _edge_useCases is really bound
+			JavaSDM.ensure(_edge_useCases != null);
+			// bind object
+			_TmpObject = _edge_useCases.getSrc();
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
+
+			// bind object
+			_TmpObject = _edge_useCases.getTrg();
+
+			// ensure correct type and really bound of object useCase
+			JavaSDM.ensure(_TmpObject instanceof UseCase);
+			useCase = (UseCase) _TmpObject;
+
+			// check link useCases from useCase to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
+			// iterate to-many link actors from packageDeclaration to actor
+			fujaba__Success = false;
+
+			fujaba__IterPackageDeclarationToActor = new ArrayList(
+					packageDeclaration.getActors()).iterator();
+
+			while (fujaba__IterPackageDeclarationToActor.hasNext()) {
+				try {
+					actor = (Actor) fujaba__IterPackageDeclarationToActor
+							.next();
+
+					// check object actor is really bound
+					JavaSDM.ensure(actor != null);
+					// iterate to-many link flows from useCase to basicFlow
+					fujaba__Success = false;
+
+					fujaba__IterUseCaseToBasicFlow = new ArrayList(
+							useCase.getFlows()).iterator();
+
+					while (fujaba__IterUseCaseToBasicFlow.hasNext()) {
+						try {
+							_TmpObject = fujaba__IterUseCaseToBasicFlow.next();
+
+							// ensure correct type and really bound of object basicFlow
+							JavaSDM.ensure(_TmpObject instanceof BasicFlow);
+							basicFlow = (BasicFlow) _TmpObject;
+							// story node 'test core match and DECs'
+							try {
+								fujaba__Success = false;
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// bind object
+									__DEC_actor_actors_410526 = actor
+											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+											.eContainer() : null;
+
+									// check object __DEC_actor_actors_410526 is really bound
+									JavaSDM.ensure(__DEC_actor_actors_410526 != null);
+
+									// check if contained via correct reference
+									JavaSDM.ensure(__DEC_actor_actors_410526
+											.getActors().contains(actor));
+
+									// check isomorphic binding between objects __DEC_actor_actors_410526 and packageDeclaration 
+									JavaSDM.ensure(!__DEC_actor_actors_410526
+											.equals(packageDeclaration));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// bind object
+									__DEC_basicFlow_flows_105364 = basicFlow
+											.eContainer() instanceof UseCase ? (UseCase) basicFlow
+											.eContainer() : null;
+
+									// check object __DEC_basicFlow_flows_105364 is really bound
+									JavaSDM.ensure(__DEC_basicFlow_flows_105364 != null);
+
+									// check if contained via correct reference
+									JavaSDM.ensure(__DEC_basicFlow_flows_105364
+											.getFlows().contains(basicFlow));
+
+									// check isomorphic binding between objects __DEC_basicFlow_flows_105364 and useCase 
+									JavaSDM.ensure(!__DEC_basicFlow_flows_105364
+											.equals(useCase));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// bind object
+									__DEC_useCase_useCases_512181 = useCase
+											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+											.eContainer() : null;
+
+									// check object __DEC_useCase_useCases_512181 is really bound
+									JavaSDM.ensure(__DEC_useCase_useCases_512181 != null);
+
+									// check if contained via correct reference
+									JavaSDM.ensure(__DEC_useCase_useCases_512181
+											.getUseCases().contains(useCase));
+
+									// check isomorphic binding between objects __DEC_useCase_useCases_512181 and packageDeclaration 
+									JavaSDM.ensure(!__DEC_useCase_useCases_512181
+											.equals(packageDeclaration));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check object _edge_useCases is really bound
+								JavaSDM.ensure(_edge_useCases != null);
+								// check object actor is really bound
+								JavaSDM.ensure(actor != null);
+								// check object basicFlow is really bound
+								JavaSDM.ensure(basicFlow != null);
+								// check object packageDeclaration is really bound
+								JavaSDM.ensure(packageDeclaration != null);
+								// check object useCase is really bound
+								JavaSDM.ensure(useCase != null);
+								// check link actors from actor to packageDeclaration
+								JavaSDM.ensure(packageDeclaration.equals(actor
+										.eContainer()));
+
+								// check link flows from basicFlow to useCase
+								JavaSDM.ensure(useCase.equals(basicFlow
+										.eContainer()));
+
+								// check link src from _edge_useCases to packageDeclaration
+								JavaSDM.ensure(packageDeclaration
+										.equals(_edge_useCases.getSrc()));
+
+								// check link trg from _edge_useCases to useCase
+								JavaSDM.ensure(useCase.equals(_edge_useCases
+										.getTrg()));
+
+								// check link useCases from useCase to packageDeclaration
+								JavaSDM.ensure(packageDeclaration
+										.equals(useCase.eContainer()));
+
+								// create object match
+								match = TGGRuntimeFactory.eINSTANCE
+										.createMatch();
+
+								// assign attribute match
+								match.setRuleName(__eClass.getName());
+								// statement node 'bookkeeping with generic isAppropriate method'
+								fujaba__Success = this.isAppropriate_FWD(match,
+										useCase, actor, packageDeclaration,
+										basicFlow);
+								if (fujaba__Success) {
+									// statement node 'Ensure that the correct types of elements are matched'
+									fujaba__Success = this
+											.checkTypes_FWD(match);
+									if (fujaba__Success) {
+										// story node 'Add match to rule result'
+										try {
+											fujaba__Success = false;
+
+											// check object __performOperation is really bound
+											JavaSDM.ensure(__performOperation != null);
+											// check object __result is really bound
+											JavaSDM.ensure(__result != null);
+											// check object match is really bound
+											JavaSDM.ensure(match != null);
+
+											// create link
+											org.moflon.util.eMoflonEMFUtil
+													.addOppositeReference(
+															match,
+															__performOperation,
+															"isApplicableOperation");
+
+											// create link
+											__result.getContents().add(match);
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+									} else {
+
+									}
+
+								} else {
+
+								}
+								fujaba__Success = true;
+							} catch (JavaSDMException fujaba__InternalException) {
+								fujaba__Success = false;
+							}
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+					}
+					JavaSDM.ensure(fujaba__Success);
+
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
+				}
+			}
+			JavaSDM.ensure(fujaba__Success);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		return __result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_22(
 			EMoflonEdge _edge_actors) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -7332,10 +7723,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_basicFlow_flows_102299 = null;
-		PackageDeclaration __DEC_useCase_useCases_574935 = null;
-		PackageDeclaration __DEC_actor_actors_306935 = null;
+		PackageDeclaration __DEC_actor_actors_808857 = null;
+		UseCase __DEC_basicFlow_flows_598168 = null;
+		PackageDeclaration __DEC_useCase_useCases_370399 = null;
 		Match match = null;
+		Iterator fujaba__IterUseCaseToBasicFlow = null;
+		BasicFlow basicFlow = null;
+		Iterator fujaba__IterPackageDeclarationToUseCase = null;
+		UseCase useCase = null;
 		Actor actor = null;
 		PackageDeclaration packageDeclaration = null;
 
@@ -7386,178 +7781,236 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// check object _edge_actors is really bound
 			JavaSDM.ensure(_edge_actors != null);
-			// check link flows from basicFlow to useCase
-			JavaSDM.ensure(useCase.equals(basicFlow.eContainer()));
+			// bind object
+			_TmpObject = _edge_actors.getSrc();
 
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 
-				// check negative bindings
+			// bind object
+			_TmpObject = _edge_actors.getTrg();
+
+			// ensure correct type and really bound of object actor
+			JavaSDM.ensure(_TmpObject instanceof Actor);
+			actor = (Actor) _TmpObject;
+
+			// check link actors from actor to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
+
+			// iterate to-many link useCases from packageDeclaration to useCase
+			fujaba__Success = false;
+
+			fujaba__IterPackageDeclarationToUseCase = new ArrayList(
+					packageDeclaration.getUseCases()).iterator();
+
+			while (fujaba__IterPackageDeclarationToUseCase.hasNext()) {
 				try {
+					useCase = (UseCase) fujaba__IterPackageDeclarationToUseCase
+							.next();
+
+					// check object useCase is really bound
+					JavaSDM.ensure(useCase != null);
+					// iterate to-many link flows from useCase to basicFlow
 					fujaba__Success = false;
 
-					// bind object
-					__DEC_basicFlow_flows_102299 = basicFlow.eContainer() instanceof UseCase ? (UseCase) basicFlow
-							.eContainer() : null;
+					fujaba__IterUseCaseToBasicFlow = new ArrayList(
+							useCase.getFlows()).iterator();
 
-					// check object __DEC_basicFlow_flows_102299 is really bound
-					JavaSDM.ensure(__DEC_basicFlow_flows_102299 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_basicFlow_flows_102299.getFlows()
-							.contains(basicFlow));
-
-					// check isomorphic binding between objects __DEC_basicFlow_flows_102299 and useCase 
-					JavaSDM.ensure(!__DEC_basicFlow_flows_102299
-							.equals(useCase));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_actors is really bound
-				JavaSDM.ensure(_edge_actors != null);
-				// check object basicFlow is really bound
-				JavaSDM.ensure(basicFlow != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// check link flows from basicFlow to useCase
-				JavaSDM.ensure(useCase.equals(basicFlow.eContainer()));
-
-				// bind object
-				_TmpObject = _edge_actors.getSrc();
-
-				// ensure correct type and really bound of object packageDeclaration
-				JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-				packageDeclaration = (PackageDeclaration) _TmpObject;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_useCase_useCases_574935 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
-							.eContainer() : null;
-
-					// check object __DEC_useCase_useCases_574935 is really bound
-					JavaSDM.ensure(__DEC_useCase_useCases_574935 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_useCase_useCases_574935.getUseCases()
-							.contains(useCase));
-
-					// check isomorphic binding between objects __DEC_useCase_useCases_574935 and packageDeclaration 
-					JavaSDM.ensure(!__DEC_useCase_useCases_574935
-							.equals(packageDeclaration));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// bind object
-				_TmpObject = _edge_actors.getTrg();
-
-				// ensure correct type and really bound of object actor
-				JavaSDM.ensure(_TmpObject instanceof Actor);
-				actor = (Actor) _TmpObject;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_actor_actors_306935 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
-							.eContainer() : null;
-
-					// check object __DEC_actor_actors_306935 is really bound
-					JavaSDM.ensure(__DEC_actor_actors_306935 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_actor_actors_306935.getActors()
-							.contains(actor));
-
-					// check isomorphic binding between objects __DEC_actor_actors_306935 and packageDeclaration 
-					JavaSDM.ensure(!__DEC_actor_actors_306935
-							.equals(packageDeclaration));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check link actors from actor to packageDeclaration
-				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
-
-				// check link useCases from useCase to packageDeclaration
-				JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(useCase,
-								PackageDeclaration.class, "$eContainer")
-						.contains(packageDeclaration)));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, useCase, actor,
-						packageDeclaration, basicFlow);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
+					while (fujaba__IterUseCaseToBasicFlow.hasNext()) {
 						try {
-							fujaba__Success = false;
+							_TmpObject = fujaba__IterUseCaseToBasicFlow.next();
 
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
+							// ensure correct type and really bound of object basicFlow
+							JavaSDM.ensure(_TmpObject instanceof BasicFlow);
+							basicFlow = (BasicFlow) _TmpObject;
+							// story node 'test core match and DECs'
+							try {
+								fujaba__Success = false;
 
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
+								// check negative bindings
+								try {
+									fujaba__Success = false;
 
-							// create link
-							__result.getContents().add(match);
+									// bind object
+									__DEC_actor_actors_808857 = actor
+											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+											.eContainer() : null;
+
+									// check object __DEC_actor_actors_808857 is really bound
+									JavaSDM.ensure(__DEC_actor_actors_808857 != null);
+
+									// check if contained via correct reference
+									JavaSDM.ensure(__DEC_actor_actors_808857
+											.getActors().contains(actor));
+
+									// check isomorphic binding between objects __DEC_actor_actors_808857 and packageDeclaration 
+									JavaSDM.ensure(!__DEC_actor_actors_808857
+											.equals(packageDeclaration));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// bind object
+									__DEC_basicFlow_flows_598168 = basicFlow
+											.eContainer() instanceof UseCase ? (UseCase) basicFlow
+											.eContainer() : null;
+
+									// check object __DEC_basicFlow_flows_598168 is really bound
+									JavaSDM.ensure(__DEC_basicFlow_flows_598168 != null);
+
+									// check if contained via correct reference
+									JavaSDM.ensure(__DEC_basicFlow_flows_598168
+											.getFlows().contains(basicFlow));
+
+									// check isomorphic binding between objects __DEC_basicFlow_flows_598168 and useCase 
+									JavaSDM.ensure(!__DEC_basicFlow_flows_598168
+											.equals(useCase));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// bind object
+									__DEC_useCase_useCases_370399 = useCase
+											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+											.eContainer() : null;
+
+									// check object __DEC_useCase_useCases_370399 is really bound
+									JavaSDM.ensure(__DEC_useCase_useCases_370399 != null);
+
+									// check if contained via correct reference
+									JavaSDM.ensure(__DEC_useCase_useCases_370399
+											.getUseCases().contains(useCase));
+
+									// check isomorphic binding between objects __DEC_useCase_useCases_370399 and packageDeclaration 
+									JavaSDM.ensure(!__DEC_useCase_useCases_370399
+											.equals(packageDeclaration));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check object _edge_actors is really bound
+								JavaSDM.ensure(_edge_actors != null);
+								// check object actor is really bound
+								JavaSDM.ensure(actor != null);
+								// check object basicFlow is really bound
+								JavaSDM.ensure(basicFlow != null);
+								// check object packageDeclaration is really bound
+								JavaSDM.ensure(packageDeclaration != null);
+								// check object useCase is really bound
+								JavaSDM.ensure(useCase != null);
+								// check link actors from actor to packageDeclaration
+								JavaSDM.ensure(packageDeclaration.equals(actor
+										.eContainer()));
+
+								// check link flows from basicFlow to useCase
+								JavaSDM.ensure(useCase.equals(basicFlow
+										.eContainer()));
+
+								// check link src from _edge_actors to packageDeclaration
+								JavaSDM.ensure(packageDeclaration
+										.equals(_edge_actors.getSrc()));
+
+								// check link trg from _edge_actors to actor
+								JavaSDM.ensure(actor.equals(_edge_actors
+										.getTrg()));
+
+								// check link useCases from useCase to packageDeclaration
+								JavaSDM.ensure(packageDeclaration
+										.equals(useCase.eContainer()));
+
+								// create object match
+								match = TGGRuntimeFactory.eINSTANCE
+										.createMatch();
+
+								// assign attribute match
+								match.setRuleName(__eClass.getName());
+								// statement node 'bookkeeping with generic isAppropriate method'
+								fujaba__Success = this.isAppropriate_FWD(match,
+										useCase, actor, packageDeclaration,
+										basicFlow);
+								if (fujaba__Success) {
+									// statement node 'Ensure that the correct types of elements are matched'
+									fujaba__Success = this
+											.checkTypes_FWD(match);
+									if (fujaba__Success) {
+										// story node 'Add match to rule result'
+										try {
+											fujaba__Success = false;
+
+											// check object __performOperation is really bound
+											JavaSDM.ensure(__performOperation != null);
+											// check object __result is really bound
+											JavaSDM.ensure(__result != null);
+											// check object match is really bound
+											JavaSDM.ensure(match != null);
+
+											// create link
+											org.moflon.util.eMoflonEMFUtil
+													.addOppositeReference(
+															match,
+															__performOperation,
+															"isApplicableOperation");
+
+											// create link
+											__result.getContents().add(match);
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+									} else {
+
+									}
+
+								} else {
+
+								}
+								fujaba__Success = true;
+							} catch (JavaSDMException fujaba__InternalException) {
+								fujaba__Success = false;
+							}
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
 							fujaba__Success = false;
 						}
-
-					} else {
-
 					}
+					JavaSDM.ensure(fujaba__Success);
 
-				} else {
-
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
 				}
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
 			}
+			JavaSDM.ensure(fujaba__Success);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -7580,15 +8033,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_905518 = null;
-		MessageEnd __DEC_message_sendEvent_508819 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_798424 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_551446 = null;
-		MessageEnd __DEC_message_message_551446 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232181 = null;
-		Message __DEC_messageReceive_receiveEvent_232181 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_35761 = null;
-		Message __DEC_messageReceive_sendEvent_35761 = null;
+		Interaction __DEC_interaction_enclosingInteraction_759117 = null;
+		MessageEnd __DEC_message_sendEvent_156621 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_110799 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_136152 = null;
+		MessageEnd __DEC_message_message_136152 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_572807 = null;
+		Message __DEC_messageReceive_receiveEvent_572807 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_915960 = null;
+		Message __DEC_messageReceive_sendEvent_915960 = null;
 		Match match = null;
 		ModalSequenceDiagram.Package _package = null;
 		Message message = null;
@@ -7704,14 +8157,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_interaction_enclosingInteraction_905518 = interaction
+					__DEC_interaction_enclosingInteraction_759117 = interaction
 							.getEnclosingInteraction();
 
-					// check object __DEC_interaction_enclosingInteraction_905518 is really bound
-					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_905518 != null);
+					// check object __DEC_interaction_enclosingInteraction_759117 is really bound
+					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_759117 != null);
 
-					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_905518 and interaction 
-					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_905518
+					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_759117 and interaction 
+					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_759117
 							.equals(interaction));
 
 					fujaba__Success = true;
@@ -7728,13 +8181,13 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_message_sendEvent_508819 = message.getSendEvent();
+					__DEC_message_sendEvent_156621 = message.getSendEvent();
 
-					// check object __DEC_message_sendEvent_508819 is really bound
-					JavaSDM.ensure(__DEC_message_sendEvent_508819 != null);
+					// check object __DEC_message_sendEvent_156621 is really bound
+					JavaSDM.ensure(__DEC_message_sendEvent_156621 != null);
 
-					// check isomorphic binding between objects __DEC_message_sendEvent_508819 and messageReceive 
-					JavaSDM.ensure(!__DEC_message_sendEvent_508819
+					// check isomorphic binding between objects __DEC_message_sendEvent_156621 and messageReceive 
+					JavaSDM.ensure(!__DEC_message_sendEvent_156621
 							.equals(messageReceive));
 
 					fujaba__Success = true;
@@ -7751,19 +8204,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_interaction_packagedElement_798424 = interaction
+					__DEC_interaction_packagedElement_110799 = interaction
 							.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 							.eContainer() : null;
 
-					// check object __DEC_interaction_packagedElement_798424 is really bound
-					JavaSDM.ensure(__DEC_interaction_packagedElement_798424 != null);
+					// check object __DEC_interaction_packagedElement_110799 is really bound
+					JavaSDM.ensure(__DEC_interaction_packagedElement_110799 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_interaction_packagedElement_798424
+					JavaSDM.ensure(__DEC_interaction_packagedElement_110799
 							.getPackagedElement().contains(interaction));
 
-					// check isomorphic binding between objects __DEC_interaction_packagedElement_798424 and _package 
-					JavaSDM.ensure(!__DEC_interaction_packagedElement_798424
+					// check isomorphic binding between objects __DEC_interaction_packagedElement_110799 and _package 
+					JavaSDM.ensure(!__DEC_interaction_packagedElement_110799
 							.equals(_package));
 
 					fujaba__Success = true;
@@ -7779,26 +8232,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link message from message to __DEC_message_message_551446
+					// iterate to-many link message from message to __DEC_message_message_136152
 					fujaba__Success = false;
 
-					fujaba__IterMessageTo__DEC_message_message_551446 = new ArrayList(
+					fujaba__IterMessageTo__DEC_message_message_136152 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(message,
 											MessageEnd.class, "message"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageTo__DEC_message_message_551446
+							&& fujaba__IterMessageTo__DEC_message_message_136152
 									.hasNext()) {
 						try {
-							__DEC_message_message_551446 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_551446
+							__DEC_message_message_136152 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_136152
 									.next();
 
-							// check object __DEC_message_message_551446 is really bound
-							JavaSDM.ensure(__DEC_message_message_551446 != null);
-							// check isomorphic binding between objects __DEC_message_message_551446 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_message_551446
+							// check object __DEC_message_message_136152 is really bound
+							JavaSDM.ensure(__DEC_message_message_136152 != null);
+							// check isomorphic binding between objects __DEC_message_message_136152 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_message_136152
 									.equals(messageReceive));
 
 							fujaba__Success = true;
@@ -7821,26 +8274,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_232181
+					// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_572807
 					fujaba__Success = false;
 
-					fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232181 = new ArrayList(
+					fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_572807 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageReceive,
 											Message.class, "receiveEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232181
+							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_572807
 									.hasNext()) {
 						try {
-							__DEC_messageReceive_receiveEvent_232181 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232181
+							__DEC_messageReceive_receiveEvent_572807 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_572807
 									.next();
 
-							// check object __DEC_messageReceive_receiveEvent_232181 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_receiveEvent_232181 != null);
-							// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_232181 and message 
-							JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_232181
+							// check object __DEC_messageReceive_receiveEvent_572807 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_receiveEvent_572807 != null);
+							// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_572807 and message 
+							JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_572807
 									.equals(message));
 
 							fujaba__Success = true;
@@ -7863,26 +8316,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_35761
+					// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_915960
 					fujaba__Success = false;
 
-					fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_35761 = new ArrayList(
+					fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_915960 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageReceive,
 											Message.class, "sendEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_35761
+							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_915960
 									.hasNext()) {
 						try {
-							__DEC_messageReceive_sendEvent_35761 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_35761
+							__DEC_messageReceive_sendEvent_915960 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_915960
 									.next();
 
-							// check object __DEC_messageReceive_sendEvent_35761 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_sendEvent_35761 != null);
-							// check isomorphic binding between objects __DEC_messageReceive_sendEvent_35761 and message 
-							JavaSDM.ensure(!__DEC_messageReceive_sendEvent_35761
+							// check object __DEC_messageReceive_sendEvent_915960 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_sendEvent_915960 != null);
+							// check isomorphic binding between objects __DEC_messageReceive_sendEvent_915960 and message 
+							JavaSDM.ensure(!__DEC_messageReceive_sendEvent_915960
 									.equals(message));
 
 							fujaba__Success = true;
@@ -8022,15 +8475,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_15380 = null;
-		MessageEnd __DEC_message_sendEvent_977213 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_71258 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_179466 = null;
-		MessageEnd __DEC_message_message_179466 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_52126 = null;
-		Message __DEC_messageReceive_receiveEvent_52126 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_64331 = null;
-		Message __DEC_messageReceive_sendEvent_64331 = null;
+		Interaction __DEC_interaction_enclosingInteraction_597955 = null;
+		MessageEnd __DEC_message_sendEvent_364379 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_805225 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_439870 = null;
+		MessageEnd __DEC_message_message_439870 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_790810 = null;
+		Message __DEC_messageReceive_receiveEvent_790810 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_794975 = null;
+		Message __DEC_messageReceive_sendEvent_794975 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
@@ -8169,14 +8622,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_enclosingInteraction_15380 = interaction
+							__DEC_interaction_enclosingInteraction_597955 = interaction
 									.getEnclosingInteraction();
 
-							// check object __DEC_interaction_enclosingInteraction_15380 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_15380 != null);
+							// check object __DEC_interaction_enclosingInteraction_597955 is really bound
+							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_597955 != null);
 
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_15380 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_15380
+							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_597955 and interaction 
+							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_597955
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -8193,14 +8646,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_message_sendEvent_977213 = message
+							__DEC_message_sendEvent_364379 = message
 									.getSendEvent();
 
-							// check object __DEC_message_sendEvent_977213 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_977213 != null);
+							// check object __DEC_message_sendEvent_364379 is really bound
+							JavaSDM.ensure(__DEC_message_sendEvent_364379 != null);
 
-							// check isomorphic binding between objects __DEC_message_sendEvent_977213 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_977213
+							// check isomorphic binding between objects __DEC_message_sendEvent_364379 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_sendEvent_364379
 									.equals(messageReceive));
 
 							fujaba__Success = true;
@@ -8217,19 +8670,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_interaction_packagedElement_71258 = interaction
+							__DEC_interaction_packagedElement_805225 = interaction
 									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 									.eContainer() : null;
 
-							// check object __DEC_interaction_packagedElement_71258 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_71258 != null);
+							// check object __DEC_interaction_packagedElement_805225 is really bound
+							JavaSDM.ensure(__DEC_interaction_packagedElement_805225 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_71258
+							JavaSDM.ensure(__DEC_interaction_packagedElement_805225
 									.getPackagedElement().contains(interaction));
 
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_71258 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_71258
+							// check isomorphic binding between objects __DEC_interaction_packagedElement_805225 and _package 
+							JavaSDM.ensure(!__DEC_interaction_packagedElement_805225
 									.equals(_package));
 
 							fujaba__Success = true;
@@ -8245,26 +8698,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_179466
+							// iterate to-many link message from message to __DEC_message_message_439870
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_179466 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_439870 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_179466
+									&& fujaba__IterMessageTo__DEC_message_message_439870
 											.hasNext()) {
 								try {
-									__DEC_message_message_179466 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_179466
+									__DEC_message_message_439870 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_439870
 											.next();
 
-									// check object __DEC_message_message_179466 is really bound
-									JavaSDM.ensure(__DEC_message_message_179466 != null);
-									// check isomorphic binding between objects __DEC_message_message_179466 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_179466
+									// check object __DEC_message_message_439870 is really bound
+									JavaSDM.ensure(__DEC_message_message_439870 != null);
+									// check isomorphic binding between objects __DEC_message_message_439870 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_439870
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -8287,10 +8740,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_52126
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_790810
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_52126 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_790810 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -8298,16 +8751,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_52126
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_790810
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_52126 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_52126
+									__DEC_messageReceive_receiveEvent_790810 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_790810
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_52126 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_52126 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_52126 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_52126
+									// check object __DEC_messageReceive_receiveEvent_790810 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_790810 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_790810 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_790810
 											.equals(message));
 
 									fujaba__Success = true;
@@ -8330,10 +8783,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_64331
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_794975
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_64331 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_794975 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -8341,16 +8794,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_64331
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_794975
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_64331 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_64331
+									__DEC_messageReceive_sendEvent_794975 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_794975
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_64331 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_64331 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_64331 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_64331
+									// check object __DEC_messageReceive_sendEvent_794975 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_794975 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_794975 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_794975
 											.equals(message));
 
 									fujaba__Success = true;
@@ -8516,15 +8969,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_391308 = null;
-		MessageEnd __DEC_message_sendEvent_579121 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_455332 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_482091 = null;
-		MessageEnd __DEC_message_message_482091 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_611528 = null;
-		Message __DEC_messageReceive_receiveEvent_611528 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_605643 = null;
-		Message __DEC_messageReceive_sendEvent_605643 = null;
+		Interaction __DEC_interaction_enclosingInteraction_736586 = null;
+		MessageEnd __DEC_message_sendEvent_563131 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_280004 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_641488 = null;
+		MessageEnd __DEC_message_message_641488 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_572350 = null;
+		Message __DEC_messageReceive_receiveEvent_572350 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_917287 = null;
+		Message __DEC_messageReceive_sendEvent_917287 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Iterator fujaba__IterInteractionToMessage = null;
@@ -8657,14 +9110,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_interaction_enclosingInteraction_391308 = interaction
+									__DEC_interaction_enclosingInteraction_736586 = interaction
 											.getEnclosingInteraction();
 
-									// check object __DEC_interaction_enclosingInteraction_391308 is really bound
-									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_391308 != null);
+									// check object __DEC_interaction_enclosingInteraction_736586 is really bound
+									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_736586 != null);
 
-									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_391308 and interaction 
-									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_391308
+									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_736586 and interaction 
+									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_736586
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -8681,14 +9134,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_message_sendEvent_579121 = message
+									__DEC_message_sendEvent_563131 = message
 											.getSendEvent();
 
-									// check object __DEC_message_sendEvent_579121 is really bound
-									JavaSDM.ensure(__DEC_message_sendEvent_579121 != null);
+									// check object __DEC_message_sendEvent_563131 is really bound
+									JavaSDM.ensure(__DEC_message_sendEvent_563131 != null);
 
-									// check isomorphic binding between objects __DEC_message_sendEvent_579121 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_sendEvent_579121
+									// check isomorphic binding between objects __DEC_message_sendEvent_563131 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_sendEvent_563131
 											.equals(messageReceive));
 
 									fujaba__Success = true;
@@ -8705,20 +9158,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_interaction_packagedElement_455332 = interaction
+									__DEC_interaction_packagedElement_280004 = interaction
 											.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 											.eContainer() : null;
 
-									// check object __DEC_interaction_packagedElement_455332 is really bound
-									JavaSDM.ensure(__DEC_interaction_packagedElement_455332 != null);
+									// check object __DEC_interaction_packagedElement_280004 is really bound
+									JavaSDM.ensure(__DEC_interaction_packagedElement_280004 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_interaction_packagedElement_455332
+									JavaSDM.ensure(__DEC_interaction_packagedElement_280004
 											.getPackagedElement().contains(
 													interaction));
 
-									// check isomorphic binding between objects __DEC_interaction_packagedElement_455332 and _package 
-									JavaSDM.ensure(!__DEC_interaction_packagedElement_455332
+									// check isomorphic binding between objects __DEC_interaction_packagedElement_280004 and _package 
+									JavaSDM.ensure(!__DEC_interaction_packagedElement_280004
 											.equals(_package));
 
 									fujaba__Success = true;
@@ -8734,10 +9187,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_482091
+									// iterate to-many link message from message to __DEC_message_message_641488
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_482091 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_641488 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -8746,16 +9199,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_482091
+											&& fujaba__IterMessageTo__DEC_message_message_641488
 													.hasNext()) {
 										try {
-											__DEC_message_message_482091 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_482091
+											__DEC_message_message_641488 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_641488
 													.next();
 
-											// check object __DEC_message_message_482091 is really bound
-											JavaSDM.ensure(__DEC_message_message_482091 != null);
-											// check isomorphic binding between objects __DEC_message_message_482091 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_482091
+											// check object __DEC_message_message_641488 is really bound
+											JavaSDM.ensure(__DEC_message_message_641488 != null);
+											// check isomorphic binding between objects __DEC_message_message_641488 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_641488
 													.equals(messageReceive));
 
 											fujaba__Success = true;
@@ -8778,10 +9231,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_611528
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_572350
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_611528 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_572350 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -8790,16 +9243,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_611528
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_572350
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_611528 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_611528
+											__DEC_messageReceive_receiveEvent_572350 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_572350
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_611528 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_611528 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_611528 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_611528
+											// check object __DEC_messageReceive_receiveEvent_572350 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_572350 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_572350 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_572350
 													.equals(message));
 
 											fujaba__Success = true;
@@ -8822,10 +9275,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_605643
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_917287
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_605643 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_917287 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -8834,16 +9287,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_605643
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_917287
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_605643 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_605643
+											__DEC_messageReceive_sendEvent_917287 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_917287
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_605643 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_605643 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_605643 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_605643
+											// check object __DEC_messageReceive_sendEvent_917287 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_917287 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_917287 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_917287
 													.equals(message));
 
 											fujaba__Success = true;
@@ -9003,7 +9456,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_22(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_23(
 			EMoflonEdge _edge_flows) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -9011,9 +9464,13 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_basicFlow_flows_448164 = null;
-		PackageDeclaration __DEC_useCase_useCases_336505 = null;
+		PackageDeclaration __DEC_actor_actors_517332 = null;
+		UseCase __DEC_basicFlow_flows_717574 = null;
+		PackageDeclaration __DEC_useCase_useCases_817891 = null;
 		Match match = null;
+		Iterator fujaba__IterPackageDeclarationToActor = null;
+		Actor actor = null;
+		PackageDeclaration packageDeclaration = null;
 		BasicFlow basicFlow = null;
 		UseCase useCase = null;
 
@@ -9081,146 +9538,201 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			// check link flows from basicFlow to useCase
 			JavaSDM.ensure(useCase.equals(basicFlow.eContainer()));
 
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
+			// bind object
+			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					.eContainer() : null;
 
-				// check isomorphic binding between objects __DEC_actor_actors_901028 and packageDeclaration 
-				JavaSDM.ensure(!__DEC_actor_actors_901028
-						.equals(packageDeclaration));
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 
-				// check link actors from actor to __DEC_actor_actors_901028
-				JavaSDM.ensure(__DEC_actor_actors_901028.equals(actor
-						.eContainer()));
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
 
-				// check negative bindings
+			// iterate to-many link actors from packageDeclaration to actor
+			fujaba__Success = false;
+
+			fujaba__IterPackageDeclarationToActor = new ArrayList(
+					packageDeclaration.getActors()).iterator();
+
+			while (fujaba__IterPackageDeclarationToActor.hasNext()) {
 				try {
-					fujaba__Success = false;
+					actor = (Actor) fujaba__IterPackageDeclarationToActor
+							.next();
 
-					// bind object
-					__DEC_basicFlow_flows_448164 = basicFlow.eContainer() instanceof UseCase ? (UseCase) basicFlow
-							.eContainer() : null;
+					// check object actor is really bound
+					JavaSDM.ensure(actor != null);
+					// story node 'test core match and DECs'
+					try {
+						fujaba__Success = false;
 
-					// check object __DEC_basicFlow_flows_448164 is really bound
-					JavaSDM.ensure(__DEC_basicFlow_flows_448164 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_basicFlow_flows_448164.getFlows()
-							.contains(basicFlow));
-
-					// check isomorphic binding between objects __DEC_basicFlow_flows_448164 and useCase 
-					JavaSDM.ensure(!__DEC_basicFlow_flows_448164
-							.equals(useCase));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_useCase_useCases_336505 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
-							.eContainer() : null;
-
-					// check object __DEC_useCase_useCases_336505 is really bound
-					JavaSDM.ensure(__DEC_useCase_useCases_336505 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_useCase_useCases_336505.getUseCases()
-							.contains(useCase));
-
-					// check isomorphic binding between objects __DEC_useCase_useCases_336505 and packageDeclaration 
-					JavaSDM.ensure(!__DEC_useCase_useCases_336505
-							.equals(packageDeclaration));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_flows is really bound
-				JavaSDM.ensure(_edge_flows != null);
-				// check object basicFlow is really bound
-				JavaSDM.ensure(basicFlow != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// check link actors from actor to packageDeclaration
-				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
-
-				// check link flows from basicFlow to useCase
-				JavaSDM.ensure(useCase.equals(basicFlow.eContainer()));
-
-				// check link src from _edge_flows to useCase
-				JavaSDM.ensure(useCase.equals(_edge_flows.getSrc()));
-
-				// check link trg from _edge_flows to basicFlow
-				JavaSDM.ensure(basicFlow.equals(_edge_flows.getTrg()));
-
-				// check link useCases from useCase to packageDeclaration
-				JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(useCase,
-								PackageDeclaration.class, "$eContainer")
-						.contains(packageDeclaration)));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, useCase, actor,
-						packageDeclaration, basicFlow);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
+						// check negative bindings
 						try {
 							fujaba__Success = false;
 
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
+							// bind object
+							__DEC_actor_actors_517332 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+									.eContainer() : null;
 
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
+							// check object __DEC_actor_actors_517332 is really bound
+							JavaSDM.ensure(__DEC_actor_actors_517332 != null);
 
-							// create link
-							__result.getContents().add(match);
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_actor_actors_517332
+									.getActors().contains(actor));
+
+							// check isomorphic binding between objects __DEC_actor_actors_517332 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_actor_actors_517332
+									.equals(packageDeclaration));
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
 							fujaba__Success = false;
 						}
 
-					} else {
+						fujaba__Success = !(fujaba__Success);
 
+						JavaSDM.ensure(fujaba__Success);
+
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// bind object
+							__DEC_basicFlow_flows_717574 = basicFlow
+									.eContainer() instanceof UseCase ? (UseCase) basicFlow
+									.eContainer() : null;
+
+							// check object __DEC_basicFlow_flows_717574 is really bound
+							JavaSDM.ensure(__DEC_basicFlow_flows_717574 != null);
+
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_basicFlow_flows_717574
+									.getFlows().contains(basicFlow));
+
+							// check isomorphic binding between objects __DEC_basicFlow_flows_717574 and useCase 
+							JavaSDM.ensure(!__DEC_basicFlow_flows_717574
+									.equals(useCase));
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// bind object
+							__DEC_useCase_useCases_817891 = useCase
+									.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+									.eContainer() : null;
+
+							// check object __DEC_useCase_useCases_817891 is really bound
+							JavaSDM.ensure(__DEC_useCase_useCases_817891 != null);
+
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_useCase_useCases_817891
+									.getUseCases().contains(useCase));
+
+							// check isomorphic binding between objects __DEC_useCase_useCases_817891 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_useCase_useCases_817891
+									.equals(packageDeclaration));
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// check object _edge_flows is really bound
+						JavaSDM.ensure(_edge_flows != null);
+						// check object actor is really bound
+						JavaSDM.ensure(actor != null);
+						// check object basicFlow is really bound
+						JavaSDM.ensure(basicFlow != null);
+						// check object packageDeclaration is really bound
+						JavaSDM.ensure(packageDeclaration != null);
+						// check object useCase is really bound
+						JavaSDM.ensure(useCase != null);
+						// check link actors from actor to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(actor
+								.eContainer()));
+
+						// check link flows from basicFlow to useCase
+						JavaSDM.ensure(useCase.equals(basicFlow.eContainer()));
+
+						// check link src from _edge_flows to useCase
+						JavaSDM.ensure(useCase.equals(_edge_flows.getSrc()));
+
+						// check link trg from _edge_flows to basicFlow
+						JavaSDM.ensure(basicFlow.equals(_edge_flows.getTrg()));
+
+						// check link useCases from useCase to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(useCase
+								.eContainer()));
+
+						// create object match
+						match = TGGRuntimeFactory.eINSTANCE.createMatch();
+
+						// assign attribute match
+						match.setRuleName(__eClass.getName());
+						// statement node 'bookkeeping with generic isAppropriate method'
+						fujaba__Success = this.isAppropriate_FWD(match,
+								useCase, actor, packageDeclaration, basicFlow);
+						if (fujaba__Success) {
+							// statement node 'Ensure that the correct types of elements are matched'
+							fujaba__Success = this.checkTypes_FWD(match);
+							if (fujaba__Success) {
+								// story node 'Add match to rule result'
+								try {
+									fujaba__Success = false;
+
+									// check object __performOperation is really bound
+									JavaSDM.ensure(__performOperation != null);
+									// check object __result is really bound
+									JavaSDM.ensure(__result != null);
+									// check object match is really bound
+									JavaSDM.ensure(match != null);
+
+									// create link
+									org.moflon.util.eMoflonEMFUtil
+											.addOppositeReference(match,
+													__performOperation,
+													"isApplicableOperation");
+
+									// create link
+									__result.getContents().add(match);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+							} else {
+
+							}
+
+						} else {
+
+						}
+						fujaba__Success = true;
+					} catch (JavaSDMException fujaba__InternalException) {
+						fujaba__Success = false;
 					}
 
-				} else {
-
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
 			}
+			JavaSDM.ensure(fujaba__Success);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -9332,15 +9844,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						basicFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__useCase_flows_basicFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -9348,14 +9852,22 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						"toBeTranslatedEdges");
 
 				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						useCase, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						basicFlow, "toBeTranslatedNodes");
+
+				// create link
 				__packageDeclaration_useCases_useCase
 						.setSrc(packageDeclaration);
 
 				// create link
-				__useCase_flows_basicFlow.setSrc(useCase);
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 				// create link
-				__packageDeclaration_useCases_useCase.setTrg(useCase);
+				__useCase_flows_basicFlow.setSrc(useCase);
 
 				// create link
 				__useCase_flows_basicFlow.setTrg(basicFlow);
@@ -9573,12 +10085,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						___package_packagedElement_interaction,
-						"toBeTranslatedEdges");
+						interaction, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "toBeTranslatedNodes");
+						___package_packagedElement_interaction,
+						"toBeTranslatedEdges");
 
 				// create link
 				___package_packagedElement_interaction.setSrc(_package);
@@ -9740,8 +10252,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_basicFlow_flows_913239 = null;
-		PackageDeclaration __DEC_useCase_useCases_11345 = null;
+		UseCase __DEC_basicFlow_flows_952494 = null;
+		PackageDeclaration __DEC_useCase_useCases_52060 = null;
 		Match match = null;
 		Iterator fujaba__IterUseCaseToBasicFlow = null;
 		BasicFlow basicFlow = null;
@@ -9834,19 +10346,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_basicFlow_flows_913239 = basicFlow
+							__DEC_basicFlow_flows_952494 = basicFlow
 									.eContainer() instanceof UseCase ? (UseCase) basicFlow
 									.eContainer() : null;
 
-							// check object __DEC_basicFlow_flows_913239 is really bound
-							JavaSDM.ensure(__DEC_basicFlow_flows_913239 != null);
+							// check object __DEC_basicFlow_flows_952494 is really bound
+							JavaSDM.ensure(__DEC_basicFlow_flows_952494 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_basicFlow_flows_913239
+							JavaSDM.ensure(__DEC_basicFlow_flows_952494
 									.getFlows().contains(basicFlow));
 
-							// check isomorphic binding between objects __DEC_basicFlow_flows_913239 and useCase 
-							JavaSDM.ensure(!__DEC_basicFlow_flows_913239
+							// check isomorphic binding between objects __DEC_basicFlow_flows_952494 and useCase 
+							JavaSDM.ensure(!__DEC_basicFlow_flows_952494
 									.equals(useCase));
 
 							fujaba__Success = true;
@@ -9863,18 +10375,18 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_useCase_useCases_11345 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+							__DEC_useCase_useCases_52060 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 									.eContainer() : null;
 
-							// check object __DEC_useCase_useCases_11345 is really bound
-							JavaSDM.ensure(__DEC_useCase_useCases_11345 != null);
+							// check object __DEC_useCase_useCases_52060 is really bound
+							JavaSDM.ensure(__DEC_useCase_useCases_52060 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_useCase_useCases_11345
+							JavaSDM.ensure(__DEC_useCase_useCases_52060
 									.getUseCases().contains(useCase));
 
-							// check isomorphic binding between objects __DEC_useCase_useCases_11345 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_useCase_useCases_11345
+							// check isomorphic binding between objects __DEC_useCase_useCases_52060 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_useCase_useCases_52060
 									.equals(packageDeclaration));
 
 							fujaba__Success = true;
@@ -9985,8 +10497,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_543640 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_875639 = null;
+		Interaction __DEC_interaction_enclosingInteraction_186900 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_700481 = null;
 		Match match = null;
 		Interaction interaction = null;
 		ModalSequenceDiagram.Package _package = null;
@@ -10066,14 +10578,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_interaction_enclosingInteraction_543640 = interaction
+					__DEC_interaction_enclosingInteraction_186900 = interaction
 							.getEnclosingInteraction();
 
-					// check object __DEC_interaction_enclosingInteraction_543640 is really bound
-					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_543640 != null);
+					// check object __DEC_interaction_enclosingInteraction_186900 is really bound
+					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_186900 != null);
 
-					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_543640 and interaction 
-					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_543640
+					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_186900 and interaction 
+					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_186900
 							.equals(interaction));
 
 					fujaba__Success = true;
@@ -10090,19 +10602,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_interaction_packagedElement_875639 = interaction
+					__DEC_interaction_packagedElement_700481 = interaction
 							.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 							.eContainer() : null;
 
-					// check object __DEC_interaction_packagedElement_875639 is really bound
-					JavaSDM.ensure(__DEC_interaction_packagedElement_875639 != null);
+					// check object __DEC_interaction_packagedElement_700481 is really bound
+					JavaSDM.ensure(__DEC_interaction_packagedElement_700481 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_interaction_packagedElement_875639
+					JavaSDM.ensure(__DEC_interaction_packagedElement_700481
 							.getPackagedElement().contains(interaction));
 
-					// check isomorphic binding between objects __DEC_interaction_packagedElement_875639 and _package 
-					JavaSDM.ensure(!__DEC_interaction_packagedElement_875639
+					// check isomorphic binding between objects __DEC_interaction_packagedElement_700481 and _package 
+					JavaSDM.ensure(!__DEC_interaction_packagedElement_700481
 							.equals(_package));
 
 					fujaba__Success = true;
@@ -10208,8 +10720,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_basicFlow_flows_218046 = null;
-		PackageDeclaration __DEC_useCase_useCases_360863 = null;
+		UseCase __DEC_basicFlow_flows_672020 = null;
+		PackageDeclaration __DEC_useCase_useCases_82129 = null;
 		Match match = null;
 		PackageDeclaration packageDeclaration = null;
 		BasicFlow basicFlow = null;
@@ -10298,18 +10810,18 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_basicFlow_flows_218046 = basicFlow.eContainer() instanceof UseCase ? (UseCase) basicFlow
+					__DEC_basicFlow_flows_672020 = basicFlow.eContainer() instanceof UseCase ? (UseCase) basicFlow
 							.eContainer() : null;
 
-					// check object __DEC_basicFlow_flows_218046 is really bound
-					JavaSDM.ensure(__DEC_basicFlow_flows_218046 != null);
+					// check object __DEC_basicFlow_flows_672020 is really bound
+					JavaSDM.ensure(__DEC_basicFlow_flows_672020 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_basicFlow_flows_218046.getFlows()
+					JavaSDM.ensure(__DEC_basicFlow_flows_672020.getFlows()
 							.contains(basicFlow));
 
-					// check isomorphic binding between objects __DEC_basicFlow_flows_218046 and useCase 
-					JavaSDM.ensure(!__DEC_basicFlow_flows_218046
+					// check isomorphic binding between objects __DEC_basicFlow_flows_672020 and useCase 
+					JavaSDM.ensure(!__DEC_basicFlow_flows_672020
 							.equals(useCase));
 
 					fujaba__Success = true;
@@ -10326,18 +10838,18 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_useCase_useCases_360863 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					__DEC_useCase_useCases_82129 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 							.eContainer() : null;
 
-					// check object __DEC_useCase_useCases_360863 is really bound
-					JavaSDM.ensure(__DEC_useCase_useCases_360863 != null);
+					// check object __DEC_useCase_useCases_82129 is really bound
+					JavaSDM.ensure(__DEC_useCase_useCases_82129 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_useCase_useCases_360863.getUseCases()
+					JavaSDM.ensure(__DEC_useCase_useCases_82129.getUseCases()
 							.contains(useCase));
 
-					// check isomorphic binding between objects __DEC_useCase_useCases_360863 and packageDeclaration 
-					JavaSDM.ensure(!__DEC_useCase_useCases_360863
+					// check isomorphic binding between objects __DEC_useCase_useCases_82129 and packageDeclaration 
+					JavaSDM.ensure(!__DEC_useCase_useCases_82129
 							.equals(packageDeclaration));
 
 					fujaba__Success = true;
@@ -10618,6 +11130,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_21__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_21((EMoflonEdge) arguments
 					.get(0));
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_22__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_22((EMoflonEdge) arguments
+					.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_87__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_87((EMoflonEdge) arguments
 					.get(0));
@@ -10627,8 +11142,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_89__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_89((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_22__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_22((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_23__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_23((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

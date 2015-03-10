@@ -11,7 +11,6 @@ import ModalSequenceDiagram.InteractionOperand;
 import ModalSequenceDiagram.Lifeline;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
-import ModalSequenceDiagram.NamedElement;
 
 import java.util.Collection;
 

@@ -3,7 +3,9 @@
 package bpmn2;
 
 import de.upb.tools.sdm.*;
+
 import java.util.*;
+
 import org.eclipse.emf.common.util.EList;
 // <-- [user defined imports]
 // [user defined imports] -->

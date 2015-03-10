@@ -20,17 +20,11 @@ import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
 import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
-import TGGLanguage.csp.*;
-
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -70,204 +64,26 @@ import bpmn2.SequenceFlow;
 import bpmn2.ServiceTask;
 import bpmn2.StartEvent;
 import bpmn2.Task;
-import bpmn2.Process;
-
 import bpmn2.UserTask;
-import csp.constraints.*;
 
 import de.upb.tools.sdm.*;
 
 import java.lang.reflect.InvocationTargetException;
+
 import java.util.*;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
 // <-- [user defined imports]
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+
 // [user defined imports] -->
 
 /**
@@ -312,19 +128,19 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
-		EMoflonEdge __process_flowElements_parallelConvGateway = null;
 		EMoflonEdge __outFlow_sourceRef_parallelConvGateway = null;
 		EMoflonEdge __lane_flowNodeRefs_parallelConvGateway = null;
 		EMoflonEdge __parallelConvGateway_incoming_inFlow = null;
+		EMoflonEdge __process_flowElements_parallelConvGateway = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
+		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
+		EMoflonEdge __laneSet_lanes_lane = null;
+		EMoflonEdge __divergeFlow_sourceRef_parallelGateway = null;
+		EMoflonEdge __process_flowElements_divergeFlow = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
 		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
 		EMoflonEdge __process_flowElements_parallelGateway = null;
-		EMoflonEdge __process_flowElements_divergeFlow = null;
-		EMoflonEdge __divergeFlow_sourceRef_parallelGateway = null;
 		EMoflonEdge __parallelGateway_outgoing_divergeFlow = null;
 
 		// story node 'initial bindings'
@@ -419,22 +235,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 				// check isomorphic binding between objects parallelGateway and parallelConvGateway 
 				JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
 
-				// create object __inFlow_targetRef_parallelConvGateway
-				__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_outFlow
-				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelConvGateway_outgoing_outFlow
-				__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_parallelConvGateway
-				__process_flowElements_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __outFlow_sourceRef_parallelConvGateway
 				__outFlow_sourceRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -445,6 +245,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 				// create object __parallelConvGateway_incoming_inFlow
 				__parallelConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_flowElements_parallelConvGateway
+				__process_flowElements_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_flowElements_outFlow
+				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __parallelConvGateway_outgoing_outFlow
+				__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __inFlow_targetRef_parallelConvGateway
+				__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __process_flowElements_parallelConvGateway
@@ -465,7 +281,26 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_parallelConvGateway,
+						__outFlow_sourceRef_parallelConvGateway,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__lane_flowNodeRefs_parallelConvGateway,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						outFlow, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__parallelConvGateway_incoming_inFlow,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_parallelConvGateway,
 						"toBeTranslatedEdges");
 
 				// create link
@@ -479,7 +314,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_parallelConvGateway,
+						__inFlow_targetRef_parallelConvGateway,
 						"toBeTranslatedEdges");
 
 				// create link
@@ -487,29 +322,10 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 						parallelConvGateway, "toBeTranslatedNodes");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__outFlow_sourceRef_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__lane_flowNodeRefs_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__parallelConvGateway_incoming_inFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
+				__process_flowElements_parallelConvGateway.setSrc(process);
 
 				// create link
 				__process_flowElements_outFlow.setSrc(process);
-
-				// create link
-				__process_flowElements_parallelConvGateway.setSrc(process);
 
 				// create link
 				__inFlow_targetRef_parallelConvGateway.setSrc(inFlow);
@@ -522,15 +338,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 						.setTrg(parallelConvGateway);
 
 				// create link
-				__outFlow_sourceRef_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__inFlow_targetRef_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
 				__parallelConvGateway_incoming_inFlow
+						.setSrc(parallelConvGateway);
+
+				// create link
+				__parallelConvGateway_outgoing_outFlow
 						.setSrc(parallelConvGateway);
 
 				// create link
@@ -538,17 +350,21 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 						.setTrg(parallelConvGateway);
 
 				// create link
-				__parallelConvGateway_outgoing_outFlow
-						.setSrc(parallelConvGateway);
+				__inFlow_targetRef_parallelConvGateway
+						.setTrg(parallelConvGateway);
+
+				// create link
+				__outFlow_sourceRef_parallelConvGateway
+						.setTrg(parallelConvGateway);
+
+				// create link
+				__parallelConvGateway_outgoing_outFlow.setTrg(outFlow);
 
 				// create link
 				__process_flowElements_outFlow.setTrg(outFlow);
 
 				// create link
 				__outFlow_sourceRef_parallelConvGateway.setSrc(outFlow);
-
-				// create link
-				__parallelConvGateway_outgoing_outFlow.setTrg(outFlow);
 
 				// create link
 				__lane_flowNodeRefs_parallelConvGateway.setSrc(lane);
@@ -592,6 +408,18 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 				// check isomorphic binding between objects parallelGateway and parallelConvGateway 
 				JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
 
+				// create object __laneSet_lanes_lane
+				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __divergeFlow_sourceRef_parallelGateway
+				__divergeFlow_sourceRef_parallelGateway = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_flowElements_divergeFlow
+				__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __process_flowElements_inFlow
 				__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -600,20 +428,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __process_flowElements_parallelGateway
 				__process_flowElements_parallelGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_divergeFlow
-				__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __divergeFlow_sourceRef_parallelGateway
-				__divergeFlow_sourceRef_parallelGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __parallelGateway_outgoing_divergeFlow
@@ -637,43 +453,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						parallelGateway, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
+						laneSet, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__laneSet_lanes_lane, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						divergeFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_parallelGateway, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_divergeFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil
@@ -683,23 +467,55 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						divergeFlow, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_divergeFlow, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_inFlow, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_laneSets_laneSet, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						inFlow, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_parallelGateway, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__parallelGateway_outgoing_divergeFlow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
+						process, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						parallelGateway, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						lane, "contextNodes");
+
+				// create link
+				__process_flowElements_inFlow.setSrc(process);
 
 				// create link
 				__process_laneSets_laneSet.setSrc(process);
 
 				// create link
-				__process_flowElements_divergeFlow.setSrc(process);
-
-				// create link
 				__process_flowElements_parallelGateway.setSrc(process);
 
 				// create link
-				__process_flowElements_inFlow.setSrc(process);
+				__process_flowElements_divergeFlow.setSrc(process);
 
 				// create link
 				__process_flowElements_inFlow.setTrg(inFlow);
@@ -714,22 +530,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 				__process_laneSets_laneSet.setTrg(laneSet);
 
 				// create link
-				__parallelGateway_outgoing_divergeFlow.setSrc(parallelGateway);
-
-				// create link
 				__process_flowElements_parallelGateway.setTrg(parallelGateway);
 
 				// create link
 				__divergeFlow_sourceRef_parallelGateway.setTrg(parallelGateway);
 
 				// create link
+				__parallelGateway_outgoing_divergeFlow.setSrc(parallelGateway);
+
+				// create link
 				__process_flowElements_divergeFlow.setTrg(divergeFlow);
 
 				// create link
-				__parallelGateway_outgoing_divergeFlow.setTrg(divergeFlow);
+				__divergeFlow_sourceRef_parallelGateway.setSrc(divergeFlow);
 
 				// create link
-				__divergeFlow_sourceRef_parallelGateway.setSrc(divergeFlow);
+				__parallelGateway_outgoing_divergeFlow.setTrg(divergeFlow);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -778,19 +594,19 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		SequenceFlowToStep outFlowToParallelStep = null;
 		SequenceFlowToUCFlow outFlowToInitFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge pcgwToParStep__source__parallelConvGateway = null;
 		EMoflonEdge __process_flowElements_parallelConvGateway = null;
-		EMoflonEdge __lane_flowNodeRefs_parallelConvGateway = null;
-		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
 		EMoflonEdge outFlowToInitFlow__source__outFlow = null;
-		EMoflonEdge pcgwToParStep__target__parallelStep = null;
-		EMoflonEdge outFlowToParallelStep__target__parallelStep = null;
 		EMoflonEdge __parallelConvGateway_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
-		EMoflonEdge outFlowToParallelStep__source__outFlow = null;
+		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
+		EMoflonEdge __lane_flowNodeRefs_parallelConvGateway = null;
 		EMoflonEdge outFlowToInitFlow__target__initFlow = null;
+		EMoflonEdge pcgwToParStep__source__parallelConvGateway = null;
+		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
 		EMoflonEdge __outFlow_sourceRef_parallelConvGateway = null;
+		EMoflonEdge outFlowToParallelStep__target__parallelStep = null;
+		EMoflonEdge pcgwToParStep__target__parallelStep = null;
+		EMoflonEdge outFlowToParallelStep__source__outFlow = null;
 
 		// story node 'perform transformation'
 		try {
@@ -919,10 +735,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object pcgwToParStep
 			pcgwToParStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createFlowNodeToStep();
@@ -977,19 +790,19 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					parallelConvGateway, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToParallelStep, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToInitFlow, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					parallelConvGateway, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					pcgwToParStep, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToParallelStep, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1556,56 +1369,56 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			// check isomorphic binding between objects step and process 
 			JavaSDM.ensure(!step.equals(process));
 
-			// create object pcgwToParStep__source__parallelConvGateway
-			pcgwToParStep__source__parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __process_flowElements_parallelConvGateway
 			__process_flowElements_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __lane_flowNodeRefs_parallelConvGateway
-			__lane_flowNodeRefs_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __parallelConvGateway_outgoing_outFlow
-			__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object outFlowToInitFlow__source__outFlow
 			outFlowToInitFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object pcgwToParStep__target__parallelStep
-			pcgwToParStep__target__parallelStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToParallelStep__target__parallelStep
-			outFlowToParallelStep__target__parallelStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __parallelConvGateway_incoming_inFlow
 			__parallelConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __process_flowElements_outFlow
-			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __parallelConvGateway_outgoing_outFlow
+			__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __inFlow_targetRef_parallelConvGateway
-			__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToParallelStep__source__outFlow
-			outFlowToParallelStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __lane_flowNodeRefs_parallelConvGateway
+			__lane_flowNodeRefs_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object outFlowToInitFlow__target__initFlow
 			outFlowToInitFlow__target__initFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object pcgwToParStep__source__parallelConvGateway
+			pcgwToParStep__source__parallelConvGateway = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __inFlow_targetRef_parallelConvGateway
+			__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __process_flowElements_outFlow
+			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object __outFlow_sourceRef_parallelConvGateway
 			__outFlow_sourceRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToParallelStep__target__parallelStep
+			outFlowToParallelStep__target__parallelStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object pcgwToParStep__target__parallelStep
+			pcgwToParStep__target__parallelStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToParallelStep__source__outFlow
+			outFlowToParallelStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1639,20 +1452,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					pcgwToParStep__source__parallelConvGateway, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__process_flowElements_parallelConvGateway,
 					"translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__lane_flowNodeRefs_parallelConvGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__parallelConvGateway_outgoing_outFlow, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1660,7 +1461,35 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					pcgwToParStep__target__parallelStep, "createdEdges");
+					__parallelConvGateway_incoming_inFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__parallelConvGateway_outgoing_outFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__lane_flowNodeRefs_parallelConvGateway, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToInitFlow__target__initFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					pcgwToParStep__source__parallelConvGateway, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__inFlow_targetRef_parallelConvGateway, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__process_flowElements_outFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__outFlow_sourceRef_parallelConvGateway, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil
@@ -1670,27 +1499,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__parallelConvGateway_incoming_inFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__inFlow_targetRef_parallelConvGateway, "translatedEdges");
+					pcgwToParStep__target__parallelStep, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToParallelStep__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToInitFlow__target__initFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__outFlow_sourceRef_parallelConvGateway, "translatedEdges");
 
 			// create link
 			__process_flowElements_parallelConvGateway.setSrc(process);
@@ -1699,57 +1512,57 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			__process_flowElements_outFlow.setSrc(process);
 
 			// create link
-			__parallelConvGateway_incoming_inFlow.setTrg(inFlow);
-
-			// create link
 			__inFlow_targetRef_parallelConvGateway.setSrc(inFlow);
 
 			// create link
-			__parallelConvGateway_incoming_inFlow.setSrc(parallelConvGateway);
+			__parallelConvGateway_incoming_inFlow.setTrg(inFlow);
+
+			// create link
+			__parallelConvGateway_outgoing_outFlow.setSrc(parallelConvGateway);
 
 			// create link
 			__process_flowElements_parallelConvGateway
 					.setTrg(parallelConvGateway);
 
 			// create link
-			pcgwToParStep__source__parallelConvGateway
-					.setTrg(parallelConvGateway);
-
-			// create link
-			__lane_flowNodeRefs_parallelConvGateway.setTrg(parallelConvGateway);
-
-			// create link
 			__inFlow_targetRef_parallelConvGateway.setTrg(parallelConvGateway);
-
-			// create link
-			__parallelConvGateway_outgoing_outFlow.setSrc(parallelConvGateway);
 
 			// create link
 			__outFlow_sourceRef_parallelConvGateway.setTrg(parallelConvGateway);
 
 			// create link
-			__outFlow_sourceRef_parallelConvGateway.setSrc(outFlow);
+			__parallelConvGateway_incoming_inFlow.setSrc(parallelConvGateway);
 
 			// create link
-			outFlowToInitFlow__source__outFlow.setTrg(outFlow);
+			__lane_flowNodeRefs_parallelConvGateway.setTrg(parallelConvGateway);
 
 			// create link
-			outFlowToParallelStep__source__outFlow.setTrg(outFlow);
+			pcgwToParStep__source__parallelConvGateway
+					.setTrg(parallelConvGateway);
 
 			// create link
 			__parallelConvGateway_outgoing_outFlow.setTrg(outFlow);
 
 			// create link
+			__outFlow_sourceRef_parallelConvGateway.setSrc(outFlow);
+
+			// create link
+			outFlowToParallelStep__source__outFlow.setTrg(outFlow);
+
+			// create link
 			__process_flowElements_outFlow.setTrg(outFlow);
+
+			// create link
+			outFlowToInitFlow__source__outFlow.setTrg(outFlow);
 
 			// create link
 			outFlowToInitFlow__target__initFlow.setTrg(initFlow);
 
 			// create link
-			outFlowToParallelStep__target__parallelStep.setTrg(parallelStep);
+			pcgwToParStep__target__parallelStep.setTrg(parallelStep);
 
 			// create link
-			pcgwToParStep__target__parallelStep.setTrg(parallelStep);
+			outFlowToParallelStep__target__parallelStep.setTrg(parallelStep);
 
 			// create link
 			pcgwToParStep__source__parallelConvGateway.setSrc(pcgwToParStep);
@@ -1764,11 +1577,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			outFlowToInitFlow__target__initFlow.setSrc(outFlowToInitFlow);
 
 			// create link
-			outFlowToParallelStep__target__parallelStep
+			outFlowToParallelStep__source__outFlow
 					.setSrc(outFlowToParallelStep);
 
 			// create link
-			outFlowToParallelStep__source__outFlow
+			outFlowToParallelStep__target__parallelStep
 					.setSrc(outFlowToParallelStep);
 
 			// create link
@@ -1813,30 +1626,30 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		bpmn2.Process process = null;
 		Step nextStep = null;
 		EMoflonEdge __process_flowElements_divergeFlow = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __process_flowElements_parallelConvGateway = null;
+		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
+		EMoflonEdge __process_flowElements_parallelConvGateway = null;
 		EMoflonEdge __process_flowElements_parallelGateway = null;
 		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __inFlowToStep_source_inFlow = null;
-		EMoflonEdge __parallelConvGateway_incoming_inFlow = null;
-		EMoflonEdge __inFlowToFlow_source_inFlow = null;
 		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
-		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
+		EMoflonEdge __parallelConvGateway_incoming_inFlow = null;
+		EMoflonEdge __inFlowToStep_source_inFlow = null;
+		EMoflonEdge __inFlowToFlow_source_inFlow = null;
 		EMoflonEdge __lane_flowNodeRefs_parallelConvGateway = null;
+		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
 		EMoflonEdge __outFlow_sourceRef_parallelConvGateway = null;
 		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge __inFlowToFlow_target_flow = null;
 		EMoflonEdge __divergeFlowToFlow_target_flow = null;
 		EMoflonEdge __parallelStep_invokedFlows_flow = null;
+		EMoflonEdge __inFlowToFlow_target_flow = null;
 		EMoflonEdge __inFlowToStep_target_step = null;
 		EMoflonEdge __initFlow_steps_parallelStep = null;
 		EMoflonEdge __pgwToParallelStep_target_parallelStep = null;
 		EMoflonEdge __laneSet_lanes_lane = null;
+		EMoflonEdge __parallelGateway_outgoing_divergeFlow = null;
 		EMoflonEdge __divergeFlow_sourceRef_parallelGateway = null;
 		EMoflonEdge __pgwToParallelStep_source_parallelGateway = null;
-		EMoflonEdge __parallelGateway_outgoing_divergeFlow = null;
 		EMoflonEdge __divergeFlowToFlow_source_divergeFlow = null;
 		CSP csp = null;
 		Flow initFlow = null;
@@ -2169,10 +1982,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.equals(parallelGateway
 																.eContainer()));
 
-												// check link incoming from inFlow to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway.equals(inFlow
-														.getTargetRef()));
-
 												// check link laneSets from laneSet to process
 												JavaSDM.ensure(process
 														.equals(laneSet
@@ -2182,14 +1991,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												JavaSDM.ensure(laneSet
 														.equals(lane
 																.eContainer()));
-
-												// check link outgoing from outFlow to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway.equals(outFlow
-														.getSourceRef()));
-
-												// check link outgoing from divergeFlow to parallelGateway
-												JavaSDM.ensure(parallelGateway.equals(divergeFlow
-														.getSourceRef()));
 
 												// check link source from divergeFlowToFlow to divergeFlow
 												JavaSDM.ensure(divergeFlow
@@ -2210,6 +2011,14 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												JavaSDM.ensure(parallelGateway
 														.equals(pgwToParallelStep
 																.getSource()));
+
+												// check link sourceRef from divergeFlow to parallelGateway
+												JavaSDM.ensure(parallelGateway.equals(divergeFlow
+														.getSourceRef()));
+
+												// check link sourceRef from outFlow to parallelConvGateway
+												JavaSDM.ensure(parallelConvGateway.equals(outFlow
+														.getSourceRef()));
 
 												// check link steps from step to flow
 												JavaSDM.ensure(flow.equals(step
@@ -2252,6 +2061,10 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.equals(pgwToParallelStep
 																.getTarget()));
 
+												// check link targetRef from inFlow to parallelConvGateway
+												JavaSDM.ensure(parallelConvGateway.equals(inFlow
+														.getTargetRef()));
+
 												// check link flowNodeRefs from lane to parallelConvGateway
 												JavaSDM.ensure(lane
 														.getFlowNodeRefs()
@@ -2267,20 +2080,20 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object isApplicableMatch
-												isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-														.createIsApplicableMatch();
-
 												// create object __process_laneSets_laneSet
 												__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __process_flowElements_parallelConvGateway
-												__process_flowElements_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-														.createEMoflonEdge();
+												// create object isApplicableMatch
+												isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+														.createIsApplicableMatch();
 
 												// create object __process_flowElements_inFlow
 												__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
+														.createEMoflonEdge();
+
+												// create object __process_flowElements_parallelConvGateway
+												__process_flowElements_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __process_flowElements_parallelGateway
@@ -2291,28 +2104,28 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __inFlowToStep_source_inFlow
-												__inFlowToStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
+												// create object __inFlow_targetRef_parallelConvGateway
+												__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __parallelConvGateway_incoming_inFlow
 												__parallelConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
+												// create object __inFlowToStep_source_inFlow
+												__inFlowToStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
+														.createEMoflonEdge();
+
 												// create object __inFlowToFlow_source_inFlow
 												__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __inFlow_targetRef_parallelConvGateway
-												__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
+												// create object __lane_flowNodeRefs_parallelConvGateway
+												__lane_flowNodeRefs_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __parallelConvGateway_outgoing_outFlow
 												__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-														.createEMoflonEdge();
-
-												// create object __lane_flowNodeRefs_parallelConvGateway
-												__lane_flowNodeRefs_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __outFlow_sourceRef_parallelConvGateway
@@ -2323,16 +2136,16 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												__flow_steps_step = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __inFlowToFlow_target_flow
-												__inFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
-														.createEMoflonEdge();
-
 												// create object __divergeFlowToFlow_target_flow
 												__divergeFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __parallelStep_invokedFlows_flow
 												__parallelStep_invokedFlows_flow = TGGRuntimeFactory.eINSTANCE
+														.createEMoflonEdge();
+
+												// create object __inFlowToFlow_target_flow
+												__inFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __inFlowToStep_target_step
@@ -2351,16 +2164,16 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
+												// create object __parallelGateway_outgoing_divergeFlow
+												__parallelGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
+														.createEMoflonEdge();
+
 												// create object __divergeFlow_sourceRef_parallelGateway
 												__divergeFlow_sourceRef_parallelGateway = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __pgwToParallelStep_source_parallelGateway
 												__pgwToParallelStep_source_parallelGateway = TGGRuntimeFactory.eINSTANCE
-														.createEMoflonEdge();
-
-												// create object __parallelGateway_outgoing_divergeFlow
-												__parallelGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __divergeFlowToFlow_source_divergeFlow
@@ -2448,20 +2261,20 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.setSrc(process);
 
 												// create link
+												__process_laneSets_laneSet
+														.setSrc(process);
+
+												// create link
 												isApplicableMatch
 														.getAllContextElements()
 														.add(process);
 
 												// create link
-												__process_laneSets_laneSet
+												__process_flowElements_inFlow
 														.setSrc(process);
 
 												// create link
 												__process_flowElements_parallelConvGateway
-														.setSrc(process);
-
-												// create link
-												__process_flowElements_inFlow
 														.setSrc(process);
 
 												// create link
@@ -2473,24 +2286,16 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.setSrc(process);
 
 												// create link
-												__inFlowToStep_source_inFlow
-														.setTrg(inFlow);
-
-												// create link
-												__process_flowElements_inFlow
-														.setTrg(inFlow);
+												__inFlow_targetRef_parallelConvGateway
+														.setSrc(inFlow);
 
 												// create link
 												__parallelConvGateway_incoming_inFlow
 														.setTrg(inFlow);
 
 												// create link
-												__inFlowToFlow_source_inFlow
+												__inFlowToStep_source_inFlow
 														.setTrg(inFlow);
-
-												// create link
-												__inFlow_targetRef_parallelConvGateway
-														.setSrc(inFlow);
 
 												// create link
 												isApplicableMatch
@@ -2498,11 +2303,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(inFlow);
 
 												// create link
-												__process_flowElements_parallelConvGateway
-														.setTrg(parallelConvGateway);
+												__process_flowElements_inFlow
+														.setTrg(inFlow);
 
 												// create link
-												__inFlow_targetRef_parallelConvGateway
+												__inFlowToFlow_source_inFlow
+														.setTrg(inFlow);
+
+												// create link
+												__lane_flowNodeRefs_parallelConvGateway
 														.setTrg(parallelConvGateway);
 
 												// create link
@@ -2515,11 +2324,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(parallelConvGateway);
 
 												// create link
-												__lane_flowNodeRefs_parallelConvGateway
+												__outFlow_sourceRef_parallelConvGateway
 														.setTrg(parallelConvGateway);
 
 												// create link
-												__outFlow_sourceRef_parallelConvGateway
+												__process_flowElements_parallelConvGateway
+														.setTrg(parallelConvGateway);
+
+												// create link
+												__inFlow_targetRef_parallelConvGateway
 														.setTrg(parallelConvGateway);
 
 												// create link
@@ -2527,9 +2340,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.setSrc(parallelConvGateway);
 
 												// create link
-												isApplicableMatch
-														.getAllContextElements()
-														.add(outFlow);
+												__outFlow_sourceRef_parallelConvGateway
+														.setSrc(outFlow);
 
 												// create link
 												__parallelConvGateway_outgoing_outFlow
@@ -2540,18 +2352,23 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.setTrg(outFlow);
 
 												// create link
-												__outFlow_sourceRef_parallelConvGateway
-														.setSrc(outFlow);
+												isApplicableMatch
+														.getAllContextElements()
+														.add(outFlow);
 
 												// create link
 												__flow_steps_step.setSrc(flow);
 
 												// create link
-												__inFlowToFlow_target_flow
+												__divergeFlowToFlow_target_flow
 														.setTrg(flow);
 
 												// create link
-												__divergeFlowToFlow_target_flow
+												__parallelStep_invokedFlows_flow
+														.setTrg(flow);
+
+												// create link
+												__inFlowToFlow_target_flow
 														.setTrg(flow);
 
 												// create link
@@ -2560,8 +2377,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(flow);
 
 												// create link
-												__parallelStep_invokedFlows_flow
-														.setTrg(flow);
+												__inFlowToFlow_target_flow
+														.setSrc(inFlowToFlow);
 
 												// create link
 												__inFlowToFlow_source_inFlow
@@ -2573,8 +2390,9 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(inFlowToFlow);
 
 												// create link
-												__inFlowToFlow_target_flow
-														.setSrc(inFlowToFlow);
+												isApplicableMatch
+														.getAllContextElements()
+														.add(step);
 
 												// create link
 												__inFlowToStep_target_step
@@ -2584,22 +2402,17 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												__flow_steps_step.setTrg(step);
 
 												// create link
-												isApplicableMatch
-														.getAllContextElements()
-														.add(step);
+												__inFlowToStep_source_inFlow
+														.setSrc(inFlowToStep);
 
 												// create link
-												__inFlowToStep_source_inFlow
+												__inFlowToStep_target_step
 														.setSrc(inFlowToStep);
 
 												// create link
 												isApplicableMatch
 														.getAllContextElements()
 														.add(inFlowToStep);
-
-												// create link
-												__inFlowToStep_target_step
-														.setSrc(inFlowToStep);
 
 												// create link
 												__initFlow_steps_parallelStep
@@ -2611,6 +2424,14 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(initFlow);
 
 												// create link
+												__parallelStep_invokedFlows_flow
+														.setSrc(parallelStep);
+
+												// create link
+												__initFlow_steps_parallelStep
+														.setTrg(parallelStep);
+
+												// create link
 												isApplicableMatch
 														.getAllContextElements()
 														.add(parallelStep);
@@ -2620,16 +2441,12 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.setTrg(parallelStep);
 
 												// create link
-												__parallelStep_invokedFlows_flow
-														.setSrc(parallelStep);
-
-												// create link
-												__initFlow_steps_parallelStep
-														.setTrg(parallelStep);
-
-												// create link
 												__laneSet_lanes_lane
 														.setTrg(lane);
+
+												// create link
+												__lane_flowNodeRefs_parallelConvGateway
+														.setSrc(lane);
 
 												// create link
 												isApplicableMatch
@@ -2637,16 +2454,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(lane);
 
 												// create link
-												__lane_flowNodeRefs_parallelConvGateway
-														.setSrc(lane);
-
-												// create link
 												__process_laneSets_laneSet
 														.setTrg(laneSet);
-
-												// create link
-												__laneSet_lanes_lane
-														.setSrc(laneSet);
 
 												// create link
 												isApplicableMatch
@@ -2654,15 +2463,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(laneSet);
 
 												// create link
+												__laneSet_lanes_lane
+														.setSrc(laneSet);
+
+												// create link
+												__parallelGateway_outgoing_divergeFlow
+														.setSrc(parallelGateway);
+
+												// create link
 												__process_flowElements_parallelGateway
-														.setTrg(parallelGateway);
-
-												// create link
-												__divergeFlow_sourceRef_parallelGateway
-														.setTrg(parallelGateway);
-
-												// create link
-												__pgwToParallelStep_source_parallelGateway
 														.setTrg(parallelGateway);
 
 												// create link
@@ -2671,16 +2480,12 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(parallelGateway);
 
 												// create link
-												__parallelGateway_outgoing_divergeFlow
-														.setSrc(parallelGateway);
+												__divergeFlow_sourceRef_parallelGateway
+														.setTrg(parallelGateway);
 
 												// create link
 												__pgwToParallelStep_source_parallelGateway
-														.setSrc(pgwToParallelStep);
-
-												// create link
-												__pgwToParallelStep_target_parallelStep
-														.setSrc(pgwToParallelStep);
+														.setTrg(parallelGateway);
 
 												// create link
 												isApplicableMatch
@@ -2688,25 +2493,38 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.add(pgwToParallelStep);
 
 												// create link
-												isApplicableMatch
-														.getAllContextElements()
-														.add(divergeFlow);
+												__pgwToParallelStep_target_parallelStep
+														.setSrc(pgwToParallelStep);
+
+												// create link
+												__pgwToParallelStep_source_parallelGateway
+														.setSrc(pgwToParallelStep);
 
 												// create link
 												__parallelGateway_outgoing_divergeFlow
 														.setTrg(divergeFlow);
 
 												// create link
+												isApplicableMatch
+														.getAllContextElements()
+														.add(divergeFlow);
+
+												// create link
 												__divergeFlowToFlow_source_divergeFlow
 														.setTrg(divergeFlow);
+
+												// create link
+												__divergeFlow_sourceRef_parallelGateway
+														.setSrc(divergeFlow);
 
 												// create link
 												__process_flowElements_divergeFlow
 														.setTrg(divergeFlow);
 
 												// create link
-												__divergeFlow_sourceRef_parallelGateway
-														.setSrc(divergeFlow);
+												isApplicableMatch
+														.getAllContextElements()
+														.add(divergeFlowToFlow);
 
 												// create link
 												__divergeFlowToFlow_target_flow
@@ -2717,15 +2535,17 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.setSrc(divergeFlowToFlow);
 
 												// create link
-												isApplicableMatch
-														.getAllContextElements()
-														.add(divergeFlowToFlow);
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__inFlow_targetRef_parallelConvGateway,
+																"allContextElements");
 
 												// create link
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__inFlowToStep_target_step,
+																__parallelStep_invokedFlows_flow,
 																"allContextElements");
 
 												// create link
@@ -2739,7 +2559,21 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__process_laneSets_laneSet,
+																__divergeFlow_sourceRef_parallelGateway,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__process_flowElements_parallelGateway,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__inFlowToFlow_source_inFlow,
 																"allContextElements");
 
 												// create link
@@ -2753,7 +2587,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__laneSet_lanes_lane,
+																__process_flowElements_divergeFlow,
 																"allContextElements");
 
 												// create link
@@ -2774,14 +2608,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__flow_steps_step,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__process_flowElements_divergeFlow,
+																__process_flowElements_inFlow,
 																"allContextElements");
 
 												// create link
@@ -2795,21 +2622,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__parallelStep_invokedFlows_flow,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__initFlow_steps_parallelStep,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__inFlowToFlow_source_inFlow,
+																__divergeFlowToFlow_target_flow,
 																"allContextElements");
 
 												// create link
@@ -2823,49 +2636,28 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__process_flowElements_outFlow,
+																__inFlowToStep_target_step,
 																"allContextElements");
 
 												// create link
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__process_flowElements_parallelGateway,
+																__inFlowToStep_source_inFlow,
 																"allContextElements");
 
 												// create link
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__pgwToParallelStep_source_parallelGateway,
+																__process_laneSets_laneSet,
 																"allContextElements");
 
 												// create link
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__inFlowToFlow_target_flow,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__divergeFlow_sourceRef_parallelGateway,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__inFlow_targetRef_parallelConvGateway,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__divergeFlowToFlow_target_flow,
+																__flow_steps_step,
 																"allContextElements");
 
 												// create link
@@ -2879,21 +2671,42 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
+																__inFlowToFlow_target_flow,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__initFlow_steps_parallelStep,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__laneSet_lanes_lane,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__process_flowElements_outFlow,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__pgwToParallelStep_source_parallelGateway,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
 																__parallelConvGateway_incoming_inFlow,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__process_flowElements_inFlow,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__inFlowToStep_source_inFlow,
 																"allContextElements");
 												// story node 'solve CSP'
 												try {
@@ -2939,16 +2752,17 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														JavaSDM.ensure(isApplicableMatch != null);
 														// check object ruleresult is really bound
 														JavaSDM.ensure(ruleresult != null);
-														// assign attribute ruleresult
-														ruleresult
-																.setSuccess(true);
 														// assign attribute isApplicableMatch
 														isApplicableMatch
 																.setRuleName("ParallelConvergingGatewayRule");
+														// assign attribute ruleresult
+														ruleresult
+																.setSuccess(true);
 
 														// create link
-														isApplicableMatch
-																.setIsApplicableRuleResult(ruleresult);
+														ruleresult
+																.getIsApplicableMatch()
+																.add(isApplicableMatch);
 
 														fujaba__Success = true;
 													} catch (JavaSDMException fujaba__InternalException) {
@@ -3209,24 +3023,23 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_232280 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_851935 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_673022 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_673022 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_800828 = null;
+		FlowElementsContainer __DEC_parallelConvGateway_flowElements_140476 = null;
+		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_363880 = null;
+		SequenceFlow __DEC_parallelConvGateway_targetRef_363880 = null;
 		Match match = null;
-		Iterator fujaba__IterLaneSetToLane = null;
+		Iterator fujaba__IterParallelConvGatewayToLane = null;
 		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToParallelGateway = null;
-		ParallelGateway parallelGateway = null;
 		Iterator fujaba__IterProcessToOutFlow = null;
 		SequenceFlow outFlow = null;
 		Iterator fujaba__IterProcessToInFlow = null;
 		SequenceFlow inFlow = null;
+		ParallelGateway parallelGateway = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
 		SequenceFlow divergeFlow = null;
 		ParallelGateway parallelConvGateway = null;
+		Iterator fujaba__IterProcessToLaneSet = null;
+		LaneSet laneSet = null;
 		bpmn2.Process process = null;
 
 		// story node 'prepare return value'
@@ -3283,133 +3096,683 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
 			process = (bpmn2.Process) _TmpObject;
 
-			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link flowElements from parallelConvGateway to process
-			JavaSDM.ensure(process.equals(parallelConvGateway.eContainer()));
-
-			// iterate to-many link flowElements from process to divergeFlow
+			// iterate to-many link laneSets from process to laneSet
 			fujaba__Success = false;
 
-			fujaba__IterProcessToDivergeFlow = new ArrayList(
-					process.getFlowElements()).iterator();
+			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
+					.iterator();
 
-			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
+			while (fujaba__IterProcessToLaneSet.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
+					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
 
-					// ensure correct type and really bound of object divergeFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					divergeFlow = (SequenceFlow) _TmpObject;
-					// iterate to-many link flowElements from process to inFlow
+					// check object laneSet is really bound
+					JavaSDM.ensure(laneSet != null);
+					// bind object
+					_TmpObject = _edge_flowElements.getTrg();
+
+					// ensure correct type and really bound of object parallelConvGateway
+					JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
+					parallelConvGateway = (ParallelGateway) _TmpObject;
+
+					// check link flowElements from parallelConvGateway to process
+					JavaSDM.ensure(process.equals(parallelConvGateway
+							.eContainer()));
+
+					// iterate to-many link flowElements from process to divergeFlow
 					fujaba__Success = false;
 
-					fujaba__IterProcessToInFlow = new ArrayList(
+					fujaba__IterProcessToDivergeFlow = new ArrayList(
 							process.getFlowElements()).iterator();
 
-					while (fujaba__IterProcessToInFlow.hasNext()) {
+					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterProcessToInFlow.next();
+							_TmpObject = fujaba__IterProcessToDivergeFlow
+									.next();
 
-							// ensure correct type and really bound of object inFlow
+							// ensure correct type and really bound of object divergeFlow
 							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							inFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow and divergeFlow 
-							JavaSDM.ensure(!inFlow.equals(divergeFlow));
+							divergeFlow = (SequenceFlow) _TmpObject;
+							// bind object
+							_TmpObject = divergeFlow.getSourceRef();
 
-							// check link incoming from inFlow to parallelConvGateway
-							JavaSDM.ensure(parallelConvGateway.equals(inFlow
-									.getTargetRef()));
+							// ensure correct type and really bound of object parallelGateway
+							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
+							parallelGateway = (ParallelGateway) _TmpObject;
 
-							// iterate to-many link flowElements from process to outFlow
+							// check isomorphic binding between objects parallelGateway and parallelConvGateway 
+							JavaSDM.ensure(!parallelGateway
+									.equals(parallelConvGateway));
+
+							// check link flowElements from parallelGateway to process
+							JavaSDM.ensure(process.equals(parallelGateway
+									.eContainer()));
+
+							// iterate to-many link flowElements from process to inFlow
 							fujaba__Success = false;
 
-							fujaba__IterProcessToOutFlow = new ArrayList(
+							fujaba__IterProcessToInFlow = new ArrayList(
 									process.getFlowElements()).iterator();
 
-							while (fujaba__IterProcessToOutFlow.hasNext()) {
+							while (fujaba__IterProcessToInFlow.hasNext()) {
 								try {
-									_TmpObject = fujaba__IterProcessToOutFlow
+									_TmpObject = fujaba__IterProcessToInFlow
 											.next();
 
-									// ensure correct type and really bound of object outFlow
+									// ensure correct type and really bound of object inFlow
 									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									outFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects outFlow and divergeFlow 
-									JavaSDM.ensure(!outFlow.equals(divergeFlow));
+									inFlow = (SequenceFlow) _TmpObject;
+									// check isomorphic binding between objects inFlow and divergeFlow 
+									JavaSDM.ensure(!inFlow.equals(divergeFlow));
 
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link outgoing from outFlow to parallelConvGateway
+									// check link targetRef from inFlow to parallelConvGateway
 									JavaSDM.ensure(parallelConvGateway
-											.equals(outFlow.getSourceRef()));
+											.equals(inFlow.getTargetRef()));
 
-									// iterate to-many link flowElements from process to parallelGateway
+									// iterate to-many link flowElements from process to outFlow
 									fujaba__Success = false;
 
-									fujaba__IterProcessToParallelGateway = new ArrayList(
+									fujaba__IterProcessToOutFlow = new ArrayList(
 											process.getFlowElements())
 											.iterator();
 
-									while (fujaba__IterProcessToParallelGateway
+									while (fujaba__IterProcessToOutFlow
 											.hasNext()) {
 										try {
-											_TmpObject = fujaba__IterProcessToParallelGateway
+											_TmpObject = fujaba__IterProcessToOutFlow
 													.next();
 
-											// ensure correct type and really bound of object parallelGateway
-											JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-											parallelGateway = (ParallelGateway) _TmpObject;
-											// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-											JavaSDM.ensure(!parallelGateway
-													.equals(parallelConvGateway));
+											// ensure correct type and really bound of object outFlow
+											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+											outFlow = (SequenceFlow) _TmpObject;
+											// check isomorphic binding between objects outFlow and divergeFlow 
+											JavaSDM.ensure(!outFlow
+													.equals(divergeFlow));
 
-											// check link outgoing from divergeFlow to parallelGateway
-											JavaSDM.ensure(parallelGateway
-													.equals(divergeFlow
+											// check isomorphic binding between objects outFlow and inFlow 
+											JavaSDM.ensure(!outFlow
+													.equals(inFlow));
+
+											// check link sourceRef from outFlow to parallelConvGateway
+											JavaSDM.ensure(parallelConvGateway
+													.equals(outFlow
 															.getSourceRef()));
 
-											// iterate to-many link laneSets from process to laneSet
+											// iterate to-many link flowNodeRefs from parallelConvGateway to lane
 											fujaba__Success = false;
 
-											fujaba__IterProcessToLaneSet = new ArrayList(
-													process.getLaneSets())
+											fujaba__IterParallelConvGatewayToLane = new ArrayList(
+													org.moflon.util.eMoflonEMFUtil
+															.getOppositeReference(
+																	parallelConvGateway,
+																	Lane.class,
+																	"flowNodeRefs"))
 													.iterator();
 
-											while (fujaba__IterProcessToLaneSet
+											while (fujaba__IterParallelConvGatewayToLane
 													.hasNext()) {
 												try {
-													laneSet = (LaneSet) fujaba__IterProcessToLaneSet
+													lane = (Lane) fujaba__IterParallelConvGatewayToLane
 															.next();
 
-													// check object laneSet is really bound
-													JavaSDM.ensure(laneSet != null);
-													// iterate to-many link lanes from laneSet to lane
+													// check object lane is really bound
+													JavaSDM.ensure(lane != null);
+													// check link lanes from lane to laneSet
+													JavaSDM.ensure(laneSet.equals(lane
+															.eContainer()));
+
+													// story node 'test core match and DECs'
+													try {
+														fujaba__Success = false;
+
+														// check negative bindings
+														try {
+															fujaba__Success = false;
+
+															// bind object
+															__DEC_outFlow_flowElements_800828 = outFlow
+																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
+																	.eContainer()
+																	: null;
+
+															// check object __DEC_outFlow_flowElements_800828 is really bound
+															JavaSDM.ensure(__DEC_outFlow_flowElements_800828 != null);
+
+															// check if contained via correct reference
+															JavaSDM.ensure(__DEC_outFlow_flowElements_800828
+																	.getFlowElements()
+																	.contains(
+																			outFlow));
+
+															// check isomorphic binding between objects __DEC_outFlow_flowElements_800828 and process 
+															JavaSDM.ensure(!__DEC_outFlow_flowElements_800828
+																	.equals(process));
+
+															fujaba__Success = true;
+														} catch (JavaSDMException fujaba__InternalException) {
+															fujaba__Success = false;
+														}
+
+														fujaba__Success = !(fujaba__Success);
+
+														JavaSDM.ensure(fujaba__Success);
+
+														// check negative bindings
+														try {
+															fujaba__Success = false;
+
+															// bind object
+															__DEC_parallelConvGateway_flowElements_140476 = parallelConvGateway
+																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
+																	.eContainer()
+																	: null;
+
+															// check object __DEC_parallelConvGateway_flowElements_140476 is really bound
+															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_140476 != null);
+
+															// check if contained via correct reference
+															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_140476
+																	.getFlowElements()
+																	.contains(
+																			parallelConvGateway));
+
+															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_140476 and process 
+															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_140476
+																	.equals(process));
+
+															fujaba__Success = true;
+														} catch (JavaSDMException fujaba__InternalException) {
+															fujaba__Success = false;
+														}
+
+														fujaba__Success = !(fujaba__Success);
+
+														JavaSDM.ensure(fujaba__Success);
+
+														// negative check for link default from outFlow
+														JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
+																.getOppositeReference(
+																		outFlow,
+																		ExclusiveGateway.class,
+																		"default")
+																.size() == 0);
+														// check negative bindings
+														try {
+															fujaba__Success = false;
+
+															// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_363880
+															fujaba__Success = false;
+
+															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_363880 = new ArrayList(
+																	parallelConvGateway
+																			.getIncoming())
+																	.iterator();
+
+															while (!(fujaba__Success)
+																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_363880
+																			.hasNext()) {
+																try {
+																	__DEC_parallelConvGateway_targetRef_363880 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_363880
+																			.next();
+
+																	// check object __DEC_parallelConvGateway_targetRef_363880 is really bound
+																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_363880 != null);
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_363880 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_363880
+																			.equals(divergeFlow));
+
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_363880 and inFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_363880
+																			.equals(inFlow));
+
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_363880 and outFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_363880
+																			.equals(outFlow));
+
+																	fujaba__Success = true;
+																} catch (JavaSDMException fujaba__InternalException) {
+																	fujaba__Success = false;
+																}
+															}
+															JavaSDM.ensure(fujaba__Success);
+
+															fujaba__Success = true;
+														} catch (JavaSDMException fujaba__InternalException) {
+															fujaba__Success = false;
+														}
+
+														fujaba__Success = !(fujaba__Success);
+
+														JavaSDM.ensure(fujaba__Success);
+
+														// check object _edge_flowElements is really bound
+														JavaSDM.ensure(_edge_flowElements != null);
+														// check object divergeFlow is really bound
+														JavaSDM.ensure(divergeFlow != null);
+														// check object inFlow is really bound
+														JavaSDM.ensure(inFlow != null);
+														// check object lane is really bound
+														JavaSDM.ensure(lane != null);
+														// check object laneSet is really bound
+														JavaSDM.ensure(laneSet != null);
+														// check object outFlow is really bound
+														JavaSDM.ensure(outFlow != null);
+														// check object parallelConvGateway is really bound
+														JavaSDM.ensure(parallelConvGateway != null);
+														// check object parallelGateway is really bound
+														JavaSDM.ensure(parallelGateway != null);
+														// check object process is really bound
+														JavaSDM.ensure(process != null);
+														// check isomorphic binding between objects inFlow and divergeFlow 
+														JavaSDM.ensure(!inFlow
+																.equals(divergeFlow));
+
+														// check isomorphic binding between objects outFlow and divergeFlow 
+														JavaSDM.ensure(!outFlow
+																.equals(divergeFlow));
+
+														// check isomorphic binding between objects outFlow and inFlow 
+														JavaSDM.ensure(!outFlow
+																.equals(inFlow));
+
+														// check isomorphic binding between objects parallelGateway and parallelConvGateway 
+														JavaSDM.ensure(!parallelGateway
+																.equals(parallelConvGateway));
+
+														// check link flowElements from divergeFlow to process
+														JavaSDM.ensure(process
+																.equals(divergeFlow
+																		.eContainer()));
+
+														// check link flowElements from inFlow to process
+														JavaSDM.ensure(process.equals(inFlow
+																.eContainer()));
+
+														// check link flowElements from outFlow to process
+														JavaSDM.ensure(process.equals(outFlow
+																.eContainer()));
+
+														// check link flowElements from parallelConvGateway to process
+														JavaSDM.ensure(process
+																.equals(parallelConvGateway
+																		.eContainer()));
+
+														// check link flowElements from parallelGateway to process
+														JavaSDM.ensure(process
+																.equals(parallelGateway
+																		.eContainer()));
+
+														// check link laneSets from laneSet to process
+														JavaSDM.ensure(process.equals(laneSet
+																.eContainer()));
+
+														// check link lanes from lane to laneSet
+														JavaSDM.ensure(laneSet.equals(lane
+																.eContainer()));
+
+														// check link sourceRef from divergeFlow to parallelGateway
+														JavaSDM.ensure(parallelGateway
+																.equals(divergeFlow
+																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway.equals(outFlow
+																.getSourceRef()));
+
+														// check link src from _edge_flowElements to process
+														JavaSDM.ensure(process
+																.equals(_edge_flowElements
+																		.getSrc()));
+
+														// check link targetRef from inFlow to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway.equals(inFlow
+																.getTargetRef()));
+
+														// check link targetRef from divergeFlow to parallelConvGateway
+														JavaSDM.ensure(!(parallelConvGateway
+																.equals(divergeFlow
+																		.getTargetRef())));
+
+														// check link targetRef from outFlow to parallelConvGateway
+														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
+																.getTargetRef())));
+
+														// check link trg from _edge_flowElements to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway
+																.equals(_edge_flowElements
+																		.getTrg()));
+
+														// check link flowNodeRefs from lane to parallelConvGateway
+														JavaSDM.ensure(lane
+																.getFlowNodeRefs()
+																.contains(
+																		parallelConvGateway));
+
+														// create object match
+														match = TGGRuntimeFactory.eINSTANCE
+																.createMatch();
+
+														// assign attribute match
+														match.setRuleName(__eClass
+																.getName());
+														// statement node 'bookkeeping with generic isAppropriate method'
+														fujaba__Success = this
+																.isAppropriate_FWD(
+																		match,
+																		process,
+																		inFlow,
+																		parallelConvGateway,
+																		outFlow,
+																		lane,
+																		laneSet,
+																		parallelGateway,
+																		divergeFlow);
+														if (fujaba__Success) {
+															// statement node 'Ensure that the correct types of elements are matched'
+															fujaba__Success = this
+																	.checkTypes_FWD(match);
+															if (fujaba__Success) {
+																// story node 'Add match to rule result'
+																try {
+																	fujaba__Success = false;
+
+																	// check object __performOperation is really bound
+																	JavaSDM.ensure(__performOperation != null);
+																	// check object __result is really bound
+																	JavaSDM.ensure(__result != null);
+																	// check object match is really bound
+																	JavaSDM.ensure(match != null);
+
+																	// create link
+																	org.moflon.util.eMoflonEMFUtil
+																			.addOppositeReference(
+																					match,
+																					__performOperation,
+																					"isApplicableOperation");
+
+																	// create link
+																	__result.getContents()
+																			.add(match);
+
+																	fujaba__Success = true;
+																} catch (JavaSDMException fujaba__InternalException) {
+																	fujaba__Success = false;
+																}
+
+															} else {
+
+															}
+
+														} else {
+
+														}
+														fujaba__Success = true;
+													} catch (JavaSDMException fujaba__InternalException) {
+														fujaba__Success = false;
+													}
+
+													fujaba__Success = true;
+												} catch (JavaSDMException fujaba__InternalException) {
+													fujaba__Success = false;
+												}
+											}
+											JavaSDM.ensure(fujaba__Success);
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+							}
+							JavaSDM.ensure(fujaba__Success);
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+					}
+					JavaSDM.ensure(fujaba__Success);
+
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
+				}
+			}
+			JavaSDM.ensure(fujaba__Success);
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		return __result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_55(
+			EMoflonEdge _edge_flowElements) {
+		boolean fujaba__Success = false;
+		Object _TmpObject = null;
+		EClass __eClass = null;
+		Iterator fujaba__Iter__eClassTo__performOperation = null;
+		EOperation __performOperation = null;
+		EObjectContainer __result = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_741560 = null;
+		FlowElementsContainer __DEC_parallelConvGateway_flowElements_230943 = null;
+		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_563367 = null;
+		SequenceFlow __DEC_parallelConvGateway_targetRef_563367 = null;
+		Match match = null;
+		Iterator fujaba__IterParallelConvGatewayToLane = null;
+		Lane lane = null;
+		Iterator fujaba__IterProcessToParallelConvGateway = null;
+		ParallelGateway parallelConvGateway = null;
+		Iterator fujaba__IterProcessToInFlow = null;
+		SequenceFlow inFlow = null;
+		Iterator fujaba__IterProcessToDivergeFlow = null;
+		SequenceFlow divergeFlow = null;
+		SequenceFlow outFlow = null;
+		Iterator fujaba__IterProcessToParallelGateway = null;
+		ParallelGateway parallelGateway = null;
+		Iterator fujaba__IterProcessToLaneSet = null;
+		LaneSet laneSet = null;
+		bpmn2.Process process = null;
+
+		// story node 'prepare return value'
+		try {
+			fujaba__Success = false;
+
+			_TmpObject = (this.eClass());
+
+			// ensure correct type and really bound of object __eClass
+			JavaSDM.ensure(_TmpObject instanceof EClass);
+			__eClass = (EClass) _TmpObject;
+			// iterate to-many link eOperations from __eClass to __performOperation
+			fujaba__Success = false;
+
+			fujaba__Iter__eClassTo__performOperation = __eClass
+					.getEOperations().iterator();
+
+			while (!(fujaba__Success)
+					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
+				try {
+					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
+							.next();
+
+					// check object __performOperation is really bound
+					JavaSDM.ensure(__performOperation != null);
+					// attribute condition
+					JavaSDM.ensure(JavaSDM.stringCompare(
+							__performOperation.getName(), "isApplicable_FWD") == 0);
+
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
+				}
+			}
+			JavaSDM.ensure(fujaba__Success);
+			// create object __result
+			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
+
+			fujaba__Success = true;
+		} catch (JavaSDMException fujaba__InternalException) {
+			fujaba__Success = false;
+		}
+
+		// story node 'test core match kernel'
+		try {
+			fujaba__Success = false;
+
+			// check object _edge_flowElements is really bound
+			JavaSDM.ensure(_edge_flowElements != null);
+			// bind object
+			_TmpObject = _edge_flowElements.getSrc();
+
+			// ensure correct type and really bound of object process
+			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+			process = (bpmn2.Process) _TmpObject;
+
+			// iterate to-many link laneSets from process to laneSet
+			fujaba__Success = false;
+
+			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
+					.iterator();
+
+			while (fujaba__IterProcessToLaneSet.hasNext()) {
+				try {
+					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
+
+					// check object laneSet is really bound
+					JavaSDM.ensure(laneSet != null);
+					// iterate to-many link flowElements from process to parallelGateway
+					fujaba__Success = false;
+
+					fujaba__IterProcessToParallelGateway = new ArrayList(
+							process.getFlowElements()).iterator();
+
+					while (fujaba__IterProcessToParallelGateway.hasNext()) {
+						try {
+							_TmpObject = fujaba__IterProcessToParallelGateway
+									.next();
+
+							// ensure correct type and really bound of object parallelGateway
+							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
+							parallelGateway = (ParallelGateway) _TmpObject;
+							// bind object
+							_TmpObject = _edge_flowElements.getTrg();
+
+							// ensure correct type and really bound of object outFlow
+							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+							outFlow = (SequenceFlow) _TmpObject;
+
+							// check link flowElements from outFlow to process
+							JavaSDM.ensure(process.equals(outFlow.eContainer()));
+
+							// iterate to-many link flowElements from process to divergeFlow
+							fujaba__Success = false;
+
+							fujaba__IterProcessToDivergeFlow = new ArrayList(
+									process.getFlowElements()).iterator();
+
+							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
+								try {
+									_TmpObject = fujaba__IterProcessToDivergeFlow
+											.next();
+
+									// ensure correct type and really bound of object divergeFlow
+									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+									divergeFlow = (SequenceFlow) _TmpObject;
+									// check isomorphic binding between objects outFlow and divergeFlow 
+									JavaSDM.ensure(!outFlow.equals(divergeFlow));
+
+									// check link sourceRef from divergeFlow to parallelGateway
+									JavaSDM.ensure(parallelGateway
+											.equals(divergeFlow.getSourceRef()));
+
+									// iterate to-many link flowElements from process to inFlow
+									fujaba__Success = false;
+
+									fujaba__IterProcessToInFlow = new ArrayList(
+											process.getFlowElements())
+											.iterator();
+
+									while (fujaba__IterProcessToInFlow
+											.hasNext()) {
+										try {
+											_TmpObject = fujaba__IterProcessToInFlow
+													.next();
+
+											// ensure correct type and really bound of object inFlow
+											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+											inFlow = (SequenceFlow) _TmpObject;
+											// check isomorphic binding between objects inFlow and divergeFlow 
+											JavaSDM.ensure(!inFlow
+													.equals(divergeFlow));
+
+											// check isomorphic binding between objects outFlow and inFlow 
+											JavaSDM.ensure(!outFlow
+													.equals(inFlow));
+
+											// iterate to-many link flowElements from process to parallelConvGateway
+											fujaba__Success = false;
+
+											fujaba__IterProcessToParallelConvGateway = new ArrayList(
+													process.getFlowElements())
+													.iterator();
+
+											while (fujaba__IterProcessToParallelConvGateway
+													.hasNext()) {
+												try {
+													_TmpObject = fujaba__IterProcessToParallelConvGateway
+															.next();
+
+													// ensure correct type and really bound of object parallelConvGateway
+													JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
+													parallelConvGateway = (ParallelGateway) _TmpObject;
+													// check isomorphic binding between objects parallelGateway and parallelConvGateway 
+													JavaSDM.ensure(!parallelGateway
+															.equals(parallelConvGateway));
+
+													// check link sourceRef from outFlow to parallelConvGateway
+													JavaSDM.ensure(parallelConvGateway.equals(outFlow
+															.getSourceRef()));
+
+													// check link targetRef from inFlow to parallelConvGateway
+													JavaSDM.ensure(parallelConvGateway.equals(inFlow
+															.getTargetRef()));
+
+													// iterate to-many link flowNodeRefs from parallelConvGateway to lane
 													fujaba__Success = false;
 
-													fujaba__IterLaneSetToLane = new ArrayList(
-															laneSet.getLanes())
+													fujaba__IterParallelConvGatewayToLane = new ArrayList(
+															org.moflon.util.eMoflonEMFUtil
+																	.getOppositeReference(
+																			parallelConvGateway,
+																			Lane.class,
+																			"flowNodeRefs"))
 															.iterator();
 
-													while (fujaba__IterLaneSetToLane
+													while (fujaba__IterParallelConvGatewayToLane
 															.hasNext()) {
 														try {
-															lane = (Lane) fujaba__IterLaneSetToLane
+															lane = (Lane) fujaba__IterParallelConvGatewayToLane
 																	.next();
 
 															// check object lane is really bound
 															JavaSDM.ensure(lane != null);
-															// check link flowNodeRefs from lane to parallelConvGateway
-															JavaSDM.ensure(lane
-																	.getFlowNodeRefs()
-																	.contains(
-																			parallelConvGateway));
+															// check link lanes from lane to laneSet
+															JavaSDM.ensure(laneSet
+																	.equals(lane
+																			.eContainer()));
 
 															// story node 'test core match and DECs'
 															try {
@@ -3420,22 +3783,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_outFlow_flowElements_232280 = outFlow
+																	__DEC_outFlow_flowElements_741560 = outFlow
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_outFlow_flowElements_232280 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_232280 != null);
+																	// check object __DEC_outFlow_flowElements_741560 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_741560 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_232280
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_741560
 																			.getFlowElements()
 																			.contains(
 																					outFlow));
 
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_232280 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_232280
+																	// check isomorphic binding between objects __DEC_outFlow_flowElements_741560 and process 
+																	JavaSDM.ensure(!__DEC_outFlow_flowElements_741560
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -3452,22 +3815,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_parallelConvGateway_flowElements_851935 = parallelConvGateway
+																	__DEC_parallelConvGateway_flowElements_230943 = parallelConvGateway
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_parallelConvGateway_flowElements_851935 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_851935 != null);
+																	// check object __DEC_parallelConvGateway_flowElements_230943 is really bound
+																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_230943 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_851935
+																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_230943
 																			.getFlowElements()
 																			.contains(
 																					parallelConvGateway));
 
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_851935 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_851935
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_230943 and process 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_230943
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -3490,33 +3853,33 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																try {
 																	fujaba__Success = false;
 
-																	// iterate to-many link incoming from parallelConvGateway to __DEC_parallelConvGateway_targetRef_673022
+																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_563367
 																	fujaba__Success = false;
 
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_673022 = new ArrayList(
+																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_563367 = new ArrayList(
 																			parallelConvGateway
 																					.getIncoming())
 																			.iterator();
 
 																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_673022
+																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_563367
 																					.hasNext()) {
 																		try {
-																			__DEC_parallelConvGateway_targetRef_673022 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_673022
+																			__DEC_parallelConvGateway_targetRef_563367 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_563367
 																					.next();
 
-																			// check object __DEC_parallelConvGateway_targetRef_673022 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_673022 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_673022 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_673022
+																			// check object __DEC_parallelConvGateway_targetRef_563367 is really bound
+																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_563367 != null);
+																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_563367 and divergeFlow 
+																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_563367
 																					.equals(divergeFlow));
 
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_673022 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_673022
+																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_563367 and inFlow 
+																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_563367
 																					.equals(inFlow));
 
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_673022 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_673022
+																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_563367 and outFlow 
+																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_563367
 																					.equals(outFlow));
 
 																			fujaba__Success = true;
@@ -3594,21 +3957,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																		.equals(parallelGateway
 																				.eContainer()));
 
-																// check link incoming from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link incoming from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link incoming from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
 																// check link laneSets from laneSet to process
 																JavaSDM.ensure(process
 																		.equals(laneSet
@@ -3619,14 +3967,14 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																		.equals(lane
 																				.eContainer()));
 
-																// check link outgoing from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link outgoing from divergeFlow to parallelGateway
+																// check link sourceRef from divergeFlow to parallelGateway
 																JavaSDM.ensure(parallelGateway
 																		.equals(divergeFlow
+																				.getSourceRef()));
+
+																// check link sourceRef from outFlow to parallelConvGateway
+																JavaSDM.ensure(parallelConvGateway
+																		.equals(outFlow
 																				.getSourceRef()));
 
 																// check link src from _edge_flowElements to process
@@ -3634,8 +3982,23 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																		.equals(_edge_flowElements
 																				.getSrc()));
 
-																// check link trg from _edge_flowElements to parallelConvGateway
+																// check link targetRef from inFlow to parallelConvGateway
 																JavaSDM.ensure(parallelConvGateway
+																		.equals(inFlow
+																				.getTargetRef()));
+
+																// check link targetRef from divergeFlow to parallelConvGateway
+																JavaSDM.ensure(!(parallelConvGateway
+																		.equals(divergeFlow
+																				.getTargetRef())));
+
+																// check link targetRef from outFlow to parallelConvGateway
+																JavaSDM.ensure(!(parallelConvGateway
+																		.equals(outFlow
+																				.getTargetRef())));
+
+																// check link trg from _edge_flowElements to outFlow
+																JavaSDM.ensure(outFlow
 																		.equals(_edge_flowElements
 																				.getTrg()));
 
@@ -3665,7 +4028,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																				parallelGateway,
 																				divergeFlow);
 																if (fujaba__Success) {
-																	// statement node ''
+																	// statement node 'Ensure that the correct types of elements are matched'
 																	fujaba__Success = this
 																			.checkTypes_FWD(match);
 																	if (fujaba__Success) {
@@ -3763,31 +4126,31 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_55(
-			EMoflonEdge _edge_flowElements) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_56(
+			EMoflonEdge _edge_targetRef) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		EClass __eClass = null;
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_799662 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_780058 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_479279 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_479279 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_681730 = null;
+		FlowElementsContainer __DEC_parallelConvGateway_flowElements_826099 = null;
+		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_529741 = null;
+		SequenceFlow __DEC_parallelConvGateway_targetRef_529741 = null;
 		Match match = null;
 		Iterator fujaba__IterLaneSetToLane = null;
 		Lane lane = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
-		ParallelGateway parallelConvGateway = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
+		Iterator fujaba__IterProcessToOutFlow = null;
+		SequenceFlow outFlow = null;
 		ParallelGateway parallelGateway = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
 		SequenceFlow divergeFlow = null;
-		SequenceFlow outFlow = null;
+		ParallelGateway parallelConvGateway = null;
 		bpmn2.Process process = null;
+		SequenceFlow inFlow = null;
 
 		// story node 'prepare return value'
 		try {
@@ -3834,24 +4197,38 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		try {
 			fujaba__Success = false;
 
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
+			// check object _edge_targetRef is really bound
+			JavaSDM.ensure(_edge_targetRef != null);
 			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
+			_TmpObject = _edge_targetRef.getSrc();
+
+			// ensure correct type and really bound of object inFlow
+			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+			inFlow = (SequenceFlow) _TmpObject;
+
+			// bind object
+			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
+					.eContainer() : null;
 
 			// ensure correct type and really bound of object process
 			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
 			process = (bpmn2.Process) _TmpObject;
 
+			// check if contained via correct reference
+			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
+
 			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
+			_TmpObject = _edge_targetRef.getTrg();
 
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
+			// ensure correct type and really bound of object parallelConvGateway
+			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
+			parallelConvGateway = (ParallelGateway) _TmpObject;
 
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
+			// check link flowElements from parallelConvGateway to process
+			JavaSDM.ensure(process.equals(parallelConvGateway.eContainer()));
+
+			// check link targetRef from inFlow to parallelConvGateway
+			JavaSDM.ensure(parallelConvGateway.equals(inFlow.getTargetRef()));
 
 			// iterate to-many link flowElements from process to divergeFlow
 			fujaba__Success = false;
@@ -3866,8 +4243,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 					// ensure correct type and really bound of object divergeFlow
 					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
 					divergeFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and divergeFlow 
-					JavaSDM.ensure(!outFlow.equals(divergeFlow));
+					// check isomorphic binding between objects inFlow and divergeFlow 
+					JavaSDM.ensure(!inFlow.equals(divergeFlow));
 
 					// bind object
 					_TmpObject = divergeFlow.getSourceRef();
@@ -3876,44 +4253,32 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 					JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
 					parallelGateway = (ParallelGateway) _TmpObject;
 
+					// check isomorphic binding between objects parallelGateway and parallelConvGateway 
+					JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
+
 					// check link flowElements from parallelGateway to process
 					JavaSDM.ensure(process.equals(parallelGateway.eContainer()));
 
-					// iterate to-many link flowElements from process to inFlow
+					// iterate to-many link flowElements from process to outFlow
 					fujaba__Success = false;
 
-					fujaba__IterProcessToInFlow = new ArrayList(
+					fujaba__IterProcessToOutFlow = new ArrayList(
 							process.getFlowElements()).iterator();
 
-					while (fujaba__IterProcessToInFlow.hasNext()) {
+					while (fujaba__IterProcessToOutFlow.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterProcessToInFlow.next();
+							_TmpObject = fujaba__IterProcessToOutFlow.next();
 
-							// ensure correct type and really bound of object inFlow
+							// ensure correct type and really bound of object outFlow
 							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							inFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow and divergeFlow 
-							JavaSDM.ensure(!inFlow.equals(divergeFlow));
+							outFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects outFlow and divergeFlow 
+							JavaSDM.ensure(!outFlow.equals(divergeFlow));
 
 							// check isomorphic binding between objects outFlow and inFlow 
 							JavaSDM.ensure(!outFlow.equals(inFlow));
 
-							// bind object
-							_TmpObject = inFlow.getTargetRef();
-
-							// ensure correct type and really bound of object parallelConvGateway
-							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-							parallelConvGateway = (ParallelGateway) _TmpObject;
-
-							// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-							JavaSDM.ensure(!parallelGateway
-									.equals(parallelConvGateway));
-
-							// check link flowElements from parallelConvGateway to process
-							JavaSDM.ensure(process.equals(parallelConvGateway
-									.eContainer()));
-
-							// check link outgoing from outFlow to parallelConvGateway
+							// check link sourceRef from outFlow to parallelConvGateway
 							JavaSDM.ensure(parallelConvGateway.equals(outFlow
 									.getSourceRef()));
 
@@ -3958,21 +4323,21 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_outFlow_flowElements_799662 = outFlow
+													__DEC_outFlow_flowElements_681730 = outFlow
 															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 															.eContainer()
 															: null;
 
-													// check object __DEC_outFlow_flowElements_799662 is really bound
-													JavaSDM.ensure(__DEC_outFlow_flowElements_799662 != null);
+													// check object __DEC_outFlow_flowElements_681730 is really bound
+													JavaSDM.ensure(__DEC_outFlow_flowElements_681730 != null);
 
 													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_outFlow_flowElements_799662
+													JavaSDM.ensure(__DEC_outFlow_flowElements_681730
 															.getFlowElements()
 															.contains(outFlow));
 
-													// check isomorphic binding between objects __DEC_outFlow_flowElements_799662 and process 
-													JavaSDM.ensure(!__DEC_outFlow_flowElements_799662
+													// check isomorphic binding between objects __DEC_outFlow_flowElements_681730 and process 
+													JavaSDM.ensure(!__DEC_outFlow_flowElements_681730
 															.equals(process));
 
 													fujaba__Success = true;
@@ -3989,22 +4354,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_parallelConvGateway_flowElements_780058 = parallelConvGateway
+													__DEC_parallelConvGateway_flowElements_826099 = parallelConvGateway
 															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
 															.eContainer()
 															: null;
 
-													// check object __DEC_parallelConvGateway_flowElements_780058 is really bound
-													JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_780058 != null);
+													// check object __DEC_parallelConvGateway_flowElements_826099 is really bound
+													JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_826099 != null);
 
 													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_780058
+													JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_826099
 															.getFlowElements()
 															.contains(
 																	parallelConvGateway));
 
-													// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_780058 and process 
-													JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_780058
+													// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_826099 and process 
+													JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_826099
 															.equals(process));
 
 													fujaba__Success = true;
@@ -4027,33 +4392,33 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link incoming from parallelConvGateway to __DEC_parallelConvGateway_targetRef_479279
+													// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_529741
 													fujaba__Success = false;
 
-													fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_479279 = new ArrayList(
+													fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_529741 = new ArrayList(
 															parallelConvGateway
 																	.getIncoming())
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_479279
+															&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_529741
 																	.hasNext()) {
 														try {
-															__DEC_parallelConvGateway_targetRef_479279 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_479279
+															__DEC_parallelConvGateway_targetRef_529741 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_529741
 																	.next();
 
-															// check object __DEC_parallelConvGateway_targetRef_479279 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_479279 != null);
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_479279 and divergeFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_479279
+															// check object __DEC_parallelConvGateway_targetRef_529741 is really bound
+															JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_529741 != null);
+															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_529741 and divergeFlow 
+															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_529741
 																	.equals(divergeFlow));
 
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_479279 and inFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_479279
+															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_529741 and inFlow 
+															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_529741
 																	.equals(inFlow));
 
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_479279 and outFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_479279
+															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_529741 and outFlow 
+															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_529741
 																	.equals(outFlow));
 
 															fujaba__Success = true;
@@ -4072,8 +4437,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 												JavaSDM.ensure(fujaba__Success);
 
-												// check object _edge_flowElements is really bound
-												JavaSDM.ensure(_edge_flowElements != null);
+												// check object _edge_targetRef is really bound
+												JavaSDM.ensure(_edge_targetRef != null);
 												// check object divergeFlow is really bound
 												JavaSDM.ensure(divergeFlow != null);
 												// check object inFlow is really bound
@@ -4131,18 +4496,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.equals(parallelGateway
 																.eContainer()));
 
-												// check link incoming from inFlow to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway.equals(inFlow
-														.getTargetRef()));
-
-												// check link incoming from divergeFlow to parallelConvGateway
-												JavaSDM.ensure(!(parallelConvGateway.equals(divergeFlow
-														.getTargetRef())));
-
-												// check link incoming from outFlow to parallelConvGateway
-												JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-														.getTargetRef())));
-
 												// check link laneSets from laneSet to process
 												JavaSDM.ensure(process
 														.equals(laneSet
@@ -4153,22 +4506,34 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														.equals(lane
 																.eContainer()));
 
-												// check link outgoing from outFlow to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway.equals(outFlow
-														.getSourceRef()));
-
-												// check link outgoing from divergeFlow to parallelGateway
+												// check link sourceRef from divergeFlow to parallelGateway
 												JavaSDM.ensure(parallelGateway.equals(divergeFlow
 														.getSourceRef()));
 
-												// check link src from _edge_flowElements to process
-												JavaSDM.ensure(process
-														.equals(_edge_flowElements
+												// check link sourceRef from outFlow to parallelConvGateway
+												JavaSDM.ensure(parallelConvGateway.equals(outFlow
+														.getSourceRef()));
+
+												// check link src from _edge_targetRef to inFlow
+												JavaSDM.ensure(inFlow
+														.equals(_edge_targetRef
 																.getSrc()));
 
-												// check link trg from _edge_flowElements to outFlow
-												JavaSDM.ensure(outFlow
-														.equals(_edge_flowElements
+												// check link targetRef from inFlow to parallelConvGateway
+												JavaSDM.ensure(parallelConvGateway.equals(inFlow
+														.getTargetRef()));
+
+												// check link targetRef from divergeFlow to parallelConvGateway
+												JavaSDM.ensure(!(parallelConvGateway.equals(divergeFlow
+														.getTargetRef())));
+
+												// check link targetRef from outFlow to parallelConvGateway
+												JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
+														.getTargetRef())));
+
+												// check link trg from _edge_targetRef to parallelConvGateway
+												JavaSDM.ensure(parallelConvGateway
+														.equals(_edge_targetRef
 																.getTrg()));
 
 												// check link flowNodeRefs from lane to parallelConvGateway
@@ -4197,7 +4562,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																parallelGateway,
 																divergeFlow);
 												if (fujaba__Success) {
-													// statement node ''
+													// statement node 'Ensure that the correct types of elements are matched'
 													fujaba__Success = this
 															.checkTypes_FWD(match);
 													if (fujaba__Success) {
@@ -4281,546 +4646,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_56(
-			EMoflonEdge _edge_targetRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_810568 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_865115 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_707203 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_707203 = null;
-		Match match = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToParallelGateway = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToOutFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_targetRef is really bound
-			JavaSDM.ensure(_edge_targetRef != null);
-			// bind object
-			_TmpObject = _edge_targetRef.getSrc();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-			// bind object
-			_TmpObject = _edge_targetRef.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link flowElements from parallelConvGateway to process
-			JavaSDM.ensure(process.equals(parallelConvGateway.eContainer()));
-
-			// check link incoming from inFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowElements from process to divergeFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToDivergeFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
-
-					// ensure correct type and really bound of object divergeFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					divergeFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects inFlow and divergeFlow 
-					JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-					// iterate to-many link flowElements from process to outFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToOutFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToOutFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToOutFlow.next();
-
-							// ensure correct type and really bound of object outFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							outFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects outFlow and divergeFlow 
-							JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link outgoing from outFlow to parallelConvGateway
-							JavaSDM.ensure(parallelConvGateway.equals(outFlow
-									.getSourceRef()));
-
-							// iterate to-many link flowElements from process to parallelGateway
-							fujaba__Success = false;
-
-							fujaba__IterProcessToParallelGateway = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToParallelGateway
-									.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToParallelGateway
-											.next();
-
-									// ensure correct type and really bound of object parallelGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelGateway = (ParallelGateway) _TmpObject;
-									// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-									JavaSDM.ensure(!parallelGateway
-											.equals(parallelConvGateway));
-
-									// check link outgoing from divergeFlow to parallelGateway
-									JavaSDM.ensure(parallelGateway
-											.equals(divergeFlow.getSourceRef()));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link lanes from laneSet to lane
-											fujaba__Success = false;
-
-											fujaba__IterLaneSetToLane = new ArrayList(
-													laneSet.getLanes())
-													.iterator();
-
-											while (fujaba__IterLaneSetToLane
-													.hasNext()) {
-												try {
-													lane = (Lane) fujaba__IterLaneSetToLane
-															.next();
-
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link flowNodeRefs from lane to parallelConvGateway
-													JavaSDM.ensure(lane
-															.getFlowNodeRefs()
-															.contains(
-																	parallelConvGateway));
-
-													// story node 'test core match and DECs'
-													try {
-														fujaba__Success = false;
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_outFlow_flowElements_810568 = outFlow
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_outFlow_flowElements_810568 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_810568 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_810568
-																	.getFlowElements()
-																	.contains(
-																			outFlow));
-
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_810568 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_810568
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_parallelConvGateway_flowElements_865115 = parallelConvGateway
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_parallelConvGateway_flowElements_865115 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_865115 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_865115
-																	.getFlowElements()
-																	.contains(
-																			parallelConvGateway));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_865115 and process 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_865115
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// negative check for link default from outFlow
-														JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																.getOppositeReference(
-																		outFlow,
-																		ExclusiveGateway.class,
-																		"default")
-																.size() == 0);
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// iterate to-many link incoming from parallelConvGateway to __DEC_parallelConvGateway_targetRef_707203
-															fujaba__Success = false;
-
-															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_707203 = new ArrayList(
-																	parallelConvGateway
-																			.getIncoming())
-																	.iterator();
-
-															while (!(fujaba__Success)
-																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_707203
-																			.hasNext()) {
-																try {
-																	__DEC_parallelConvGateway_targetRef_707203 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_707203
-																			.next();
-
-																	// check object __DEC_parallelConvGateway_targetRef_707203 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_707203 != null);
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_707203 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_707203
-																			.equals(divergeFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_707203 and inFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_707203
-																			.equals(inFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_707203 and outFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_707203
-																			.equals(outFlow));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check object _edge_targetRef is really bound
-														JavaSDM.ensure(_edge_targetRef != null);
-														// check object divergeFlow is really bound
-														JavaSDM.ensure(divergeFlow != null);
-														// check object inFlow is really bound
-														JavaSDM.ensure(inFlow != null);
-														// check object lane is really bound
-														JavaSDM.ensure(lane != null);
-														// check object laneSet is really bound
-														JavaSDM.ensure(laneSet != null);
-														// check object outFlow is really bound
-														JavaSDM.ensure(outFlow != null);
-														// check object parallelConvGateway is really bound
-														JavaSDM.ensure(parallelConvGateway != null);
-														// check object parallelGateway is really bound
-														JavaSDM.ensure(parallelGateway != null);
-														// check object process is really bound
-														JavaSDM.ensure(process != null);
-														// check isomorphic binding between objects inFlow and divergeFlow 
-														JavaSDM.ensure(!inFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and divergeFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and inFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(inFlow));
-
-														// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-														JavaSDM.ensure(!parallelGateway
-																.equals(parallelConvGateway));
-
-														// check link flowElements from divergeFlow to process
-														JavaSDM.ensure(process
-																.equals(divergeFlow
-																		.eContainer()));
-
-														// check link flowElements from inFlow to process
-														JavaSDM.ensure(process.equals(inFlow
-																.eContainer()));
-
-														// check link flowElements from outFlow to process
-														JavaSDM.ensure(process.equals(outFlow
-																.eContainer()));
-
-														// check link flowElements from parallelConvGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelConvGateway
-																		.eContainer()));
-
-														// check link flowElements from parallelGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelGateway
-																		.eContainer()));
-
-														// check link incoming from inFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link incoming from divergeFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link incoming from outFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-																.getTargetRef())));
-
-														// check link laneSets from laneSet to process
-														JavaSDM.ensure(process.equals(laneSet
-																.eContainer()));
-
-														// check link lanes from lane to laneSet
-														JavaSDM.ensure(laneSet.equals(lane
-																.eContainer()));
-
-														// check link outgoing from outFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link outgoing from divergeFlow to parallelGateway
-														JavaSDM.ensure(parallelGateway
-																.equals(divergeFlow
-																		.getSourceRef()));
-
-														// check link src from _edge_targetRef to inFlow
-														JavaSDM.ensure(inFlow
-																.equals(_edge_targetRef
-																		.getSrc()));
-
-														// check link trg from _edge_targetRef to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway
-																.equals(_edge_targetRef
-																		.getTrg()));
-
-														// check link flowNodeRefs from lane to parallelConvGateway
-														JavaSDM.ensure(lane
-																.getFlowNodeRefs()
-																.contains(
-																		parallelConvGateway));
-
-														// create object match
-														match = TGGRuntimeFactory.eINSTANCE
-																.createMatch();
-
-														// assign attribute match
-														match.setRuleName(__eClass
-																.getName());
-														// statement node 'bookkeeping with generic isAppropriate method'
-														fujaba__Success = this
-																.isAppropriate_FWD(
-																		match,
-																		process,
-																		inFlow,
-																		parallelConvGateway,
-																		outFlow,
-																		lane,
-																		laneSet,
-																		parallelGateway,
-																		divergeFlow);
-														if (fujaba__Success) {
-															// statement node ''
-															fujaba__Success = this
-																	.checkTypes_FWD(match);
-															if (fujaba__Success) {
-																// story node 'Add match to rule result'
-																try {
-																	fujaba__Success = false;
-
-																	// check object __performOperation is really bound
-																	JavaSDM.ensure(__performOperation != null);
-																	// check object __result is really bound
-																	JavaSDM.ensure(__result != null);
-																	// check object match is really bound
-																	JavaSDM.ensure(match != null);
-
-																	// create link
-																	org.moflon.util.eMoflonEMFUtil
-																			.addOppositeReference(
-																					match,
-																					__performOperation,
-																					"isApplicableOperation");
-
-																	// create link
-																	__result.getContents()
-																			.add(match);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-															} else {
-
-															}
-
-														} else {
-
-														}
-														fujaba__Success = true;
-													} catch (JavaSDMException fujaba__InternalException) {
-														fujaba__Success = false;
-													}
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_57(
 			EMoflonEdge _edge_incoming) {
 		boolean fujaba__Success = false;
@@ -4829,26 +4654,26 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_820965 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_318731 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_3557 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_3557 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_89647 = null;
+		FlowElementsContainer __DEC_parallelConvGateway_flowElements_969846 = null;
+		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_260058 = null;
+		SequenceFlow __DEC_parallelConvGateway_targetRef_260058 = null;
 		Match match = null;
-		Iterator fujaba__IterInFlowTo_edge_targetRef = null;
+		Iterator fujaba__IterParallelConvGatewayTo_edge_targetRef = null;
 		EMoflonEdge _edge_targetRef = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
+		Iterator fujaba__IterParallelConvGatewayToOutFlow = null;
+		SequenceFlow outFlow = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
 		Iterator fujaba__IterProcessToParallelGateway = null;
 		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToOutFlow = null;
-		SequenceFlow outFlow = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
 		SequenceFlow divergeFlow = null;
 		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
+		Iterator fujaba__IterParallelConvGatewayToLane = null;
+		Lane lane = null;
 		ParallelGateway parallelConvGateway = null;
+		SequenceFlow inFlow = null;
 
 		// story node 'prepare return value'
 		try {
@@ -4898,13 +4723,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			// check object _edge_incoming is really bound
 			JavaSDM.ensure(_edge_incoming != null);
 			// bind object
-			_TmpObject = _edge_incoming.getSrc();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// bind object
 			_TmpObject = _edge_incoming.getTrg();
 
 			// ensure correct type and really bound of object inFlow
@@ -4912,60 +4730,60 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			inFlow = (SequenceFlow) _TmpObject;
 
 			// bind object
-			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-					.eContainer() : null;
+			_TmpObject = _edge_incoming.getSrc();
 
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
+			// ensure correct type and really bound of object parallelConvGateway
+			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
+			parallelConvGateway = (ParallelGateway) _TmpObject;
 
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-			// check link flowElements from parallelConvGateway to process
-			JavaSDM.ensure(process.equals(parallelConvGateway.eContainer()));
-
-			// check link incoming from inFlow to parallelConvGateway
+			// check link targetRef from inFlow to parallelConvGateway
 			JavaSDM.ensure(parallelConvGateway.equals(inFlow.getTargetRef()));
 
-			// iterate to-many link flowElements from process to divergeFlow
+			// iterate to-many link flowNodeRefs from parallelConvGateway to lane
 			fujaba__Success = false;
 
-			fujaba__IterProcessToDivergeFlow = new ArrayList(
-					process.getFlowElements()).iterator();
+			fujaba__IterParallelConvGatewayToLane = new ArrayList(
+					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
+							parallelConvGateway, Lane.class, "flowNodeRefs"))
+					.iterator();
 
-			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
+			while (fujaba__IterParallelConvGatewayToLane.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
+					lane = (Lane) fujaba__IterParallelConvGatewayToLane.next();
 
-					// ensure correct type and really bound of object divergeFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					divergeFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects inFlow and divergeFlow 
-					JavaSDM.ensure(!inFlow.equals(divergeFlow));
+					// check object lane is really bound
+					JavaSDM.ensure(lane != null);
+					// bind object
+					_TmpObject = parallelConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) parallelConvGateway
+							.eContainer() : null;
 
-					// iterate to-many link flowElements from process to outFlow
+					// ensure correct type and really bound of object process
+					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+					process = (bpmn2.Process) _TmpObject;
+
+					// check if contained via correct reference
+					JavaSDM.ensure(process.getFlowElements().contains(
+							parallelConvGateway));
+
+					// check link flowElements from inFlow to process
+					JavaSDM.ensure(process.equals(inFlow.eContainer()));
+
+					// iterate to-many link flowElements from process to divergeFlow
 					fujaba__Success = false;
 
-					fujaba__IterProcessToOutFlow = new ArrayList(
+					fujaba__IterProcessToDivergeFlow = new ArrayList(
 							process.getFlowElements()).iterator();
 
-					while (fujaba__IterProcessToOutFlow.hasNext()) {
+					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterProcessToOutFlow.next();
+							_TmpObject = fujaba__IterProcessToDivergeFlow
+									.next();
 
-							// ensure correct type and really bound of object outFlow
+							// ensure correct type and really bound of object divergeFlow
 							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							outFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects outFlow and divergeFlow 
-							JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link outgoing from outFlow to parallelConvGateway
-							JavaSDM.ensure(parallelConvGateway.equals(outFlow
-									.getSourceRef()));
+							divergeFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects inFlow and divergeFlow 
+							JavaSDM.ensure(!inFlow.equals(divergeFlow));
 
 							// iterate to-many link flowElements from process to parallelGateway
 							fujaba__Success = false;
@@ -4986,7 +4804,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									JavaSDM.ensure(!parallelGateway
 											.equals(parallelConvGateway));
 
-									// check link outgoing from divergeFlow to parallelGateway
+									// check link sourceRef from divergeFlow to parallelGateway
 									JavaSDM.ensure(parallelGateway
 											.equals(divergeFlow.getSourceRef()));
 
@@ -5004,42 +4822,53 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 											// check object laneSet is really bound
 											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link lanes from laneSet to lane
+											// check link lanes from lane to laneSet
+											JavaSDM.ensure(laneSet.equals(lane
+													.eContainer()));
+
+											// iterate to-many link sourceRef from parallelConvGateway to outFlow
 											fujaba__Success = false;
 
-											fujaba__IterLaneSetToLane = new ArrayList(
-													laneSet.getLanes())
+											fujaba__IterParallelConvGatewayToOutFlow = new ArrayList(
+													parallelConvGateway
+															.getOutgoing())
 													.iterator();
 
-											while (fujaba__IterLaneSetToLane
+											while (fujaba__IterParallelConvGatewayToOutFlow
 													.hasNext()) {
 												try {
-													lane = (Lane) fujaba__IterLaneSetToLane
+													outFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToOutFlow
 															.next();
 
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link flowNodeRefs from lane to parallelConvGateway
-													JavaSDM.ensure(lane
-															.getFlowNodeRefs()
-															.contains(
-																	parallelConvGateway));
+													// check object outFlow is really bound
+													JavaSDM.ensure(outFlow != null);
+													// check isomorphic binding between objects outFlow and divergeFlow 
+													JavaSDM.ensure(!outFlow
+															.equals(divergeFlow));
 
-													// iterate to-many link src from inFlow to _edge_targetRef
+													// check isomorphic binding between objects outFlow and inFlow 
+													JavaSDM.ensure(!outFlow
+															.equals(inFlow));
+
+													// check link flowElements from outFlow to process
+													JavaSDM.ensure(process.equals(outFlow
+															.eContainer()));
+
+													// iterate to-many link trg from parallelConvGateway to _edge_targetRef
 													fujaba__Success = false;
 
-													fujaba__IterInFlowTo_edge_targetRef = new ArrayList(
+													fujaba__IterParallelConvGatewayTo_edge_targetRef = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
-																			inFlow,
+																			parallelConvGateway,
 																			EMoflonEdge.class,
-																			"src"))
+																			"trg"))
 															.iterator();
 
-													while (fujaba__IterInFlowTo_edge_targetRef
+													while (fujaba__IterParallelConvGatewayTo_edge_targetRef
 															.hasNext()) {
 														try {
-															_edge_targetRef = (EMoflonEdge) fujaba__IterInFlowTo_edge_targetRef
+															_edge_targetRef = (EMoflonEdge) fujaba__IterParallelConvGatewayTo_edge_targetRef
 																	.next();
 
 															// check object _edge_targetRef is really bound
@@ -5048,10 +4877,10 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 															JavaSDM.ensure(!_edge_targetRef
 																	.equals(_edge_incoming));
 
-															// check link trg from _edge_targetRef to parallelConvGateway
-															JavaSDM.ensure(parallelConvGateway
+															// check link src from _edge_targetRef to inFlow
+															JavaSDM.ensure(inFlow
 																	.equals(_edge_targetRef
-																			.getTrg()));
+																			.getSrc()));
 
 															// story node 'test core match and DECs'
 															try {
@@ -5062,22 +4891,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_outFlow_flowElements_820965 = outFlow
+																	__DEC_outFlow_flowElements_89647 = outFlow
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_outFlow_flowElements_820965 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_820965 != null);
+																	// check object __DEC_outFlow_flowElements_89647 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_89647 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_820965
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_89647
 																			.getFlowElements()
 																			.contains(
 																					outFlow));
 
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_820965 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_820965
+																	// check isomorphic binding between objects __DEC_outFlow_flowElements_89647 and process 
+																	JavaSDM.ensure(!__DEC_outFlow_flowElements_89647
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -5094,22 +4923,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_parallelConvGateway_flowElements_318731 = parallelConvGateway
+																	__DEC_parallelConvGateway_flowElements_969846 = parallelConvGateway
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_parallelConvGateway_flowElements_318731 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_318731 != null);
+																	// check object __DEC_parallelConvGateway_flowElements_969846 is really bound
+																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_969846 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_318731
+																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_969846
 																			.getFlowElements()
 																			.contains(
 																					parallelConvGateway));
 
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_318731 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_318731
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_969846 and process 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_969846
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -5132,33 +4961,33 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																try {
 																	fujaba__Success = false;
 
-																	// iterate to-many link incoming from parallelConvGateway to __DEC_parallelConvGateway_targetRef_3557
+																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_260058
 																	fujaba__Success = false;
 
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_3557 = new ArrayList(
+																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_260058 = new ArrayList(
 																			parallelConvGateway
 																					.getIncoming())
 																			.iterator();
 
 																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_3557
+																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_260058
 																					.hasNext()) {
 																		try {
-																			__DEC_parallelConvGateway_targetRef_3557 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_3557
+																			__DEC_parallelConvGateway_targetRef_260058 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_260058
 																					.next();
 
-																			// check object __DEC_parallelConvGateway_targetRef_3557 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_3557 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_3557 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_3557
+																			// check object __DEC_parallelConvGateway_targetRef_260058 is really bound
+																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_260058 != null);
+																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_260058 and divergeFlow 
+																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_260058
 																					.equals(divergeFlow));
 
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_3557 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_3557
+																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_260058 and inFlow 
+																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_260058
 																					.equals(inFlow));
 
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_3557 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_3557
+																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_260058 and outFlow 
+																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_260058
 																					.equals(outFlow));
 
 																			fujaba__Success = true;
@@ -5242,21 +5071,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																		.equals(parallelGateway
 																				.eContainer()));
 
-																// check link incoming from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link incoming from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link incoming from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
 																// check link laneSets from laneSet to process
 																JavaSDM.ensure(process
 																		.equals(laneSet
@@ -5267,14 +5081,14 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																		.equals(lane
 																				.eContainer()));
 
-																// check link outgoing from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link outgoing from divergeFlow to parallelGateway
+																// check link sourceRef from divergeFlow to parallelGateway
 																JavaSDM.ensure(parallelGateway
 																		.equals(divergeFlow
+																				.getSourceRef()));
+
+																// check link sourceRef from outFlow to parallelConvGateway
+																JavaSDM.ensure(parallelConvGateway
+																		.equals(outFlow
 																				.getSourceRef()));
 
 																// check link src from _edge_incoming to parallelConvGateway
@@ -5286,6 +5100,21 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																JavaSDM.ensure(inFlow
 																		.equals(_edge_targetRef
 																				.getSrc()));
+
+																// check link targetRef from inFlow to parallelConvGateway
+																JavaSDM.ensure(parallelConvGateway
+																		.equals(inFlow
+																				.getTargetRef()));
+
+																// check link targetRef from divergeFlow to parallelConvGateway
+																JavaSDM.ensure(!(parallelConvGateway
+																		.equals(divergeFlow
+																				.getTargetRef())));
+
+																// check link targetRef from outFlow to parallelConvGateway
+																JavaSDM.ensure(!(parallelConvGateway
+																		.equals(outFlow
+																				.getTargetRef())));
 
 																// check link trg from _edge_incoming to inFlow
 																JavaSDM.ensure(inFlow
@@ -5323,7 +5152,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																				parallelGateway,
 																				divergeFlow);
 																if (fujaba__Success) {
-																	// statement node ''
+																	// statement node 'Ensure that the correct types of elements are matched'
 																	fujaba__Success = this
 																			.checkTypes_FWD(match);
 																	if (fujaba__Success) {
@@ -5429,21 +5258,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_43427 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_460867 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_533960 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_533960 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_739910 = null;
+		FlowElementsContainer __DEC_parallelConvGateway_flowElements_100467 = null;
+		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_946614 = null;
+		SequenceFlow __DEC_parallelConvGateway_targetRef_946614 = null;
 		Match match = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
 		Iterator fujaba__IterParallelConvGatewayToInFlow = null;
 		SequenceFlow inFlow = null;
-		Iterator fujaba__IterParallelConvGatewayToLane = null;
-		Lane lane = null;
+		Iterator fujaba__IterProcessToLaneSet = null;
+		LaneSet laneSet = null;
+		Iterator fujaba__IterProcessToParallelGateway = null;
 		ParallelGateway parallelGateway = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
 		SequenceFlow divergeFlow = null;
 		bpmn2.Process process = null;
+		Iterator fujaba__IterParallelConvGatewayToLane = null;
+		Lane lane = null;
 		ParallelGateway parallelConvGateway = null;
 		SequenceFlow outFlow = null;
 
@@ -5508,93 +5338,77 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
 			parallelConvGateway = (ParallelGateway) _TmpObject;
 
-			// bind object
-			_TmpObject = parallelConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) parallelConvGateway
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(
-					parallelConvGateway));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link outgoing from outFlow to parallelConvGateway
+			// check link sourceRef from outFlow to parallelConvGateway
 			JavaSDM.ensure(parallelConvGateway.equals(outFlow.getSourceRef()));
 
-			// iterate to-many link flowElements from process to divergeFlow
+			// iterate to-many link flowNodeRefs from parallelConvGateway to lane
 			fujaba__Success = false;
 
-			fujaba__IterProcessToDivergeFlow = new ArrayList(
-					process.getFlowElements()).iterator();
+			fujaba__IterParallelConvGatewayToLane = new ArrayList(
+					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
+							parallelConvGateway, Lane.class, "flowNodeRefs"))
+					.iterator();
 
-			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
+			while (fujaba__IterParallelConvGatewayToLane.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
+					lane = (Lane) fujaba__IterParallelConvGatewayToLane.next();
 
-					// ensure correct type and really bound of object divergeFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					divergeFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and divergeFlow 
-					JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
+					// check object lane is really bound
+					JavaSDM.ensure(lane != null);
 					// bind object
-					_TmpObject = divergeFlow.getSourceRef();
+					_TmpObject = parallelConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) parallelConvGateway
+							.eContainer() : null;
 
-					// ensure correct type and really bound of object parallelGateway
-					JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-					parallelGateway = (ParallelGateway) _TmpObject;
+					// ensure correct type and really bound of object process
+					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+					process = (bpmn2.Process) _TmpObject;
 
-					// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-					JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
+					// check if contained via correct reference
+					JavaSDM.ensure(process.getFlowElements().contains(
+							parallelConvGateway));
 
-					// check link flowElements from parallelGateway to process
-					JavaSDM.ensure(process.equals(parallelGateway.eContainer()));
+					// check link flowElements from outFlow to process
+					JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-					// iterate to-many link flowNodeRefs from parallelConvGateway to lane
+					// iterate to-many link flowElements from process to divergeFlow
 					fujaba__Success = false;
 
-					fujaba__IterParallelConvGatewayToLane = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(parallelConvGateway,
-											Lane.class, "flowNodeRefs"))
-							.iterator();
+					fujaba__IterProcessToDivergeFlow = new ArrayList(
+							process.getFlowElements()).iterator();
 
-					while (fujaba__IterParallelConvGatewayToLane.hasNext()) {
+					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
 						try {
-							lane = (Lane) fujaba__IterParallelConvGatewayToLane
+							_TmpObject = fujaba__IterProcessToDivergeFlow
 									.next();
 
-							// check object lane is really bound
-							JavaSDM.ensure(lane != null);
-							// iterate to-many link incoming from parallelConvGateway to inFlow
+							// ensure correct type and really bound of object divergeFlow
+							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+							divergeFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects outFlow and divergeFlow 
+							JavaSDM.ensure(!outFlow.equals(divergeFlow));
+
+							// iterate to-many link flowElements from process to parallelGateway
 							fujaba__Success = false;
 
-							fujaba__IterParallelConvGatewayToInFlow = new ArrayList(
-									parallelConvGateway.getIncoming())
-									.iterator();
+							fujaba__IterProcessToParallelGateway = new ArrayList(
+									process.getFlowElements()).iterator();
 
-							while (fujaba__IterParallelConvGatewayToInFlow
+							while (fujaba__IterProcessToParallelGateway
 									.hasNext()) {
 								try {
-									inFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToInFlow
+									_TmpObject = fujaba__IterProcessToParallelGateway
 											.next();
 
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
+									// ensure correct type and really bound of object parallelGateway
+									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
+									parallelGateway = (ParallelGateway) _TmpObject;
+									// check isomorphic binding between objects parallelGateway and parallelConvGateway 
+									JavaSDM.ensure(!parallelGateway
+											.equals(parallelConvGateway));
 
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link flowElements from inFlow to process
-									JavaSDM.ensure(process.equals(inFlow
-											.eContainer()));
+									// check link sourceRef from divergeFlow to parallelGateway
+									JavaSDM.ensure(parallelGateway
+											.equals(divergeFlow.getSourceRef()));
 
 									// iterate to-many link laneSets from process to laneSet
 									fujaba__Success = false;
@@ -5614,296 +5428,330 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 											JavaSDM.ensure(laneSet.equals(lane
 													.eContainer()));
 
-											// story node 'test core match and DECs'
-											try {
-												fujaba__Success = false;
+											// iterate to-many link targetRef from parallelConvGateway to inFlow
+											fujaba__Success = false;
 
-												// check negative bindings
+											fujaba__IterParallelConvGatewayToInFlow = new ArrayList(
+													parallelConvGateway
+															.getIncoming())
+													.iterator();
+
+											while (fujaba__IterParallelConvGatewayToInFlow
+													.hasNext()) {
 												try {
-													fujaba__Success = false;
+													inFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToInFlow
+															.next();
 
-													// bind object
-													__DEC_outFlow_flowElements_43427 = outFlow
-															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-															.eContainer()
-															: null;
+													// check object inFlow is really bound
+													JavaSDM.ensure(inFlow != null);
+													// check isomorphic binding between objects inFlow and divergeFlow 
+													JavaSDM.ensure(!inFlow
+															.equals(divergeFlow));
 
-													// check object __DEC_outFlow_flowElements_43427 is really bound
-													JavaSDM.ensure(__DEC_outFlow_flowElements_43427 != null);
+													// check isomorphic binding between objects outFlow and inFlow 
+													JavaSDM.ensure(!outFlow
+															.equals(inFlow));
 
-													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_outFlow_flowElements_43427
-															.getFlowElements()
-															.contains(outFlow));
+													// check link flowElements from inFlow to process
+													JavaSDM.ensure(process.equals(inFlow
+															.eContainer()));
 
-													// check isomorphic binding between objects __DEC_outFlow_flowElements_43427 and process 
-													JavaSDM.ensure(!__DEC_outFlow_flowElements_43427
-															.equals(process));
+													// story node 'test core match and DECs'
+													try {
+														fujaba__Success = false;
 
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// bind object
-													__DEC_parallelConvGateway_flowElements_460867 = parallelConvGateway
-															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-															.eContainer()
-															: null;
-
-													// check object __DEC_parallelConvGateway_flowElements_460867 is really bound
-													JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_460867 != null);
-
-													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_460867
-															.getFlowElements()
-															.contains(
-																	parallelConvGateway));
-
-													// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_460867 and process 
-													JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_460867
-															.equals(process));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// negative check for link default from outFlow
-												JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-														.getOppositeReference(
-																outFlow,
-																ExclusiveGateway.class,
-																"default")
-														.size() == 0);
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// iterate to-many link incoming from parallelConvGateway to __DEC_parallelConvGateway_targetRef_533960
-													fujaba__Success = false;
-
-													fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_533960 = new ArrayList(
-															parallelConvGateway
-																	.getIncoming())
-															.iterator();
-
-													while (!(fujaba__Success)
-															&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_533960
-																	.hasNext()) {
-														try {
-															__DEC_parallelConvGateway_targetRef_533960 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_533960
-																	.next();
-
-															// check object __DEC_parallelConvGateway_targetRef_533960 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_533960 != null);
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_533960 and divergeFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_533960
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_533960 and inFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_533960
-																	.equals(inFlow));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_533960 and outFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_533960
-																	.equals(outFlow));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check object _edge_sourceRef is really bound
-												JavaSDM.ensure(_edge_sourceRef != null);
-												// check object divergeFlow is really bound
-												JavaSDM.ensure(divergeFlow != null);
-												// check object inFlow is really bound
-												JavaSDM.ensure(inFlow != null);
-												// check object lane is really bound
-												JavaSDM.ensure(lane != null);
-												// check object laneSet is really bound
-												JavaSDM.ensure(laneSet != null);
-												// check object outFlow is really bound
-												JavaSDM.ensure(outFlow != null);
-												// check object parallelConvGateway is really bound
-												JavaSDM.ensure(parallelConvGateway != null);
-												// check object parallelGateway is really bound
-												JavaSDM.ensure(parallelGateway != null);
-												// check object process is really bound
-												JavaSDM.ensure(process != null);
-												// check isomorphic binding between objects inFlow and divergeFlow 
-												JavaSDM.ensure(!inFlow
-														.equals(divergeFlow));
-
-												// check isomorphic binding between objects outFlow and divergeFlow 
-												JavaSDM.ensure(!outFlow
-														.equals(divergeFlow));
-
-												// check isomorphic binding between objects outFlow and inFlow 
-												JavaSDM.ensure(!outFlow
-														.equals(inFlow));
-
-												// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-												JavaSDM.ensure(!parallelGateway
-														.equals(parallelConvGateway));
-
-												// check link flowElements from divergeFlow to process
-												JavaSDM.ensure(process
-														.equals(divergeFlow
-																.eContainer()));
-
-												// check link flowElements from inFlow to process
-												JavaSDM.ensure(process
-														.equals(inFlow
-																.eContainer()));
-
-												// check link flowElements from outFlow to process
-												JavaSDM.ensure(process
-														.equals(outFlow
-																.eContainer()));
-
-												// check link flowElements from parallelConvGateway to process
-												JavaSDM.ensure(process
-														.equals(parallelConvGateway
-																.eContainer()));
-
-												// check link flowElements from parallelGateway to process
-												JavaSDM.ensure(process
-														.equals(parallelGateway
-																.eContainer()));
-
-												// check link incoming from inFlow to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway.equals(inFlow
-														.getTargetRef()));
-
-												// check link incoming from divergeFlow to parallelConvGateway
-												JavaSDM.ensure(!(parallelConvGateway.equals(divergeFlow
-														.getTargetRef())));
-
-												// check link incoming from outFlow to parallelConvGateway
-												JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-														.getTargetRef())));
-
-												// check link laneSets from laneSet to process
-												JavaSDM.ensure(process
-														.equals(laneSet
-																.eContainer()));
-
-												// check link lanes from lane to laneSet
-												JavaSDM.ensure(laneSet
-														.equals(lane
-																.eContainer()));
-
-												// check link outgoing from outFlow to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway.equals(outFlow
-														.getSourceRef()));
-
-												// check link outgoing from divergeFlow to parallelGateway
-												JavaSDM.ensure(parallelGateway.equals(divergeFlow
-														.getSourceRef()));
-
-												// check link src from _edge_sourceRef to outFlow
-												JavaSDM.ensure(outFlow
-														.equals(_edge_sourceRef
-																.getSrc()));
-
-												// check link trg from _edge_sourceRef to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway
-														.equals(_edge_sourceRef
-																.getTrg()));
-
-												// check link flowNodeRefs from lane to parallelConvGateway
-												JavaSDM.ensure(lane
-														.getFlowNodeRefs()
-														.contains(
-																parallelConvGateway));
-
-												// create object match
-												match = TGGRuntimeFactory.eINSTANCE
-														.createMatch();
-
-												// assign attribute match
-												match.setRuleName(__eClass
-														.getName());
-												// statement node 'bookkeeping with generic isAppropriate method'
-												fujaba__Success = this
-														.isAppropriate_FWD(
-																match,
-																process,
-																inFlow,
-																parallelConvGateway,
-																outFlow,
-																lane,
-																laneSet,
-																parallelGateway,
-																divergeFlow);
-												if (fujaba__Success) {
-													// statement node ''
-													fujaba__Success = this
-															.checkTypes_FWD(match);
-													if (fujaba__Success) {
-														// story node 'Add match to rule result'
+														// check negative bindings
 														try {
 															fujaba__Success = false;
 
-															// check object __performOperation is really bound
-															JavaSDM.ensure(__performOperation != null);
-															// check object __result is really bound
-															JavaSDM.ensure(__result != null);
-															// check object match is really bound
-															JavaSDM.ensure(match != null);
+															// bind object
+															__DEC_outFlow_flowElements_739910 = outFlow
+																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
+																	.eContainer()
+																	: null;
 
-															// create link
-															org.moflon.util.eMoflonEMFUtil
-																	.addOppositeReference(
-																			match,
-																			__performOperation,
-																			"isApplicableOperation");
+															// check object __DEC_outFlow_flowElements_739910 is really bound
+															JavaSDM.ensure(__DEC_outFlow_flowElements_739910 != null);
 
-															// create link
-															__result.getContents()
-																	.add(match);
+															// check if contained via correct reference
+															JavaSDM.ensure(__DEC_outFlow_flowElements_739910
+																	.getFlowElements()
+																	.contains(
+																			outFlow));
+
+															// check isomorphic binding between objects __DEC_outFlow_flowElements_739910 and process 
+															JavaSDM.ensure(!__DEC_outFlow_flowElements_739910
+																	.equals(process));
 
 															fujaba__Success = true;
 														} catch (JavaSDMException fujaba__InternalException) {
 															fujaba__Success = false;
 														}
 
-													} else {
+														fujaba__Success = !(fujaba__Success);
 
+														JavaSDM.ensure(fujaba__Success);
+
+														// check negative bindings
+														try {
+															fujaba__Success = false;
+
+															// bind object
+															__DEC_parallelConvGateway_flowElements_100467 = parallelConvGateway
+																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
+																	.eContainer()
+																	: null;
+
+															// check object __DEC_parallelConvGateway_flowElements_100467 is really bound
+															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_100467 != null);
+
+															// check if contained via correct reference
+															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_100467
+																	.getFlowElements()
+																	.contains(
+																			parallelConvGateway));
+
+															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_100467 and process 
+															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_100467
+																	.equals(process));
+
+															fujaba__Success = true;
+														} catch (JavaSDMException fujaba__InternalException) {
+															fujaba__Success = false;
+														}
+
+														fujaba__Success = !(fujaba__Success);
+
+														JavaSDM.ensure(fujaba__Success);
+
+														// negative check for link default from outFlow
+														JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
+																.getOppositeReference(
+																		outFlow,
+																		ExclusiveGateway.class,
+																		"default")
+																.size() == 0);
+														// check negative bindings
+														try {
+															fujaba__Success = false;
+
+															// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_946614
+															fujaba__Success = false;
+
+															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_946614 = new ArrayList(
+																	parallelConvGateway
+																			.getIncoming())
+																	.iterator();
+
+															while (!(fujaba__Success)
+																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_946614
+																			.hasNext()) {
+																try {
+																	__DEC_parallelConvGateway_targetRef_946614 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_946614
+																			.next();
+
+																	// check object __DEC_parallelConvGateway_targetRef_946614 is really bound
+																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_946614 != null);
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_946614 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_946614
+																			.equals(divergeFlow));
+
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_946614 and inFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_946614
+																			.equals(inFlow));
+
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_946614 and outFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_946614
+																			.equals(outFlow));
+
+																	fujaba__Success = true;
+																} catch (JavaSDMException fujaba__InternalException) {
+																	fujaba__Success = false;
+																}
+															}
+															JavaSDM.ensure(fujaba__Success);
+
+															fujaba__Success = true;
+														} catch (JavaSDMException fujaba__InternalException) {
+															fujaba__Success = false;
+														}
+
+														fujaba__Success = !(fujaba__Success);
+
+														JavaSDM.ensure(fujaba__Success);
+
+														// check object _edge_sourceRef is really bound
+														JavaSDM.ensure(_edge_sourceRef != null);
+														// check object divergeFlow is really bound
+														JavaSDM.ensure(divergeFlow != null);
+														// check object inFlow is really bound
+														JavaSDM.ensure(inFlow != null);
+														// check object lane is really bound
+														JavaSDM.ensure(lane != null);
+														// check object laneSet is really bound
+														JavaSDM.ensure(laneSet != null);
+														// check object outFlow is really bound
+														JavaSDM.ensure(outFlow != null);
+														// check object parallelConvGateway is really bound
+														JavaSDM.ensure(parallelConvGateway != null);
+														// check object parallelGateway is really bound
+														JavaSDM.ensure(parallelGateway != null);
+														// check object process is really bound
+														JavaSDM.ensure(process != null);
+														// check isomorphic binding between objects inFlow and divergeFlow 
+														JavaSDM.ensure(!inFlow
+																.equals(divergeFlow));
+
+														// check isomorphic binding between objects outFlow and divergeFlow 
+														JavaSDM.ensure(!outFlow
+																.equals(divergeFlow));
+
+														// check isomorphic binding between objects outFlow and inFlow 
+														JavaSDM.ensure(!outFlow
+																.equals(inFlow));
+
+														// check isomorphic binding between objects parallelGateway and parallelConvGateway 
+														JavaSDM.ensure(!parallelGateway
+																.equals(parallelConvGateway));
+
+														// check link flowElements from divergeFlow to process
+														JavaSDM.ensure(process
+																.equals(divergeFlow
+																		.eContainer()));
+
+														// check link flowElements from inFlow to process
+														JavaSDM.ensure(process.equals(inFlow
+																.eContainer()));
+
+														// check link flowElements from outFlow to process
+														JavaSDM.ensure(process.equals(outFlow
+																.eContainer()));
+
+														// check link flowElements from parallelConvGateway to process
+														JavaSDM.ensure(process
+																.equals(parallelConvGateway
+																		.eContainer()));
+
+														// check link flowElements from parallelGateway to process
+														JavaSDM.ensure(process
+																.equals(parallelGateway
+																		.eContainer()));
+
+														// check link laneSets from laneSet to process
+														JavaSDM.ensure(process.equals(laneSet
+																.eContainer()));
+
+														// check link lanes from lane to laneSet
+														JavaSDM.ensure(laneSet.equals(lane
+																.eContainer()));
+
+														// check link sourceRef from divergeFlow to parallelGateway
+														JavaSDM.ensure(parallelGateway
+																.equals(divergeFlow
+																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway.equals(outFlow
+																.getSourceRef()));
+
+														// check link src from _edge_sourceRef to outFlow
+														JavaSDM.ensure(outFlow
+																.equals(_edge_sourceRef
+																		.getSrc()));
+
+														// check link targetRef from inFlow to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway.equals(inFlow
+																.getTargetRef()));
+
+														// check link targetRef from divergeFlow to parallelConvGateway
+														JavaSDM.ensure(!(parallelConvGateway
+																.equals(divergeFlow
+																		.getTargetRef())));
+
+														// check link targetRef from outFlow to parallelConvGateway
+														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
+																.getTargetRef())));
+
+														// check link trg from _edge_sourceRef to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway
+																.equals(_edge_sourceRef
+																		.getTrg()));
+
+														// check link flowNodeRefs from lane to parallelConvGateway
+														JavaSDM.ensure(lane
+																.getFlowNodeRefs()
+																.contains(
+																		parallelConvGateway));
+
+														// create object match
+														match = TGGRuntimeFactory.eINSTANCE
+																.createMatch();
+
+														// assign attribute match
+														match.setRuleName(__eClass
+																.getName());
+														// statement node 'bookkeeping with generic isAppropriate method'
+														fujaba__Success = this
+																.isAppropriate_FWD(
+																		match,
+																		process,
+																		inFlow,
+																		parallelConvGateway,
+																		outFlow,
+																		lane,
+																		laneSet,
+																		parallelGateway,
+																		divergeFlow);
+														if (fujaba__Success) {
+															// statement node 'Ensure that the correct types of elements are matched'
+															fujaba__Success = this
+																	.checkTypes_FWD(match);
+															if (fujaba__Success) {
+																// story node 'Add match to rule result'
+																try {
+																	fujaba__Success = false;
+
+																	// check object __performOperation is really bound
+																	JavaSDM.ensure(__performOperation != null);
+																	// check object __result is really bound
+																	JavaSDM.ensure(__result != null);
+																	// check object match is really bound
+																	JavaSDM.ensure(match != null);
+
+																	// create link
+																	org.moflon.util.eMoflonEMFUtil
+																			.addOppositeReference(
+																					match,
+																					__performOperation,
+																					"isApplicableOperation");
+
+																	// create link
+																	__result.getContents()
+																			.add(match);
+
+																	fujaba__Success = true;
+																} catch (JavaSDMException fujaba__InternalException) {
+																	fujaba__Success = false;
+																}
+
+															} else {
+
+															}
+
+														} else {
+
+														}
+														fujaba__Success = true;
+													} catch (JavaSDMException fujaba__InternalException) {
+														fujaba__Success = false;
 													}
 
-												} else {
-
+													fujaba__Success = true;
+												} catch (JavaSDMException fujaba__InternalException) {
+													fujaba__Success = false;
 												}
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
 											}
+											JavaSDM.ensure(fujaba__Success);
 
 											fujaba__Success = true;
 										} catch (JavaSDMException fujaba__InternalException) {
@@ -5954,10 +5802,10 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_326441 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_901010 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_784550 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_784550 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_154007 = null;
+		FlowElementsContainer __DEC_parallelConvGateway_flowElements_731206 = null;
+		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_657110 = null;
+		SequenceFlow __DEC_parallelConvGateway_targetRef_657110 = null;
 		Match match = null;
 		Iterator fujaba__IterOutFlowTo_edge_sourceRef = null;
 		EMoflonEdge _edge_sourceRef = null;
@@ -5965,10 +5813,9 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		LaneSet laneSet = null;
 		Iterator fujaba__IterParallelConvGatewayToLane = null;
 		Lane lane = null;
-		Iterator fujaba__IterProcessToParallelGateway = null;
-		ParallelGateway parallelGateway = null;
 		Iterator fujaba__IterProcessToInFlow = null;
 		SequenceFlow inFlow = null;
+		ParallelGateway parallelGateway = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
 		SequenceFlow divergeFlow = null;
 		bpmn2.Process process = null;
@@ -6050,7 +5897,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			// check link flowElements from parallelConvGateway to process
 			JavaSDM.ensure(process.equals(parallelConvGateway.eContainer()));
 
-			// check link outgoing from outFlow to parallelConvGateway
+			// check link sourceRef from outFlow to parallelConvGateway
 			JavaSDM.ensure(parallelConvGateway.equals(outFlow.getSourceRef()));
 
 			// iterate to-many link flowElements from process to divergeFlow
@@ -6068,6 +5915,19 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 					divergeFlow = (SequenceFlow) _TmpObject;
 					// check isomorphic binding between objects outFlow and divergeFlow 
 					JavaSDM.ensure(!outFlow.equals(divergeFlow));
+
+					// bind object
+					_TmpObject = divergeFlow.getSourceRef();
+
+					// ensure correct type and really bound of object parallelGateway
+					JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
+					parallelGateway = (ParallelGateway) _TmpObject;
+
+					// check isomorphic binding between objects parallelGateway and parallelConvGateway 
+					JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
+
+					// check link flowElements from parallelGateway to process
+					JavaSDM.ensure(process.equals(parallelGateway.eContainer()));
 
 					// iterate to-many link flowElements from process to inFlow
 					fujaba__Success = false;
@@ -6088,418 +5948,379 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							// check isomorphic binding between objects outFlow and inFlow 
 							JavaSDM.ensure(!outFlow.equals(inFlow));
 
-							// check link incoming from inFlow to parallelConvGateway
+							// check link targetRef from inFlow to parallelConvGateway
 							JavaSDM.ensure(parallelConvGateway.equals(inFlow
 									.getTargetRef()));
 
-							// iterate to-many link flowElements from process to parallelGateway
+							// iterate to-many link flowNodeRefs from parallelConvGateway to lane
 							fujaba__Success = false;
 
-							fujaba__IterProcessToParallelGateway = new ArrayList(
-									process.getFlowElements()).iterator();
+							fujaba__IterParallelConvGatewayToLane = new ArrayList(
+									org.moflon.util.eMoflonEMFUtil
+											.getOppositeReference(
+													parallelConvGateway,
+													Lane.class, "flowNodeRefs"))
+									.iterator();
 
-							while (fujaba__IterProcessToParallelGateway
+							while (fujaba__IterParallelConvGatewayToLane
 									.hasNext()) {
 								try {
-									_TmpObject = fujaba__IterProcessToParallelGateway
+									lane = (Lane) fujaba__IterParallelConvGatewayToLane
 											.next();
 
-									// ensure correct type and really bound of object parallelGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelGateway = (ParallelGateway) _TmpObject;
-									// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-									JavaSDM.ensure(!parallelGateway
-											.equals(parallelConvGateway));
-
-									// check link outgoing from divergeFlow to parallelGateway
-									JavaSDM.ensure(parallelGateway
-											.equals(divergeFlow.getSourceRef()));
-
-									// iterate to-many link flowNodeRefs from parallelConvGateway to lane
+									// check object lane is really bound
+									JavaSDM.ensure(lane != null);
+									// iterate to-many link laneSets from process to laneSet
 									fujaba__Success = false;
 
-									fujaba__IterParallelConvGatewayToLane = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															parallelConvGateway,
-															Lane.class,
-															"flowNodeRefs"))
-											.iterator();
+									fujaba__IterProcessToLaneSet = new ArrayList(
+											process.getLaneSets()).iterator();
 
-									while (fujaba__IterParallelConvGatewayToLane
+									while (fujaba__IterProcessToLaneSet
 											.hasNext()) {
 										try {
-											lane = (Lane) fujaba__IterParallelConvGatewayToLane
+											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
 													.next();
 
-											// check object lane is really bound
-											JavaSDM.ensure(lane != null);
-											// iterate to-many link laneSets from process to laneSet
+											// check object laneSet is really bound
+											JavaSDM.ensure(laneSet != null);
+											// check link lanes from lane to laneSet
+											JavaSDM.ensure(laneSet.equals(lane
+													.eContainer()));
+
+											// iterate to-many link src from outFlow to _edge_sourceRef
 											fujaba__Success = false;
 
-											fujaba__IterProcessToLaneSet = new ArrayList(
-													process.getLaneSets())
+											fujaba__IterOutFlowTo_edge_sourceRef = new ArrayList(
+													org.moflon.util.eMoflonEMFUtil
+															.getOppositeReference(
+																	outFlow,
+																	EMoflonEdge.class,
+																	"src"))
 													.iterator();
 
-											while (fujaba__IterProcessToLaneSet
+											while (fujaba__IterOutFlowTo_edge_sourceRef
 													.hasNext()) {
 												try {
-													laneSet = (LaneSet) fujaba__IterProcessToLaneSet
+													_edge_sourceRef = (EMoflonEdge) fujaba__IterOutFlowTo_edge_sourceRef
 															.next();
 
-													// check object laneSet is really bound
-													JavaSDM.ensure(laneSet != null);
-													// check link lanes from lane to laneSet
-													JavaSDM.ensure(laneSet.equals(lane
-															.eContainer()));
+													// check object _edge_sourceRef is really bound
+													JavaSDM.ensure(_edge_sourceRef != null);
+													// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
+													JavaSDM.ensure(!_edge_sourceRef
+															.equals(_edge_outgoing));
 
-													// iterate to-many link src from outFlow to _edge_sourceRef
-													fujaba__Success = false;
+													// check link trg from _edge_sourceRef to parallelConvGateway
+													JavaSDM.ensure(parallelConvGateway
+															.equals(_edge_sourceRef
+																	.getTrg()));
 
-													fujaba__IterOutFlowTo_edge_sourceRef = new ArrayList(
-															org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReference(
-																			outFlow,
-																			EMoflonEdge.class,
-																			"src"))
-															.iterator();
+													// story node 'test core match and DECs'
+													try {
+														fujaba__Success = false;
 
-													while (fujaba__IterOutFlowTo_edge_sourceRef
-															.hasNext()) {
+														// check negative bindings
 														try {
-															_edge_sourceRef = (EMoflonEdge) fujaba__IterOutFlowTo_edge_sourceRef
-																	.next();
+															fujaba__Success = false;
 
-															// check object _edge_sourceRef is really bound
-															JavaSDM.ensure(_edge_sourceRef != null);
-															// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-															JavaSDM.ensure(!_edge_sourceRef
-																	.equals(_edge_outgoing));
+															// bind object
+															__DEC_outFlow_flowElements_154007 = outFlow
+																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
+																	.eContainer()
+																	: null;
 
-															// check link trg from _edge_sourceRef to parallelConvGateway
-															JavaSDM.ensure(parallelConvGateway
-																	.equals(_edge_sourceRef
-																			.getTrg()));
+															// check object __DEC_outFlow_flowElements_154007 is really bound
+															JavaSDM.ensure(__DEC_outFlow_flowElements_154007 != null);
 
-															// story node 'test core match and DECs'
-															try {
-																fujaba__Success = false;
+															// check if contained via correct reference
+															JavaSDM.ensure(__DEC_outFlow_flowElements_154007
+																	.getFlowElements()
+																	.contains(
+																			outFlow));
 
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_outFlow_flowElements_326441 = outFlow
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_outFlow_flowElements_326441 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_326441 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_326441
-																			.getFlowElements()
-																			.contains(
-																					outFlow));
-
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_326441 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_326441
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_parallelConvGateway_flowElements_901010 = parallelConvGateway
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_parallelConvGateway_flowElements_901010 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_901010 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_901010
-																			.getFlowElements()
-																			.contains(
-																					parallelConvGateway));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_901010 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_901010
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// negative check for link default from outFlow
-																JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				outFlow,
-																				ExclusiveGateway.class,
-																				"default")
-																		.size() == 0);
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// iterate to-many link incoming from parallelConvGateway to __DEC_parallelConvGateway_targetRef_784550
-																	fujaba__Success = false;
-
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_784550 = new ArrayList(
-																			parallelConvGateway
-																					.getIncoming())
-																			.iterator();
-
-																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_784550
-																					.hasNext()) {
-																		try {
-																			__DEC_parallelConvGateway_targetRef_784550 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_784550
-																					.next();
-
-																			// check object __DEC_parallelConvGateway_targetRef_784550 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_784550 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_784550 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_784550
-																					.equals(divergeFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_784550 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_784550
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_784550 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_784550
-																					.equals(outFlow));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check object _edge_outgoing is really bound
-																JavaSDM.ensure(_edge_outgoing != null);
-																// check object _edge_sourceRef is really bound
-																JavaSDM.ensure(_edge_sourceRef != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-																JavaSDM.ensure(!_edge_sourceRef
-																		.equals(_edge_outgoing));
-
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link flowElements from parallelConvGateway to process
-																JavaSDM.ensure(process
-																		.equals(parallelConvGateway
-																				.eContainer()));
-
-																// check link flowElements from parallelGateway to process
-																JavaSDM.ensure(process
-																		.equals(parallelGateway
-																				.eContainer()));
-
-																// check link incoming from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link incoming from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link incoming from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link outgoing from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link outgoing from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link src from _edge_outgoing to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(_edge_outgoing
-																				.getSrc()));
-
-																// check link src from _edge_sourceRef to outFlow
-																JavaSDM.ensure(outFlow
-																		.equals(_edge_sourceRef
-																				.getSrc()));
-
-																// check link trg from _edge_outgoing to outFlow
-																JavaSDM.ensure(outFlow
-																		.equals(_edge_outgoing
-																				.getTrg()));
-
-																// check link trg from _edge_sourceRef to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(_edge_sourceRef
-																				.getTrg()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// create object match
-																match = TGGRuntimeFactory.eINSTANCE
-																		.createMatch();
-
-																// assign attribute match
-																match.setRuleName(__eClass
-																		.getName());
-																// statement node 'bookkeeping with generic isAppropriate method'
-																fujaba__Success = this
-																		.isAppropriate_FWD(
-																				match,
-																				process,
-																				inFlow,
-																				parallelConvGateway,
-																				outFlow,
-																				lane,
-																				laneSet,
-																				parallelGateway,
-																				divergeFlow);
-																if (fujaba__Success) {
-																	// statement node ''
-																	fujaba__Success = this
-																			.checkTypes_FWD(match);
-																	if (fujaba__Success) {
-																		// story node 'Add match to rule result'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object __performOperation is really bound
-																			JavaSDM.ensure(__performOperation != null);
-																			// check object __result is really bound
-																			JavaSDM.ensure(__result != null);
-																			// check object match is really bound
-																			JavaSDM.ensure(match != null);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							match,
-																							__performOperation,
-																							"isApplicableOperation");
-
-																			// create link
-																			__result.getContents()
-																					.add(match);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																	} else {
-
-																	}
-
-																} else {
-
-																}
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
+															// check isomorphic binding between objects __DEC_outFlow_flowElements_154007 and process 
+															JavaSDM.ensure(!__DEC_outFlow_flowElements_154007
+																	.equals(process));
 
 															fujaba__Success = true;
 														} catch (JavaSDMException fujaba__InternalException) {
 															fujaba__Success = false;
 														}
+
+														fujaba__Success = !(fujaba__Success);
+
+														JavaSDM.ensure(fujaba__Success);
+
+														// check negative bindings
+														try {
+															fujaba__Success = false;
+
+															// bind object
+															__DEC_parallelConvGateway_flowElements_731206 = parallelConvGateway
+																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
+																	.eContainer()
+																	: null;
+
+															// check object __DEC_parallelConvGateway_flowElements_731206 is really bound
+															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_731206 != null);
+
+															// check if contained via correct reference
+															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_731206
+																	.getFlowElements()
+																	.contains(
+																			parallelConvGateway));
+
+															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_731206 and process 
+															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_731206
+																	.equals(process));
+
+															fujaba__Success = true;
+														} catch (JavaSDMException fujaba__InternalException) {
+															fujaba__Success = false;
+														}
+
+														fujaba__Success = !(fujaba__Success);
+
+														JavaSDM.ensure(fujaba__Success);
+
+														// negative check for link default from outFlow
+														JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
+																.getOppositeReference(
+																		outFlow,
+																		ExclusiveGateway.class,
+																		"default")
+																.size() == 0);
+														// check negative bindings
+														try {
+															fujaba__Success = false;
+
+															// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_657110
+															fujaba__Success = false;
+
+															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_657110 = new ArrayList(
+																	parallelConvGateway
+																			.getIncoming())
+																	.iterator();
+
+															while (!(fujaba__Success)
+																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_657110
+																			.hasNext()) {
+																try {
+																	__DEC_parallelConvGateway_targetRef_657110 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_657110
+																			.next();
+
+																	// check object __DEC_parallelConvGateway_targetRef_657110 is really bound
+																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_657110 != null);
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_657110 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_657110
+																			.equals(divergeFlow));
+
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_657110 and inFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_657110
+																			.equals(inFlow));
+
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_657110 and outFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_657110
+																			.equals(outFlow));
+
+																	fujaba__Success = true;
+																} catch (JavaSDMException fujaba__InternalException) {
+																	fujaba__Success = false;
+																}
+															}
+															JavaSDM.ensure(fujaba__Success);
+
+															fujaba__Success = true;
+														} catch (JavaSDMException fujaba__InternalException) {
+															fujaba__Success = false;
+														}
+
+														fujaba__Success = !(fujaba__Success);
+
+														JavaSDM.ensure(fujaba__Success);
+
+														// check object _edge_outgoing is really bound
+														JavaSDM.ensure(_edge_outgoing != null);
+														// check object _edge_sourceRef is really bound
+														JavaSDM.ensure(_edge_sourceRef != null);
+														// check object divergeFlow is really bound
+														JavaSDM.ensure(divergeFlow != null);
+														// check object inFlow is really bound
+														JavaSDM.ensure(inFlow != null);
+														// check object lane is really bound
+														JavaSDM.ensure(lane != null);
+														// check object laneSet is really bound
+														JavaSDM.ensure(laneSet != null);
+														// check object outFlow is really bound
+														JavaSDM.ensure(outFlow != null);
+														// check object parallelConvGateway is really bound
+														JavaSDM.ensure(parallelConvGateway != null);
+														// check object parallelGateway is really bound
+														JavaSDM.ensure(parallelGateway != null);
+														// check object process is really bound
+														JavaSDM.ensure(process != null);
+														// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
+														JavaSDM.ensure(!_edge_sourceRef
+																.equals(_edge_outgoing));
+
+														// check isomorphic binding between objects inFlow and divergeFlow 
+														JavaSDM.ensure(!inFlow
+																.equals(divergeFlow));
+
+														// check isomorphic binding between objects outFlow and divergeFlow 
+														JavaSDM.ensure(!outFlow
+																.equals(divergeFlow));
+
+														// check isomorphic binding between objects outFlow and inFlow 
+														JavaSDM.ensure(!outFlow
+																.equals(inFlow));
+
+														// check isomorphic binding between objects parallelGateway and parallelConvGateway 
+														JavaSDM.ensure(!parallelGateway
+																.equals(parallelConvGateway));
+
+														// check link flowElements from divergeFlow to process
+														JavaSDM.ensure(process
+																.equals(divergeFlow
+																		.eContainer()));
+
+														// check link flowElements from inFlow to process
+														JavaSDM.ensure(process.equals(inFlow
+																.eContainer()));
+
+														// check link flowElements from outFlow to process
+														JavaSDM.ensure(process.equals(outFlow
+																.eContainer()));
+
+														// check link flowElements from parallelConvGateway to process
+														JavaSDM.ensure(process
+																.equals(parallelConvGateway
+																		.eContainer()));
+
+														// check link flowElements from parallelGateway to process
+														JavaSDM.ensure(process
+																.equals(parallelGateway
+																		.eContainer()));
+
+														// check link laneSets from laneSet to process
+														JavaSDM.ensure(process.equals(laneSet
+																.eContainer()));
+
+														// check link lanes from lane to laneSet
+														JavaSDM.ensure(laneSet.equals(lane
+																.eContainer()));
+
+														// check link sourceRef from divergeFlow to parallelGateway
+														JavaSDM.ensure(parallelGateway
+																.equals(divergeFlow
+																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway.equals(outFlow
+																.getSourceRef()));
+
+														// check link src from _edge_outgoing to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway
+																.equals(_edge_outgoing
+																		.getSrc()));
+
+														// check link src from _edge_sourceRef to outFlow
+														JavaSDM.ensure(outFlow
+																.equals(_edge_sourceRef
+																		.getSrc()));
+
+														// check link targetRef from inFlow to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway.equals(inFlow
+																.getTargetRef()));
+
+														// check link targetRef from divergeFlow to parallelConvGateway
+														JavaSDM.ensure(!(parallelConvGateway
+																.equals(divergeFlow
+																		.getTargetRef())));
+
+														// check link targetRef from outFlow to parallelConvGateway
+														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
+																.getTargetRef())));
+
+														// check link trg from _edge_outgoing to outFlow
+														JavaSDM.ensure(outFlow
+																.equals(_edge_outgoing
+																		.getTrg()));
+
+														// check link trg from _edge_sourceRef to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway
+																.equals(_edge_sourceRef
+																		.getTrg()));
+
+														// check link flowNodeRefs from lane to parallelConvGateway
+														JavaSDM.ensure(lane
+																.getFlowNodeRefs()
+																.contains(
+																		parallelConvGateway));
+
+														// create object match
+														match = TGGRuntimeFactory.eINSTANCE
+																.createMatch();
+
+														// assign attribute match
+														match.setRuleName(__eClass
+																.getName());
+														// statement node 'bookkeeping with generic isAppropriate method'
+														fujaba__Success = this
+																.isAppropriate_FWD(
+																		match,
+																		process,
+																		inFlow,
+																		parallelConvGateway,
+																		outFlow,
+																		lane,
+																		laneSet,
+																		parallelGateway,
+																		divergeFlow);
+														if (fujaba__Success) {
+															// statement node 'Ensure that the correct types of elements are matched'
+															fujaba__Success = this
+																	.checkTypes_FWD(match);
+															if (fujaba__Success) {
+																// story node 'Add match to rule result'
+																try {
+																	fujaba__Success = false;
+
+																	// check object __performOperation is really bound
+																	JavaSDM.ensure(__performOperation != null);
+																	// check object __result is really bound
+																	JavaSDM.ensure(__result != null);
+																	// check object match is really bound
+																	JavaSDM.ensure(match != null);
+
+																	// create link
+																	org.moflon.util.eMoflonEMFUtil
+																			.addOppositeReference(
+																					match,
+																					__performOperation,
+																					"isApplicableOperation");
+
+																	// create link
+																	__result.getContents()
+																			.add(match);
+
+																	fujaba__Success = true;
+																} catch (JavaSDMException fujaba__InternalException) {
+																	fujaba__Success = false;
+																}
+
+															} else {
+
+															}
+
+														} else {
+
+														}
+														fujaba__Success = true;
+													} catch (JavaSDMException fujaba__InternalException) {
+														fujaba__Success = false;
 													}
-													JavaSDM.ensure(fujaba__Success);
 
 													fujaba__Success = true;
 												} catch (JavaSDMException fujaba__InternalException) {
@@ -6557,17 +6378,17 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_372370 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_832870 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_860516 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_860516 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_28653 = null;
+		FlowElementsContainer __DEC_parallelConvGateway_flowElements_83768 = null;
+		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_556657 = null;
+		SequenceFlow __DEC_parallelConvGateway_targetRef_556657 = null;
 		Match match = null;
+		Iterator fujaba__IterParallelConvGatewayToInFlow = null;
+		SequenceFlow inFlow = null;
 		Iterator fujaba__IterParallelConvGatewayToOutFlow = null;
 		SequenceFlow outFlow = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
-		Iterator fujaba__IterParallelConvGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
 		Iterator fujaba__IterProcessToParallelGateway = null;
 		ParallelGateway parallelGateway = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
@@ -6683,76 +6504,77 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							JavaSDM.ensure(!parallelGateway
 									.equals(parallelConvGateway));
 
-							// check link outgoing from divergeFlow to parallelGateway
+							// check link sourceRef from divergeFlow to parallelGateway
 							JavaSDM.ensure(parallelGateway.equals(divergeFlow
 									.getSourceRef()));
 
-							// iterate to-many link incoming from parallelConvGateway to inFlow
+							// iterate to-many link laneSets from process to laneSet
 							fujaba__Success = false;
 
-							fujaba__IterParallelConvGatewayToInFlow = new ArrayList(
-									parallelConvGateway.getIncoming())
-									.iterator();
+							fujaba__IterProcessToLaneSet = new ArrayList(
+									process.getLaneSets()).iterator();
 
-							while (fujaba__IterParallelConvGatewayToInFlow
-									.hasNext()) {
+							while (fujaba__IterProcessToLaneSet.hasNext()) {
 								try {
-									inFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToInFlow
+									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
 											.next();
 
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// check link flowElements from inFlow to process
-									JavaSDM.ensure(process.equals(inFlow
+									// check object laneSet is really bound
+									JavaSDM.ensure(laneSet != null);
+									// check link lanes from lane to laneSet
+									JavaSDM.ensure(laneSet.equals(lane
 											.eContainer()));
 
-									// iterate to-many link laneSets from process to laneSet
+									// iterate to-many link sourceRef from parallelConvGateway to outFlow
 									fujaba__Success = false;
 
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
+									fujaba__IterParallelConvGatewayToOutFlow = new ArrayList(
+											parallelConvGateway.getOutgoing())
+											.iterator();
 
-									while (fujaba__IterProcessToLaneSet
+									while (fujaba__IterParallelConvGatewayToOutFlow
 											.hasNext()) {
 										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
+											outFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToOutFlow
 													.next();
 
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// check link lanes from lane to laneSet
-											JavaSDM.ensure(laneSet.equals(lane
-													.eContainer()));
+											// check object outFlow is really bound
+											JavaSDM.ensure(outFlow != null);
+											// check isomorphic binding between objects outFlow and divergeFlow 
+											JavaSDM.ensure(!outFlow
+													.equals(divergeFlow));
 
-											// iterate to-many link outgoing from parallelConvGateway to outFlow
+											// check link flowElements from outFlow to process
+											JavaSDM.ensure(process
+													.equals(outFlow
+															.eContainer()));
+
+											// iterate to-many link targetRef from parallelConvGateway to inFlow
 											fujaba__Success = false;
 
-											fujaba__IterParallelConvGatewayToOutFlow = new ArrayList(
+											fujaba__IterParallelConvGatewayToInFlow = new ArrayList(
 													parallelConvGateway
-															.getOutgoing())
+															.getIncoming())
 													.iterator();
 
-											while (fujaba__IterParallelConvGatewayToOutFlow
+											while (fujaba__IterParallelConvGatewayToInFlow
 													.hasNext()) {
 												try {
-													outFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToOutFlow
+													inFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToInFlow
 															.next();
 
-													// check object outFlow is really bound
-													JavaSDM.ensure(outFlow != null);
-													// check isomorphic binding between objects outFlow and divergeFlow 
-													JavaSDM.ensure(!outFlow
+													// check object inFlow is really bound
+													JavaSDM.ensure(inFlow != null);
+													// check isomorphic binding between objects inFlow and divergeFlow 
+													JavaSDM.ensure(!inFlow
 															.equals(divergeFlow));
 
 													// check isomorphic binding between objects outFlow and inFlow 
 													JavaSDM.ensure(!outFlow
 															.equals(inFlow));
 
-													// check link flowElements from outFlow to process
-													JavaSDM.ensure(process.equals(outFlow
+													// check link flowElements from inFlow to process
+													JavaSDM.ensure(process.equals(inFlow
 															.eContainer()));
 
 													// story node 'test core match and DECs'
@@ -6764,22 +6586,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_outFlow_flowElements_372370 = outFlow
+															__DEC_outFlow_flowElements_28653 = outFlow
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_outFlow_flowElements_372370 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_372370 != null);
+															// check object __DEC_outFlow_flowElements_28653 is really bound
+															JavaSDM.ensure(__DEC_outFlow_flowElements_28653 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_372370
+															JavaSDM.ensure(__DEC_outFlow_flowElements_28653
 																	.getFlowElements()
 																	.contains(
 																			outFlow));
 
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_372370 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_372370
+															// check isomorphic binding between objects __DEC_outFlow_flowElements_28653 and process 
+															JavaSDM.ensure(!__DEC_outFlow_flowElements_28653
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -6796,22 +6618,22 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_parallelConvGateway_flowElements_832870 = parallelConvGateway
+															__DEC_parallelConvGateway_flowElements_83768 = parallelConvGateway
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_parallelConvGateway_flowElements_832870 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_832870 != null);
+															// check object __DEC_parallelConvGateway_flowElements_83768 is really bound
+															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_83768 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_832870
+															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_83768
 																	.getFlowElements()
 																	.contains(
 																			parallelConvGateway));
 
-															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_832870 and process 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_832870
+															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_83768 and process 
+															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_83768
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -6834,33 +6656,33 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link incoming from parallelConvGateway to __DEC_parallelConvGateway_targetRef_860516
+															// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_556657
 															fujaba__Success = false;
 
-															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_860516 = new ArrayList(
+															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_556657 = new ArrayList(
 																	parallelConvGateway
 																			.getIncoming())
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_860516
+																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_556657
 																			.hasNext()) {
 																try {
-																	__DEC_parallelConvGateway_targetRef_860516 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_860516
+																	__DEC_parallelConvGateway_targetRef_556657 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_556657
 																			.next();
 
-																	// check object __DEC_parallelConvGateway_targetRef_860516 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_860516 != null);
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_860516 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_860516
+																	// check object __DEC_parallelConvGateway_targetRef_556657 is really bound
+																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_556657 != null);
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_556657 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_556657
 																			.equals(divergeFlow));
 
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_860516 and inFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_860516
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_556657 and inFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_556657
 																			.equals(inFlow));
 
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_860516 and outFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_860516
+																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_556657 and outFlow 
+																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_556657
 																			.equals(outFlow));
 
 																	fujaba__Success = true;
@@ -6936,19 +6758,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																.equals(parallelGateway
 																		.eContainer()));
 
-														// check link incoming from inFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link incoming from divergeFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link incoming from outFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-																.getTargetRef())));
-
 														// check link laneSets from laneSet to process
 														JavaSDM.ensure(process.equals(laneSet
 																.eContainer()));
@@ -6957,19 +6766,32 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 														JavaSDM.ensure(laneSet.equals(lane
 																.eContainer()));
 
-														// check link outgoing from outFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link outgoing from divergeFlow to parallelGateway
+														// check link sourceRef from divergeFlow to parallelGateway
 														JavaSDM.ensure(parallelGateway
 																.equals(divergeFlow
 																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway.equals(outFlow
+																.getSourceRef()));
 
 														// check link src from _edge_flowNodeRefs to lane
 														JavaSDM.ensure(lane
 																.equals(_edge_flowNodeRefs
 																		.getSrc()));
+
+														// check link targetRef from inFlow to parallelConvGateway
+														JavaSDM.ensure(parallelConvGateway.equals(inFlow
+																.getTargetRef()));
+
+														// check link targetRef from divergeFlow to parallelConvGateway
+														JavaSDM.ensure(!(parallelConvGateway
+																.equals(divergeFlow
+																		.getTargetRef())));
+
+														// check link targetRef from outFlow to parallelConvGateway
+														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
+																.getTargetRef())));
 
 														// check link trg from _edge_flowNodeRefs to parallelConvGateway
 														JavaSDM.ensure(parallelConvGateway
@@ -7002,7 +6824,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																		parallelGateway,
 																		divergeFlow);
 														if (fujaba__Success) {
-															// statement node ''
+															// statement node 'Ensure that the correct types of elements are matched'
 															fujaba__Success = this
 																	.checkTypes_FWD(match);
 															if (fujaba__Success) {
@@ -7106,693 +6928,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			SequenceFlowToUCFlow inFlowToFlowDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Step nextStep = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		SequenceFlow outFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		FlowNodeToStep pcgwToParStep = null;
-		SequenceFlowToUCFlow outFlowToInitFlow = null;
-		SequenceFlowToStep outFlowToParallelStep = null;
-		Iterator fujaba__IterParallelGatewayToPgwToParallelStep = null;
-		FlowNodeToStep pgwToParallelStep = null;
-		Step step = null;
-		Iterator fujaba__IterInFlowToInFlowToStep = null;
-		SequenceFlowToStep inFlowToStep = null;
-		Iterator fujaba__IterDivergeFlowToDivergeFlowToFlow = null;
-		SequenceFlowToUCFlow divergeFlowToFlow = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Flow initFlow = null;
-		Iterator fujaba__IterFlowToParallelStep = null;
-		ParallelStep parallelStep = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-		ParallelFlow flow = null;
-		Iterator fujaba__IterInFlowToFlowListToInFlowToFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-		Iterator fujaba__IterRuleEntryContainerToInFlowToFlowList = null;
-		RuleEntryList inFlowToFlowList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to inFlowToFlowList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToInFlowToFlowList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToInFlowToFlowList.hasNext()) {
-				try {
-					inFlowToFlowList = (RuleEntryList) fujaba__IterRuleEntryContainerToInFlowToFlowList
-							.next();
-
-					// check object inFlowToFlowList is really bound
-					JavaSDM.ensure(inFlowToFlowList != null);
-					// iterate to-many link entryObjects from inFlowToFlowList to inFlowToFlow
-					fujaba__Success = false;
-
-					fujaba__IterInFlowToFlowListToInFlowToFlow = new ArrayList(
-							inFlowToFlowList.getEntryObjects()).iterator();
-
-					while (fujaba__IterInFlowToFlowListToInFlowToFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterInFlowToFlowListToInFlowToFlow
-									.next();
-
-							// ensure correct type and really bound of object inFlowToFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-							inFlowToFlow = (SequenceFlowToUCFlow) _TmpObject;
-							// bind object
-							_TmpObject = inFlowToFlow.getTarget();
-
-							// ensure correct type and really bound of object flow
-							JavaSDM.ensure(_TmpObject instanceof ParallelFlow);
-							flow = (ParallelFlow) _TmpObject;
-
-							// bind object
-							inFlow = inFlowToFlow.getSource();
-
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-
-							// bind object
-							_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-									.eContainer() : null;
-
-							// ensure correct type and really bound of object process
-							JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-							process = (bpmn2.Process) _TmpObject;
-
-							// check if contained via correct reference
-							JavaSDM.ensure(process.getFlowElements().contains(
-									inFlow));
-
-							// iterate to-many link flowElements from process to divergeFlow
-							fujaba__Success = false;
-
-							fujaba__IterProcessToDivergeFlow = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToDivergeFlow
-											.next();
-
-									// ensure correct type and really bound of object divergeFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									divergeFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// bind object
-									_TmpObject = divergeFlow.getSourceRef();
-
-									// ensure correct type and really bound of object parallelGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelGateway = (ParallelGateway) _TmpObject;
-
-									// check link flowElements from parallelGateway to process
-									JavaSDM.ensure(process
-											.equals(parallelGateway
-													.eContainer()));
-
-									// iterate to-many link invokedFlows from flow to parallelStep
-									fujaba__Success = false;
-
-									fujaba__IterFlowToParallelStep = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(flow,
-															ParallelStep.class,
-															"invokedFlows"))
-											.iterator();
-
-									while (fujaba__IterFlowToParallelStep
-											.hasNext()) {
-										try {
-											parallelStep = (ParallelStep) fujaba__IterFlowToParallelStep
-													.next();
-
-											// check object parallelStep is really bound
-											JavaSDM.ensure(parallelStep != null);
-											// bind object
-											initFlow = parallelStep
-													.eContainer() instanceof Flow ? (Flow) parallelStep
-													.eContainer() : null;
-
-											// check object initFlow is really bound
-											JavaSDM.ensure(initFlow != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(initFlow.getSteps()
-													.contains(parallelStep));
-
-											// check isomorphic binding between objects initFlow and flow 
-											JavaSDM.ensure(!initFlow
-													.equals(flow));
-
-											// iterate to-many link laneSets from process to laneSet
-											fujaba__Success = false;
-
-											fujaba__IterProcessToLaneSet = new ArrayList(
-													process.getLaneSets())
-													.iterator();
-
-											while (fujaba__IterProcessToLaneSet
-													.hasNext()) {
-												try {
-													laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-															.next();
-
-													// check object laneSet is really bound
-													JavaSDM.ensure(laneSet != null);
-													// iterate to-many link lanes from laneSet to lane
-													fujaba__Success = false;
-
-													fujaba__IterLaneSetToLane = new ArrayList(
-															laneSet.getLanes())
-															.iterator();
-
-													while (fujaba__IterLaneSetToLane
-															.hasNext()) {
-														try {
-															lane = (Lane) fujaba__IterLaneSetToLane
-																	.next();
-
-															// check object lane is really bound
-															JavaSDM.ensure(lane != null);
-															// iterate to-many link source from divergeFlow to divergeFlowToFlow
-															fujaba__Success = false;
-
-															fujaba__IterDivergeFlowToDivergeFlowToFlow = new ArrayList(
-																	org.moflon.util.eMoflonEMFUtil
-																			.getOppositeReference(
-																					divergeFlow,
-																					SequenceFlowToUCFlow.class,
-																					"source"))
-																	.iterator();
-
-															while (fujaba__IterDivergeFlowToDivergeFlowToFlow
-																	.hasNext()) {
-																try {
-																	divergeFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterDivergeFlowToDivergeFlowToFlow
-																			.next();
-
-																	// check object divergeFlowToFlow is really bound
-																	JavaSDM.ensure(divergeFlowToFlow != null);
-																	// check isomorphic binding between objects inFlowToFlow and divergeFlowToFlow 
-																	JavaSDM.ensure(!inFlowToFlow
-																			.equals(divergeFlowToFlow));
-
-																	// check link target from divergeFlowToFlow to flow
-																	JavaSDM.ensure(flow
-																			.equals(divergeFlowToFlow
-																					.getTarget()));
-
-																	// iterate to-many link source from inFlow to inFlowToStep
-																	fujaba__Success = false;
-
-																	fujaba__IterInFlowToInFlowToStep = new ArrayList(
-																			org.moflon.util.eMoflonEMFUtil
-																					.getOppositeReference(
-																							inFlow,
-																							SequenceFlowToStep.class,
-																							"source"))
-																			.iterator();
-
-																	while (fujaba__IterInFlowToInFlowToStep
-																			.hasNext()) {
-																		try {
-																			inFlowToStep = (SequenceFlowToStep) fujaba__IterInFlowToInFlowToStep
-																					.next();
-
-																			// check object inFlowToStep is really bound
-																			JavaSDM.ensure(inFlowToStep != null);
-																			// bind object
-																			step = inFlowToStep
-																					.getTarget();
-
-																			// check object step is really bound
-																			JavaSDM.ensure(step != null);
-
-																			// check negative bindings
-																			try {
-																				fujaba__Success = false;
-
-																				// bind object
-																				nextStep = step
-																						.getNext();
-
-																				// check object nextStep is really bound
-																				JavaSDM.ensure(nextStep != null);
-
-																				// check isomorphic binding between objects nextStep and parallelStep 
-																				JavaSDM.ensure(!nextStep
-																						.equals(parallelStep));
-
-																				// check isomorphic binding between objects nextStep and step 
-																				JavaSDM.ensure(!nextStep
-																						.equals(step));
-
-																				fujaba__Success = true;
-																			} catch (JavaSDMException fujaba__InternalException) {
-																				fujaba__Success = false;
-																			}
-
-																			fujaba__Success = !(fujaba__Success);
-
-																			JavaSDM.ensure(fujaba__Success);
-
-																			// check isomorphic binding between objects step and parallelStep 
-																			JavaSDM.ensure(!step
-																					.equals(parallelStep));
-
-																			// check link steps from step to flow
-																			JavaSDM.ensure(flow
-																					.equals(step
-																							.eContainer()));
-
-																			// iterate to-many link source from parallelGateway to pgwToParallelStep
-																			fujaba__Success = false;
-
-																			fujaba__IterParallelGatewayToPgwToParallelStep = new ArrayList(
-																					org.moflon.util.eMoflonEMFUtil
-																							.getOppositeReference(
-																									parallelGateway,
-																									FlowNodeToStep.class,
-																									"source"))
-																					.iterator();
-
-																			while (fujaba__IterParallelGatewayToPgwToParallelStep
-																					.hasNext()) {
-																				try {
-																					pgwToParallelStep = (FlowNodeToStep) fujaba__IterParallelGatewayToPgwToParallelStep
-																							.next();
-
-																					// check object pgwToParallelStep is really bound
-																					JavaSDM.ensure(pgwToParallelStep != null);
-																					// check link target from pgwToParallelStep to parallelStep
-																					JavaSDM.ensure(parallelStep
-																							.equals(pgwToParallelStep
-																									.getTarget()));
-
-																					// story node 'solve CSP'
-																					try {
-																						fujaba__Success = false;
-
-																						_TmpObject = (this
-																								.generateModel_solveCsp_BWD(
-																										isApplicableMatch,
-																										process,
-																										inFlow,
-																										parallelConvGateway,
-																										outFlow,
-																										flow,
-																										inFlowToFlow,
-																										step,
-																										inFlowToStep,
-																										initFlow,
-																										parallelStep,
-																										pcgwToParStep,
-																										outFlowToInitFlow,
-																										outFlowToParallelStep,
-																										lane,
-																										laneSet,
-																										parallelGateway,
-																										pgwToParallelStep,
-																										divergeFlow,
-																										divergeFlowToFlow,
-																										ruleResult));
-
-																						// ensure correct type and really bound of object csp
-																						JavaSDM.ensure(_TmpObject instanceof CSP);
-																						csp = (CSP) _TmpObject;
-																						fujaba__Success = true;
-																					} catch (JavaSDMException fujaba__InternalException) {
-																						fujaba__Success = false;
-																					}
-
-																					// statement node 'check CSP'
-																					fujaba__Success = this
-																							.generateModel_checkCsp_BWD(csp);
-																					if (fujaba__Success) {
-																						// story node 'perform'
-																						try {
-																							fujaba__Success = false;
-
-																							// check object divergeFlow is really bound
-																							JavaSDM.ensure(divergeFlow != null);
-																							// check object divergeFlowToFlow is really bound
-																							JavaSDM.ensure(divergeFlowToFlow != null);
-																							// check object flow is really bound
-																							JavaSDM.ensure(flow != null);
-																							// check object inFlow is really bound
-																							JavaSDM.ensure(inFlow != null);
-																							// check object inFlowToFlow is really bound
-																							JavaSDM.ensure(inFlowToFlow != null);
-																							// check object inFlowToStep is really bound
-																							JavaSDM.ensure(inFlowToStep != null);
-																							// check object initFlow is really bound
-																							JavaSDM.ensure(initFlow != null);
-																							// check object lane is really bound
-																							JavaSDM.ensure(lane != null);
-																							// check object laneSet is really bound
-																							JavaSDM.ensure(laneSet != null);
-																							// check object parallelGateway is really bound
-																							JavaSDM.ensure(parallelGateway != null);
-																							// check object parallelStep is really bound
-																							JavaSDM.ensure(parallelStep != null);
-																							// check object pgwToParallelStep is really bound
-																							JavaSDM.ensure(pgwToParallelStep != null);
-																							// check object process is really bound
-																							JavaSDM.ensure(process != null);
-																							// check object ruleResult is really bound
-																							JavaSDM.ensure(ruleResult != null);
-																							// check object step is really bound
-																							JavaSDM.ensure(step != null);
-																							// check isomorphic binding between objects inFlow and divergeFlow 
-																							JavaSDM.ensure(!inFlow
-																									.equals(divergeFlow));
-
-																							// check isomorphic binding between objects inFlowToFlow and divergeFlowToFlow 
-																							JavaSDM.ensure(!inFlowToFlow
-																									.equals(divergeFlowToFlow));
-
-																							// check isomorphic binding between objects initFlow and flow 
-																							JavaSDM.ensure(!initFlow
-																									.equals(flow));
-
-																							// check isomorphic binding between objects step and parallelStep 
-																							JavaSDM.ensure(!step
-																									.equals(parallelStep));
-
-																							// create object outFlow
-																							outFlow = Bpmn2Factory.eINSTANCE
-																									.createSequenceFlow();
-
-																							// create object parallelConvGateway
-																							parallelConvGateway = Bpmn2Factory.eINSTANCE
-																									.createParallelGateway();
-
-																							// create object pcgwToParStep
-																							pcgwToParStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																									.createFlowNodeToStep();
-
-																							// create object outFlowToInitFlow
-																							outFlowToInitFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																									.createSequenceFlowToUCFlow();
-
-																							// create object outFlowToParallelStep
-																							outFlowToParallelStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																									.createSequenceFlowToStep();
-
-																							// assign attribute parallelConvGateway
-																							parallelConvGateway
-																									.setGatewayDirection((bpmn2.GatewayDirection) csp
-																											.getAttributeVariable(
-																													"parallelConvGateway",
-																													"gatewayDirection")
-																											.getValue());
-																							// assign attribute ruleResult
-																							ruleResult
-																									.setSuccess(true);
-
-																							// create link
-																							process.getFlowElements()
-																									.add(outFlow); // add link
-
-																							// create link
-																							process.getFlowElements()
-																									.add(parallelConvGateway); // add link
-
-																							// create link
-																							parallelConvGateway
-																									.getIncoming()
-																									.add(inFlow);
-
-																							// create link
-																							outFlow.setSourceRef(parallelConvGateway);
-
-																							// create link
-																							ruleResult
-																									.getSourceObjects()
-																									.add(parallelConvGateway);
-
-																							// create link
-																							pcgwToParStep
-																									.setSource(parallelConvGateway);
-
-																							// create link
-																							lane.getFlowNodeRefs()
-																									.add(parallelConvGateway);
-
-																							// create link
-																							outFlowToInitFlow
-																									.setSource(outFlow);
-
-																							// create link
-																							outFlowToParallelStep
-																									.setSource(outFlow);
-
-																							// create link
-																							ruleResult
-																									.getSourceObjects()
-																									.add(outFlow);
-
-																							// create link
-																							outFlowToInitFlow
-																									.setTarget(initFlow);
-
-																							// create link
-																							outFlowToParallelStep
-																									.setTarget(parallelStep);
-
-																							// create link
-																							pcgwToParStep
-																									.setTarget(parallelStep);
-
-																							// create link
-																							ruleResult
-																									.getCorrObjects()
-																									.add(pcgwToParStep);
-
-																							// create link
-																							ruleResult
-																									.getCorrObjects()
-																									.add(outFlowToInitFlow);
-
-																							// create link
-																							ruleResult
-																									.getCorrObjects()
-																									.add(outFlowToParallelStep);
-
-																							fujaba__Success = true;
-																						} catch (JavaSDMException fujaba__InternalException) {
-																							fujaba__Success = false;
-																						}
-
-																						return ruleResult;
-
-																					}
-
-																					fujaba__Success = true;
-																				} catch (JavaSDMException fujaba__InternalException) {
-																					fujaba__Success = false;
-																				}
-																			}
-																			JavaSDM.ensure(fujaba__Success);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			bpmn2.Process process, SequenceFlow inFlow,
-			ParallelGateway parallelConvGateway, SequenceFlow outFlow,
-			ParallelFlow flow, SequenceFlowToUCFlow inFlowToFlow, Step step,
-			SequenceFlowToStep inFlowToStep, Flow initFlow,
-			ParallelStep parallelStep, FlowNodeToStep pcgwToParStep,
-			SequenceFlowToUCFlow outFlowToInitFlow,
-			SequenceFlowToStep outFlowToParallelStep, Lane lane,
-			LaneSet laneSet, ParallelGateway parallelGateway,
-			FlowNodeToStep pgwToParallelStep, SequenceFlow divergeFlow,
-			SequenceFlowToUCFlow divergeFlowToFlow,
-			ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal0", true, csp);
-		literal0.setValue("Converging");
-		literal0.setType("String");
-		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal1", true, csp);
-		literal1.setValue("Diverging");
-		literal1.setType("String");
-
-		// Create attribute variables
-		Variable var_parallelGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
-				.createVariable("parallelGateway.gatewayDirection", true, csp);
-		var_parallelGateway_gatewayDirection.setValue(parallelGateway
-				.getGatewayDirection());
-		var_parallelGateway_gatewayDirection.setType("EObject");
-
-		// Create explicit parameters
-
-		// Create unbound variables
-		Variable var_parallelConvGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
-				.createVariable("parallelConvGateway.gatewayDirection", csp);
-		var_parallelConvGateway_gatewayDirection.setType("EObject");
-
-		// Create constraints
-		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
-		EqGatewayDirection eqGatewayDirection_0 = new EqGatewayDirection();
-
-		csp.getConstraints().add(eqGatewayDirection);
-		csp.getConstraints().add(eqGatewayDirection_0);
-
-		// Solve CSP
-		eqGatewayDirection.setRuleName("");
-		eqGatewayDirection
-				.solve(var_parallelGateway_gatewayDirection, literal1);
-		eqGatewayDirection_0.setRuleName("");
-		eqGatewayDirection_0.solve(var_parallelConvGateway_gatewayDirection,
-				literal0);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("process", process);
-		isApplicableMatch.registerObject("inFlow", inFlow);
-		isApplicableMatch.registerObject("flow", flow);
-		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
-		isApplicableMatch.registerObject("step", step);
-		isApplicableMatch.registerObject("inFlowToStep", inFlowToStep);
-		isApplicableMatch.registerObject("initFlow", initFlow);
-		isApplicableMatch.registerObject("parallelStep", parallelStep);
-		isApplicableMatch.registerObject("lane", lane);
-		isApplicableMatch.registerObject("laneSet", laneSet);
-		isApplicableMatch.registerObject("parallelGateway", parallelGateway);
-		isApplicableMatch
-				.registerObject("pgwToParallelStep", pgwToParallelStep);
-		isApplicableMatch.registerObject("divergeFlow", divergeFlow);
-		isApplicableMatch
-				.registerObject("divergeFlowToFlow", divergeFlowToFlow);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -7806,10 +6941,10 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 					(LaneSet) arguments.get(6),
 					(ParallelGateway) arguments.get(7),
 					(SequenceFlow) arguments.get(8));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPLICABLE_FWD__MATCH:
-			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPLICABLE_FWD__MATCH:
+			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_LANE_LANESET_PARALLELGATEWAY_SEQUENCEFLOW:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(bpmn2.Process) arguments.get(1),
@@ -7888,32 +7023,6 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(SequenceFlowToUCFlow) arguments.get(1));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_PARALLELSTEP_FLOWNODETOSTEP_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOWTOSTEP_LANE_LANESET_PARALLELGATEWAY_FLOWNODETOSTEP_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(bpmn2.Process) arguments.get(1),
-					(SequenceFlow) arguments.get(2),
-					(ParallelGateway) arguments.get(3),
-					(SequenceFlow) arguments.get(4),
-					(ParallelFlow) arguments.get(5),
-					(SequenceFlowToUCFlow) arguments.get(6),
-					(Step) arguments.get(7),
-					(SequenceFlowToStep) arguments.get(8),
-					(Flow) arguments.get(9), (ParallelStep) arguments.get(10),
-					(FlowNodeToStep) arguments.get(11),
-					(SequenceFlowToUCFlow) arguments.get(12),
-					(SequenceFlowToStep) arguments.get(13),
-					(Lane) arguments.get(14), (LaneSet) arguments.get(15),
-					(ParallelGateway) arguments.get(16),
-					(FlowNodeToStep) arguments.get(17),
-					(SequenceFlow) arguments.get(18),
-					(SequenceFlowToUCFlow) arguments.get(19),
-					(ModelgeneratorRuleResult) arguments.get(20));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

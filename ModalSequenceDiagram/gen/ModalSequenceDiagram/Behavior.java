@@ -2,7 +2,6 @@
  */
 package ModalSequenceDiagram;
 
-import org.eclipse.emf.ecore.EObject;
 // <-- [user defined imports]
 // [user defined imports] -->
 

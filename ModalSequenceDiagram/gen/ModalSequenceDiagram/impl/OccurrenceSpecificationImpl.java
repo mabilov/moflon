@@ -7,10 +7,14 @@ import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.OccurrenceSpecification;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 // <-- [user defined imports]
@@ -41,6 +45,7 @@ public class OccurrenceSpecificationImpl extends InteractionFragmentImpl
 	 * @ordered
 	 */
 	protected EList<GeneralOrdering> toAfter;
+
 	/**
 	 * The cached value of the '{@link #getToBefore() <em>To Before</em>}' reference list.
 	 * <!-- begin-user-doc -->

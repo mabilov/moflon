@@ -7,8 +7,8 @@ import bpmn2.FlowNode;
 import bpmn2.SequenceFlow;
 
 import de.upb.tools.sdm.*;
+
 import java.util.*;
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 

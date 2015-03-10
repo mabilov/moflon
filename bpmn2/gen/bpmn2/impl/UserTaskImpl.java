@@ -8,7 +8,9 @@ import bpmn2.SequenceFlow;
 import bpmn2.UserTask;
 
 import de.upb.tools.sdm.*;
+
 import java.util.*;
+
 import org.eclipse.emf.ecore.EClass;
 // <-- [user defined imports]
 // [user defined imports] -->

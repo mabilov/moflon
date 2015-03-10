@@ -69,6 +69,7 @@ public class MessageOccurrenceSpecificationImpl extends MessageEndImpl
 	 * @ordered
 	 */
 	protected EList<GeneralOrdering> generalOrdering;
+
 	/**
 	 * The cached value of the '{@link #getToAfter() <em>To After</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -78,6 +79,7 @@ public class MessageOccurrenceSpecificationImpl extends MessageEndImpl
 	 * @ordered
 	 */
 	protected EList<GeneralOrdering> toAfter;
+
 	/**
 	 * The cached value of the '{@link #getToBefore() <em>To Before</em>}' reference list.
 	 * <!-- begin-user-doc -->

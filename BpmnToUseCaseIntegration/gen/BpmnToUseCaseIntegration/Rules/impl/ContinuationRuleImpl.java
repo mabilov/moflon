@@ -20,15 +20,11 @@ import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
 import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -84,21 +80,6 @@ import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
@@ -268,23 +249,19 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__step_stepAlternative_alt, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						step, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						nextStep, "contextNodes");
+						flow, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__step_stepAlternative_alt, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__alt_ref_flow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__step_next_nextStep, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match, alt,
@@ -292,13 +269,17 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
+						__step_next_nextStep, "contextEdges");
 
 				// create link
-				__step_stepAlternative_alt.setTrg(alt);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						nextStep, "contextNodes");
 
 				// create link
 				__alt_ref_flow.setSrc(alt);
+
+				// create link
+				__step_stepAlternative_alt.setTrg(alt);
 
 				// create link
 				__alt_ref_flow.setTrg(flow);
@@ -444,10 +425,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -707,22 +685,22 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 		AlternativeFlow flow = null;
 		Step nextStep = null;
 		NormalStep step = null;
-		EMoflonEdge __excConvGw_incoming_inFlow = null;
-		EMoflonEdge __inFlow_targetRef_excConvGw = null;
 		EMoflonEdge __inFlowToFlow_source_inFlow = null;
+		EMoflonEdge __inFlow_targetRef_excConvGw = null;
+		EMoflonEdge __excConvGw_incoming_inFlow = null;
 		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __excConvGw_outgoing_outFlow = null;
-		EMoflonEdge __excConvGwToStep_source_excConvGw = null;
 		EMoflonEdge __outFlow_sourceRef_excConvGw = null;
-		EMoflonEdge __nextNode_incoming_outFlow = null;
+		EMoflonEdge __excConvGwToStep_source_excConvGw = null;
 		EMoflonEdge __outFlow_targetRef_nextNode = null;
+		EMoflonEdge __nextNode_incoming_outFlow = null;
 		EMoflonEdge __nextNodeToNextStep_source_nextNode = null;
-		EMoflonEdge __alt_continuation_nextStep = null;
 		EMoflonEdge __alt_ref_flow = null;
 		EMoflonEdge __step_stepAlternative_alt = null;
+		EMoflonEdge __alt_continuation_nextStep = null;
 		EMoflonEdge __inFlowToFlow_target_flow = null;
-		EMoflonEdge __step_next_nextStep = null;
 		EMoflonEdge __excConvGwToStep_target_step = null;
+		EMoflonEdge __step_next_nextStep = null;
 		EMoflonEdge __nextNodeToNextStep_target_nextStep = null;
 		CSP csp = null;
 		Iterator fujaba__IterExcConvGwToOutFlow = null;
@@ -935,10 +913,6 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 										// check link ref from alt to flow
 										JavaSDM.ensure(flow.equals(alt.getRef()));
 
-										// check link incoming from inFlow to excConvGw
-										JavaSDM.ensure(excConvGw.equals(inFlow
-												.getTargetRef()));
-
 										// check link source from excConvGwToStep to excConvGw
 										JavaSDM.ensure(excConvGw
 												.equals(excConvGwToStep
@@ -972,7 +946,11 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												.equals(nextNodeToNextStep
 														.getTarget()));
 
-										// iterate to-many link outgoing from excConvGw to outFlow
+										// check link targetRef from inFlow to excConvGw
+										JavaSDM.ensure(excConvGw.equals(inFlow
+												.getTargetRef()));
+
+										// iterate to-many link sourceRef from excConvGw to outFlow
 										fujaba__Success = false;
 
 										fujaba__IterExcConvGwToOutFlow = new ArrayList(
@@ -991,20 +969,20 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												JavaSDM.ensure(!outFlow
 														.equals(inFlow));
 
-												// check link incoming from outFlow to nextNode
+												// check link targetRef from outFlow to nextNode
 												JavaSDM.ensure(nextNode.equals(outFlow
 														.getTargetRef()));
 
-												// create object __excConvGw_incoming_inFlow
-												__excConvGw_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+												// create object __inFlowToFlow_source_inFlow
+												__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __inFlow_targetRef_excConvGw
 												__inFlow_targetRef_excConvGw = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __inFlowToFlow_source_inFlow
-												__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
+												// create object __excConvGw_incoming_inFlow
+												__excConvGw_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object isApplicableMatch
@@ -1015,28 +993,24 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												__excConvGw_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __excConvGwToStep_source_excConvGw
-												__excConvGwToStep_source_excConvGw = TGGRuntimeFactory.eINSTANCE
-														.createEMoflonEdge();
-
 												// create object __outFlow_sourceRef_excConvGw
 												__outFlow_sourceRef_excConvGw = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __nextNode_incoming_outFlow
-												__nextNode_incoming_outFlow = TGGRuntimeFactory.eINSTANCE
+												// create object __excConvGwToStep_source_excConvGw
+												__excConvGwToStep_source_excConvGw = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __outFlow_targetRef_nextNode
 												__outFlow_targetRef_nextNode = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __nextNodeToNextStep_source_nextNode
-												__nextNodeToNextStep_source_nextNode = TGGRuntimeFactory.eINSTANCE
+												// create object __nextNode_incoming_outFlow
+												__nextNode_incoming_outFlow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __alt_continuation_nextStep
-												__alt_continuation_nextStep = TGGRuntimeFactory.eINSTANCE
+												// create object __nextNodeToNextStep_source_nextNode
+												__nextNodeToNextStep_source_nextNode = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __alt_ref_flow
@@ -1047,16 +1021,20 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												__step_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
+												// create object __alt_continuation_nextStep
+												__alt_continuation_nextStep = TGGRuntimeFactory.eINSTANCE
+														.createEMoflonEdge();
+
 												// create object __inFlowToFlow_target_flow
 												__inFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
-												// create object __step_next_nextStep
-												__step_next_nextStep = TGGRuntimeFactory.eINSTANCE
-														.createEMoflonEdge();
-
 												// create object __excConvGwToStep_target_step
 												__excConvGwToStep_target_step = TGGRuntimeFactory.eINSTANCE
+														.createEMoflonEdge();
+
+												// create object __step_next_nextStep
+												__step_next_nextStep = TGGRuntimeFactory.eINSTANCE
 														.createEMoflonEdge();
 
 												// create object __nextNodeToNextStep_target_nextStep
@@ -1112,7 +1090,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 														.setName("target");
 
 												// create link
-												__excConvGw_incoming_inFlow
+												__inFlowToFlow_source_inFlow
 														.setTrg(inFlow);
 
 												// create link
@@ -1120,7 +1098,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 														.setSrc(inFlow);
 
 												// create link
-												__inFlowToFlow_source_inFlow
+												__excConvGw_incoming_inFlow
 														.setTrg(inFlow);
 
 												// create link
@@ -1129,6 +1107,19 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 														.add(inFlow);
 
 												// create link
+												isApplicableMatch
+														.getAllContextElements()
+														.add(excConvGw);
+
+												// create link
+												__excConvGw_outgoing_outFlow
+														.setSrc(excConvGw);
+
+												// create link
+												__outFlow_sourceRef_excConvGw
+														.setTrg(excConvGw);
+
+												// create link
 												__excConvGw_incoming_inFlow
 														.setSrc(excConvGw);
 
@@ -1137,29 +1128,16 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 														.setTrg(excConvGw);
 
 												// create link
-												__excConvGw_outgoing_outFlow
-														.setSrc(excConvGw);
-
-												// create link
 												__excConvGwToStep_source_excConvGw
 														.setTrg(excConvGw);
 
 												// create link
-												isApplicableMatch
-														.getAllContextElements()
-														.add(excConvGw);
-
-												// create link
-												__outFlow_sourceRef_excConvGw
-														.setTrg(excConvGw);
+												__outFlow_targetRef_nextNode
+														.setSrc(outFlow);
 
 												// create link
 												__nextNode_incoming_outFlow
 														.setTrg(outFlow);
-
-												// create link
-												__outFlow_sourceRef_excConvGw
-														.setSrc(outFlow);
 
 												// create link
 												isApplicableMatch
@@ -1171,17 +1149,17 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 														.setTrg(outFlow);
 
 												// create link
-												__outFlow_targetRef_nextNode
+												__outFlow_sourceRef_excConvGw
 														.setSrc(outFlow);
-
-												// create link
-												__nextNode_incoming_outFlow
-														.setSrc(nextNode);
 
 												// create link
 												isApplicableMatch
 														.getAllContextElements()
 														.add(nextNode);
+
+												// create link
+												__nextNode_incoming_outFlow
+														.setSrc(nextNode);
 
 												// create link
 												__outFlow_targetRef_nextNode
@@ -1190,10 +1168,6 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												// create link
 												__nextNodeToNextStep_source_nextNode
 														.setTrg(nextNode);
-
-												// create link
-												__alt_continuation_nextStep
-														.setSrc(alt);
 
 												// create link
 												__alt_ref_flow.setSrc(alt);
@@ -1206,6 +1180,10 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												isApplicableMatch
 														.getAllContextElements()
 														.add(alt);
+
+												// create link
+												__alt_continuation_nextStep
+														.setSrc(alt);
 
 												// create link
 												__alt_ref_flow.setTrg(flow);
@@ -1233,25 +1211,21 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 														.setSrc(inFlowToFlow);
 
 												// create link
-												__step_stepAlternative_alt
-														.setSrc(step);
+												__excConvGwToStep_target_step
+														.setTrg(step);
 
 												// create link
 												__step_next_nextStep
 														.setSrc(step);
 
 												// create link
-												__excConvGwToStep_target_step
-														.setTrg(step);
+												__step_stepAlternative_alt
+														.setSrc(step);
 
 												// create link
 												isApplicableMatch
 														.getAllContextElements()
 														.add(step);
-
-												// create link
-												__excConvGwToStep_source_excConvGw
-														.setSrc(excConvGwToStep);
 
 												// create link
 												isApplicableMatch
@@ -1261,6 +1235,14 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												// create link
 												__excConvGwToStep_target_step
 														.setSrc(excConvGwToStep);
+
+												// create link
+												__excConvGwToStep_source_excConvGw
+														.setSrc(excConvGwToStep);
+
+												// create link
+												__step_next_nextStep
+														.setTrg(nextStep);
 
 												// create link
 												__alt_continuation_nextStep
@@ -1276,15 +1258,11 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 														.add(nextStep);
 
 												// create link
-												__step_next_nextStep
-														.setTrg(nextStep);
-
-												// create link
-												__nextNodeToNextStep_source_nextNode
+												__nextNodeToNextStep_target_nextStep
 														.setSrc(nextNodeToNextStep);
 
 												// create link
-												__nextNodeToNextStep_target_nextStep
+												__nextNodeToNextStep_source_nextNode
 														.setSrc(nextNodeToNextStep);
 
 												// create link
@@ -1296,7 +1274,21 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__outFlow_targetRef_nextNode,
+																__excConvGwToStep_source_excConvGw,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__inFlowToFlow_source_inFlow,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__nextNode_incoming_outFlow,
 																"allContextElements");
 
 												// create link
@@ -1310,7 +1302,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__nextNodeToNextStep_target_nextStep,
+																__nextNodeToNextStep_source_nextNode,
 																"allContextElements");
 
 												// create link
@@ -1324,7 +1316,21 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__excConvGwToStep_source_excConvGw,
+																__nextNodeToNextStep_target_nextStep,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__excConvGw_outgoing_outFlow,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__step_stepAlternative_alt,
 																"allContextElements");
 
 												// create link
@@ -1352,42 +1358,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__step_stepAlternative_alt,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__alt_continuation_nextStep,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__inFlowToFlow_source_inFlow,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__excConvGw_outgoing_outFlow,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
 																__inFlow_targetRef_excConvGw,
-																"allContextElements");
-
-												// create link
-												org.moflon.util.eMoflonEMFUtil
-														.addOppositeReference(
-																isApplicableMatch,
-																__nextNode_incoming_outFlow,
 																"allContextElements");
 
 												// create link
@@ -1401,7 +1372,14 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 												org.moflon.util.eMoflonEMFUtil
 														.addOppositeReference(
 																isApplicableMatch,
-																__nextNodeToNextStep_source_nextNode,
+																__outFlow_targetRef_nextNode,
+																"allContextElements");
+
+												// create link
+												org.moflon.util.eMoflonEMFUtil
+														.addOppositeReference(
+																isApplicableMatch,
+																__alt_continuation_nextStep,
 																"allContextElements");
 												// story node 'solve CSP'
 												try {
@@ -1442,16 +1420,17 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(isApplicableMatch != null);
 														// check object ruleresult is really bound
 														JavaSDM.ensure(ruleresult != null);
-														// assign attribute ruleresult
-														ruleresult
-																.setSuccess(true);
 														// assign attribute isApplicableMatch
 														isApplicableMatch
 																.setRuleName("ContinuationRule");
+														// assign attribute ruleresult
+														ruleresult
+																.setSuccess(true);
 
 														// create link
-														isApplicableMatch
-																.setIsApplicableRuleResult(ruleresult);
+														ruleresult
+																.getIsApplicableMatch()
+																.add(isApplicableMatch);
 
 														fujaba__Success = true;
 													} catch (JavaSDMException fujaba__InternalException) {
@@ -1799,7 +1778,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_BWD(match, alt, flow,
 						step, nextStep);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_BWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -1865,453 +1844,6 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			FlowNodeToStep excConvGwToStepDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		AlternativeFlow flow = null;
-		Iterator fujaba__IterStepToAlt = null;
-		AlternativeFlowAlternative alt = null;
-		Step nextStep = null;
-		NormalStep step = null;
-		Iterator fujaba__IterInFlowToInFlowToFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-		Iterator fujaba__IterNextNodeToNextNodeToNextStep = null;
-		FlowNodeToStep nextNodeToNextStep = null;
-		FlowNode nextNode = null;
-		Iterator fujaba__IterExcConvGwToOutFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterExcConvGwToInFlow = null;
-		SequenceFlow inFlow = null;
-		ExclusiveGateway excConvGw = null;
-		Iterator fujaba__IterExcConvGwToStepListToExcConvGwToStep = null;
-		FlowNodeToStep excConvGwToStep = null;
-		Iterator fujaba__IterRuleEntryContainerToExcConvGwToStepList = null;
-		RuleEntryList excConvGwToStepList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to excConvGwToStepList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToExcConvGwToStepList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToExcConvGwToStepList
-					.hasNext()) {
-				try {
-					excConvGwToStepList = (RuleEntryList) fujaba__IterRuleEntryContainerToExcConvGwToStepList
-							.next();
-
-					// check object excConvGwToStepList is really bound
-					JavaSDM.ensure(excConvGwToStepList != null);
-					// iterate to-many link entryObjects from excConvGwToStepList to excConvGwToStep
-					fujaba__Success = false;
-
-					fujaba__IterExcConvGwToStepListToExcConvGwToStep = new ArrayList(
-							excConvGwToStepList.getEntryObjects()).iterator();
-
-					while (fujaba__IterExcConvGwToStepListToExcConvGwToStep
-							.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterExcConvGwToStepListToExcConvGwToStep
-									.next();
-
-							// ensure correct type and really bound of object excConvGwToStep
-							JavaSDM.ensure(_TmpObject instanceof FlowNodeToStep);
-							excConvGwToStep = (FlowNodeToStep) _TmpObject;
-							// bind object
-							_TmpObject = excConvGwToStep.getSource();
-
-							// ensure correct type and really bound of object excConvGw
-							JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-							excConvGw = (ExclusiveGateway) _TmpObject;
-
-							// iterate to-many link incoming from excConvGw to inFlow
-							fujaba__Success = false;
-
-							fujaba__IterExcConvGwToInFlow = new ArrayList(
-									excConvGw.getIncoming()).iterator();
-
-							while (fujaba__IterExcConvGwToInFlow.hasNext()) {
-								try {
-									inFlow = (SequenceFlow) fujaba__IterExcConvGwToInFlow
-											.next();
-
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
-									// iterate to-many link outgoing from excConvGw to outFlow
-									fujaba__Success = false;
-
-									fujaba__IterExcConvGwToOutFlow = new ArrayList(
-											excConvGw.getOutgoing()).iterator();
-
-									while (fujaba__IterExcConvGwToOutFlow
-											.hasNext()) {
-										try {
-											outFlow = (SequenceFlow) fujaba__IterExcConvGwToOutFlow
-													.next();
-
-											// check object outFlow is really bound
-											JavaSDM.ensure(outFlow != null);
-											// check isomorphic binding between objects outFlow and inFlow 
-											JavaSDM.ensure(!outFlow
-													.equals(inFlow));
-
-											// bind object
-											nextNode = outFlow.getTargetRef();
-
-											// check object nextNode is really bound
-											JavaSDM.ensure(nextNode != null);
-
-											// check isomorphic binding between objects nextNode and excConvGw 
-											JavaSDM.ensure(!nextNode
-													.equals(excConvGw));
-
-											// iterate to-many link source from nextNode to nextNodeToNextStep
-											fujaba__Success = false;
-
-											fujaba__IterNextNodeToNextNodeToNextStep = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	nextNode,
-																	FlowNodeToStep.class,
-																	"source"))
-													.iterator();
-
-											while (fujaba__IterNextNodeToNextNodeToNextStep
-													.hasNext()) {
-												try {
-													nextNodeToNextStep = (FlowNodeToStep) fujaba__IterNextNodeToNextNodeToNextStep
-															.next();
-
-													// check object nextNodeToNextStep is really bound
-													JavaSDM.ensure(nextNodeToNextStep != null);
-													// check isomorphic binding between objects nextNodeToNextStep and excConvGwToStep 
-													JavaSDM.ensure(!nextNodeToNextStep
-															.equals(excConvGwToStep));
-
-													// iterate to-many link source from inFlow to inFlowToFlow
-													fujaba__Success = false;
-
-													fujaba__IterInFlowToInFlowToFlow = new ArrayList(
-															org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReference(
-																			inFlow,
-																			SequenceFlowToUCFlow.class,
-																			"source"))
-															.iterator();
-
-													while (fujaba__IterInFlowToInFlowToFlow
-															.hasNext()) {
-														try {
-															inFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterInFlowToInFlowToFlow
-																	.next();
-
-															// check object inFlowToFlow is really bound
-															JavaSDM.ensure(inFlowToFlow != null);
-															// bind object
-															_TmpObject = excConvGwToStep
-																	.getTarget();
-
-															// ensure correct type and really bound of object step
-															JavaSDM.ensure(_TmpObject instanceof NormalStep);
-															step = (NormalStep) _TmpObject;
-
-															// bind object
-															nextStep = step
-																	.getNext();
-
-															// check object nextStep is really bound
-															JavaSDM.ensure(nextStep != null);
-
-															// check isomorphic binding between objects step and nextStep 
-															JavaSDM.ensure(!step
-																	.equals(nextStep));
-
-															// check link target from nextNodeToNextStep to nextStep
-															JavaSDM.ensure(nextStep
-																	.equals(nextNodeToNextStep
-																			.getTarget()));
-
-															// iterate to-many link stepAlternative from step to alt
-															fujaba__Success = false;
-
-															fujaba__IterStepToAlt = new ArrayList(
-																	step.getStepAlternative())
-																	.iterator();
-
-															while (fujaba__IterStepToAlt
-																	.hasNext()) {
-																try {
-																	_TmpObject = fujaba__IterStepToAlt
-																			.next();
-
-																	// ensure correct type and really bound of object alt
-																	JavaSDM.ensure(_TmpObject instanceof AlternativeFlowAlternative);
-																	alt = (AlternativeFlowAlternative) _TmpObject;
-																	// bind object
-																	_TmpObject = alt
-																			.getRef();
-
-																	// ensure correct type and really bound of object flow
-																	JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-																	flow = (AlternativeFlow) _TmpObject;
-
-																	// check link target from inFlowToFlow to flow
-																	JavaSDM.ensure(flow
-																			.equals(inFlowToFlow
-																					.getTarget()));
-
-																	// story node 'solve CSP'
-																	try {
-																		fujaba__Success = false;
-
-																		_TmpObject = (this
-																				.generateModel_solveCsp_BWD(
-																						isApplicableMatch,
-																						inFlow,
-																						excConvGw,
-																						outFlow,
-																						nextNode,
-																						alt,
-																						flow,
-																						inFlowToFlow,
-																						step,
-																						excConvGwToStep,
-																						nextStep,
-																						nextNodeToNextStep,
-																						ruleResult));
-
-																		// ensure correct type and really bound of object csp
-																		JavaSDM.ensure(_TmpObject instanceof CSP);
-																		csp = (CSP) _TmpObject;
-																		fujaba__Success = true;
-																	} catch (JavaSDMException fujaba__InternalException) {
-																		fujaba__Success = false;
-																	}
-
-																	// statement node 'check CSP'
-																	fujaba__Success = this
-																			.generateModel_checkCsp_BWD(csp);
-																	if (fujaba__Success) {
-																		// story node 'perform'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object alt is really bound
-																			JavaSDM.ensure(alt != null);
-																			// check object excConvGw is really bound
-																			JavaSDM.ensure(excConvGw != null);
-																			// check object excConvGwToStep is really bound
-																			JavaSDM.ensure(excConvGwToStep != null);
-																			// check object flow is really bound
-																			JavaSDM.ensure(flow != null);
-																			// check object inFlow is really bound
-																			JavaSDM.ensure(inFlow != null);
-																			// check object inFlowToFlow is really bound
-																			JavaSDM.ensure(inFlowToFlow != null);
-																			// check object nextNode is really bound
-																			JavaSDM.ensure(nextNode != null);
-																			// check object nextNodeToNextStep is really bound
-																			JavaSDM.ensure(nextNodeToNextStep != null);
-																			// check object nextStep is really bound
-																			JavaSDM.ensure(nextStep != null);
-																			// check object outFlow is really bound
-																			JavaSDM.ensure(outFlow != null);
-																			// check object step is really bound
-																			JavaSDM.ensure(step != null);
-																			// check isomorphic binding between objects nextNode and excConvGw 
-																			JavaSDM.ensure(!nextNode
-																					.equals(excConvGw));
-
-																			// check isomorphic binding between objects nextNodeToNextStep and excConvGwToStep 
-																			JavaSDM.ensure(!nextNodeToNextStep
-																					.equals(excConvGwToStep));
-
-																			// check isomorphic binding between objects outFlow and inFlow 
-																			JavaSDM.ensure(!outFlow
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects step and nextStep 
-																			JavaSDM.ensure(!step
-																					.equals(nextStep));
-
-																			// assign attribute ruleResult
-																			ruleResult
-																					.setSuccess(true);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							alt,
-																							nextStep,
-																							"continuation");
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		return ruleResult;
-
-																	}
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			SequenceFlow inFlow, ExclusiveGateway excConvGw,
-			SequenceFlow outFlow, FlowNode nextNode,
-			AlternativeFlowAlternative alt, AlternativeFlow flow,
-			SequenceFlowToUCFlow inFlowToFlow, NormalStep step,
-			FlowNodeToStep excConvGwToStep, Step nextStep,
-			FlowNodeToStep nextNodeToNextStep,
-			ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal0", true, csp);
-		literal0.setValue("Converging");
-		literal0.setType("String");
-
-		// Create attribute variables
-		Variable var_excConvGw_gatewayDirection = CSPFactoryHelper.eINSTANCE
-				.createVariable("excConvGw.gatewayDirection", true, csp);
-		var_excConvGw_gatewayDirection
-				.setValue(excConvGw.getGatewayDirection());
-		var_excConvGw_gatewayDirection.setType("EObject");
-
-		// Create explicit parameters
-
-		// Create unbound variables
-
-		// Create constraints
-		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
-
-		csp.getConstraints().add(eqGatewayDirection);
-
-		// Solve CSP
-		eqGatewayDirection.setRuleName("");
-		eqGatewayDirection.solve(var_excConvGw_gatewayDirection, literal0);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("inFlow", inFlow);
-		isApplicableMatch.registerObject("excConvGw", excConvGw);
-		isApplicableMatch.registerObject("outFlow", outFlow);
-		isApplicableMatch.registerObject("nextNode", nextNode);
-		isApplicableMatch.registerObject("alt", alt);
-		isApplicableMatch.registerObject("flow", flow);
-		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
-		isApplicableMatch.registerObject("step", step);
-		isApplicableMatch.registerObject("excConvGwToStep", excConvGwToStep);
-		isApplicableMatch.registerObject("nextStep", nextStep);
-		isApplicableMatch.registerObject("nextNodeToNextStep",
-				nextNodeToNextStep);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -2321,10 +1853,10 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 					(AlternativeFlowAlternative) arguments.get(1),
 					(AlternativeFlow) arguments.get(2),
 					(NormalStep) arguments.get(3), (Step) arguments.get(4));
-		case RulesPackage.CONTINUATION_RULE___IS_APPLICABLE_BWD__MATCH:
-			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.CONTINUATION_RULE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.CONTINUATION_RULE___IS_APPLICABLE_BWD__MATCH:
+			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.CONTINUATION_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_NORMALSTEP_STEP:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
 					(AlternativeFlowAlternative) arguments.get(1),
@@ -2370,26 +1902,6 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 					.get(0));
 		case RulesPackage.CONTINUATION_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.CONTINUATION_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(FlowNodeToStep) arguments.get(1));
-		case RulesPackage.CONTINUATION_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_FLOWNODE_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_NORMALSTEP_FLOWNODETOSTEP_STEP_FLOWNODETOSTEP_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(SequenceFlow) arguments.get(1),
-					(ExclusiveGateway) arguments.get(2),
-					(SequenceFlow) arguments.get(3),
-					(FlowNode) arguments.get(4),
-					(AlternativeFlowAlternative) arguments.get(5),
-					(AlternativeFlow) arguments.get(6),
-					(SequenceFlowToUCFlow) arguments.get(7),
-					(NormalStep) arguments.get(8),
-					(FlowNodeToStep) arguments.get(9),
-					(Step) arguments.get(10),
-					(FlowNodeToStep) arguments.get(11),
-					(ModelgeneratorRuleResult) arguments.get(12));
-		case RulesPackage.CONTINUATION_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -114,13 +114,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isAppropriate_FWD(Match match, Actor actor, BasicFlow flow,
-			UseCase useCase, NormalStep step) {
+			UseCase useCase, NormalStep step,
+			PackageDeclaration packageDeclaration) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
 		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __step_actor_actor = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 
 		// story node 'initial bindings'
 		try {
@@ -132,6 +135,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(flow != null);
 			// check object match is really bound
 			JavaSDM.ensure(match != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object step is really bound
 			JavaSDM.ensure(step != null);
 			// check object useCase is really bound
@@ -146,7 +151,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 
 			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, actor, flow,
-					useCase, step));
+					useCase, step, packageDeclaration));
 
 			// ensure correct type and really bound of object csp
 			JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -169,6 +174,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -225,20 +232,38 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
+				// create object __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __useCase_flows_flow
 				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// assign attribute __useCase_flows_flow
 				__useCase_flows_flow.setName("flows");
+				// assign attribute __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor.setName("actors");
+				// assign attribute __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase.setName("useCases");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_flow, "contextEdges");
+						__packageDeclaration_actors_actor, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						actor, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -246,11 +271,22 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__useCase_flows_flow, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						flow, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "contextNodes");
+						packageDeclaration, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_useCases_useCase, "contextEdges");
+
+				// create link
+				__packageDeclaration_actors_actor.setTrg(actor);
 
 				// create link
 				__useCase_flows_flow.setTrg(flow);
@@ -258,13 +294,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// create link
 				__useCase_flows_flow.setSrc(useCase);
 
+				// create link
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
+
+				// create link
+				__packageDeclaration_useCases_useCase
+						.setSrc(packageDeclaration);
+
+				// create link
+				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
+
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
 				fujaba__Success = false;
 			}
 
 			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, actor, flow, useCase, step);
+			this.registerObjectsToMatch_FWD(match, actor, flow, useCase, step,
+					packageDeclaration);
 			return true;
 
 		} else {
@@ -286,33 +333,34 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		FlowToInteractionFragment flowToInteraction = null;
 		Interaction interaction = null;
 		Lifeline line = null;
+		PackageDeclaration packageDeclaration = null;
 		NormalStep step = null;
 		UseCase useCase = null;
 		UseCaseToInteraction useCaseToInteraction = null;
 		Iterator fujaba__IterIsApplicableMatchToCsp = null;
 		CSP csp = null;
-		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
+		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 		NormalStepToMessage stepToMessage = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge message__sendEvent__messageSend = null;
 		EMoflonEdge messageSend__covered__line = null;
-		EMoflonEdge stepToMessage__source__step = null;
-		EMoflonEdge interaction__fragment__messageSend = null;
-		EMoflonEdge line__coveredBy__messageSend = null;
-		EMoflonEdge line__coveredBy__messageReceive = null;
-		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge interaction__fragment__messageReceive = null;
-		EMoflonEdge messageSend__enclosingInteraction__interaction = null;
-		EMoflonEdge message__interaction__interaction = null;
-		EMoflonEdge messageReceive__covered__line = null;
 		EMoflonEdge stepToMessage__target__message = null;
-		EMoflonEdge messageReceive__enclosingInteraction__interaction = null;
-		EMoflonEdge messageReceive__message__message = null;
-		EMoflonEdge interaction__message__message = null;
-		EMoflonEdge __step_actor_actor = null;
+		EMoflonEdge messageReceive__covered__line = null;
+		EMoflonEdge messageSend__enclosingInteraction__interaction = null;
+		EMoflonEdge line__coveredBy__messageReceive = null;
+		EMoflonEdge interaction__fragment__messageSend = null;
+		EMoflonEdge message__sendEvent__messageSend = null;
 		EMoflonEdge message__receiveEvent__messageReceive = null;
+		EMoflonEdge interaction__fragment__messageReceive = null;
+		EMoflonEdge stepToMessage__source__step = null;
+		EMoflonEdge messageReceive__message__message = null;
+		EMoflonEdge messageReceive__enclosingInteraction__interaction = null;
+		EMoflonEdge __flow_steps_step = null;
+		EMoflonEdge interaction__message__message = null;
+		EMoflonEdge message__interaction__interaction = null;
+		EMoflonEdge line__coveredBy__messageSend = null;
+		EMoflonEdge __step_actor_actor = null;
 		EMoflonEdge messageSend__message__message = null;
 
 		// story node 'perform transformation'
@@ -344,6 +392,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object line
 			JavaSDM.ensure(_TmpObject instanceof Lifeline);
 			line = (Lifeline) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (isApplicableMatch.getObject("step"));
 
 			// ensure correct type and really bound of object step
@@ -382,12 +435,12 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				}
 			}
 			JavaSDM.ensure(fujaba__Success);
-			// create object messageSend
-			messageSend = ModalSequenceDiagramFactory.eINSTANCE
-					.createMessageOccurrenceSpecification();
-
 			// create object messageReceive
 			messageReceive = ModalSequenceDiagramFactory.eINSTANCE
+					.createMessageOccurrenceSpecification();
+
+			// create object messageSend
+			messageSend = ModalSequenceDiagramFactory.eINSTANCE
 					.createMessageOccurrenceSpecification();
 
 			// create object message
@@ -401,10 +454,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			message.setName((java.lang.String) csp.getValue("message", "name"));
 
 			// create link
-			messageSend.getCovered().add(line);
+			messageReceive.getCovered().add(line);
 
 			// create link
-			messageReceive.getCovered().add(line);
+			messageSend.getCovered().add(line);
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(messageSend,
@@ -417,10 +470,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			interaction.getFragment().add(messageSend);
 
 			// create link
-			message.setInteraction(interaction);
+			messageReceive.setEnclosingInteraction(interaction);
 
 			// create link
-			messageReceive.setEnclosingInteraction(interaction);
+			message.setInteraction(interaction);
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(messageReceive,
@@ -462,7 +515,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageSend, "createdElements");
+					step, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToMessage, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -470,15 +527,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					step, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					message, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage, "createdLinkElements");
+					messageSend, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -504,6 +557,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(messageReceive != null);
 			// check object messageSend is really bound
 			JavaSDM.ensure(messageSend != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object ruleresult is really bound
 			JavaSDM.ensure(ruleresult != null);
 			// check object step is really bound
@@ -535,6 +590,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and actor 
 			JavaSDM.ensure(!messageSend.equals(actor));
 
+			// check isomorphic binding between objects packageDeclaration and actor 
+			JavaSDM.ensure(!packageDeclaration.equals(actor));
+
 			// check isomorphic binding between objects step and actor 
 			JavaSDM.ensure(!step.equals(actor));
 
@@ -565,6 +623,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and flow 
 			JavaSDM.ensure(!messageSend.equals(flow));
 
+			// check isomorphic binding between objects packageDeclaration and flow 
+			JavaSDM.ensure(!packageDeclaration.equals(flow));
+
 			// check isomorphic binding between objects step and flow 
 			JavaSDM.ensure(!step.equals(flow));
 
@@ -592,6 +653,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and flowToInteraction 
 			JavaSDM.ensure(!messageSend.equals(flowToInteraction));
 
+			// check isomorphic binding between objects packageDeclaration and flowToInteraction 
+			JavaSDM.ensure(!packageDeclaration.equals(flowToInteraction));
+
 			// check isomorphic binding between objects step and flowToInteraction 
 			JavaSDM.ensure(!step.equals(flowToInteraction));
 
@@ -616,6 +680,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and interaction 
 			JavaSDM.ensure(!messageSend.equals(interaction));
 
+			// check isomorphic binding between objects packageDeclaration and interaction 
+			JavaSDM.ensure(!packageDeclaration.equals(interaction));
+
 			// check isomorphic binding between objects step and interaction 
 			JavaSDM.ensure(!step.equals(interaction));
 
@@ -637,6 +704,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and line 
 			JavaSDM.ensure(!messageSend.equals(line));
 
+			// check isomorphic binding between objects packageDeclaration and line 
+			JavaSDM.ensure(!packageDeclaration.equals(line));
+
 			// check isomorphic binding between objects step and line 
 			JavaSDM.ensure(!step.equals(line));
 
@@ -655,6 +725,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and message 
 			JavaSDM.ensure(!messageSend.equals(message));
 
+			// check isomorphic binding between objects packageDeclaration and message 
+			JavaSDM.ensure(!packageDeclaration.equals(message));
+
 			// check isomorphic binding between objects step and message 
 			JavaSDM.ensure(!step.equals(message));
 
@@ -670,6 +743,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
+			// check isomorphic binding between objects packageDeclaration and messageReceive 
+			JavaSDM.ensure(!packageDeclaration.equals(messageReceive));
+
 			// check isomorphic binding between objects step and messageReceive 
 			JavaSDM.ensure(!step.equals(messageReceive));
 
@@ -682,6 +758,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and messageReceive 
 			JavaSDM.ensure(!useCaseToInteraction.equals(messageReceive));
 
+			// check isomorphic binding between objects packageDeclaration and messageSend 
+			JavaSDM.ensure(!packageDeclaration.equals(messageSend));
+
 			// check isomorphic binding between objects step and messageSend 
 			JavaSDM.ensure(!step.equals(messageSend));
 
@@ -693,6 +772,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCaseToInteraction and messageSend 
 			JavaSDM.ensure(!useCaseToInteraction.equals(messageSend));
+
+			// check isomorphic binding between objects step and packageDeclaration 
+			JavaSDM.ensure(!step.equals(packageDeclaration));
+
+			// check isomorphic binding between objects stepToMessage and packageDeclaration 
+			JavaSDM.ensure(!stepToMessage.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclaration 
+			JavaSDM.ensure(!useCase.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCaseToInteraction and packageDeclaration 
+			JavaSDM.ensure(!useCaseToInteraction.equals(packageDeclaration));
 
 			// check isomorphic binding between objects stepToMessage and step 
 			JavaSDM.ensure(!stepToMessage.equals(step));
@@ -712,71 +803,71 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and useCase 
 			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
 
-			// create object message__sendEvent__messageSend
-			message__sendEvent__messageSend = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object messageSend__covered__line
 			messageSend__covered__line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object stepToMessage__source__step
-			stepToMessage__source__step = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object interaction__fragment__messageSend
-			interaction__fragment__messageSend = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object line__coveredBy__messageSend
-			line__coveredBy__messageSend = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object line__coveredBy__messageReceive
-			line__coveredBy__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __flow_steps_step
-			__flow_steps_step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
-			// create object interaction__fragment__messageReceive
-			interaction__fragment__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object messageSend__enclosingInteraction__interaction
-			messageSend__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object message__interaction__interaction
-			message__interaction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object messageReceive__covered__line
-			messageReceive__covered__line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object stepToMessage__target__message
 			stepToMessage__target__message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object messageReceive__enclosingInteraction__interaction
-			messageReceive__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
+			// create object messageReceive__covered__line
+			messageReceive__covered__line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object messageSend__enclosingInteraction__interaction
+			messageSend__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object line__coveredBy__messageReceive
+			line__coveredBy__messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object interaction__fragment__messageSend
+			interaction__fragment__messageSend = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object message__sendEvent__messageSend
+			message__sendEvent__messageSend = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object message__receiveEvent__messageReceive
+			message__receiveEvent__messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object interaction__fragment__messageReceive
+			interaction__fragment__messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object stepToMessage__source__step
+			stepToMessage__source__step = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object messageReceive__message__message
 			messageReceive__message__message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object messageReceive__enclosingInteraction__interaction
+			messageReceive__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __flow_steps_step
+			__flow_steps_step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
 			// create object interaction__message__message
 			interaction__message__message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __step_actor_actor
-			__step_actor_actor = TGGRuntimeFactory.eINSTANCE
+			// create object message__interaction__interaction
+			message__interaction__interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object message__receiveEvent__messageReceive
-			message__receiveEvent__messageReceive = TGGRuntimeFactory.eINSTANCE
+			// create object line__coveredBy__messageSend
+			line__coveredBy__messageSend = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __step_actor_actor
+			__step_actor_actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object messageSend__message__message
@@ -826,35 +917,15 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__sendEvent__messageSend, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					messageSend__covered__line, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage__source__step, "createdEdges");
+					stepToMessage__target__message, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__fragment__messageSend, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line__coveredBy__messageSend, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line__coveredBy__messageReceive, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__flow_steps_step, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__fragment__messageReceive, "createdEdges");
+					messageReceive__covered__line, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -863,15 +934,31 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__interaction__interaction, "createdEdges");
+					line__coveredBy__messageReceive, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive__covered__line, "createdEdges");
+					interaction__fragment__messageSend, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage__target__message, "createdEdges");
+					message__sendEvent__messageSend, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message__receiveEvent__messageReceive, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					interaction__fragment__messageReceive, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToMessage__source__step, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					messageReceive__message__message, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -880,7 +967,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive__message__message, "createdEdges");
+					__flow_steps_step, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -888,11 +975,15 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__step_actor_actor, "translatedEdges");
+					message__interaction__interaction, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__receiveEvent__messageReceive, "createdEdges");
+					line__coveredBy__messageSend, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__step_actor_actor, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -902,34 +993,47 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			__step_actor_actor.setTrg(actor);
 
 			// create link
-			messageSend__covered__line.setTrg(line);
+			messageReceive__covered__line.setTrg(line);
 
 			// create link
 			line__coveredBy__messageReceive.setSrc(line);
 
 			// create link
-			messageReceive__covered__line.setTrg(line);
-
-			// create link
 			line__coveredBy__messageSend.setSrc(line);
 
 			// create link
-			messageSend__covered__line.setSrc(messageSend);
+			messageSend__covered__line.setTrg(line);
 
 			// create link
-			messageSend__message__message.setSrc(messageSend);
-
-			// create link
-			interaction__fragment__messageSend.setTrg(messageSend);
-
-			// create link
-			message__sendEvent__messageSend.setTrg(messageSend);
+			messageSend__enclosingInteraction__interaction.setSrc(messageSend);
 
 			// create link
 			line__coveredBy__messageSend.setTrg(messageSend);
 
 			// create link
-			messageSend__enclosingInteraction__interaction.setSrc(messageSend);
+			message__sendEvent__messageSend.setTrg(messageSend);
+
+			// create link
+			messageSend__message__message.setSrc(messageSend);
+
+			// create link
+			messageSend__covered__line.setSrc(messageSend);
+
+			// create link
+			interaction__fragment__messageSend.setTrg(messageSend);
+
+			// create link
+			interaction__fragment__messageReceive.setSrc(interaction);
+
+			// create link
+			messageReceive__enclosingInteraction__interaction
+					.setTrg(interaction);
+
+			// create link
+			messageSend__enclosingInteraction__interaction.setTrg(interaction);
+
+			// create link
+			message__interaction__interaction.setTrg(interaction);
 
 			// create link
 			interaction__fragment__messageSend.setSrc(interaction);
@@ -938,48 +1042,38 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			interaction__message__message.setSrc(interaction);
 
 			// create link
-			interaction__fragment__messageReceive.setSrc(interaction);
-
-			// create link
-			message__interaction__interaction.setTrg(interaction);
-
-			// create link
-			messageSend__enclosingInteraction__interaction.setTrg(interaction);
-
-			// create link
-			messageReceive__enclosingInteraction__interaction
-					.setTrg(interaction);
+			message__receiveEvent__messageReceive.setTrg(messageReceive);
 
 			// create link
 			messageReceive__covered__line.setSrc(messageReceive);
-
-			// create link
-			line__coveredBy__messageReceive.setTrg(messageReceive);
-
-			// create link
-			interaction__fragment__messageReceive.setTrg(messageReceive);
 
 			// create link
 			messageReceive__enclosingInteraction__interaction
 					.setSrc(messageReceive);
 
 			// create link
+			line__coveredBy__messageReceive.setTrg(messageReceive);
+
+			// create link
 			messageReceive__message__message.setSrc(messageReceive);
 
 			// create link
-			message__receiveEvent__messageReceive.setTrg(messageReceive);
+			interaction__fragment__messageReceive.setTrg(messageReceive);
 
 			// create link
 			__flow_steps_step.setSrc(flow);
 
 			// create link
-			__step_actor_actor.setSrc(step);
-
-			// create link
 			stepToMessage__source__step.setTrg(step);
 
 			// create link
+			__step_actor_actor.setSrc(step);
+
+			// create link
 			__flow_steps_step.setTrg(step);
+
+			// create link
+			messageSend__message__message.setTrg(message);
 
 			// create link
 			stepToMessage__target__message.setTrg(message);
@@ -988,25 +1082,22 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			message__interaction__interaction.setSrc(message);
 
 			// create link
-			interaction__message__message.setTrg(message);
-
-			// create link
-			messageSend__message__message.setTrg(message);
-
-			// create link
-			messageReceive__message__message.setTrg(message);
+			message__sendEvent__messageSend.setSrc(message);
 
 			// create link
 			message__receiveEvent__messageReceive.setSrc(message);
 
 			// create link
-			message__sendEvent__messageSend.setSrc(message);
+			interaction__message__message.setTrg(message);
 
 			// create link
-			stepToMessage__target__message.setSrc(stepToMessage);
+			messageReceive__message__message.setTrg(message);
 
 			// create link
 			stepToMessage__source__step.setSrc(stepToMessage);
+
+			// create link
+			stepToMessage__target__message.setSrc(stepToMessage);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1018,7 +1109,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		// statement node 'register objects'
 		this.registerObjects_FWD(ruleresult, actor, line, messageSend,
 				interaction, messageReceive, flow, flowToInteraction, useCase,
-				useCaseToInteraction, step, message, stepToMessage);
+				useCaseToInteraction, step, message, stepToMessage,
+				packageDeclaration);
 		return ruleresult;
 	}
 
@@ -1036,26 +1128,29 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		IsApplicableRuleResult ruleresult = null;
 		Actor actor = null;
 		BasicFlow flow = null;
+		PackageDeclaration packageDeclaration = null;
 		NormalStep step = null;
 		UseCase useCase = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __step_actor_actor = null;
-		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __line_interaction_interaction = null;
-		EMoflonEdge __useCaseToInteraction_target_interaction = null;
+		EMoflonEdge __interaction_lifeline_line = null;
 		EMoflonEdge __flowToInteraction_target_interaction = null;
-		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __useCaseToInteraction_target_interaction = null;
 		EMoflonEdge __flowToInteraction_source_flow = null;
+		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __useCaseToInteraction_source_useCase = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		CSP csp = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
+		Iterator fujaba__IterUseCaseToUseCaseToInteraction = null;
+		UseCaseToInteraction useCaseToInteraction = null;
 		Interaction interaction = null;
 		Iterator fujaba__IterFlowToFlowToInteraction = null;
 		FlowToInteractionFragment flowToInteraction = null;
-		Iterator fujaba__IterUseCaseToUseCaseToInteraction = null;
-		UseCaseToInteraction useCaseToInteraction = null;
 
 		// story node 'prepare return value'
 		try {
@@ -1121,6 +1216,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object flow
 			JavaSDM.ensure(_TmpObject instanceof BasicFlow);
 			flow = (BasicFlow) _TmpObject;
+			_TmpObject = (match.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (match.getObject("step"));
 
 			// ensure correct type and really bound of object step
@@ -1133,44 +1233,44 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			useCase = (UseCase) _TmpObject;
 			// check object match is really bound
 			JavaSDM.ensure(match != null);
-			// iterate to-many link source from useCase to useCaseToInteraction
+			// iterate to-many link source from flow to flowToInteraction
 			fujaba__Success = false;
 
-			fujaba__IterUseCaseToUseCaseToInteraction = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							useCase, UseCaseToInteraction.class, "source"))
+			fujaba__IterFlowToFlowToInteraction = new ArrayList(
+					org.moflon.util.eMoflonEMFUtil.getOppositeReference(flow,
+							FlowToInteractionFragment.class, "source"))
 					.iterator();
 
-			while (fujaba__IterUseCaseToUseCaseToInteraction.hasNext()) {
+			while (fujaba__IterFlowToFlowToInteraction.hasNext()) {
 				try {
-					useCaseToInteraction = (UseCaseToInteraction) fujaba__IterUseCaseToUseCaseToInteraction
+					flowToInteraction = (FlowToInteractionFragment) fujaba__IterFlowToFlowToInteraction
 							.next();
 
-					// check object useCaseToInteraction is really bound
-					JavaSDM.ensure(useCaseToInteraction != null);
-					// iterate to-many link source from flow to flowToInteraction
+					// check object flowToInteraction is really bound
+					JavaSDM.ensure(flowToInteraction != null);
+					// bind object
+					_TmpObject = flowToInteraction.getTarget();
+
+					// ensure correct type and really bound of object interaction
+					JavaSDM.ensure(_TmpObject instanceof Interaction);
+					interaction = (Interaction) _TmpObject;
+
+					// iterate to-many link source from useCase to useCaseToInteraction
 					fujaba__Success = false;
 
-					fujaba__IterFlowToFlowToInteraction = new ArrayList(
+					fujaba__IterUseCaseToUseCaseToInteraction = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(flow,
-											FlowToInteractionFragment.class,
+									.getOppositeReference(useCase,
+											UseCaseToInteraction.class,
 											"source")).iterator();
 
-					while (fujaba__IterFlowToFlowToInteraction.hasNext()) {
+					while (fujaba__IterUseCaseToUseCaseToInteraction.hasNext()) {
 						try {
-							flowToInteraction = (FlowToInteractionFragment) fujaba__IterFlowToFlowToInteraction
+							useCaseToInteraction = (UseCaseToInteraction) fujaba__IterUseCaseToUseCaseToInteraction
 									.next();
 
-							// check object flowToInteraction is really bound
-							JavaSDM.ensure(flowToInteraction != null);
-							// bind object
-							_TmpObject = flowToInteraction.getTarget();
-
-							// ensure correct type and really bound of object interaction
-							JavaSDM.ensure(_TmpObject instanceof Interaction);
-							interaction = (Interaction) _TmpObject;
-
+							// check object useCaseToInteraction is really bound
+							JavaSDM.ensure(useCaseToInteraction != null);
 							// check link target from useCaseToInteraction to interaction
 							JavaSDM.ensure(interaction
 									.equals(useCaseToInteraction.getTarget()));
@@ -1187,6 +1287,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(flowToInteraction != null);
 								// check object interaction is really bound
 								JavaSDM.ensure(interaction != null);
+								// check object packageDeclaration is really bound
+								JavaSDM.ensure(packageDeclaration != null);
 								// check object step is really bound
 								JavaSDM.ensure(step != null);
 								// check object useCase is really bound
@@ -1195,6 +1297,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(useCaseToInteraction != null);
 								// check link actor from step to actor
 								JavaSDM.ensure(actor.equals(step.getActor()));
+
+								// check link actors from actor to packageDeclaration
+								JavaSDM.ensure(packageDeclaration.equals(actor
+										.eContainer()));
 
 								// check link flows from flow to useCase
 								JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -1220,6 +1326,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										.equals(useCaseToInteraction
 												.getTarget()));
 
+								// check link useCases from useCase to packageDeclaration
+								JavaSDM.ensure(packageDeclaration
+										.equals(useCase.eContainer()));
+
 								// iterate to-many link lifeline from interaction to line
 								fujaba__Success = false;
 
@@ -1233,44 +1343,52 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 										// check object line is really bound
 										JavaSDM.ensure(line != null);
+										// create object __step_actor_actor
+										__step_actor_actor = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __packageDeclaration_actors_actor
+										__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
 										// create object isApplicableMatch
 										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 												.createIsApplicableMatch();
 
-										// create object __step_actor_actor
-										__step_actor_actor = TGGRuntimeFactory.eINSTANCE
+										// create object __line_interaction_interaction
+										__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __interaction_lifeline_line
 										__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __line_interaction_interaction
-										__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+										// create object __flowToInteraction_target_interaction
+										__flowToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __useCaseToInteraction_target_interaction
 										__useCaseToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __flowToInteraction_target_interaction
-										__flowToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __flow_steps_step
-										__flow_steps_step = TGGRuntimeFactory.eINSTANCE
+										// create object __flowToInteraction_source_flow
+										__flowToInteraction_source_flow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __useCase_flows_flow
 										__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __flowToInteraction_source_flow
-										__flowToInteraction_source_flow = TGGRuntimeFactory.eINSTANCE
+										// create object __flow_steps_step
+										__flow_steps_step = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __useCaseToInteraction_source_useCase
 										__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// assign attribute __flowToInteraction_source_flow
@@ -1297,6 +1415,19 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										// assign attribute __interaction_lifeline_line
 										__interaction_lifeline_line
 												.setName("lifeline");
+										// assign attribute __packageDeclaration_actors_actor
+										__packageDeclaration_actors_actor
+												.setName("actors");
+										// assign attribute __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase
+												.setName("useCases");
+
+										// create link
+										__step_actor_actor.setTrg(actor);
+
+										// create link
+										__packageDeclaration_actors_actor
+												.setTrg(actor);
 
 										// create link
 										isApplicableMatch
@@ -1304,31 +1435,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 														actor);
 
 										// create link
-										__step_actor_actor.setTrg(actor);
-
-										// create link
-										__interaction_lifeline_line
-												.setTrg(line);
+										isApplicableMatch
+												.getAllContextElements().add(
+														line);
 
 										// create link
 										__line_interaction_interaction
 												.setSrc(line);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														line);
-
-										// create link
 										__interaction_lifeline_line
-												.setSrc(interaction);
-
-										// create link
-										__useCaseToInteraction_target_interaction
-												.setTrg(interaction);
+												.setTrg(line);
 
 										// create link
 										__flowToInteraction_target_interaction
+												.setTrg(interaction);
+
+										// create link
+										__useCaseToInteraction_target_interaction
 												.setTrg(interaction);
 
 										// create link
@@ -1341,10 +1465,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 														interaction);
 
 										// create link
-										__flow_steps_step.setSrc(flow);
+										__interaction_lifeline_line
+												.setSrc(interaction);
+
+										// create link
+										__flowToInteraction_source_flow
+												.setTrg(flow);
 
 										// create link
 										__useCase_flows_flow.setTrg(flow);
+
+										// create link
+										__flow_steps_step.setSrc(flow);
 
 										// create link
 										isApplicableMatch
@@ -1353,7 +1485,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 										// create link
 										__flowToInteraction_source_flow
-												.setTrg(flow);
+												.setSrc(flowToInteraction);
 
 										// create link
 										isApplicableMatch
@@ -1365,14 +1497,6 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 												.setSrc(flowToInteraction);
 
 										// create link
-										__flowToInteraction_source_flow
-												.setSrc(flowToInteraction);
-
-										// create link
-										__useCaseToInteraction_source_useCase
-												.setTrg(useCase);
-
-										// create link
 										__useCase_flows_flow.setSrc(useCase);
 
 										// create link
@@ -1382,10 +1506,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 										// create link
 										__useCaseToInteraction_source_useCase
-												.setSrc(useCaseToInteraction);
+												.setTrg(useCase);
+
+										// create link
+										__packageDeclaration_useCases_useCase
+												.setTrg(useCase);
 
 										// create link
 										__useCaseToInteraction_target_interaction
+												.setSrc(useCaseToInteraction);
+
+										// create link
+										__useCaseToInteraction_source_useCase
 												.setSrc(useCaseToInteraction);
 
 										// create link
@@ -1394,10 +1526,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 														useCaseToInteraction);
 
 										// create link
-										__flow_steps_step.setTrg(step);
+										__step_actor_actor.setSrc(step);
 
 										// create link
-										__step_actor_actor.setSrc(step);
+										__flow_steps_step.setTrg(step);
 
 										// create link
 										isApplicableMatch
@@ -1405,17 +1537,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 														step);
 
 										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__useCaseToInteraction_source_useCase,
-														"allContextElements");
+										isApplicableMatch
+												.getAllContextElements().add(
+														packageDeclaration);
+
+										// create link
+										__packageDeclaration_actors_actor
+												.setSrc(packageDeclaration);
+
+										// create link
+										__packageDeclaration_useCases_useCase
+												.setSrc(packageDeclaration);
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
 														__interaction_lifeline_line,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__packageDeclaration_useCases_useCase,
 														"allContextElements");
 
 										// create link
@@ -1429,21 +1574,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__flowToInteraction_source_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__step_actor_actor,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__flowToInteraction_target_interaction,
+														__useCase_flows_flow,
 														"allContextElements");
 
 										// create link
@@ -1464,7 +1595,35 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__useCase_flows_flow,
+														__step_actor_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__flowToInteraction_source_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__packageDeclaration_actors_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__useCaseToInteraction_source_useCase,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__flowToInteraction_target_interaction,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -1480,7 +1639,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 															flowToInteraction,
 															useCase,
 															useCaseToInteraction,
-															step));
+															step,
+															packageDeclaration));
 
 											// ensure correct type and really bound of object csp
 											JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -1560,11 +1720,13 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjectsToMatch_FWD(Match match, Actor actor,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
+			BasicFlow flow, UseCase useCase, NormalStep step,
+			PackageDeclaration packageDeclaration) {
 		match.registerObject("actor", actor);
 		match.registerObject("flow", flow);
 		match.registerObject("useCase", useCase);
 		match.registerObject("step", step);
+		match.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -1574,7 +1736,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, Actor actor,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
+			BasicFlow flow, UseCase useCase, NormalStep step,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
@@ -1623,7 +1786,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Lifeline line, Interaction interaction,
 			BasicFlow flow, FlowToInteractionFragment flowToInteraction,
 			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
-			NormalStep step) {
+			NormalStep step, PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -1663,6 +1826,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("useCaseToInteraction",
 				useCaseToInteraction);
 		isApplicableMatch.registerObject("step", step);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -1673,32 +1838,6 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isApplicable_checkCsp_FWD(CSP csp) {
 		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void registerObjects_FWD(PerformRuleResult ruleresult,
-			EObject actor, EObject line, EObject messageSend,
-			EObject interaction, EObject messageReceive, EObject flow,
-			EObject flowToInteraction, EObject useCase,
-			EObject useCaseToInteraction, EObject step, EObject message,
-			EObject stepToMessage) {
-		ruleresult.registerObject("actor", actor);
-		ruleresult.registerObject("line", line);
-		ruleresult.registerObject("messageSend", messageSend);
-		ruleresult.registerObject("interaction", interaction);
-		ruleresult.registerObject("messageReceive", messageReceive);
-		ruleresult.registerObject("flow", flow);
-		ruleresult.registerObject("flowToInteraction", flowToInteraction);
-		ruleresult.registerObject("useCase", useCase);
-		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
-		ruleresult.registerObject("step", step);
-		ruleresult.registerObject("message", message);
-		ruleresult.registerObject("stepToMessage", stepToMessage);
-
 	}
 
 	/**
@@ -1723,22 +1862,22 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
 		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __line_coveredBy_messageSend = null;
-		EMoflonEdge __interaction_fragment_messageSend = null;
-		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __messageSend_message_message = null;
+		EMoflonEdge __message_interaction_interaction = null;
+		EMoflonEdge __messageSend_covered_line = null;
 		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
+		EMoflonEdge __line_coveredBy_messageSend = null;
+		EMoflonEdge __message_receiveEvent_messageReceive = null;
+		EMoflonEdge __interaction_fragment_messageReceive = null;
+		EMoflonEdge __interaction_fragment_messageSend = null;
+		EMoflonEdge __line_coveredBy_messageReceive = null;
+		EMoflonEdge __messageSend_enclosingInteraction_interaction = null;
 		EMoflonEdge __message_sendEvent_messageSend = null;
 		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge __messageSend_enclosingInteraction_interaction = null;
-		EMoflonEdge __messageSend_covered_line = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge __messageSend_message_message = null;
 		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge __line_interaction_interaction = null;
 
 		// story node 'initial bindings'
 		try {
@@ -1801,32 +1940,48 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-				// create object __messageReceive_enclosingInteraction_interaction
-				__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __messageReceive_covered_line
 				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __message_interaction_interaction
+				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageSend_covered_line
+				__messageSend_covered_line = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageReceive_message_message
+				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageReceive_enclosingInteraction_interaction
+				__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __line_coveredBy_messageSend
 				__line_coveredBy_messageSend = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __interaction_fragment_messageSend
-				__interaction_fragment_messageSend = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __message_receiveEvent_messageReceive
 				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageSend_message_message
-				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
+				// create object __interaction_fragment_messageReceive
+				__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageReceive_message_message
-				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+				// create object __interaction_fragment_messageSend
+				__interaction_fragment_messageSend = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __line_coveredBy_messageReceive
+				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageSend_enclosingInteraction_interaction
+				__messageSend_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __message_sendEvent_messageSend
@@ -1837,24 +1992,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__interaction_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageSend_enclosingInteraction_interaction
-				__messageSend_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageSend_covered_line
-				__messageSend_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __interaction_fragment_messageReceive
-				__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __message_interaction_interaction
-				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __line_coveredBy_messageReceive
-				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
+				// create object __messageSend_message_message
+				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __line_coveredBy_messageSend
@@ -1890,25 +2029,35 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageReceive_covered_line, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_interaction_interaction,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageSend_covered_line, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil
+						.addOppositeReference(match,
+								__messageReceive_message_message,
+								"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__messageReceive_enclosingInteraction_interaction,
 						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageReceive_covered_line, "toBeTranslatedEdges");
+						messageSend, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__line_coveredBy_messageSend, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageReceive, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_fragment_messageSend,
-						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1917,13 +2066,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageSend_message_message, "toBeTranslatedEdges");
+						messageReceive, "toBeTranslatedNodes");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__messageReceive_message_message,
-								"toBeTranslatedEdges");
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_fragment_messageReceive,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_fragment_messageSend,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						message, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageSend_enclosingInteraction_interaction,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1935,37 +2101,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						message, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageSend_enclosingInteraction_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageSend_covered_line, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_fragment_messageReceive,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_interaction_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageSend, "toBeTranslatedNodes");
-
-				// create link
-				__line_coveredBy_messageReceive.setSrc(line);
+						__messageSend_message_message, "toBeTranslatedEdges");
 
 				// create link
 				__messageReceive_covered_line.setTrg(line);
@@ -1974,46 +2110,55 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__messageSend_covered_line.setTrg(line);
 
 				// create link
+				__line_coveredBy_messageReceive.setSrc(line);
+
+				// create link
 				__line_coveredBy_messageSend.setSrc(line);
-
-				// create link
-				__line_coveredBy_messageSend.setTrg(messageSend);
-
-				// create link
-				__message_sendEvent_messageSend.setTrg(messageSend);
-
-				// create link
-				__messageSend_covered_line.setSrc(messageSend);
 
 				// create link
 				__messageSend_enclosingInteraction_interaction
 						.setSrc(messageSend);
 
 				// create link
-				__interaction_fragment_messageSend.setTrg(messageSend);
+				__message_sendEvent_messageSend.setTrg(messageSend);
 
 				// create link
 				__messageSend_message_message.setSrc(messageSend);
+
+				// create link
+				__messageSend_covered_line.setSrc(messageSend);
+
+				// create link
+				__interaction_fragment_messageSend.setTrg(messageSend);
+
+				// create link
+				__line_coveredBy_messageSend.setTrg(messageSend);
+
+				// create link
+				__interaction_fragment_messageReceive.setSrc(interaction);
+
+				// create link
+				__message_interaction_interaction.setTrg(interaction);
+
+				// create link
+				__interaction_message_message.setSrc(interaction);
+
+				// create link
+				__interaction_fragment_messageSend.setSrc(interaction);
 
 				// create link
 				__messageReceive_enclosingInteraction_interaction
 						.setTrg(interaction);
 
 				// create link
-				__interaction_fragment_messageReceive.setSrc(interaction);
-
-				// create link
-				__interaction_message_message.setSrc(interaction);
-
-				// create link
 				__messageSend_enclosingInteraction_interaction
 						.setTrg(interaction);
 
 				// create link
-				__interaction_fragment_messageSend.setSrc(interaction);
+				__messageReceive_message_message.setSrc(messageReceive);
 
 				// create link
-				__message_interaction_interaction.setTrg(interaction);
+				__line_coveredBy_messageReceive.setTrg(messageReceive);
 
 				// create link
 				__messageReceive_enclosingInteraction_interaction
@@ -2023,34 +2168,28 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__interaction_fragment_messageReceive.setTrg(messageReceive);
 
 				// create link
-				__messageReceive_covered_line.setSrc(messageReceive);
-
-				// create link
-				__messageReceive_message_message.setSrc(messageReceive);
-
-				// create link
 				__message_receiveEvent_messageReceive.setTrg(messageReceive);
 
 				// create link
-				__line_coveredBy_messageReceive.setTrg(messageReceive);
-
-				// create link
-				__message_sendEvent_messageSend.setSrc(message);
-
-				// create link
-				__message_interaction_interaction.setSrc(message);
-
-				// create link
-				__message_receiveEvent_messageReceive.setSrc(message);
+				__messageReceive_covered_line.setSrc(messageReceive);
 
 				// create link
 				__messageSend_message_message.setTrg(message);
 
 				// create link
+				__messageReceive_message_message.setTrg(message);
+
+				// create link
+				__message_sendEvent_messageSend.setSrc(message);
+
+				// create link
+				__message_receiveEvent_messageReceive.setSrc(message);
+
+				// create link
 				__interaction_message_message.setTrg(message);
 
 				// create link
-				__messageReceive_message_message.setTrg(message);
+				__message_interaction_interaction.setSrc(message);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -2076,22 +2215,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-				// create object __line_interaction_interaction
-				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __interaction_lifeline_line
 				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __line_interaction_interaction
+				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __line_interaction_interaction
 				__line_interaction_interaction.setName("interaction");
 				// assign attribute __interaction_lifeline_line
 				__interaction_lifeline_line.setName("lifeline");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_interaction_interaction, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -2103,19 +2238,23 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "contextNodes");
+						__line_interaction_interaction, "contextEdges");
 
 				// create link
-				__line_interaction_interaction.setSrc(line);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						interaction, "contextNodes");
 
 				// create link
 				__interaction_lifeline_line.setTrg(line);
 
 				// create link
-				__interaction_lifeline_line.setSrc(interaction);
+				__line_interaction_interaction.setSrc(line);
 
 				// create link
 				__line_interaction_interaction.setTrg(interaction);
+
+				// create link
+				__interaction_lifeline_line.setSrc(interaction);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -2149,6 +2288,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Message message = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		MessageOccurrenceSpecification messageSend = null;
+		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
 		UseCaseToInteraction useCaseToInteraction = null;
 		Iterator fujaba__IterIsApplicableMatchToCsp = null;
@@ -2156,24 +2296,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		NormalStep step = null;
 		NormalStepToMessage stepToMessage = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge stepToMessage__source__step = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
+		EMoflonEdge __messageSend_message_message = null;
 		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __line_coveredBy_messageSend = null;
+		EMoflonEdge flow__steps__step = null;
+		EMoflonEdge __interaction_message_message = null;
+		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
+		EMoflonEdge __messageSend_covered_line = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
+		EMoflonEdge __interaction_fragment_messageReceive = null;
+		EMoflonEdge step__actor__actor = null;
+		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge __messageSend_enclosingInteraction_interaction = null;
 		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
-		EMoflonEdge flow__steps__step = null;
 		EMoflonEdge stepToMessage__target__message = null;
-		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge __interaction_fragment_messageSend = null;
 		EMoflonEdge __message_sendEvent_messageSend = null;
-		EMoflonEdge step__actor__actor = null;
-		EMoflonEdge __messageSend_message_message = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge __messageSend_covered_line = null;
+		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __line_coveredBy_messageSend = null;
+		EMoflonEdge stepToMessage__source__step = null;
+		EMoflonEdge __interaction_fragment_messageSend = null;
 
 		// story node 'perform transformation'
 		try {
@@ -2219,6 +2359,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object messageSend
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (isApplicableMatch.getObject("useCase"));
 
 			// ensure correct type and really bound of object useCase
@@ -2304,6 +2449,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					messageSend, "translatedElements");
 
 			// create link
@@ -2312,15 +2461,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message, "translatedElements");
+					messageReceive, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					step, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -2346,6 +2491,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(messageReceive != null);
 			// check object messageSend is really bound
 			JavaSDM.ensure(messageSend != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object ruleresult is really bound
 			JavaSDM.ensure(ruleresult != null);
 			// check object step is really bound
@@ -2377,6 +2524,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and actor 
 			JavaSDM.ensure(!messageSend.equals(actor));
 
+			// check isomorphic binding between objects packageDeclaration and actor 
+			JavaSDM.ensure(!packageDeclaration.equals(actor));
+
 			// check isomorphic binding between objects step and actor 
 			JavaSDM.ensure(!step.equals(actor));
 
@@ -2407,6 +2557,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and flow 
 			JavaSDM.ensure(!messageSend.equals(flow));
 
+			// check isomorphic binding between objects packageDeclaration and flow 
+			JavaSDM.ensure(!packageDeclaration.equals(flow));
+
 			// check isomorphic binding between objects step and flow 
 			JavaSDM.ensure(!step.equals(flow));
 
@@ -2434,6 +2587,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and flowToInteraction 
 			JavaSDM.ensure(!messageSend.equals(flowToInteraction));
 
+			// check isomorphic binding between objects packageDeclaration and flowToInteraction 
+			JavaSDM.ensure(!packageDeclaration.equals(flowToInteraction));
+
 			// check isomorphic binding between objects step and flowToInteraction 
 			JavaSDM.ensure(!step.equals(flowToInteraction));
 
@@ -2458,6 +2614,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and interaction 
 			JavaSDM.ensure(!messageSend.equals(interaction));
 
+			// check isomorphic binding between objects packageDeclaration and interaction 
+			JavaSDM.ensure(!packageDeclaration.equals(interaction));
+
 			// check isomorphic binding between objects step and interaction 
 			JavaSDM.ensure(!step.equals(interaction));
 
@@ -2479,6 +2638,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and line 
 			JavaSDM.ensure(!messageSend.equals(line));
 
+			// check isomorphic binding between objects packageDeclaration and line 
+			JavaSDM.ensure(!packageDeclaration.equals(line));
+
 			// check isomorphic binding between objects step and line 
 			JavaSDM.ensure(!step.equals(line));
 
@@ -2497,6 +2659,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and message 
 			JavaSDM.ensure(!messageSend.equals(message));
 
+			// check isomorphic binding between objects packageDeclaration and message 
+			JavaSDM.ensure(!packageDeclaration.equals(message));
+
 			// check isomorphic binding between objects step and message 
 			JavaSDM.ensure(!step.equals(message));
 
@@ -2512,6 +2677,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
+			// check isomorphic binding between objects packageDeclaration and messageReceive 
+			JavaSDM.ensure(!packageDeclaration.equals(messageReceive));
+
 			// check isomorphic binding between objects step and messageReceive 
 			JavaSDM.ensure(!step.equals(messageReceive));
 
@@ -2524,6 +2692,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and messageReceive 
 			JavaSDM.ensure(!useCaseToInteraction.equals(messageReceive));
 
+			// check isomorphic binding between objects packageDeclaration and messageSend 
+			JavaSDM.ensure(!packageDeclaration.equals(messageSend));
+
 			// check isomorphic binding between objects step and messageSend 
 			JavaSDM.ensure(!step.equals(messageSend));
 
@@ -2535,6 +2706,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCaseToInteraction and messageSend 
 			JavaSDM.ensure(!useCaseToInteraction.equals(messageSend));
+
+			// check isomorphic binding between objects step and packageDeclaration 
+			JavaSDM.ensure(!step.equals(packageDeclaration));
+
+			// check isomorphic binding between objects stepToMessage and packageDeclaration 
+			JavaSDM.ensure(!stepToMessage.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclaration 
+			JavaSDM.ensure(!useCase.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCaseToInteraction and packageDeclaration 
+			JavaSDM.ensure(!useCaseToInteraction.equals(packageDeclaration));
 
 			// check isomorphic binding between objects stepToMessage and step 
 			JavaSDM.ensure(!stepToMessage.equals(step));
@@ -2554,24 +2737,43 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and useCase 
 			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
 
-			// create object stepToMessage__source__step
-			stepToMessage__source__step = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_fragment_messageReceive
-			__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
+			// create object __messageSend_message_message
+			__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __messageReceive_covered_line
 			__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __line_coveredBy_messageSend
-			__line_coveredBy_messageSend = TGGRuntimeFactory.eINSTANCE
+			// create object flow__steps__step
+			flow__steps__step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
+			// create object __interaction_message_message
+			__interaction_message_message = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __messageReceive_enclosingInteraction_interaction
+			__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __messageSend_covered_line
+			__messageSend_covered_line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __message_receiveEvent_messageReceive
 			__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __interaction_fragment_messageReceive
+			__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object step__actor__actor
+			step__actor__actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __message_interaction_interaction
+			__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __messageSend_enclosingInteraction_interaction
@@ -2582,47 +2784,28 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __messageReceive_message_message
-			__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __messageReceive_enclosingInteraction_interaction
-			__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object flow__steps__step
-			flow__steps__step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
 			// create object stepToMessage__target__message
 			stepToMessage__target__message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_message_message
-			__interaction_message_message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_fragment_messageSend
-			__interaction_fragment_messageSend = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __message_sendEvent_messageSend
 			__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object step__actor__actor
-			step__actor__actor = TGGRuntimeFactory.eINSTANCE
+			// create object __messageReceive_message_message
+			__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __messageSend_message_message
-			__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
+			// create object __line_coveredBy_messageSend
+			__line_coveredBy_messageSend = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __message_interaction_interaction
-			__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+			// create object stepToMessage__source__step
+			stepToMessage__source__step = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __messageSend_covered_line
-			__messageSend_covered_line = TGGRuntimeFactory.eINSTANCE
+			// create object __interaction_fragment_messageSend
+			__interaction_fragment_messageSend = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -2668,11 +2851,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage__source__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_fragment_messageReceive, "translatedEdges");
+					__messageSend_message_message, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2680,11 +2859,36 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_coveredBy_messageSend, "translatedEdges");
+					flow__steps__step, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__interaction_message_message, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__messageReceive_enclosingInteraction_interaction,
+					"translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__messageSend_covered_line, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__message_receiveEvent_messageReceive, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__interaction_fragment_messageReceive, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					step__actor__actor, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__message_interaction_interaction, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2697,28 +2901,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageReceive_message_message, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageReceive_enclosingInteraction_interaction,
-					"translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					flow__steps__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					stepToMessage__target__message, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_message_message, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_fragment_messageSend, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2726,28 +2909,28 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					step__actor__actor, "createdEdges");
+					__messageReceive_message_message, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageSend_message_message, "translatedEdges");
+					__line_coveredBy_messageSend, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__message_interaction_interaction, "translatedEdges");
+					stepToMessage__source__step, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageSend_covered_line, "translatedEdges");
+					__interaction_fragment_messageSend, "translatedEdges");
 
 			// create link
 			step__actor__actor.setTrg(actor);
 
 			// create link
-			__messageReceive_covered_line.setTrg(line);
+			__line_coveredBy_messageSend.setSrc(line);
 
 			// create link
-			__line_coveredBy_messageSend.setSrc(line);
+			__messageReceive_covered_line.setTrg(line);
 
 			// create link
 			__line_coveredBy_messageReceive.setSrc(line);
@@ -2756,99 +2939,99 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			__messageSend_covered_line.setTrg(line);
 
 			// create link
-			__messageSend_message_message.setSrc(messageSend);
+			__line_coveredBy_messageSend.setTrg(messageSend);
 
 			// create link
 			__message_sendEvent_messageSend.setTrg(messageSend);
 
 			// create link
-			__line_coveredBy_messageSend.setTrg(messageSend);
-
-			// create link
 			__interaction_fragment_messageSend.setTrg(messageSend);
-
-			// create link
-			__messageSend_covered_line.setSrc(messageSend);
 
 			// create link
 			__messageSend_enclosingInteraction_interaction.setSrc(messageSend);
 
 			// create link
-			__message_interaction_interaction.setTrg(interaction);
+			__messageSend_message_message.setSrc(messageSend);
+
+			// create link
+			__messageSend_covered_line.setSrc(messageSend);
+
+			// create link
+			__interaction_fragment_messageReceive.setSrc(interaction);
 
 			// create link
 			__messageReceive_enclosingInteraction_interaction
 					.setTrg(interaction);
 
 			// create link
-			__messageSend_enclosingInteraction_interaction.setTrg(interaction);
-
-			// create link
-			__interaction_fragment_messageReceive.setSrc(interaction);
-
-			// create link
-			__interaction_fragment_messageSend.setSrc(interaction);
+			__message_interaction_interaction.setTrg(interaction);
 
 			// create link
 			__interaction_message_message.setSrc(interaction);
 
 			// create link
-			__message_receiveEvent_messageReceive.setTrg(messageReceive);
+			__messageSend_enclosingInteraction_interaction.setTrg(interaction);
+
+			// create link
+			__interaction_fragment_messageSend.setSrc(interaction);
+
+			// create link
+			__interaction_fragment_messageReceive.setTrg(messageReceive);
+
+			// create link
+			__line_coveredBy_messageReceive.setTrg(messageReceive);
+
+			// create link
+			__messageReceive_message_message.setSrc(messageReceive);
 
 			// create link
 			__messageReceive_enclosingInteraction_interaction
 					.setSrc(messageReceive);
 
 			// create link
-			__interaction_fragment_messageReceive.setTrg(messageReceive);
-
-			// create link
 			__messageReceive_covered_line.setSrc(messageReceive);
 
 			// create link
-			__messageReceive_message_message.setSrc(messageReceive);
-
-			// create link
-			__line_coveredBy_messageReceive.setTrg(messageReceive);
+			__message_receiveEvent_messageReceive.setTrg(messageReceive);
 
 			// create link
 			flow__steps__step.setSrc(flow);
 
 			// create link
-			flow__steps__step.setTrg(step);
+			step__actor__actor.setSrc(step);
 
 			// create link
 			stepToMessage__source__step.setTrg(step);
 
 			// create link
-			step__actor__actor.setSrc(step);
-
-			// create link
-			__interaction_message_message.setTrg(message);
+			flow__steps__step.setTrg(step);
 
 			// create link
 			__message_sendEvent_messageSend.setSrc(message);
 
 			// create link
-			__messageReceive_message_message.setTrg(message);
+			__interaction_message_message.setTrg(message);
 
 			// create link
-			__message_interaction_interaction.setSrc(message);
+			__messageReceive_message_message.setTrg(message);
 
 			// create link
 			__message_receiveEvent_messageReceive.setSrc(message);
 
 			// create link
-			__messageSend_message_message.setTrg(message);
-
-			// create link
 			stepToMessage__target__message.setTrg(message);
 
 			// create link
-			stepToMessage__target__message.setSrc(stepToMessage);
+			__message_interaction_interaction.setSrc(message);
+
+			// create link
+			__messageSend_message_message.setTrg(message);
 
 			// create link
 			stepToMessage__source__step.setSrc(stepToMessage);
+
+			// create link
+			stepToMessage__target__message.setSrc(stepToMessage);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -2860,7 +3043,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		// statement node 'register objects'
 		this.registerObjects_BWD(ruleresult, actor, line, messageSend,
 				interaction, messageReceive, flow, flowToInteraction, useCase,
-				useCaseToInteraction, step, message, stepToMessage);
+				useCaseToInteraction, step, message, stepToMessage,
+				packageDeclaration);
 		return ruleresult;
 	}
 
@@ -2881,29 +3065,34 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Message message = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		MessageOccurrenceSpecification messageSend = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __line_coveredBy_messageSend = null;
+		EMoflonEdge __interaction_lifeline_line = null;
 		EMoflonEdge __messageSend_covered_line = null;
 		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __interaction_lifeline_line = null;
-		EMoflonEdge __line_interaction_interaction = null;
 		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __messageSend_message_message = null;
-		EMoflonEdge __message_sendEvent_messageSend = null;
+		EMoflonEdge __line_coveredBy_messageSend = null;
+		EMoflonEdge __line_interaction_interaction = null;
 		EMoflonEdge __interaction_fragment_messageSend = null;
+		EMoflonEdge __message_sendEvent_messageSend = null;
+		EMoflonEdge __messageSend_message_message = null;
 		EMoflonEdge __messageSend_enclosingInteraction_interaction = null;
+		EMoflonEdge __interaction_fragment_messageReceive = null;
+		EMoflonEdge __useCaseToInteraction_target_interaction = null;
+		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
 		EMoflonEdge __flowToInteraction_target_interaction = null;
 		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge __useCaseToInteraction_target_interaction = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
-		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
 		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge __flowToInteraction_source_flow = null;
 		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __flowToInteraction_source_flow = null;
 		EMoflonEdge __useCaseToInteraction_source_useCase = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		CSP csp = null;
+		Iterator fujaba__IterPackageDeclarationToActor = null;
+		Actor actor = null;
+		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
 		Iterator fujaba__IterInteractionToUseCaseToInteraction = null;
 		UseCaseToInteraction useCaseToInteraction = null;
@@ -3120,6 +3309,17 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										.equals(useCaseToInteraction
 												.getTarget()));
 
+								// bind object
+								packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+										.eContainer() : null;
+
+								// check object packageDeclaration is really bound
+								JavaSDM.ensure(packageDeclaration != null);
+
+								// check if contained via correct reference
+								JavaSDM.ensure(packageDeclaration.getUseCases()
+										.contains(useCase));
+
 								// check link covered from messageReceive to line
 								JavaSDM.ensure(messageReceive.getCovered()
 										.contains(line));
@@ -3128,547 +3328,648 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(messageSend.getCovered()
 										.contains(line));
 
-								// create object isApplicableMatch
-								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-										.createIsApplicableMatch();
-
-								// create object __line_coveredBy_messageSend
-								__line_coveredBy_messageSend = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __messageSend_covered_line
-								__messageSend_covered_line = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __messageReceive_covered_line
-								__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __interaction_lifeline_line
-								__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __line_interaction_interaction
-								__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __line_coveredBy_messageReceive
-								__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __messageSend_message_message
-								__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __message_sendEvent_messageSend
-								__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __interaction_fragment_messageSend
-								__interaction_fragment_messageSend = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __messageSend_enclosingInteraction_interaction
-								__messageSend_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __messageReceive_enclosingInteraction_interaction
-								__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __flowToInteraction_target_interaction
-								__flowToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __interaction_message_message
-								__interaction_message_message = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __useCaseToInteraction_target_interaction
-								__useCaseToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __interaction_fragment_messageReceive
-								__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __message_interaction_interaction
-								__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __message_receiveEvent_messageReceive
-								__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __messageReceive_message_message
-								__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __flowToInteraction_source_flow
-								__flowToInteraction_source_flow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __useCase_flows_flow
-								__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __useCaseToInteraction_source_useCase
-								__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// assign attribute __line_coveredBy_messageSend
-								__line_coveredBy_messageSend
-										.setName("coveredBy");
-								// assign attribute __messageSend_covered_line
-								__messageSend_covered_line.setName("covered");
-								// assign attribute __messageSend_enclosingInteraction_interaction
-								__messageSend_enclosingInteraction_interaction
-										.setName("enclosingInteraction");
-								// assign attribute __interaction_fragment_messageSend
-								__interaction_fragment_messageSend
-										.setName("fragment");
-								// assign attribute __messageReceive_enclosingInteraction_interaction
-								__messageReceive_enclosingInteraction_interaction
-										.setName("enclosingInteraction");
-								// assign attribute __interaction_fragment_messageReceive
-								__interaction_fragment_messageReceive
-										.setName("fragment");
-								// assign attribute __flowToInteraction_source_flow
-								__flowToInteraction_source_flow
-										.setName("source");
-								// assign attribute __flowToInteraction_target_interaction
-								__flowToInteraction_target_interaction
-										.setName("target");
-								// assign attribute __useCase_flows_flow
-								__useCase_flows_flow.setName("flows");
-								// assign attribute __useCaseToInteraction_source_useCase
-								__useCaseToInteraction_source_useCase
-										.setName("source");
-								// assign attribute __useCaseToInteraction_target_interaction
-								__useCaseToInteraction_target_interaction
-										.setName("target");
-								// assign attribute __message_sendEvent_messageSend
-								__message_sendEvent_messageSend
-										.setName("sendEvent");
-								// assign attribute __message_receiveEvent_messageReceive
-								__message_receiveEvent_messageReceive
-										.setName("receiveEvent");
-								// assign attribute __message_interaction_interaction
-								__message_interaction_interaction
-										.setName("interaction");
-								// assign attribute __interaction_message_message
-								__interaction_message_message
-										.setName("message");
-								// assign attribute __line_interaction_interaction
-								__line_interaction_interaction
-										.setName("interaction");
-								// assign attribute __interaction_lifeline_line
-								__interaction_lifeline_line.setName("lifeline");
-								// assign attribute __messageSend_message_message
-								__messageSend_message_message
-										.setName("message");
-								// assign attribute __messageReceive_message_message
-								__messageReceive_message_message
-										.setName("message");
-								// assign attribute __line_coveredBy_messageReceive
-								__line_coveredBy_messageReceive
-										.setName("coveredBy");
-								// assign attribute __messageReceive_covered_line
-								__messageReceive_covered_line
-										.setName("covered");
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										actor);
-
-								// create link
-								__line_coveredBy_messageSend.setSrc(line);
-
-								// create link
-								__messageSend_covered_line.setTrg(line);
-
-								// create link
-								__messageReceive_covered_line.setTrg(line);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										line);
-
-								// create link
-								__interaction_lifeline_line.setTrg(line);
-
-								// create link
-								__line_interaction_interaction.setSrc(line);
-
-								// create link
-								__line_coveredBy_messageReceive.setSrc(line);
-
-								// create link
-								__messageSend_message_message
-										.setSrc(messageSend);
-
-								// create link
-								__message_sendEvent_messageSend
-										.setTrg(messageSend);
-
-								// create link
-								__interaction_fragment_messageSend
-										.setTrg(messageSend);
-
-								// create link
-								__messageSend_covered_line.setSrc(messageSend);
-
-								// create link
-								__line_coveredBy_messageSend
-										.setTrg(messageSend);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										messageSend);
-
-								// create link
-								__messageSend_enclosingInteraction_interaction
-										.setSrc(messageSend);
-
-								// create link
-								__messageReceive_enclosingInteraction_interaction
-										.setTrg(interaction);
-
-								// create link
-								__interaction_lifeline_line.setSrc(interaction);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										interaction);
-
-								// create link
-								__flowToInteraction_target_interaction
-										.setTrg(interaction);
-
-								// create link
-								__interaction_fragment_messageSend
-										.setSrc(interaction);
-
-								// create link
-								__interaction_message_message
-										.setSrc(interaction);
-
-								// create link
-								__line_interaction_interaction
-										.setTrg(interaction);
-
-								// create link
-								__useCaseToInteraction_target_interaction
-										.setTrg(interaction);
-
-								// create link
-								__messageSend_enclosingInteraction_interaction
-										.setTrg(interaction);
-
-								// create link
-								__interaction_fragment_messageReceive
-										.setSrc(interaction);
-
-								// create link
-								__message_interaction_interaction
-										.setTrg(interaction);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										messageReceive);
-
-								// create link
-								__line_coveredBy_messageReceive
-										.setTrg(messageReceive);
-
-								// create link
-								__messageReceive_covered_line
-										.setSrc(messageReceive);
-
-								// create link
-								__message_receiveEvent_messageReceive
-										.setTrg(messageReceive);
-
-								// create link
-								__messageReceive_enclosingInteraction_interaction
-										.setSrc(messageReceive);
-
-								// create link
-								__messageReceive_message_message
-										.setSrc(messageReceive);
-
-								// create link
-								__interaction_fragment_messageReceive
-										.setTrg(messageReceive);
-
-								// create link
-								__flowToInteraction_source_flow.setTrg(flow);
-
-								// create link
-								__useCase_flows_flow.setTrg(flow);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										flow);
-
-								// create link
-								__flowToInteraction_target_interaction
-										.setSrc(flowToInteraction);
-
-								// create link
-								__flowToInteraction_source_flow
-										.setSrc(flowToInteraction);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										flowToInteraction);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										useCase);
-
-								// create link
-								__useCase_flows_flow.setSrc(useCase);
-
-								// create link
-								__useCaseToInteraction_source_useCase
-										.setTrg(useCase);
-
-								// create link
-								__useCaseToInteraction_target_interaction
-										.setSrc(useCaseToInteraction);
-
-								// create link
-								__useCaseToInteraction_source_useCase
-										.setSrc(useCaseToInteraction);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										useCaseToInteraction);
-
-								// create link
-								__messageSend_message_message.setTrg(message);
-
-								// create link
-								__message_interaction_interaction
-										.setSrc(message);
-
-								// create link
-								__message_receiveEvent_messageReceive
-										.setSrc(message);
-
-								// create link
-								__messageReceive_message_message
-										.setTrg(message);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										message);
-
-								// create link
-								__interaction_message_message.setTrg(message);
-
-								// create link
-								__message_sendEvent_messageSend.setSrc(message);
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCaseToInteraction_source_useCase,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCaseToInteraction_target_interaction,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__message_sendEvent_messageSend,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__interaction_lifeline_line,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__message_receiveEvent_messageReceive,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__flowToInteraction_source_flow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__messageReceive_covered_line,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__interaction_message_message,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__line_coveredBy_messageSend,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__interaction_fragment_messageSend,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__messageSend_message_message,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__line_interaction_interaction,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__messageSend_enclosingInteraction_interaction,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__messageReceive_message_message,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__messageReceive_enclosingInteraction_interaction,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCase_flows_flow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__flowToInteraction_target_interaction,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__line_coveredBy_messageReceive,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__interaction_fragment_messageReceive,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__message_interaction_interaction,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__messageSend_covered_line,
-												"allContextElements");
-								// story node 'solve CSP'
-								try {
-									fujaba__Success = false;
-
-									_TmpObject = (this
-											.isApplicable_solveCsp_BWD(
-													isApplicableMatch, actor,
-													line, messageSend,
-													interaction,
-													messageReceive, flow,
-													flowToInteraction, useCase,
-													useCaseToInteraction,
-													message));
-
-									// ensure correct type and really bound of object csp
-									JavaSDM.ensure(_TmpObject instanceof CSP);
-									csp = (CSP) _TmpObject;
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								// statement node 'check CSP'
-								fujaba__Success = this
-										.isApplicable_checkCsp_BWD(csp);
-								if (fujaba__Success) {
-									// story node 'add match to rule result'
+								// iterate to-many link actors from packageDeclaration to actor
+								fujaba__Success = false;
+
+								fujaba__IterPackageDeclarationToActor = new ArrayList(
+										packageDeclaration.getActors())
+										.iterator();
+
+								while (fujaba__IterPackageDeclarationToActor
+										.hasNext()) {
 									try {
-										fujaba__Success = false;
+										actor = (Actor) fujaba__IterPackageDeclarationToActor
+												.next();
 
-										// check object isApplicableMatch is really bound
-										JavaSDM.ensure(isApplicableMatch != null);
-										// check object ruleresult is really bound
-										JavaSDM.ensure(ruleresult != null);
-										// assign attribute isApplicableMatch
-										isApplicableMatch
-												.setRuleName("SystemStepBFToMessageRule");
-										// assign attribute ruleresult
-										ruleresult.setSuccess(true);
+										// check object actor is really bound
+										JavaSDM.ensure(actor != null);
+										// create object __packageDeclaration_actors_actor
+										__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object isApplicableMatch
+										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+												.createIsApplicableMatch();
+
+										// create object __interaction_lifeline_line
+										__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __messageSend_covered_line
+										__messageSend_covered_line = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __messageReceive_covered_line
+										__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __line_coveredBy_messageReceive
+										__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __line_coveredBy_messageSend
+										__line_coveredBy_messageSend = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __line_interaction_interaction
+										__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __interaction_fragment_messageSend
+										__interaction_fragment_messageSend = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __message_sendEvent_messageSend
+										__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __messageSend_message_message
+										__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __messageSend_enclosingInteraction_interaction
+										__messageSend_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __interaction_fragment_messageReceive
+										__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __useCaseToInteraction_target_interaction
+										__useCaseToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __message_interaction_interaction
+										__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __messageReceive_enclosingInteraction_interaction
+										__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __flowToInteraction_target_interaction
+										__flowToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __interaction_message_message
+										__interaction_message_message = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __message_receiveEvent_messageReceive
+										__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __messageReceive_message_message
+										__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __useCase_flows_flow
+										__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __flowToInteraction_source_flow
+										__flowToInteraction_source_flow = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __useCaseToInteraction_source_useCase
+										__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// assign attribute __line_coveredBy_messageSend
+										__line_coveredBy_messageSend
+												.setName("coveredBy");
+										// assign attribute __messageSend_covered_line
+										__messageSend_covered_line
+												.setName("covered");
+										// assign attribute __messageSend_enclosingInteraction_interaction
+										__messageSend_enclosingInteraction_interaction
+												.setName("enclosingInteraction");
+										// assign attribute __interaction_fragment_messageSend
+										__interaction_fragment_messageSend
+												.setName("fragment");
+										// assign attribute __messageReceive_enclosingInteraction_interaction
+										__messageReceive_enclosingInteraction_interaction
+												.setName("enclosingInteraction");
+										// assign attribute __interaction_fragment_messageReceive
+										__interaction_fragment_messageReceive
+												.setName("fragment");
+										// assign attribute __flowToInteraction_source_flow
+										__flowToInteraction_source_flow
+												.setName("source");
+										// assign attribute __flowToInteraction_target_interaction
+										__flowToInteraction_target_interaction
+												.setName("target");
+										// assign attribute __useCase_flows_flow
+										__useCase_flows_flow.setName("flows");
+										// assign attribute __useCaseToInteraction_source_useCase
+										__useCaseToInteraction_source_useCase
+												.setName("source");
+										// assign attribute __useCaseToInteraction_target_interaction
+										__useCaseToInteraction_target_interaction
+												.setName("target");
+										// assign attribute __message_sendEvent_messageSend
+										__message_sendEvent_messageSend
+												.setName("sendEvent");
+										// assign attribute __message_receiveEvent_messageReceive
+										__message_receiveEvent_messageReceive
+												.setName("receiveEvent");
+										// assign attribute __message_interaction_interaction
+										__message_interaction_interaction
+												.setName("interaction");
+										// assign attribute __interaction_message_message
+										__interaction_message_message
+												.setName("message");
+										// assign attribute __line_interaction_interaction
+										__line_interaction_interaction
+												.setName("interaction");
+										// assign attribute __interaction_lifeline_line
+										__interaction_lifeline_line
+												.setName("lifeline");
+										// assign attribute __messageSend_message_message
+										__messageSend_message_message
+												.setName("message");
+										// assign attribute __messageReceive_message_message
+										__messageReceive_message_message
+												.setName("message");
+										// assign attribute __line_coveredBy_messageReceive
+										__line_coveredBy_messageReceive
+												.setName("coveredBy");
+										// assign attribute __messageReceive_covered_line
+										__messageReceive_covered_line
+												.setName("covered");
+										// assign attribute __packageDeclaration_actors_actor
+										__packageDeclaration_actors_actor
+												.setName("actors");
+										// assign attribute __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase
+												.setName("useCases");
 
 										// create link
-										ruleresult.getIsApplicableMatch().add(
-												isApplicableMatch);
+										__packageDeclaration_actors_actor
+												.setTrg(actor);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														actor);
+
+										// create link
+										__interaction_lifeline_line
+												.setTrg(line);
+
+										// create link
+										__messageSend_covered_line.setTrg(line);
+
+										// create link
+										__messageReceive_covered_line
+												.setTrg(line);
+
+										// create link
+										__line_coveredBy_messageReceive
+												.setSrc(line);
+
+										// create link
+										__line_coveredBy_messageSend
+												.setSrc(line);
+
+										// create link
+										__line_interaction_interaction
+												.setSrc(line);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														line);
+
+										// create link
+										__line_coveredBy_messageSend
+												.setTrg(messageSend);
+
+										// create link
+										__interaction_fragment_messageSend
+												.setTrg(messageSend);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														messageSend);
+
+										// create link
+										__messageSend_covered_line
+												.setSrc(messageSend);
+
+										// create link
+										__message_sendEvent_messageSend
+												.setTrg(messageSend);
+
+										// create link
+										__messageSend_message_message
+												.setSrc(messageSend);
+
+										// create link
+										__messageSend_enclosingInteraction_interaction
+												.setSrc(messageSend);
+
+										// create link
+										__interaction_fragment_messageSend
+												.setSrc(interaction);
+
+										// create link
+										__interaction_fragment_messageReceive
+												.setSrc(interaction);
+
+										// create link
+										__useCaseToInteraction_target_interaction
+												.setTrg(interaction);
+
+										// create link
+										__message_interaction_interaction
+												.setTrg(interaction);
+
+										// create link
+										__messageReceive_enclosingInteraction_interaction
+												.setTrg(interaction);
+
+										// create link
+										__line_interaction_interaction
+												.setTrg(interaction);
+
+										// create link
+										__flowToInteraction_target_interaction
+												.setTrg(interaction);
+
+										// create link
+										__messageSend_enclosingInteraction_interaction
+												.setTrg(interaction);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														interaction);
+
+										// create link
+										__interaction_lifeline_line
+												.setSrc(interaction);
+
+										// create link
+										__interaction_message_message
+												.setSrc(interaction);
+
+										// create link
+										__message_receiveEvent_messageReceive
+												.setTrg(messageReceive);
+
+										// create link
+										__interaction_fragment_messageReceive
+												.setTrg(messageReceive);
+
+										// create link
+										__line_coveredBy_messageReceive
+												.setTrg(messageReceive);
+
+										// create link
+										__messageReceive_message_message
+												.setSrc(messageReceive);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														messageReceive);
+
+										// create link
+										__messageReceive_covered_line
+												.setSrc(messageReceive);
+
+										// create link
+										__messageReceive_enclosingInteraction_interaction
+												.setSrc(messageReceive);
+
+										// create link
+										__useCase_flows_flow.setTrg(flow);
+
+										// create link
+										__flowToInteraction_source_flow
+												.setTrg(flow);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														flow);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														flowToInteraction);
+
+										// create link
+										__flowToInteraction_source_flow
+												.setSrc(flowToInteraction);
+
+										// create link
+										__flowToInteraction_target_interaction
+												.setSrc(flowToInteraction);
+
+										// create link
+										__useCaseToInteraction_source_useCase
+												.setTrg(useCase);
+
+										// create link
+										__useCase_flows_flow.setSrc(useCase);
+
+										// create link
+										__packageDeclaration_useCases_useCase
+												.setTrg(useCase);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														useCase);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														useCaseToInteraction);
+
+										// create link
+										__useCaseToInteraction_target_interaction
+												.setSrc(useCaseToInteraction);
+
+										// create link
+										__useCaseToInteraction_source_useCase
+												.setSrc(useCaseToInteraction);
+
+										// create link
+										__message_sendEvent_messageSend
+												.setSrc(message);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														message);
+
+										// create link
+										__messageSend_message_message
+												.setTrg(message);
+
+										// create link
+										__message_receiveEvent_messageReceive
+												.setSrc(message);
+
+										// create link
+										__messageReceive_message_message
+												.setTrg(message);
+
+										// create link
+										__interaction_message_message
+												.setTrg(message);
+
+										// create link
+										__message_interaction_interaction
+												.setSrc(message);
+
+										// create link
+										__packageDeclaration_actors_actor
+												.setSrc(packageDeclaration);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														packageDeclaration);
+
+										// create link
+										__packageDeclaration_useCases_useCase
+												.setSrc(packageDeclaration);
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__line_coveredBy_messageReceive,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__flowToInteraction_target_interaction,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__useCaseToInteraction_target_interaction,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__interaction_fragment_messageSend,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__messageSend_message_message,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__useCase_flows_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__messageReceive_message_message,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__messageReceive_covered_line,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__messageSend_enclosingInteraction_interaction,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__line_interaction_interaction,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__packageDeclaration_useCases_useCase,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__message_receiveEvent_messageReceive,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__interaction_message_message,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__message_sendEvent_messageSend,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__interaction_fragment_messageReceive,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__flowToInteraction_source_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__interaction_lifeline_line,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__message_interaction_interaction,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__messageReceive_enclosingInteraction_interaction,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__messageSend_covered_line,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__line_coveredBy_messageSend,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__useCaseToInteraction_source_useCase,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__packageDeclaration_actors_actor,
+														"allContextElements");
+										// story node 'solve CSP'
+										try {
+											fujaba__Success = false;
+
+											_TmpObject = (this
+													.isApplicable_solveCsp_BWD(
+															isApplicableMatch,
+															actor,
+															line,
+															messageSend,
+															interaction,
+															messageReceive,
+															flow,
+															flowToInteraction,
+															useCase,
+															useCaseToInteraction,
+															message,
+															packageDeclaration));
+
+											// ensure correct type and really bound of object csp
+											JavaSDM.ensure(_TmpObject instanceof CSP);
+											csp = (CSP) _TmpObject;
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+										// statement node 'check CSP'
+										fujaba__Success = this
+												.isApplicable_checkCsp_BWD(csp);
+										if (fujaba__Success) {
+											// story node 'add match to rule result'
+											try {
+												fujaba__Success = false;
+
+												// check object isApplicableMatch is really bound
+												JavaSDM.ensure(isApplicableMatch != null);
+												// check object ruleresult is really bound
+												JavaSDM.ensure(ruleresult != null);
+												// assign attribute isApplicableMatch
+												isApplicableMatch
+														.setRuleName("SystemStepBFToMessageRule");
+												// assign attribute ruleresult
+												ruleresult.setSuccess(true);
+
+												// create link
+												ruleresult
+														.getIsApplicableMatch()
+														.add(isApplicableMatch);
+
+												fujaba__Success = true;
+											} catch (JavaSDMException fujaba__InternalException) {
+												fujaba__Success = false;
+											}
+
+										} else {
+
+										}
 
 										fujaba__Success = true;
 									} catch (JavaSDMException fujaba__InternalException) {
 										fujaba__Success = false;
 									}
-
-								} else {
-
 								}
+								JavaSDM.ensure(fujaba__Success);
+
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
 								fujaba__Success = false;
@@ -3758,7 +4059,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, BasicFlow flow,
 			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Message message) {
+			UseCaseToInteraction useCaseToInteraction, Message message,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -3812,6 +4114,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("useCaseToInteraction",
 				useCaseToInteraction);
 		isApplicableMatch.registerObject("message", message);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -3822,32 +4126,6 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isApplicable_checkCsp_BWD(CSP csp) {
 		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void registerObjects_BWD(PerformRuleResult ruleresult,
-			EObject actor, EObject line, EObject messageSend,
-			EObject interaction, EObject messageReceive, EObject flow,
-			EObject flowToInteraction, EObject useCase,
-			EObject useCaseToInteraction, EObject step, EObject message,
-			EObject stepToMessage) {
-		ruleresult.registerObject("actor", actor);
-		ruleresult.registerObject("line", line);
-		ruleresult.registerObject("messageSend", messageSend);
-		ruleresult.registerObject("interaction", interaction);
-		ruleresult.registerObject("messageReceive", messageReceive);
-		ruleresult.registerObject("flow", flow);
-		ruleresult.registerObject("flowToInteraction", flowToInteraction);
-		ruleresult.registerObject("useCase", useCase);
-		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
-		ruleresult.registerObject("step", step);
-		ruleresult.registerObject("message", message);
-		ruleresult.registerObject("stepToMessage", stepToMessage);
-
 	}
 
 	/**
@@ -3884,16 +4162,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_526952 = null;
-		Message __DEC_messageReceive_receiveEvent_526952 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_144766 = null;
-		Message __DEC_messageSend_receiveEvent_144766 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_624839 = null;
-		Message __DEC_messageReceive_sendEvent_624839 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_337967 = null;
-		Message __DEC_messageSend_sendEvent_337967 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_154917 = null;
-		MessageEnd __DEC_message_message_154917 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_885731 = null;
+		Message __DEC_messageReceive_receiveEvent_885731 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_815935 = null;
+		Message __DEC_messageSend_receiveEvent_815935 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_240020 = null;
+		Message __DEC_messageReceive_sendEvent_240020 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_338572 = null;
+		Message __DEC_messageSend_sendEvent_338572 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_830453 = null;
+		MessageEnd __DEC_message_message_830453 = null;
 		Match match = null;
 		Iterator fujaba__IterLineToMessageReceive = null;
 		MessageOccurrenceSpecification messageReceive = null;
@@ -4027,10 +4305,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_526952
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_885731
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_526952 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_885731 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -4038,16 +4316,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_526952
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_885731
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_526952 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_526952
+									__DEC_messageReceive_receiveEvent_885731 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_885731
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_526952 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_526952 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_526952 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_526952
+									// check object __DEC_messageReceive_receiveEvent_885731 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_885731 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_885731 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_885731
 											.equals(message));
 
 									fujaba__Success = true;
@@ -4070,26 +4348,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_144766
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_815935
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_144766 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_815935 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_144766
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_815935
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_144766 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_144766
+									__DEC_messageSend_receiveEvent_815935 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_815935
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_144766 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_144766 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_144766 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_144766
+									// check object __DEC_messageSend_receiveEvent_815935 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_815935 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_815935 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_815935
 											.equals(message));
 
 									fujaba__Success = true;
@@ -4112,10 +4390,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_624839
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_240020
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_624839 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_240020 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -4123,16 +4401,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_624839
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_240020
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_624839 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_624839
+									__DEC_messageReceive_sendEvent_240020 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_240020
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_624839 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_624839 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_624839 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_624839
+									// check object __DEC_messageReceive_sendEvent_240020 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_240020 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_240020 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_240020
 											.equals(message));
 
 									fujaba__Success = true;
@@ -4155,26 +4433,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_337967
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_338572
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_337967 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_338572 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_337967
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_338572
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_337967 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_337967
+									__DEC_messageSend_sendEvent_338572 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_338572
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_337967 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_337967 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_337967 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_337967
+									// check object __DEC_messageSend_sendEvent_338572 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_338572 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_338572 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_338572
 											.equals(message));
 
 									fujaba__Success = true;
@@ -4197,30 +4475,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_154917
+							// iterate to-many link message from message to __DEC_message_message_830453
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_154917 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_830453 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_154917
+									&& fujaba__IterMessageTo__DEC_message_message_830453
 											.hasNext()) {
 								try {
-									__DEC_message_message_154917 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_154917
+									__DEC_message_message_830453 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_830453
 											.next();
 
-									// check object __DEC_message_message_154917 is really bound
-									JavaSDM.ensure(__DEC_message_message_154917 != null);
-									// check isomorphic binding between objects __DEC_message_message_154917 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_154917
+									// check object __DEC_message_message_830453 is really bound
+									JavaSDM.ensure(__DEC_message_message_830453 != null);
+									// check isomorphic binding between objects __DEC_message_message_830453 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_830453
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_154917 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_154917
+									// check isomorphic binding between objects __DEC_message_message_830453 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_830453
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -4384,16 +4662,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581704 = null;
-		Message __DEC_messageReceive_receiveEvent_581704 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_342586 = null;
-		Message __DEC_messageSend_receiveEvent_342586 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_392320 = null;
-		Message __DEC_messageReceive_sendEvent_392320 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_641993 = null;
-		Message __DEC_messageSend_sendEvent_641993 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_565300 = null;
-		MessageEnd __DEC_message_message_565300 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_703963 = null;
+		Message __DEC_messageReceive_receiveEvent_703963 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_52502 = null;
+		Message __DEC_messageSend_receiveEvent_52502 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_139284 = null;
+		Message __DEC_messageReceive_sendEvent_139284 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_223071 = null;
+		Message __DEC_messageSend_sendEvent_223071 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_883974 = null;
+		MessageEnd __DEC_message_message_883974 = null;
 		Match match = null;
 		Iterator fujaba__IterLineTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
@@ -4555,10 +4833,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_581704
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_703963
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581704 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_703963 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -4567,16 +4845,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581704
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_703963
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_581704 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581704
+											__DEC_messageReceive_receiveEvent_703963 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_703963
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_581704 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_581704 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_581704 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_581704
+											// check object __DEC_messageReceive_receiveEvent_703963 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_703963 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_703963 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_703963
 													.equals(message));
 
 											fujaba__Success = true;
@@ -4599,10 +4877,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_342586
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_52502
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_342586 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_52502 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -4611,16 +4889,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_342586
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_52502
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_342586 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_342586
+											__DEC_messageSend_receiveEvent_52502 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_52502
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_342586 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_342586 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_342586 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_342586
+											// check object __DEC_messageSend_receiveEvent_52502 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_52502 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_52502 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_52502
 													.equals(message));
 
 											fujaba__Success = true;
@@ -4643,10 +4921,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_392320
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_139284
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_392320 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_139284 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -4655,16 +4933,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_392320
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_139284
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_392320 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_392320
+											__DEC_messageReceive_sendEvent_139284 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_139284
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_392320 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_392320 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_392320 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_392320
+											// check object __DEC_messageReceive_sendEvent_139284 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_139284 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_139284 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_139284
 													.equals(message));
 
 											fujaba__Success = true;
@@ -4687,10 +4965,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_641993
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_223071
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_641993 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_223071 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -4699,16 +4977,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_641993
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_223071
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_641993 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_641993
+											__DEC_messageSend_sendEvent_223071 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_223071
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_641993 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_641993 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_641993 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_641993
+											// check object __DEC_messageSend_sendEvent_223071 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_223071 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_223071 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_223071
 													.equals(message));
 
 											fujaba__Success = true;
@@ -4731,10 +5009,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_565300
+									// iterate to-many link message from message to __DEC_message_message_883974
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_565300 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_883974 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -4743,20 +5021,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_565300
+											&& fujaba__IterMessageTo__DEC_message_message_883974
 													.hasNext()) {
 										try {
-											__DEC_message_message_565300 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_565300
+											__DEC_message_message_883974 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_883974
 													.next();
 
-											// check object __DEC_message_message_565300 is really bound
-											JavaSDM.ensure(__DEC_message_message_565300 != null);
-											// check isomorphic binding between objects __DEC_message_message_565300 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_565300
+											// check object __DEC_message_message_883974 is really bound
+											JavaSDM.ensure(__DEC_message_message_883974 != null);
+											// check isomorphic binding between objects __DEC_message_message_883974 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_883974
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_565300 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_565300
+											// check isomorphic binding between objects __DEC_message_message_883974 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_883974
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -4950,22 +5228,22 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_486176 = null;
-		Message __DEC_messageReceive_receiveEvent_486176 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_412153 = null;
-		Message __DEC_messageSend_receiveEvent_412153 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_799128 = null;
-		Message __DEC_messageReceive_sendEvent_799128 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_553786 = null;
-		Message __DEC_messageSend_sendEvent_553786 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_712160 = null;
-		MessageEnd __DEC_message_message_712160 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_738462 = null;
+		Message __DEC_messageReceive_receiveEvent_738462 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_766940 = null;
+		Message __DEC_messageSend_receiveEvent_766940 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_372772 = null;
+		Message __DEC_messageReceive_sendEvent_372772 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_990168 = null;
+		Message __DEC_messageSend_sendEvent_990168 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_775404 = null;
+		MessageEnd __DEC_message_message_775404 = null;
 		Match match = null;
-		Iterator fujaba__IterLineToMessageReceive = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Iterator fujaba__IterMessageSendToLine = null;
+		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
 		Message message = null;
+		Iterator fujaba__IterInteractionToMessageReceive = null;
+		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
 		MessageOccurrenceSpecification messageSend = null;
 
@@ -5024,70 +5302,71 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			messageSend = (MessageOccurrenceSpecification) _TmpObject;
 
 			// bind object
-			interaction = messageSend.getEnclosingInteraction();
+			_TmpObject = _edge_enclosingInteraction.getTrg();
 
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
+			// ensure correct type and really bound of object interaction
+			JavaSDM.ensure(_TmpObject instanceof Interaction);
+			interaction = (Interaction) _TmpObject;
 
-			// bind object
-			message = messageSend.getMessage();
+			// check link fragment from messageSend to interaction
+			JavaSDM.ensure(interaction.equals(messageSend
+					.getEnclosingInteraction()));
 
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-
-			// check link message from message to interaction
-			JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-			// check link sendEvent from message to messageSend
-			JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
-
-			// check link trg from _edge_enclosingInteraction to interaction
-			JavaSDM.ensure(interaction.equals(_edge_enclosingInteraction
-					.getTrg()));
-
-			// iterate to-many link covered from messageSend to line
+			// iterate to-many link fragment from interaction to messageReceive
 			fujaba__Success = false;
 
-			fujaba__IterMessageSendToLine = new ArrayList(
-					messageSend.getCovered()).iterator();
+			fujaba__IterInteractionToMessageReceive = new ArrayList(
+					interaction.getFragment()).iterator();
 
-			while (fujaba__IterMessageSendToLine.hasNext()) {
+			while (fujaba__IterInteractionToMessageReceive.hasNext()) {
 				try {
-					line = (Lifeline) fujaba__IterMessageSendToLine.next();
+					_TmpObject = fujaba__IterInteractionToMessageReceive.next();
 
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// check link lifeline from line to interaction
-					JavaSDM.ensure(interaction.equals(line.getInteraction()));
+					// ensure correct type and really bound of object messageReceive
+					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+					messageReceive = (MessageOccurrenceSpecification) _TmpObject;
+					// check isomorphic binding between objects messageSend and messageReceive 
+					JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-					// iterate to-many link covered from line to messageReceive
+					// bind object
+					message = messageReceive.getMessage();
+
+					// check object message is really bound
+					JavaSDM.ensure(message != null);
+
+					// check link message from message to interaction
+					JavaSDM.ensure(interaction.equals(message.getInteraction()));
+
+					// check link message from messageSend to message
+					JavaSDM.ensure(message.equals(messageSend.getMessage()));
+
+					// check link receiveEvent from message to messageReceive
+					JavaSDM.ensure(messageReceive.equals(message
+							.getReceiveEvent()));
+
+					// check link sendEvent from message to messageSend
+					JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
+
+					// iterate to-many link lifeline from interaction to line
 					fujaba__Success = false;
 
-					fujaba__IterLineToMessageReceive = new ArrayList(
-							line.getCoveredBy()).iterator();
+					fujaba__IterInteractionToLine = new ArrayList(
+							interaction.getLifeline()).iterator();
 
-					while (fujaba__IterLineToMessageReceive.hasNext()) {
+					while (fujaba__IterInteractionToLine.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterLineToMessageReceive
+							line = (Lifeline) fujaba__IterInteractionToLine
 									.next();
 
-							// ensure correct type and really bound of object messageReceive
-							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-							messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-							// check isomorphic binding between objects messageSend and messageReceive 
-							JavaSDM.ensure(!messageSend.equals(messageReceive));
+							// check object line is really bound
+							JavaSDM.ensure(line != null);
+							// check link covered from messageReceive to line
+							JavaSDM.ensure(messageReceive.getCovered()
+									.contains(line));
 
-							// check link fragment from messageReceive to interaction
-							JavaSDM.ensure(interaction.equals(messageReceive
-									.getEnclosingInteraction()));
-
-							// check link message from messageReceive to message
-							JavaSDM.ensure(message.equals(messageReceive
-									.getMessage()));
-
-							// check link receiveEvent from message to messageReceive
-							JavaSDM.ensure(messageReceive.equals(message
-									.getReceiveEvent()));
+							// check link covered from messageSend to line
+							JavaSDM.ensure(messageSend.getCovered().contains(
+									line));
 
 							// story node 'test core match and DECs'
 							try {
@@ -5103,10 +5382,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_486176
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_738462
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_486176 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_738462 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -5115,16 +5394,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_486176
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_738462
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_486176 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_486176
+											__DEC_messageReceive_receiveEvent_738462 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_738462
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_486176 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_486176 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_486176 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_486176
+											// check object __DEC_messageReceive_receiveEvent_738462 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_738462 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_738462 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_738462
 													.equals(message));
 
 											fujaba__Success = true;
@@ -5147,10 +5426,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_412153
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_766940
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_412153 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_766940 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -5159,16 +5438,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_412153
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_766940
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_412153 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_412153
+											__DEC_messageSend_receiveEvent_766940 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_766940
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_412153 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_412153 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_412153 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_412153
+											// check object __DEC_messageSend_receiveEvent_766940 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_766940 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_766940 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_766940
 													.equals(message));
 
 											fujaba__Success = true;
@@ -5191,10 +5470,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_799128
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_372772
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_799128 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_372772 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -5203,16 +5482,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_799128
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_372772
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_799128 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_799128
+											__DEC_messageReceive_sendEvent_372772 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_372772
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_799128 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_799128 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_799128 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_799128
+											// check object __DEC_messageReceive_sendEvent_372772 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_372772 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_372772 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_372772
 													.equals(message));
 
 											fujaba__Success = true;
@@ -5235,10 +5514,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_553786
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_990168
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_553786 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_990168 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -5247,16 +5526,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_553786
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_990168
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_553786 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_553786
+											__DEC_messageSend_sendEvent_990168 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_990168
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_553786 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_553786 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_553786 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_553786
+											// check object __DEC_messageSend_sendEvent_990168 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_990168 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_990168 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_990168
 													.equals(message));
 
 											fujaba__Success = true;
@@ -5279,10 +5558,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_712160
+									// iterate to-many link message from message to __DEC_message_message_775404
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_712160 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_775404 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -5291,20 +5570,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_712160
+											&& fujaba__IterMessageTo__DEC_message_message_775404
 													.hasNext()) {
 										try {
-											__DEC_message_message_712160 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_712160
+											__DEC_message_message_775404 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_775404
 													.next();
 
-											// check object __DEC_message_message_712160 is really bound
-											JavaSDM.ensure(__DEC_message_message_712160 != null);
-											// check isomorphic binding between objects __DEC_message_message_712160 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_712160
+											// check object __DEC_message_message_775404 is really bound
+											JavaSDM.ensure(__DEC_message_message_775404 != null);
+											// check isomorphic binding between objects __DEC_message_message_775404 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_775404
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_712160 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_712160
+											// check isomorphic binding between objects __DEC_message_message_775404 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_775404
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -5486,16 +5765,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_339288 = null;
-		Message __DEC_messageReceive_receiveEvent_339288 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_2975 = null;
-		Message __DEC_messageSend_receiveEvent_2975 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_471926 = null;
-		Message __DEC_messageReceive_sendEvent_471926 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_261386 = null;
-		Message __DEC_messageSend_sendEvent_261386 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_641466 = null;
-		MessageEnd __DEC_message_message_641466 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_472848 = null;
+		Message __DEC_messageReceive_receiveEvent_472848 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_632559 = null;
+		Message __DEC_messageSend_receiveEvent_632559 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_349638 = null;
+		Message __DEC_messageReceive_sendEvent_349638 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_937233 = null;
+		Message __DEC_messageSend_sendEvent_937233 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_949134 = null;
+		MessageEnd __DEC_message_message_949134 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageSendTo_edge_enclosingInteraction = null;
 		EMoflonEdge _edge_enclosingInteraction = null;
@@ -5666,10 +5945,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_339288
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_472848
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_339288 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_472848 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -5678,16 +5957,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_339288
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_472848
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_339288 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_339288
+													__DEC_messageReceive_receiveEvent_472848 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_472848
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_339288 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_339288 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_339288 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_339288
+													// check object __DEC_messageReceive_receiveEvent_472848 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_472848 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_472848 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_472848
 															.equals(message));
 
 													fujaba__Success = true;
@@ -5710,10 +5989,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_2975
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_632559
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_2975 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_632559 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -5722,16 +6001,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_2975
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_632559
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_2975 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_2975
+													__DEC_messageSend_receiveEvent_632559 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_632559
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_2975 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_2975 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_2975 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_2975
+													// check object __DEC_messageSend_receiveEvent_632559 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_632559 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_632559 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_632559
 															.equals(message));
 
 													fujaba__Success = true;
@@ -5754,10 +6033,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_471926
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_349638
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_471926 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_349638 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -5766,16 +6045,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_471926
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_349638
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_471926 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_471926
+													__DEC_messageReceive_sendEvent_349638 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_349638
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_471926 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_471926 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_471926 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_471926
+													// check object __DEC_messageReceive_sendEvent_349638 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_349638 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_349638 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_349638
 															.equals(message));
 
 													fujaba__Success = true;
@@ -5798,10 +6077,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_261386
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_937233
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_261386 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_937233 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -5810,16 +6089,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_261386
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_937233
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_261386 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_261386
+													__DEC_messageSend_sendEvent_937233 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_937233
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_261386 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_261386 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_261386 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_261386
+													// check object __DEC_messageSend_sendEvent_937233 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_937233 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_937233 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_937233
 															.equals(message));
 
 													fujaba__Success = true;
@@ -5842,10 +6121,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_641466
+											// iterate to-many link message from message to __DEC_message_message_949134
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_641466 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_949134 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -5854,20 +6133,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_641466
+													&& fujaba__IterMessageTo__DEC_message_message_949134
 															.hasNext()) {
 												try {
-													__DEC_message_message_641466 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_641466
+													__DEC_message_message_949134 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_949134
 															.next();
 
-													// check object __DEC_message_message_641466 is really bound
-													JavaSDM.ensure(__DEC_message_message_641466 != null);
-													// check isomorphic binding between objects __DEC_message_message_641466 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_641466
+													// check object __DEC_message_message_949134 is really bound
+													JavaSDM.ensure(__DEC_message_message_949134 != null);
+													// check isomorphic binding between objects __DEC_message_message_949134 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_949134
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_641466 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_641466
+													// check isomorphic binding between objects __DEC_message_message_949134 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_949134
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -6077,22 +6356,22 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_434316 = null;
-		Message __DEC_messageReceive_receiveEvent_434316 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_305906 = null;
-		Message __DEC_messageSend_receiveEvent_305906 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_447885 = null;
-		Message __DEC_messageReceive_sendEvent_447885 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_302086 = null;
-		Message __DEC_messageSend_sendEvent_302086 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_767682 = null;
-		MessageEnd __DEC_message_message_767682 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_432371 = null;
+		Message __DEC_messageReceive_receiveEvent_432371 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_876263 = null;
+		Message __DEC_messageSend_receiveEvent_876263 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_614333 = null;
+		Message __DEC_messageReceive_sendEvent_614333 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_602860 = null;
+		Message __DEC_messageSend_sendEvent_602860 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_644876 = null;
+		MessageEnd __DEC_message_message_644876 = null;
 		Match match = null;
-		Iterator fujaba__IterInteractionToLine = null;
+		Iterator fujaba__IterLineToMessageSend = null;
+		MessageOccurrenceSpecification messageSend = null;
+		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
 		Message message = null;
-		Iterator fujaba__IterInteractionToMessageSend = null;
-		MessageOccurrenceSpecification messageSend = null;
 		Interaction interaction = null;
 		MessageOccurrenceSpecification messageReceive = null;
 
@@ -6151,71 +6430,69 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
 			// bind object
-			_TmpObject = _edge_enclosingInteraction.getTrg();
+			interaction = messageReceive.getEnclosingInteraction();
 
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
 
-			// check link fragment from messageReceive to interaction
-			JavaSDM.ensure(interaction.equals(messageReceive
-					.getEnclosingInteraction()));
+			// bind object
+			message = messageReceive.getMessage();
 
-			// iterate to-many link fragment from interaction to messageSend
+			// check object message is really bound
+			JavaSDM.ensure(message != null);
+
+			// check link message from message to interaction
+			JavaSDM.ensure(interaction.equals(message.getInteraction()));
+
+			// check link receiveEvent from message to messageReceive
+			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
+
+			// check link trg from _edge_enclosingInteraction to interaction
+			JavaSDM.ensure(interaction.equals(_edge_enclosingInteraction
+					.getTrg()));
+
+			// iterate to-many link covered from messageReceive to line
 			fujaba__Success = false;
 
-			fujaba__IterInteractionToMessageSend = new ArrayList(
-					interaction.getFragment()).iterator();
+			fujaba__IterMessageReceiveToLine = new ArrayList(
+					messageReceive.getCovered()).iterator();
 
-			while (fujaba__IterInteractionToMessageSend.hasNext()) {
+			while (fujaba__IterMessageReceiveToLine.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterInteractionToMessageSend.next();
+					line = (Lifeline) fujaba__IterMessageReceiveToLine.next();
 
-					// ensure correct type and really bound of object messageSend
-					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-					messageSend = (MessageOccurrenceSpecification) _TmpObject;
-					// check isomorphic binding between objects messageSend and messageReceive 
-					JavaSDM.ensure(!messageSend.equals(messageReceive));
+					// check object line is really bound
+					JavaSDM.ensure(line != null);
+					// check link lifeline from line to interaction
+					JavaSDM.ensure(interaction.equals(line.getInteraction()));
 
-					// bind object
-					message = messageSend.getMessage();
-
-					// check object message is really bound
-					JavaSDM.ensure(message != null);
-
-					// check link message from message to interaction
-					JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-					// check link message from messageReceive to message
-					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-					// check link receiveEvent from message to messageReceive
-					JavaSDM.ensure(messageReceive.equals(message
-							.getReceiveEvent()));
-
-					// check link sendEvent from message to messageSend
-					JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
-
-					// iterate to-many link lifeline from interaction to line
+					// iterate to-many link covered from line to messageSend
 					fujaba__Success = false;
 
-					fujaba__IterInteractionToLine = new ArrayList(
-							interaction.getLifeline()).iterator();
+					fujaba__IterLineToMessageSend = new ArrayList(
+							line.getCoveredBy()).iterator();
 
-					while (fujaba__IterInteractionToLine.hasNext()) {
+					while (fujaba__IterLineToMessageSend.hasNext()) {
 						try {
-							line = (Lifeline) fujaba__IterInteractionToLine
-									.next();
+							_TmpObject = fujaba__IterLineToMessageSend.next();
 
-							// check object line is really bound
-							JavaSDM.ensure(line != null);
-							// check link covered from messageReceive to line
-							JavaSDM.ensure(messageReceive.getCovered()
-									.contains(line));
+							// ensure correct type and really bound of object messageSend
+							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+							messageSend = (MessageOccurrenceSpecification) _TmpObject;
+							// check isomorphic binding between objects messageSend and messageReceive 
+							JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-							// check link covered from messageSend to line
-							JavaSDM.ensure(messageSend.getCovered().contains(
-									line));
+							// check link fragment from messageSend to interaction
+							JavaSDM.ensure(interaction.equals(messageSend
+									.getEnclosingInteraction()));
+
+							// check link message from messageSend to message
+							JavaSDM.ensure(message.equals(messageSend
+									.getMessage()));
+
+							// check link sendEvent from message to messageSend
+							JavaSDM.ensure(messageSend.equals(message
+									.getSendEvent()));
 
 							// story node 'test core match and DECs'
 							try {
@@ -6231,10 +6508,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_434316
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_432371
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_434316 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_432371 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -6243,16 +6520,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_434316
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_432371
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_434316 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_434316
+											__DEC_messageReceive_receiveEvent_432371 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_432371
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_434316 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_434316 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_434316 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_434316
+											// check object __DEC_messageReceive_receiveEvent_432371 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_432371 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_432371 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_432371
 													.equals(message));
 
 											fujaba__Success = true;
@@ -6275,10 +6552,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_305906
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_876263
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_305906 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_876263 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -6287,16 +6564,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_305906
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_876263
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_305906 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_305906
+											__DEC_messageSend_receiveEvent_876263 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_876263
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_305906 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_305906 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_305906 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_305906
+											// check object __DEC_messageSend_receiveEvent_876263 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_876263 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_876263 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_876263
 													.equals(message));
 
 											fujaba__Success = true;
@@ -6319,10 +6596,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_447885
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_614333
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_447885 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_614333 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -6331,16 +6608,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_447885
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_614333
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_447885 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_447885
+											__DEC_messageReceive_sendEvent_614333 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_614333
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_447885 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_447885 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_447885 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_447885
+											// check object __DEC_messageReceive_sendEvent_614333 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_614333 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_614333 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_614333
 													.equals(message));
 
 											fujaba__Success = true;
@@ -6363,10 +6640,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_302086
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_602860
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_302086 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_602860 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -6375,16 +6652,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_302086
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_602860
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_302086 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_302086
+											__DEC_messageSend_sendEvent_602860 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_602860
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_302086 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_302086 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_302086 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_302086
+											// check object __DEC_messageSend_sendEvent_602860 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_602860 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_602860 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_602860
 													.equals(message));
 
 											fujaba__Success = true;
@@ -6407,10 +6684,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_767682
+									// iterate to-many link message from message to __DEC_message_message_644876
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_767682 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_644876 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -6419,20 +6696,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_767682
+											&& fujaba__IterMessageTo__DEC_message_message_644876
 													.hasNext()) {
 										try {
-											__DEC_message_message_767682 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_767682
+											__DEC_message_message_644876 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_644876
 													.next();
 
-											// check object __DEC_message_message_767682 is really bound
-											JavaSDM.ensure(__DEC_message_message_767682 != null);
-											// check isomorphic binding between objects __DEC_message_message_767682 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_767682
+											// check object __DEC_message_message_644876 is really bound
+											JavaSDM.ensure(__DEC_message_message_644876 != null);
+											// check isomorphic binding between objects __DEC_message_message_644876 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_644876
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_767682 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_767682
+											// check isomorphic binding between objects __DEC_message_message_644876 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_644876
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -6614,16 +6891,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_504587 = null;
-		Message __DEC_messageReceive_receiveEvent_504587 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104754 = null;
-		Message __DEC_messageSend_receiveEvent_104754 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_91872 = null;
-		Message __DEC_messageReceive_sendEvent_91872 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_365326 = null;
-		Message __DEC_messageSend_sendEvent_365326 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_77327 = null;
-		MessageEnd __DEC_message_message_77327 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_286890 = null;
+		Message __DEC_messageReceive_receiveEvent_286890 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_612239 = null;
+		Message __DEC_messageSend_receiveEvent_612239 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_611384 = null;
+		Message __DEC_messageReceive_sendEvent_611384 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_97772 = null;
+		Message __DEC_messageSend_sendEvent_97772 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_384718 = null;
+		MessageEnd __DEC_message_message_384718 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveTo_edge_enclosingInteraction = null;
 		EMoflonEdge _edge_enclosingInteraction = null;
@@ -6794,10 +7071,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_504587
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_286890
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_504587 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_286890 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -6806,16 +7083,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_504587
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_286890
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_504587 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_504587
+													__DEC_messageReceive_receiveEvent_286890 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_286890
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_504587 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_504587 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_504587 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_504587
+													// check object __DEC_messageReceive_receiveEvent_286890 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_286890 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_286890 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_286890
 															.equals(message));
 
 													fujaba__Success = true;
@@ -6838,10 +7115,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_104754
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_612239
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104754 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_612239 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -6850,16 +7127,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104754
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_612239
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_104754 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104754
+													__DEC_messageSend_receiveEvent_612239 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_612239
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_104754 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_104754 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_104754 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_104754
+													// check object __DEC_messageSend_receiveEvent_612239 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_612239 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_612239 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_612239
 															.equals(message));
 
 													fujaba__Success = true;
@@ -6882,10 +7159,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_91872
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_611384
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_91872 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_611384 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -6894,16 +7171,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_91872
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_611384
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_91872 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_91872
+													__DEC_messageReceive_sendEvent_611384 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_611384
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_91872 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_91872 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_91872 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_91872
+													// check object __DEC_messageReceive_sendEvent_611384 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_611384 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_611384 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_611384
 															.equals(message));
 
 													fujaba__Success = true;
@@ -6926,10 +7203,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_365326
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_97772
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_365326 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_97772 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -6938,16 +7215,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_365326
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_97772
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_365326 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_365326
+													__DEC_messageSend_sendEvent_97772 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_97772
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_365326 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_365326 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_365326 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_365326
+													// check object __DEC_messageSend_sendEvent_97772 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_97772 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_97772 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_97772
 															.equals(message));
 
 													fujaba__Success = true;
@@ -6970,10 +7247,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_77327
+											// iterate to-many link message from message to __DEC_message_message_384718
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_77327 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_384718 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -6982,20 +7259,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_77327
+													&& fujaba__IterMessageTo__DEC_message_message_384718
 															.hasNext()) {
 												try {
-													__DEC_message_message_77327 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_77327
+													__DEC_message_message_384718 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_384718
 															.next();
 
-													// check object __DEC_message_message_77327 is really bound
-													JavaSDM.ensure(__DEC_message_message_77327 != null);
-													// check isomorphic binding between objects __DEC_message_message_77327 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_77327
+													// check object __DEC_message_message_384718 is really bound
+													JavaSDM.ensure(__DEC_message_message_384718 != null);
+													// check isomorphic binding between objects __DEC_message_message_384718 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_384718
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_77327 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_77327
+													// check isomorphic binding between objects __DEC_message_message_384718 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_384718
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -7197,7 +7474,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_23(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_24(
 			EMoflonEdge _edge_steps) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -7205,8 +7482,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_315553 = null;
+		Flow __DEC_step_steps_222860 = null;
 		Match match = null;
+		PackageDeclaration packageDeclaration = null;
 		Actor actor = null;
 		NormalStep step = null;
 		UseCase useCase = null;
@@ -7289,8 +7567,21 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check object actor is really bound
 			JavaSDM.ensure(actor != null);
 
+			// bind object
+			packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getActors().contains(actor));
+
 			// check link steps from step to flow
 			JavaSDM.ensure(flow.equals(step.eContainer()));
+
+			// check link useCases from useCase to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
 
 			// story node 'test core match and DECs'
 			try {
@@ -7301,18 +7592,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_315553 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_222860 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_315553 is really bound
-					JavaSDM.ensure(__DEC_step_steps_315553 != null);
+					// check object __DEC_step_steps_222860 is really bound
+					JavaSDM.ensure(__DEC_step_steps_222860 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_315553.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_222860.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_315553 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_315553.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_222860 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_222860.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -7329,12 +7620,17 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(actor != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
 				// check link actor from step to actor
 				JavaSDM.ensure(actor.equals(step.getActor()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -7348,6 +7644,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_steps to step
 				JavaSDM.ensure(step.equals(_edge_steps.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -7355,7 +7654,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, actor, flow,
-						useCase, step);
+						useCase, step, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -7410,7 +7709,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_24(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_25(
 			EMoflonEdge _edge_actor) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -7418,8 +7717,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_603087 = null;
+		Flow __DEC_step_steps_497354 = null;
 		Match match = null;
+		PackageDeclaration packageDeclaration = null;
 		Actor actor = null;
 		UseCase useCase = null;
 		BasicFlow flow = null;
@@ -7510,6 +7810,19 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check link actor from step to actor
 			JavaSDM.ensure(actor.equals(step.getActor()));
 
+			// bind object
+			packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getActors().contains(actor));
+
+			// check link useCases from useCase to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 			// story node 'test core match and DECs'
 			try {
 				fujaba__Success = false;
@@ -7519,18 +7832,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_603087 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_497354 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_603087 is really bound
-					JavaSDM.ensure(__DEC_step_steps_603087 != null);
+					// check object __DEC_step_steps_497354 is really bound
+					JavaSDM.ensure(__DEC_step_steps_497354 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_603087.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_497354.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_603087 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_603087.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_497354 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_497354.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -7547,12 +7860,17 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(actor != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
 				// check link actor from step to actor
 				JavaSDM.ensure(actor.equals(step.getActor()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -7566,6 +7884,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_actor to actor
 				JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -7573,7 +7894,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, actor, flow,
-						useCase, step);
+						useCase, step, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -7636,16 +7957,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_853840 = null;
-		Message __DEC_messageReceive_receiveEvent_853840 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_577386 = null;
-		Message __DEC_messageSend_receiveEvent_577386 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_662530 = null;
-		Message __DEC_messageReceive_sendEvent_662530 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_930481 = null;
-		Message __DEC_messageSend_sendEvent_930481 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_672148 = null;
-		MessageEnd __DEC_message_message_672148 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777934 = null;
+		Message __DEC_messageReceive_receiveEvent_777934 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_500523 = null;
+		Message __DEC_messageSend_receiveEvent_500523 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_18803 = null;
+		Message __DEC_messageReceive_sendEvent_18803 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_679037 = null;
+		Message __DEC_messageSend_sendEvent_679037 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_781791 = null;
+		MessageEnd __DEC_message_message_781791 = null;
 		Match match = null;
 		Iterator fujaba__IterLineToMessageReceive = null;
 		MessageOccurrenceSpecification messageReceive = null;
@@ -7788,10 +8109,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_853840
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_777934
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_853840 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777934 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -7800,16 +8121,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_853840
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777934
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_853840 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_853840
+											__DEC_messageReceive_receiveEvent_777934 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777934
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_853840 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_853840 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_853840 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_853840
+											// check object __DEC_messageReceive_receiveEvent_777934 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_777934 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_777934 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_777934
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7832,10 +8153,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_577386
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_500523
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_577386 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_500523 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -7844,16 +8165,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_577386
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_500523
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_577386 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_577386
+											__DEC_messageSend_receiveEvent_500523 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_500523
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_577386 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_577386 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_577386 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_577386
+											// check object __DEC_messageSend_receiveEvent_500523 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_500523 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_500523 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_500523
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7876,10 +8197,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_662530
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_18803
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_662530 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_18803 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -7888,16 +8209,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_662530
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_18803
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_662530 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_662530
+											__DEC_messageReceive_sendEvent_18803 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_18803
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_662530 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_662530 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_662530 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_662530
+											// check object __DEC_messageReceive_sendEvent_18803 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_18803 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_18803 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_18803
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7920,10 +8241,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_930481
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_679037
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_930481 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_679037 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -7932,16 +8253,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_930481
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_679037
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_930481 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_930481
+											__DEC_messageSend_sendEvent_679037 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_679037
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_930481 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_930481 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_930481 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_930481
+											// check object __DEC_messageSend_sendEvent_679037 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_679037 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_679037 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_679037
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7964,10 +8285,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_672148
+									// iterate to-many link message from message to __DEC_message_message_781791
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_672148 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_781791 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -7976,20 +8297,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_672148
+											&& fujaba__IterMessageTo__DEC_message_message_781791
 													.hasNext()) {
 										try {
-											__DEC_message_message_672148 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_672148
+											__DEC_message_message_781791 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_781791
 													.next();
 
-											// check object __DEC_message_message_672148 is really bound
-											JavaSDM.ensure(__DEC_message_message_672148 != null);
-											// check isomorphic binding between objects __DEC_message_message_672148 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_672148
+											// check object __DEC_message_message_781791 is really bound
+											JavaSDM.ensure(__DEC_message_message_781791 != null);
+											// check isomorphic binding between objects __DEC_message_message_781791 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_781791
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_672148 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_672148
+											// check isomorphic binding between objects __DEC_message_message_781791 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_781791
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -8169,16 +8490,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_505636 = null;
-		Message __DEC_messageReceive_receiveEvent_505636 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_424387 = null;
-		Message __DEC_messageSend_receiveEvent_424387 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_889345 = null;
-		Message __DEC_messageReceive_sendEvent_889345 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_634474 = null;
-		Message __DEC_messageSend_sendEvent_634474 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_806398 = null;
-		MessageEnd __DEC_message_message_806398 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_769994 = null;
+		Message __DEC_messageReceive_receiveEvent_769994 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_137472 = null;
+		Message __DEC_messageSend_receiveEvent_137472 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_410546 = null;
+		Message __DEC_messageReceive_sendEvent_410546 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_222797 = null;
+		Message __DEC_messageSend_sendEvent_222797 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_606721 = null;
+		MessageEnd __DEC_message_message_606721 = null;
 		Match match = null;
 		Iterator fujaba__IterLineToMessageSend = null;
 		MessageOccurrenceSpecification messageSend = null;
@@ -8320,10 +8641,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_505636
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_769994
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_505636 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_769994 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -8332,16 +8653,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_505636
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_769994
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_505636 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_505636
+											__DEC_messageReceive_receiveEvent_769994 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_769994
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_505636 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_505636 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_505636 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_505636
+											// check object __DEC_messageReceive_receiveEvent_769994 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_769994 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_769994 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_769994
 													.equals(message));
 
 											fujaba__Success = true;
@@ -8364,10 +8685,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_424387
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_137472
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_424387 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_137472 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -8376,16 +8697,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_424387
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_137472
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_424387 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_424387
+											__DEC_messageSend_receiveEvent_137472 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_137472
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_424387 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_424387 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_424387 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_424387
+											// check object __DEC_messageSend_receiveEvent_137472 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_137472 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_137472 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_137472
 													.equals(message));
 
 											fujaba__Success = true;
@@ -8408,10 +8729,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_889345
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_410546
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_889345 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_410546 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -8420,16 +8741,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_889345
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_410546
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_889345 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_889345
+											__DEC_messageReceive_sendEvent_410546 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_410546
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_889345 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_889345 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_889345 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_889345
+											// check object __DEC_messageReceive_sendEvent_410546 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_410546 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_410546 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_410546
 													.equals(message));
 
 											fujaba__Success = true;
@@ -8452,10 +8773,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_634474
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_222797
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_634474 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_222797 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -8464,16 +8785,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_634474
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_222797
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_634474 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_634474
+											__DEC_messageSend_sendEvent_222797 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_222797
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_634474 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_634474 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_634474 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_634474
+											// check object __DEC_messageSend_sendEvent_222797 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_222797 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_222797 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_222797
 													.equals(message));
 
 											fujaba__Success = true;
@@ -8496,10 +8817,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_806398
+									// iterate to-many link message from message to __DEC_message_message_606721
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_806398 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_606721 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -8508,20 +8829,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_806398
+											&& fujaba__IterMessageTo__DEC_message_message_606721
 													.hasNext()) {
 										try {
-											__DEC_message_message_806398 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_806398
+											__DEC_message_message_606721 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_606721
 													.next();
 
-											// check object __DEC_message_message_806398 is really bound
-											JavaSDM.ensure(__DEC_message_message_806398 != null);
-											// check isomorphic binding between objects __DEC_message_message_806398 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_806398
+											// check object __DEC_message_message_606721 is really bound
+											JavaSDM.ensure(__DEC_message_message_606721 != null);
+											// check isomorphic binding between objects __DEC_message_message_606721 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_606721
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_806398 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_806398
+											// check isomorphic binding between objects __DEC_message_message_606721 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_606721
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -8701,16 +9022,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_286173 = null;
-		Message __DEC_messageReceive_receiveEvent_286173 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_446013 = null;
-		Message __DEC_messageSend_receiveEvent_446013 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_270773 = null;
-		Message __DEC_messageReceive_sendEvent_270773 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_255544 = null;
-		Message __DEC_messageSend_sendEvent_255544 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_990963 = null;
-		MessageEnd __DEC_message_message_990963 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_956622 = null;
+		Message __DEC_messageReceive_receiveEvent_956622 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_714673 = null;
+		Message __DEC_messageSend_receiveEvent_714673 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_95702 = null;
+		Message __DEC_messageReceive_sendEvent_95702 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_852832 = null;
+		Message __DEC_messageSend_sendEvent_852832 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_19976 = null;
+		MessageEnd __DEC_message_message_19976 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
@@ -8866,10 +9187,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_286173
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_956622
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_286173 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_956622 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -8878,16 +9199,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_286173
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_956622
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_286173 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_286173
+													__DEC_messageReceive_receiveEvent_956622 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_956622
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_286173 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_286173 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_286173 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_286173
+													// check object __DEC_messageReceive_receiveEvent_956622 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_956622 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_956622 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_956622
 															.equals(message));
 
 													fujaba__Success = true;
@@ -8910,10 +9231,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_446013
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_714673
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_446013 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_714673 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -8922,16 +9243,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_446013
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_714673
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_446013 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_446013
+													__DEC_messageSend_receiveEvent_714673 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_714673
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_446013 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_446013 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_446013 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_446013
+													// check object __DEC_messageSend_receiveEvent_714673 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_714673 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_714673 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_714673
 															.equals(message));
 
 													fujaba__Success = true;
@@ -8954,10 +9275,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_270773
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_95702
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_270773 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_95702 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -8966,16 +9287,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_270773
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_95702
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_270773 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_270773
+													__DEC_messageReceive_sendEvent_95702 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_95702
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_270773 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_270773 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_270773 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_270773
+													// check object __DEC_messageReceive_sendEvent_95702 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_95702 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_95702 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_95702
 															.equals(message));
 
 													fujaba__Success = true;
@@ -8998,10 +9319,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_255544
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_852832
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_255544 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_852832 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -9010,16 +9331,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_255544
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_852832
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_255544 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_255544
+													__DEC_messageSend_sendEvent_852832 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_852832
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_255544 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_255544 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_255544 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_255544
+													// check object __DEC_messageSend_sendEvent_852832 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_852832 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_852832 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_852832
 															.equals(message));
 
 													fujaba__Success = true;
@@ -9042,10 +9363,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_990963
+											// iterate to-many link message from message to __DEC_message_message_19976
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_990963 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_19976 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -9054,20 +9375,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_990963
+													&& fujaba__IterMessageTo__DEC_message_message_19976
 															.hasNext()) {
 												try {
-													__DEC_message_message_990963 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_990963
+													__DEC_message_message_19976 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_19976
 															.next();
 
-													// check object __DEC_message_message_990963 is really bound
-													JavaSDM.ensure(__DEC_message_message_990963 != null);
-													// check isomorphic binding between objects __DEC_message_message_990963 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_990963
+													// check object __DEC_message_message_19976 is really bound
+													JavaSDM.ensure(__DEC_message_message_19976 != null);
+													// check isomorphic binding between objects __DEC_message_message_19976 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_19976
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_990963 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_990963
+													// check isomorphic binding between objects __DEC_message_message_19976 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_19976
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -9263,16 +9584,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_217548 = null;
-		Message __DEC_messageReceive_receiveEvent_217548 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_745063 = null;
-		Message __DEC_messageSend_receiveEvent_745063 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_224461 = null;
-		Message __DEC_messageReceive_sendEvent_224461 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_667998 = null;
-		Message __DEC_messageSend_sendEvent_667998 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_359062 = null;
-		MessageEnd __DEC_message_message_359062 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_265164 = null;
+		Message __DEC_messageReceive_receiveEvent_265164 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_476406 = null;
+		Message __DEC_messageSend_receiveEvent_476406 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_361284 = null;
+		Message __DEC_messageReceive_sendEvent_361284 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_942328 = null;
+		Message __DEC_messageSend_sendEvent_942328 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_57580 = null;
+		MessageEnd __DEC_message_message_57580 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
@@ -9458,10 +9779,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_217548
+													// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_265164
 													fujaba__Success = false;
 
-													fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_217548 = new ArrayList(
+													fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_265164 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			messageReceive,
@@ -9470,16 +9791,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_217548
+															&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_265164
 																	.hasNext()) {
 														try {
-															__DEC_messageReceive_receiveEvent_217548 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_217548
+															__DEC_messageReceive_receiveEvent_265164 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_265164
 																	.next();
 
-															// check object __DEC_messageReceive_receiveEvent_217548 is really bound
-															JavaSDM.ensure(__DEC_messageReceive_receiveEvent_217548 != null);
-															// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_217548 and message 
-															JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_217548
+															// check object __DEC_messageReceive_receiveEvent_265164 is really bound
+															JavaSDM.ensure(__DEC_messageReceive_receiveEvent_265164 != null);
+															// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_265164 and message 
+															JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_265164
 																	.equals(message));
 
 															fujaba__Success = true;
@@ -9502,10 +9823,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_745063
+													// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_476406
 													fujaba__Success = false;
 
-													fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_745063 = new ArrayList(
+													fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_476406 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			messageSend,
@@ -9514,16 +9835,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_745063
+															&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_476406
 																	.hasNext()) {
 														try {
-															__DEC_messageSend_receiveEvent_745063 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_745063
+															__DEC_messageSend_receiveEvent_476406 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_476406
 																	.next();
 
-															// check object __DEC_messageSend_receiveEvent_745063 is really bound
-															JavaSDM.ensure(__DEC_messageSend_receiveEvent_745063 != null);
-															// check isomorphic binding between objects __DEC_messageSend_receiveEvent_745063 and message 
-															JavaSDM.ensure(!__DEC_messageSend_receiveEvent_745063
+															// check object __DEC_messageSend_receiveEvent_476406 is really bound
+															JavaSDM.ensure(__DEC_messageSend_receiveEvent_476406 != null);
+															// check isomorphic binding between objects __DEC_messageSend_receiveEvent_476406 and message 
+															JavaSDM.ensure(!__DEC_messageSend_receiveEvent_476406
 																	.equals(message));
 
 															fujaba__Success = true;
@@ -9546,10 +9867,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_224461
+													// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_361284
 													fujaba__Success = false;
 
-													fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_224461 = new ArrayList(
+													fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_361284 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			messageReceive,
@@ -9558,16 +9879,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_224461
+															&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_361284
 																	.hasNext()) {
 														try {
-															__DEC_messageReceive_sendEvent_224461 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_224461
+															__DEC_messageReceive_sendEvent_361284 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_361284
 																	.next();
 
-															// check object __DEC_messageReceive_sendEvent_224461 is really bound
-															JavaSDM.ensure(__DEC_messageReceive_sendEvent_224461 != null);
-															// check isomorphic binding between objects __DEC_messageReceive_sendEvent_224461 and message 
-															JavaSDM.ensure(!__DEC_messageReceive_sendEvent_224461
+															// check object __DEC_messageReceive_sendEvent_361284 is really bound
+															JavaSDM.ensure(__DEC_messageReceive_sendEvent_361284 != null);
+															// check isomorphic binding between objects __DEC_messageReceive_sendEvent_361284 and message 
+															JavaSDM.ensure(!__DEC_messageReceive_sendEvent_361284
 																	.equals(message));
 
 															fujaba__Success = true;
@@ -9590,10 +9911,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_667998
+													// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_942328
 													fujaba__Success = false;
 
-													fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_667998 = new ArrayList(
+													fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_942328 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			messageSend,
@@ -9602,16 +9923,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_667998
+															&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_942328
 																	.hasNext()) {
 														try {
-															__DEC_messageSend_sendEvent_667998 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_667998
+															__DEC_messageSend_sendEvent_942328 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_942328
 																	.next();
 
-															// check object __DEC_messageSend_sendEvent_667998 is really bound
-															JavaSDM.ensure(__DEC_messageSend_sendEvent_667998 != null);
-															// check isomorphic binding between objects __DEC_messageSend_sendEvent_667998 and message 
-															JavaSDM.ensure(!__DEC_messageSend_sendEvent_667998
+															// check object __DEC_messageSend_sendEvent_942328 is really bound
+															JavaSDM.ensure(__DEC_messageSend_sendEvent_942328 != null);
+															// check isomorphic binding between objects __DEC_messageSend_sendEvent_942328 and message 
+															JavaSDM.ensure(!__DEC_messageSend_sendEvent_942328
 																	.equals(message));
 
 															fujaba__Success = true;
@@ -9634,10 +9955,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link message from message to __DEC_message_message_359062
+													// iterate to-many link message from message to __DEC_message_message_57580
 													fujaba__Success = false;
 
-													fujaba__IterMessageTo__DEC_message_message_359062 = new ArrayList(
+													fujaba__IterMessageTo__DEC_message_message_57580 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			message,
@@ -9646,20 +9967,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageTo__DEC_message_message_359062
+															&& fujaba__IterMessageTo__DEC_message_message_57580
 																	.hasNext()) {
 														try {
-															__DEC_message_message_359062 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_359062
+															__DEC_message_message_57580 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_57580
 																	.next();
 
-															// check object __DEC_message_message_359062 is really bound
-															JavaSDM.ensure(__DEC_message_message_359062 != null);
-															// check isomorphic binding between objects __DEC_message_message_359062 and messageReceive 
-															JavaSDM.ensure(!__DEC_message_message_359062
+															// check object __DEC_message_message_57580 is really bound
+															JavaSDM.ensure(__DEC_message_message_57580 != null);
+															// check isomorphic binding between objects __DEC_message_message_57580 and messageReceive 
+															JavaSDM.ensure(!__DEC_message_message_57580
 																	.equals(messageReceive));
 
-															// check isomorphic binding between objects __DEC_message_message_359062 and messageSend 
-															JavaSDM.ensure(!__DEC_message_message_359062
+															// check isomorphic binding between objects __DEC_message_message_57580 and messageSend 
+															JavaSDM.ensure(!__DEC_message_message_57580
 																	.equals(messageSend));
 
 															fujaba__Success = true;
@@ -9880,16 +10201,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_736615 = null;
-		Message __DEC_messageReceive_receiveEvent_736615 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_3658 = null;
-		Message __DEC_messageSend_receiveEvent_3658 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_335111 = null;
-		Message __DEC_messageReceive_sendEvent_335111 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_26112 = null;
-		Message __DEC_messageSend_sendEvent_26112 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_910870 = null;
-		MessageEnd __DEC_message_message_910870 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_829279 = null;
+		Message __DEC_messageReceive_receiveEvent_829279 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_838448 = null;
+		Message __DEC_messageSend_receiveEvent_838448 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_204463 = null;
+		Message __DEC_messageReceive_sendEvent_204463 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_357657 = null;
+		Message __DEC_messageSend_sendEvent_357657 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_938343 = null;
+		MessageEnd __DEC_message_message_938343 = null;
 		Match match = null;
 		Iterator fujaba__IterLineToMessageReceive = null;
 		MessageOccurrenceSpecification messageReceive = null;
@@ -10032,10 +10353,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_736615
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_829279
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_736615 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_829279 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -10044,16 +10365,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_736615
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_829279
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_736615 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_736615
+											__DEC_messageReceive_receiveEvent_829279 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_829279
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_736615 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_736615 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_736615 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_736615
+											// check object __DEC_messageReceive_receiveEvent_829279 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_829279 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_829279 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_829279
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10076,10 +10397,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_3658
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_838448
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_3658 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_838448 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -10088,16 +10409,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_3658
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_838448
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_3658 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_3658
+											__DEC_messageSend_receiveEvent_838448 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_838448
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_3658 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_3658 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_3658 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_3658
+											// check object __DEC_messageSend_receiveEvent_838448 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_838448 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_838448 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_838448
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10120,10 +10441,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_335111
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_204463
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_335111 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_204463 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -10132,16 +10453,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_335111
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_204463
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_335111 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_335111
+											__DEC_messageReceive_sendEvent_204463 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_204463
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_335111 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_335111 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_335111 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_335111
+											// check object __DEC_messageReceive_sendEvent_204463 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_204463 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_204463 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_204463
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10164,10 +10485,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_26112
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_357657
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_26112 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_357657 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -10176,16 +10497,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_26112
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_357657
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_26112 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_26112
+											__DEC_messageSend_sendEvent_357657 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_357657
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_26112 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_26112 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_26112 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_26112
+											// check object __DEC_messageSend_sendEvent_357657 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_357657 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_357657 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_357657
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10208,10 +10529,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_910870
+									// iterate to-many link message from message to __DEC_message_message_938343
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_910870 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_938343 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -10220,20 +10541,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_910870
+											&& fujaba__IterMessageTo__DEC_message_message_938343
 													.hasNext()) {
 										try {
-											__DEC_message_message_910870 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_910870
+											__DEC_message_message_938343 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_938343
 													.next();
 
-											// check object __DEC_message_message_910870 is really bound
-											JavaSDM.ensure(__DEC_message_message_910870 != null);
-											// check isomorphic binding between objects __DEC_message_message_910870 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_910870
+											// check object __DEC_message_message_938343 is really bound
+											JavaSDM.ensure(__DEC_message_message_938343 != null);
+											// check isomorphic binding between objects __DEC_message_message_938343 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_938343
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_910870 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_910870
+											// check isomorphic binding between objects __DEC_message_message_938343 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_938343
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -10413,16 +10734,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_814476 = null;
-		Message __DEC_messageReceive_receiveEvent_814476 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_756822 = null;
-		Message __DEC_messageSend_receiveEvent_756822 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_377653 = null;
-		Message __DEC_messageReceive_sendEvent_377653 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_82432 = null;
-		Message __DEC_messageSend_sendEvent_82432 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_532705 = null;
-		MessageEnd __DEC_message_message_532705 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_203526 = null;
+		Message __DEC_messageReceive_receiveEvent_203526 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_332247 = null;
+		Message __DEC_messageSend_receiveEvent_332247 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_154044 = null;
+		Message __DEC_messageReceive_sendEvent_154044 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_649245 = null;
+		Message __DEC_messageSend_sendEvent_649245 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_609674 = null;
+		MessageEnd __DEC_message_message_609674 = null;
 		Match match = null;
 		Iterator fujaba__IterLineToMessageSend = null;
 		MessageOccurrenceSpecification messageSend = null;
@@ -10564,10 +10885,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_814476
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_203526
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_814476 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_203526 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -10576,16 +10897,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_814476
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_203526
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_814476 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_814476
+											__DEC_messageReceive_receiveEvent_203526 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_203526
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_814476 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_814476 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_814476 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_814476
+											// check object __DEC_messageReceive_receiveEvent_203526 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_203526 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_203526 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_203526
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10608,10 +10929,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_756822
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_332247
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_756822 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_332247 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -10620,16 +10941,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_756822
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_332247
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_756822 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_756822
+											__DEC_messageSend_receiveEvent_332247 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_332247
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_756822 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_756822 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_756822 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_756822
+											// check object __DEC_messageSend_receiveEvent_332247 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_332247 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_332247 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_332247
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10652,10 +10973,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_377653
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_154044
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_377653 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_154044 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -10664,16 +10985,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_377653
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_154044
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_377653 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_377653
+											__DEC_messageReceive_sendEvent_154044 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_154044
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_377653 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_377653 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_377653 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_377653
+											// check object __DEC_messageReceive_sendEvent_154044 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_154044 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_154044 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_154044
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10696,10 +11017,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_82432
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_649245
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_82432 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_649245 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -10708,16 +11029,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_82432
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_649245
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_82432 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_82432
+											__DEC_messageSend_sendEvent_649245 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_649245
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_82432 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_82432 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_82432 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_82432
+											// check object __DEC_messageSend_sendEvent_649245 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_649245 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_649245 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_649245
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10740,10 +11061,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_532705
+									// iterate to-many link message from message to __DEC_message_message_609674
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_532705 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_609674 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -10752,20 +11073,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_532705
+											&& fujaba__IterMessageTo__DEC_message_message_609674
 													.hasNext()) {
 										try {
-											__DEC_message_message_532705 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_532705
+											__DEC_message_message_609674 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_609674
 													.next();
 
-											// check object __DEC_message_message_532705 is really bound
-											JavaSDM.ensure(__DEC_message_message_532705 != null);
-											// check isomorphic binding between objects __DEC_message_message_532705 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_532705
+											// check object __DEC_message_message_609674 is really bound
+											JavaSDM.ensure(__DEC_message_message_609674 != null);
+											// check isomorphic binding between objects __DEC_message_message_609674 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_609674
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_532705 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_532705
+											// check isomorphic binding between objects __DEC_message_message_609674 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_609674
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -10945,16 +11266,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_968556 = null;
-		Message __DEC_messageReceive_receiveEvent_968556 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_399777 = null;
-		Message __DEC_messageSend_receiveEvent_399777 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_983618 = null;
-		Message __DEC_messageReceive_sendEvent_983618 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_136248 = null;
-		Message __DEC_messageSend_sendEvent_136248 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_471575 = null;
-		MessageEnd __DEC_message_message_471575 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_440937 = null;
+		Message __DEC_messageReceive_receiveEvent_440937 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_245325 = null;
+		Message __DEC_messageSend_receiveEvent_245325 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_950537 = null;
+		Message __DEC_messageReceive_sendEvent_950537 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_815465 = null;
+		Message __DEC_messageSend_sendEvent_815465 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_964914 = null;
+		MessageEnd __DEC_message_message_964914 = null;
 		Match match = null;
 		Iterator fujaba__IterLineToMessageSend = null;
 		MessageOccurrenceSpecification messageSend = null;
@@ -11087,10 +11408,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_968556
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_440937
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_968556 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_440937 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -11098,16 +11419,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_968556
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_440937
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_968556 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_968556
+									__DEC_messageReceive_receiveEvent_440937 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_440937
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_968556 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_968556 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_968556 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_968556
+									// check object __DEC_messageReceive_receiveEvent_440937 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_440937 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_440937 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_440937
 											.equals(message));
 
 									fujaba__Success = true;
@@ -11130,26 +11451,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_399777
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_245325
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_399777 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_245325 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_399777
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_245325
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_399777 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_399777
+									__DEC_messageSend_receiveEvent_245325 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_245325
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_399777 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_399777 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_399777 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_399777
+									// check object __DEC_messageSend_receiveEvent_245325 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_245325 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_245325 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_245325
 											.equals(message));
 
 									fujaba__Success = true;
@@ -11172,10 +11493,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_983618
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_950537
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_983618 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_950537 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -11183,16 +11504,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_983618
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_950537
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_983618 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_983618
+									__DEC_messageReceive_sendEvent_950537 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_950537
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_983618 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_983618 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_983618 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_983618
+									// check object __DEC_messageReceive_sendEvent_950537 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_950537 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_950537 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_950537
 											.equals(message));
 
 									fujaba__Success = true;
@@ -11215,26 +11536,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_136248
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_815465
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_136248 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_815465 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_136248
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_815465
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_136248 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_136248
+									__DEC_messageSend_sendEvent_815465 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_815465
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_136248 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_136248 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_136248 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_136248
+									// check object __DEC_messageSend_sendEvent_815465 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_815465 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_815465 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_815465
 											.equals(message));
 
 									fujaba__Success = true;
@@ -11257,30 +11578,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_471575
+							// iterate to-many link message from message to __DEC_message_message_964914
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_471575 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_964914 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_471575
+									&& fujaba__IterMessageTo__DEC_message_message_964914
 											.hasNext()) {
 								try {
-									__DEC_message_message_471575 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_471575
+									__DEC_message_message_964914 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_964914
 											.next();
 
-									// check object __DEC_message_message_471575 is really bound
-									JavaSDM.ensure(__DEC_message_message_471575 != null);
-									// check isomorphic binding between objects __DEC_message_message_471575 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_471575
+									// check object __DEC_message_message_964914 is really bound
+									JavaSDM.ensure(__DEC_message_message_964914 != null);
+									// check isomorphic binding between objects __DEC_message_message_964914 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_964914
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_471575 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_471575
+									// check isomorphic binding between objects __DEC_message_message_964914 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_964914
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -11444,24 +11765,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_798467 = null;
-		Message __DEC_messageReceive_receiveEvent_798467 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_660904 = null;
-		Message __DEC_messageSend_receiveEvent_660904 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_207958 = null;
-		Message __DEC_messageReceive_sendEvent_207958 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_866506 = null;
-		Message __DEC_messageSend_sendEvent_866506 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_741579 = null;
-		MessageEnd __DEC_message_message_741579 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678917 = null;
+		Message __DEC_messageReceive_receiveEvent_678917 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_820211 = null;
+		Message __DEC_messageSend_receiveEvent_820211 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_288615 = null;
+		Message __DEC_messageReceive_sendEvent_288615 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_358553 = null;
+		Message __DEC_messageSend_sendEvent_358553 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_780150 = null;
+		MessageEnd __DEC_message_message_780150 = null;
 		Match match = null;
 		Iterator fujaba__IterLineTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
-		Message message = null;
 		Iterator fujaba__IterLineToMessageSend = null;
 		MessageOccurrenceSpecification messageSend = null;
 		Interaction interaction = null;
 		Lifeline line = null;
+		Message message = null;
 		MessageOccurrenceSpecification messageReceive = null;
 
 		// story node 'prepare return value'
@@ -11519,6 +11840,15 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
 			// bind object
+			message = messageReceive.getMessage();
+
+			// check object message is really bound
+			JavaSDM.ensure(message != null);
+
+			// check link receiveEvent from message to messageReceive
+			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
+
+			// bind object
 			_TmpObject = _edge_covered.getTrg();
 
 			// ensure correct type and really bound of object line
@@ -11534,6 +11864,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check link fragment from messageReceive to interaction
 			JavaSDM.ensure(interaction.equals(messageReceive
 					.getEnclosingInteraction()));
+
+			// check link message from message to interaction
+			JavaSDM.ensure(interaction.equals(message.getInteraction()));
 
 			// check link covered from messageReceive to line
 			JavaSDM.ensure(messageReceive.getCovered().contains(line));
@@ -11558,21 +11891,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					JavaSDM.ensure(interaction.equals(messageSend
 							.getEnclosingInteraction()));
 
-					// bind object
-					message = messageSend.getMessage();
-
-					// check object message is really bound
-					JavaSDM.ensure(message != null);
-
-					// check link message from message to interaction
-					JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-					// check link message from messageReceive to message
-					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-					// check link receiveEvent from message to messageReceive
-					JavaSDM.ensure(messageReceive.equals(message
-							.getReceiveEvent()));
+					// check link message from messageSend to message
+					JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 					// check link sendEvent from message to messageSend
 					JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
@@ -11615,10 +11935,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_798467
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_678917
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_798467 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678917 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -11627,16 +11947,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_798467
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678917
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_798467 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_798467
+											__DEC_messageReceive_receiveEvent_678917 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678917
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_798467 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_798467 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_798467 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_798467
+											// check object __DEC_messageReceive_receiveEvent_678917 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_678917 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_678917 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_678917
 													.equals(message));
 
 											fujaba__Success = true;
@@ -11659,10 +11979,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_660904
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_820211
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_660904 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_820211 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -11671,16 +11991,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_660904
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_820211
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_660904 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_660904
+											__DEC_messageSend_receiveEvent_820211 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_820211
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_660904 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_660904 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_660904 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_660904
+											// check object __DEC_messageSend_receiveEvent_820211 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_820211 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_820211 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_820211
 													.equals(message));
 
 											fujaba__Success = true;
@@ -11703,10 +12023,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_207958
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_288615
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_207958 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_288615 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -11715,16 +12035,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_207958
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_288615
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_207958 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_207958
+											__DEC_messageReceive_sendEvent_288615 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_288615
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_207958 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_207958 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_207958 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_207958
+											// check object __DEC_messageReceive_sendEvent_288615 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_288615 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_288615 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_288615
 													.equals(message));
 
 											fujaba__Success = true;
@@ -11747,10 +12067,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_866506
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_358553
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_866506 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_358553 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -11759,16 +12079,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_866506
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_358553
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_866506 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_866506
+											__DEC_messageSend_sendEvent_358553 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_358553
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_866506 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_866506 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_866506 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_866506
+											// check object __DEC_messageSend_sendEvent_358553 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_358553 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_358553 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_358553
 													.equals(message));
 
 											fujaba__Success = true;
@@ -11791,10 +12111,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_741579
+									// iterate to-many link message from message to __DEC_message_message_780150
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_741579 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_780150 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -11803,20 +12123,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_741579
+											&& fujaba__IterMessageTo__DEC_message_message_780150
 													.hasNext()) {
 										try {
-											__DEC_message_message_741579 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_741579
+											__DEC_message_message_780150 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_780150
 													.next();
 
-											// check object __DEC_message_message_741579 is really bound
-											JavaSDM.ensure(__DEC_message_message_741579 != null);
-											// check isomorphic binding between objects __DEC_message_message_741579 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_741579
+											// check object __DEC_message_message_780150 is really bound
+											JavaSDM.ensure(__DEC_message_message_780150 != null);
+											// check isomorphic binding between objects __DEC_message_message_780150 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_780150
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_741579 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_741579
+											// check isomorphic binding between objects __DEC_message_message_780150 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_780150
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -12029,12 +12349,15 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isAppropriate_FWD(Match match, BasicFlow flow,
-			UseCase useCase, NormalStep step, Actor actor) {
+			UseCase useCase, NormalStep step, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
 		EMoflonEdge __step_actor_actor = null;
 		EMoflonEdge __flow_steps_step = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __useCase_flows_flow = null;
 
 		// story node 'initial bindings'
@@ -12047,6 +12370,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(flow != null);
 			// check object match is really bound
 			JavaSDM.ensure(match != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object step is really bound
 			JavaSDM.ensure(step != null);
 			// check object useCase is really bound
@@ -12061,7 +12386,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 
 			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, flow, useCase,
-					step, actor));
+					step, actor, packageDeclaration));
 
 			// ensure correct type and really bound of object csp
 			JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -12084,6 +12409,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -12103,15 +12430,15 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						step, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__step_actor_actor, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__flow_steps_step, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						step, "toBeTranslatedNodes");
 
 				// create link
 				__flow_steps_step.setSrc(flow);
@@ -12140,24 +12467,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
+				// create object __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __useCase_flows_flow
 				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __useCase_flows_flow
 				__useCase_flows_flow.setName("flows");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_flow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
+				// assign attribute __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor.setName("actors");
+				// assign attribute __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase.setName("useCases");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -12165,7 +12498,27 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_actors_actor, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_useCases_useCase, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						useCase, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__useCase_flows_flow, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						actor, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						packageDeclaration, "contextNodes");
 
 				// create link
 				__useCase_flows_flow.setTrg(flow);
@@ -12173,13 +12526,27 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// create link
 				__useCase_flows_flow.setSrc(useCase);
 
+				// create link
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
+
+				// create link
+				__packageDeclaration_actors_actor.setTrg(actor);
+
+				// create link
+				__packageDeclaration_useCases_useCase
+						.setSrc(packageDeclaration);
+
+				// create link
+				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
+
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
 				fujaba__Success = false;
 			}
 
 			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, flow, useCase, step, actor);
+			this.registerObjectsToMatch_FWD(match, flow, useCase, step, actor,
+					packageDeclaration);
 			return true;
 
 		} else {
@@ -12194,11 +12561,13 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjectsToMatch_FWD(Match match, BasicFlow flow,
-			UseCase useCase, NormalStep step, Actor actor) {
+			UseCase useCase, NormalStep step, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		match.registerObject("flow", flow);
 		match.registerObject("useCase", useCase);
 		match.registerObject("step", step);
 		match.registerObject("actor", actor);
+		match.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -12208,7 +12577,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, BasicFlow flow,
-			UseCase useCase, NormalStep step, Actor actor) {
+			UseCase useCase, NormalStep step, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
@@ -12235,7 +12605,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			Interaction interaction, BasicFlow flow,
 			FlowToInteractionFragment flowToInteraction, UseCase useCase,
 			UseCaseToInteraction useCaseToInteraction, NormalStep step,
-			Lifeline line, Actor actor, ActorToLifeline actorToLine) {
+			Lifeline line, Actor actor, ActorToLifeline actorToLine,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -12276,6 +12647,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -12289,7 +12662,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			EObject flow, EObject flowToInteraction, EObject useCase,
 			EObject useCaseToInteraction, EObject step, EObject message,
 			EObject stepToMessage, EObject line, EObject actor,
-			EObject actorToLine) {
+			EObject actorToLine, EObject packageDeclaration) {
 		ruleresult.registerObject("interaction", interaction);
 		ruleresult.registerObject("messageSend", messageSend);
 		ruleresult.registerObject("messageReceive", messageReceive);
@@ -12303,6 +12676,34 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		ruleresult.registerObject("line", line);
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("actorToLine", actorToLine);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void registerObjects_FWD(PerformRuleResult ruleresult,
+			EObject actor, EObject line, EObject messageSend,
+			EObject interaction, EObject messageReceive, EObject flow,
+			EObject flowToInteraction, EObject useCase,
+			EObject useCaseToInteraction, EObject step, EObject message,
+			EObject stepToMessage, EObject packageDeclaration) {
+		ruleresult.registerObject("actor", actor);
+		ruleresult.registerObject("line", line);
+		ruleresult.registerObject("messageSend", messageSend);
+		ruleresult.registerObject("interaction", interaction);
+		ruleresult.registerObject("messageReceive", messageReceive);
+		ruleresult.registerObject("flow", flow);
+		ruleresult.registerObject("flowToInteraction", flowToInteraction);
+		ruleresult.registerObject("useCase", useCase);
+		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
+		ruleresult.registerObject("step", step);
+		ruleresult.registerObject("message", message);
+		ruleresult.registerObject("stepToMessage", stepToMessage);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -12318,18 +12719,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
+		EMoflonEdge __messageReceive_covered_line = null;
+		EMoflonEdge __message_interaction_interaction = null;
+		EMoflonEdge __message_sendEvent_messageSend = null;
+		EMoflonEdge __line_coveredBy_messageReceive = null;
+		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __interaction_fragment_messageReceive = null;
+		EMoflonEdge __messageSend_enclosingInteraction_interaction = null;
+		EMoflonEdge __interaction_fragment_messageSend = null;
+		EMoflonEdge __messageSend_message_message = null;
 		EMoflonEdge __interaction_message_message = null;
 		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
-		EMoflonEdge __messageSend_message_message = null;
-		EMoflonEdge __interaction_fragment_messageSend = null;
-		EMoflonEdge __messageSend_enclosingInteraction_interaction = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __message_sendEvent_messageSend = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge __line_interaction_interaction = null;
 		EMoflonEdge __interaction_lifeline_line = null;
 
@@ -12394,6 +12795,42 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
+				// create object __messageReceive_covered_line
+				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __message_interaction_interaction
+				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __message_sendEvent_messageSend
+				__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __line_coveredBy_messageReceive
+				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageReceive_message_message
+				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __interaction_fragment_messageReceive
+				__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageSend_enclosingInteraction_interaction
+				__messageSend_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __interaction_fragment_messageSend
+				__interaction_fragment_messageSend = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageSend_message_message
+				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __interaction_message_message
 				__interaction_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -12402,44 +12839,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageSend_message_message
-				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __interaction_fragment_messageSend
-				__interaction_fragment_messageSend = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageSend_enclosingInteraction_interaction
-				__messageSend_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageReceive_covered_line
-				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __message_sendEvent_messageSend
-				__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __interaction_fragment_messageReceive
-				__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __line_coveredBy_messageReceive
-				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __message_receiveEvent_messageReceive
 				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageReceive_message_message
-				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __message_interaction_interaction
-				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __messageSend_enclosingInteraction_interaction
@@ -12471,30 +12872,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_message_message, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageSend, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageReceive_enclosingInteraction_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageSend_message_message, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_fragment_messageSend,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageSend_enclosingInteraction_interaction,
-						"toBeTranslatedEdges");
+						messageReceive, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -12502,7 +12880,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageReceive, "toBeTranslatedNodes");
+						__message_interaction_interaction,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -12510,17 +12889,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_fragment_messageReceive,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_receiveEvent_messageReceive,
-						"toBeTranslatedEdges");
+						message, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil
@@ -12530,32 +12903,67 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						message, "toBeTranslatedNodes");
+						__interaction_fragment_messageReceive,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_interaction_interaction,
+						__messageSend_enclosingInteraction_interaction,
 						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						messageSend, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_fragment_messageSend,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageSend_message_message, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_message_message, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageReceive_enclosingInteraction_interaction,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_receiveEvent_messageReceive,
+						"toBeTranslatedEdges");
+
+				// create link
+				__interaction_fragment_messageReceive.setSrc(interaction);
 
 				// create link
 				__messageReceive_enclosingInteraction_interaction
 						.setTrg(interaction);
 
 				// create link
-				__messageSend_enclosingInteraction_interaction
-						.setTrg(interaction);
+				__interaction_fragment_messageSend.setSrc(interaction);
 
 				// create link
 				__interaction_message_message.setSrc(interaction);
 
 				// create link
-				__interaction_fragment_messageSend.setSrc(interaction);
-
-				// create link
-				__interaction_fragment_messageReceive.setSrc(interaction);
-
-				// create link
 				__message_interaction_interaction.setTrg(interaction);
+
+				// create link
+				__messageSend_enclosingInteraction_interaction
+						.setTrg(interaction);
+
+				// create link
+				__messageSend_enclosingInteraction_interaction
+						.setSrc(messageSend);
+
+				// create link
+				__message_sendEvent_messageSend.setTrg(messageSend);
 
 				// create link
 				__messageSend_message_message.setSrc(messageSend);
@@ -12564,20 +12972,13 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__interaction_fragment_messageSend.setTrg(messageSend);
 
 				// create link
-				__message_sendEvent_messageSend.setTrg(messageSend);
-
-				// create link
-				__messageSend_enclosingInteraction_interaction
-						.setSrc(messageSend);
+				__line_coveredBy_messageReceive.setTrg(messageReceive);
 
 				// create link
 				__interaction_fragment_messageReceive.setTrg(messageReceive);
 
 				// create link
-				__line_coveredBy_messageReceive.setTrg(messageReceive);
-
-				// create link
-				__messageReceive_message_message.setSrc(messageReceive);
+				__message_receiveEvent_messageReceive.setTrg(messageReceive);
 
 				// create link
 				__messageReceive_enclosingInteraction_interaction
@@ -12587,7 +12988,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__messageReceive_covered_line.setSrc(messageReceive);
 
 				// create link
-				__message_receiveEvent_messageReceive.setTrg(messageReceive);
+				__messageReceive_message_message.setSrc(messageReceive);
+
+				// create link
+				__messageSend_message_message.setTrg(message);
+
+				// create link
+				__interaction_message_message.setTrg(message);
+
+				// create link
+				__message_receiveEvent_messageReceive.setSrc(message);
 
 				// create link
 				__message_interaction_interaction.setSrc(message);
@@ -12596,22 +13006,13 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__message_sendEvent_messageSend.setSrc(message);
 
 				// create link
-				__messageSend_message_message.setTrg(message);
-
-				// create link
-				__message_receiveEvent_messageReceive.setSrc(message);
-
-				// create link
-				__interaction_message_message.setTrg(message);
-
-				// create link
 				__messageReceive_message_message.setTrg(message);
 
 				// create link
-				__messageReceive_covered_line.setTrg(line);
+				__line_coveredBy_messageReceive.setSrc(line);
 
 				// create link
-				__line_coveredBy_messageReceive.setSrc(line);
+				__messageReceive_covered_line.setTrg(line);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -12652,15 +13053,15 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						line, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__line_interaction_interaction, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						interaction, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -12673,10 +13074,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__line_interaction_interaction.setTrg(interaction);
 
 				// create link
-				__interaction_lifeline_line.setTrg(line);
+				__line_interaction_interaction.setSrc(line);
 
 				// create link
-				__line_interaction_interaction.setSrc(line);
+				__interaction_lifeline_line.setTrg(line);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -12749,7 +13150,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			MessageOccurrenceSpecification messageReceive, BasicFlow flow,
 			FlowToInteractionFragment flowToInteraction, UseCase useCase,
 			UseCaseToInteraction useCaseToInteraction, Message message,
-			Lifeline line, Actor actor, ActorToLifeline actorToLine) {
+			Lifeline line, Actor actor, ActorToLifeline actorToLine,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -12792,6 +13194,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -12805,7 +13209,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			EObject flow, EObject flowToInteraction, EObject useCase,
 			EObject useCaseToInteraction, EObject step, EObject message,
 			EObject stepToMessage, EObject line, EObject actor,
-			EObject actorToLine) {
+			EObject actorToLine, EObject packageDeclaration) {
 		ruleresult.registerObject("interaction", interaction);
 		ruleresult.registerObject("messageSend", messageSend);
 		ruleresult.registerObject("messageReceive", messageReceive);
@@ -12819,6 +13223,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		ruleresult.registerObject("line", line);
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("actorToLine", actorToLine);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -12835,16 +13240,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_728778 = null;
-		Message __DEC_messageReceive_receiveEvent_728778 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_387020 = null;
-		Message __DEC_messageSend_receiveEvent_387020 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_886529 = null;
-		Message __DEC_messageReceive_sendEvent_886529 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_767580 = null;
-		Message __DEC_messageSend_sendEvent_767580 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_50548 = null;
-		MessageEnd __DEC_message_message_50548 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_639490 = null;
+		Message __DEC_messageReceive_receiveEvent_639490 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_285202 = null;
+		Message __DEC_messageSend_receiveEvent_285202 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_146154 = null;
+		Message __DEC_messageReceive_sendEvent_146154 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_728061 = null;
+		Message __DEC_messageSend_sendEvent_728061 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_360067 = null;
+		MessageEnd __DEC_message_message_360067 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
@@ -12988,10 +13393,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_728778
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_639490
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_728778 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_639490 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -13000,16 +13405,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_728778
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_639490
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_728778 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_728778
+											__DEC_messageReceive_receiveEvent_639490 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_639490
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_728778 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_728778 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_728778 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_728778
+											// check object __DEC_messageReceive_receiveEvent_639490 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_639490 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_639490 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_639490
 													.equals(message));
 
 											fujaba__Success = true;
@@ -13032,10 +13437,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_387020
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_285202
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_387020 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_285202 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -13044,16 +13449,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_387020
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_285202
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_387020 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_387020
+											__DEC_messageSend_receiveEvent_285202 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_285202
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_387020 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_387020 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_387020 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_387020
+											// check object __DEC_messageSend_receiveEvent_285202 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_285202 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_285202 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_285202
 													.equals(message));
 
 											fujaba__Success = true;
@@ -13076,10 +13481,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_886529
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_146154
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_886529 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_146154 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -13088,16 +13493,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_886529
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_146154
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_886529 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_886529
+											__DEC_messageReceive_sendEvent_146154 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_146154
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_886529 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_886529 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_886529 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_886529
+											// check object __DEC_messageReceive_sendEvent_146154 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_146154 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_146154 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_146154
 													.equals(message));
 
 											fujaba__Success = true;
@@ -13120,10 +13525,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_767580
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_728061
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_767580 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_728061 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -13132,16 +13537,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_767580
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_728061
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_767580 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_767580
+											__DEC_messageSend_sendEvent_728061 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_728061
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_767580 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_767580 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_767580 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_767580
+											// check object __DEC_messageSend_sendEvent_728061 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_728061 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_728061 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_728061
 													.equals(message));
 
 											fujaba__Success = true;
@@ -13164,10 +13569,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_50548
+									// iterate to-many link message from message to __DEC_message_message_360067
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_50548 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_360067 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -13176,20 +13581,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_50548
+											&& fujaba__IterMessageTo__DEC_message_message_360067
 													.hasNext()) {
 										try {
-											__DEC_message_message_50548 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_50548
+											__DEC_message_message_360067 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_360067
 													.next();
 
-											// check object __DEC_message_message_50548 is really bound
-											JavaSDM.ensure(__DEC_message_message_50548 != null);
-											// check isomorphic binding between objects __DEC_message_message_50548 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_50548
+											// check object __DEC_message_message_360067 is really bound
+											JavaSDM.ensure(__DEC_message_message_360067 != null);
+											// check isomorphic binding between objects __DEC_message_message_360067 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_360067
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_50548 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_50548
+											// check isomorphic binding between objects __DEC_message_message_360067 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_360067
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -13367,23 +13772,23 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_855020 = null;
-		Message __DEC_messageReceive_receiveEvent_855020 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_68642 = null;
-		Message __DEC_messageSend_receiveEvent_68642 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_17572 = null;
-		Message __DEC_messageReceive_sendEvent_17572 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_971088 = null;
-		Message __DEC_messageSend_sendEvent_971088 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_663304 = null;
-		MessageEnd __DEC_message_message_663304 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_974103 = null;
+		Message __DEC_messageReceive_receiveEvent_974103 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_605512 = null;
+		Message __DEC_messageSend_receiveEvent_605512 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_765171 = null;
+		Message __DEC_messageReceive_sendEvent_765171 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_942466 = null;
+		Message __DEC_messageSend_sendEvent_942466 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_230426 = null;
+		MessageEnd __DEC_message_message_230426 = null;
 		Match match = null;
+		Iterator fujaba__IterInteractionTo_edge_enclosingInteraction = null;
+		EMoflonEdge _edge_enclosingInteraction = null;
 		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Iterator fujaba__IterInteractionToMessage = null;
 		Message message = null;
-		Iterator fujaba__IterInteractionTo_edge_enclosingInteraction = null;
-		EMoflonEdge _edge_enclosingInteraction = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
 		Interaction interaction = null;
@@ -13454,88 +13859,85 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 					// check object line is really bound
 					JavaSDM.ensure(line != null);
-					// iterate to-many link trg from interaction to _edge_enclosingInteraction
+					// iterate to-many link message from interaction to message
 					fujaba__Success = false;
 
-					fujaba__IterInteractionTo_edge_enclosingInteraction = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(interaction,
-											EMoflonEdge.class, "trg"))
-							.iterator();
+					fujaba__IterInteractionToMessage = new ArrayList(
+							interaction.getMessage()).iterator();
 
-					while (fujaba__IterInteractionTo_edge_enclosingInteraction
-							.hasNext()) {
+					while (fujaba__IterInteractionToMessage.hasNext()) {
 						try {
-							_edge_enclosingInteraction = (EMoflonEdge) fujaba__IterInteractionTo_edge_enclosingInteraction
+							message = (Message) fujaba__IterInteractionToMessage
 									.next();
 
-							// check object _edge_enclosingInteraction is really bound
-							JavaSDM.ensure(_edge_enclosingInteraction != null);
-							// check isomorphic binding between objects _edge_fragment and _edge_enclosingInteraction 
-							JavaSDM.ensure(!_edge_fragment
-									.equals(_edge_enclosingInteraction));
+							// check object message is really bound
+							JavaSDM.ensure(message != null);
+							// bind object
+							_TmpObject = message.getReceiveEvent();
 
-							// iterate to-many link message from interaction to message
+							// ensure correct type and really bound of object messageReceive
+							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+							messageReceive = (MessageOccurrenceSpecification) _TmpObject;
+
+							// check link fragment from messageReceive to interaction
+							JavaSDM.ensure(interaction.equals(messageReceive
+									.getEnclosingInteraction()));
+
+							// check link message from messageReceive to message
+							JavaSDM.ensure(message.equals(messageReceive
+									.getMessage()));
+
+							// bind object
+							_TmpObject = message.getSendEvent();
+
+							// ensure correct type and really bound of object messageSend
+							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+							messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
+							// check isomorphic binding between objects messageSend and messageReceive 
+							JavaSDM.ensure(!messageSend.equals(messageReceive));
+
+							// check link fragment from messageSend to interaction
+							JavaSDM.ensure(interaction.equals(messageSend
+									.getEnclosingInteraction()));
+
+							// check link message from messageSend to message
+							JavaSDM.ensure(message.equals(messageSend
+									.getMessage()));
+
+							// check link trg from _edge_fragment to messageSend
+							JavaSDM.ensure(messageSend.equals(_edge_fragment
+									.getTrg()));
+
+							// check link covered from line to messageReceive
+							JavaSDM.ensure(line.getCoveredBy().contains(
+									messageReceive));
+
+							// iterate to-many link trg from interaction to _edge_enclosingInteraction
 							fujaba__Success = false;
 
-							fujaba__IterInteractionToMessage = new ArrayList(
-									interaction.getMessage()).iterator();
+							fujaba__IterInteractionTo_edge_enclosingInteraction = new ArrayList(
+									org.moflon.util.eMoflonEMFUtil
+											.getOppositeReference(interaction,
+													EMoflonEdge.class, "trg"))
+									.iterator();
 
-							while (fujaba__IterInteractionToMessage.hasNext()) {
+							while (fujaba__IterInteractionTo_edge_enclosingInteraction
+									.hasNext()) {
 								try {
-									message = (Message) fujaba__IterInteractionToMessage
+									_edge_enclosingInteraction = (EMoflonEdge) fujaba__IterInteractionTo_edge_enclosingInteraction
 											.next();
 
-									// check object message is really bound
-									JavaSDM.ensure(message != null);
-									// bind object
-									_TmpObject = message.getReceiveEvent();
-
-									// ensure correct type and really bound of object messageReceive
-									JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-									messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-									// check link fragment from messageReceive to interaction
-									JavaSDM.ensure(interaction
-											.equals(messageReceive
-													.getEnclosingInteraction()));
-
-									// check link message from messageReceive to message
-									JavaSDM.ensure(message
-											.equals(messageReceive.getMessage()));
-
-									// bind object
-									_TmpObject = message.getSendEvent();
-
-									// ensure correct type and really bound of object messageSend
-									JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-									messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
-									// check isomorphic binding between objects messageSend and messageReceive 
-									JavaSDM.ensure(!messageSend
-											.equals(messageReceive));
-
-									// check link fragment from messageSend to interaction
-									JavaSDM.ensure(interaction
-											.equals(messageSend
-													.getEnclosingInteraction()));
-
-									// check link message from messageSend to message
-									JavaSDM.ensure(message.equals(messageSend
-											.getMessage()));
+									// check object _edge_enclosingInteraction is really bound
+									JavaSDM.ensure(_edge_enclosingInteraction != null);
+									// check isomorphic binding between objects _edge_fragment and _edge_enclosingInteraction 
+									JavaSDM.ensure(!_edge_fragment
+											.equals(_edge_enclosingInteraction));
 
 									// check link src from _edge_enclosingInteraction to messageSend
 									JavaSDM.ensure(messageSend
 											.equals(_edge_enclosingInteraction
 													.getSrc()));
-
-									// check link trg from _edge_fragment to messageSend
-									JavaSDM.ensure(messageSend
-											.equals(_edge_fragment.getTrg()));
-
-									// check link covered from line to messageReceive
-									JavaSDM.ensure(line.getCoveredBy()
-											.contains(messageReceive));
 
 									// story node 'test core match and DECs'
 									try {
@@ -13551,10 +13953,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_855020
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_974103
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_855020 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_974103 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -13563,16 +13965,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_855020
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_974103
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_855020 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_855020
+													__DEC_messageReceive_receiveEvent_974103 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_974103
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_855020 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_855020 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_855020 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_855020
+													// check object __DEC_messageReceive_receiveEvent_974103 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_974103 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_974103 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_974103
 															.equals(message));
 
 													fujaba__Success = true;
@@ -13595,10 +13997,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_68642
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_605512
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_68642 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_605512 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -13607,16 +14009,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_68642
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_605512
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_68642 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_68642
+													__DEC_messageSend_receiveEvent_605512 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_605512
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_68642 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_68642 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_68642 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_68642
+													// check object __DEC_messageSend_receiveEvent_605512 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_605512 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_605512 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_605512
 															.equals(message));
 
 													fujaba__Success = true;
@@ -13639,10 +14041,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_17572
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_765171
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_17572 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_765171 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -13651,16 +14053,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_17572
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_765171
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_17572 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_17572
+													__DEC_messageReceive_sendEvent_765171 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_765171
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_17572 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_17572 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_17572 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_17572
+													// check object __DEC_messageReceive_sendEvent_765171 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_765171 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_765171 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_765171
 															.equals(message));
 
 													fujaba__Success = true;
@@ -13683,10 +14085,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_971088
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_942466
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_971088 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_942466 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -13695,16 +14097,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_971088
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_942466
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_971088 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_971088
+													__DEC_messageSend_sendEvent_942466 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_942466
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_971088 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_971088 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_971088 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_971088
+													// check object __DEC_messageSend_sendEvent_942466 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_942466 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_942466 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_942466
 															.equals(message));
 
 													fujaba__Success = true;
@@ -13727,10 +14129,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_663304
+											// iterate to-many link message from message to __DEC_message_message_230426
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_663304 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_230426 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -13739,20 +14141,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_663304
+													&& fujaba__IterMessageTo__DEC_message_message_230426
 															.hasNext()) {
 												try {
-													__DEC_message_message_663304 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_663304
+													__DEC_message_message_230426 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_230426
 															.next();
 
-													// check object __DEC_message_message_663304 is really bound
-													JavaSDM.ensure(__DEC_message_message_663304 != null);
-													// check isomorphic binding between objects __DEC_message_message_663304 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_663304
+													// check object __DEC_message_message_230426 is really bound
+													JavaSDM.ensure(__DEC_message_message_230426 != null);
+													// check isomorphic binding between objects __DEC_message_message_230426 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_230426
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_663304 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_663304
+													// check isomorphic binding between objects __DEC_message_message_230426 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_230426
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -13959,16 +14361,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_53062 = null;
-		Message __DEC_messageReceive_receiveEvent_53062 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_726705 = null;
-		Message __DEC_messageSend_receiveEvent_726705 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_209184 = null;
-		Message __DEC_messageReceive_sendEvent_209184 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_319114 = null;
-		Message __DEC_messageSend_sendEvent_319114 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_107384 = null;
-		MessageEnd __DEC_message_message_107384 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_851040 = null;
+		Message __DEC_messageReceive_receiveEvent_851040 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_89923 = null;
+		Message __DEC_messageSend_receiveEvent_89923 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_966221 = null;
+		Message __DEC_messageReceive_sendEvent_966221 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_733205 = null;
+		Message __DEC_messageSend_sendEvent_733205 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_557536 = null;
+		MessageEnd __DEC_message_message_557536 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
@@ -14112,10 +14514,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_53062
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_851040
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_53062 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_851040 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -14124,16 +14526,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_53062
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_851040
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_53062 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_53062
+											__DEC_messageReceive_receiveEvent_851040 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_851040
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_53062 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_53062 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_53062 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_53062
+											// check object __DEC_messageReceive_receiveEvent_851040 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_851040 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_851040 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_851040
 													.equals(message));
 
 											fujaba__Success = true;
@@ -14156,10 +14558,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_726705
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_89923
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_726705 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_89923 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -14168,16 +14570,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_726705
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_89923
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_726705 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_726705
+											__DEC_messageSend_receiveEvent_89923 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_89923
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_726705 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_726705 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_726705 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_726705
+											// check object __DEC_messageSend_receiveEvent_89923 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_89923 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_89923 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_89923
 													.equals(message));
 
 											fujaba__Success = true;
@@ -14200,10 +14602,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_209184
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_966221
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_209184 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_966221 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -14212,16 +14614,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_209184
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_966221
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_209184 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_209184
+											__DEC_messageReceive_sendEvent_966221 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_966221
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_209184 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_209184 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_209184 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_209184
+											// check object __DEC_messageReceive_sendEvent_966221 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_966221 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_966221 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_966221
 													.equals(message));
 
 											fujaba__Success = true;
@@ -14244,10 +14646,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_319114
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_733205
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_319114 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_733205 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -14256,16 +14658,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_319114
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_733205
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_319114 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_319114
+											__DEC_messageSend_sendEvent_733205 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_733205
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_319114 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_319114 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_319114 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_319114
+											// check object __DEC_messageSend_sendEvent_733205 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_733205 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_733205 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_733205
 													.equals(message));
 
 											fujaba__Success = true;
@@ -14288,10 +14690,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_107384
+									// iterate to-many link message from message to __DEC_message_message_557536
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_107384 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_557536 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -14300,20 +14702,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_107384
+											&& fujaba__IterMessageTo__DEC_message_message_557536
 													.hasNext()) {
 										try {
-											__DEC_message_message_107384 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_107384
+											__DEC_message_message_557536 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_557536
 													.next();
 
-											// check object __DEC_message_message_107384 is really bound
-											JavaSDM.ensure(__DEC_message_message_107384 != null);
-											// check isomorphic binding between objects __DEC_message_message_107384 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_107384
+											// check object __DEC_message_message_557536 is really bound
+											JavaSDM.ensure(__DEC_message_message_557536 != null);
+											// check isomorphic binding between objects __DEC_message_message_557536 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_557536
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_107384 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_107384
+											// check isomorphic binding between objects __DEC_message_message_557536 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_557536
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -14491,25 +14893,25 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_738453 = null;
-		Message __DEC_messageReceive_receiveEvent_738453 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_847431 = null;
-		Message __DEC_messageSend_receiveEvent_847431 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_618390 = null;
-		Message __DEC_messageReceive_sendEvent_618390 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_612995 = null;
-		Message __DEC_messageSend_sendEvent_612995 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_796390 = null;
-		MessageEnd __DEC_message_message_796390 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_380882 = null;
+		Message __DEC_messageReceive_receiveEvent_380882 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_95654 = null;
+		Message __DEC_messageSend_receiveEvent_95654 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_731292 = null;
+		Message __DEC_messageReceive_sendEvent_731292 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_455407 = null;
+		Message __DEC_messageSend_sendEvent_455407 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_6147 = null;
+		MessageEnd __DEC_message_message_6147 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionTo_edge_enclosingInteraction = null;
 		EMoflonEdge _edge_enclosingInteraction = null;
+		MessageOccurrenceSpecification messageSend = null;
+		MessageOccurrenceSpecification messageReceive = null;
+		Iterator fujaba__IterInteractionToMessage = null;
+		Message message = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
-		Iterator fujaba__IterInteractionToMessageSend = null;
-		MessageOccurrenceSpecification messageSend = null;
-		Message message = null;
-		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
 
 		// story node 'prepare return value'
@@ -14566,64 +14968,68 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof Interaction);
 			interaction = (Interaction) _TmpObject;
 
-			// bind object
-			_TmpObject = _edge_fragment.getTrg();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// check link fragment from messageReceive to interaction
-			JavaSDM.ensure(interaction.equals(messageReceive
-					.getEnclosingInteraction()));
-
-			// bind object
-			message = messageReceive.getMessage();
-
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-
-			// check link message from message to interaction
-			JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-			// check link receiveEvent from message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
-
-			// iterate to-many link fragment from interaction to messageSend
+			// iterate to-many link lifeline from interaction to line
 			fujaba__Success = false;
 
-			fujaba__IterInteractionToMessageSend = new ArrayList(
-					interaction.getFragment()).iterator();
+			fujaba__IterInteractionToLine = new ArrayList(
+					interaction.getLifeline()).iterator();
 
-			while (fujaba__IterInteractionToMessageSend.hasNext()) {
+			while (fujaba__IterInteractionToLine.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterInteractionToMessageSend.next();
+					line = (Lifeline) fujaba__IterInteractionToLine.next();
 
-					// ensure correct type and really bound of object messageSend
-					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-					messageSend = (MessageOccurrenceSpecification) _TmpObject;
-					// check isomorphic binding between objects messageSend and messageReceive 
-					JavaSDM.ensure(!messageSend.equals(messageReceive));
-
-					// check link message from messageSend to message
-					JavaSDM.ensure(message.equals(messageSend.getMessage()));
-
-					// check link sendEvent from message to messageSend
-					JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
-
-					// iterate to-many link lifeline from interaction to line
+					// check object line is really bound
+					JavaSDM.ensure(line != null);
+					// iterate to-many link message from interaction to message
 					fujaba__Success = false;
 
-					fujaba__IterInteractionToLine = new ArrayList(
-							interaction.getLifeline()).iterator();
+					fujaba__IterInteractionToMessage = new ArrayList(
+							interaction.getMessage()).iterator();
 
-					while (fujaba__IterInteractionToLine.hasNext()) {
+					while (fujaba__IterInteractionToMessage.hasNext()) {
 						try {
-							line = (Lifeline) fujaba__IterInteractionToLine
+							message = (Message) fujaba__IterInteractionToMessage
 									.next();
 
-							// check object line is really bound
-							JavaSDM.ensure(line != null);
+							// check object message is really bound
+							JavaSDM.ensure(message != null);
+							// bind object
+							_TmpObject = message.getReceiveEvent();
+
+							// ensure correct type and really bound of object messageReceive
+							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+							messageReceive = (MessageOccurrenceSpecification) _TmpObject;
+
+							// check link fragment from messageReceive to interaction
+							JavaSDM.ensure(interaction.equals(messageReceive
+									.getEnclosingInteraction()));
+
+							// check link message from messageReceive to message
+							JavaSDM.ensure(message.equals(messageReceive
+									.getMessage()));
+
+							// bind object
+							_TmpObject = message.getSendEvent();
+
+							// ensure correct type and really bound of object messageSend
+							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+							messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
+							// check isomorphic binding between objects messageSend and messageReceive 
+							JavaSDM.ensure(!messageSend.equals(messageReceive));
+
+							// check link fragment from messageSend to interaction
+							JavaSDM.ensure(interaction.equals(messageSend
+									.getEnclosingInteraction()));
+
+							// check link message from messageSend to message
+							JavaSDM.ensure(message.equals(messageSend
+									.getMessage()));
+
+							// check link trg from _edge_fragment to messageReceive
+							JavaSDM.ensure(messageReceive.equals(_edge_fragment
+									.getTrg()));
+
 							// check link covered from line to messageReceive
 							JavaSDM.ensure(line.getCoveredBy().contains(
 									messageReceive));
@@ -14668,10 +15074,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_738453
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_380882
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_738453 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_380882 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -14680,16 +15086,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_738453
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_380882
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_738453 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_738453
+													__DEC_messageReceive_receiveEvent_380882 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_380882
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_738453 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_738453 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_738453 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_738453
+													// check object __DEC_messageReceive_receiveEvent_380882 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_380882 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_380882 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_380882
 															.equals(message));
 
 													fujaba__Success = true;
@@ -14712,10 +15118,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_847431
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_95654
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_847431 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_95654 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -14724,16 +15130,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_847431
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_95654
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_847431 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_847431
+													__DEC_messageSend_receiveEvent_95654 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_95654
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_847431 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_847431 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_847431 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_847431
+													// check object __DEC_messageSend_receiveEvent_95654 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_95654 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_95654 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_95654
 															.equals(message));
 
 													fujaba__Success = true;
@@ -14756,10 +15162,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_618390
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_731292
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_618390 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_731292 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -14768,16 +15174,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_618390
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_731292
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_618390 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_618390
+													__DEC_messageReceive_sendEvent_731292 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_731292
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_618390 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_618390 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_618390 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_618390
+													// check object __DEC_messageReceive_sendEvent_731292 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_731292 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_731292 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_731292
 															.equals(message));
 
 													fujaba__Success = true;
@@ -14800,10 +15206,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_612995
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_455407
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_612995 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_455407 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -14812,16 +15218,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_612995
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_455407
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_612995 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_612995
+													__DEC_messageSend_sendEvent_455407 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_455407
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_612995 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_612995 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_612995 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_612995
+													// check object __DEC_messageSend_sendEvent_455407 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_455407 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_455407 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_455407
 															.equals(message));
 
 													fujaba__Success = true;
@@ -14844,10 +15250,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_796390
+											// iterate to-many link message from message to __DEC_message_message_6147
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_796390 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_6147 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -14856,20 +15262,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_796390
+													&& fujaba__IterMessageTo__DEC_message_message_6147
 															.hasNext()) {
 												try {
-													__DEC_message_message_796390 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_796390
+													__DEC_message_message_6147 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_6147
 															.next();
 
-													// check object __DEC_message_message_796390 is really bound
-													JavaSDM.ensure(__DEC_message_message_796390 != null);
-													// check isomorphic binding between objects __DEC_message_message_796390 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_796390
+													// check object __DEC_message_message_6147 is really bound
+													JavaSDM.ensure(__DEC_message_message_6147 != null);
+													// check isomorphic binding between objects __DEC_message_message_6147 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_6147
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_796390 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_796390
+													// check isomorphic binding between objects __DEC_message_message_6147 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_6147
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -15076,10 +15482,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_729815 = null;
+		Flow __DEC_step_steps_427192 = null;
 		Match match = null;
 		Actor actor = null;
 		NormalStep step = null;
+		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
 		BasicFlow flow = null;
 
@@ -15148,6 +15555,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(useCase.getFlows().contains(flow));
 
 			// bind object
+			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
+
+			// bind object
 			_TmpObject = _edge_steps.getTrg();
 
 			// ensure correct type and really bound of object step
@@ -15159,6 +15576,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 			// check object actor is really bound
 			JavaSDM.ensure(actor != null);
+
+			// check link actors from actor to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 			// check link steps from step to flow
 			JavaSDM.ensure(flow.equals(step.eContainer()));
@@ -15172,18 +15592,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_729815 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_427192 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_729815 is really bound
-					JavaSDM.ensure(__DEC_step_steps_729815 != null);
+					// check object __DEC_step_steps_427192 is really bound
+					JavaSDM.ensure(__DEC_step_steps_427192 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_729815.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_427192.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_729815 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_729815.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_427192 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_427192.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -15200,12 +15620,17 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(actor != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
 				// check link actor from step to actor
 				JavaSDM.ensure(actor.equals(step.getActor()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -15219,6 +15644,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_steps to step
 				JavaSDM.ensure(step.equals(_edge_steps.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -15226,7 +15654,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, flow, useCase,
-						step, actor);
+						step, actor, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -15289,8 +15717,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_308090 = null;
+		Flow __DEC_step_steps_932049 = null;
 		Match match = null;
+		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
 		BasicFlow flow = null;
 		Actor actor = null;
@@ -15380,6 +15809,19 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check link trg from _edge_actor to actor
 			JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
 
+			// bind object
+			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
+
+			// check link actors from actor to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
+
 			// story node 'test core match and DECs'
 			try {
 				fujaba__Success = false;
@@ -15389,18 +15831,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_308090 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_932049 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_308090 is really bound
-					JavaSDM.ensure(__DEC_step_steps_308090 != null);
+					// check object __DEC_step_steps_932049 is really bound
+					JavaSDM.ensure(__DEC_step_steps_932049 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_308090.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_932049.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_308090 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_308090.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_932049 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_932049.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -15417,12 +15859,17 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(actor != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
 				// check link actor from step to actor
 				JavaSDM.ensure(actor.equals(step.getActor()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -15436,6 +15883,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_actor to actor
 				JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -15443,7 +15893,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, flow, useCase,
-						step, actor);
+						step, actor, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -15506,23 +15956,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_618147 = null;
-		Message __DEC_messageReceive_receiveEvent_618147 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_855859 = null;
-		Message __DEC_messageSend_receiveEvent_855859 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_95767 = null;
-		Message __DEC_messageReceive_sendEvent_95767 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_671175 = null;
-		Message __DEC_messageSend_sendEvent_671175 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_332086 = null;
-		MessageEnd __DEC_message_message_332086 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_597038 = null;
+		Message __DEC_messageReceive_receiveEvent_597038 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_463692 = null;
+		Message __DEC_messageSend_receiveEvent_463692 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_643642 = null;
+		Message __DEC_messageReceive_sendEvent_643642 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_473029 = null;
+		Message __DEC_messageSend_sendEvent_473029 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_524119 = null;
+		MessageEnd __DEC_message_message_524119 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
-		MessageOccurrenceSpecification messageSend = null;
+		Iterator fujaba__IterInteractionToMessageReceive = null;
 		MessageOccurrenceSpecification messageReceive = null;
-		Interaction interaction = null;
 		Message message = null;
+		Interaction interaction = null;
+		MessageOccurrenceSpecification messageSend = null;
 
 		// story node 'prepare return value'
 		try {
@@ -15572,404 +16023,435 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_sendEvent is really bound
 			JavaSDM.ensure(_edge_sendEvent != null);
 			// bind object
-			_TmpObject = _edge_sendEvent.getSrc();
-
-			// ensure correct type and really bound of object message
-			JavaSDM.ensure(_TmpObject instanceof Message);
-			message = (Message) _TmpObject;
-
-			// bind object
-			interaction = message.getInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			_TmpObject = message.getReceiveEvent();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// check link fragment from messageReceive to interaction
-			JavaSDM.ensure(interaction.equals(messageReceive
-					.getEnclosingInteraction()));
-
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-			// bind object
-			_TmpObject = message.getSendEvent();
+			_TmpObject = _edge_sendEvent.getTrg();
 
 			// ensure correct type and really bound of object messageSend
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageSend = (MessageOccurrenceSpecification) _TmpObject;
 
-			// check isomorphic binding between objects messageSend and messageReceive 
-			JavaSDM.ensure(!messageSend.equals(messageReceive));
+			// bind object
+			interaction = messageSend.getEnclosingInteraction();
 
-			// check link fragment from messageSend to interaction
-			JavaSDM.ensure(interaction.equals(messageSend
-					.getEnclosingInteraction()));
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
 
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
+			// bind object
+			message = messageSend.getMessage();
 
-			// check link trg from _edge_sendEvent to messageSend
-			JavaSDM.ensure(messageSend.equals(_edge_sendEvent.getTrg()));
+			// check object message is really bound
+			JavaSDM.ensure(message != null);
 
-			// iterate to-many link lifeline from interaction to line
+			// check link message from message to interaction
+			JavaSDM.ensure(interaction.equals(message.getInteraction()));
+
+			// check link sendEvent from message to messageSend
+			JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
+
+			// check link src from _edge_sendEvent to message
+			JavaSDM.ensure(message.equals(_edge_sendEvent.getSrc()));
+
+			// iterate to-many link fragment from interaction to messageReceive
 			fujaba__Success = false;
 
-			fujaba__IterInteractionToLine = new ArrayList(
-					interaction.getLifeline()).iterator();
+			fujaba__IterInteractionToMessageReceive = new ArrayList(
+					interaction.getFragment()).iterator();
 
-			while (fujaba__IterInteractionToLine.hasNext()) {
+			while (fujaba__IterInteractionToMessageReceive.hasNext()) {
 				try {
-					line = (Lifeline) fujaba__IterInteractionToLine.next();
+					_TmpObject = fujaba__IterInteractionToMessageReceive.next();
 
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// check link covered from line to messageReceive
-					JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
+					// ensure correct type and really bound of object messageReceive
+					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+					messageReceive = (MessageOccurrenceSpecification) _TmpObject;
+					// check isomorphic binding between objects messageSend and messageReceive 
+					JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
+					// check link message from messageReceive to message
+					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
 
-						// negative check for link fragment from messageReceive
-						JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-						// negative check for link fragment from messageSend
-						JavaSDM.ensure(messageSend.getEnclosingOperand() == null);
-						// check negative bindings
+					// check link receiveEvent from message to messageReceive
+					JavaSDM.ensure(messageReceive.equals(message
+							.getReceiveEvent()));
+
+					// iterate to-many link lifeline from interaction to line
+					fujaba__Success = false;
+
+					fujaba__IterInteractionToLine = new ArrayList(
+							interaction.getLifeline()).iterator();
+
+					while (fujaba__IterInteractionToLine.hasNext()) {
 						try {
-							fujaba__Success = false;
+							line = (Lifeline) fujaba__IterInteractionToLine
+									.next();
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_618147
-							fujaba__Success = false;
+							// check object line is really bound
+							JavaSDM.ensure(line != null);
+							// check link covered from line to messageReceive
+							JavaSDM.ensure(line.getCoveredBy().contains(
+									messageReceive));
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_618147 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class,
-													"receiveEvent")).iterator();
+							// story node 'test core match and DECs'
+							try {
+								fujaba__Success = false;
 
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_618147
-											.hasNext()) {
+								// negative check for link fragment from messageReceive
+								JavaSDM.ensure(messageReceive
+										.getEnclosingOperand() == null);
+								// negative check for link fragment from messageSend
+								JavaSDM.ensure(messageSend
+										.getEnclosingOperand() == null);
+								// check negative bindings
 								try {
-									__DEC_messageReceive_receiveEvent_618147 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_618147
-											.next();
+									fujaba__Success = false;
 
-									// check object __DEC_messageReceive_receiveEvent_618147 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_618147 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_618147 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_618147
-											.equals(message));
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_597038
+									fujaba__Success = false;
+
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_597038 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageReceive,
+															Message.class,
+															"receiveEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_597038
+													.hasNext()) {
+										try {
+											__DEC_messageReceive_receiveEvent_597038 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_597038
+													.next();
+
+											// check object __DEC_messageReceive_receiveEvent_597038 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_597038 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_597038 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_597038
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
 
 									fujaba__Success = true;
 								} catch (JavaSDMException fujaba__InternalException) {
 									fujaba__Success = false;
 								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_463692
+									fujaba__Success = false;
+
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_463692 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageSend,
+															Message.class,
+															"receiveEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_463692
+													.hasNext()) {
+										try {
+											__DEC_messageSend_receiveEvent_463692 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_463692
+													.next();
+
+											// check object __DEC_messageSend_receiveEvent_463692 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_463692 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_463692 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_463692
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_643642
+									fujaba__Success = false;
+
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_643642 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageReceive,
+															Message.class,
+															"sendEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_643642
+													.hasNext()) {
+										try {
+											__DEC_messageReceive_sendEvent_643642 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_643642
+													.next();
+
+											// check object __DEC_messageReceive_sendEvent_643642 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_643642 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_643642 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_643642
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_473029
+									fujaba__Success = false;
+
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_473029 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageSend,
+															Message.class,
+															"sendEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_473029
+													.hasNext()) {
+										try {
+											__DEC_messageSend_sendEvent_473029 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_473029
+													.next();
+
+											// check object __DEC_messageSend_sendEvent_473029 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_473029 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_473029 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_473029
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link message from message to __DEC_message_message_524119
+									fujaba__Success = false;
+
+									fujaba__IterMessageTo__DEC_message_message_524119 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															message,
+															MessageEnd.class,
+															"message"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageTo__DEC_message_message_524119
+													.hasNext()) {
+										try {
+											__DEC_message_message_524119 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_524119
+													.next();
+
+											// check object __DEC_message_message_524119 is really bound
+											JavaSDM.ensure(__DEC_message_message_524119 != null);
+											// check isomorphic binding between objects __DEC_message_message_524119 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_524119
+													.equals(messageReceive));
+
+											// check isomorphic binding between objects __DEC_message_message_524119 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_524119
+													.equals(messageSend));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check object _edge_sendEvent is really bound
+								JavaSDM.ensure(_edge_sendEvent != null);
+								// check object interaction is really bound
+								JavaSDM.ensure(interaction != null);
+								// check object line is really bound
+								JavaSDM.ensure(line != null);
+								// check object message is really bound
+								JavaSDM.ensure(message != null);
+								// check object messageReceive is really bound
+								JavaSDM.ensure(messageReceive != null);
+								// check object messageSend is really bound
+								JavaSDM.ensure(messageSend != null);
+								// check isomorphic binding between objects messageSend and messageReceive 
+								JavaSDM.ensure(!messageSend
+										.equals(messageReceive));
+
+								// check link fragment from messageReceive to interaction
+								JavaSDM.ensure(interaction
+										.equals(messageReceive
+												.getEnclosingInteraction()));
+
+								// check link fragment from messageSend to interaction
+								JavaSDM.ensure(interaction.equals(messageSend
+										.getEnclosingInteraction()));
+
+								// check link lifeline from line to interaction
+								JavaSDM.ensure(interaction.equals(line
+										.getInteraction()));
+
+								// check link message from message to interaction
+								JavaSDM.ensure(interaction.equals(message
+										.getInteraction()));
+
+								// check link message from messageReceive to message
+								JavaSDM.ensure(message.equals(messageReceive
+										.getMessage()));
+
+								// check link message from messageSend to message
+								JavaSDM.ensure(message.equals(messageSend
+										.getMessage()));
+
+								// check link receiveEvent from message to messageReceive
+								JavaSDM.ensure(messageReceive.equals(message
+										.getReceiveEvent()));
+
+								// check link receiveEvent from message to messageSend
+								JavaSDM.ensure(!(messageSend.equals(message
+										.getReceiveEvent())));
+
+								// check link sendEvent from message to messageSend
+								JavaSDM.ensure(messageSend.equals(message
+										.getSendEvent()));
+
+								// check link sendEvent from message to messageReceive
+								JavaSDM.ensure(!(messageReceive.equals(message
+										.getSendEvent())));
+
+								// check link src from _edge_sendEvent to message
+								JavaSDM.ensure(message.equals(_edge_sendEvent
+										.getSrc()));
+
+								// check link trg from _edge_sendEvent to messageSend
+								JavaSDM.ensure(messageSend
+										.equals(_edge_sendEvent.getTrg()));
+
+								// check link covered from line to messageReceive
+								JavaSDM.ensure(line.getCoveredBy().contains(
+										messageReceive));
+
+								// create object match
+								match = TGGRuntimeFactory.eINSTANCE
+										.createMatch();
+
+								// assign attribute match
+								match.setRuleName(__eClass.getName());
+								// statement node 'bookkeeping with generic isAppropriate method'
+								fujaba__Success = this.isAppropriate_BWD(match,
+										interaction, messageSend,
+										messageReceive, message, line);
+								if (fujaba__Success) {
+									// statement node 'Ensure that the correct types of elements are matched'
+									fujaba__Success = this
+											.checkTypes_BWD(match);
+									if (fujaba__Success) {
+										// story node 'Add match to rule result'
+										try {
+											fujaba__Success = false;
+
+											// check object __performOperation is really bound
+											JavaSDM.ensure(__performOperation != null);
+											// check object __result is really bound
+											JavaSDM.ensure(__result != null);
+											// check object match is really bound
+											JavaSDM.ensure(match != null);
+
+											// create link
+											org.moflon.util.eMoflonEMFUtil
+													.addOppositeReference(
+															match,
+															__performOperation,
+															"isApplicableOperation");
+
+											// create link
+											__result.getContents().add(match);
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+									} else {
+
+									}
+
+								} else {
+
+								}
+								fujaba__Success = true;
+							} catch (JavaSDMException fujaba__InternalException) {
+								fujaba__Success = false;
 							}
-							JavaSDM.ensure(fujaba__Success);
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
 							fujaba__Success = false;
 						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_855859
-							fujaba__Success = false;
-
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_855859 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(messageSend,
-													Message.class,
-													"receiveEvent")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_855859
-											.hasNext()) {
-								try {
-									__DEC_messageSend_receiveEvent_855859 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_855859
-											.next();
-
-									// check object __DEC_messageSend_receiveEvent_855859 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_855859 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_855859 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_855859
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_95767
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_95767 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_95767
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_sendEvent_95767 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_95767
-											.next();
-
-									// check object __DEC_messageReceive_sendEvent_95767 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_95767 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_95767 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_95767
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_671175
-							fujaba__Success = false;
-
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_671175 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(messageSend,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_671175
-											.hasNext()) {
-								try {
-									__DEC_messageSend_sendEvent_671175 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_671175
-											.next();
-
-									// check object __DEC_messageSend_sendEvent_671175 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_671175 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_671175 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_671175
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link message from message to __DEC_message_message_332086
-							fujaba__Success = false;
-
-							fujaba__IterMessageTo__DEC_message_message_332086 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(message,
-													MessageEnd.class, "message"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_332086
-											.hasNext()) {
-								try {
-									__DEC_message_message_332086 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_332086
-											.next();
-
-									// check object __DEC_message_message_332086 is really bound
-									JavaSDM.ensure(__DEC_message_message_332086 != null);
-									// check isomorphic binding between objects __DEC_message_message_332086 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_332086
-											.equals(messageReceive));
-
-									// check isomorphic binding between objects __DEC_message_message_332086 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_332086
-											.equals(messageSend));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check object _edge_sendEvent is really bound
-						JavaSDM.ensure(_edge_sendEvent != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check object messageSend is really bound
-						JavaSDM.ensure(messageSend != null);
-						// check isomorphic binding between objects messageSend and messageReceive 
-						JavaSDM.ensure(!messageSend.equals(messageReceive));
-
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link fragment from messageSend to interaction
-						JavaSDM.ensure(interaction.equals(messageSend
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link message from messageSend to message
-						JavaSDM.ensure(message.equals(messageSend.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link receiveEvent from message to messageSend
-						JavaSDM.ensure(!(messageSend.equals(message
-								.getReceiveEvent())));
-
-						// check link sendEvent from message to messageSend
-						JavaSDM.ensure(messageSend.equals(message
-								.getSendEvent()));
-
-						// check link sendEvent from message to messageReceive
-						JavaSDM.ensure(!(messageReceive.equals(message
-								.getSendEvent())));
-
-						// check link src from _edge_sendEvent to message
-						JavaSDM.ensure(message.equals(_edge_sendEvent.getSrc()));
-
-						// check link trg from _edge_sendEvent to messageSend
-						JavaSDM.ensure(messageSend.equals(_edge_sendEvent
-								.getTrg()));
-
-						// check link covered from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								interaction, messageSend, messageReceive,
-								message, line);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
 					}
+					JavaSDM.ensure(fujaba__Success);
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -15999,16 +16481,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_344869 = null;
-		Message __DEC_messageReceive_receiveEvent_344869 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_992765 = null;
-		Message __DEC_messageSend_receiveEvent_992765 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_60344 = null;
-		Message __DEC_messageReceive_sendEvent_60344 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_418118 = null;
-		Message __DEC_messageSend_sendEvent_418118 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_397259 = null;
-		MessageEnd __DEC_message_message_397259 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_493216 = null;
+		Message __DEC_messageReceive_receiveEvent_493216 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_92548 = null;
+		Message __DEC_messageSend_receiveEvent_92548 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_182620 = null;
+		Message __DEC_messageReceive_sendEvent_182620 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_319115 = null;
+		Message __DEC_messageSend_sendEvent_319115 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_34480 = null;
+		MessageEnd __DEC_message_message_34480 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
@@ -16138,10 +16620,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_344869
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_493216
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_344869 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_493216 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -16149,16 +16631,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_344869
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_493216
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_344869 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_344869
+									__DEC_messageReceive_receiveEvent_493216 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_493216
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_344869 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_344869 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_344869 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_344869
+									// check object __DEC_messageReceive_receiveEvent_493216 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_493216 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_493216 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_493216
 											.equals(message));
 
 									fujaba__Success = true;
@@ -16181,26 +16663,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_992765
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_92548
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_992765 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_92548 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_992765
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_92548
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_992765 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_992765
+									__DEC_messageSend_receiveEvent_92548 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_92548
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_992765 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_992765 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_992765 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_992765
+									// check object __DEC_messageSend_receiveEvent_92548 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_92548 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_92548 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_92548
 											.equals(message));
 
 									fujaba__Success = true;
@@ -16223,10 +16705,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_60344
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_182620
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_60344 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_182620 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -16234,16 +16716,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_60344
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_182620
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_60344 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_60344
+									__DEC_messageReceive_sendEvent_182620 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_182620
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_60344 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_60344 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_60344 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_60344
+									// check object __DEC_messageReceive_sendEvent_182620 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_182620 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_182620 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_182620
 											.equals(message));
 
 									fujaba__Success = true;
@@ -16266,26 +16748,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_418118
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_319115
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_418118 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_319115 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_418118
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_319115
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_418118 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_418118
+									__DEC_messageSend_sendEvent_319115 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_319115
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_418118 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_418118 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_418118 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_418118
+									// check object __DEC_messageSend_sendEvent_319115 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_319115 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_319115 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_319115
 											.equals(message));
 
 									fujaba__Success = true;
@@ -16308,30 +16790,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_397259
+							// iterate to-many link message from message to __DEC_message_message_34480
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_397259 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_34480 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_397259
+									&& fujaba__IterMessageTo__DEC_message_message_34480
 											.hasNext()) {
 								try {
-									__DEC_message_message_397259 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_397259
+									__DEC_message_message_34480 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_34480
 											.next();
 
-									// check object __DEC_message_message_397259 is really bound
-									JavaSDM.ensure(__DEC_message_message_397259 != null);
-									// check isomorphic binding between objects __DEC_message_message_397259 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_397259
+									// check object __DEC_message_message_34480 is really bound
+									JavaSDM.ensure(__DEC_message_message_34480 != null);
+									// check isomorphic binding between objects __DEC_message_message_34480 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_34480
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_397259 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_397259
+									// check isomorphic binding between objects __DEC_message_message_34480 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_34480
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -16493,24 +16975,23 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_442776 = null;
-		Message __DEC_messageReceive_receiveEvent_442776 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_214713 = null;
-		Message __DEC_messageSend_receiveEvent_214713 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_388504 = null;
-		Message __DEC_messageReceive_sendEvent_388504 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_965612 = null;
-		Message __DEC_messageSend_sendEvent_965612 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_468239 = null;
-		MessageEnd __DEC_message_message_468239 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_803332 = null;
+		Message __DEC_messageReceive_receiveEvent_803332 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_868391 = null;
+		Message __DEC_messageSend_receiveEvent_868391 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_557828 = null;
+		Message __DEC_messageReceive_sendEvent_557828 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_983502 = null;
+		Message __DEC_messageSend_sendEvent_983502 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_698762 = null;
+		MessageEnd __DEC_message_message_698762 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
+		MessageOccurrenceSpecification messageReceive = null;
 		Message message = null;
 		Iterator fujaba__IterInteractionToMessageSend = null;
 		MessageOccurrenceSpecification messageSend = null;
-		Iterator fujaba__IterInteractionToMessageReceive = null;
-		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
 
 		// story node 'prepare return value'
@@ -16567,451 +17048,423 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof Interaction);
 			interaction = (Interaction) _TmpObject;
 
-			// iterate to-many link fragment from interaction to messageReceive
+			// iterate to-many link fragment from interaction to messageSend
 			fujaba__Success = false;
 
-			fujaba__IterInteractionToMessageReceive = new ArrayList(
+			fujaba__IterInteractionToMessageSend = new ArrayList(
 					interaction.getFragment()).iterator();
 
-			while (fujaba__IterInteractionToMessageReceive.hasNext()) {
+			while (fujaba__IterInteractionToMessageSend.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterInteractionToMessageReceive.next();
+					_TmpObject = fujaba__IterInteractionToMessageSend.next();
+
+					// ensure correct type and really bound of object messageSend
+					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+					messageSend = (MessageOccurrenceSpecification) _TmpObject;
+					// bind object
+					message = messageSend.getMessage();
+
+					// check object message is really bound
+					JavaSDM.ensure(message != null);
+
+					// check link message from message to interaction
+					JavaSDM.ensure(interaction.equals(message.getInteraction()));
+
+					// bind object
+					_TmpObject = message.getReceiveEvent();
 
 					// ensure correct type and really bound of object messageReceive
 					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 					messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-					// iterate to-many link fragment from interaction to messageSend
+
+					// check isomorphic binding between objects messageSend and messageReceive 
+					JavaSDM.ensure(!messageSend.equals(messageReceive));
+
+					// check link fragment from messageReceive to interaction
+					JavaSDM.ensure(interaction.equals(messageReceive
+							.getEnclosingInteraction()));
+
+					// check link message from messageReceive to message
+					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+
+					// check link sendEvent from message to messageSend
+					JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
+
+					// check link src from _edge_interaction to message
+					JavaSDM.ensure(message.equals(_edge_interaction.getSrc()));
+
+					// iterate to-many link lifeline from interaction to line
 					fujaba__Success = false;
 
-					fujaba__IterInteractionToMessageSend = new ArrayList(
-							interaction.getFragment()).iterator();
+					fujaba__IterInteractionToLine = new ArrayList(
+							interaction.getLifeline()).iterator();
 
-					while (fujaba__IterInteractionToMessageSend.hasNext()) {
+					while (fujaba__IterInteractionToLine.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterInteractionToMessageSend
+							line = (Lifeline) fujaba__IterInteractionToLine
 									.next();
 
-							// ensure correct type and really bound of object messageSend
-							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-							messageSend = (MessageOccurrenceSpecification) _TmpObject;
-							// check isomorphic binding between objects messageSend and messageReceive 
-							JavaSDM.ensure(!messageSend.equals(messageReceive));
+							// check object line is really bound
+							JavaSDM.ensure(line != null);
+							// check link covered from line to messageReceive
+							JavaSDM.ensure(line.getCoveredBy().contains(
+									messageReceive));
 
-							// bind object
-							message = messageSend.getMessage();
+							// story node 'test core match and DECs'
+							try {
+								fujaba__Success = false;
 
-							// check object message is really bound
-							JavaSDM.ensure(message != null);
-
-							// check link message from message to interaction
-							JavaSDM.ensure(interaction.equals(message
-									.getInteraction()));
-
-							// check link message from messageReceive to message
-							JavaSDM.ensure(message.equals(messageReceive
-									.getMessage()));
-
-							// check link receiveEvent from message to messageReceive
-							JavaSDM.ensure(messageReceive.equals(message
-									.getReceiveEvent()));
-
-							// check link sendEvent from message to messageSend
-							JavaSDM.ensure(messageSend.equals(message
-									.getSendEvent()));
-
-							// check link src from _edge_interaction to message
-							JavaSDM.ensure(message.equals(_edge_interaction
-									.getSrc()));
-
-							// iterate to-many link lifeline from interaction to line
-							fujaba__Success = false;
-
-							fujaba__IterInteractionToLine = new ArrayList(
-									interaction.getLifeline()).iterator();
-
-							while (fujaba__IterInteractionToLine.hasNext()) {
+								// negative check for link fragment from messageReceive
+								JavaSDM.ensure(messageReceive
+										.getEnclosingOperand() == null);
+								// negative check for link fragment from messageSend
+								JavaSDM.ensure(messageSend
+										.getEnclosingOperand() == null);
+								// check negative bindings
 								try {
-									line = (Lifeline) fujaba__IterInteractionToLine
-											.next();
+									fujaba__Success = false;
 
-									// check object line is really bound
-									JavaSDM.ensure(line != null);
-									// check link covered from line to messageReceive
-									JavaSDM.ensure(line.getCoveredBy()
-											.contains(messageReceive));
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_803332
+									fujaba__Success = false;
 
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_803332 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageReceive,
+															Message.class,
+															"receiveEvent"))
+											.iterator();
 
-										// negative check for link fragment from messageReceive
-										JavaSDM.ensure(messageReceive
-												.getEnclosingOperand() == null);
-										// negative check for link fragment from messageSend
-										JavaSDM.ensure(messageSend
-												.getEnclosingOperand() == null);
-										// check negative bindings
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_803332
+													.hasNext()) {
 										try {
-											fujaba__Success = false;
+											__DEC_messageReceive_receiveEvent_803332 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_803332
+													.next();
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_442776
-											fujaba__Success = false;
-
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_442776 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	messageReceive,
-																	Message.class,
-																	"receiveEvent"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_442776
-															.hasNext()) {
-												try {
-													__DEC_messageReceive_receiveEvent_442776 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_442776
-															.next();
-
-													// check object __DEC_messageReceive_receiveEvent_442776 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_442776 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_442776 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_442776
-															.equals(message));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
+											// check object __DEC_messageReceive_receiveEvent_803332 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_803332 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_803332 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_803332
+													.equals(message));
 
 											fujaba__Success = true;
 										} catch (JavaSDMException fujaba__InternalException) {
 											fujaba__Success = false;
 										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_214713
-											fujaba__Success = false;
-
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_214713 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	messageSend,
-																	Message.class,
-																	"receiveEvent"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_214713
-															.hasNext()) {
-												try {
-													__DEC_messageSend_receiveEvent_214713 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_214713
-															.next();
-
-													// check object __DEC_messageSend_receiveEvent_214713 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_214713 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_214713 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_214713
-															.equals(message));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_388504
-											fujaba__Success = false;
-
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_388504 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	messageReceive,
-																	Message.class,
-																	"sendEvent"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_388504
-															.hasNext()) {
-												try {
-													__DEC_messageReceive_sendEvent_388504 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_388504
-															.next();
-
-													// check object __DEC_messageReceive_sendEvent_388504 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_388504 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_388504 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_388504
-															.equals(message));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_965612
-											fujaba__Success = false;
-
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_965612 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	messageSend,
-																	Message.class,
-																	"sendEvent"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_965612
-															.hasNext()) {
-												try {
-													__DEC_messageSend_sendEvent_965612 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_965612
-															.next();
-
-													// check object __DEC_messageSend_sendEvent_965612 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_965612 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_965612 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_965612
-															.equals(message));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link message from message to __DEC_message_message_468239
-											fujaba__Success = false;
-
-											fujaba__IterMessageTo__DEC_message_message_468239 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	message,
-																	MessageEnd.class,
-																	"message"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_468239
-															.hasNext()) {
-												try {
-													__DEC_message_message_468239 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_468239
-															.next();
-
-													// check object __DEC_message_message_468239 is really bound
-													JavaSDM.ensure(__DEC_message_message_468239 != null);
-													// check isomorphic binding between objects __DEC_message_message_468239 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_468239
-															.equals(messageReceive));
-
-													// check isomorphic binding between objects __DEC_message_message_468239 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_468239
-															.equals(messageSend));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_interaction is really bound
-										JavaSDM.ensure(_edge_interaction != null);
-										// check object interaction is really bound
-										JavaSDM.ensure(interaction != null);
-										// check object line is really bound
-										JavaSDM.ensure(line != null);
-										// check object message is really bound
-										JavaSDM.ensure(message != null);
-										// check object messageReceive is really bound
-										JavaSDM.ensure(messageReceive != null);
-										// check object messageSend is really bound
-										JavaSDM.ensure(messageSend != null);
-										// check isomorphic binding between objects messageSend and messageReceive 
-										JavaSDM.ensure(!messageSend
-												.equals(messageReceive));
-
-										// check link fragment from messageReceive to interaction
-										JavaSDM.ensure(interaction.equals(messageReceive
-												.getEnclosingInteraction()));
-
-										// check link fragment from messageSend to interaction
-										JavaSDM.ensure(interaction.equals(messageSend
-												.getEnclosingInteraction()));
-
-										// check link lifeline from line to interaction
-										JavaSDM.ensure(interaction.equals(line
-												.getInteraction()));
-
-										// check link message from message to interaction
-										JavaSDM.ensure(interaction
-												.equals(message
-														.getInteraction()));
-
-										// check link message from messageReceive to message
-										JavaSDM.ensure(message
-												.equals(messageReceive
-														.getMessage()));
-
-										// check link message from messageSend to message
-										JavaSDM.ensure(message
-												.equals(messageSend
-														.getMessage()));
-
-										// check link receiveEvent from message to messageReceive
-										JavaSDM.ensure(messageReceive
-												.equals(message
-														.getReceiveEvent()));
-
-										// check link receiveEvent from message to messageSend
-										JavaSDM.ensure(!(messageSend
-												.equals(message
-														.getReceiveEvent())));
-
-										// check link sendEvent from message to messageSend
-										JavaSDM.ensure(messageSend
-												.equals(message.getSendEvent()));
-
-										// check link sendEvent from message to messageReceive
-										JavaSDM.ensure(!(messageReceive
-												.equals(message.getSendEvent())));
-
-										// check link src from _edge_interaction to message
-										JavaSDM.ensure(message
-												.equals(_edge_interaction
-														.getSrc()));
-
-										// check link trg from _edge_interaction to interaction
-										JavaSDM.ensure(interaction
-												.equals(_edge_interaction
-														.getTrg()));
-
-										// check link covered from line to messageReceive
-										JavaSDM.ensure(line.getCoveredBy()
-												.contains(messageReceive));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_BWD(match,
-														interaction,
-														messageSend,
-														messageReceive,
-														message, line);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_BWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
 									}
+									JavaSDM.ensure(fujaba__Success);
 
 									fujaba__Success = true;
 								} catch (JavaSDMException fujaba__InternalException) {
 									fujaba__Success = false;
 								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_868391
+									fujaba__Success = false;
+
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_868391 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageSend,
+															Message.class,
+															"receiveEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_868391
+													.hasNext()) {
+										try {
+											__DEC_messageSend_receiveEvent_868391 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_868391
+													.next();
+
+											// check object __DEC_messageSend_receiveEvent_868391 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_868391 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_868391 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_868391
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_557828
+									fujaba__Success = false;
+
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_557828 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageReceive,
+															Message.class,
+															"sendEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_557828
+													.hasNext()) {
+										try {
+											__DEC_messageReceive_sendEvent_557828 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_557828
+													.next();
+
+											// check object __DEC_messageReceive_sendEvent_557828 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_557828 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_557828 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_557828
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_983502
+									fujaba__Success = false;
+
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_983502 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageSend,
+															Message.class,
+															"sendEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_983502
+													.hasNext()) {
+										try {
+											__DEC_messageSend_sendEvent_983502 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_983502
+													.next();
+
+											// check object __DEC_messageSend_sendEvent_983502 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_983502 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_983502 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_983502
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link message from message to __DEC_message_message_698762
+									fujaba__Success = false;
+
+									fujaba__IterMessageTo__DEC_message_message_698762 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															message,
+															MessageEnd.class,
+															"message"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageTo__DEC_message_message_698762
+													.hasNext()) {
+										try {
+											__DEC_message_message_698762 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_698762
+													.next();
+
+											// check object __DEC_message_message_698762 is really bound
+											JavaSDM.ensure(__DEC_message_message_698762 != null);
+											// check isomorphic binding between objects __DEC_message_message_698762 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_698762
+													.equals(messageReceive));
+
+											// check isomorphic binding between objects __DEC_message_message_698762 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_698762
+													.equals(messageSend));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check object _edge_interaction is really bound
+								JavaSDM.ensure(_edge_interaction != null);
+								// check object interaction is really bound
+								JavaSDM.ensure(interaction != null);
+								// check object line is really bound
+								JavaSDM.ensure(line != null);
+								// check object message is really bound
+								JavaSDM.ensure(message != null);
+								// check object messageReceive is really bound
+								JavaSDM.ensure(messageReceive != null);
+								// check object messageSend is really bound
+								JavaSDM.ensure(messageSend != null);
+								// check isomorphic binding between objects messageSend and messageReceive 
+								JavaSDM.ensure(!messageSend
+										.equals(messageReceive));
+
+								// check link fragment from messageReceive to interaction
+								JavaSDM.ensure(interaction
+										.equals(messageReceive
+												.getEnclosingInteraction()));
+
+								// check link fragment from messageSend to interaction
+								JavaSDM.ensure(interaction.equals(messageSend
+										.getEnclosingInteraction()));
+
+								// check link lifeline from line to interaction
+								JavaSDM.ensure(interaction.equals(line
+										.getInteraction()));
+
+								// check link message from message to interaction
+								JavaSDM.ensure(interaction.equals(message
+										.getInteraction()));
+
+								// check link message from messageReceive to message
+								JavaSDM.ensure(message.equals(messageReceive
+										.getMessage()));
+
+								// check link message from messageSend to message
+								JavaSDM.ensure(message.equals(messageSend
+										.getMessage()));
+
+								// check link receiveEvent from message to messageReceive
+								JavaSDM.ensure(messageReceive.equals(message
+										.getReceiveEvent()));
+
+								// check link receiveEvent from message to messageSend
+								JavaSDM.ensure(!(messageSend.equals(message
+										.getReceiveEvent())));
+
+								// check link sendEvent from message to messageSend
+								JavaSDM.ensure(messageSend.equals(message
+										.getSendEvent()));
+
+								// check link sendEvent from message to messageReceive
+								JavaSDM.ensure(!(messageReceive.equals(message
+										.getSendEvent())));
+
+								// check link src from _edge_interaction to message
+								JavaSDM.ensure(message.equals(_edge_interaction
+										.getSrc()));
+
+								// check link trg from _edge_interaction to interaction
+								JavaSDM.ensure(interaction
+										.equals(_edge_interaction.getTrg()));
+
+								// check link covered from line to messageReceive
+								JavaSDM.ensure(line.getCoveredBy().contains(
+										messageReceive));
+
+								// create object match
+								match = TGGRuntimeFactory.eINSTANCE
+										.createMatch();
+
+								// assign attribute match
+								match.setRuleName(__eClass.getName());
+								// statement node 'bookkeeping with generic isAppropriate method'
+								fujaba__Success = this.isAppropriate_BWD(match,
+										interaction, messageSend,
+										messageReceive, message, line);
+								if (fujaba__Success) {
+									// statement node 'Ensure that the correct types of elements are matched'
+									fujaba__Success = this
+											.checkTypes_BWD(match);
+									if (fujaba__Success) {
+										// story node 'Add match to rule result'
+										try {
+											fujaba__Success = false;
+
+											// check object __performOperation is really bound
+											JavaSDM.ensure(__performOperation != null);
+											// check object __result is really bound
+											JavaSDM.ensure(__result != null);
+											// check object match is really bound
+											JavaSDM.ensure(match != null);
+
+											// create link
+											org.moflon.util.eMoflonEMFUtil
+													.addOppositeReference(
+															match,
+															__performOperation,
+															"isApplicableOperation");
+
+											// create link
+											__result.getContents().add(match);
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+									} else {
+
+									}
+
+								} else {
+
+								}
+								fujaba__Success = true;
+							} catch (JavaSDMException fujaba__InternalException) {
+								fujaba__Success = false;
 							}
-							JavaSDM.ensure(fujaba__Success);
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
@@ -17048,25 +17501,25 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_833944 = null;
-		Message __DEC_messageReceive_receiveEvent_833944 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_241537 = null;
-		Message __DEC_messageSend_receiveEvent_241537 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_703240 = null;
-		Message __DEC_messageReceive_sendEvent_703240 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_889204 = null;
-		Message __DEC_messageSend_sendEvent_889204 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_738449 = null;
-		MessageEnd __DEC_message_message_738449 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_654569 = null;
+		Message __DEC_messageReceive_receiveEvent_654569 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_886917 = null;
+		Message __DEC_messageSend_receiveEvent_886917 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_370280 = null;
+		Message __DEC_messageReceive_sendEvent_370280 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_424311 = null;
+		Message __DEC_messageSend_sendEvent_424311 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_813244 = null;
+		MessageEnd __DEC_message_message_813244 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionTo_edge_interaction = null;
 		EMoflonEdge _edge_interaction = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
-		MessageOccurrenceSpecification messageSend = null;
-		Message message = null;
-		Iterator fujaba__IterInteractionToMessageReceive = null;
 		MessageOccurrenceSpecification messageReceive = null;
+		Message message = null;
+		Iterator fujaba__IterInteractionToMessageSend = null;
+		MessageOccurrenceSpecification messageSend = null;
 		Interaction interaction = null;
 
 		// story node 'prepare return value'
@@ -17123,21 +17576,21 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof Interaction);
 			interaction = (Interaction) _TmpObject;
 
-			// iterate to-many link fragment from interaction to messageReceive
+			// iterate to-many link fragment from interaction to messageSend
 			fujaba__Success = false;
 
-			fujaba__IterInteractionToMessageReceive = new ArrayList(
+			fujaba__IterInteractionToMessageSend = new ArrayList(
 					interaction.getFragment()).iterator();
 
-			while (fujaba__IterInteractionToMessageReceive.hasNext()) {
+			while (fujaba__IterInteractionToMessageSend.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterInteractionToMessageReceive.next();
+					_TmpObject = fujaba__IterInteractionToMessageSend.next();
 
-					// ensure correct type and really bound of object messageReceive
+					// ensure correct type and really bound of object messageSend
 					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-					messageReceive = (MessageOccurrenceSpecification) _TmpObject;
+					messageSend = (MessageOccurrenceSpecification) _TmpObject;
 					// bind object
-					message = messageReceive.getMessage();
+					message = messageSend.getMessage();
 
 					// check object message is really bound
 					JavaSDM.ensure(message != null);
@@ -17145,26 +17598,25 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					// check link message from message to interaction
 					JavaSDM.ensure(interaction.equals(message.getInteraction()));
 
-					// check link receiveEvent from message to messageReceive
-					JavaSDM.ensure(messageReceive.equals(message
-							.getReceiveEvent()));
-
 					// bind object
-					_TmpObject = message.getSendEvent();
+					_TmpObject = message.getReceiveEvent();
 
-					// ensure correct type and really bound of object messageSend
+					// ensure correct type and really bound of object messageReceive
 					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-					messageSend = (MessageOccurrenceSpecification) _TmpObject;
+					messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
 					// check isomorphic binding between objects messageSend and messageReceive 
 					JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-					// check link fragment from messageSend to interaction
-					JavaSDM.ensure(interaction.equals(messageSend
+					// check link fragment from messageReceive to interaction
+					JavaSDM.ensure(interaction.equals(messageReceive
 							.getEnclosingInteraction()));
 
-					// check link message from messageSend to message
-					JavaSDM.ensure(message.equals(messageSend.getMessage()));
+					// check link message from messageReceive to message
+					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+
+					// check link sendEvent from message to messageSend
+					JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
 
 					// check link trg from _edge_message to message
 					JavaSDM.ensure(message.equals(_edge_message.getTrg()));
@@ -17225,10 +17677,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_833944
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_654569
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_833944 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_654569 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -17237,16 +17689,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_833944
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_654569
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_833944 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_833944
+													__DEC_messageReceive_receiveEvent_654569 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_654569
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_833944 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_833944 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_833944 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_833944
+													// check object __DEC_messageReceive_receiveEvent_654569 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_654569 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_654569 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_654569
 															.equals(message));
 
 													fujaba__Success = true;
@@ -17269,10 +17721,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_241537
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_886917
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_241537 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_886917 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -17281,16 +17733,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_241537
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_886917
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_241537 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_241537
+													__DEC_messageSend_receiveEvent_886917 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_886917
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_241537 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_241537 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_241537 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_241537
+													// check object __DEC_messageSend_receiveEvent_886917 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_886917 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_886917 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_886917
 															.equals(message));
 
 													fujaba__Success = true;
@@ -17313,10 +17765,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_703240
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_370280
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_703240 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_370280 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -17325,16 +17777,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_703240
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_370280
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_703240 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_703240
+													__DEC_messageReceive_sendEvent_370280 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_370280
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_703240 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_703240 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_703240 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_703240
+													// check object __DEC_messageReceive_sendEvent_370280 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_370280 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_370280 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_370280
 															.equals(message));
 
 													fujaba__Success = true;
@@ -17357,10 +17809,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_889204
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_424311
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_889204 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_424311 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -17369,16 +17821,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_889204
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_424311
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_889204 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_889204
+													__DEC_messageSend_sendEvent_424311 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_424311
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_889204 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_889204 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_889204 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_889204
+													// check object __DEC_messageSend_sendEvent_424311 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_424311 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_424311 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_424311
 															.equals(message));
 
 													fujaba__Success = true;
@@ -17401,10 +17853,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_738449
+											// iterate to-many link message from message to __DEC_message_message_813244
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_738449 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_813244 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -17413,20 +17865,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_738449
+													&& fujaba__IterMessageTo__DEC_message_message_813244
 															.hasNext()) {
 												try {
-													__DEC_message_message_738449 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_738449
+													__DEC_message_message_813244 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_813244
 															.next();
 
-													// check object __DEC_message_message_738449 is really bound
-													JavaSDM.ensure(__DEC_message_message_738449 != null);
-													// check isomorphic binding between objects __DEC_message_message_738449 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_738449
+													// check object __DEC_message_message_813244 is really bound
+													JavaSDM.ensure(__DEC_message_message_813244 != null);
+													// check isomorphic binding between objects __DEC_message_message_813244 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_813244
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_738449 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_738449
+													// check isomorphic binding between objects __DEC_message_message_813244 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_813244
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -17633,16 +18085,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_170496 = null;
-		Message __DEC_messageReceive_receiveEvent_170496 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_770719 = null;
-		Message __DEC_messageSend_receiveEvent_770719 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_888087 = null;
-		Message __DEC_messageReceive_sendEvent_888087 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_748255 = null;
-		Message __DEC_messageSend_sendEvent_748255 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_245421 = null;
-		MessageEnd __DEC_message_message_245421 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_299178 = null;
+		Message __DEC_messageReceive_receiveEvent_299178 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_923876 = null;
+		Message __DEC_messageSend_receiveEvent_923876 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_946390 = null;
+		Message __DEC_messageReceive_sendEvent_946390 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_740412 = null;
+		Message __DEC_messageSend_sendEvent_740412 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_205916 = null;
+		MessageEnd __DEC_message_message_205916 = null;
 		Match match = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
@@ -17772,10 +18224,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_170496
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_299178
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_170496 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_299178 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -17783,16 +18235,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_170496
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_299178
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_170496 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_170496
+									__DEC_messageReceive_receiveEvent_299178 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_299178
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_170496 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_170496 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_170496 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_170496
+									// check object __DEC_messageReceive_receiveEvent_299178 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_299178 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_299178 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_299178
 											.equals(message));
 
 									fujaba__Success = true;
@@ -17815,26 +18267,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_770719
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_923876
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_770719 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_923876 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_770719
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_923876
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_770719 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_770719
+									__DEC_messageSend_receiveEvent_923876 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_923876
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_770719 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_770719 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_770719 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_770719
+									// check object __DEC_messageSend_receiveEvent_923876 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_923876 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_923876 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_923876
 											.equals(message));
 
 									fujaba__Success = true;
@@ -17857,10 +18309,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_888087
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_946390
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_888087 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_946390 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -17868,16 +18320,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_888087
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_946390
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_888087 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_888087
+									__DEC_messageReceive_sendEvent_946390 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_946390
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_888087 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_888087 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_888087 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_888087
+									// check object __DEC_messageReceive_sendEvent_946390 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_946390 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_946390 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_946390
 											.equals(message));
 
 									fujaba__Success = true;
@@ -17900,26 +18352,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_748255
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_740412
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_748255 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_740412 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_748255
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_740412
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_748255 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_748255
+									__DEC_messageSend_sendEvent_740412 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_740412
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_748255 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_748255 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_748255 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_748255
+									// check object __DEC_messageSend_sendEvent_740412 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_740412 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_740412 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_740412
 											.equals(message));
 
 									fujaba__Success = true;
@@ -17942,30 +18394,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_245421
+							// iterate to-many link message from message to __DEC_message_message_205916
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_245421 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_205916 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_245421
+									&& fujaba__IterMessageTo__DEC_message_message_205916
 											.hasNext()) {
 								try {
-									__DEC_message_message_245421 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_245421
+									__DEC_message_message_205916 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_205916
 											.next();
 
-									// check object __DEC_message_message_245421 is really bound
-									JavaSDM.ensure(__DEC_message_message_245421 != null);
-									// check isomorphic binding between objects __DEC_message_message_245421 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_245421
+									// check object __DEC_message_message_205916 is really bound
+									JavaSDM.ensure(__DEC_message_message_205916 != null);
+									// check isomorphic binding between objects __DEC_message_message_205916 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_205916
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_245421 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_245421
+									// check isomorphic binding between objects __DEC_message_message_205916 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_205916
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -18126,23 +18578,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_973892 = null;
-		Message __DEC_messageReceive_receiveEvent_973892 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_519579 = null;
-		Message __DEC_messageSend_receiveEvent_519579 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_977106 = null;
-		Message __DEC_messageReceive_sendEvent_977106 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_439814 = null;
-		Message __DEC_messageSend_sendEvent_439814 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_271398 = null;
-		MessageEnd __DEC_message_message_271398 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_752490 = null;
+		Message __DEC_messageReceive_receiveEvent_752490 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_992283 = null;
+		Message __DEC_messageSend_receiveEvent_992283 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_176285 = null;
+		Message __DEC_messageReceive_sendEvent_176285 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_579720 = null;
+		Message __DEC_messageSend_sendEvent_579720 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_396872 = null;
+		MessageEnd __DEC_message_message_396872 = null;
 		Match match = null;
-		Iterator fujaba__IterInteractionToLine = null;
-		Lifeline line = null;
+		Iterator fujaba__IterInteractionToMessageSend = null;
 		MessageOccurrenceSpecification messageSend = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Interaction interaction = null;
+		Iterator fujaba__IterMessageReceiveToLine = null;
+		Lifeline line = null;
 		Message message = null;
+		Interaction interaction = null;
+		MessageOccurrenceSpecification messageReceive = null;
 
 		// story node 'prepare return value'
 		try {
@@ -18192,404 +18645,435 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_message is really bound
 			JavaSDM.ensure(_edge_message != null);
 			// bind object
-			_TmpObject = _edge_message.getTrg();
-
-			// ensure correct type and really bound of object message
-			JavaSDM.ensure(_TmpObject instanceof Message);
-			message = (Message) _TmpObject;
-
-			// bind object
-			interaction = message.getInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			_TmpObject = message.getReceiveEvent();
+			_TmpObject = _edge_message.getSrc();
 
 			// ensure correct type and really bound of object messageReceive
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
-			// check link fragment from messageReceive to interaction
-			JavaSDM.ensure(interaction.equals(messageReceive
-					.getEnclosingInteraction()));
+			// bind object
+			interaction = messageReceive.getEnclosingInteraction();
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
 
 			// bind object
-			_TmpObject = message.getSendEvent();
+			message = messageReceive.getMessage();
 
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+			// check object message is really bound
+			JavaSDM.ensure(message != null);
 
-			// check isomorphic binding between objects messageSend and messageReceive 
-			JavaSDM.ensure(!messageSend.equals(messageReceive));
+			// check link message from message to interaction
+			JavaSDM.ensure(interaction.equals(message.getInteraction()));
 
-			// check link fragment from messageSend to interaction
-			JavaSDM.ensure(interaction.equals(messageSend
-					.getEnclosingInteraction()));
+			// check link receiveEvent from message to messageReceive
+			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
 
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
+			// check link trg from _edge_message to message
+			JavaSDM.ensure(message.equals(_edge_message.getTrg()));
 
-			// check link src from _edge_message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(_edge_message.getSrc()));
-
-			// iterate to-many link lifeline from interaction to line
+			// iterate to-many link covered from messageReceive to line
 			fujaba__Success = false;
 
-			fujaba__IterInteractionToLine = new ArrayList(
-					interaction.getLifeline()).iterator();
+			fujaba__IterMessageReceiveToLine = new ArrayList(
+					messageReceive.getCovered()).iterator();
 
-			while (fujaba__IterInteractionToLine.hasNext()) {
+			while (fujaba__IterMessageReceiveToLine.hasNext()) {
 				try {
-					line = (Lifeline) fujaba__IterInteractionToLine.next();
+					line = (Lifeline) fujaba__IterMessageReceiveToLine.next();
 
 					// check object line is really bound
 					JavaSDM.ensure(line != null);
-					// check link covered from line to messageReceive
-					JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
+					// check link lifeline from line to interaction
+					JavaSDM.ensure(interaction.equals(line.getInteraction()));
 
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
+					// iterate to-many link fragment from interaction to messageSend
+					fujaba__Success = false;
 
-						// negative check for link fragment from messageReceive
-						JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-						// negative check for link fragment from messageSend
-						JavaSDM.ensure(messageSend.getEnclosingOperand() == null);
-						// check negative bindings
+					fujaba__IterInteractionToMessageSend = new ArrayList(
+							interaction.getFragment()).iterator();
+
+					while (fujaba__IterInteractionToMessageSend.hasNext()) {
 						try {
-							fujaba__Success = false;
+							_TmpObject = fujaba__IterInteractionToMessageSend
+									.next();
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_973892
-							fujaba__Success = false;
+							// ensure correct type and really bound of object messageSend
+							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+							messageSend = (MessageOccurrenceSpecification) _TmpObject;
+							// check isomorphic binding between objects messageSend and messageReceive 
+							JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_973892 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class,
-													"receiveEvent")).iterator();
+							// check link message from messageSend to message
+							JavaSDM.ensure(message.equals(messageSend
+									.getMessage()));
 
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_973892
-											.hasNext()) {
+							// check link sendEvent from message to messageSend
+							JavaSDM.ensure(messageSend.equals(message
+									.getSendEvent()));
+
+							// story node 'test core match and DECs'
+							try {
+								fujaba__Success = false;
+
+								// negative check for link fragment from messageReceive
+								JavaSDM.ensure(messageReceive
+										.getEnclosingOperand() == null);
+								// negative check for link fragment from messageSend
+								JavaSDM.ensure(messageSend
+										.getEnclosingOperand() == null);
+								// check negative bindings
 								try {
-									__DEC_messageReceive_receiveEvent_973892 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_973892
-											.next();
+									fujaba__Success = false;
 
-									// check object __DEC_messageReceive_receiveEvent_973892 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_973892 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_973892 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_973892
-											.equals(message));
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_752490
+									fujaba__Success = false;
+
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_752490 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageReceive,
+															Message.class,
+															"receiveEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_752490
+													.hasNext()) {
+										try {
+											__DEC_messageReceive_receiveEvent_752490 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_752490
+													.next();
+
+											// check object __DEC_messageReceive_receiveEvent_752490 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_752490 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_752490 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_752490
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
 
 									fujaba__Success = true;
 								} catch (JavaSDMException fujaba__InternalException) {
 									fujaba__Success = false;
 								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_992283
+									fujaba__Success = false;
+
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_992283 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageSend,
+															Message.class,
+															"receiveEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_992283
+													.hasNext()) {
+										try {
+											__DEC_messageSend_receiveEvent_992283 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_992283
+													.next();
+
+											// check object __DEC_messageSend_receiveEvent_992283 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_992283 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_992283 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_992283
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_176285
+									fujaba__Success = false;
+
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_176285 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageReceive,
+															Message.class,
+															"sendEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_176285
+													.hasNext()) {
+										try {
+											__DEC_messageReceive_sendEvent_176285 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_176285
+													.next();
+
+											// check object __DEC_messageReceive_sendEvent_176285 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_176285 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_176285 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_176285
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_579720
+									fujaba__Success = false;
+
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_579720 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															messageSend,
+															Message.class,
+															"sendEvent"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_579720
+													.hasNext()) {
+										try {
+											__DEC_messageSend_sendEvent_579720 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_579720
+													.next();
+
+											// check object __DEC_messageSend_sendEvent_579720 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_579720 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_579720 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_579720
+													.equals(message));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check negative bindings
+								try {
+									fujaba__Success = false;
+
+									// iterate to-many link message from message to __DEC_message_message_396872
+									fujaba__Success = false;
+
+									fujaba__IterMessageTo__DEC_message_message_396872 = new ArrayList(
+											org.moflon.util.eMoflonEMFUtil
+													.getOppositeReference(
+															message,
+															MessageEnd.class,
+															"message"))
+											.iterator();
+
+									while (!(fujaba__Success)
+											&& fujaba__IterMessageTo__DEC_message_message_396872
+													.hasNext()) {
+										try {
+											__DEC_message_message_396872 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_396872
+													.next();
+
+											// check object __DEC_message_message_396872 is really bound
+											JavaSDM.ensure(__DEC_message_message_396872 != null);
+											// check isomorphic binding between objects __DEC_message_message_396872 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_396872
+													.equals(messageReceive));
+
+											// check isomorphic binding between objects __DEC_message_message_396872 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_396872
+													.equals(messageSend));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+									}
+									JavaSDM.ensure(fujaba__Success);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+								fujaba__Success = !(fujaba__Success);
+
+								JavaSDM.ensure(fujaba__Success);
+
+								// check object _edge_message is really bound
+								JavaSDM.ensure(_edge_message != null);
+								// check object interaction is really bound
+								JavaSDM.ensure(interaction != null);
+								// check object line is really bound
+								JavaSDM.ensure(line != null);
+								// check object message is really bound
+								JavaSDM.ensure(message != null);
+								// check object messageReceive is really bound
+								JavaSDM.ensure(messageReceive != null);
+								// check object messageSend is really bound
+								JavaSDM.ensure(messageSend != null);
+								// check isomorphic binding between objects messageSend and messageReceive 
+								JavaSDM.ensure(!messageSend
+										.equals(messageReceive));
+
+								// check link fragment from messageReceive to interaction
+								JavaSDM.ensure(interaction
+										.equals(messageReceive
+												.getEnclosingInteraction()));
+
+								// check link fragment from messageSend to interaction
+								JavaSDM.ensure(interaction.equals(messageSend
+										.getEnclosingInteraction()));
+
+								// check link lifeline from line to interaction
+								JavaSDM.ensure(interaction.equals(line
+										.getInteraction()));
+
+								// check link message from message to interaction
+								JavaSDM.ensure(interaction.equals(message
+										.getInteraction()));
+
+								// check link message from messageReceive to message
+								JavaSDM.ensure(message.equals(messageReceive
+										.getMessage()));
+
+								// check link message from messageSend to message
+								JavaSDM.ensure(message.equals(messageSend
+										.getMessage()));
+
+								// check link receiveEvent from message to messageReceive
+								JavaSDM.ensure(messageReceive.equals(message
+										.getReceiveEvent()));
+
+								// check link receiveEvent from message to messageSend
+								JavaSDM.ensure(!(messageSend.equals(message
+										.getReceiveEvent())));
+
+								// check link sendEvent from message to messageSend
+								JavaSDM.ensure(messageSend.equals(message
+										.getSendEvent()));
+
+								// check link sendEvent from message to messageReceive
+								JavaSDM.ensure(!(messageReceive.equals(message
+										.getSendEvent())));
+
+								// check link src from _edge_message to messageReceive
+								JavaSDM.ensure(messageReceive
+										.equals(_edge_message.getSrc()));
+
+								// check link trg from _edge_message to message
+								JavaSDM.ensure(message.equals(_edge_message
+										.getTrg()));
+
+								// check link covered from line to messageReceive
+								JavaSDM.ensure(line.getCoveredBy().contains(
+										messageReceive));
+
+								// create object match
+								match = TGGRuntimeFactory.eINSTANCE
+										.createMatch();
+
+								// assign attribute match
+								match.setRuleName(__eClass.getName());
+								// statement node 'bookkeeping with generic isAppropriate method'
+								fujaba__Success = this.isAppropriate_BWD(match,
+										interaction, messageSend,
+										messageReceive, message, line);
+								if (fujaba__Success) {
+									// statement node 'Ensure that the correct types of elements are matched'
+									fujaba__Success = this
+											.checkTypes_BWD(match);
+									if (fujaba__Success) {
+										// story node 'Add match to rule result'
+										try {
+											fujaba__Success = false;
+
+											// check object __performOperation is really bound
+											JavaSDM.ensure(__performOperation != null);
+											// check object __result is really bound
+											JavaSDM.ensure(__result != null);
+											// check object match is really bound
+											JavaSDM.ensure(match != null);
+
+											// create link
+											org.moflon.util.eMoflonEMFUtil
+													.addOppositeReference(
+															match,
+															__performOperation,
+															"isApplicableOperation");
+
+											// create link
+											__result.getContents().add(match);
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+									} else {
+
+									}
+
+								} else {
+
+								}
+								fujaba__Success = true;
+							} catch (JavaSDMException fujaba__InternalException) {
+								fujaba__Success = false;
 							}
-							JavaSDM.ensure(fujaba__Success);
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
 							fujaba__Success = false;
 						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_519579
-							fujaba__Success = false;
-
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_519579 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(messageSend,
-													Message.class,
-													"receiveEvent")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_519579
-											.hasNext()) {
-								try {
-									__DEC_messageSend_receiveEvent_519579 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_519579
-											.next();
-
-									// check object __DEC_messageSend_receiveEvent_519579 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_519579 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_519579 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_519579
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_977106
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_977106 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_977106
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_sendEvent_977106 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_977106
-											.next();
-
-									// check object __DEC_messageReceive_sendEvent_977106 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_977106 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_977106 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_977106
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_439814
-							fujaba__Success = false;
-
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_439814 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(messageSend,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_439814
-											.hasNext()) {
-								try {
-									__DEC_messageSend_sendEvent_439814 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_439814
-											.next();
-
-									// check object __DEC_messageSend_sendEvent_439814 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_439814 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_439814 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_439814
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link message from message to __DEC_message_message_271398
-							fujaba__Success = false;
-
-							fujaba__IterMessageTo__DEC_message_message_271398 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(message,
-													MessageEnd.class, "message"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_271398
-											.hasNext()) {
-								try {
-									__DEC_message_message_271398 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_271398
-											.next();
-
-									// check object __DEC_message_message_271398 is really bound
-									JavaSDM.ensure(__DEC_message_message_271398 != null);
-									// check isomorphic binding between objects __DEC_message_message_271398 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_271398
-											.equals(messageReceive));
-
-									// check isomorphic binding between objects __DEC_message_message_271398 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_271398
-											.equals(messageSend));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check object _edge_message is really bound
-						JavaSDM.ensure(_edge_message != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check object messageSend is really bound
-						JavaSDM.ensure(messageSend != null);
-						// check isomorphic binding between objects messageSend and messageReceive 
-						JavaSDM.ensure(!messageSend.equals(messageReceive));
-
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link fragment from messageSend to interaction
-						JavaSDM.ensure(interaction.equals(messageSend
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link message from messageSend to message
-						JavaSDM.ensure(message.equals(messageSend.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link receiveEvent from message to messageSend
-						JavaSDM.ensure(!(messageSend.equals(message
-								.getReceiveEvent())));
-
-						// check link sendEvent from message to messageSend
-						JavaSDM.ensure(messageSend.equals(message
-								.getSendEvent()));
-
-						// check link sendEvent from message to messageReceive
-						JavaSDM.ensure(!(messageReceive.equals(message
-								.getSendEvent())));
-
-						// check link src from _edge_message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(_edge_message
-								.getSrc()));
-
-						// check link trg from _edge_message to message
-						JavaSDM.ensure(message.equals(_edge_message.getTrg()));
-
-						// check link covered from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								interaction, messageSend, messageReceive,
-								message, line);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
 					}
+					JavaSDM.ensure(fujaba__Success);
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -18619,23 +19103,23 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_189491 = null;
-		Message __DEC_messageReceive_receiveEvent_189491 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_986414 = null;
-		Message __DEC_messageSend_receiveEvent_986414 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_200203 = null;
-		Message __DEC_messageReceive_sendEvent_200203 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_639405 = null;
-		Message __DEC_messageSend_sendEvent_639405 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_292130 = null;
-		MessageEnd __DEC_message_message_292130 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777497 = null;
+		Message __DEC_messageReceive_receiveEvent_777497 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_603702 = null;
+		Message __DEC_messageSend_receiveEvent_603702 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_262772 = null;
+		Message __DEC_messageReceive_sendEvent_262772 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_425723 = null;
+		Message __DEC_messageSend_sendEvent_425723 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_720701 = null;
+		MessageEnd __DEC_message_message_720701 = null;
 		Match match = null;
+		Message message = null;
 		Iterator fujaba__IterInteractionToMessageSend = null;
 		MessageOccurrenceSpecification messageSend = null;
-		Message message = null;
 		Interaction interaction = null;
-		MessageOccurrenceSpecification messageReceive = null;
 		Lifeline line = null;
+		MessageOccurrenceSpecification messageReceive = null;
 
 		// story node 'prepare return value'
 		try {
@@ -18685,13 +19169,6 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_coveredBy is really bound
 			JavaSDM.ensure(_edge_coveredBy != null);
 			// bind object
-			_TmpObject = _edge_coveredBy.getSrc();
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-
-			// bind object
 			_TmpObject = _edge_coveredBy.getTrg();
 
 			// ensure correct type and really bound of object messageReceive
@@ -18699,25 +19176,21 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
 			// bind object
-			interaction = messageReceive.getEnclosingInteraction();
+			_TmpObject = _edge_coveredBy.getSrc();
+
+			// ensure correct type and really bound of object line
+			JavaSDM.ensure(_TmpObject instanceof Lifeline);
+			line = (Lifeline) _TmpObject;
+
+			// bind object
+			interaction = line.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
 
-			// check link lifeline from line to interaction
-			JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-			// bind object
-			message = messageReceive.getMessage();
-
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-
-			// check link message from message to interaction
-			JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-			// check link receiveEvent from message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
+			// check link fragment from messageReceive to interaction
+			JavaSDM.ensure(interaction.equals(messageReceive
+					.getEnclosingInteraction()));
 
 			// check link covered from line to messageReceive
 			JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
@@ -18738,8 +19211,21 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					// check isomorphic binding between objects messageSend and messageReceive 
 					JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-					// check link message from messageSend to message
-					JavaSDM.ensure(message.equals(messageSend.getMessage()));
+					// bind object
+					message = messageSend.getMessage();
+
+					// check object message is really bound
+					JavaSDM.ensure(message != null);
+
+					// check link message from message to interaction
+					JavaSDM.ensure(interaction.equals(message.getInteraction()));
+
+					// check link message from messageReceive to message
+					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+
+					// check link receiveEvent from message to messageReceive
+					JavaSDM.ensure(messageReceive.equals(message
+							.getReceiveEvent()));
 
 					// check link sendEvent from message to messageSend
 					JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
@@ -18756,10 +19242,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_189491
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_777497
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_189491 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777497 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -18767,16 +19253,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_189491
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777497
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_189491 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_189491
+									__DEC_messageReceive_receiveEvent_777497 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777497
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_189491 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_189491 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_189491 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_189491
+									// check object __DEC_messageReceive_receiveEvent_777497 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_777497 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_777497 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_777497
 											.equals(message));
 
 									fujaba__Success = true;
@@ -18799,26 +19285,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_986414
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_603702
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_986414 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_603702 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_986414
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_603702
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_986414 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_986414
+									__DEC_messageSend_receiveEvent_603702 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_603702
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_986414 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_986414 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_986414 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_986414
+									// check object __DEC_messageSend_receiveEvent_603702 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_603702 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_603702 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_603702
 											.equals(message));
 
 									fujaba__Success = true;
@@ -18841,10 +19327,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_200203
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_262772
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_200203 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_262772 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -18852,16 +19338,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_200203
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_262772
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_200203 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_200203
+									__DEC_messageReceive_sendEvent_262772 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_262772
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_200203 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_200203 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_200203 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_200203
+									// check object __DEC_messageReceive_sendEvent_262772 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_262772 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_262772 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_262772
 											.equals(message));
 
 									fujaba__Success = true;
@@ -18884,26 +19370,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_639405
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_425723
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_639405 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_425723 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_639405
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_425723
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_639405 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_639405
+									__DEC_messageSend_sendEvent_425723 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_425723
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_639405 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_639405 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_639405 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_639405
+									// check object __DEC_messageSend_sendEvent_425723 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_425723 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_425723 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_425723
 											.equals(message));
 
 									fujaba__Success = true;
@@ -18926,30 +19412,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_292130
+							// iterate to-many link message from message to __DEC_message_message_720701
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_292130 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_720701 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_292130
+									&& fujaba__IterMessageTo__DEC_message_message_720701
 											.hasNext()) {
 								try {
-									__DEC_message_message_292130 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_292130
+									__DEC_message_message_720701 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_720701
 											.next();
 
-									// check object __DEC_message_message_292130 is really bound
-									JavaSDM.ensure(__DEC_message_message_292130 != null);
-									// check isomorphic binding between objects __DEC_message_message_292130 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_292130
+									// check object __DEC_message_message_720701 is really bound
+									JavaSDM.ensure(__DEC_message_message_720701 != null);
+									// check isomorphic binding between objects __DEC_message_message_720701 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_720701
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_292130 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_292130
+									// check isomorphic binding between objects __DEC_message_message_720701 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_720701
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -19110,25 +19596,25 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_923073 = null;
-		Message __DEC_messageReceive_receiveEvent_923073 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_315538 = null;
-		Message __DEC_messageSend_receiveEvent_315538 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_207214 = null;
-		Message __DEC_messageReceive_sendEvent_207214 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_514423 = null;
-		Message __DEC_messageSend_sendEvent_514423 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_557971 = null;
-		MessageEnd __DEC_message_message_557971 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_483338 = null;
+		Message __DEC_messageReceive_receiveEvent_483338 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_662321 = null;
+		Message __DEC_messageSend_receiveEvent_662321 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_244450 = null;
+		Message __DEC_messageReceive_sendEvent_244450 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_750509 = null;
+		Message __DEC_messageSend_sendEvent_750509 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_184164 = null;
+		MessageEnd __DEC_message_message_184164 = null;
 		Match match = null;
-		Iterator fujaba__IterMessageReceiveTo_edge_coveredBy = null;
+		Iterator fujaba__IterLineTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
+		MessageOccurrenceSpecification messageReceive = null;
+		Message message = null;
 		Iterator fujaba__IterInteractionToMessageSend = null;
 		MessageOccurrenceSpecification messageSend = null;
-		Lifeline line = null;
-		Message message = null;
 		Interaction interaction = null;
-		MessageOccurrenceSpecification messageReceive = null;
+		Lifeline line = null;
 
 		// story node 'prepare return value'
 		try {
@@ -19178,42 +19664,17 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_covered is really bound
 			JavaSDM.ensure(_edge_covered != null);
 			// bind object
-			_TmpObject = _edge_covered.getSrc();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
-			interaction = messageReceive.getEnclosingInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			message = messageReceive.getMessage();
-
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-
-			// check link message from message to interaction
-			JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-			// check link receiveEvent from message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
-
-			// bind object
 			_TmpObject = _edge_covered.getTrg();
 
 			// ensure correct type and really bound of object line
 			JavaSDM.ensure(_TmpObject instanceof Lifeline);
 			line = (Lifeline) _TmpObject;
 
-			// check link lifeline from line to interaction
-			JavaSDM.ensure(interaction.equals(line.getInteraction()));
+			// bind object
+			interaction = line.getInteraction();
 
-			// check link covered from line to messageReceive
-			JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
 
 			// iterate to-many link fragment from interaction to messageSend
 			fujaba__Success = false;
@@ -19228,28 +19689,53 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					// ensure correct type and really bound of object messageSend
 					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 					messageSend = (MessageOccurrenceSpecification) _TmpObject;
+					// bind object
+					message = messageSend.getMessage();
+
+					// check object message is really bound
+					JavaSDM.ensure(message != null);
+
+					// check link message from message to interaction
+					JavaSDM.ensure(interaction.equals(message.getInteraction()));
+
+					// bind object
+					_TmpObject = message.getReceiveEvent();
+
+					// ensure correct type and really bound of object messageReceive
+					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+					messageReceive = (MessageOccurrenceSpecification) _TmpObject;
+
 					// check isomorphic binding between objects messageSend and messageReceive 
 					JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-					// check link message from messageSend to message
-					JavaSDM.ensure(message.equals(messageSend.getMessage()));
+					// check link fragment from messageReceive to interaction
+					JavaSDM.ensure(interaction.equals(messageReceive
+							.getEnclosingInteraction()));
+
+					// check link message from messageReceive to message
+					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
 
 					// check link sendEvent from message to messageSend
 					JavaSDM.ensure(messageSend.equals(message.getSendEvent()));
 
-					// iterate to-many link trg from messageReceive to _edge_coveredBy
+					// check link src from _edge_covered to messageReceive
+					JavaSDM.ensure(messageReceive.equals(_edge_covered.getSrc()));
+
+					// check link covered from line to messageReceive
+					JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
+
+					// iterate to-many link src from line to _edge_coveredBy
 					fujaba__Success = false;
 
-					fujaba__IterMessageReceiveTo_edge_coveredBy = new ArrayList(
+					fujaba__IterLineTo_edge_coveredBy = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(messageReceive,
-											EMoflonEdge.class, "trg"))
+									.getOppositeReference(line,
+											EMoflonEdge.class, "src"))
 							.iterator();
 
-					while (fujaba__IterMessageReceiveTo_edge_coveredBy
-							.hasNext()) {
+					while (fujaba__IterLineTo_edge_coveredBy.hasNext()) {
 						try {
-							_edge_coveredBy = (EMoflonEdge) fujaba__IterMessageReceiveTo_edge_coveredBy
+							_edge_coveredBy = (EMoflonEdge) fujaba__IterLineTo_edge_coveredBy
 									.next();
 
 							// check object _edge_coveredBy is really bound
@@ -19258,8 +19744,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							JavaSDM.ensure(!_edge_coveredBy
 									.equals(_edge_covered));
 
-							// check link src from _edge_coveredBy to line
-							JavaSDM.ensure(line.equals(_edge_coveredBy.getSrc()));
+							// check link trg from _edge_coveredBy to messageReceive
+							JavaSDM.ensure(messageReceive
+									.equals(_edge_coveredBy.getTrg()));
 
 							// story node 'test core match and DECs'
 							try {
@@ -19275,10 +19762,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_923073
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_483338
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_923073 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_483338 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -19287,16 +19774,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_923073
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_483338
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_923073 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_923073
+											__DEC_messageReceive_receiveEvent_483338 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_483338
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_923073 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_923073 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_923073 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_923073
+											// check object __DEC_messageReceive_receiveEvent_483338 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_483338 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_483338 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_483338
 													.equals(message));
 
 											fujaba__Success = true;
@@ -19319,10 +19806,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_315538
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_662321
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_315538 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_662321 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -19331,16 +19818,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_315538
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_662321
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_315538 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_315538
+											__DEC_messageSend_receiveEvent_662321 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_662321
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_315538 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_315538 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_315538 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_315538
+											// check object __DEC_messageSend_receiveEvent_662321 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_662321 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_662321 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_662321
 													.equals(message));
 
 											fujaba__Success = true;
@@ -19363,10 +19850,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_207214
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_244450
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_207214 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_244450 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -19375,16 +19862,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_207214
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_244450
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_207214 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_207214
+											__DEC_messageReceive_sendEvent_244450 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_244450
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_207214 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_207214 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_207214 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_207214
+											// check object __DEC_messageReceive_sendEvent_244450 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_244450 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_244450 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_244450
 													.equals(message));
 
 											fujaba__Success = true;
@@ -19407,10 +19894,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_514423
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_750509
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_514423 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_750509 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -19419,16 +19906,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_514423
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_750509
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_514423 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_514423
+											__DEC_messageSend_sendEvent_750509 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_750509
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_514423 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_514423 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_514423 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_514423
+											// check object __DEC_messageSend_sendEvent_750509 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_750509 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_750509 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_750509
 													.equals(message));
 
 											fujaba__Success = true;
@@ -19451,10 +19938,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_557971
+									// iterate to-many link message from message to __DEC_message_message_184164
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_557971 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_184164 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -19463,20 +19950,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_557971
+											&& fujaba__IterMessageTo__DEC_message_message_184164
 													.hasNext()) {
 										try {
-											__DEC_message_message_557971 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_557971
+											__DEC_message_message_184164 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_184164
 													.next();
 
-											// check object __DEC_message_message_557971 is really bound
-											JavaSDM.ensure(__DEC_message_message_557971 != null);
-											// check isomorphic binding between objects __DEC_message_message_557971 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_557971
+											// check object __DEC_message_message_184164 is really bound
+											JavaSDM.ensure(__DEC_message_message_184164 != null);
+											// check isomorphic binding between objects __DEC_message_message_184164 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_184164
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_557971 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_557971
+											// check isomorphic binding between objects __DEC_message_message_184164 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_184164
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -19659,13 +20146,15 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isAppropriate_FWD(Match match, UseCase useCase, Flow flow,
-			NormalStep step, Actor actor) {
+			NormalStep step, Actor actor, PackageDeclaration packageDeclaration) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
 		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __step_actor_actor = null;
 		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 
 		// story node 'initial bindings'
 		try {
@@ -19677,6 +20166,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(flow != null);
 			// check object match is really bound
 			JavaSDM.ensure(match != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object step is really bound
 			JavaSDM.ensure(step != null);
 			// check object useCase is really bound
@@ -19691,7 +20182,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 
 			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, useCase, flow,
-					step, actor));
+					step, actor, packageDeclaration));
 
 			// ensure correct type and really bound of object csp
 			JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -19714,6 +20205,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -19737,11 +20230,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__step_actor_actor, "toBeTranslatedEdges");
+						step, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						step, "toBeTranslatedNodes");
+						__step_actor_actor, "toBeTranslatedEdges");
 
 				// create link
 				__flow_steps_step.setSrc(flow);
@@ -19770,6 +20263,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -19778,16 +20273,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// assign attribute __useCase_flows_flow
 				__useCase_flows_flow.setName("flows");
+				// assign attribute __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor.setName("actors");
+				// assign attribute __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase.setName("useCases");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						useCase, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -19798,10 +20301,39 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						__useCase_flows_flow, "contextEdges");
 
 				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_actors_actor, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_useCases_useCase, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						packageDeclaration, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						actor, "contextNodes");
+
+				// create link
 				__useCase_flows_flow.setSrc(useCase);
 
 				// create link
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
+
+				// create link
 				__useCase_flows_flow.setTrg(flow);
+
+				// create link
+				__packageDeclaration_actors_actor.setTrg(actor);
+
+				// create link
+				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
+
+				// create link
+				__packageDeclaration_useCases_useCase
+						.setSrc(packageDeclaration);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -19809,7 +20341,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			}
 
 			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, useCase, flow, step, actor);
+			this.registerObjectsToMatch_FWD(match, useCase, flow, step, actor,
+					packageDeclaration);
 			return true;
 
 		} else {
@@ -19824,11 +20357,13 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjectsToMatch_FWD(Match match, UseCase useCase,
-			Flow flow, NormalStep step, Actor actor) {
+			Flow flow, NormalStep step, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		match.registerObject("useCase", useCase);
 		match.registerObject("flow", flow);
 		match.registerObject("step", step);
 		match.registerObject("actor", actor);
+		match.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -19838,7 +20373,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, UseCase useCase,
-			Flow flow, NormalStep step, Actor actor) {
+			Flow flow, NormalStep step, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
@@ -19864,7 +20400,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			Flow flow, NormalStep step, Interaction interaction, Lifeline line,
-			Actor actor, ActorToLifeline actorToLine) {
+			Actor actor, ActorToLifeline actorToLine,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -19903,7 +20440,36 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void registerObjects_BWD(PerformRuleResult ruleresult,
+			EObject actor, EObject line, EObject messageSend,
+			EObject interaction, EObject messageReceive, EObject flow,
+			EObject flowToInteraction, EObject useCase,
+			EObject useCaseToInteraction, EObject step, EObject message,
+			EObject stepToMessage, EObject packageDeclaration) {
+		ruleresult.registerObject("actor", actor);
+		ruleresult.registerObject("line", line);
+		ruleresult.registerObject("messageSend", messageSend);
+		ruleresult.registerObject("interaction", interaction);
+		ruleresult.registerObject("messageReceive", messageReceive);
+		ruleresult.registerObject("flow", flow);
+		ruleresult.registerObject("flowToInteraction", flowToInteraction);
+		ruleresult.registerObject("useCase", useCase);
+		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
+		ruleresult.registerObject("step", step);
+		ruleresult.registerObject("message", message);
+		ruleresult.registerObject("stepToMessage", stepToMessage);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
+
 	}
 
 	/**
@@ -19918,16 +20484,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __messageSend_message_message = null;
-		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge __message_sendEvent_messageSend = null;
-		EMoflonEdge __interaction_message_message = null;
+		EMoflonEdge __line_coveredBy_messageReceive = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge __message_interaction_interaction = null;
+		EMoflonEdge __messageReceive_covered_line = null;
+		EMoflonEdge __interaction_message_message = null;
+		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __messageSend_message_message = null;
 		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge __interaction_lifeline_line = null;
 
 		// story node 'initial bindings'
 		try {
@@ -19990,36 +20556,36 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
+				// create object __message_sendEvent_messageSend
+				__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __line_coveredBy_messageReceive
 				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageReceive_covered_line
-				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageSend_message_message
-				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageReceive_message_message
-				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+				// create object __message_receiveEvent_messageReceive
+				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __message_interaction_interaction
 				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __message_sendEvent_messageSend
-				__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+				// create object __messageReceive_covered_line
+				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __interaction_message_message
 				__interaction_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __message_receiveEvent_messageReceive
-				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
+				// create object __messageReceive_message_message
+				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageSend_message_message
+				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __message_sendEvent_messageSend
@@ -20041,7 +20607,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageSend, "toBeTranslatedNodes");
+						__message_sendEvent_messageSend, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -20049,7 +20615,25 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						messageReceive, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						messageSend, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_receiveEvent_messageReceive,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_interaction_interaction,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -20057,7 +20641,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageSend_message_message, "toBeTranslatedEdges");
+						__interaction_message_message, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil
@@ -20067,43 +20651,25 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_interaction_interaction,
-						"toBeTranslatedEdges");
+						__messageSend_message_message, "toBeTranslatedEdges");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_sendEvent_messageSend, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_message_message, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_receiveEvent_messageReceive,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageReceive, "toBeTranslatedNodes");
-
-				// create link
-				__interaction_message_message.setTrg(message);
+				__message_interaction_interaction.setSrc(message);
 
 				// create link
 				__message_receiveEvent_messageReceive.setSrc(message);
 
 				// create link
-				__message_interaction_interaction.setSrc(message);
+				__messageSend_message_message.setTrg(message);
+
+				// create link
+				__interaction_message_message.setTrg(message);
 
 				// create link
 				__message_sendEvent_messageSend.setSrc(message);
 
 				// create link
 				__messageReceive_message_message.setTrg(message);
-
-				// create link
-				__messageSend_message_message.setTrg(message);
 
 				// create link
 				__message_interaction_interaction.setTrg(interaction);
@@ -20118,16 +20684,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				__message_sendEvent_messageSend.setTrg(messageSend);
 
 				// create link
-				__message_receiveEvent_messageReceive.setTrg(messageReceive);
+				__line_coveredBy_messageReceive.setTrg(messageReceive);
 
 				// create link
 				__messageReceive_message_message.setSrc(messageReceive);
 
 				// create link
-				__line_coveredBy_messageReceive.setTrg(messageReceive);
+				__messageReceive_covered_line.setSrc(messageReceive);
 
 				// create link
-				__messageReceive_covered_line.setSrc(messageReceive);
+				__message_receiveEvent_messageReceive.setTrg(messageReceive);
 
 				// create link
 				__messageReceive_covered_line.setTrg(line);
@@ -20159,12 +20725,12 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-				// create object __interaction_lifeline_line
-				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __line_interaction_interaction
 				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __interaction_lifeline_line
+				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __line_interaction_interaction
@@ -20178,10 +20744,6 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_lifeline_line, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__line_interaction_interaction, "contextEdges");
 
 				// create link
@@ -20189,10 +20751,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						interaction, "contextNodes");
 
 				// create link
-				__interaction_lifeline_line.setSrc(interaction);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_lifeline_line, "contextEdges");
 
 				// create link
 				__line_interaction_interaction.setTrg(interaction);
+
+				// create link
+				__interaction_lifeline_line.setSrc(interaction);
 
 				// create link
 				__interaction_lifeline_line.setTrg(line);
@@ -20269,7 +20835,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			Flow flow, Message message, Interaction interaction,
 			MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			Actor actor, ActorToLifeline actorToLine) {
+			Actor actor, ActorToLifeline actorToLine,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -20310,6 +20877,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -20326,11 +20895,12 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_178395 = null;
+		Flow __DEC_step_steps_540544 = null;
 		Match match = null;
+		PackageDeclaration packageDeclaration = null;
+		UseCase useCase = null;
 		Actor actor = null;
 		NormalStep step = null;
-		UseCase useCase = null;
 		Flow flow = null;
 
 		// story node 'prepare return value'
@@ -20388,16 +20958,6 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			flow = (Flow) _TmpObject;
 
 			// bind object
-			useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
-					.eContainer() : null;
-
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(useCase.getFlows().contains(flow));
-
-			// bind object
 			_TmpObject = _edge_steps.getTrg();
 
 			// ensure correct type and really bound of object step
@@ -20410,8 +20970,31 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check object actor is really bound
 			JavaSDM.ensure(actor != null);
 
+			// bind object
+			useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
+					.eContainer() : null;
+
+			// check object useCase is really bound
+			JavaSDM.ensure(useCase != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(useCase.getFlows().contains(flow));
+
 			// check link steps from step to flow
 			JavaSDM.ensure(flow.equals(step.eContainer()));
+
+			// bind object
+			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
+
+			// check link actors from actor to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 			// story node 'test core match and DECs'
 			try {
@@ -20422,18 +21005,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_178395 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_540544 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_178395 is really bound
-					JavaSDM.ensure(__DEC_step_steps_178395 != null);
+					// check object __DEC_step_steps_540544 is really bound
+					JavaSDM.ensure(__DEC_step_steps_540544 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_178395.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_540544.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_178395 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_178395.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_540544 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_540544.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -20450,12 +21033,17 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(actor != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
 				// check link actor from step to actor
 				JavaSDM.ensure(actor.equals(step.getActor()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -20469,6 +21057,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_steps to step
 				JavaSDM.ensure(step.equals(_edge_steps.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -20476,7 +21067,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, useCase, flow,
-						step, actor);
+						step, actor, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -20539,8 +21130,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_126427 = null;
+		Flow __DEC_step_steps_567850 = null;
 		Match match = null;
+		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
 		Flow flow = null;
 		Actor actor = null;
@@ -20629,6 +21221,19 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			// check link trg from _edge_actor to actor
 			JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
 
+			// bind object
+			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
+
+			// check link actors from actor to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
+
 			// story node 'test core match and DECs'
 			try {
 				fujaba__Success = false;
@@ -20638,18 +21243,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_126427 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_567850 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_126427 is really bound
-					JavaSDM.ensure(__DEC_step_steps_126427 != null);
+					// check object __DEC_step_steps_567850 is really bound
+					JavaSDM.ensure(__DEC_step_steps_567850 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_126427.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_567850.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_126427 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_126427.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_567850 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_567850.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -20666,12 +21271,17 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(actor != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
 				// check link actor from step to actor
 				JavaSDM.ensure(actor.equals(step.getActor()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -20685,6 +21295,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_actor to actor
 				JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -20692,7 +21305,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, useCase, flow,
-						step, actor);
+						step, actor, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -20755,18 +21368,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_418485 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_994376 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_671642 = null;
-		Message __DEC_messageReceive_receiveEvent_671642 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_425158 = null;
-		Message __DEC_messageSend_receiveEvent_425158 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_457521 = null;
-		Message __DEC_messageReceive_sendEvent_457521 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_335539 = null;
-		Message __DEC_messageSend_sendEvent_335539 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_375968 = null;
-		MessageEnd __DEC_message_message_375968 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_193255 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_575804 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777693 = null;
+		Message __DEC_messageReceive_receiveEvent_777693 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718395 = null;
+		Message __DEC_messageSend_receiveEvent_718395 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_474186 = null;
+		Message __DEC_messageReceive_sendEvent_474186 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147918 = null;
+		Message __DEC_messageSend_sendEvent_147918 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_764697 = null;
+		MessageEnd __DEC_message_message_764697 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -20889,14 +21502,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_418485 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_193255 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_418485 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_418485 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_193255 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_193255 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_418485 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_418485
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_193255 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_193255
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -20913,14 +21526,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_994376 = messageSend
+							__DEC_messageSend_enclosingInteraction_575804 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_994376 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_994376 != null);
+							// check object __DEC_messageSend_enclosingInteraction_575804 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_575804 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_994376 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_994376
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_575804 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_575804
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -20936,10 +21549,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_671642
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_777693
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_671642 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777693 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -20947,16 +21560,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_671642
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777693
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_671642 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_671642
+									__DEC_messageReceive_receiveEvent_777693 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777693
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_671642 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_671642 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_671642 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_671642
+									// check object __DEC_messageReceive_receiveEvent_777693 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_777693 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_777693 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_777693
 											.equals(message));
 
 									fujaba__Success = true;
@@ -20979,26 +21592,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_425158
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_718395
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_425158 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718395 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_425158
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718395
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_425158 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_425158
+									__DEC_messageSend_receiveEvent_718395 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718395
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_425158 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_425158 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_425158 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_425158
+									// check object __DEC_messageSend_receiveEvent_718395 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_718395 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_718395 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_718395
 											.equals(message));
 
 									fujaba__Success = true;
@@ -21021,10 +21634,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_457521
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_474186
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_457521 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_474186 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -21032,16 +21645,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_457521
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_474186
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_457521 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_457521
+									__DEC_messageReceive_sendEvent_474186 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_474186
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_457521 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_457521 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_457521 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_457521
+									// check object __DEC_messageReceive_sendEvent_474186 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_474186 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_474186 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_474186
 											.equals(message));
 
 									fujaba__Success = true;
@@ -21064,26 +21677,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_335539
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_147918
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_335539 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147918 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_335539
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147918
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_335539 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_335539
+									__DEC_messageSend_sendEvent_147918 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147918
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_335539 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_335539 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_335539 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_335539
+									// check object __DEC_messageSend_sendEvent_147918 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_147918 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_147918 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_147918
 											.equals(message));
 
 									fujaba__Success = true;
@@ -21106,30 +21719,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_375968
+							// iterate to-many link message from message to __DEC_message_message_764697
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_375968 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_764697 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_375968
+									&& fujaba__IterMessageTo__DEC_message_message_764697
 											.hasNext()) {
 								try {
-									__DEC_message_message_375968 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_375968
+									__DEC_message_message_764697 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_764697
 											.next();
 
-									// check object __DEC_message_message_375968 is really bound
-									JavaSDM.ensure(__DEC_message_message_375968 != null);
-									// check isomorphic binding between objects __DEC_message_message_375968 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_375968
+									// check object __DEC_message_message_764697 is really bound
+									JavaSDM.ensure(__DEC_message_message_764697 != null);
+									// check isomorphic binding between objects __DEC_message_message_764697 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_764697
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_375968 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_375968
+									// check isomorphic binding between objects __DEC_message_message_764697 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_764697
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -21290,24 +21903,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_810553 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_433896 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_749647 = null;
-		Message __DEC_messageReceive_receiveEvent_749647 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_278131 = null;
-		Message __DEC_messageSend_receiveEvent_278131 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_655332 = null;
-		Message __DEC_messageReceive_sendEvent_655332 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_34294 = null;
-		Message __DEC_messageSend_sendEvent_34294 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_620675 = null;
-		MessageEnd __DEC_message_message_620675 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_747563 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_785572 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581606 = null;
+		Message __DEC_messageReceive_receiveEvent_581606 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_507298 = null;
+		Message __DEC_messageSend_receiveEvent_507298 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_775672 = null;
+		Message __DEC_messageReceive_sendEvent_775672 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_426344 = null;
+		Message __DEC_messageSend_sendEvent_426344 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_516013 = null;
+		MessageEnd __DEC_message_message_516013 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
+		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
-		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 
 		// story node 'prepare return value'
@@ -21365,20 +21978,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			message = (Message) _TmpObject;
 
 			// bind object
-			_TmpObject = message.getSendEvent();
-
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
 			interaction = message.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
-
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// bind object
 			_TmpObject = message.getReceiveEvent();
@@ -21387,11 +21990,21 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
+			// check link message from messageReceive to message
+			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+
+			// bind object
+			_TmpObject = message.getSendEvent();
+
+			// ensure correct type and really bound of object messageSend
+			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+			// check link message from messageSend to message
+			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// check link trg from _edge_receiveEvent to messageReceive
 			JavaSDM.ensure(messageReceive.equals(_edge_receiveEvent.getTrg()));
@@ -21424,14 +22037,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_810553 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_747563 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_810553 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_810553 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_747563 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_747563 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_810553 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_810553
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_747563 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_747563
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -21448,14 +22061,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_433896 = messageSend
+							__DEC_messageSend_enclosingInteraction_785572 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_433896 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_433896 != null);
+							// check object __DEC_messageSend_enclosingInteraction_785572 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_785572 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_433896 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_433896
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_785572 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_785572
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -21471,10 +22084,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_749647
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_581606
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_749647 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581606 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -21482,16 +22095,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_749647
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581606
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_749647 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_749647
+									__DEC_messageReceive_receiveEvent_581606 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581606
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_749647 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_749647 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_749647 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_749647
+									// check object __DEC_messageReceive_receiveEvent_581606 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_581606 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_581606 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_581606
 											.equals(message));
 
 									fujaba__Success = true;
@@ -21514,26 +22127,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_278131
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_507298
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_278131 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_507298 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_278131
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_507298
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_278131 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_278131
+									__DEC_messageSend_receiveEvent_507298 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_507298
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_278131 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_278131 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_278131 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_278131
+									// check object __DEC_messageSend_receiveEvent_507298 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_507298 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_507298 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_507298
 											.equals(message));
 
 									fujaba__Success = true;
@@ -21556,10 +22169,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_655332
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_775672
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_655332 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_775672 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -21567,16 +22180,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_655332
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_775672
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_655332 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_655332
+									__DEC_messageReceive_sendEvent_775672 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_775672
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_655332 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_655332 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_655332 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_655332
+									// check object __DEC_messageReceive_sendEvent_775672 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_775672 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_775672 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_775672
 											.equals(message));
 
 									fujaba__Success = true;
@@ -21599,26 +22212,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_34294
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_426344
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_34294 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_426344 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_34294
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_426344
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_34294 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_34294
+									__DEC_messageSend_sendEvent_426344 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_426344
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_34294 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_34294 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_34294 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_34294
+									// check object __DEC_messageSend_sendEvent_426344 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_426344 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_426344 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_426344
 											.equals(message));
 
 									fujaba__Success = true;
@@ -21641,30 +22254,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_620675
+							// iterate to-many link message from message to __DEC_message_message_516013
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_620675 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_516013 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_620675
+									&& fujaba__IterMessageTo__DEC_message_message_516013
 											.hasNext()) {
 								try {
-									__DEC_message_message_620675 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_620675
+									__DEC_message_message_516013 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_516013
 											.next();
 
-									// check object __DEC_message_message_620675 is really bound
-									JavaSDM.ensure(__DEC_message_message_620675 != null);
-									// check isomorphic binding between objects __DEC_message_message_620675 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_620675
+									// check object __DEC_message_message_516013 is really bound
+									JavaSDM.ensure(__DEC_message_message_516013 != null);
+									// check isomorphic binding between objects __DEC_message_message_516013 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_516013
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_620675 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_620675
+									// check isomorphic binding between objects __DEC_message_message_516013 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_516013
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -21826,24 +22439,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_17590 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_198678 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_596393 = null;
-		Message __DEC_messageReceive_receiveEvent_596393 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_626973 = null;
-		Message __DEC_messageSend_receiveEvent_626973 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_898503 = null;
-		Message __DEC_messageReceive_sendEvent_898503 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_175081 = null;
-		Message __DEC_messageSend_sendEvent_175081 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_435655 = null;
-		MessageEnd __DEC_message_message_435655 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_529129 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_537296 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_269241 = null;
+		Message __DEC_messageReceive_receiveEvent_269241 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_219307 = null;
+		Message __DEC_messageSend_receiveEvent_219307 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_323478 = null;
+		Message __DEC_messageReceive_sendEvent_323478 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_833660 = null;
+		Message __DEC_messageSend_sendEvent_833660 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_407390 = null;
+		MessageEnd __DEC_message_message_407390 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
-		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
+		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 
 		// story node 'prepare return value'
@@ -21901,10 +22514,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			message = (Message) _TmpObject;
 
 			// bind object
+			_TmpObject = message.getSendEvent();
+
+			// ensure correct type and really bound of object messageSend
+			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
+			// bind object
 			interaction = message.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
+
+			// check link message from messageSend to message
+			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// bind object
 			_TmpObject = message.getReceiveEvent();
@@ -21913,21 +22536,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-			// bind object
-			_TmpObject = message.getSendEvent();
-
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
+			// check link message from messageReceive to message
+			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
 
 			// check link trg from _edge_interaction to interaction
 			JavaSDM.ensure(interaction.equals(_edge_interaction.getTrg()));
@@ -21960,14 +22573,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_17590 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_529129 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_17590 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_17590 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_529129 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_529129 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_17590 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_17590
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_529129 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_529129
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -21984,14 +22597,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_198678 = messageSend
+							__DEC_messageSend_enclosingInteraction_537296 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_198678 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_198678 != null);
+							// check object __DEC_messageSend_enclosingInteraction_537296 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_537296 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_198678 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_198678
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_537296 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_537296
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -22007,10 +22620,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_596393
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_269241
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_596393 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_269241 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -22018,16 +22631,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_596393
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_269241
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_596393 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_596393
+									__DEC_messageReceive_receiveEvent_269241 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_269241
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_596393 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_596393 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_596393 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_596393
+									// check object __DEC_messageReceive_receiveEvent_269241 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_269241 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_269241 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_269241
 											.equals(message));
 
 									fujaba__Success = true;
@@ -22050,26 +22663,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_626973
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_219307
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_626973 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_219307 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_626973
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_219307
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_626973 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_626973
+									__DEC_messageSend_receiveEvent_219307 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_219307
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_626973 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_626973 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_626973 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_626973
+									// check object __DEC_messageSend_receiveEvent_219307 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_219307 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_219307 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_219307
 											.equals(message));
 
 									fujaba__Success = true;
@@ -22092,10 +22705,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_898503
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_323478
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_898503 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_323478 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -22103,16 +22716,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_898503
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_323478
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_898503 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_898503
+									__DEC_messageReceive_sendEvent_323478 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_323478
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_898503 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_898503 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_898503 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_898503
+									// check object __DEC_messageReceive_sendEvent_323478 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_323478 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_323478 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_323478
 											.equals(message));
 
 									fujaba__Success = true;
@@ -22135,26 +22748,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_175081
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_833660
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_175081 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_833660 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_175081
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_833660
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_175081 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_175081
+									__DEC_messageSend_sendEvent_833660 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_833660
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_175081 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_175081 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_175081 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_175081
+									// check object __DEC_messageSend_sendEvent_833660 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_833660 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_833660 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_833660
 											.equals(message));
 
 									fujaba__Success = true;
@@ -22177,30 +22790,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_435655
+							// iterate to-many link message from message to __DEC_message_message_407390
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_435655 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_407390 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_435655
+									&& fujaba__IterMessageTo__DEC_message_message_407390
 											.hasNext()) {
 								try {
-									__DEC_message_message_435655 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_435655
+									__DEC_message_message_407390 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_407390
 											.next();
 
-									// check object __DEC_message_message_435655 is really bound
-									JavaSDM.ensure(__DEC_message_message_435655 != null);
-									// check isomorphic binding between objects __DEC_message_message_435655 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_435655
+									// check object __DEC_message_message_407390 is really bound
+									JavaSDM.ensure(__DEC_message_message_407390 != null);
+									// check isomorphic binding between objects __DEC_message_message_407390 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_407390
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_435655 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_435655
+									// check isomorphic binding between objects __DEC_message_message_407390 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_407390
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -22362,26 +22975,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_593493 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_182504 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_761932 = null;
-		Message __DEC_messageReceive_receiveEvent_761932 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_602587 = null;
-		Message __DEC_messageSend_receiveEvent_602587 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_251347 = null;
-		Message __DEC_messageReceive_sendEvent_251347 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147292 = null;
-		Message __DEC_messageSend_sendEvent_147292 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_17196 = null;
-		MessageEnd __DEC_message_message_17196 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_971747 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_797346 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_495804 = null;
+		Message __DEC_messageReceive_receiveEvent_495804 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_270946 = null;
+		Message __DEC_messageSend_receiveEvent_270946 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_905656 = null;
+		Message __DEC_messageReceive_sendEvent_905656 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_463891 = null;
+		Message __DEC_messageSend_sendEvent_463891 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_864359 = null;
+		MessageEnd __DEC_message_message_864359 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageTo_edge_interaction = null;
 		EMoflonEdge _edge_interaction = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
+		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
-		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 
 		// story node 'prepare return value'
@@ -22439,20 +23052,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			message = (Message) _TmpObject;
 
 			// bind object
-			_TmpObject = message.getSendEvent();
-
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
 			interaction = message.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
-
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// bind object
 			_TmpObject = message.getReceiveEvent();
@@ -22461,11 +23064,21 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
+			// check link message from messageReceive to message
+			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+
+			// bind object
+			_TmpObject = message.getSendEvent();
+
+			// ensure correct type and really bound of object messageSend
+			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+			// check link message from messageSend to message
+			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// check link src from _edge_message to interaction
 			JavaSDM.ensure(interaction.equals(_edge_message.getSrc()));
@@ -22524,14 +23137,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_enclosingInteraction_593493 = messageReceive
+									__DEC_messageReceive_enclosingInteraction_971747 = messageReceive
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageReceive_enclosingInteraction_593493 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_593493 != null);
+									// check object __DEC_messageReceive_enclosingInteraction_971747 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_971747 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_593493 and interaction 
-									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_593493
+									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_971747 and interaction 
+									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_971747
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -22548,14 +23161,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_enclosingInteraction_182504 = messageSend
+									__DEC_messageSend_enclosingInteraction_797346 = messageSend
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageSend_enclosingInteraction_182504 is really bound
-									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_182504 != null);
+									// check object __DEC_messageSend_enclosingInteraction_797346 is really bound
+									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_797346 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_182504 and interaction 
-									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_182504
+									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_797346 and interaction 
+									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_797346
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -22571,10 +23184,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_761932
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_495804
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_761932 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_495804 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -22583,16 +23196,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_761932
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_495804
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_761932 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_761932
+											__DEC_messageReceive_receiveEvent_495804 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_495804
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_761932 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_761932 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_761932 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_761932
+											// check object __DEC_messageReceive_receiveEvent_495804 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_495804 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_495804 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_495804
 													.equals(message));
 
 											fujaba__Success = true;
@@ -22615,10 +23228,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_602587
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_270946
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_602587 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_270946 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -22627,16 +23240,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_602587
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_270946
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_602587 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_602587
+											__DEC_messageSend_receiveEvent_270946 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_270946
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_602587 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_602587 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_602587 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_602587
+											// check object __DEC_messageSend_receiveEvent_270946 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_270946 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_270946 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_270946
 													.equals(message));
 
 											fujaba__Success = true;
@@ -22659,10 +23272,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_251347
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_905656
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_251347 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_905656 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -22671,16 +23284,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_251347
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_905656
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_251347 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_251347
+											__DEC_messageReceive_sendEvent_905656 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_905656
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_251347 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_251347 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_251347 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_251347
+											// check object __DEC_messageReceive_sendEvent_905656 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_905656 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_905656 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_905656
 													.equals(message));
 
 											fujaba__Success = true;
@@ -22703,10 +23316,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_147292
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_463891
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147292 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_463891 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -22715,16 +23328,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147292
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_463891
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_147292 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147292
+											__DEC_messageSend_sendEvent_463891 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_463891
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_147292 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_147292 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_147292 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_147292
+											// check object __DEC_messageSend_sendEvent_463891 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_463891 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_463891 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_463891
 													.equals(message));
 
 											fujaba__Success = true;
@@ -22747,10 +23360,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_17196
+									// iterate to-many link message from message to __DEC_message_message_864359
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_17196 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_864359 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -22759,20 +23372,20 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_17196
+											&& fujaba__IterMessageTo__DEC_message_message_864359
 													.hasNext()) {
 										try {
-											__DEC_message_message_17196 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_17196
+											__DEC_message_message_864359 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_864359
 													.next();
 
-											// check object __DEC_message_message_17196 is really bound
-											JavaSDM.ensure(__DEC_message_message_17196 != null);
-											// check isomorphic binding between objects __DEC_message_message_17196 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_17196
+											// check object __DEC_message_message_864359 is really bound
+											JavaSDM.ensure(__DEC_message_message_864359 != null);
+											// check isomorphic binding between objects __DEC_message_message_864359 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_864359
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_17196 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_17196
+											// check isomorphic binding between objects __DEC_message_message_864359 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_864359
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -22962,18 +23575,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_567487 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_871348 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_92830 = null;
-		Message __DEC_messageReceive_receiveEvent_92830 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104350 = null;
-		Message __DEC_messageSend_receiveEvent_104350 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_213021 = null;
-		Message __DEC_messageReceive_sendEvent_213021 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_474744 = null;
-		Message __DEC_messageSend_sendEvent_474744 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_766264 = null;
-		MessageEnd __DEC_message_message_766264 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_722399 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_68241 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_558006 = null;
+		Message __DEC_messageReceive_receiveEvent_558006 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_65125 = null;
+		Message __DEC_messageSend_receiveEvent_65125 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_302187 = null;
+		Message __DEC_messageReceive_sendEvent_302187 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_57563 = null;
+		Message __DEC_messageSend_sendEvent_57563 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_884466 = null;
+		MessageEnd __DEC_message_message_884466 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -23096,14 +23709,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_567487 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_722399 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_567487 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_567487 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_722399 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_722399 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_567487 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_567487
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_722399 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_722399
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -23120,14 +23733,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_871348 = messageSend
+							__DEC_messageSend_enclosingInteraction_68241 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_871348 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_871348 != null);
+							// check object __DEC_messageSend_enclosingInteraction_68241 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_68241 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_871348 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_871348
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_68241 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_68241
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -23143,10 +23756,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_92830
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_558006
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_92830 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_558006 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -23154,16 +23767,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_92830
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_558006
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_92830 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_92830
+									__DEC_messageReceive_receiveEvent_558006 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_558006
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_92830 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_92830 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_92830 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_92830
+									// check object __DEC_messageReceive_receiveEvent_558006 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_558006 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_558006 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_558006
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23186,26 +23799,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_104350
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_65125
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104350 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_65125 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104350
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_65125
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_104350 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104350
+									__DEC_messageSend_receiveEvent_65125 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_65125
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_104350 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_104350 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_104350 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_104350
+									// check object __DEC_messageSend_receiveEvent_65125 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_65125 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_65125 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_65125
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23228,10 +23841,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_213021
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_302187
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_213021 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_302187 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -23239,16 +23852,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_213021
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_302187
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_213021 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_213021
+									__DEC_messageReceive_sendEvent_302187 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_302187
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_213021 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_213021 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_213021 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_213021
+									// check object __DEC_messageReceive_sendEvent_302187 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_302187 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_302187 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_302187
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23271,26 +23884,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_474744
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_57563
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_474744 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_57563 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_474744
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_57563
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_474744 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_474744
+									__DEC_messageSend_sendEvent_57563 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_57563
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_474744 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_474744 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_474744 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_474744
+									// check object __DEC_messageSend_sendEvent_57563 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_57563 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_57563 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_57563
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23313,30 +23926,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_766264
+							// iterate to-many link message from message to __DEC_message_message_884466
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_766264 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_884466 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_766264
+									&& fujaba__IterMessageTo__DEC_message_message_884466
 											.hasNext()) {
 								try {
-									__DEC_message_message_766264 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_766264
+									__DEC_message_message_884466 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_884466
 											.next();
 
-									// check object __DEC_message_message_766264 is really bound
-									JavaSDM.ensure(__DEC_message_message_766264 != null);
-									// check isomorphic binding between objects __DEC_message_message_766264 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_766264
+									// check object __DEC_message_message_884466 is really bound
+									JavaSDM.ensure(__DEC_message_message_884466 != null);
+									// check isomorphic binding between objects __DEC_message_message_884466 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_884466
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_766264 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_766264
+									// check isomorphic binding between objects __DEC_message_message_884466 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_884466
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -23497,18 +24110,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_926079 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_226977 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_936631 = null;
-		Message __DEC_messageReceive_receiveEvent_936631 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_409665 = null;
-		Message __DEC_messageSend_receiveEvent_409665 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832320 = null;
-		Message __DEC_messageReceive_sendEvent_832320 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_125780 = null;
-		Message __DEC_messageSend_sendEvent_125780 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_173905 = null;
-		MessageEnd __DEC_message_message_173905 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_982255 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_962499 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_396785 = null;
+		Message __DEC_messageReceive_receiveEvent_396785 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884766 = null;
+		Message __DEC_messageSend_receiveEvent_884766 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_550904 = null;
+		Message __DEC_messageReceive_sendEvent_550904 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_819494 = null;
+		Message __DEC_messageSend_sendEvent_819494 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_662373 = null;
+		MessageEnd __DEC_message_message_662373 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -23631,14 +24244,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_926079 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_982255 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_926079 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_926079 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_982255 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_982255 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_926079 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_926079
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_982255 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_982255
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -23655,14 +24268,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_226977 = messageSend
+							__DEC_messageSend_enclosingInteraction_962499 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_226977 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_226977 != null);
+							// check object __DEC_messageSend_enclosingInteraction_962499 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_962499 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_226977 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_226977
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_962499 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_962499
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -23678,10 +24291,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_936631
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_396785
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_936631 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_396785 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -23689,16 +24302,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_936631
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_396785
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_936631 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_936631
+									__DEC_messageReceive_receiveEvent_396785 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_396785
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_936631 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_936631 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_936631 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_936631
+									// check object __DEC_messageReceive_receiveEvent_396785 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_396785 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_396785 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_396785
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23721,26 +24334,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_409665
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_884766
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_409665 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884766 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_409665
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884766
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_409665 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_409665
+									__DEC_messageSend_receiveEvent_884766 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884766
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_409665 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_409665 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_409665 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_409665
+									// check object __DEC_messageSend_receiveEvent_884766 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_884766 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_884766 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_884766
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23763,10 +24376,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_832320
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_550904
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832320 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_550904 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -23774,16 +24387,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832320
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_550904
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_832320 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832320
+									__DEC_messageReceive_sendEvent_550904 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_550904
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_832320 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_832320 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_832320 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_832320
+									// check object __DEC_messageReceive_sendEvent_550904 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_550904 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_550904 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_550904
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23806,26 +24419,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_125780
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_819494
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_125780 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_819494 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_125780
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_819494
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_125780 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_125780
+									__DEC_messageSend_sendEvent_819494 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_819494
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_125780 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_125780 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_125780 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_125780
+									// check object __DEC_messageSend_sendEvent_819494 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_819494 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_819494 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_819494
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23848,30 +24461,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_173905
+							// iterate to-many link message from message to __DEC_message_message_662373
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_173905 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_662373 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_173905
+									&& fujaba__IterMessageTo__DEC_message_message_662373
 											.hasNext()) {
 								try {
-									__DEC_message_message_173905 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_173905
+									__DEC_message_message_662373 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_662373
 											.next();
 
-									// check object __DEC_message_message_173905 is really bound
-									JavaSDM.ensure(__DEC_message_message_173905 != null);
-									// check isomorphic binding between objects __DEC_message_message_173905 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_173905
+									// check object __DEC_message_message_662373 is really bound
+									JavaSDM.ensure(__DEC_message_message_662373 != null);
+									// check isomorphic binding between objects __DEC_message_message_662373 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_662373
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_173905 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_173905
+									// check isomorphic binding between objects __DEC_message_message_662373 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_662373
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -24032,18 +24645,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_186545 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_547043 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909533 = null;
-		Message __DEC_messageReceive_receiveEvent_909533 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_36185 = null;
-		Message __DEC_messageSend_receiveEvent_36185 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_783910 = null;
-		Message __DEC_messageReceive_sendEvent_783910 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_123670 = null;
-		Message __DEC_messageSend_sendEvent_123670 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_498330 = null;
-		MessageEnd __DEC_message_message_498330 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_595591 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_382614 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_795810 = null;
+		Message __DEC_messageReceive_receiveEvent_795810 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_173515 = null;
+		Message __DEC_messageSend_receiveEvent_173515 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_762564 = null;
+		Message __DEC_messageReceive_sendEvent_762564 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_823759 = null;
+		Message __DEC_messageSend_sendEvent_823759 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_158651 = null;
+		MessageEnd __DEC_message_message_158651 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageSend = null;
 		Interaction interaction = null;
@@ -24159,14 +24772,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_messageReceive_enclosingInteraction_186545 = messageReceive
+					__DEC_messageReceive_enclosingInteraction_595591 = messageReceive
 							.getEnclosingInteraction();
 
-					// check object __DEC_messageReceive_enclosingInteraction_186545 is really bound
-					JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_186545 != null);
+					// check object __DEC_messageReceive_enclosingInteraction_595591 is really bound
+					JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_595591 != null);
 
-					// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_186545 and interaction 
-					JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_186545
+					// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_595591 and interaction 
+					JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_595591
 							.equals(interaction));
 
 					fujaba__Success = true;
@@ -24183,14 +24796,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_messageSend_enclosingInteraction_547043 = messageSend
+					__DEC_messageSend_enclosingInteraction_382614 = messageSend
 							.getEnclosingInteraction();
 
-					// check object __DEC_messageSend_enclosingInteraction_547043 is really bound
-					JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_547043 != null);
+					// check object __DEC_messageSend_enclosingInteraction_382614 is really bound
+					JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_382614 != null);
 
-					// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_547043 and interaction 
-					JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_547043
+					// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_382614 and interaction 
+					JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_382614
 							.equals(interaction));
 
 					fujaba__Success = true;
@@ -24206,26 +24819,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_909533
+					// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_795810
 					fujaba__Success = false;
 
-					fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909533 = new ArrayList(
+					fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_795810 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageReceive,
 											Message.class, "receiveEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909533
+							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_795810
 									.hasNext()) {
 						try {
-							__DEC_messageReceive_receiveEvent_909533 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909533
+							__DEC_messageReceive_receiveEvent_795810 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_795810
 									.next();
 
-							// check object __DEC_messageReceive_receiveEvent_909533 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_receiveEvent_909533 != null);
-							// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_909533 and message 
-							JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_909533
+							// check object __DEC_messageReceive_receiveEvent_795810 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_receiveEvent_795810 != null);
+							// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_795810 and message 
+							JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_795810
 									.equals(message));
 
 							fujaba__Success = true;
@@ -24248,26 +24861,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_36185
+					// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_173515
 					fujaba__Success = false;
 
-					fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_36185 = new ArrayList(
+					fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_173515 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageSend,
 											Message.class, "receiveEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_36185
+							&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_173515
 									.hasNext()) {
 						try {
-							__DEC_messageSend_receiveEvent_36185 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_36185
+							__DEC_messageSend_receiveEvent_173515 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_173515
 									.next();
 
-							// check object __DEC_messageSend_receiveEvent_36185 is really bound
-							JavaSDM.ensure(__DEC_messageSend_receiveEvent_36185 != null);
-							// check isomorphic binding between objects __DEC_messageSend_receiveEvent_36185 and message 
-							JavaSDM.ensure(!__DEC_messageSend_receiveEvent_36185
+							// check object __DEC_messageSend_receiveEvent_173515 is really bound
+							JavaSDM.ensure(__DEC_messageSend_receiveEvent_173515 != null);
+							// check isomorphic binding between objects __DEC_messageSend_receiveEvent_173515 and message 
+							JavaSDM.ensure(!__DEC_messageSend_receiveEvent_173515
 									.equals(message));
 
 							fujaba__Success = true;
@@ -24290,26 +24903,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_783910
+					// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_762564
 					fujaba__Success = false;
 
-					fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_783910 = new ArrayList(
+					fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_762564 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageReceive,
 											Message.class, "sendEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_783910
+							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_762564
 									.hasNext()) {
 						try {
-							__DEC_messageReceive_sendEvent_783910 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_783910
+							__DEC_messageReceive_sendEvent_762564 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_762564
 									.next();
 
-							// check object __DEC_messageReceive_sendEvent_783910 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_sendEvent_783910 != null);
-							// check isomorphic binding between objects __DEC_messageReceive_sendEvent_783910 and message 
-							JavaSDM.ensure(!__DEC_messageReceive_sendEvent_783910
+							// check object __DEC_messageReceive_sendEvent_762564 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_sendEvent_762564 != null);
+							// check isomorphic binding between objects __DEC_messageReceive_sendEvent_762564 and message 
+							JavaSDM.ensure(!__DEC_messageReceive_sendEvent_762564
 									.equals(message));
 
 							fujaba__Success = true;
@@ -24332,26 +24945,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_123670
+					// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_823759
 					fujaba__Success = false;
 
-					fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_123670 = new ArrayList(
+					fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_823759 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageSend,
 											Message.class, "sendEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_123670
+							&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_823759
 									.hasNext()) {
 						try {
-							__DEC_messageSend_sendEvent_123670 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_123670
+							__DEC_messageSend_sendEvent_823759 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_823759
 									.next();
 
-							// check object __DEC_messageSend_sendEvent_123670 is really bound
-							JavaSDM.ensure(__DEC_messageSend_sendEvent_123670 != null);
-							// check isomorphic binding between objects __DEC_messageSend_sendEvent_123670 and message 
-							JavaSDM.ensure(!__DEC_messageSend_sendEvent_123670
+							// check object __DEC_messageSend_sendEvent_823759 is really bound
+							JavaSDM.ensure(__DEC_messageSend_sendEvent_823759 != null);
+							// check isomorphic binding between objects __DEC_messageSend_sendEvent_823759 and message 
+							JavaSDM.ensure(!__DEC_messageSend_sendEvent_823759
 									.equals(message));
 
 							fujaba__Success = true;
@@ -24374,30 +24987,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link message from message to __DEC_message_message_498330
+					// iterate to-many link message from message to __DEC_message_message_158651
 					fujaba__Success = false;
 
-					fujaba__IterMessageTo__DEC_message_message_498330 = new ArrayList(
+					fujaba__IterMessageTo__DEC_message_message_158651 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(message,
 											MessageEnd.class, "message"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageTo__DEC_message_message_498330
+							&& fujaba__IterMessageTo__DEC_message_message_158651
 									.hasNext()) {
 						try {
-							__DEC_message_message_498330 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_498330
+							__DEC_message_message_158651 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_158651
 									.next();
 
-							// check object __DEC_message_message_498330 is really bound
-							JavaSDM.ensure(__DEC_message_message_498330 != null);
-							// check isomorphic binding between objects __DEC_message_message_498330 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_message_498330
+							// check object __DEC_message_message_158651 is really bound
+							JavaSDM.ensure(__DEC_message_message_158651 != null);
+							// check isomorphic binding between objects __DEC_message_message_158651 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_message_158651
 									.equals(messageReceive));
 
-							// check isomorphic binding between objects __DEC_message_message_498330 and messageSend 
-							JavaSDM.ensure(!__DEC_message_message_498330
+							// check isomorphic binding between objects __DEC_message_message_158651 and messageSend 
+							JavaSDM.ensure(!__DEC_message_message_158651
 									.equals(messageSend));
 
 							fujaba__Success = true;
@@ -24542,18 +25155,18 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_575604 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_520538 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232993 = null;
-		Message __DEC_messageReceive_receiveEvent_232993 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_880112 = null;
-		Message __DEC_messageSend_receiveEvent_880112 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_442795 = null;
-		Message __DEC_messageReceive_sendEvent_442795 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_216276 = null;
-		Message __DEC_messageSend_sendEvent_216276 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_925037 = null;
-		MessageEnd __DEC_message_message_925037 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_123118 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_544555 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909195 = null;
+		Message __DEC_messageReceive_receiveEvent_909195 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_922662 = null;
+		Message __DEC_messageSend_receiveEvent_922662 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_111392 = null;
+		Message __DEC_messageReceive_sendEvent_111392 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_618999 = null;
+		Message __DEC_messageSend_sendEvent_618999 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_555051 = null;
+		MessageEnd __DEC_message_message_555051 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
@@ -24692,14 +25305,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_575604 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_123118 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_575604 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_575604 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_123118 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_123118 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_575604 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_575604
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_123118 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_123118
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -24716,14 +25329,14 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_520538 = messageSend
+							__DEC_messageSend_enclosingInteraction_544555 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_520538 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_520538 != null);
+							// check object __DEC_messageSend_enclosingInteraction_544555 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_544555 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_520538 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_520538
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_544555 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_544555
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -24739,10 +25352,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_232993
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_909195
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232993 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909195 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -24750,16 +25363,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232993
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909195
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_232993 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232993
+									__DEC_messageReceive_receiveEvent_909195 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909195
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_232993 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_232993 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_232993 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_232993
+									// check object __DEC_messageReceive_receiveEvent_909195 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_909195 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_909195 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_909195
 											.equals(message));
 
 									fujaba__Success = true;
@@ -24782,26 +25395,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_880112
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_922662
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_880112 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_922662 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_880112
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_922662
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_880112 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_880112
+									__DEC_messageSend_receiveEvent_922662 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_922662
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_880112 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_880112 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_880112 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_880112
+									// check object __DEC_messageSend_receiveEvent_922662 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_922662 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_922662 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_922662
 											.equals(message));
 
 									fujaba__Success = true;
@@ -24824,10 +25437,10 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_442795
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_111392
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_442795 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_111392 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -24835,16 +25448,16 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_442795
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_111392
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_442795 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_442795
+									__DEC_messageReceive_sendEvent_111392 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_111392
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_442795 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_442795 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_442795 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_442795
+									// check object __DEC_messageReceive_sendEvent_111392 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_111392 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_111392 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_111392
 											.equals(message));
 
 									fujaba__Success = true;
@@ -24867,26 +25480,26 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_216276
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_618999
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_216276 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_618999 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_216276
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_618999
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_216276 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_216276
+									__DEC_messageSend_sendEvent_618999 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_618999
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_216276 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_216276 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_216276 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_216276
+									// check object __DEC_messageSend_sendEvent_618999 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_618999 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_618999 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_618999
 											.equals(message));
 
 									fujaba__Success = true;
@@ -24909,30 +25522,30 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_925037
+							// iterate to-many link message from message to __DEC_message_message_555051
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_925037 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_555051 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_925037
+									&& fujaba__IterMessageTo__DEC_message_message_555051
 											.hasNext()) {
 								try {
-									__DEC_message_message_925037 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_925037
+									__DEC_message_message_555051 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_555051
 											.next();
 
-									// check object __DEC_message_message_925037 is really bound
-									JavaSDM.ensure(__DEC_message_message_925037 != null);
-									// check isomorphic binding between objects __DEC_message_message_925037 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_925037
+									// check object __DEC_message_message_555051 is really bound
+									JavaSDM.ensure(__DEC_message_message_555051 != null);
+									// check isomorphic binding between objects __DEC_message_message_555051 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_555051
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_925037 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_925037
+									// check isomorphic binding between objects __DEC_message_message_555051 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_555051
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -25101,24 +25714,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == NormalStepToMessageRule.class) {
 			switch (baseOperationID) {
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_FWD__MATCH:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_FWD__MATCH;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___CHECK_TYPES_FWD__MATCH:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_FWD__MATCH;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE:
@@ -25133,12 +25746,12 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE:
@@ -25171,24 +25784,24 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		}
 		if (baseClass == NormalStepBFToMessageRule.class) {
 			switch (baseOperationID) {
-			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR;
+			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_FWD__MATCH:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_FWD__MATCH;
-			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR;
-			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR;
+			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
+			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP;
-			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP_LIFELINE_ACTOR_ACTORTOLIFELINE:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP_LIFELINE_ACTOR_ACTORTOLIFELINE;
+			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP;
-			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
+			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_FWD__MATCH:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_FWD__MATCH;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD__MATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_MESSAGE_LIFELINE:
@@ -25203,12 +25816,12 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_MESSAGE_LIFELINE;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP;
-			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE_LIFELINE_ACTOR_ACTORTOLIFELINE:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE_LIFELINE_ACTOR_ACTORTOLIFELINE;
+			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP;
-			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
-				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
+			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 				return RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH;
 			case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_12__EMOFLONEDGE:
@@ -25259,26 +25872,29 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_ACTOR_BASICFLOW_USECASE_NORMALSTEP:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_ACTOR_BASICFLOW_USECASE_NORMALSTEP_PACKAGEDECLARATION:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1), (BasicFlow) arguments.get(2),
-					(UseCase) arguments.get(3), (NormalStep) arguments.get(4));
+					(UseCase) arguments.get(3), (NormalStep) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_ACTOR_BASICFLOW_USECASE_NORMALSTEP:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_ACTOR_BASICFLOW_USECASE_NORMALSTEP_PACKAGEDECLARATION:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1), (BasicFlow) arguments.get(2),
-					(UseCase) arguments.get(3), (NormalStep) arguments.get(4));
+					(UseCase) arguments.get(3), (NormalStep) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
 			return null;
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_ACTOR_BASICFLOW_USECASE_NORMALSTEP:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_ACTOR_BASICFLOW_USECASE_NORMALSTEP_PACKAGEDECLARATION:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1), (BasicFlow) arguments.get(2),
-					(UseCase) arguments.get(3), (NormalStep) arguments.get(4));
+					(UseCase) arguments.get(3), (NormalStep) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ACTOR_LIFELINE_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ACTOR_LIFELINE_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
 					(Actor) arguments.get(1), (Lifeline) arguments.get(2),
@@ -25287,17 +25903,19 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(FlowToInteractionFragment) arguments.get(5),
 					(UseCase) arguments.get(6),
 					(UseCaseToInteraction) arguments.get(7),
-					(NormalStep) arguments.get(8));
+					(NormalStep) arguments.get(8),
+					(PackageDeclaration) arguments.get(9));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11), (EObject) arguments.get(12));
+					(EObject) arguments.get(11), (EObject) arguments.get(12),
+					(EObject) arguments.get(13));
 			return null;
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
@@ -25329,7 +25947,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(Message) arguments.get(5));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 			return isAppropriate_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_ACTOR_LIFELINE_MESSAGEOCCURRENCESPECIFICATION_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_ACTOR_LIFELINE_MESSAGEOCCURRENCESPECIFICATION_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(Actor) arguments.get(1), (Lifeline) arguments.get(2),
@@ -25340,17 +25958,19 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(FlowToInteractionFragment) arguments.get(7),
 					(UseCase) arguments.get(8),
 					(UseCaseToInteraction) arguments.get(9),
-					(Message) arguments.get(10));
+					(Message) arguments.get(10),
+					(PackageDeclaration) arguments.get(11));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 			return isApplicable_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11), (EObject) arguments.get(12));
+					(EObject) arguments.get(11), (EObject) arguments.get(12),
+					(EObject) arguments.get(13));
 			return null;
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
@@ -25372,11 +25992,11 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_95__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_95((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_23__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_23((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_24__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_24((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_25__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_25((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_96__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_96((EMoflonEdge) arguments
@@ -25406,20 +26026,23 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(BasicFlow) arguments.get(1), (UseCase) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR:
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(BasicFlow) arguments.get(1), (UseCase) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
 			return null;
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_BASICFLOW_USECASE_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
 					(BasicFlow) arguments.get(1), (UseCase) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP_LIFELINE_ACTOR_ACTORTOLIFELINE:
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
 					(Interaction) arguments.get(1),
@@ -25429,8 +26052,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(UseCaseToInteraction) arguments.get(5),
 					(NormalStep) arguments.get(6), (Lifeline) arguments.get(7),
 					(Actor) arguments.get(8),
-					(ActorToLifeline) arguments.get(9));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+					(ActorToLifeline) arguments.get(9),
+					(PackageDeclaration) arguments.get(10));
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
@@ -25438,7 +26062,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
 					(EObject) arguments.get(11), (EObject) arguments.get(12),
-					(EObject) arguments.get(13));
+					(EObject) arguments.get(13), (EObject) arguments.get(14));
 			return null;
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD__MATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_MESSAGE_LIFELINE:
 			return isAppropriate_BWD((Match) arguments.get(0),
@@ -25459,7 +26083,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(MessageOccurrenceSpecification) arguments.get(2),
 					(MessageOccurrenceSpecification) arguments.get(3),
 					(Message) arguments.get(4), (Lifeline) arguments.get(5));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE_LIFELINE_ACTOR_ACTORTOLIFELINE:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(Interaction) arguments.get(1),
@@ -25471,8 +26095,9 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(UseCaseToInteraction) arguments.get(7),
 					(Message) arguments.get(8), (Lifeline) arguments.get(9),
 					(Actor) arguments.get(10),
-					(ActorToLifeline) arguments.get(11));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+					(ActorToLifeline) arguments.get(11),
+					(PackageDeclaration) arguments.get(12));
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
@@ -25480,7 +26105,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
 					(EObject) arguments.get(11), (EObject) arguments.get(12),
-					(EObject) arguments.get(13));
+					(EObject) arguments.get(13), (EObject) arguments.get(14));
 			return null;
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_12__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_12((EMoflonEdge) arguments
@@ -25524,20 +26149,23 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_23__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_23((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(UseCase) arguments.get(1), (Flow) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(UseCase) arguments.get(1), (Flow) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
 			return null;
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
 					(UseCase) arguments.get(1), (Flow) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE:
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
 					(UseCase) arguments.get(1),
@@ -25545,7 +26173,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(Flow) arguments.get(3), (NormalStep) arguments.get(4),
 					(Interaction) arguments.get(5),
 					(Lifeline) arguments.get(6), (Actor) arguments.get(7),
-					(ActorToLifeline) arguments.get(8));
+					(ActorToLifeline) arguments.get(8),
+					(PackageDeclaration) arguments.get(9));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE:
 			return isAppropriate_BWD((Match) arguments.get(0),
 					(Message) arguments.get(1), (Interaction) arguments.get(2),
@@ -25565,7 +26194,7 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(MessageOccurrenceSpecification) arguments.get(3),
 					(MessageOccurrenceSpecification) arguments.get(4),
 					(Lifeline) arguments.get(5));
-		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE:
+		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(UseCase) arguments.get(1),
@@ -25575,7 +26204,8 @@ public class SystemStepBFToMessageRuleImpl extends AbstractRuleImpl implements
 					(MessageOccurrenceSpecification) arguments.get(6),
 					(MessageOccurrenceSpecification) arguments.get(7),
 					(Lifeline) arguments.get(8), (Actor) arguments.get(9),
-					(ActorToLifeline) arguments.get(10));
+					(ActorToLifeline) arguments.get(10),
+					(PackageDeclaration) arguments.get(11));
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_4((EMoflonEdge) arguments
 					.get(0));

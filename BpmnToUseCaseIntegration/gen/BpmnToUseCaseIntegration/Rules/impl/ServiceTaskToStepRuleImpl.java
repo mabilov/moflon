@@ -20,15 +20,11 @@ import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
 import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -69,7 +65,6 @@ import bpmn2.ServiceTask;
 import bpmn2.StartEvent;
 import bpmn2.Task;
 import bpmn2.UserTask;
-import bpmn2.Process;
 
 import de.upb.tools.sdm.*;
 
@@ -85,735 +80,6 @@ import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
@@ -861,18 +127,18 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __outFlow_sourceRef_task = null;
-		EMoflonEdge __task_outgoing_outFlow = null;
 		EMoflonEdge __task_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __lane_flowNodeRefs_task = null;
 		EMoflonEdge __inFlow_targetRef_task = null;
-		EMoflonEdge __flowNode_outgoing_inFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
+		EMoflonEdge __task_outgoing_outFlow = null;
+		EMoflonEdge __lane_flowNodeRefs_task = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge __outFlow_sourceRef_task = null;
 		EMoflonEdge __process_flowElements_inFlow = null;
+		EMoflonEdge __process_flowElements_flowNode = null;
 		EMoflonEdge __laneSet_lanes_lane = null;
 		EMoflonEdge __inFlow_sourceRef_flowNode = null;
-		EMoflonEdge __process_flowElements_flowNode = null;
+		EMoflonEdge __flowNode_outgoing_inFlow = null;
+		EMoflonEdge __process_laneSets_laneSet = null;
 
 		// story node 'initial bindings'
 		try {
@@ -949,28 +215,28 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects outFlow and inFlow 
 				JavaSDM.ensure(!outFlow.equals(inFlow));
 
-				// create object __outFlow_sourceRef_task
-				__outFlow_sourceRef_task = TGGRuntimeFactory.eINSTANCE
+				// create object __task_incoming_inFlow
+				__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __inFlow_targetRef_task
+				__inFlow_targetRef_task = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __task_outgoing_outFlow
 				__task_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __task_incoming_inFlow
-				__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+				// create object __lane_flowNodeRefs_task
+				__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __process_flowElements_outFlow
 				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __lane_flowNodeRefs_task
-				__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __inFlow_targetRef_task
-				__inFlow_targetRef_task = TGGRuntimeFactory.eINSTANCE
+				// create object __outFlow_sourceRef_task
+				__outFlow_sourceRef_task = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __inFlow_targetRef_task
@@ -988,15 +254,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						task, "toBeTranslatedNodes");
+						__task_incoming_inFlow, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__outFlow_sourceRef_task, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
+						__inFlow_targetRef_task, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1004,11 +266,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__task_incoming_inFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_outFlow, "toBeTranslatedEdges");
+						outFlow, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1016,31 +274,39 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_task, "toBeTranslatedEdges");
+						__process_flowElements_outFlow, "toBeTranslatedEdges");
 
 				// create link
-				__task_incoming_inFlow.setSrc(task);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__outFlow_sourceRef_task, "toBeTranslatedEdges");
 
 				// create link
-				__inFlow_targetRef_task.setTrg(task);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						task, "toBeTranslatedNodes");
 
 				// create link
 				__lane_flowNodeRefs_task.setTrg(task);
 
 				// create link
-				__task_outgoing_outFlow.setSrc(task);
+				__inFlow_targetRef_task.setTrg(task);
 
 				// create link
 				__outFlow_sourceRef_task.setTrg(task);
 
 				// create link
+				__task_incoming_inFlow.setSrc(task);
+
+				// create link
+				__task_outgoing_outFlow.setSrc(task);
+
+				// create link
 				__process_flowElements_outFlow.setSrc(process);
 
 				// create link
-				__inFlow_targetRef_task.setSrc(inFlow);
+				__task_incoming_inFlow.setTrg(inFlow);
 
 				// create link
-				__task_incoming_inFlow.setTrg(inFlow);
+				__inFlow_targetRef_task.setSrc(inFlow);
 
 				// create link
 				__task_outgoing_outFlow.setTrg(outFlow);
@@ -1085,16 +351,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects outFlow and inFlow 
 				JavaSDM.ensure(!outFlow.equals(inFlow));
 
-				// create object __flowNode_outgoing_inFlow
-				__flowNode_outgoing_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __process_flowElements_inFlow
 				__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_flowElements_flowNode
+				__process_flowElements_flowNode = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __laneSet_lanes_lane
@@ -1105,8 +367,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				__inFlow_sourceRef_flowNode = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __process_flowElements_flowNode
-				__process_flowElements_flowNode = TGGRuntimeFactory.eINSTANCE
+				// create object __flowNode_outgoing_inFlow
+				__flowNode_outgoing_inFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_laneSets_laneSet
+				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __process_flowElements_flowNode
@@ -1124,23 +390,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flowNode, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flowNode_outgoing_inFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
+						process, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1152,11 +402,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__laneSet_lanes_lane, "contextEdges");
+						__process_flowElements_flowNode, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
+						__laneSet_lanes_lane, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1164,22 +414,38 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_flowNode, "contextEdges");
+						__flowNode_outgoing_inFlow, "contextEdges");
 
 				// create link
-				__process_flowElements_inFlow.setSrc(process);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						lane, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						laneSet, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_laneSets_laneSet, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						flowNode, "contextNodes");
 
 				// create link
 				__process_flowElements_flowNode.setSrc(process);
 
 				// create link
+				__process_flowElements_inFlow.setSrc(process);
+
+				// create link
 				__process_laneSets_laneSet.setSrc(process);
 
 				// create link
-				__process_flowElements_inFlow.setTrg(inFlow);
+				__inFlow_sourceRef_flowNode.setSrc(inFlow);
 
 				// create link
-				__inFlow_sourceRef_flowNode.setSrc(inFlow);
+				__process_flowElements_inFlow.setTrg(inFlow);
 
 				// create link
 				__flowNode_outgoing_inFlow.setTrg(inFlow);
@@ -1194,13 +460,13 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				__laneSet_lanes_lane.setTrg(lane);
 
 				// create link
-				__inFlow_sourceRef_flowNode.setTrg(flowNode);
+				__process_flowElements_flowNode.setTrg(flowNode);
 
 				// create link
 				__flowNode_outgoing_inFlow.setSrc(flowNode);
 
 				// create link
-				__process_flowElements_flowNode.setTrg(flowNode);
+				__inFlow_sourceRef_flowNode.setTrg(flowNode);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -1246,21 +512,21 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		SequenceFlowToStep outFlowToNormalStep = null;
 		SequenceFlowToUCFlow outFlowToFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge outFlowToFlow__source__outFlow = null;
-		EMoflonEdge __task_incoming_inFlow = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge __outFlow_sourceRef_task = null;
+		EMoflonEdge flow__steps__normalStep = null;
+		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
 		EMoflonEdge prevStep__next__normalStep = null;
 		EMoflonEdge taskToNormalStep__target__normalStep = null;
-		EMoflonEdge flow__steps__normalStep = null;
-		EMoflonEdge normalStep__actor__actor = null;
-		EMoflonEdge __lane_flowNodeRefs_task = null;
-		EMoflonEdge outFlowToFlow__target__flow = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
 		EMoflonEdge __task_outgoing_outFlow = null;
 		EMoflonEdge __inFlow_targetRef_task = null;
-		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
-		EMoflonEdge __outFlow_sourceRef_task = null;
-		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
+		EMoflonEdge __lane_flowNodeRefs_task = null;
+		EMoflonEdge normalStep__actor__actor = null;
+		EMoflonEdge __task_incoming_inFlow = null;
+		EMoflonEdge outFlowToFlow__target__flow = null;
 		EMoflonEdge taskToNormalStep__source__task = null;
+		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
+		EMoflonEdge outFlowToFlow__source__outFlow = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1359,10 +625,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object taskToNormalStep
 			taskToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createFlowNodeToStep();
@@ -1379,17 +642,17 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					.createSequenceFlowToUCFlow();
 
 			// assign attribute normalStep
-			normalStep.setName((java.lang.String) csp.getAttributeVariable(
-					"normalStep", "name").getValue());
+			normalStep.setName((java.lang.String) csp.getValue("normalStep",
+					"name"));
 			// assign attribute normalStep
-			normalStep.setLabel((java.lang.String) csp.getAttributeVariable(
-					"normalStep", "label").getValue());
-
-			// create link
-			outFlowToNormalStep.setSource(outFlow);
+			normalStep.setLabel((java.lang.String) csp.getValue("normalStep",
+					"label"));
 
 			// create link
 			outFlowToFlow.setSource(outFlow);
+
+			// create link
+			outFlowToNormalStep.setSource(outFlow);
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToFlow,
@@ -1440,11 +703,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "translatedElements");
+					outFlowToNormalStep, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					task, "translatedElements");
+					outFlow, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1452,15 +715,15 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					taskToNormalStep, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToFlow, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep, "createdLinkElements");
+					taskToNormalStep, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					task, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1914,12 +1177,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects taskToNormalStep and task 
 			JavaSDM.ensure(!taskToNormalStep.equals(task));
 
-			// create object outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __process_flowElements_outFlow
+			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __task_incoming_inFlow
-			__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __outFlow_sourceRef_task
+			__outFlow_sourceRef_task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object flow__steps__normalStep
+			flow__steps__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToNormalStep__source__outFlow
+			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object prevStep__next__normalStep
@@ -1930,26 +1201,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			taskToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object flow__steps__normalStep
-			flow__steps__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object normalStep__actor__actor
-			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __lane_flowNodeRefs_task
-			__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__target__flow
-			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_outFlow
-			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __task_outgoing_outFlow
 			__task_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
@@ -1958,20 +1209,32 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			__inFlow_targetRef_task = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+			// create object __lane_flowNodeRefs_task
+			__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __outFlow_sourceRef_task
-			__outFlow_sourceRef_task = TGGRuntimeFactory.eINSTANCE
+			// create object normalStep__actor__actor
+			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __task_incoming_inFlow
+			__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToFlow__target__flow
+			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object taskToNormalStep__source__task
 			taskToNormalStep__source__task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToNormalStep__target__normalStep
+			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToFlow__source__outFlow
+			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -2009,11 +1272,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__source__outFlow, "createdEdges");
+					__process_flowElements_outFlow, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__task_incoming_inFlow, "translatedEdges");
+					__outFlow_sourceRef_task, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					flow__steps__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep__source__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2025,26 +1296,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					flow__steps__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep__actor__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__lane_flowNodeRefs_task, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__target__flow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__task_outgoing_outFlow, "translatedEdges");
 
 			// create link
@@ -2053,37 +1304,49 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__target__normalStep, "createdEdges");
+					__lane_flowNodeRefs_task, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__outFlow_sourceRef_task, "translatedEdges");
+					normalStep__actor__actor, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__source__outFlow, "createdEdges");
+					__task_incoming_inFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToFlow__target__flow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					taskToNormalStep__source__task, "createdEdges");
 
 			// create link
-			__task_incoming_inFlow.setSrc(task);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep__target__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToFlow__source__outFlow, "createdEdges");
 
 			// create link
 			taskToNormalStep__source__task.setTrg(task);
 
 			// create link
-			__outFlow_sourceRef_task.setTrg(task);
+			__inFlow_targetRef_task.setTrg(task);
 
 			// create link
-			__inFlow_targetRef_task.setTrg(task);
+			__lane_flowNodeRefs_task.setTrg(task);
 
 			// create link
 			__task_outgoing_outFlow.setSrc(task);
 
 			// create link
-			__lane_flowNodeRefs_task.setTrg(task);
+			__outFlow_sourceRef_task.setTrg(task);
+
+			// create link
+			__task_incoming_inFlow.setSrc(task);
 
 			// create link
 			__process_flowElements_outFlow.setSrc(process);
@@ -2101,22 +1364,28 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			prevStep__next__normalStep.setSrc(prevStep);
 
 			// create link
+			taskToNormalStep__target__normalStep.setTrg(normalStep);
+
+			// create link
 			prevStep__next__normalStep.setTrg(normalStep);
 
 			// create link
 			normalStep__actor__actor.setSrc(normalStep);
 
 			// create link
-			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
-
-			// create link
-			taskToNormalStep__target__normalStep.setTrg(normalStep);
-
-			// create link
 			flow__steps__normalStep.setTrg(normalStep);
 
 			// create link
+			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
+
+			// create link
 			__outFlow_sourceRef_task.setSrc(outFlow);
+
+			// create link
+			outFlowToFlow__source__outFlow.setTrg(outFlow);
+
+			// create link
+			__process_flowElements_outFlow.setTrg(outFlow);
 
 			// create link
 			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
@@ -2125,28 +1394,22 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			__task_outgoing_outFlow.setTrg(outFlow);
 
 			// create link
-			__process_flowElements_outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
 			taskToNormalStep__target__normalStep.setSrc(taskToNormalStep);
 
 			// create link
 			taskToNormalStep__source__task.setSrc(taskToNormalStep);
 
 			// create link
-			outFlowToFlow__target__flow.setSrc(outFlowToFlow);
-
-			// create link
 			outFlowToFlow__source__outFlow.setSrc(outFlowToFlow);
 
 			// create link
-			outFlowToNormalStep__source__outFlow.setSrc(outFlowToNormalStep);
+			outFlowToFlow__target__flow.setSrc(outFlowToFlow);
 
 			// create link
 			outFlowToNormalStep__target__normalStep.setSrc(outFlowToNormalStep);
+
+			// create link
+			outFlowToNormalStep__source__outFlow.setSrc(outFlowToNormalStep);
 
 			// create link
 			flow__steps__normalStep.setSrc(flow);
@@ -2177,49 +1440,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, ServiceTask task,
-			bpmn2.Process process, SequenceFlow inFlow, SequenceFlow outFlow,
-			LaneSet laneSet, Lane lane, FlowNode flowNode) {
-		match.registerObject("task", task);
-		match.registerObject("process", process);
-		match.registerObject("inFlow", inFlow);
-		match.registerObject("outFlow", outFlow);
-		match.registerObject("laneSet", laneSet);
-		match.registerObject("lane", lane);
-		match.registerObject("flowNode", flowNode);
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, ServiceTask task,
-			bpmn2.Process process, SequenceFlow inFlow, SequenceFlow outFlow,
-			LaneSet laneSet, Lane lane, FlowNode flowNode) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-
-		// Create literals
-
-		// Create attribute variables
-
-		// Create explicit parameters
-
-		// Create unbound variables
-
-		// Create constraints
-
-		// Solve CSP
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -2234,22 +1454,22 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		SequenceFlow outFlow = null;
 		bpmn2.Process process = null;
 		ServiceTask task = null;
-		EMoflonEdge __task_incoming_inFlow = null;
-		EMoflonEdge __task_outgoing_outFlow = null;
 		EMoflonEdge __outFlow_sourceRef_task = null;
 		EMoflonEdge __lane_flowNodeRefs_task = null;
+		EMoflonEdge __task_outgoing_outFlow = null;
 		EMoflonEdge __inFlow_targetRef_task = null;
+		EMoflonEdge __task_incoming_inFlow = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __processToActor_source_process = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
 		EMoflonEdge __process_flowElements_flowNode = null;
+		EMoflonEdge __process_laneSets_laneSet = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge __processToActor_source_process = null;
+		EMoflonEdge __process_flowElements_inFlow = null;
 		EMoflonEdge __processToActor_target_actor = null;
 		EMoflonEdge __inFlowToFlow_source_inFlow = null;
-		EMoflonEdge __flowNode_outgoing_inFlow = null;
-		EMoflonEdge __inFlow_sourceRef_flowNode = null;
 		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
+		EMoflonEdge __inFlow_sourceRef_flowNode = null;
+		EMoflonEdge __flowNode_outgoing_inFlow = null;
 		EMoflonEdge __inFlowToPrevStep_target_prevStep = null;
 		EMoflonEdge __inFlowToFlow_target_flow = null;
 		EMoflonEdge __laneSet_lanes_lane = null;
@@ -2474,10 +1694,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process.equals(outFlow
 												.eContainer()));
 
-										// check link incoming from inFlow to task
-										JavaSDM.ensure(task.equals(inFlow
-												.getTargetRef()));
-
 										// check link laneSets from laneSet to process
 										JavaSDM.ensure(process.equals(laneSet
 												.eContainer()));
@@ -2485,14 +1701,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										// check link lanes from lane to laneSet
 										JavaSDM.ensure(laneSet.equals(lane
 												.eContainer()));
-
-										// check link outgoing from inFlow to flowNode
-										JavaSDM.ensure(flowNode.equals(inFlow
-												.getSourceRef()));
-
-										// check link outgoing from outFlow to task
-										JavaSDM.ensure(task.equals(outFlow
-												.getSourceRef()));
 
 										// check link source from inFlowToFlow to inFlow
 										JavaSDM.ensure(inFlow
@@ -2509,6 +1717,14 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.equals(processToActor
 														.getSource()));
 
+										// check link sourceRef from inFlow to flowNode
+										JavaSDM.ensure(flowNode.equals(inFlow
+												.getSourceRef()));
+
+										// check link sourceRef from outFlow to task
+										JavaSDM.ensure(task.equals(outFlow
+												.getSourceRef()));
+
 										// check link target from inFlowToFlow to flow
 										JavaSDM.ensure(flow.equals(inFlowToFlow
 												.getTarget()));
@@ -2523,17 +1739,13 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.equals(processToActor
 														.getTarget()));
 
+										// check link targetRef from inFlow to task
+										JavaSDM.ensure(task.equals(inFlow
+												.getTargetRef()));
+
 										// check link flowNodeRefs from lane to task
 										JavaSDM.ensure(lane.getFlowNodeRefs()
 												.contains(task));
-
-										// create object __task_incoming_inFlow
-										__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __task_outgoing_outFlow
-										__task_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
 
 										// create object __outFlow_sourceRef_task
 										__outFlow_sourceRef_task = TGGRuntimeFactory.eINSTANCE
@@ -2543,32 +1755,40 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										__lane_flowNodeRefs_task = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
+										// create object __task_outgoing_outFlow
+										__task_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
 										// create object __inFlow_targetRef_task
 										__inFlow_targetRef_task = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __task_incoming_inFlow
+										__task_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object isApplicableMatch
 										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 												.createIsApplicableMatch();
 
-										// create object __process_flowElements_outFlow
-										__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_inFlow
-										__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __processToActor_source_process
-										__processToActor_source_process = TGGRuntimeFactory.eINSTANCE
+										// create object __process_flowElements_flowNode
+										__process_flowElements_flowNode = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __process_laneSets_laneSet
 										__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __process_flowElements_flowNode
-										__process_flowElements_flowNode = TGGRuntimeFactory.eINSTANCE
+										// create object __process_flowElements_outFlow
+										__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __processToActor_source_process
+										__processToActor_source_process = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __process_flowElements_inFlow
+										__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __processToActor_target_actor
@@ -2579,16 +1799,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __flowNode_outgoing_inFlow
-										__flowNode_outgoing_inFlow = TGGRuntimeFactory.eINSTANCE
+										// create object __inFlowToPrevStep_source_inFlow
+										__inFlowToPrevStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __inFlow_sourceRef_flowNode
 										__inFlow_sourceRef_flowNode = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __inFlowToPrevStep_source_inFlow
-										__inFlowToPrevStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
+										// create object __flowNode_outgoing_inFlow
+										__flowNode_outgoing_inFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __inFlowToPrevStep_target_prevStep
@@ -2658,19 +1878,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setName("outgoing");
 
 										// create link
-										__task_incoming_inFlow.setSrc(task);
-
-										// create link
-										__task_outgoing_outFlow.setSrc(task);
-
-										// create link
 										__outFlow_sourceRef_task.setTrg(task);
 
 										// create link
 										__lane_flowNodeRefs_task.setTrg(task);
 
 										// create link
+										__task_outgoing_outFlow.setSrc(task);
+
+										// create link
 										__inFlow_targetRef_task.setTrg(task);
+
+										// create link
+										__task_incoming_inFlow.setSrc(task);
 
 										// create link
 										isApplicableMatch
@@ -2678,16 +1898,15 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														task);
 
 										// create link
-										__process_flowElements_outFlow
+										__process_flowElements_flowNode
 												.setSrc(process);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														process);
+										__process_laneSets_laneSet
+												.setSrc(process);
 
 										// create link
-										__process_flowElements_inFlow
+										__process_flowElements_outFlow
 												.setSrc(process);
 
 										// create link
@@ -2695,12 +1914,13 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setTrg(process);
 
 										// create link
-										__process_laneSets_laneSet
+										__process_flowElements_inFlow
 												.setSrc(process);
 
 										// create link
-										__process_flowElements_flowNode
-												.setSrc(process);
+										isApplicableMatch
+												.getAllContextElements().add(
+														process);
 
 										// create link
 										__processToActor_target_actor
@@ -2712,10 +1932,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														actor);
 
 										// create link
-										__processToActor_source_process
-												.setSrc(processToActor);
-
-										// create link
 										__processToActor_target_actor
 												.setSrc(processToActor);
 
@@ -2725,22 +1941,23 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														processToActor);
 
 										// create link
-										__inFlowToFlow_source_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										__flowNode_outgoing_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										__inFlow_sourceRef_flowNode
-												.setSrc(inFlow);
+										__processToActor_source_process
+												.setSrc(processToActor);
 
 										// create link
 										__inFlow_targetRef_task.setSrc(inFlow);
 
 										// create link
-										__task_incoming_inFlow.setTrg(inFlow);
+										__inFlowToFlow_source_inFlow
+												.setTrg(inFlow);
+
+										// create link
+										__inFlowToPrevStep_source_inFlow
+												.setTrg(inFlow);
+
+										// create link
+										__process_flowElements_inFlow
+												.setTrg(inFlow);
 
 										// create link
 										isApplicableMatch
@@ -2748,16 +1965,15 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														inFlow);
 
 										// create link
-										__process_flowElements_inFlow
-												.setTrg(inFlow);
+										__inFlow_sourceRef_flowNode
+												.setSrc(inFlow);
 
 										// create link
-										__inFlowToPrevStep_source_inFlow
-												.setTrg(inFlow);
+										__task_incoming_inFlow.setTrg(inFlow);
 
 										// create link
-										__inFlowToPrevStep_source_inFlow
-												.setSrc(inFlowToPrevStep);
+										__flowNode_outgoing_inFlow
+												.setTrg(inFlow);
 
 										// create link
 										isApplicableMatch
@@ -2766,6 +1982,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 										// create link
 										__inFlowToPrevStep_target_prevStep
+												.setSrc(inFlowToPrevStep);
+
+										// create link
+										__inFlowToPrevStep_source_inFlow
 												.setSrc(inFlowToPrevStep);
 
 										// create link
@@ -2778,20 +1998,24 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setTrg(prevStep);
 
 										// create link
+										__task_outgoing_outFlow.setTrg(outFlow);
+
+										// create link
+										__outFlow_sourceRef_task
+												.setSrc(outFlow);
+
+										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														outFlow);
-
-										// create link
-										__task_outgoing_outFlow.setTrg(outFlow);
 
 										// create link
 										__process_flowElements_outFlow
 												.setTrg(outFlow);
 
 										// create link
-										__outFlow_sourceRef_task
-												.setSrc(outFlow);
+										__inFlowToFlow_source_inFlow
+												.setSrc(inFlowToFlow);
 
 										// create link
 										__inFlowToFlow_target_flow
@@ -2803,24 +2027,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														inFlowToFlow);
 
 										// create link
-										__inFlowToFlow_source_inFlow
-												.setSrc(inFlowToFlow);
-
-										// create link
-										__inFlowToFlow_target_flow.setTrg(flow);
-
-										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														flow);
 
 										// create link
-										__laneSet_lanes_lane.setSrc(laneSet);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														laneSet);
+										__inFlowToFlow_target_flow.setTrg(flow);
 
 										// create link
 										__process_laneSets_laneSet
@@ -2829,13 +2041,29 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
-														lane);
+														laneSet);
+
+										// create link
+										__laneSet_lanes_lane.setSrc(laneSet);
+
+										// create link
+										__lane_flowNodeRefs_task.setSrc(lane);
 
 										// create link
 										__laneSet_lanes_lane.setTrg(lane);
 
 										// create link
-										__lane_flowNodeRefs_task.setSrc(lane);
+										isApplicableMatch
+												.getAllContextElements().add(
+														lane);
+
+										// create link
+										__inFlow_sourceRef_flowNode
+												.setTrg(flowNode);
+
+										// create link
+										__flowNode_outgoing_inFlow
+												.setSrc(flowNode);
 
 										// create link
 										isApplicableMatch
@@ -2847,116 +2075,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.setTrg(flowNode);
 
 										// create link
-										__flowNode_outgoing_inFlow
-												.setSrc(flowNode);
-
-										// create link
-										__inFlow_sourceRef_flowNode
-												.setTrg(flowNode);
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_target_prevStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__flowNode_outgoing_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__task_incoming_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlow_targetRef_task,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlow_sourceRef_flowNode,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__lane_flowNodeRefs_task,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToFlow_source_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToActor_target_actor,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__task_outgoing_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__outFlow_sourceRef_task,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToFlow_target_flow,
-														"allContextElements");
-
-										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
 														__process_flowElements_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_source_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_flowNode,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_inFlow,
 														"allContextElements");
 
 										// create link
@@ -2970,7 +2092,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__processToActor_source_process,
+														__inFlowToFlow_source_inFlow,
 														"allContextElements");
 
 										// create link
@@ -2978,6 +2100,104 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												.addOppositeReference(
 														isApplicableMatch,
 														__process_laneSets_laneSet,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__process_flowElements_flowNode,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToPrevStep_target_prevStep,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToPrevStep_source_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__process_flowElements_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__task_outgoing_outFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__lane_flowNodeRefs_task,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlowToFlow_target_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlow_targetRef_task,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__task_incoming_inFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__processToActor_target_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__inFlow_sourceRef_flowNode,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__processToActor_source_process,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__outFlow_sourceRef_task,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__flowNode_outgoing_inFlow,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -3016,15 +2236,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												JavaSDM.ensure(isApplicableMatch != null);
 												// check object ruleresult is really bound
 												JavaSDM.ensure(ruleresult != null);
-												// assign attribute ruleresult
-												ruleresult.setSuccess(true);
 												// assign attribute isApplicableMatch
 												isApplicableMatch
 														.setRuleName("ServiceTaskToStepRule");
+												// assign attribute ruleresult
+												ruleresult.setSuccess(true);
 
 												// create link
-												isApplicableMatch
-														.setIsApplicableRuleResult(ruleresult);
+												ruleresult
+														.getIsApplicableMatch()
+														.add(isApplicableMatch);
 
 												fujaba__Success = true;
 											} catch (JavaSDMException fujaba__InternalException) {
@@ -3065,6 +2286,49 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		}
 
 		return ruleresult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void registerObjectsToMatch_FWD(Match match, ServiceTask task,
+			bpmn2.Process process, SequenceFlow inFlow, SequenceFlow outFlow,
+			LaneSet laneSet, Lane lane, FlowNode flowNode) {
+		match.registerObject("task", task);
+		match.registerObject("process", process);
+		match.registerObject("inFlow", inFlow);
+		match.registerObject("outFlow", outFlow);
+		match.registerObject("laneSet", laneSet);
+		match.registerObject("lane", lane);
+		match.registerObject("flowNode", flowNode);
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP isAppropriate_solveCsp_FWD(Match match, ServiceTask task,
+			bpmn2.Process process, SequenceFlow inFlow, SequenceFlow outFlow,
+			LaneSet laneSet, Lane lane, FlowNode flowNode) {
+		// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+
+		// Create literals
+
+		// Create attribute variables
+
+		// Create explicit parameters
+
+		// Create unbound variables
+
+		// Create constraints
+
+		// Solve CSP
+		return csp;
 	}
 
 	/**
@@ -3207,9 +2471,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __flow_steps_normalStep = null;
 		EMoflonEdge __prevStep_next_normalStep = null;
 		EMoflonEdge __normalStep_actor_actor = null;
+		EMoflonEdge __flow_steps_normalStep = null;
 
 		// story node 'initial bindings'
 		try {
@@ -3268,10 +2532,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects prevStep and normalStep 
 				JavaSDM.ensure(!prevStep.equals(normalStep));
 
-				// create object __flow_steps_normalStep
-				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __prevStep_next_normalStep
 				__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -3280,16 +2540,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __flow_steps_normalStep
+				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// assign attribute __prevStep_next_normalStep
 				__prevStep_next_normalStep.setName("next");
 				// assign attribute __normalStep_actor_actor
 				__normalStep_actor_actor.setName("actor");
 				// assign attribute __flow_steps_normalStep
 				__flow_steps_normalStep.setName("steps");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_normalStep, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -3304,16 +2564,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 						__normalStep_actor_actor, "toBeTranslatedEdges");
 
 				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__flow_steps_normalStep, "toBeTranslatedEdges");
+
+				// create link
 				__normalStep_actor_actor.setTrg(actor);
 
 				// create link
 				__prevStep_next_normalStep.setSrc(prevStep);
 
 				// create link
-				__normalStep_actor_actor.setSrc(normalStep);
+				__prevStep_next_normalStep.setTrg(normalStep);
 
 				// create link
-				__prevStep_next_normalStep.setTrg(normalStep);
+				__normalStep_actor_actor.setSrc(normalStep);
 
 				// create link
 				__flow_steps_normalStep.setTrg(normalStep);
@@ -3349,11 +2613,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						prevStep, "contextNodes");
+						flow, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
+						prevStep, "contextNodes");
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
 				fujaba__Success = false;
@@ -3398,20 +2662,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		SequenceFlowToStep outFlowToNormalStep = null;
 		SequenceFlowToUCFlow outFlowToFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge lane__flowNodeRefs__task = null;
-		EMoflonEdge __normalStep_actor_actor = null;
-		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
-		EMoflonEdge taskToNormalStep__source__task = null;
-		EMoflonEdge taskToNormalStep__target__normalStep = null;
-		EMoflonEdge outFlowToFlow__target__flow = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge outFlowToFlow__source__outFlow = null;
-		EMoflonEdge task__incoming__inFlow = null;
-		EMoflonEdge inFlow__targetRef__task = null;
-		EMoflonEdge __prevStep_next_normalStep = null;
 		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
-		EMoflonEdge outFlow__sourceRef__task = null;
+		EMoflonEdge task__incoming__inFlow = null;
+		EMoflonEdge outFlowToFlow__source__outFlow = null;
+		EMoflonEdge taskToNormalStep__target__normalStep = null;
+		EMoflonEdge inFlow__targetRef__task = null;
+		EMoflonEdge outFlowToFlow__target__flow = null;
+		EMoflonEdge __prevStep_next_normalStep = null;
+		EMoflonEdge __normalStep_actor_actor = null;
 		EMoflonEdge task__outgoing__outFlow = null;
+		EMoflonEdge taskToNormalStep__source__task = null;
+		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
+		EMoflonEdge __flow_steps_normalStep = null;
+		EMoflonEdge lane__flowNodeRefs__task = null;
+		EMoflonEdge outFlow__sourceRef__task = null;
 		EMoflonEdge process__flowElements__outFlow = null;
 
 		// story node 'perform transformation'
@@ -3503,10 +2767,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object task
 			task = Bpmn2Factory.eINSTANCE.createServiceTask();
 
@@ -3526,11 +2787,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					.createSequenceFlowToUCFlow();
 
 			// assign attribute task
-			task.setId((java.lang.String) csp
-					.getAttributeVariable("task", "id").getValue());
+			task.setId((java.lang.String) csp.getValue("task", "id"));
 			// assign attribute task
-			task.setName((java.lang.String) csp.getAttributeVariable("task",
-					"name").getValue());
+			task.setName((java.lang.String) csp.getValue("task", "name"));
 
 			// create link
 			process.getFlowElements().add(outFlow); // add link
@@ -3552,13 +2811,13 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					flow, "target");
 
 			// create link
-			outFlow.setSourceRef(task);
-
-			// create link
 			inFlow.setTargetRef(task);
 
 			// create link
 			lane.getFlowNodeRefs().add(task);
+
+			// create link
+			outFlow.setSourceRef(task);
 
 			// create link
 			taskToNormalStep.setSource(task);
@@ -3589,15 +2848,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlow, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					normalStep, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					taskToNormalStep, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3606,10 +2869,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					task, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -4063,60 +3322,60 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects taskToNormalStep and task 
 			JavaSDM.ensure(!taskToNormalStep.equals(task));
 
-			// create object lane__flowNodeRefs__task
-			lane__flowNodeRefs__task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __normalStep_actor_actor
-			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object taskToNormalStep__source__task
-			taskToNormalStep__source__task = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object taskToNormalStep__target__normalStep
-			taskToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__target__flow
-			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __flow_steps_normalStep
-			__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
+			// create object outFlowToNormalStep__source__outFlow
+			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object task__incoming__inFlow
 			task__incoming__inFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object outFlowToFlow__source__outFlow
+			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object taskToNormalStep__target__normalStep
+			taskToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object inFlow__targetRef__task
 			inFlow__targetRef__task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToFlow__target__flow
+			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __prevStep_next_normalStep
 			__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlow__sourceRef__task
-			outFlow__sourceRef__task = TGGRuntimeFactory.eINSTANCE
+			// create object __normalStep_actor_actor
+			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object task__outgoing__outFlow
 			task__outgoing__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object taskToNormalStep__source__task
+			taskToNormalStep__source__task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToNormalStep__target__normalStep
+			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __flow_steps_normalStep
+			__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object lane__flowNodeRefs__task
+			lane__flowNodeRefs__task = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlow__sourceRef__task
+			outFlow__sourceRef__task = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object process__flowElements__outFlow
@@ -4158,35 +3417,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					lane__flowNodeRefs__task, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__normalStep_actor_actor, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					taskToNormalStep__source__task, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					taskToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__target__flow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__flow_steps_normalStep, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__source__outFlow, "createdEdges");
+					outFlowToNormalStep__source__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -4194,7 +3425,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToFlow__source__outFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					taskToNormalStep__target__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					inFlow__targetRef__task, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToFlow__target__flow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -4202,11 +3445,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow__sourceRef__task, "createdEdges");
+					__normalStep_actor_actor, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -4214,7 +3453,33 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					taskToNormalStep__source__task, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep__target__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__flow_steps_normalStep, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					lane__flowNodeRefs__task, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlow__sourceRef__task, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					process__flowElements__outFlow, "createdEdges");
+
+			// create link
+			lane__flowNodeRefs__task.setTrg(task);
+
+			// create link
+			taskToNormalStep__source__task.setTrg(task);
 
 			// create link
 			outFlow__sourceRef__task.setTrg(task);
@@ -4226,13 +3491,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			task__incoming__inFlow.setSrc(task);
 
 			// create link
-			taskToNormalStep__source__task.setTrg(task);
-
-			// create link
 			inFlow__targetRef__task.setTrg(task);
-
-			// create link
-			lane__flowNodeRefs__task.setTrg(task);
 
 			// create link
 			process__flowElements__outFlow.setSrc(process);
@@ -4241,22 +3500,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			__normalStep_actor_actor.setTrg(actor);
 
 			// create link
-			task__incoming__inFlow.setTrg(inFlow);
+			inFlow__targetRef__task.setSrc(inFlow);
 
 			// create link
-			inFlow__targetRef__task.setSrc(inFlow);
+			task__incoming__inFlow.setTrg(inFlow);
 
 			// create link
 			__prevStep_next_normalStep.setSrc(prevStep);
 
 			// create link
-			__prevStep_next_normalStep.setTrg(normalStep);
-
-			// create link
-			__normalStep_actor_actor.setSrc(normalStep);
-
-			// create link
 			taskToNormalStep__target__normalStep.setTrg(normalStep);
+
+			// create link
+			__prevStep_next_normalStep.setTrg(normalStep);
 
 			// create link
 			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
@@ -4265,10 +3521,13 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			__flow_steps_normalStep.setTrg(normalStep);
 
 			// create link
-			outFlowToFlow__source__outFlow.setTrg(outFlow);
+			__normalStep_actor_actor.setSrc(normalStep);
 
 			// create link
 			outFlow__sourceRef__task.setSrc(outFlow);
+
+			// create link
+			outFlowToFlow__source__outFlow.setTrg(outFlow);
 
 			// create link
 			process__flowElements__outFlow.setTrg(outFlow);
@@ -4298,10 +3557,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			outFlowToNormalStep__source__outFlow.setSrc(outFlowToNormalStep);
 
 			// create link
-			__flow_steps_normalStep.setSrc(flow);
+			outFlowToFlow__target__flow.setTrg(flow);
 
 			// create link
-			outFlowToFlow__target__flow.setTrg(flow);
+			__flow_steps_normalStep.setSrc(flow);
 
 			// create link
 			lane__flowNodeRefs__task.setSrc(lane);
@@ -4337,17 +3596,17 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Flow flow = null;
 		NormalStep normalStep = null;
 		Step prevStep = null;
-		EMoflonEdge __processToActor_source_process = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
+		EMoflonEdge __process_flowElements_inFlow = null;
 		EMoflonEdge __process_flowElements_flowNode = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
+		EMoflonEdge __process_laneSets_laneSet = null;
+		EMoflonEdge __processToActor_source_process = null;
 		EMoflonEdge __processToActor_target_actor = null;
 		EMoflonEdge __normalStep_actor_actor = null;
-		EMoflonEdge __inFlow_sourceRef_flowNode = null;
+		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
 		EMoflonEdge __flowNode_outgoing_inFlow = null;
 		EMoflonEdge __inFlowToFlow_source_inFlow = null;
-		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
+		EMoflonEdge __inFlow_sourceRef_flowNode = null;
 		EMoflonEdge __inFlowToPrevStep_target_prevStep = null;
 		EMoflonEdge __prevStep_next_normalStep = null;
 		EMoflonEdge __flow_steps_normalStep = null;
@@ -4362,9 +3621,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		bpmn2.Process process = null;
 		Iterator fujaba__IterActorToProcessToActor = null;
 		ProcessToActor processToActor = null;
-		SequenceFlow inFlow = null;
 		Iterator fujaba__IterPrevStepToInFlowToPrevStep = null;
 		SequenceFlowToStep inFlowToPrevStep = null;
+		SequenceFlow inFlow = null;
 		Iterator fujaba__IterFlowToInFlowToFlow = null;
 		SequenceFlowToUCFlow inFlowToFlow = null;
 
@@ -4461,6 +3720,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// check object inFlowToFlow is really bound
 					JavaSDM.ensure(inFlowToFlow != null);
+					// bind object
+					inFlow = inFlowToFlow.getSource();
+
+					// check object inFlow is really bound
+					JavaSDM.ensure(inFlow != null);
+
 					// iterate to-many link target from prevStep to inFlowToPrevStep
 					fujaba__Success = false;
 
@@ -4477,14 +3742,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 							// check object inFlowToPrevStep is really bound
 							JavaSDM.ensure(inFlowToPrevStep != null);
-							// bind object
-							inFlow = inFlowToPrevStep.getSource();
-
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-
-							// check link source from inFlowToFlow to inFlow
-							JavaSDM.ensure(inFlow.equals(inFlowToFlow
+							// check link source from inFlowToPrevStep to inFlow
+							JavaSDM.ensure(inFlow.equals(inFlowToPrevStep
 									.getSource()));
 
 							// iterate to-many link target from actor to processToActor
@@ -4547,16 +3806,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process.equals(inFlow
 												.eContainer()));
 
-										// bind object
-										flowNode = inFlow.getSourceRef();
-
-										// check object flowNode is really bound
-										JavaSDM.ensure(flowNode != null);
-
-										// check link flowElements from flowNode to process
-										JavaSDM.ensure(process.equals(flowNode
-												.eContainer()));
-
 										// check link source from inFlowToFlow to inFlow
 										JavaSDM.ensure(inFlow
 												.equals(inFlowToFlow
@@ -4571,6 +3820,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process
 												.equals(processToActor
 														.getSource()));
+
+										// bind object
+										flowNode = inFlow.getSourceRef();
+
+										// check object flowNode is really bound
+										JavaSDM.ensure(flowNode != null);
+
+										// check link flowElements from flowNode to process
+										JavaSDM.ensure(process.equals(flowNode
+												.eContainer()));
 
 										// check link steps from normalStep to flow
 										JavaSDM.ensure(flow.equals(normalStep
@@ -4620,12 +3879,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 														// check object lane is really bound
 														JavaSDM.ensure(lane != null);
-														// create object __processToActor_source_process
-														__processToActor_source_process = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __process_laneSets_laneSet
-														__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
+														// create object __process_flowElements_inFlow
+														__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __process_flowElements_flowNode
@@ -4636,8 +3891,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 																.createIsApplicableMatch();
 
-														// create object __process_flowElements_inFlow
-														__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
+														// create object __process_laneSets_laneSet
+														__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
+																.createEMoflonEdge();
+
+														// create object __processToActor_source_process
+														__processToActor_source_process = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __processToActor_target_actor
@@ -4648,8 +3907,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
-														// create object __inFlow_sourceRef_flowNode
-														__inFlow_sourceRef_flowNode = TGGRuntimeFactory.eINSTANCE
+														// create object __inFlowToPrevStep_source_inFlow
+														__inFlowToPrevStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __flowNode_outgoing_inFlow
@@ -4660,8 +3919,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
-														// create object __inFlowToPrevStep_source_inFlow
-														__inFlowToPrevStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
+														// create object __inFlow_sourceRef_flowNode
+														__inFlow_sourceRef_flowNode = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __inFlowToPrevStep_target_prevStep
@@ -4731,11 +3990,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.setName("outgoing");
 
 														// create link
-														__processToActor_source_process
-																.setTrg(process);
-
-														// create link
-														__process_laneSets_laneSet
+														__process_flowElements_inFlow
 																.setSrc(process);
 
 														// create link
@@ -4748,17 +4003,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.add(process);
 
 														// create link
-														__process_flowElements_inFlow
+														__process_laneSets_laneSet
 																.setSrc(process);
+
+														// create link
+														__processToActor_source_process
+																.setTrg(process);
 
 														// create link
 														__processToActor_target_actor
 																.setTrg(actor);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(actor);
 
 														// create link
 														__normalStep_actor_actor
@@ -4767,7 +4021,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														// create link
 														isApplicableMatch
 																.getAllContextElements()
-																.add(processToActor);
+																.add(actor);
 
 														// create link
 														__processToActor_target_actor
@@ -4780,18 +4034,23 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														// create link
 														isApplicableMatch
 																.getAllContextElements()
-																.add(inFlow);
+																.add(processToActor);
 
 														// create link
-														__inFlow_sourceRef_flowNode
-																.setSrc(inFlow);
-
-														// create link
-														__process_flowElements_inFlow
+														__inFlowToPrevStep_source_inFlow
 																.setTrg(inFlow);
 
 														// create link
+														isApplicableMatch
+																.getAllContextElements()
+																.add(inFlow);
+
+														// create link
 														__flowNode_outgoing_inFlow
+																.setTrg(inFlow);
+
+														// create link
+														__process_flowElements_inFlow
 																.setTrg(inFlow);
 
 														// create link
@@ -4799,8 +4058,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.setTrg(inFlow);
 
 														// create link
-														__inFlowToPrevStep_source_inFlow
-																.setTrg(inFlow);
+														__inFlow_sourceRef_flowNode
+																.setSrc(inFlow);
 
 														// create link
 														__inFlowToPrevStep_source_inFlow
@@ -4816,6 +4075,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.add(inFlowToPrevStep);
 
 														// create link
+														__prevStep_next_normalStep
+																.setSrc(prevStep);
+
+														// create link
 														__inFlowToPrevStep_target_prevStep
 																.setTrg(prevStep);
 
@@ -4825,11 +4088,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.add(prevStep);
 
 														// create link
-														__prevStep_next_normalStep
-																.setSrc(prevStep);
+														isApplicableMatch
+																.getAllContextElements()
+																.add(normalStep);
 
 														// create link
 														__prevStep_next_normalStep
+																.setTrg(normalStep);
+
+														// create link
+														__flow_steps_normalStep
 																.setTrg(normalStep);
 
 														// create link
@@ -4837,31 +4105,17 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.setSrc(normalStep);
 
 														// create link
-														__flow_steps_normalStep
-																.setTrg(normalStep);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(normalStep);
+														__inFlowToFlow_target_flow
+																.setSrc(inFlowToFlow);
 
 														// create link
 														__inFlowToFlow_source_inFlow
 																.setSrc(inFlowToFlow);
 
 														// create link
-														__inFlowToFlow_target_flow
-																.setSrc(inFlowToFlow);
-
-														// create link
 														isApplicableMatch
 																.getAllContextElements()
 																.add(inFlowToFlow);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(flow);
 
 														// create link
 														__inFlowToFlow_target_flow
@@ -4874,7 +4128,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														// create link
 														isApplicableMatch
 																.getAllContextElements()
+																.add(flow);
+
+														// create link
+														isApplicableMatch
+																.getAllContextElements()
 																.add(laneSet);
+
+														// create link
+														__laneSet_lanes_lane
+																.setSrc(laneSet);
 
 														// create link
 														__process_laneSets_laneSet
@@ -4882,20 +4145,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 														// create link
 														__laneSet_lanes_lane
-																.setSrc(laneSet);
+																.setTrg(lane);
 
 														// create link
 														isApplicableMatch
 																.getAllContextElements()
 																.add(lane);
-
-														// create link
-														__laneSet_lanes_lane
-																.setTrg(lane);
-
-														// create link
-														__process_flowElements_flowNode
-																.setTrg(flowNode);
 
 														// create link
 														__inFlow_sourceRef_flowNode
@@ -4907,6 +4162,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.add(flowNode);
 
 														// create link
+														__process_flowElements_flowNode
+																.setTrg(flowNode);
+
+														// create link
 														__flowNode_outgoing_inFlow
 																.setSrc(flowNode);
 
@@ -4914,7 +4173,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														org.moflon.util.eMoflonEMFUtil
 																.addOppositeReference(
 																		isApplicableMatch,
-																		__process_laneSets_laneSet,
+																		__normalStep_actor_actor,
 																		"allContextElements");
 
 														// create link
@@ -4928,56 +4187,14 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														org.moflon.util.eMoflonEMFUtil
 																.addOppositeReference(
 																		isApplicableMatch,
+																		__inFlowToFlow_source_inFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
 																		__processToActor_target_actor,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__prevStep_next_normalStep,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__normalStep_actor_actor,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__process_flowElements_inFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__flowNode_outgoing_inFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlowToFlow_target_flow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlowToPrevStep_source_inFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__process_flowElements_flowNode,
 																		"allContextElements");
 
 														// create link
@@ -4991,14 +4208,42 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														org.moflon.util.eMoflonEMFUtil
 																.addOppositeReference(
 																		isApplicableMatch,
-																		__flow_steps_normalStep,
+																		__prevStep_next_normalStep,
 																		"allContextElements");
 
 														// create link
 														org.moflon.util.eMoflonEMFUtil
 																.addOppositeReference(
 																		isApplicableMatch,
-																		__inFlowToFlow_source_inFlow,
+																		__inFlowToPrevStep_source_inFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__inFlowToFlow_target_flow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__process_flowElements_inFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__process_flowElements_flowNode,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__flow_steps_normalStep,
 																		"allContextElements");
 
 														// create link
@@ -5013,6 +4258,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.addOppositeReference(
 																		isApplicableMatch,
 																		__inFlowToPrevStep_target_prevStep,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__process_laneSets_laneSet,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__flowNode_outgoing_inFlow,
 																		"allContextElements");
 														// story node 'solve CSP'
 														try {
@@ -5054,16 +4313,17 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																JavaSDM.ensure(isApplicableMatch != null);
 																// check object ruleresult is really bound
 																JavaSDM.ensure(ruleresult != null);
-																// assign attribute ruleresult
-																ruleresult
-																		.setSuccess(true);
 																// assign attribute isApplicableMatch
 																isApplicableMatch
 																		.setRuleName("ServiceTaskToStepRule");
+																// assign attribute ruleresult
+																ruleresult
+																		.setSuccess(true);
 
 																// create link
-																isApplicableMatch
-																		.setIsApplicableRuleResult(ruleresult);
+																ruleresult
+																		.getIsApplicableMatch()
+																		.add(isApplicableMatch);
 
 																fujaba__Success = true;
 															} catch (JavaSDMException fujaba__InternalException) {
@@ -5298,9 +4558,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_52689 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_479422 = null;
-		Step __DEC_normalStep_next_479422 = null;
+		Flow __DEC_normalStep_steps_430074 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_94490 = null;
+		Step __DEC_normalStep_next_94490 = null;
 		Match match = null;
 		Flow flow = null;
 		Actor actor = null;
@@ -5399,18 +4659,18 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_normalStep_steps_52689 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
+					__DEC_normalStep_steps_430074 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
 							.eContainer() : null;
 
-					// check object __DEC_normalStep_steps_52689 is really bound
-					JavaSDM.ensure(__DEC_normalStep_steps_52689 != null);
+					// check object __DEC_normalStep_steps_430074 is really bound
+					JavaSDM.ensure(__DEC_normalStep_steps_430074 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_normalStep_steps_52689.getSteps()
+					JavaSDM.ensure(__DEC_normalStep_steps_430074.getSteps()
 							.contains(normalStep));
 
-					// check isomorphic binding between objects __DEC_normalStep_steps_52689 and flow 
-					JavaSDM.ensure(!__DEC_normalStep_steps_52689.equals(flow));
+					// check isomorphic binding between objects __DEC_normalStep_steps_430074 and flow 
+					JavaSDM.ensure(!__DEC_normalStep_steps_430074.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -5425,29 +4685,29 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link next from normalStep to __DEC_normalStep_next_479422
+					// iterate to-many link next from normalStep to __DEC_normalStep_next_94490
 					fujaba__Success = false;
 
-					fujaba__IterNormalStepTo__DEC_normalStep_next_479422 = new ArrayList(
+					fujaba__IterNormalStepTo__DEC_normalStep_next_94490 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(normalStep,
 											Step.class, "next")).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterNormalStepTo__DEC_normalStep_next_479422
+							&& fujaba__IterNormalStepTo__DEC_normalStep_next_94490
 									.hasNext()) {
 						try {
-							__DEC_normalStep_next_479422 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_479422
+							__DEC_normalStep_next_94490 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_94490
 									.next();
 
-							// check object __DEC_normalStep_next_479422 is really bound
-							JavaSDM.ensure(__DEC_normalStep_next_479422 != null);
-							// check isomorphic binding between objects __DEC_normalStep_next_479422 and normalStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_479422
+							// check object __DEC_normalStep_next_94490 is really bound
+							JavaSDM.ensure(__DEC_normalStep_next_94490 != null);
+							// check isomorphic binding between objects __DEC_normalStep_next_94490 and normalStep 
+							JavaSDM.ensure(!__DEC_normalStep_next_94490
 									.equals(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_next_479422 and prevStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_479422
+							// check isomorphic binding between objects __DEC_normalStep_next_94490 and prevStep 
+							JavaSDM.ensure(!__DEC_normalStep_next_94490
 									.equals(prevStep));
 
 							fujaba__Success = true;
@@ -5513,7 +4773,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_BWD(match, actor,
 						prevStep, normalStep, flow);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_BWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -5574,12 +4834,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_64315 = null;
-		FlowElementsContainer __DEC_task_flowElements_792257 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_17152 = null;
-		ExclusiveGateway __DEC_outFlow_default_17152 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_694233 = null;
-		SequenceFlow __DEC_task_targetRef_694233 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_373529 = null;
+		FlowElementsContainer __DEC_task_flowElements_350624 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_817679 = null;
+		ExclusiveGateway __DEC_outFlow_default_817679 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_194506 = null;
+		SequenceFlow __DEC_task_targetRef_194506 = null;
 		Match match = null;
 		LaneSet laneSet = null;
 		Iterator fujaba__IterTaskToLane = null;
@@ -5661,10 +4921,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects task and flowNode 
 			JavaSDM.ensure(!task.equals(flowNode));
 
-			// check link incoming from inFlow to task
+			// check link targetRef from inFlow to task
 			JavaSDM.ensure(task.equals(inFlow.getTargetRef()));
 
-			// iterate to-many link outgoing from task to outFlow
+			// iterate to-many link sourceRef from task to outFlow
 			fujaba__Success = false;
 
 			fujaba__IterTaskToOutFlow = new ArrayList(task.getOutgoing())
@@ -5732,20 +4992,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_64315 = outFlow
+									__DEC_outFlow_flowElements_373529 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_64315 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_64315 != null);
+									// check object __DEC_outFlow_flowElements_373529 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_373529 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_64315
+									JavaSDM.ensure(__DEC_outFlow_flowElements_373529
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_64315 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_64315
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_373529 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_373529
 											.equals(process));
 
 									fujaba__Success = true;
@@ -5762,19 +5022,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_task_flowElements_792257 = task
+									__DEC_task_flowElements_350624 = task
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 											.eContainer() : null;
 
-									// check object __DEC_task_flowElements_792257 is really bound
-									JavaSDM.ensure(__DEC_task_flowElements_792257 != null);
+									// check object __DEC_task_flowElements_350624 is really bound
+									JavaSDM.ensure(__DEC_task_flowElements_350624 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_task_flowElements_792257
+									JavaSDM.ensure(__DEC_task_flowElements_350624
 											.getFlowElements().contains(task));
 
-									// check isomorphic binding between objects __DEC_task_flowElements_792257 and process 
-									JavaSDM.ensure(!__DEC_task_flowElements_792257
+									// check isomorphic binding between objects __DEC_task_flowElements_350624 and process 
+									JavaSDM.ensure(!__DEC_task_flowElements_350624
 											.equals(process));
 
 									fujaba__Success = true;
@@ -5790,10 +5050,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link default from outFlow to __DEC_outFlow_default_17152
+									// iterate to-many link default from outFlow to __DEC_outFlow_default_817679
 									fujaba__Success = false;
 
-									fujaba__IterOutFlowTo__DEC_outFlow_default_17152 = new ArrayList(
+									fujaba__IterOutFlowTo__DEC_outFlow_default_817679 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															outFlow,
@@ -5802,16 +5062,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterOutFlowTo__DEC_outFlow_default_17152
+											&& fujaba__IterOutFlowTo__DEC_outFlow_default_817679
 													.hasNext()) {
 										try {
-											__DEC_outFlow_default_17152 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_17152
+											__DEC_outFlow_default_817679 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_817679
 													.next();
 
-											// check object __DEC_outFlow_default_17152 is really bound
-											JavaSDM.ensure(__DEC_outFlow_default_17152 != null);
-											// check isomorphic binding between objects __DEC_outFlow_default_17152 and flowNode 
-											JavaSDM.ensure(!__DEC_outFlow_default_17152
+											// check object __DEC_outFlow_default_817679 is really bound
+											JavaSDM.ensure(__DEC_outFlow_default_817679 != null);
+											// check isomorphic binding between objects __DEC_outFlow_default_817679 and flowNode 
+											JavaSDM.ensure(!__DEC_outFlow_default_817679
 													.equals(flowNode));
 
 											fujaba__Success = true;
@@ -5834,27 +5094,27 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link incoming from task to __DEC_task_targetRef_694233
+									// iterate to-many link targetRef from task to __DEC_task_targetRef_194506
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_targetRef_694233 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_targetRef_194506 = new ArrayList(
 											task.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_targetRef_694233
+											&& fujaba__IterTaskTo__DEC_task_targetRef_194506
 													.hasNext()) {
 										try {
-											__DEC_task_targetRef_694233 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_694233
+											__DEC_task_targetRef_194506 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_194506
 													.next();
 
-											// check object __DEC_task_targetRef_694233 is really bound
-											JavaSDM.ensure(__DEC_task_targetRef_694233 != null);
-											// check isomorphic binding between objects __DEC_task_targetRef_694233 and inFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_694233
+											// check object __DEC_task_targetRef_194506 is really bound
+											JavaSDM.ensure(__DEC_task_targetRef_194506 != null);
+											// check isomorphic binding between objects __DEC_task_targetRef_194506 and inFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_194506
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_task_targetRef_694233 and outFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_694233
+											// check isomorphic binding between objects __DEC_task_targetRef_194506 and outFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_194506
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -5914,14 +5174,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												"$eContainer")
 										.contains(process)));
 
-								// check link incoming from inFlow to task
-								JavaSDM.ensure(task.equals(inFlow
-										.getTargetRef()));
-
-								// check link incoming from outFlow to task
-								JavaSDM.ensure(!(task.equals(outFlow
-										.getTargetRef())));
-
 								// check link laneSets from laneSet to process
 								JavaSDM.ensure(process.equals(laneSet
 										.eContainer()));
@@ -5929,17 +5181,25 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								// check link lanes from lane to laneSet
 								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
 
-								// check link outgoing from inFlow to flowNode
+								// check link sourceRef from inFlow to flowNode
 								JavaSDM.ensure(flowNode.equals(inFlow
 										.getSourceRef()));
 
-								// check link outgoing from outFlow to task
+								// check link sourceRef from outFlow to task
 								JavaSDM.ensure(task.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_targetRef to inFlow
 								JavaSDM.ensure(inFlow.equals(_edge_targetRef
 										.getSrc()));
+
+								// check link targetRef from inFlow to task
+								JavaSDM.ensure(task.equals(inFlow
+										.getTargetRef()));
+
+								// check link targetRef from outFlow to task
+								JavaSDM.ensure(!(task.equals(outFlow
+										.getTargetRef())));
 
 								// check link trg from _edge_targetRef to task
 								JavaSDM.ensure(task.equals(_edge_targetRef
@@ -5960,7 +5220,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										task, process, inFlow, outFlow,
 										laneSet, lane, flowNode);
 								if (fujaba__Success) {
-									// statement node ''
+									// statement node 'Ensure that the correct types of elements are matched'
 									fujaba__Success = this
 											.checkTypes_FWD(match);
 									if (fujaba__Success) {
@@ -6037,23 +5297,23 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_968820 = null;
-		FlowElementsContainer __DEC_task_flowElements_431411 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_83904 = null;
-		ExclusiveGateway __DEC_outFlow_default_83904 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_327301 = null;
-		SequenceFlow __DEC_task_targetRef_327301 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_794959 = null;
+		FlowElementsContainer __DEC_task_flowElements_726691 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_107122 = null;
+		ExclusiveGateway __DEC_outFlow_default_107122 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_437196 = null;
+		SequenceFlow __DEC_task_targetRef_437196 = null;
 		Match match = null;
 		Iterator fujaba__IterTaskTo_edge_targetRef = null;
 		EMoflonEdge _edge_targetRef = null;
-		bpmn2.Process process = null;
 		Iterator fujaba__IterTaskToOutFlow = null;
 		SequenceFlow outFlow = null;
-		FlowNode flowNode = null;
-		SequenceFlow inFlow = null;
 		LaneSet laneSet = null;
 		Iterator fujaba__IterTaskToLane = null;
 		Lane lane = null;
+		FlowNode flowNode = null;
+		bpmn2.Process process = null;
+		SequenceFlow inFlow = null;
 		ServiceTask task = null;
 
 		// story node 'prepare return value'
@@ -6110,6 +5370,39 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof ServiceTask);
 			task = (ServiceTask) _TmpObject;
 
+			// bind object
+			_TmpObject = _edge_incoming.getTrg();
+
+			// ensure correct type and really bound of object inFlow
+			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+			inFlow = (SequenceFlow) _TmpObject;
+
+			// bind object
+			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
+					.eContainer() : null;
+
+			// ensure correct type and really bound of object process
+			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+			process = (bpmn2.Process) _TmpObject;
+
+			// check if contained via correct reference
+			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
+
+			// bind object
+			flowNode = inFlow.getSourceRef();
+
+			// check object flowNode is really bound
+			JavaSDM.ensure(flowNode != null);
+
+			// check isomorphic binding between objects task and flowNode 
+			JavaSDM.ensure(!task.equals(flowNode));
+
+			// check link flowElements from flowNode to process
+			JavaSDM.ensure(process.equals(flowNode.eContainer()));
+
+			// check link targetRef from inFlow to task
+			JavaSDM.ensure(task.equals(inFlow.getTargetRef()));
+
 			// iterate to-many link flowNodeRefs from task to lane
 			fujaba__Success = false;
 
@@ -6133,26 +5426,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					// check if contained via correct reference
 					JavaSDM.ensure(laneSet.getLanes().contains(lane));
 
-					// bind object
-					_TmpObject = _edge_incoming.getTrg();
+					// check link laneSets from laneSet to process
+					JavaSDM.ensure(process.equals(laneSet.eContainer()));
 
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-
-					// check link incoming from inFlow to task
-					JavaSDM.ensure(task.equals(inFlow.getTargetRef()));
-
-					// bind object
-					flowNode = inFlow.getSourceRef();
-
-					// check object flowNode is really bound
-					JavaSDM.ensure(flowNode != null);
-
-					// check isomorphic binding between objects task and flowNode 
-					JavaSDM.ensure(!task.equals(flowNode));
-
-					// iterate to-many link outgoing from task to outFlow
+					// iterate to-many link sourceRef from task to outFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToOutFlow = new ArrayList(
@@ -6168,26 +5445,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 							// check isomorphic binding between objects outFlow and inFlow 
 							JavaSDM.ensure(!outFlow.equals(inFlow));
 
-							// bind object
-							_TmpObject = outFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) outFlow
-									.eContainer() : null;
-
-							// ensure correct type and really bound of object process
-							JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-							process = (bpmn2.Process) _TmpObject;
-
-							// check if contained via correct reference
-							JavaSDM.ensure(process.getFlowElements().contains(
-									outFlow));
-
-							// check link flowElements from flowNode to process
-							JavaSDM.ensure(process.equals(flowNode.eContainer()));
-
-							// check link flowElements from inFlow to process
-							JavaSDM.ensure(process.equals(inFlow.eContainer()));
-
-							// check link laneSets from laneSet to process
-							JavaSDM.ensure(process.equals(laneSet.eContainer()));
+							// check link flowElements from outFlow to process
+							JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
 							// iterate to-many link trg from task to _edge_targetRef
 							fujaba__Success = false;
@@ -6222,20 +5481,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_outFlow_flowElements_968820 = outFlow
+											__DEC_outFlow_flowElements_794959 = outFlow
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 													.eContainer() : null;
 
-											// check object __DEC_outFlow_flowElements_968820 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_968820 != null);
+											// check object __DEC_outFlow_flowElements_794959 is really bound
+											JavaSDM.ensure(__DEC_outFlow_flowElements_794959 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_968820
+											JavaSDM.ensure(__DEC_outFlow_flowElements_794959
 													.getFlowElements()
 													.contains(outFlow));
 
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_968820 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_968820
+											// check isomorphic binding between objects __DEC_outFlow_flowElements_794959 and process 
+											JavaSDM.ensure(!__DEC_outFlow_flowElements_794959
 													.equals(process));
 
 											fujaba__Success = true;
@@ -6252,20 +5511,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_task_flowElements_431411 = task
+											__DEC_task_flowElements_726691 = task
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 													.eContainer() : null;
 
-											// check object __DEC_task_flowElements_431411 is really bound
-											JavaSDM.ensure(__DEC_task_flowElements_431411 != null);
+											// check object __DEC_task_flowElements_726691 is really bound
+											JavaSDM.ensure(__DEC_task_flowElements_726691 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_task_flowElements_431411
+											JavaSDM.ensure(__DEC_task_flowElements_726691
 													.getFlowElements()
 													.contains(task));
 
-											// check isomorphic binding between objects __DEC_task_flowElements_431411 and process 
-											JavaSDM.ensure(!__DEC_task_flowElements_431411
+											// check isomorphic binding between objects __DEC_task_flowElements_726691 and process 
+											JavaSDM.ensure(!__DEC_task_flowElements_726691
 													.equals(process));
 
 											fujaba__Success = true;
@@ -6281,10 +5540,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_83904
+											// iterate to-many link default from outFlow to __DEC_outFlow_default_107122
 											fujaba__Success = false;
 
-											fujaba__IterOutFlowTo__DEC_outFlow_default_83904 = new ArrayList(
+											fujaba__IterOutFlowTo__DEC_outFlow_default_107122 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	outFlow,
@@ -6293,16 +5552,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_83904
+													&& fujaba__IterOutFlowTo__DEC_outFlow_default_107122
 															.hasNext()) {
 												try {
-													__DEC_outFlow_default_83904 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_83904
+													__DEC_outFlow_default_107122 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_107122
 															.next();
 
-													// check object __DEC_outFlow_default_83904 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_83904 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_83904 and flowNode 
-													JavaSDM.ensure(!__DEC_outFlow_default_83904
+													// check object __DEC_outFlow_default_107122 is really bound
+													JavaSDM.ensure(__DEC_outFlow_default_107122 != null);
+													// check isomorphic binding between objects __DEC_outFlow_default_107122 and flowNode 
+													JavaSDM.ensure(!__DEC_outFlow_default_107122
 															.equals(flowNode));
 
 													fujaba__Success = true;
@@ -6325,28 +5584,28 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link incoming from task to __DEC_task_targetRef_327301
+											// iterate to-many link targetRef from task to __DEC_task_targetRef_437196
 											fujaba__Success = false;
 
-											fujaba__IterTaskTo__DEC_task_targetRef_327301 = new ArrayList(
+											fujaba__IterTaskTo__DEC_task_targetRef_437196 = new ArrayList(
 													task.getIncoming())
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterTaskTo__DEC_task_targetRef_327301
+													&& fujaba__IterTaskTo__DEC_task_targetRef_437196
 															.hasNext()) {
 												try {
-													__DEC_task_targetRef_327301 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_327301
+													__DEC_task_targetRef_437196 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_437196
 															.next();
 
-													// check object __DEC_task_targetRef_327301 is really bound
-													JavaSDM.ensure(__DEC_task_targetRef_327301 != null);
-													// check isomorphic binding between objects __DEC_task_targetRef_327301 and inFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_327301
+													// check object __DEC_task_targetRef_437196 is really bound
+													JavaSDM.ensure(__DEC_task_targetRef_437196 != null);
+													// check isomorphic binding between objects __DEC_task_targetRef_437196 and inFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_437196
 															.equals(inFlow));
 
-													// check isomorphic binding between objects __DEC_task_targetRef_327301 and outFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_327301
+													// check isomorphic binding between objects __DEC_task_targetRef_437196 and outFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_437196
 															.equals(outFlow));
 
 													fujaba__Success = true;
@@ -6412,14 +5671,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														"$eContainer")
 												.contains(process)));
 
-										// check link incoming from inFlow to task
-										JavaSDM.ensure(task.equals(inFlow
-												.getTargetRef()));
-
-										// check link incoming from outFlow to task
-										JavaSDM.ensure(!(task.equals(outFlow
-												.getTargetRef())));
-
 										// check link laneSets from laneSet to process
 										JavaSDM.ensure(process.equals(laneSet
 												.eContainer()));
@@ -6428,11 +5679,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(laneSet.equals(lane
 												.eContainer()));
 
-										// check link outgoing from inFlow to flowNode
+										// check link sourceRef from inFlow to flowNode
 										JavaSDM.ensure(flowNode.equals(inFlow
 												.getSourceRef()));
 
-										// check link outgoing from outFlow to task
+										// check link sourceRef from outFlow to task
 										JavaSDM.ensure(task.equals(outFlow
 												.getSourceRef()));
 
@@ -6444,6 +5695,14 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(inFlow
 												.equals(_edge_targetRef
 														.getSrc()));
+
+										// check link targetRef from inFlow to task
+										JavaSDM.ensure(task.equals(inFlow
+												.getTargetRef()));
+
+										// check link targetRef from outFlow to task
+										JavaSDM.ensure(!(task.equals(outFlow
+												.getTargetRef())));
 
 										// check link trg from _edge_incoming to inFlow
 										JavaSDM.ensure(inFlow
@@ -6471,7 +5730,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														outFlow, laneSet, lane,
 														flowNode);
 										if (fujaba__Success) {
-											// statement node ''
+											// statement node 'Ensure that the correct types of elements are matched'
 											fujaba__Success = this
 													.checkTypes_FWD(match);
 											if (fujaba__Success) {
@@ -6556,12 +5815,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_169934 = null;
-		FlowElementsContainer __DEC_task_flowElements_72849 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_979757 = null;
-		ExclusiveGateway __DEC_outFlow_default_979757 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_127419 = null;
-		SequenceFlow __DEC_task_targetRef_127419 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_314396 = null;
+		FlowElementsContainer __DEC_task_flowElements_445889 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_559421 = null;
+		ExclusiveGateway __DEC_outFlow_default_559421 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_214939 = null;
+		SequenceFlow __DEC_task_targetRef_214939 = null;
 		Match match = null;
 		FlowNode flowNode = null;
 		Iterator fujaba__IterTaskToInFlow = null;
@@ -6670,7 +5929,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					// check link laneSets from laneSet to process
 					JavaSDM.ensure(process.equals(laneSet.eContainer()));
 
-					// iterate to-many link incoming from task to inFlow
+					// iterate to-many link targetRef from task to inFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
@@ -6710,20 +5969,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_169934 = outFlow
+									__DEC_outFlow_flowElements_314396 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_169934 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_169934 != null);
+									// check object __DEC_outFlow_flowElements_314396 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_314396 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_169934
+									JavaSDM.ensure(__DEC_outFlow_flowElements_314396
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_169934 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_169934
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_314396 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_314396
 											.equals(process));
 
 									fujaba__Success = true;
@@ -6740,19 +5999,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_task_flowElements_72849 = task
+									__DEC_task_flowElements_445889 = task
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 											.eContainer() : null;
 
-									// check object __DEC_task_flowElements_72849 is really bound
-									JavaSDM.ensure(__DEC_task_flowElements_72849 != null);
+									// check object __DEC_task_flowElements_445889 is really bound
+									JavaSDM.ensure(__DEC_task_flowElements_445889 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_task_flowElements_72849
+									JavaSDM.ensure(__DEC_task_flowElements_445889
 											.getFlowElements().contains(task));
 
-									// check isomorphic binding between objects __DEC_task_flowElements_72849 and process 
-									JavaSDM.ensure(!__DEC_task_flowElements_72849
+									// check isomorphic binding between objects __DEC_task_flowElements_445889 and process 
+									JavaSDM.ensure(!__DEC_task_flowElements_445889
 											.equals(process));
 
 									fujaba__Success = true;
@@ -6768,10 +6027,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link default from outFlow to __DEC_outFlow_default_979757
+									// iterate to-many link default from outFlow to __DEC_outFlow_default_559421
 									fujaba__Success = false;
 
-									fujaba__IterOutFlowTo__DEC_outFlow_default_979757 = new ArrayList(
+									fujaba__IterOutFlowTo__DEC_outFlow_default_559421 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															outFlow,
@@ -6780,16 +6039,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterOutFlowTo__DEC_outFlow_default_979757
+											&& fujaba__IterOutFlowTo__DEC_outFlow_default_559421
 													.hasNext()) {
 										try {
-											__DEC_outFlow_default_979757 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_979757
+											__DEC_outFlow_default_559421 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_559421
 													.next();
 
-											// check object __DEC_outFlow_default_979757 is really bound
-											JavaSDM.ensure(__DEC_outFlow_default_979757 != null);
-											// check isomorphic binding between objects __DEC_outFlow_default_979757 and flowNode 
-											JavaSDM.ensure(!__DEC_outFlow_default_979757
+											// check object __DEC_outFlow_default_559421 is really bound
+											JavaSDM.ensure(__DEC_outFlow_default_559421 != null);
+											// check isomorphic binding between objects __DEC_outFlow_default_559421 and flowNode 
+											JavaSDM.ensure(!__DEC_outFlow_default_559421
 													.equals(flowNode));
 
 											fujaba__Success = true;
@@ -6812,27 +6071,27 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link incoming from task to __DEC_task_targetRef_127419
+									// iterate to-many link targetRef from task to __DEC_task_targetRef_214939
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_targetRef_127419 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_targetRef_214939 = new ArrayList(
 											task.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_targetRef_127419
+											&& fujaba__IterTaskTo__DEC_task_targetRef_214939
 													.hasNext()) {
 										try {
-											__DEC_task_targetRef_127419 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_127419
+											__DEC_task_targetRef_214939 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_214939
 													.next();
 
-											// check object __DEC_task_targetRef_127419 is really bound
-											JavaSDM.ensure(__DEC_task_targetRef_127419 != null);
-											// check isomorphic binding between objects __DEC_task_targetRef_127419 and inFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_127419
+											// check object __DEC_task_targetRef_214939 is really bound
+											JavaSDM.ensure(__DEC_task_targetRef_214939 != null);
+											// check isomorphic binding between objects __DEC_task_targetRef_214939 and inFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_214939
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_task_targetRef_127419 and outFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_127419
+											// check isomorphic binding between objects __DEC_task_targetRef_214939 and outFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_214939
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -6892,14 +6151,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												"$eContainer")
 										.contains(process)));
 
-								// check link incoming from inFlow to task
-								JavaSDM.ensure(task.equals(inFlow
-										.getTargetRef()));
-
-								// check link incoming from outFlow to task
-								JavaSDM.ensure(!(task.equals(outFlow
-										.getTargetRef())));
-
 								// check link laneSets from laneSet to process
 								JavaSDM.ensure(process.equals(laneSet
 										.eContainer()));
@@ -6907,17 +6158,25 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								// check link lanes from lane to laneSet
 								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
 
-								// check link outgoing from inFlow to flowNode
+								// check link sourceRef from inFlow to flowNode
 								JavaSDM.ensure(flowNode.equals(inFlow
 										.getSourceRef()));
 
-								// check link outgoing from outFlow to task
+								// check link sourceRef from outFlow to task
 								JavaSDM.ensure(task.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_flowElements to process
 								JavaSDM.ensure(process
 										.equals(_edge_flowElements.getSrc()));
+
+								// check link targetRef from inFlow to task
+								JavaSDM.ensure(task.equals(inFlow
+										.getTargetRef()));
+
+								// check link targetRef from outFlow to task
+								JavaSDM.ensure(!(task.equals(outFlow
+										.getTargetRef())));
 
 								// check link trg from _edge_flowElements to outFlow
 								JavaSDM.ensure(outFlow
@@ -6938,7 +6197,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										task, process, inFlow, outFlow,
 										laneSet, lane, flowNode);
 								if (fujaba__Success) {
-									// statement node ''
+									// statement node 'Ensure that the correct types of elements are matched'
 									fujaba__Success = this
 											.checkTypes_FWD(match);
 									if (fujaba__Success) {
@@ -7015,12 +6274,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_512345 = null;
-		FlowElementsContainer __DEC_task_flowElements_501806 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_20297 = null;
-		ExclusiveGateway __DEC_outFlow_default_20297 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_294609 = null;
-		SequenceFlow __DEC_task_targetRef_294609 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_882362 = null;
+		FlowElementsContainer __DEC_task_flowElements_345484 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_462172 = null;
+		ExclusiveGateway __DEC_outFlow_default_462172 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_900457 = null;
+		SequenceFlow __DEC_task_targetRef_900457 = null;
 		Match match = null;
 		LaneSet laneSet = null;
 		Iterator fujaba__IterTaskToLane = null;
@@ -7093,10 +6352,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof ServiceTask);
 			task = (ServiceTask) _TmpObject;
 
-			// check link outgoing from outFlow to task
+			// check link sourceRef from outFlow to task
 			JavaSDM.ensure(task.equals(outFlow.getSourceRef()));
 
-			// iterate to-many link incoming from task to inFlow
+			// iterate to-many link targetRef from task to inFlow
 			fujaba__Success = false;
 
 			fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
@@ -7173,20 +6432,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_512345 = outFlow
+									__DEC_outFlow_flowElements_882362 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_512345 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_512345 != null);
+									// check object __DEC_outFlow_flowElements_882362 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_882362 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_512345
+									JavaSDM.ensure(__DEC_outFlow_flowElements_882362
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_512345 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_512345
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_882362 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_882362
 											.equals(process));
 
 									fujaba__Success = true;
@@ -7203,19 +6462,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_task_flowElements_501806 = task
+									__DEC_task_flowElements_345484 = task
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 											.eContainer() : null;
 
-									// check object __DEC_task_flowElements_501806 is really bound
-									JavaSDM.ensure(__DEC_task_flowElements_501806 != null);
+									// check object __DEC_task_flowElements_345484 is really bound
+									JavaSDM.ensure(__DEC_task_flowElements_345484 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_task_flowElements_501806
+									JavaSDM.ensure(__DEC_task_flowElements_345484
 											.getFlowElements().contains(task));
 
-									// check isomorphic binding between objects __DEC_task_flowElements_501806 and process 
-									JavaSDM.ensure(!__DEC_task_flowElements_501806
+									// check isomorphic binding between objects __DEC_task_flowElements_345484 and process 
+									JavaSDM.ensure(!__DEC_task_flowElements_345484
 											.equals(process));
 
 									fujaba__Success = true;
@@ -7231,10 +6490,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link default from outFlow to __DEC_outFlow_default_20297
+									// iterate to-many link default from outFlow to __DEC_outFlow_default_462172
 									fujaba__Success = false;
 
-									fujaba__IterOutFlowTo__DEC_outFlow_default_20297 = new ArrayList(
+									fujaba__IterOutFlowTo__DEC_outFlow_default_462172 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															outFlow,
@@ -7243,16 +6502,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterOutFlowTo__DEC_outFlow_default_20297
+											&& fujaba__IterOutFlowTo__DEC_outFlow_default_462172
 													.hasNext()) {
 										try {
-											__DEC_outFlow_default_20297 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_20297
+											__DEC_outFlow_default_462172 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_462172
 													.next();
 
-											// check object __DEC_outFlow_default_20297 is really bound
-											JavaSDM.ensure(__DEC_outFlow_default_20297 != null);
-											// check isomorphic binding between objects __DEC_outFlow_default_20297 and flowNode 
-											JavaSDM.ensure(!__DEC_outFlow_default_20297
+											// check object __DEC_outFlow_default_462172 is really bound
+											JavaSDM.ensure(__DEC_outFlow_default_462172 != null);
+											// check isomorphic binding between objects __DEC_outFlow_default_462172 and flowNode 
+											JavaSDM.ensure(!__DEC_outFlow_default_462172
 													.equals(flowNode));
 
 											fujaba__Success = true;
@@ -7275,27 +6534,27 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link incoming from task to __DEC_task_targetRef_294609
+									// iterate to-many link targetRef from task to __DEC_task_targetRef_900457
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_targetRef_294609 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_targetRef_900457 = new ArrayList(
 											task.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_targetRef_294609
+											&& fujaba__IterTaskTo__DEC_task_targetRef_900457
 													.hasNext()) {
 										try {
-											__DEC_task_targetRef_294609 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_294609
+											__DEC_task_targetRef_900457 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_900457
 													.next();
 
-											// check object __DEC_task_targetRef_294609 is really bound
-											JavaSDM.ensure(__DEC_task_targetRef_294609 != null);
-											// check isomorphic binding between objects __DEC_task_targetRef_294609 and inFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_294609
+											// check object __DEC_task_targetRef_900457 is really bound
+											JavaSDM.ensure(__DEC_task_targetRef_900457 != null);
+											// check isomorphic binding between objects __DEC_task_targetRef_900457 and inFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_900457
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_task_targetRef_294609 and outFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_294609
+											// check isomorphic binding between objects __DEC_task_targetRef_900457 and outFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_900457
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -7355,14 +6614,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												"$eContainer")
 										.contains(process)));
 
-								// check link incoming from inFlow to task
-								JavaSDM.ensure(task.equals(inFlow
-										.getTargetRef()));
-
-								// check link incoming from outFlow to task
-								JavaSDM.ensure(!(task.equals(outFlow
-										.getTargetRef())));
-
 								// check link laneSets from laneSet to process
 								JavaSDM.ensure(process.equals(laneSet
 										.eContainer()));
@@ -7370,17 +6621,25 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								// check link lanes from lane to laneSet
 								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
 
-								// check link outgoing from inFlow to flowNode
+								// check link sourceRef from inFlow to flowNode
 								JavaSDM.ensure(flowNode.equals(inFlow
 										.getSourceRef()));
 
-								// check link outgoing from outFlow to task
+								// check link sourceRef from outFlow to task
 								JavaSDM.ensure(task.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_sourceRef to outFlow
 								JavaSDM.ensure(outFlow.equals(_edge_sourceRef
 										.getSrc()));
+
+								// check link targetRef from inFlow to task
+								JavaSDM.ensure(task.equals(inFlow
+										.getTargetRef()));
+
+								// check link targetRef from outFlow to task
+								JavaSDM.ensure(!(task.equals(outFlow
+										.getTargetRef())));
 
 								// check link trg from _edge_sourceRef to task
 								JavaSDM.ensure(task.equals(_edge_sourceRef
@@ -7401,7 +6660,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										task, process, inFlow, outFlow,
 										laneSet, lane, flowNode);
 								if (fujaba__Success) {
-									// statement node ''
+									// statement node 'Ensure that the correct types of elements are matched'
 									fujaba__Success = this
 											.checkTypes_FWD(match);
 									if (fujaba__Success) {
@@ -7478,12 +6737,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_267175 = null;
-		FlowElementsContainer __DEC_task_flowElements_350588 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_787786 = null;
-		ExclusiveGateway __DEC_outFlow_default_787786 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_483612 = null;
-		SequenceFlow __DEC_task_targetRef_483612 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_144236 = null;
+		FlowElementsContainer __DEC_task_flowElements_534305 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_561727 = null;
+		ExclusiveGateway __DEC_outFlow_default_561727 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_971027 = null;
+		SequenceFlow __DEC_task_targetRef_971027 = null;
 		Match match = null;
 		Iterator fujaba__IterTaskTo_edge_sourceRef = null;
 		EMoflonEdge _edge_sourceRef = null;
@@ -7581,10 +6840,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
 					outFlow = (SequenceFlow) _TmpObject;
 
-					// check link outgoing from outFlow to task
+					// check link sourceRef from outFlow to task
 					JavaSDM.ensure(task.equals(outFlow.getSourceRef()));
 
-					// iterate to-many link incoming from task to inFlow
+					// iterate to-many link targetRef from task to inFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
@@ -7663,20 +6922,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_outFlow_flowElements_267175 = outFlow
+											__DEC_outFlow_flowElements_144236 = outFlow
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 													.eContainer() : null;
 
-											// check object __DEC_outFlow_flowElements_267175 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_267175 != null);
+											// check object __DEC_outFlow_flowElements_144236 is really bound
+											JavaSDM.ensure(__DEC_outFlow_flowElements_144236 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_267175
+											JavaSDM.ensure(__DEC_outFlow_flowElements_144236
 													.getFlowElements()
 													.contains(outFlow));
 
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_267175 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_267175
+											// check isomorphic binding between objects __DEC_outFlow_flowElements_144236 and process 
+											JavaSDM.ensure(!__DEC_outFlow_flowElements_144236
 													.equals(process));
 
 											fujaba__Success = true;
@@ -7693,20 +6952,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_task_flowElements_350588 = task
+											__DEC_task_flowElements_534305 = task
 													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 													.eContainer() : null;
 
-											// check object __DEC_task_flowElements_350588 is really bound
-											JavaSDM.ensure(__DEC_task_flowElements_350588 != null);
+											// check object __DEC_task_flowElements_534305 is really bound
+											JavaSDM.ensure(__DEC_task_flowElements_534305 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_task_flowElements_350588
+											JavaSDM.ensure(__DEC_task_flowElements_534305
 													.getFlowElements()
 													.contains(task));
 
-											// check isomorphic binding between objects __DEC_task_flowElements_350588 and process 
-											JavaSDM.ensure(!__DEC_task_flowElements_350588
+											// check isomorphic binding between objects __DEC_task_flowElements_534305 and process 
+											JavaSDM.ensure(!__DEC_task_flowElements_534305
 													.equals(process));
 
 											fujaba__Success = true;
@@ -7722,10 +6981,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_787786
+											// iterate to-many link default from outFlow to __DEC_outFlow_default_561727
 											fujaba__Success = false;
 
-											fujaba__IterOutFlowTo__DEC_outFlow_default_787786 = new ArrayList(
+											fujaba__IterOutFlowTo__DEC_outFlow_default_561727 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	outFlow,
@@ -7734,16 +6993,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_787786
+													&& fujaba__IterOutFlowTo__DEC_outFlow_default_561727
 															.hasNext()) {
 												try {
-													__DEC_outFlow_default_787786 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_787786
+													__DEC_outFlow_default_561727 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_561727
 															.next();
 
-													// check object __DEC_outFlow_default_787786 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_787786 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_787786 and flowNode 
-													JavaSDM.ensure(!__DEC_outFlow_default_787786
+													// check object __DEC_outFlow_default_561727 is really bound
+													JavaSDM.ensure(__DEC_outFlow_default_561727 != null);
+													// check isomorphic binding between objects __DEC_outFlow_default_561727 and flowNode 
+													JavaSDM.ensure(!__DEC_outFlow_default_561727
 															.equals(flowNode));
 
 													fujaba__Success = true;
@@ -7766,28 +7025,28 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link incoming from task to __DEC_task_targetRef_483612
+											// iterate to-many link targetRef from task to __DEC_task_targetRef_971027
 											fujaba__Success = false;
 
-											fujaba__IterTaskTo__DEC_task_targetRef_483612 = new ArrayList(
+											fujaba__IterTaskTo__DEC_task_targetRef_971027 = new ArrayList(
 													task.getIncoming())
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterTaskTo__DEC_task_targetRef_483612
+													&& fujaba__IterTaskTo__DEC_task_targetRef_971027
 															.hasNext()) {
 												try {
-													__DEC_task_targetRef_483612 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_483612
+													__DEC_task_targetRef_971027 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_971027
 															.next();
 
-													// check object __DEC_task_targetRef_483612 is really bound
-													JavaSDM.ensure(__DEC_task_targetRef_483612 != null);
-													// check isomorphic binding between objects __DEC_task_targetRef_483612 and inFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_483612
+													// check object __DEC_task_targetRef_971027 is really bound
+													JavaSDM.ensure(__DEC_task_targetRef_971027 != null);
+													// check isomorphic binding between objects __DEC_task_targetRef_971027 and inFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_971027
 															.equals(inFlow));
 
-													// check isomorphic binding between objects __DEC_task_targetRef_483612 and outFlow 
-													JavaSDM.ensure(!__DEC_task_targetRef_483612
+													// check isomorphic binding between objects __DEC_task_targetRef_971027 and outFlow 
+													JavaSDM.ensure(!__DEC_task_targetRef_971027
 															.equals(outFlow));
 
 													fujaba__Success = true;
@@ -7853,14 +7112,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														"$eContainer")
 												.contains(process)));
 
-										// check link incoming from inFlow to task
-										JavaSDM.ensure(task.equals(inFlow
-												.getTargetRef()));
-
-										// check link incoming from outFlow to task
-										JavaSDM.ensure(!(task.equals(outFlow
-												.getTargetRef())));
-
 										// check link laneSets from laneSet to process
 										JavaSDM.ensure(process.equals(laneSet
 												.eContainer()));
@@ -7869,11 +7120,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(laneSet.equals(lane
 												.eContainer()));
 
-										// check link outgoing from inFlow to flowNode
+										// check link sourceRef from inFlow to flowNode
 										JavaSDM.ensure(flowNode.equals(inFlow
 												.getSourceRef()));
 
-										// check link outgoing from outFlow to task
+										// check link sourceRef from outFlow to task
 										JavaSDM.ensure(task.equals(outFlow
 												.getSourceRef()));
 
@@ -7885,6 +7136,14 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(outFlow
 												.equals(_edge_sourceRef
 														.getSrc()));
+
+										// check link targetRef from inFlow to task
+										JavaSDM.ensure(task.equals(inFlow
+												.getTargetRef()));
+
+										// check link targetRef from outFlow to task
+										JavaSDM.ensure(!(task.equals(outFlow
+												.getTargetRef())));
 
 										// check link trg from _edge_outgoing to outFlow
 										JavaSDM.ensure(outFlow
@@ -7912,7 +7171,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 														outFlow, laneSet, lane,
 														flowNode);
 										if (fujaba__Success) {
-											// statement node ''
+											// statement node 'Ensure that the correct types of elements are matched'
 											fujaba__Success = this
 													.checkTypes_FWD(match);
 											if (fujaba__Success) {
@@ -7997,9 +7256,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_617697 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_212415 = null;
-		Step __DEC_normalStep_next_212415 = null;
+		Flow __DEC_normalStep_steps_187172 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_94118 = null;
+		Step __DEC_normalStep_next_94118 = null;
 		Match match = null;
 		Iterator fujaba__IterNormalStepToPrevStep = null;
 		Step prevStep = null;
@@ -8106,19 +7365,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_normalStep_steps_617697 = normalStep
+							__DEC_normalStep_steps_187172 = normalStep
 									.eContainer() instanceof Flow ? (Flow) normalStep
 									.eContainer() : null;
 
-							// check object __DEC_normalStep_steps_617697 is really bound
-							JavaSDM.ensure(__DEC_normalStep_steps_617697 != null);
+							// check object __DEC_normalStep_steps_187172 is really bound
+							JavaSDM.ensure(__DEC_normalStep_steps_187172 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_normalStep_steps_617697
+							JavaSDM.ensure(__DEC_normalStep_steps_187172
 									.getSteps().contains(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_steps_617697 and flow 
-							JavaSDM.ensure(!__DEC_normalStep_steps_617697
+							// check isomorphic binding between objects __DEC_normalStep_steps_187172 and flow 
+							JavaSDM.ensure(!__DEC_normalStep_steps_187172
 									.equals(flow));
 
 							fujaba__Success = true;
@@ -8134,30 +7393,30 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link next from normalStep to __DEC_normalStep_next_212415
+							// iterate to-many link next from normalStep to __DEC_normalStep_next_94118
 							fujaba__Success = false;
 
-							fujaba__IterNormalStepTo__DEC_normalStep_next_212415 = new ArrayList(
+							fujaba__IterNormalStepTo__DEC_normalStep_next_94118 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(normalStep,
 													Step.class, "next"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterNormalStepTo__DEC_normalStep_next_212415
+									&& fujaba__IterNormalStepTo__DEC_normalStep_next_94118
 											.hasNext()) {
 								try {
-									__DEC_normalStep_next_212415 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_212415
+									__DEC_normalStep_next_94118 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_94118
 											.next();
 
-									// check object __DEC_normalStep_next_212415 is really bound
-									JavaSDM.ensure(__DEC_normalStep_next_212415 != null);
-									// check isomorphic binding between objects __DEC_normalStep_next_212415 and normalStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_212415
+									// check object __DEC_normalStep_next_94118 is really bound
+									JavaSDM.ensure(__DEC_normalStep_next_94118 != null);
+									// check isomorphic binding between objects __DEC_normalStep_next_94118 and normalStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_94118
 											.equals(normalStep));
 
-									// check isomorphic binding between objects __DEC_normalStep_next_212415 and prevStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_212415
+									// check isomorphic binding between objects __DEC_normalStep_next_94118 and prevStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_94118
 											.equals(prevStep));
 
 									fujaba__Success = true;
@@ -8225,7 +7484,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 						fujaba__Success = this.isAppropriate_BWD(match, actor,
 								prevStep, normalStep, flow);
 						if (fujaba__Success) {
-							// statement node ''
+							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_BWD(match);
 							if (fujaba__Success) {
 								// story node 'Add match to rule result'
@@ -8293,9 +7552,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_282439 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_223265 = null;
-		Step __DEC_normalStep_next_223265 = null;
+		Flow __DEC_normalStep_steps_714411 = null;
+		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_873948 = null;
+		Step __DEC_normalStep_next_873948 = null;
 		Match match = null;
 		Iterator fujaba__IterNormalStepToPrevStep = null;
 		Step prevStep = null;
@@ -8398,19 +7657,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_normalStep_steps_282439 = normalStep
+							__DEC_normalStep_steps_714411 = normalStep
 									.eContainer() instanceof Flow ? (Flow) normalStep
 									.eContainer() : null;
 
-							// check object __DEC_normalStep_steps_282439 is really bound
-							JavaSDM.ensure(__DEC_normalStep_steps_282439 != null);
+							// check object __DEC_normalStep_steps_714411 is really bound
+							JavaSDM.ensure(__DEC_normalStep_steps_714411 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_normalStep_steps_282439
+							JavaSDM.ensure(__DEC_normalStep_steps_714411
 									.getSteps().contains(normalStep));
 
-							// check isomorphic binding between objects __DEC_normalStep_steps_282439 and flow 
-							JavaSDM.ensure(!__DEC_normalStep_steps_282439
+							// check isomorphic binding between objects __DEC_normalStep_steps_714411 and flow 
+							JavaSDM.ensure(!__DEC_normalStep_steps_714411
 									.equals(flow));
 
 							fujaba__Success = true;
@@ -8426,30 +7685,30 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link next from normalStep to __DEC_normalStep_next_223265
+							// iterate to-many link next from normalStep to __DEC_normalStep_next_873948
 							fujaba__Success = false;
 
-							fujaba__IterNormalStepTo__DEC_normalStep_next_223265 = new ArrayList(
+							fujaba__IterNormalStepTo__DEC_normalStep_next_873948 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(normalStep,
 													Step.class, "next"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterNormalStepTo__DEC_normalStep_next_223265
+									&& fujaba__IterNormalStepTo__DEC_normalStep_next_873948
 											.hasNext()) {
 								try {
-									__DEC_normalStep_next_223265 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_223265
+									__DEC_normalStep_next_873948 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_873948
 											.next();
 
-									// check object __DEC_normalStep_next_223265 is really bound
-									JavaSDM.ensure(__DEC_normalStep_next_223265 != null);
-									// check isomorphic binding between objects __DEC_normalStep_next_223265 and normalStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_223265
+									// check object __DEC_normalStep_next_873948 is really bound
+									JavaSDM.ensure(__DEC_normalStep_next_873948 != null);
+									// check isomorphic binding between objects __DEC_normalStep_next_873948 and normalStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_873948
 											.equals(normalStep));
 
-									// check isomorphic binding between objects __DEC_normalStep_next_223265 and prevStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_223265
+									// check isomorphic binding between objects __DEC_normalStep_next_873948 and prevStep 
+									JavaSDM.ensure(!__DEC_normalStep_next_873948
 											.equals(prevStep));
 
 									fujaba__Success = true;
@@ -8517,7 +7776,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 						fujaba__Success = this.isAppropriate_BWD(match, actor,
 								prevStep, normalStep, flow);
 						if (fujaba__Success) {
-							// statement node ''
+							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_BWD(match);
 							if (fujaba__Success) {
 								// story node 'Add match to rule result'
@@ -8585,12 +7844,12 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_659022 = null;
-		FlowElementsContainer __DEC_task_flowElements_356081 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_832383 = null;
-		ExclusiveGateway __DEC_outFlow_default_832383 = null;
-		Iterator fujaba__IterTaskTo__DEC_task_targetRef_990379 = null;
-		SequenceFlow __DEC_task_targetRef_990379 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_913321 = null;
+		FlowElementsContainer __DEC_task_flowElements_794152 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_512795 = null;
+		ExclusiveGateway __DEC_outFlow_default_512795 = null;
+		Iterator fujaba__IterTaskTo__DEC_task_targetRef_337972 = null;
+		SequenceFlow __DEC_task_targetRef_337972 = null;
 		Match match = null;
 		bpmn2.Process process = null;
 		Iterator fujaba__IterTaskToOutFlow = null;
@@ -8676,7 +7935,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			// check link flowNodeRefs from lane to task
 			JavaSDM.ensure(lane.getFlowNodeRefs().contains(task));
 
-			// iterate to-many link incoming from task to inFlow
+			// iterate to-many link targetRef from task to inFlow
 			fujaba__Success = false;
 
 			fujaba__IterTaskToInFlow = new ArrayList(task.getIncoming())
@@ -8697,7 +7956,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					// check isomorphic binding between objects task and flowNode 
 					JavaSDM.ensure(!task.equals(flowNode));
 
-					// iterate to-many link outgoing from task to outFlow
+					// iterate to-many link sourceRef from task to outFlow
 					fujaba__Success = false;
 
 					fujaba__IterTaskToOutFlow = new ArrayList(
@@ -8743,20 +8002,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_outFlow_flowElements_659022 = outFlow
+									__DEC_outFlow_flowElements_913321 = outFlow
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 											.eContainer() : null;
 
-									// check object __DEC_outFlow_flowElements_659022 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_659022 != null);
+									// check object __DEC_outFlow_flowElements_913321 is really bound
+									JavaSDM.ensure(__DEC_outFlow_flowElements_913321 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_659022
+									JavaSDM.ensure(__DEC_outFlow_flowElements_913321
 											.getFlowElements()
 											.contains(outFlow));
 
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_659022 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_659022
+									// check isomorphic binding between objects __DEC_outFlow_flowElements_913321 and process 
+									JavaSDM.ensure(!__DEC_outFlow_flowElements_913321
 											.equals(process));
 
 									fujaba__Success = true;
@@ -8773,19 +8032,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_task_flowElements_356081 = task
+									__DEC_task_flowElements_794152 = task
 											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) task
 											.eContainer() : null;
 
-									// check object __DEC_task_flowElements_356081 is really bound
-									JavaSDM.ensure(__DEC_task_flowElements_356081 != null);
+									// check object __DEC_task_flowElements_794152 is really bound
+									JavaSDM.ensure(__DEC_task_flowElements_794152 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_task_flowElements_356081
+									JavaSDM.ensure(__DEC_task_flowElements_794152
 											.getFlowElements().contains(task));
 
-									// check isomorphic binding between objects __DEC_task_flowElements_356081 and process 
-									JavaSDM.ensure(!__DEC_task_flowElements_356081
+									// check isomorphic binding between objects __DEC_task_flowElements_794152 and process 
+									JavaSDM.ensure(!__DEC_task_flowElements_794152
 											.equals(process));
 
 									fujaba__Success = true;
@@ -8801,10 +8060,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link default from outFlow to __DEC_outFlow_default_832383
+									// iterate to-many link default from outFlow to __DEC_outFlow_default_512795
 									fujaba__Success = false;
 
-									fujaba__IterOutFlowTo__DEC_outFlow_default_832383 = new ArrayList(
+									fujaba__IterOutFlowTo__DEC_outFlow_default_512795 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															outFlow,
@@ -8813,16 +8072,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterOutFlowTo__DEC_outFlow_default_832383
+											&& fujaba__IterOutFlowTo__DEC_outFlow_default_512795
 													.hasNext()) {
 										try {
-											__DEC_outFlow_default_832383 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_832383
+											__DEC_outFlow_default_512795 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_512795
 													.next();
 
-											// check object __DEC_outFlow_default_832383 is really bound
-											JavaSDM.ensure(__DEC_outFlow_default_832383 != null);
-											// check isomorphic binding between objects __DEC_outFlow_default_832383 and flowNode 
-											JavaSDM.ensure(!__DEC_outFlow_default_832383
+											// check object __DEC_outFlow_default_512795 is really bound
+											JavaSDM.ensure(__DEC_outFlow_default_512795 != null);
+											// check isomorphic binding between objects __DEC_outFlow_default_512795 and flowNode 
+											JavaSDM.ensure(!__DEC_outFlow_default_512795
 													.equals(flowNode));
 
 											fujaba__Success = true;
@@ -8845,27 +8104,27 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link incoming from task to __DEC_task_targetRef_990379
+									// iterate to-many link targetRef from task to __DEC_task_targetRef_337972
 									fujaba__Success = false;
 
-									fujaba__IterTaskTo__DEC_task_targetRef_990379 = new ArrayList(
+									fujaba__IterTaskTo__DEC_task_targetRef_337972 = new ArrayList(
 											task.getIncoming()).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterTaskTo__DEC_task_targetRef_990379
+											&& fujaba__IterTaskTo__DEC_task_targetRef_337972
 													.hasNext()) {
 										try {
-											__DEC_task_targetRef_990379 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_990379
+											__DEC_task_targetRef_337972 = (SequenceFlow) fujaba__IterTaskTo__DEC_task_targetRef_337972
 													.next();
 
-											// check object __DEC_task_targetRef_990379 is really bound
-											JavaSDM.ensure(__DEC_task_targetRef_990379 != null);
-											// check isomorphic binding between objects __DEC_task_targetRef_990379 and inFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_990379
+											// check object __DEC_task_targetRef_337972 is really bound
+											JavaSDM.ensure(__DEC_task_targetRef_337972 != null);
+											// check isomorphic binding between objects __DEC_task_targetRef_337972 and inFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_337972
 													.equals(inFlow));
 
-											// check isomorphic binding between objects __DEC_task_targetRef_990379 and outFlow 
-											JavaSDM.ensure(!__DEC_task_targetRef_990379
+											// check isomorphic binding between objects __DEC_task_targetRef_337972 and outFlow 
+											JavaSDM.ensure(!__DEC_task_targetRef_337972
 													.equals(outFlow));
 
 											fujaba__Success = true;
@@ -8925,14 +8184,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 												"$eContainer")
 										.contains(process)));
 
-								// check link incoming from inFlow to task
-								JavaSDM.ensure(task.equals(inFlow
-										.getTargetRef()));
-
-								// check link incoming from outFlow to task
-								JavaSDM.ensure(!(task.equals(outFlow
-										.getTargetRef())));
-
 								// check link laneSets from laneSet to process
 								JavaSDM.ensure(process.equals(laneSet
 										.eContainer()));
@@ -8940,17 +8191,25 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								// check link lanes from lane to laneSet
 								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
 
-								// check link outgoing from inFlow to flowNode
+								// check link sourceRef from inFlow to flowNode
 								JavaSDM.ensure(flowNode.equals(inFlow
 										.getSourceRef()));
 
-								// check link outgoing from outFlow to task
+								// check link sourceRef from outFlow to task
 								JavaSDM.ensure(task.equals(outFlow
 										.getSourceRef()));
 
 								// check link src from _edge_flowNodeRefs to lane
 								JavaSDM.ensure(lane.equals(_edge_flowNodeRefs
 										.getSrc()));
+
+								// check link targetRef from inFlow to task
+								JavaSDM.ensure(task.equals(inFlow
+										.getTargetRef()));
+
+								// check link targetRef from outFlow to task
+								JavaSDM.ensure(!(task.equals(outFlow
+										.getTargetRef())));
 
 								// check link trg from _edge_flowNodeRefs to task
 								JavaSDM.ensure(task.equals(_edge_flowNodeRefs
@@ -8971,7 +8230,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										task, process, inFlow, outFlow,
 										laneSet, lane, flowNode);
 								if (fujaba__Success) {
-									// statement node ''
+									// statement node 'Ensure that the correct types of elements are matched'
 									fujaba__Success = this
 											.checkTypes_FWD(match);
 									if (fujaba__Success) {
@@ -9066,549 +8325,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			SequenceFlowToStep inFlowToPrevStepDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		ServiceTask task = null;
-		SequenceFlow outFlow = null;
-		FlowNodeToStep taskToNormalStep = null;
-		NormalStep normalStep = null;
-		SequenceFlowToStep outFlowToNormalStep = null;
-		SequenceFlowToUCFlow outFlowToFlow = null;
-		Actor actor = null;
-		Iterator fujaba__IterProcessToProcessToActor = null;
-		ProcessToActor processToActor = null;
-		Flow flow = null;
-		Iterator fujaba__IterInFlowToInFlowToFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Step prevStep = null;
-		FlowNode flowNode = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterInFlowToPrevStepListToInFlowToPrevStep = null;
-		SequenceFlowToStep inFlowToPrevStep = null;
-		Iterator fujaba__IterRuleEntryContainerToInFlowToPrevStepList = null;
-		RuleEntryList inFlowToPrevStepList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to inFlowToPrevStepList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToInFlowToPrevStepList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToInFlowToPrevStepList
-					.hasNext()) {
-				try {
-					inFlowToPrevStepList = (RuleEntryList) fujaba__IterRuleEntryContainerToInFlowToPrevStepList
-							.next();
-
-					// check object inFlowToPrevStepList is really bound
-					JavaSDM.ensure(inFlowToPrevStepList != null);
-					// iterate to-many link entryObjects from inFlowToPrevStepList to inFlowToPrevStep
-					fujaba__Success = false;
-
-					fujaba__IterInFlowToPrevStepListToInFlowToPrevStep = new ArrayList(
-							inFlowToPrevStepList.getEntryObjects()).iterator();
-
-					while (fujaba__IterInFlowToPrevStepListToInFlowToPrevStep
-							.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterInFlowToPrevStepListToInFlowToPrevStep
-									.next();
-
-							// ensure correct type and really bound of object inFlowToPrevStep
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlowToStep);
-							inFlowToPrevStep = (SequenceFlowToStep) _TmpObject;
-							// bind object
-							inFlow = inFlowToPrevStep.getSource();
-
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-
-							// bind object
-							_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-									.eContainer() : null;
-
-							// ensure correct type and really bound of object process
-							JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-							process = (bpmn2.Process) _TmpObject;
-
-							// check if contained via correct reference
-							JavaSDM.ensure(process.getFlowElements().contains(
-									inFlow));
-
-							// bind object
-							flowNode = inFlow.getSourceRef();
-
-							// check object flowNode is really bound
-							JavaSDM.ensure(flowNode != null);
-
-							// check link flowElements from flowNode to process
-							JavaSDM.ensure(process.equals(flowNode.eContainer()));
-
-							// bind object
-							prevStep = inFlowToPrevStep.getTarget();
-
-							// check object prevStep is really bound
-							JavaSDM.ensure(prevStep != null);
-
-							// iterate to-many link laneSets from process to laneSet
-							fujaba__Success = false;
-
-							fujaba__IterProcessToLaneSet = new ArrayList(
-									process.getLaneSets()).iterator();
-
-							while (fujaba__IterProcessToLaneSet.hasNext()) {
-								try {
-									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-											.next();
-
-									// check object laneSet is really bound
-									JavaSDM.ensure(laneSet != null);
-									// iterate to-many link lanes from laneSet to lane
-									fujaba__Success = false;
-
-									fujaba__IterLaneSetToLane = new ArrayList(
-											laneSet.getLanes()).iterator();
-
-									while (fujaba__IterLaneSetToLane.hasNext()) {
-										try {
-											lane = (Lane) fujaba__IterLaneSetToLane
-													.next();
-
-											// check object lane is really bound
-											JavaSDM.ensure(lane != null);
-											// iterate to-many link source from inFlow to inFlowToFlow
-											fujaba__Success = false;
-
-											fujaba__IterInFlowToInFlowToFlow = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	inFlow,
-																	SequenceFlowToUCFlow.class,
-																	"source"))
-													.iterator();
-
-											while (fujaba__IterInFlowToInFlowToFlow
-													.hasNext()) {
-												try {
-													inFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterInFlowToInFlowToFlow
-															.next();
-
-													// check object inFlowToFlow is really bound
-													JavaSDM.ensure(inFlowToFlow != null);
-													// bind object
-													flow = inFlowToFlow
-															.getTarget();
-
-													// check object flow is really bound
-													JavaSDM.ensure(flow != null);
-
-													// iterate to-many link source from process to processToActor
-													fujaba__Success = false;
-
-													fujaba__IterProcessToProcessToActor = new ArrayList(
-															org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReference(
-																			process,
-																			ProcessToActor.class,
-																			"source"))
-															.iterator();
-
-													while (fujaba__IterProcessToProcessToActor
-															.hasNext()) {
-														try {
-															processToActor = (ProcessToActor) fujaba__IterProcessToProcessToActor
-																	.next();
-
-															// check object processToActor is really bound
-															JavaSDM.ensure(processToActor != null);
-															// bind object
-															actor = processToActor
-																	.getTarget();
-
-															// check object actor is really bound
-															JavaSDM.ensure(actor != null);
-
-															// story node 'solve CSP'
-															try {
-																fujaba__Success = false;
-
-																_TmpObject = (this
-																		.generateModel_solveCsp_BWD(
-																				isApplicableMatch,
-																				task,
-																				process,
-																				actor,
-																				processToActor,
-																				inFlow,
-																				inFlowToPrevStep,
-																				prevStep,
-																				normalStep,
-																				outFlow,
-																				taskToNormalStep,
-																				outFlowToFlow,
-																				outFlowToNormalStep,
-																				inFlowToFlow,
-																				flow,
-																				laneSet,
-																				lane,
-																				flowNode,
-																				ruleResult));
-
-																// ensure correct type and really bound of object csp
-																JavaSDM.ensure(_TmpObject instanceof CSP);
-																csp = (CSP) _TmpObject;
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															// statement node 'check CSP'
-															fujaba__Success = this
-																	.generateModel_checkCsp_BWD(csp);
-															if (fujaba__Success) {
-																// story node 'perform'
-																try {
-																	fujaba__Success = false;
-
-																	// check object actor is really bound
-																	JavaSDM.ensure(actor != null);
-																	// check object flow is really bound
-																	JavaSDM.ensure(flow != null);
-																	// check object flowNode is really bound
-																	JavaSDM.ensure(flowNode != null);
-																	// check object inFlow is really bound
-																	JavaSDM.ensure(inFlow != null);
-																	// check object inFlowToFlow is really bound
-																	JavaSDM.ensure(inFlowToFlow != null);
-																	// check object inFlowToPrevStep is really bound
-																	JavaSDM.ensure(inFlowToPrevStep != null);
-																	// check object lane is really bound
-																	JavaSDM.ensure(lane != null);
-																	// check object laneSet is really bound
-																	JavaSDM.ensure(laneSet != null);
-																	// check object prevStep is really bound
-																	JavaSDM.ensure(prevStep != null);
-																	// check object process is really bound
-																	JavaSDM.ensure(process != null);
-																	// check object processToActor is really bound
-																	JavaSDM.ensure(processToActor != null);
-																	// check object ruleResult is really bound
-																	JavaSDM.ensure(ruleResult != null);
-																	// create object task
-																	task = Bpmn2Factory.eINSTANCE
-																			.createServiceTask();
-
-																	// create object outFlow
-																	outFlow = Bpmn2Factory.eINSTANCE
-																			.createSequenceFlow();
-
-																	// create object taskToNormalStep
-																	taskToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																			.createFlowNodeToStep();
-
-																	// create object normalStep
-																	normalStep = UseCaseDSLFactory.eINSTANCE
-																			.createNormalStep();
-
-																	// create object outFlowToNormalStep
-																	outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																			.createSequenceFlowToStep();
-
-																	// create object outFlowToFlow
-																	outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																			.createSequenceFlowToUCFlow();
-
-																	// assign attribute task
-																	task.setId((java.lang.String) csp
-																			.getAttributeVariable(
-																					"task",
-																					"id")
-																			.getValue());
-																	// assign attribute task
-																	task.setName((java.lang.String) csp
-																			.getAttributeVariable(
-																					"task",
-																					"name")
-																			.getValue());
-																	// assign attribute normalStep
-																	normalStep
-																			.setName((java.lang.String) csp
-																					.getAttributeVariable(
-																							"normalStep",
-																							"name")
-																					.getValue());
-																	// assign attribute normalStep
-																	normalStep
-																			.setLabel((java.lang.String) csp
-																					.getAttributeVariable(
-																							"normalStep",
-																							"label")
-																					.getValue());
-																	// assign attribute ruleResult
-																	ruleResult
-																			.setSuccess(true);
-
-																	// create link
-																	inFlow.setTargetRef(task);
-
-																	// create link
-																	outFlow.setSourceRef(task);
-
-																	// create link
-																	lane.getFlowNodeRefs()
-																			.add(task);
-
-																	// create link
-																	ruleResult
-																			.getSourceObjects()
-																			.add(task);
-
-																	// create link
-																	taskToNormalStep
-																			.setSource(task);
-
-																	// create link
-																	process.getFlowElements()
-																			.add(outFlow); // add link
-
-																	// create link
-																	normalStep
-																			.setActor(actor);
-
-																	// create link
-																	org.moflon.util.eMoflonEMFUtil
-																			.addOppositeReference(
-																					prevStep,
-																					normalStep,
-																					"next");
-
-																	// create link
-																	flow.getSteps()
-																			.add(normalStep);
-
-																	// create link
-																	outFlowToNormalStep
-																			.setTarget(normalStep);
-
-																	// create link
-																	ruleResult
-																			.getTargetObjects()
-																			.add(normalStep);
-
-																	// create link
-																	taskToNormalStep
-																			.setTarget(normalStep);
-
-																	// create link
-																	outFlowToNormalStep
-																			.setSource(outFlow);
-
-																	// create link
-																	ruleResult
-																			.getSourceObjects()
-																			.add(outFlow);
-
-																	// create link
-																	outFlowToFlow
-																			.setSource(outFlow);
-
-																	// create link
-																	ruleResult
-																			.getCorrObjects()
-																			.add(taskToNormalStep);
-
-																	// create link
-																	org.moflon.util.eMoflonEMFUtil
-																			.addOppositeReference(
-																					outFlowToFlow,
-																					flow,
-																					"target");
-
-																	// create link
-																	ruleResult
-																			.getCorrObjects()
-																			.add(outFlowToFlow);
-
-																	// create link
-																	ruleResult
-																			.getCorrObjects()
-																			.add(outFlowToNormalStep);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																return ruleResult;
-
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			ServiceTask task, bpmn2.Process process, Actor actor,
-			ProcessToActor processToActor, SequenceFlow inFlow,
-			SequenceFlowToStep inFlowToPrevStep, Step prevStep,
-			NormalStep normalStep, SequenceFlow outFlow,
-			FlowNodeToStep taskToNormalStep,
-			SequenceFlowToUCFlow outFlowToFlow,
-			SequenceFlowToStep outFlowToNormalStep,
-			SequenceFlowToUCFlow inFlowToFlow, Flow flow, LaneSet laneSet,
-			Lane lane, FlowNode flowNode, ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-
-		// Create attribute variables
-
-		// Create explicit parameters
-
-		// Create unbound variables
-		Variable var_task_id = CSPFactoryHelper.eINSTANCE.createVariable(
-				"task.id", csp);
-		var_task_id.setType("");
-		Variable var_normalStep_name = CSPFactoryHelper.eINSTANCE
-				.createVariable("normalStep.name", csp);
-		var_normalStep_name.setType("");
-		Variable var_task_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"task.name", csp);
-		var_task_name.setType("");
-		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
-				.createVariable("normalStep.label", csp);
-		var_normalStep_label.setType("");
-
-		// Create constraints
-		Eq eq = new Eq();
-		Eq eq_0 = new Eq();
-
-		csp.getConstraints().add(eq);
-		csp.getConstraints().add(eq_0);
-
-		// Solve CSP
-		eq.setRuleName("");
-		eq.solve(var_task_id, var_normalStep_name);
-		eq_0.setRuleName("");
-		eq_0.solve(var_task_name, var_normalStep_label);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("process", process);
-		isApplicableMatch.registerObject("actor", actor);
-		isApplicableMatch.registerObject("processToActor", processToActor);
-		isApplicableMatch.registerObject("inFlow", inFlow);
-		isApplicableMatch.registerObject("inFlowToPrevStep", inFlowToPrevStep);
-		isApplicableMatch.registerObject("prevStep", prevStep);
-		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
-		isApplicableMatch.registerObject("flow", flow);
-		isApplicableMatch.registerObject("laneSet", laneSet);
-		isApplicableMatch.registerObject("lane", lane);
-		isApplicableMatch.registerObject("flowNode", flowNode);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -9621,10 +8337,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					(SequenceFlow) arguments.get(4),
 					(LaneSet) arguments.get(5), (Lane) arguments.get(6),
 					(FlowNode) arguments.get(7));
-		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPLICABLE_FWD__MATCH:
-			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPLICABLE_FWD__MATCH:
+			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SERVICETASK_PROCESS_SEQUENCEFLOW_SEQUENCEFLOW_LANESET_LANE_FLOWNODE:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(ServiceTask) arguments.get(1),
@@ -9676,10 +8392,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			return isAppropriate_BWD((Match) arguments.get(0),
 					(Actor) arguments.get(1), (Step) arguments.get(2),
 					(NormalStep) arguments.get(3), (Flow) arguments.get(4));
-		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPLICABLE_BWD__MATCH:
-			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPLICABLE_BWD__MATCH:
+			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_ACTOR_STEP_NORMALSTEP_FLOW:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
 					(Actor) arguments.get(1), (Step) arguments.get(2),
@@ -9749,28 +8465,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(SequenceFlowToStep) arguments.get(1));
-		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SERVICETASK_PROCESS_ACTOR_PROCESSTOACTOR_SEQUENCEFLOW_SEQUENCEFLOWTOSTEP_STEP_NORMALSTEP_SEQUENCEFLOW_FLOWNODETOSTEP_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOWTOSTEP_SEQUENCEFLOWTOUCFLOW_FLOW_LANESET_LANE_FLOWNODE_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(ServiceTask) arguments.get(1),
-					(bpmn2.Process) arguments.get(2), (Actor) arguments.get(3),
-					(ProcessToActor) arguments.get(4),
-					(SequenceFlow) arguments.get(5),
-					(SequenceFlowToStep) arguments.get(6),
-					(Step) arguments.get(7), (NormalStep) arguments.get(8),
-					(SequenceFlow) arguments.get(9),
-					(FlowNodeToStep) arguments.get(10),
-					(SequenceFlowToUCFlow) arguments.get(11),
-					(SequenceFlowToStep) arguments.get(12),
-					(SequenceFlowToUCFlow) arguments.get(13),
-					(Flow) arguments.get(14), (LaneSet) arguments.get(15),
-					(Lane) arguments.get(16), (FlowNode) arguments.get(17),
-					(ModelgeneratorRuleResult) arguments.get(18));
-		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

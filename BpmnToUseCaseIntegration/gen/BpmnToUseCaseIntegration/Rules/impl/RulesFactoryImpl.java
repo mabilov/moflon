@@ -181,16 +181,6 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	/*public FirstUserTaskToStepRule createFirstUserTaskToStepRule() {
-		FirstUserTaskToStepRuleImpl firstUserTaskToStepRule = new FirstUserTaskToStepRuleImpl();
-		return firstUserTaskToStepRule;
-	}*/
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public LaneSetRule createLaneSetRule() {
 		LaneSetRuleImpl laneSetRule = new LaneSetRuleImpl();
 		return laneSetRule;

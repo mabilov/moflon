@@ -464,256 +464,6 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int BEHAVIORED_CLASSIFIER_OPERATION_COUNT = CLASSIFIER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.BehaviorImpl <em>Behavior</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.BehaviorImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getBehavior()
-	 * @generated
-	 */
-	int BEHAVIOR = 9;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.InteractionImpl <em>Interaction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.InteractionImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteraction()
-	 * @generated
-	 */
-	int INTERACTION = 8;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.RedefinableElementImpl <em>Redefinable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.RedefinableElementImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getRedefinableElement()
-	 * @generated
-	 */
-	int REDEFINABLE_ELEMENT = 25;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.FeatureImpl <em>Feature</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.FeatureImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getFeature()
-	 * @generated
-	 */
-	int FEATURE = 26;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConnectorImpl <em>Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.ConnectorImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConnector()
-	 * @generated
-	 */
-	int CONNECTOR = 10;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.LifelineImpl <em>Lifeline</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.LifelineImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getLifeline()
-	 * @generated
-	 */
-	int LIFELINE = 11;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.InteractionFragmentImpl <em>Interaction Fragment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.InteractionFragmentImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionFragment()
-	 * @generated
-	 */
-	int INTERACTION_FRAGMENT = 12;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.TypedElementImpl <em>Typed Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.TypedElementImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getTypedElement()
-	 * @generated
-	 */
-	int TYPED_ELEMENT = 24;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConnectableElementImpl <em>Connectable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.ConnectableElementImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConnectableElement()
-	 * @generated
-	 */
-	int CONNECTABLE_ELEMENT = 13;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.PropertyImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getProperty()
-	 * @generated
-	 */
-	int PROPERTY = 14;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MessageImpl <em>Message</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.MessageImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessage()
-	 * @generated
-	 */
-	int MESSAGE = 15;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MessageEndImpl <em>Message End</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.MessageEndImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageEnd()
-	 * @generated
-	 */
-	int MESSAGE_END = 16;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MessageOccurrenceSpecificationImpl <em>Message Occurrence Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.MessageOccurrenceSpecificationImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageOccurrenceSpecification()
-	 * @generated
-	 */
-	int MESSAGE_OCCURRENCE_SPECIFICATION = 17;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.OccurrenceSpecificationImpl <em>Occurrence Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.OccurrenceSpecificationImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getOccurrenceSpecification()
-	 * @generated
-	 */
-	int OCCURRENCE_SPECIFICATION = 18;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.StateInvariantImpl <em>State Invariant</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.StateInvariantImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getStateInvariant()
-	 * @generated
-	 */
-	int STATE_INVARIANT = 19;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConstraintImpl <em>Constraint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.ConstraintImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConstraint()
-	 * @generated
-	 */
-	int CONSTRAINT = 20;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ValueSpecificationImpl <em>Value Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.ValueSpecificationImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getValueSpecification()
-	 * @generated
-	 */
-	int VALUE_SPECIFICATION = 21;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.OpaqueExpressionImpl <em>Opaque Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.OpaqueExpressionImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getOpaqueExpression()
-	 * @generated
-	 */
-	int OPAQUE_EXPRESSION = 22;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConnectorEndImpl <em>Connector End</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.ConnectorEndImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConnectorEnd()
-	 * @generated
-	 */
-	int CONNECTOR_END = 27;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.EventImpl <em>Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.EventImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getEvent()
-	 * @generated
-	 */
-	int EVENT = 31;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MessageEventImpl <em>Message Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.MessageEventImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageEvent()
-	 * @generated
-	 */
-	int MESSAGE_EVENT = 30;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.CallEventImpl <em>Call Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.CallEventImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getCallEvent()
-	 * @generated
-	 */
-	int CALL_EVENT = 28;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.BehavioralFeatureImpl <em>Behavioral Feature</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.BehavioralFeatureImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getBehavioralFeature()
-	 * @generated
-	 */
-	int BEHAVIORAL_FEATURE = 33;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.OperationImpl <em>Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.OperationImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getOperation()
-	 * @generated
-	 */
-	int OPERATION = 29;
-
-	/**
-	 * The meta object id for the '{@link ModalSequenceDiagram.impl.EncapsulatedClassifierImpl <em>Encapsulated Classifier</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ModalSequenceDiagram.impl.EncapsulatedClassifierImpl
-	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getEncapsulatedClassifier()
-	 * @generated
-	 */
-	int ENCAPSULATED_CLASSIFIER = 47;
-
-	/**
 	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ClassImpl <em>Class</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -787,6 +537,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CLASS_OPERATION_COUNT = BEHAVIORED_CLASSIFIER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.BehaviorImpl <em>Behavior</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.BehaviorImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getBehavior()
+	 * @generated
+	 */
+	int BEHAVIOR = 9;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -848,6 +608,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int BEHAVIOR_OPERATION_COUNT = CLASS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.InteractionImpl <em>Interaction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.InteractionImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteraction()
+	 * @generated
+	 */
+	int INTERACTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -994,6 +764,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int INTERACTION_OPERATION_COUNT = BEHAVIOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.RedefinableElementImpl <em>Redefinable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.RedefinableElementImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getRedefinableElement()
+	 * @generated
+	 */
+	int REDEFINABLE_ELEMENT = 25;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1021,6 +801,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int REDEFINABLE_ELEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.FeatureImpl <em>Feature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.FeatureImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getFeature()
+	 * @generated
+	 */
+	int FEATURE = 26;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1046,6 +836,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int FEATURE_OPERATION_COUNT = REDEFINABLE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConnectorImpl <em>Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ConnectorImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConnector()
+	 * @generated
+	 */
+	int CONNECTOR = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1082,6 +882,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONNECTOR_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.LifelineImpl <em>Lifeline</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.LifelineImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getLifeline()
+	 * @generated
+	 */
+	int LIFELINE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1156,6 +966,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int LIFELINE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.InteractionFragmentImpl <em>Interaction Fragment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.InteractionFragmentImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getInteractionFragment()
+	 * @generated
+	 */
+	int INTERACTION_FRAGMENT = 12;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1219,6 +1039,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int INTERACTION_FRAGMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.TypedElementImpl <em>Typed Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.TypedElementImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getTypedElement()
+	 * @generated
+	 */
+	int TYPED_ELEMENT = 24;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1253,6 +1083,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPED_ELEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConnectableElementImpl <em>Connectable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ConnectableElementImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConnectableElement()
+	 * @generated
+	 */
+	int CONNECTABLE_ELEMENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1291,6 +1131,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CONNECTABLE_ELEMENT_OPERATION_COUNT = TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.PropertyImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 14;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1325,6 +1175,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPERATION_COUNT = CONNECTABLE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MessageImpl <em>Message</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.MessageImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessage()
+	 * @generated
+	 */
+	int MESSAGE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1426,6 +1286,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int MESSAGE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MessageEndImpl <em>Message End</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.MessageEndImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageEnd()
+	 * @generated
+	 */
+	int MESSAGE_END = 16;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1460,6 +1330,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int MESSAGE_END_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MessageOccurrenceSpecificationImpl <em>Message Occurrence Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.MessageOccurrenceSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageOccurrenceSpecification()
+	 * @generated
+	 */
+	int MESSAGE_OCCURRENCE_SPECIFICATION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1552,6 +1432,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int MESSAGE_OCCURRENCE_SPECIFICATION_OPERATION_COUNT = MESSAGE_END_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.OccurrenceSpecificationImpl <em>Occurrence Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.OccurrenceSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getOccurrenceSpecification()
+	 * @generated
+	 */
+	int OCCURRENCE_SPECIFICATION = 18;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1633,6 +1523,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int OCCURRENCE_SPECIFICATION_OPERATION_COUNT = INTERACTION_FRAGMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.StateInvariantImpl <em>State Invariant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.StateInvariantImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getStateInvariant()
+	 * @generated
+	 */
+	int STATE_INVARIANT = 19;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1705,6 +1605,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int STATE_INVARIANT_OPERATION_COUNT = INTERACTION_FRAGMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConstraintImpl <em>Constraint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ConstraintImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConstraint()
+	 * @generated
+	 */
+	int CONSTRAINT = 20;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1741,6 +1651,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CONSTRAINT_OPERATION_COUNT = PACKAGEABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ValueSpecificationImpl <em>Value Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ValueSpecificationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getValueSpecification()
+	 * @generated
+	 */
+	int VALUE_SPECIFICATION = 21;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1766,6 +1686,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_SPECIFICATION_OPERATION_COUNT = PACKAGEABLE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.OpaqueExpressionImpl <em>Opaque Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.OpaqueExpressionImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getOpaqueExpression()
+	 * @generated
+	 */
+	int OPAQUE_EXPRESSION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1804,6 +1734,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int OPAQUE_EXPRESSION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.ConnectorEndImpl <em>Connector End</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.ConnectorEndImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getConnectorEnd()
+	 * @generated
+	 */
+	int CONNECTOR_END = 27;
+
+	/**
 	 * The feature id for the '<em><b>Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1829,6 +1769,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONNECTOR_END_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.EventImpl <em>Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.EventImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getEvent()
+	 * @generated
+	 */
+	int EVENT = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1858,6 +1808,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int EVENT_OPERATION_COUNT = PACKAGEABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.MessageEventImpl <em>Message Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.MessageEventImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getMessageEvent()
+	 * @generated
+	 */
+	int MESSAGE_EVENT = 30;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1883,6 +1843,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int MESSAGE_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.CallEventImpl <em>Call Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.CallEventImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getCallEvent()
+	 * @generated
+	 */
+	int CALL_EVENT = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1921,6 +1891,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CALL_EVENT_OPERATION_COUNT = MESSAGE_EVENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.BehavioralFeatureImpl <em>Behavioral Feature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.BehavioralFeatureImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getBehavioralFeature()
+	 * @generated
+	 */
+	int BEHAVIORAL_FEATURE = 33;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1946,6 +1926,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int BEHAVIORAL_FEATURE_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.OperationImpl <em>Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.OperationImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getOperation()
+	 * @generated
+	 */
+	int OPERATION = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3320,6 +3310,16 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPECIFICATION_PART_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ModalSequenceDiagram.impl.EncapsulatedClassifierImpl <em>Encapsulated Classifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ModalSequenceDiagram.impl.EncapsulatedClassifierImpl
+	 * @see ModalSequenceDiagram.impl.ModalSequenceDiagramPackageImpl#getEncapsulatedClassifier()
+	 * @generated
+	 */
+	int ENCAPSULATED_CLASSIFIER = 47;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

@@ -170,12 +170,12 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "toBeTranslatedNodes");
+						__packageDeclaration_actors_actor,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__packageDeclaration_actors_actor,
-						"toBeTranslatedEdges");
+						actor, "toBeTranslatedNodes");
 
 				// create link
 				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
@@ -235,11 +235,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		ActorToLifeline actorToLine = null;
 		Lifeline line = null;
 		PerformRuleResult ruleresult = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge actorToLine__source__actor = null;
 		EMoflonEdge actorToLine__target__line = null;
 		EMoflonEdge interaction__lifeline__line = null;
 		EMoflonEdge line__interaction__interaction = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
 
 		// story node 'perform transformation'
 		try {
@@ -332,15 +332,15 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					actorToLine, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					actor, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					line, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -429,6 +429,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects packageDeclarationToP and packageDeclaration 
 			JavaSDM.ensure(!packageDeclarationToP.equals(packageDeclaration));
 
+			// create object __packageDeclaration_actors_actor
+			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object actorToLine__source__actor
 			actorToLine__source__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
@@ -445,10 +449,6 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			line__interaction__interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __packageDeclaration_actors_actor
-			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// assign attribute ruleresult
 			ruleresult.setRuleName("ActorToLifelineRule");
 			// assign attribute __packageDeclaration_actors_actor
@@ -461,6 +461,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			line__interaction__interaction.setName("interaction");
 			// assign attribute interaction__lifeline__line
 			interaction__lifeline__line.setName("lifeline");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__packageDeclaration_actors_actor, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -479,10 +483,6 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 					line__interaction__interaction, "createdEdges");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__packageDeclaration_actors_actor, "translatedEdges");
-
-			// create link
 			__packageDeclaration_actors_actor.setSrc(packageDeclaration);
 
 			// create link
@@ -495,10 +495,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			interaction__lifeline__line.setTrg(line);
 
 			// create link
-			actorToLine__target__line.setTrg(line);
+			line__interaction__interaction.setSrc(line);
 
 			// create link
-			line__interaction__interaction.setSrc(line);
+			actorToLine__target__line.setTrg(line);
 
 			// create link
 			actorToLine__target__line.setSrc(actorToLine);
@@ -540,10 +540,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Actor actor = null;
 		PackageDeclaration packageDeclaration = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge __packageDeclarationToP_source_packageDeclaration = null;
-		EMoflonEdge __packageDeclarationToP_target_p = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge __p_packagedElement_interaction = null;
+		EMoflonEdge __packageDeclarationToP_target_p = null;
 		CSP csp = null;
 		Iterator fujaba__IterPToInteraction = null;
 		Interaction interaction = null;
@@ -681,20 +681,20 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 										.createIsApplicableMatch();
 
-								// create object __packageDeclaration_actors_actor
-								__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
 								// create object __packageDeclarationToP_source_packageDeclaration
 								__packageDeclarationToP_source_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object __packageDeclarationToP_target_p
-								__packageDeclarationToP_target_p = TGGRuntimeFactory.eINSTANCE
+								// create object __packageDeclaration_actors_actor
+								__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __p_packagedElement_interaction
 								__p_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __packageDeclarationToP_target_p
+								__packageDeclarationToP_target_p = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// assign attribute __packageDeclaration_actors_actor
@@ -715,22 +715,22 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 										packageDeclaration);
 
 								// create link
-								__packageDeclaration_actors_actor
-										.setSrc(packageDeclaration);
-
-								// create link
 								__packageDeclarationToP_source_packageDeclaration
 										.setTrg(packageDeclaration);
 
 								// create link
-								isApplicableMatch.getAllContextElements()
-										.add(p);
+								__packageDeclaration_actors_actor
+										.setSrc(packageDeclaration);
+
+								// create link
+								__p_packagedElement_interaction.setSrc(p);
 
 								// create link
 								__packageDeclarationToP_target_p.setTrg(p);
 
 								// create link
-								__p_packagedElement_interaction.setSrc(p);
+								isApplicableMatch.getAllContextElements()
+										.add(p);
 
 								// create link
 								__packageDeclarationToP_source_packageDeclaration
@@ -745,19 +745,19 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 										.setSrc(packageDeclarationToP);
 
 								// create link
-								__packageDeclaration_actors_actor.setTrg(actor);
-
-								// create link
 								isApplicableMatch.getAllContextElements().add(
 										actor);
 
 								// create link
-								__p_packagedElement_interaction
-										.setTrg(interaction);
+								__packageDeclaration_actors_actor.setTrg(actor);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										interaction);
+
+								// create link
+								__p_packagedElement_interaction
+										.setTrg(interaction);
 
 								// create link
 								org.moflon.util.eMoflonEMFUtil
@@ -1005,8 +1005,8 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __line_interaction_interaction = null;
 		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge __line_interaction_interaction = null;
 		EMoflonEdge __p_packagedElement_interaction = null;
 
 		// story node 'initial bindings'
@@ -1056,12 +1056,12 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(match != null);
 				// check object p is really bound
 				JavaSDM.ensure(p != null);
-				// create object __line_interaction_interaction
-				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __interaction_lifeline_line
 				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __line_interaction_interaction
+				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __line_interaction_interaction
@@ -1071,7 +1071,7 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_interaction_interaction, "toBeTranslatedEdges");
+						__interaction_lifeline_line, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1079,13 +1079,13 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_lifeline_line, "toBeTranslatedEdges");
-
-				// create link
-				__interaction_lifeline_line.setTrg(line);
+						__line_interaction_interaction, "toBeTranslatedEdges");
 
 				// create link
 				__line_interaction_interaction.setSrc(line);
+
+				// create link
+				__interaction_lifeline_line.setTrg(line);
 
 				// create link
 				__line_interaction_interaction.setTrg(interaction);
@@ -1118,16 +1118,16 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				__p_packagedElement_interaction.setName("packagedElement");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "contextNodes");
-
-				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match, p,
 						"contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__p_packagedElement_interaction, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						interaction, "contextNodes");
 
 				// create link
 				__p_packagedElement_interaction.setSrc(p);
@@ -1169,10 +1169,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		ActorToLifeline actorToLine = null;
 		PerformRuleResult ruleresult = null;
 		EMoflonEdge actorToLine__source__actor = null;
-		EMoflonEdge __line_interaction_interaction = null;
 		EMoflonEdge packageDeclaration__actors__actor = null;
-		EMoflonEdge actorToLine__target__line = null;
 		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge actorToLine__target__line = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1366,20 +1366,20 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			actorToLine__source__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __line_interaction_interaction
-			__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object packageDeclaration__actors__actor
 			packageDeclaration__actors__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object actorToLine__target__line
-			actorToLine__target__line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __interaction_lifeline_line
 			__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __line_interaction_interaction
+			__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object actorToLine__target__line
+			actorToLine__target__line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1401,31 +1401,28 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_interaction_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					packageDeclaration__actors__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine__target__line, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__interaction_lifeline_line, "translatedEdges");
 
 			// create link
-			packageDeclaration__actors__actor.setSrc(packageDeclaration);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__line_interaction_interaction, "translatedEdges");
 
 			// create link
-			packageDeclaration__actors__actor.setTrg(actor);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					actorToLine__target__line, "createdEdges");
+
+			// create link
+			packageDeclaration__actors__actor.setSrc(packageDeclaration);
 
 			// create link
 			actorToLine__source__actor.setTrg(actor);
 
 			// create link
-			__line_interaction_interaction.setSrc(line);
+			packageDeclaration__actors__actor.setTrg(actor);
 
 			// create link
 			__interaction_lifeline_line.setTrg(line);
@@ -1434,16 +1431,19 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			actorToLine__target__line.setTrg(line);
 
 			// create link
-			actorToLine__source__actor.setSrc(actorToLine);
+			__line_interaction_interaction.setSrc(line);
 
 			// create link
 			actorToLine__target__line.setSrc(actorToLine);
 
 			// create link
-			__interaction_lifeline_line.setSrc(interaction);
+			actorToLine__source__actor.setSrc(actorToLine);
 
 			// create link
 			__line_interaction_interaction.setTrg(interaction);
+
+			// create link
+			__interaction_lifeline_line.setSrc(interaction);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1659,6 +1659,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						__packageDeclarationToP_target_p.setTrg(p);
 
 						// create link
+						__packageDeclarationToP_target_p
+								.setSrc(packageDeclarationToP);
+
+						// create link
 						isApplicableMatch.getAllContextElements().add(
 								packageDeclarationToP);
 
@@ -1667,14 +1671,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 								.setSrc(packageDeclarationToP);
 
 						// create link
-						__packageDeclarationToP_target_p
-								.setSrc(packageDeclarationToP);
+						__interaction_lifeline_line.setTrg(line);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(line);
-
-						// create link
-						__interaction_lifeline_line.setTrg(line);
 
 						// create link
 						__line_interaction_interaction.setSrc(line);
@@ -1683,14 +1683,20 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						__line_interaction_interaction.setTrg(interaction);
 
 						// create link
-						__interaction_lifeline_line.setSrc(interaction);
+						__p_packagedElement_interaction.setTrg(interaction);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(
 								interaction);
 
 						// create link
-						__p_packagedElement_interaction.setTrg(interaction);
+						__interaction_lifeline_line.setSrc(interaction);
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__packageDeclarationToP_target_p,
+								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -1699,10 +1705,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 								"allContextElements");
 
 						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__packageDeclarationToP_target_p,
-								"allContextElements");
+						org.moflon.util.eMoflonEMFUtil
+								.addOppositeReference(
+										isApplicableMatch,
+										__packageDeclarationToP_source_packageDeclaration,
+										"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -1714,13 +1721,6 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 								isApplicableMatch,
 								__line_interaction_interaction,
 								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__packageDeclarationToP_source_packageDeclaration,
-										"allContextElements");
 						// story node 'solve CSP'
 						try {
 							fujaba__Success = false;
@@ -1937,7 +1937,7 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_842423 = null;
+		PackageDeclaration __DEC_actor_actors_99825 = null;
 		Match match = null;
 		Actor actor = null;
 		PackageDeclaration packageDeclaration = null;
@@ -2015,18 +2015,18 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_actor_actors_842423 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+					__DEC_actor_actors_99825 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
 							.eContainer() : null;
 
-					// check object __DEC_actor_actors_842423 is really bound
-					JavaSDM.ensure(__DEC_actor_actors_842423 != null);
+					// check object __DEC_actor_actors_99825 is really bound
+					JavaSDM.ensure(__DEC_actor_actors_99825 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_actor_actors_842423.getActors()
+					JavaSDM.ensure(__DEC_actor_actors_99825.getActors()
 							.contains(actor));
 
-					// check isomorphic binding between objects __DEC_actor_actors_842423 and packageDeclaration 
-					JavaSDM.ensure(!__DEC_actor_actors_842423
+					// check isomorphic binding between objects __DEC_actor_actors_99825 and packageDeclaration 
+					JavaSDM.ensure(!__DEC_actor_actors_99825
 							.equals(packageDeclaration));
 
 					fujaba__Success = true;

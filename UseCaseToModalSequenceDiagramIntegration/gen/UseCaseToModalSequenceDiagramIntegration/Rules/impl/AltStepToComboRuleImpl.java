@@ -114,15 +114,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isAppropriate_FWD(Match match, NormalStep step,
 			AlternativeFlowAlternative alt, AlternativeFlow altFlow,
-			UseCase useCase, Flow flow, Actor actor) {
+			UseCase useCase, Flow flow, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
+		EMoflonEdge __alt_ref_altFlow = null;
 		EMoflonEdge __step_stepAlternative_alt = null;
 		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge __alt_ref_altFlow = null;
 		EMoflonEdge __step_actor_actor = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 
 		// story node 'initial bindings'
 		try {
@@ -138,6 +141,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(flow != null);
 			// check object match is really bound
 			JavaSDM.ensure(match != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object step is really bound
 			JavaSDM.ensure(step != null);
 			// check object useCase is really bound
@@ -155,7 +160,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 
 			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, step, alt,
-					altFlow, useCase, flow, actor));
+					altFlow, useCase, flow, actor, packageDeclaration));
 
 			// ensure correct type and really bound of object csp
 			JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -182,6 +187,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -189,16 +196,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects flow and altFlow 
 				JavaSDM.ensure(!flow.equals(altFlow));
 
+				// create object __alt_ref_altFlow
+				__alt_ref_altFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __step_stepAlternative_alt
 				__step_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __flow_steps_step
 				__flow_steps_step = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __alt_ref_altFlow
-				__alt_ref_altFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __step_actor_actor
@@ -216,19 +223,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						altFlow, "toBeTranslatedNodes");
+						__alt_ref_altFlow, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__step_stepAlternative_alt, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						step, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_step, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match, alt,
@@ -236,11 +235,22 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__alt_ref_altFlow, "toBeTranslatedEdges");
+						step, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						altFlow, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__flow_steps_step, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__step_actor_actor, "toBeTranslatedEdges");
+
+				// create link
+				__step_actor_actor.setSrc(step);
 
 				// create link
 				__step_stepAlternative_alt.setSrc(step);
@@ -249,13 +259,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				__flow_steps_step.setTrg(step);
 
 				// create link
-				__step_actor_actor.setSrc(step);
+				__alt_ref_altFlow.setSrc(alt);
 
 				// create link
 				__step_stepAlternative_alt.setTrg(alt);
-
-				// create link
-				__alt_ref_altFlow.setSrc(alt);
 
 				// create link
 				__alt_ref_altFlow.setTrg(altFlow);
@@ -285,6 +292,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -292,12 +301,32 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects flow and altFlow 
 				JavaSDM.ensure(!flow.equals(altFlow));
 
+				// create object __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __useCase_flows_flow
 				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// assign attribute __useCase_flows_flow
 				__useCase_flows_flow.setName("flows");
+				// assign attribute __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor.setName("actors");
+				// assign attribute __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase.setName("useCases");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_useCases_useCase, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						packageDeclaration, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -305,11 +334,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						useCase, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						actor, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
+						__packageDeclaration_actors_actor, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -319,7 +352,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				__useCase_flows_flow.setSrc(useCase);
 
 				// create link
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
+
+				// create link
 				__useCase_flows_flow.setTrg(flow);
+
+				// create link
+				__packageDeclaration_actors_actor.setTrg(actor);
+
+				// create link
+				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
+
+				// create link
+				__packageDeclaration_useCases_useCase
+						.setSrc(packageDeclaration);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -328,7 +374,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// statement node 'register objects to match'
 			this.registerObjectsToMatch_FWD(match, step, alt, altFlow, useCase,
-					flow, actor);
+					flow, actor, packageDeclaration);
 			return true;
 
 		} else {
@@ -352,6 +398,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Flow flow = null;
 		Interaction interaction = null;
 		Lifeline line = null;
+		PackageDeclaration packageDeclaration = null;
 		NormalStep step = null;
 		UseCase useCase = null;
 		UseCaseToInteraction useCaseToInteraction = null;
@@ -369,33 +416,33 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Message message = null;
 		MessageOccurrenceSpecification messageSend = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge stepToCombo__source__step = null;
-		EMoflonEdge interaction__message__message = null;
-		EMoflonEdge message__receiveEvent__messageReceive = null;
-		EMoflonEdge message__sendEvent__messageSend = null;
-		EMoflonEdge message__interaction__interaction = null;
-		EMoflonEdge combo__operand__operand = null;
-		EMoflonEdge alternative1ToOperand__target__operand = null;
-		EMoflonEdge line__coveredBy__messageReceive = null;
-		EMoflonEdge alternative1ToOperand__source__alt = null;
-		EMoflonEdge line__coveredBy__combo = null;
-		EMoflonEdge stepToMessage__source__step = null;
-		EMoflonEdge __step_stepAlternative_alt = null;
-		EMoflonEdge messageSend__message__message = null;
-		EMoflonEdge operand__guard__guard = null;
-		EMoflonEdge altFlowToOperand__source__altFlow = null;
-		EMoflonEdge __step_actor_actor = null;
-		EMoflonEdge combo__covered__line = null;
-		EMoflonEdge guard__specification__spec = null;
-		EMoflonEdge stepToCombo__target__combo = null;
-		EMoflonEdge operand__covered__line = null;
-		EMoflonEdge messageReceive__message__message = null;
-		EMoflonEdge __alt_ref_altFlow = null;
-		EMoflonEdge messageReceive__covered__line = null;
-		EMoflonEdge line__coveredBy__operand = null;
-		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge altFlowToOperand__target__operand = null;
 		EMoflonEdge stepToMessage__target__message = null;
+		EMoflonEdge combo__operand__operand = null;
+		EMoflonEdge messageReceive__message__message = null;
+		EMoflonEdge line__coveredBy__combo = null;
+		EMoflonEdge alternative1ToOperand__source__alt = null;
+		EMoflonEdge __alt_ref_altFlow = null;
+		EMoflonEdge alternative1ToOperand__target__operand = null;
+		EMoflonEdge stepToCombo__source__step = null;
+		EMoflonEdge __step_actor_actor = null;
+		EMoflonEdge stepToMessage__source__step = null;
+		EMoflonEdge operand__guard__guard = null;
+		EMoflonEdge guard__specification__spec = null;
+		EMoflonEdge operand__covered__line = null;
+		EMoflonEdge stepToCombo__target__combo = null;
+		EMoflonEdge interaction__message__message = null;
+		EMoflonEdge messageSend__message__message = null;
+		EMoflonEdge message__sendEvent__messageSend = null;
+		EMoflonEdge messageReceive__covered__line = null;
+		EMoflonEdge line__coveredBy__messageReceive = null;
+		EMoflonEdge message__receiveEvent__messageReceive = null;
+		EMoflonEdge line__coveredBy__operand = null;
+		EMoflonEdge altFlowToOperand__target__operand = null;
+		EMoflonEdge message__interaction__interaction = null;
+		EMoflonEdge __flow_steps_step = null;
+		EMoflonEdge altFlowToOperand__source__altFlow = null;
+		EMoflonEdge __step_stepAlternative_alt = null;
+		EMoflonEdge combo__covered__line = null;
 
 		// story node 'perform transformation'
 		try {
@@ -436,6 +483,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object line
 			JavaSDM.ensure(_TmpObject instanceof Lifeline);
 			line = (Lifeline) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (isApplicableMatch.getObject("step"));
 
 			// ensure correct type and really bound of object step
@@ -548,10 +600,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			stepToCombo.setTarget(combo);
 
 			// create link
-			messageReceive.getCovered().add(line);
+			operand.getCovered().add(line);
 
 			// create link
-			operand.getCovered().add(line);
+			messageReceive.getCovered().add(line);
 
 			// create link
 			operand.setGuard(guard); // add link to one
@@ -577,13 +629,13 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					messageReceive, "receiveEvent");
 
 			// create link
+			stepToMessage.setTarget(message);
+
+			// create link
 			messageReceive.setMessage(message);
 
 			// create link
 			messageSend.setMessage(message);
-
-			// create link
-			stepToMessage.setTarget(message);
 
 			// create link
 			interaction.getMessage().add(message);
@@ -633,7 +685,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive, "createdElements");
+					operand, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -641,15 +693,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					guard, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					alt, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					combo, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -657,7 +701,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					operand, "createdElements");
+					altFlow, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -665,15 +709,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					stepToCombo, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					combo, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -685,7 +725,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altFlow, "translatedElements");
+					messageReceive, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					guard, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToMessage, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -725,6 +777,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(messageSend != null);
 			// check object operand is really bound
 			JavaSDM.ensure(operand != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object ruleresult is really bound
 			JavaSDM.ensure(ruleresult != null);
 			// check object spec is really bound
@@ -780,6 +834,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects operand and actor 
 			JavaSDM.ensure(!operand.equals(actor));
+
+			// check isomorphic binding between objects packageDeclaration and actor 
+			JavaSDM.ensure(!packageDeclaration.equals(actor));
 
 			// check isomorphic binding between objects spec and actor 
 			JavaSDM.ensure(!spec.equals(actor));
@@ -838,6 +895,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and actorToLine 
 			JavaSDM.ensure(!operand.equals(actorToLine));
 
+			// check isomorphic binding between objects packageDeclaration and actorToLine 
+			JavaSDM.ensure(!packageDeclaration.equals(actorToLine));
+
 			// check isomorphic binding between objects spec and actorToLine 
 			JavaSDM.ensure(!spec.equals(actorToLine));
 
@@ -892,6 +952,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and alt 
 			JavaSDM.ensure(!operand.equals(alt));
 
+			// check isomorphic binding between objects packageDeclaration and alt 
+			JavaSDM.ensure(!packageDeclaration.equals(alt));
+
 			// check isomorphic binding between objects spec and alt 
 			JavaSDM.ensure(!spec.equals(alt));
 
@@ -943,6 +1006,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and altFlow 
 			JavaSDM.ensure(!operand.equals(altFlow));
 
+			// check isomorphic binding between objects packageDeclaration and altFlow 
+			JavaSDM.ensure(!packageDeclaration.equals(altFlow));
+
 			// check isomorphic binding between objects spec and altFlow 
 			JavaSDM.ensure(!spec.equals(altFlow));
 
@@ -991,6 +1057,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and altFlowToOperand 
 			JavaSDM.ensure(!operand.equals(altFlowToOperand));
 
+			// check isomorphic binding between objects packageDeclaration and altFlowToOperand 
+			JavaSDM.ensure(!packageDeclaration.equals(altFlowToOperand));
+
 			// check isomorphic binding between objects spec and altFlowToOperand 
 			JavaSDM.ensure(!spec.equals(altFlowToOperand));
 
@@ -1036,6 +1105,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and alternative1ToOperand 
 			JavaSDM.ensure(!operand.equals(alternative1ToOperand));
 
+			// check isomorphic binding between objects packageDeclaration and alternative1ToOperand 
+			JavaSDM.ensure(!packageDeclaration.equals(alternative1ToOperand));
+
 			// check isomorphic binding between objects spec and alternative1ToOperand 
 			JavaSDM.ensure(!spec.equals(alternative1ToOperand));
 
@@ -1078,6 +1150,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and combo 
 			JavaSDM.ensure(!operand.equals(combo));
 
+			// check isomorphic binding between objects packageDeclaration and combo 
+			JavaSDM.ensure(!packageDeclaration.equals(combo));
+
 			// check isomorphic binding between objects spec and combo 
 			JavaSDM.ensure(!spec.equals(combo));
 
@@ -1117,6 +1192,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and flow 
 			JavaSDM.ensure(!operand.equals(flow));
 
+			// check isomorphic binding between objects packageDeclaration and flow 
+			JavaSDM.ensure(!packageDeclaration.equals(flow));
+
 			// check isomorphic binding between objects spec and flow 
 			JavaSDM.ensure(!spec.equals(flow));
 
@@ -1153,6 +1231,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and guard 
 			JavaSDM.ensure(!operand.equals(guard));
 
+			// check isomorphic binding between objects packageDeclaration and guard 
+			JavaSDM.ensure(!packageDeclaration.equals(guard));
+
 			// check isomorphic binding between objects spec and guard 
 			JavaSDM.ensure(!spec.equals(guard));
 
@@ -1186,6 +1267,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and interaction 
 			JavaSDM.ensure(!operand.equals(interaction));
 
+			// check isomorphic binding between objects packageDeclaration and interaction 
+			JavaSDM.ensure(!packageDeclaration.equals(interaction));
+
 			// check isomorphic binding between objects spec and interaction 
 			JavaSDM.ensure(!spec.equals(interaction));
 
@@ -1216,6 +1300,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and line 
 			JavaSDM.ensure(!operand.equals(line));
 
+			// check isomorphic binding between objects packageDeclaration and line 
+			JavaSDM.ensure(!packageDeclaration.equals(line));
+
 			// check isomorphic binding between objects spec and line 
 			JavaSDM.ensure(!spec.equals(line));
 
@@ -1243,6 +1330,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and message 
 			JavaSDM.ensure(!operand.equals(message));
 
+			// check isomorphic binding between objects packageDeclaration and message 
+			JavaSDM.ensure(!packageDeclaration.equals(message));
+
 			// check isomorphic binding between objects spec and message 
 			JavaSDM.ensure(!spec.equals(message));
 
@@ -1267,6 +1357,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and messageReceive 
 			JavaSDM.ensure(!operand.equals(messageReceive));
 
+			// check isomorphic binding between objects packageDeclaration and messageReceive 
+			JavaSDM.ensure(!packageDeclaration.equals(messageReceive));
+
 			// check isomorphic binding between objects spec and messageReceive 
 			JavaSDM.ensure(!spec.equals(messageReceive));
 
@@ -1288,6 +1381,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and messageSend 
 			JavaSDM.ensure(!operand.equals(messageSend));
 
+			// check isomorphic binding between objects packageDeclaration and messageSend 
+			JavaSDM.ensure(!packageDeclaration.equals(messageSend));
+
 			// check isomorphic binding between objects spec and messageSend 
 			JavaSDM.ensure(!spec.equals(messageSend));
 
@@ -1306,6 +1402,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and messageSend 
 			JavaSDM.ensure(!useCaseToInteraction.equals(messageSend));
 
+			// check isomorphic binding between objects packageDeclaration and operand 
+			JavaSDM.ensure(!packageDeclaration.equals(operand));
+
 			// check isomorphic binding between objects spec and operand 
 			JavaSDM.ensure(!spec.equals(operand));
 
@@ -1323,6 +1422,24 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCaseToInteraction and operand 
 			JavaSDM.ensure(!useCaseToInteraction.equals(operand));
+
+			// check isomorphic binding between objects spec and packageDeclaration 
+			JavaSDM.ensure(!spec.equals(packageDeclaration));
+
+			// check isomorphic binding between objects step and packageDeclaration 
+			JavaSDM.ensure(!step.equals(packageDeclaration));
+
+			// check isomorphic binding between objects stepToCombo and packageDeclaration 
+			JavaSDM.ensure(!stepToCombo.equals(packageDeclaration));
+
+			// check isomorphic binding between objects stepToMessage and packageDeclaration 
+			JavaSDM.ensure(!stepToMessage.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclaration 
+			JavaSDM.ensure(!useCase.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCaseToInteraction and packageDeclaration 
+			JavaSDM.ensure(!useCaseToInteraction.equals(packageDeclaration));
 
 			// check isomorphic binding between objects step and spec 
 			JavaSDM.ensure(!step.equals(spec));
@@ -1369,110 +1486,110 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and useCase 
 			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
 
-			// create object stepToCombo__source__step
-			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object interaction__message__message
-			interaction__message__message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object message__receiveEvent__messageReceive
-			message__receiveEvent__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object message__sendEvent__messageSend
-			message__sendEvent__messageSend = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object message__interaction__interaction
-			message__interaction__interaction = TGGRuntimeFactory.eINSTANCE
+			// create object stepToMessage__target__message
+			stepToMessage__target__message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object combo__operand__operand
 			combo__operand__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object alternative1ToOperand__target__operand
-			alternative1ToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object line__coveredBy__messageReceive
-			line__coveredBy__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object alternative1ToOperand__source__alt
-			alternative1ToOperand__source__alt = TGGRuntimeFactory.eINSTANCE
+			// create object messageReceive__message__message
+			messageReceive__message__message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object line__coveredBy__combo
 			line__coveredBy__combo = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object stepToMessage__source__step
-			stepToMessage__source__step = TGGRuntimeFactory.eINSTANCE
+			// create object alternative1ToOperand__source__alt
+			alternative1ToOperand__source__alt = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __step_stepAlternative_alt
-			__step_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
+			// create object __alt_ref_altFlow
+			__alt_ref_altFlow = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
+			// create object alternative1ToOperand__target__operand
+			alternative1ToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object messageSend__message__message
-			messageSend__message__message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object operand__guard__guard
-			operand__guard__guard = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object altFlowToOperand__source__altFlow
-			altFlowToOperand__source__altFlow = TGGRuntimeFactory.eINSTANCE
+			// create object stepToCombo__source__step
+			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __step_actor_actor
 			__step_actor_actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object combo__covered__line
-			combo__covered__line = TGGRuntimeFactory.eINSTANCE
+			// create object stepToMessage__source__step
+			stepToMessage__source__step = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object operand__guard__guard
+			operand__guard__guard = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object guard__specification__spec
 			guard__specification__spec = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object stepToCombo__target__combo
-			stepToCombo__target__combo = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object operand__covered__line
 			operand__covered__line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object messageReceive__message__message
-			messageReceive__message__message = TGGRuntimeFactory.eINSTANCE
+			// create object stepToCombo__target__combo
+			stepToCombo__target__combo = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __alt_ref_altFlow
-			__alt_ref_altFlow = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+			// create object interaction__message__message
+			interaction__message__message = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object messageSend__message__message
+			messageSend__message__message = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object message__sendEvent__messageSend
+			message__sendEvent__messageSend = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
 
 			// create object messageReceive__covered__line
 			messageReceive__covered__line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object line__coveredBy__messageReceive
+			line__coveredBy__messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object message__receiveEvent__messageReceive
+			message__receiveEvent__messageReceive = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object line__coveredBy__operand
 			line__coveredBy__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __flow_steps_step
-			__flow_steps_step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
 			// create object altFlowToOperand__target__operand
 			altFlowToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object stepToMessage__target__message
-			stepToMessage__target__message = TGGRuntimeFactory.eINSTANCE
+			// create object message__interaction__interaction
+			message__interaction__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __flow_steps_step
+			__flow_steps_step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
+			// create object altFlowToOperand__source__altFlow
+			altFlowToOperand__source__altFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __step_stepAlternative_alt
+			__step_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object combo__covered__line
+			combo__covered__line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1534,23 +1651,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__source__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__message__message, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__receiveEvent__messageReceive, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__sendEvent__messageSend, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__interaction__interaction, "createdEdges");
+					stepToMessage__target__message, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1558,15 +1659,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alternative1ToOperand__target__operand, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line__coveredBy__messageReceive, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alternative1ToOperand__source__alt, "createdEdges");
+					messageReceive__message__message, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1574,47 +1667,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage__source__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__step_stepAlternative_alt, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageSend__message__message, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					operand__guard__guard, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altFlowToOperand__source__altFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__step_actor_actor, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					combo__covered__line, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					guard__specification__spec, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__target__combo, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					operand__covered__line, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive__message__message, "createdEdges");
+					alternative1ToOperand__source__alt, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1622,7 +1675,59 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					alternative1ToOperand__target__operand, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToCombo__source__step, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__step_actor_actor, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToMessage__source__step, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					operand__guard__guard, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					guard__specification__spec, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					operand__covered__line, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToCombo__target__combo, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					interaction__message__message, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					messageSend__message__message, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message__sendEvent__messageSend, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					messageReceive__covered__line, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					line__coveredBy__messageReceive, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message__receiveEvent__messageReceive, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1630,33 +1735,42 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__flow_steps_step, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					altFlowToOperand__target__operand, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage__target__message, "createdEdges");
+					message__interaction__interaction, "createdEdges");
 
 			// create link
-			__step_actor_actor.setSrc(step);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__flow_steps_step, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					altFlowToOperand__source__altFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__step_stepAlternative_alt, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					combo__covered__line, "createdEdges");
 
 			// create link
 			stepToCombo__source__step.setTrg(step);
 
 			// create link
-			__step_stepAlternative_alt.setSrc(step);
+			stepToMessage__source__step.setTrg(step);
+
+			// create link
+			__step_actor_actor.setSrc(step);
 
 			// create link
 			__flow_steps_step.setTrg(step);
 
 			// create link
-			stepToMessage__source__step.setTrg(step);
-
-			// create link
-			alternative1ToOperand__source__alt.setTrg(alt);
+			__step_stepAlternative_alt.setSrc(step);
 
 			// create link
 			__alt_ref_altFlow.setSrc(alt);
@@ -1665,10 +1779,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			__step_stepAlternative_alt.setTrg(alt);
 
 			// create link
-			combo__operand__operand.setSrc(combo);
+			alternative1ToOperand__source__alt.setTrg(alt);
 
 			// create link
-			stepToCombo__target__combo.setTrg(combo);
+			combo__operand__operand.setSrc(combo);
 
 			// create link
 			combo__covered__line.setSrc(combo);
@@ -1677,28 +1791,40 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			line__coveredBy__combo.setTrg(combo);
 
 			// create link
-			line__coveredBy__operand.setSrc(line);
-
-			// create link
-			line__coveredBy__messageReceive.setSrc(line);
-
-			// create link
-			line__coveredBy__combo.setSrc(line);
-
-			// create link
-			messageReceive__covered__line.setTrg(line);
-
-			// create link
-			operand__covered__line.setTrg(line);
+			stepToCombo__target__combo.setTrg(combo);
 
 			// create link
 			combo__covered__line.setTrg(line);
 
 			// create link
-			stepToCombo__target__combo.setSrc(stepToCombo);
+			messageReceive__covered__line.setTrg(line);
+
+			// create link
+			line__coveredBy__messageReceive.setSrc(line);
+
+			// create link
+			operand__covered__line.setTrg(line);
+
+			// create link
+			line__coveredBy__operand.setSrc(line);
+
+			// create link
+			line__coveredBy__combo.setSrc(line);
 
 			// create link
 			stepToCombo__source__step.setSrc(stepToCombo);
+
+			// create link
+			stepToCombo__target__combo.setSrc(stepToCombo);
+
+			// create link
+			altFlowToOperand__target__operand.setTrg(operand);
+
+			// create link
+			operand__covered__line.setSrc(operand);
+
+			// create link
+			combo__operand__operand.setTrg(operand);
 
 			// create link
 			operand__guard__guard.setSrc(operand);
@@ -1707,23 +1833,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			line__coveredBy__operand.setTrg(operand);
 
 			// create link
-			operand__covered__line.setSrc(operand);
-
-			// create link
-			altFlowToOperand__target__operand.setTrg(operand);
-
-			// create link
 			alternative1ToOperand__target__operand.setTrg(operand);
-
-			// create link
-			combo__operand__operand.setTrg(operand);
-
-			// create link
-			alternative1ToOperand__source__alt.setSrc(alternative1ToOperand);
 
 			// create link
 			alternative1ToOperand__target__operand
 					.setSrc(alternative1ToOperand);
+
+			// create link
+			alternative1ToOperand__source__alt.setSrc(alternative1ToOperand);
 
 			// create link
 			guard__specification__spec.setSrc(guard);
@@ -1741,16 +1858,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			__alt_ref_altFlow.setTrg(altFlow);
 
 			// create link
-			altFlowToOperand__source__altFlow.setSrc(altFlowToOperand);
+			altFlowToOperand__target__operand.setSrc(altFlowToOperand);
 
 			// create link
-			altFlowToOperand__target__operand.setSrc(altFlowToOperand);
+			altFlowToOperand__source__altFlow.setSrc(altFlowToOperand);
 
 			// create link
 			__flow_steps_step.setSrc(flow);
 
 			// create link
-			interaction__message__message.setTrg(message);
+			messageReceive__message__message.setTrg(message);
 
 			// create link
 			message__interaction__interaction.setSrc(message);
@@ -1759,28 +1876,28 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			message__sendEvent__messageSend.setSrc(message);
 
 			// create link
-			messageReceive__message__message.setTrg(message);
-
-			// create link
 			stepToMessage__target__message.setTrg(message);
-
-			// create link
-			messageSend__message__message.setTrg(message);
 
 			// create link
 			message__receiveEvent__messageReceive.setSrc(message);
 
 			// create link
-			interaction__message__message.setSrc(interaction);
+			interaction__message__message.setTrg(message);
+
+			// create link
+			messageSend__message__message.setTrg(message);
 
 			// create link
 			message__interaction__interaction.setTrg(interaction);
 
 			// create link
-			stepToMessage__source__step.setSrc(stepToMessage);
+			interaction__message__message.setSrc(interaction);
 
 			// create link
 			stepToMessage__target__message.setSrc(stepToMessage);
+
+			// create link
+			stepToMessage__source__step.setSrc(stepToMessage);
 
 			// create link
 			message__sendEvent__messageSend.setTrg(messageSend);
@@ -1789,16 +1906,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			messageSend__message__message.setSrc(messageSend);
 
 			// create link
-			line__coveredBy__messageReceive.setTrg(messageReceive);
-
-			// create link
-			messageReceive__covered__line.setSrc(messageReceive);
-
-			// create link
 			message__receiveEvent__messageReceive.setTrg(messageReceive);
 
 			// create link
 			messageReceive__message__message.setSrc(messageReceive);
+
+			// create link
+			line__coveredBy__messageReceive.setTrg(messageReceive);
+
+			// create link
+			messageReceive__covered__line.setSrc(messageReceive);
 
 			// create link
 			__step_actor_actor.setTrg(actor);
@@ -1815,7 +1932,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				stepToCombo, operand, alternative1ToOperand, guard, spec,
 				altFlow, altFlowToOperand, useCase, useCaseToInteraction, flow,
 				message, interaction, stepToMessage, messageSend,
-				messageReceive, actor, actorToLine);
+				messageReceive, actor, actorToLine, packageDeclaration);
 		return ruleresult;
 	}
 
@@ -1835,20 +1952,23 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		AlternativeFlowAlternative alt = null;
 		AlternativeFlow altFlow = null;
 		Flow flow = null;
+		PackageDeclaration packageDeclaration = null;
 		NormalStep step = null;
 		UseCase useCase = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __step_actor_actor = null;
 		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __step_stepAlternative_alt = null;
+		EMoflonEdge __step_actor_actor = null;
 		EMoflonEdge __alt_ref_altFlow = null;
-		EMoflonEdge __actorToLine_target_line = null;
-		EMoflonEdge __interaction_lifeline_line = null;
 		EMoflonEdge __line_interaction_interaction = null;
-		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge __actorToLine_target_line = null;
 		EMoflonEdge __useCaseToInteraction_source_useCase = null;
+		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __useCaseToInteraction_target_interaction = null;
 		EMoflonEdge __actorToLine_source_actor = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 		CSP csp = null;
 		Interaction interaction = null;
 		Iterator fujaba__IterUseCaseToUseCaseToInteraction = null;
@@ -1931,6 +2051,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object flow
 			JavaSDM.ensure(_TmpObject instanceof Flow);
 			flow = (Flow) _TmpObject;
+			_TmpObject = (match.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (match.getObject("step"));
 
 			// ensure correct type and really bound of object step
@@ -2006,6 +2131,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(interaction != null);
 								// check object line is really bound
 								JavaSDM.ensure(line != null);
+								// check object packageDeclaration is really bound
+								JavaSDM.ensure(packageDeclaration != null);
 								// check object step is really bound
 								JavaSDM.ensure(step != null);
 								// check object useCase is really bound
@@ -2024,6 +2151,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 								// check link ref from alt to altFlow
 								JavaSDM.ensure(altFlow.equals(alt.getRef()));
+
+								// check link actors from actor to packageDeclaration
+								JavaSDM.ensure(packageDeclaration.equals(actor
+										.eContainer()));
 
 								// check link flows from flow to useCase
 								JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -2052,13 +2183,13 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										.equals(useCaseToInteraction
 												.getTarget()));
 
+								// check link useCases from useCase to packageDeclaration
+								JavaSDM.ensure(packageDeclaration
+										.equals(useCase.eContainer()));
+
 								// create object isApplicableMatch
 								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 										.createIsApplicableMatch();
-
-								// create object __step_actor_actor
-								__step_actor_actor = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
 
 								// create object __flow_steps_step
 								__flow_steps_step = TGGRuntimeFactory.eINSTANCE
@@ -2068,28 +2199,36 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								__step_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
+								// create object __step_actor_actor
+								__step_actor_actor = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
 								// create object __alt_ref_altFlow
 								__alt_ref_altFlow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __actorToLine_target_line
-								__actorToLine_target_line = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __interaction_lifeline_line
-								__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __line_interaction_interaction
 								__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object __useCase_flows_flow
-								__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
+								// create object __interaction_lifeline_line
+								__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __actorToLine_target_line
+								__actorToLine_target_line = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __useCaseToInteraction_source_useCase
 								__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __useCase_flows_flow
+								__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __packageDeclaration_useCases_useCase
+								__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __useCaseToInteraction_target_interaction
@@ -2098,6 +2237,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 								// create object __actorToLine_source_actor
 								__actorToLine_source_actor = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __packageDeclaration_actors_actor
+								__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// assign attribute __step_stepAlternative_alt
@@ -2126,19 +2269,25 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								__actorToLine_source_actor.setName("source");
 								// assign attribute __actorToLine_target_line
 								__actorToLine_target_line.setName("target");
+								// assign attribute __packageDeclaration_actors_actor
+								__packageDeclaration_actors_actor
+										.setName("actors");
+								// assign attribute __packageDeclaration_useCases_useCase
+								__packageDeclaration_useCases_useCase
+										.setName("useCases");
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										step);
 
 								// create link
-								__step_actor_actor.setSrc(step);
-
-								// create link
 								__flow_steps_step.setTrg(step);
 
 								// create link
 								__step_stepAlternative_alt.setSrc(step);
+
+								// create link
+								__step_actor_actor.setSrc(step);
 
 								// create link
 								__alt_ref_altFlow.setSrc(alt);
@@ -2151,35 +2300,43 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										alt);
 
 								// create link
-								__actorToLine_target_line.setTrg(line);
-
-								// create link
-								__interaction_lifeline_line.setTrg(line);
+								isApplicableMatch.getAllContextElements().add(
+										line);
 
 								// create link
 								__line_interaction_interaction.setSrc(line);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										line);
+								__interaction_lifeline_line.setTrg(line);
+
+								// create link
+								__actorToLine_target_line.setTrg(line);
+
+								// create link
+								__alt_ref_altFlow.setTrg(altFlow);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										altFlow);
 
 								// create link
-								__alt_ref_altFlow.setTrg(altFlow);
+								__useCaseToInteraction_source_useCase
+										.setTrg(useCase);
 
 								// create link
 								__useCase_flows_flow.setSrc(useCase);
 
 								// create link
-								__useCaseToInteraction_source_useCase
+								__packageDeclaration_useCases_useCase
 										.setTrg(useCase);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										useCase);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										useCaseToInteraction);
 
 								// create link
 								__useCaseToInteraction_target_interaction
@@ -2191,21 +2348,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
-										useCaseToInteraction);
-
-								// create link
-								__flow_steps_step.setSrc(flow);
+										flow);
 
 								// create link
 								__useCase_flows_flow.setTrg(flow);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										flow);
+								__flow_steps_step.setSrc(flow);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										interaction);
+								__interaction_lifeline_line.setSrc(interaction);
 
 								// create link
 								__useCaseToInteraction_target_interaction
@@ -2216,10 +2368,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										.setTrg(interaction);
 
 								// create link
-								__interaction_lifeline_line.setSrc(interaction);
+								isApplicableMatch.getAllContextElements().add(
+										interaction);
 
 								// create link
 								__actorToLine_source_actor.setTrg(actor);
+
+								// create link
+								__packageDeclaration_actors_actor.setTrg(actor);
 
 								// create link
 								__step_actor_actor.setTrg(actor);
@@ -2239,6 +2395,39 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								__actorToLine_target_line.setSrc(actorToLine);
 
 								// create link
+								__packageDeclaration_actors_actor
+										.setSrc(packageDeclaration);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										packageDeclaration);
+
+								// create link
+								__packageDeclaration_useCases_useCase
+										.setSrc(packageDeclaration);
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__actorToLine_source_actor,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__packageDeclaration_useCases_useCase,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__packageDeclaration_actors_actor,
+												"allContextElements");
+
+								// create link
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
@@ -2249,7 +2438,42 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
+												__flow_steps_step,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__useCaseToInteraction_target_interaction,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__step_stepAlternative_alt,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__useCaseToInteraction_source_useCase,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
 												__actorToLine_target_line,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__step_actor_actor,
 												"allContextElements");
 
 								// create link
@@ -2270,49 +2494,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__step_actor_actor,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
 												__interaction_lifeline_line,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__flow_steps_step,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__step_stepAlternative_alt,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__actorToLine_source_actor,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCaseToInteraction_source_useCase,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCaseToInteraction_target_interaction,
 												"allContextElements");
 								// story node 'solve CSP'
 								try {
@@ -2325,7 +2507,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													useCase,
 													useCaseToInteraction, flow,
 													interaction, actor,
-													actorToLine));
+													actorToLine,
+													packageDeclaration));
 
 									// ensure correct type and really bound of object csp
 									JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -2398,13 +2581,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 */
 	public void registerObjectsToMatch_FWD(Match match, NormalStep step,
 			AlternativeFlowAlternative alt, AlternativeFlow altFlow,
-			UseCase useCase, Flow flow, Actor actor) {
+			UseCase useCase, Flow flow, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		match.registerObject("step", step);
 		match.registerObject("alt", alt);
 		match.registerObject("altFlow", altFlow);
 		match.registerObject("useCase", useCase);
 		match.registerObject("flow", flow);
 		match.registerObject("actor", actor);
+		match.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -2415,7 +2600,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, NormalStep step,
 			AlternativeFlowAlternative alt, AlternativeFlow altFlow,
-			UseCase useCase, Flow flow, Actor actor) {
+			UseCase useCase, Flow flow, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
@@ -2451,7 +2637,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			NormalStep step, AlternativeFlowAlternative alt, Lifeline line,
 			AlternativeFlow altFlow, UseCase useCase,
 			UseCaseToInteraction useCaseToInteraction, Flow flow,
-			Interaction interaction, Actor actor, ActorToLifeline actorToLine) {
+			Interaction interaction, Actor actor, ActorToLifeline actorToLine,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -2525,6 +2712,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("interaction", interaction);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -2549,7 +2738,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			EObject useCase, EObject useCaseToInteraction, EObject flow,
 			EObject message, EObject interaction, EObject stepToMessage,
 			EObject messageSend, EObject messageReceive, EObject actor,
-			EObject actorToLine) {
+			EObject actorToLine, EObject packageDeclaration) {
 		ruleresult.registerObject("step", step);
 		ruleresult.registerObject("alt", alt);
 		ruleresult.registerObject("combo", combo);
@@ -2572,6 +2761,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		ruleresult.registerObject("messageReceive", messageReceive);
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("actorToLine", actorToLine);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -2610,23 +2800,23 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __operand_covered_line = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __combo_covered_line = null;
-		EMoflonEdge __line_coveredBy_combo = null;
-		EMoflonEdge __message_sendEvent_messageSend = null;
+		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __combo_operand_operand = null;
+		EMoflonEdge __messageReceive_covered_line = null;
+		EMoflonEdge __interaction_message_message = null;
+		EMoflonEdge __message_sendEvent_messageSend = null;
+		EMoflonEdge __combo_covered_line = null;
 		EMoflonEdge __guard_specification_spec = null;
+		EMoflonEdge __operand_covered_line = null;
+		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __line_coveredBy_combo = null;
+		EMoflonEdge __line_coveredBy_operand = null;
+		EMoflonEdge __messageSend_message_message = null;
 		EMoflonEdge __line_coveredBy_messageReceive = null;
 		EMoflonEdge __operand_guard_guard = null;
-		EMoflonEdge __combo_operand_operand = null;
-		EMoflonEdge __messageSend_message_message = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge __line_coveredBy_operand = null;
-		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge __interaction_lifeline_line = null;
 		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge __interaction_lifeline_line = null;
 
 		// story node 'initial bindings'
 		try {
@@ -2706,36 +2896,56 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-				// create object __operand_covered_line
-				__operand_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageReceive_covered_line
-				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __combo_covered_line
-				__combo_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __line_coveredBy_combo
-				__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __message_sendEvent_messageSend
-				__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+				// create object __message_interaction_interaction
+				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __message_receiveEvent_messageReceive
 				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageReceive_message_message
-				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+				// create object __combo_operand_operand
+				__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageReceive_covered_line
+				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __interaction_message_message
+				__interaction_message_message = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __message_sendEvent_messageSend
+				__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __combo_covered_line
+				__combo_covered_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __guard_specification_spec
 				__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __operand_covered_line
+				__operand_covered_line = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageReceive_message_message
+				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __line_coveredBy_combo
+				__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __line_coveredBy_operand
+				__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageSend_message_message
+				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __line_coveredBy_messageReceive
@@ -2744,26 +2954,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create object __operand_guard_guard
 				__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __combo_operand_operand
-				__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageSend_message_message
-				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __message_interaction_interaction
-				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __line_coveredBy_operand
-				__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __interaction_message_message
-				__interaction_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __combo_operand_operand
@@ -2799,7 +2989,41 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						guard, "toBeTranslatedNodes");
+						__message_interaction_interaction,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_receiveEvent_messageReceive,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__combo_operand_operand, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageReceive_covered_line, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_message_message, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_sendEvent_messageSend, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__combo_covered_line, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						message, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__guard_specification_spec, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -2810,47 +3034,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						__operand_covered_line, "toBeTranslatedEdges");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageReceive_covered_line, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageReceive, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						combo, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__combo_covered_line, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						spec, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						operand, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_coveredBy_combo, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_sendEvent_messageSend, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						message, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_receiveEvent_messageReceive,
-						"toBeTranslatedEdges");
-
-				// create link
 				org.moflon.util.eMoflonEMFUtil
 						.addOppositeReference(match,
 								__messageReceive_message_message,
@@ -2858,28 +3041,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__guard_specification_spec, "toBeTranslatedEdges");
+						__line_coveredBy_combo, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
+						spec, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__operand_guard_guard, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__combo_operand_operand, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageSend_message_message, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_interaction_interaction,
-						"toBeTranslatedEdges");
+						messageReceive, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -2887,19 +3057,39 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_message_message, "toBeTranslatedEdges");
+						operand, "toBeTranslatedNodes");
 
 				// create link
-				__combo_covered_line.setSrc(combo);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						combo, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__messageSend_message_message, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						guard, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__operand_guard_guard, "toBeTranslatedEdges");
 
 				// create link
 				__line_coveredBy_combo.setTrg(combo);
 
 				// create link
+				__combo_covered_line.setSrc(combo);
+
+				// create link
 				__combo_operand_operand.setSrc(combo);
 
 				// create link
-				__operand_covered_line.setTrg(line);
+				__combo_covered_line.setTrg(line);
 
 				// create link
 				__line_coveredBy_messageReceive.setSrc(line);
@@ -2908,19 +3098,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				__messageReceive_covered_line.setTrg(line);
 
 				// create link
-				__line_coveredBy_combo.setSrc(line);
+				__operand_covered_line.setTrg(line);
 
 				// create link
 				__line_coveredBy_operand.setSrc(line);
 
 				// create link
-				__combo_covered_line.setTrg(line);
-
-				// create link
-				__line_coveredBy_operand.setTrg(operand);
+				__line_coveredBy_combo.setSrc(line);
 
 				// create link
 				__operand_covered_line.setSrc(operand);
+
+				// create link
+				__line_coveredBy_operand.setTrg(operand);
 
 				// create link
 				__operand_guard_guard.setSrc(operand);
@@ -2929,55 +3119,55 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				__combo_operand_operand.setTrg(operand);
 
 				// create link
-				__guard_specification_spec.setSrc(guard);
+				__operand_guard_guard.setTrg(guard);
 
 				// create link
-				__operand_guard_guard.setTrg(guard);
+				__guard_specification_spec.setSrc(guard);
 
 				// create link
 				__guard_specification_spec.setTrg(spec);
 
 				// create link
-				__messageSend_message_message.setTrg(message);
+				__messageReceive_message_message.setTrg(message);
 
 				// create link
 				__message_receiveEvent_messageReceive.setSrc(message);
 
 				// create link
-				__message_interaction_interaction.setSrc(message);
+				__message_sendEvent_messageSend.setSrc(message);
 
 				// create link
 				__interaction_message_message.setTrg(message);
 
 				// create link
-				__message_sendEvent_messageSend.setSrc(message);
+				__message_interaction_interaction.setSrc(message);
 
 				// create link
-				__messageReceive_message_message.setTrg(message);
-
-				// create link
-				__interaction_message_message.setSrc(interaction);
+				__messageSend_message_message.setTrg(message);
 
 				// create link
 				__message_interaction_interaction.setTrg(interaction);
 
 				// create link
-				__message_sendEvent_messageSend.setTrg(messageSend);
+				__interaction_message_message.setSrc(interaction);
 
 				// create link
 				__messageSend_message_message.setSrc(messageSend);
 
 				// create link
+				__message_sendEvent_messageSend.setTrg(messageSend);
+
+				// create link
 				__line_coveredBy_messageReceive.setTrg(messageReceive);
+
+				// create link
+				__messageReceive_covered_line.setSrc(messageReceive);
 
 				// create link
 				__messageReceive_message_message.setSrc(messageReceive);
 
 				// create link
 				__message_receiveEvent_messageReceive.setTrg(messageReceive);
-
-				// create link
-				__messageReceive_covered_line.setSrc(messageReceive);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -3011,12 +3201,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-				// create object __interaction_lifeline_line
-				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __line_interaction_interaction
 				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __interaction_lifeline_line
+				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __line_interaction_interaction
@@ -3026,7 +3216,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						line, "contextNodes");
+						__line_interaction_interaction, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -3034,23 +3224,23 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "contextNodes");
+						line, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_interaction_interaction, "contextEdges");
-
-				// create link
-				__line_interaction_interaction.setSrc(line);
+						interaction, "contextNodes");
 
 				// create link
 				__interaction_lifeline_line.setTrg(line);
 
 				// create link
-				__line_interaction_interaction.setTrg(interaction);
+				__line_interaction_interaction.setSrc(line);
 
 				// create link
 				__interaction_lifeline_line.setSrc(interaction);
+
+				// create link
+				__line_interaction_interaction.setTrg(interaction);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -3087,6 +3277,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		MessageOccurrenceSpecification messageReceive = null;
 		MessageOccurrenceSpecification messageSend = null;
 		InteractionOperand operand = null;
+		PackageDeclaration packageDeclaration = null;
 		LiteralString spec = null;
 		UseCase useCase = null;
 		UseCaseToInteraction useCaseToInteraction = null;
@@ -3094,39 +3285,39 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		CSP csp = null;
 		NormalStep step = null;
 		AlternativeFlowAlternative alt = null;
-		NormalStepToCombinedFragment stepToCombo = null;
 		NormalStepToMessage stepToMessage = null;
+		NormalStepToCombinedFragment stepToCombo = null;
 		AlternativeFlow altFlow = null;
 		StepAlternativeToInteractionOperand alternative1ToOperand = null;
 		FlowToInteractionFragment altFlowToOperand = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __line_coveredBy_operand = null;
-		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge alternative1ToOperand__target__operand = null;
-		EMoflonEdge __operand_guard_guard = null;
-		EMoflonEdge __messageSend_message_message = null;
-		EMoflonEdge stepToMessage__target__message = null;
-		EMoflonEdge alternative1ToOperand__source__alt = null;
-		EMoflonEdge __messageReceive_covered_line = null;
 		EMoflonEdge step__stepAlternative__alt = null;
-		EMoflonEdge __combo_operand_operand = null;
-		EMoflonEdge stepToMessage__source__step = null;
-		EMoflonEdge __operand_covered_line = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __line_coveredBy_combo = null;
-		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge flow__steps__step = null;
-		EMoflonEdge __guard_specification_spec = null;
-		EMoflonEdge __message_sendEvent_messageSend = null;
-		EMoflonEdge stepToCombo__source__step = null;
-		EMoflonEdge step__actor__actor = null;
-		EMoflonEdge alt__ref__altFlow = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge stepToCombo__target__combo = null;
-		EMoflonEdge __combo_covered_line = null;
 		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge altFlowToOperand__source__altFlow = null;
+		EMoflonEdge stepToMessage__target__message = null;
+		EMoflonEdge __guard_specification_spec = null;
+		EMoflonEdge alternative1ToOperand__target__operand = null;
+		EMoflonEdge __operand_covered_line = null;
+		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge altFlowToOperand__target__operand = null;
+		EMoflonEdge __messageReceive_covered_line = null;
+		EMoflonEdge __combo_operand_operand = null;
+		EMoflonEdge step__actor__actor = null;
+		EMoflonEdge __line_coveredBy_messageReceive = null;
+		EMoflonEdge alt__ref__altFlow = null;
+		EMoflonEdge __interaction_message_message = null;
+		EMoflonEdge __messageSend_message_message = null;
+		EMoflonEdge __line_coveredBy_combo = null;
+		EMoflonEdge __combo_covered_line = null;
+		EMoflonEdge flow__steps__step = null;
+		EMoflonEdge __message_receiveEvent_messageReceive = null;
+		EMoflonEdge alternative1ToOperand__source__alt = null;
+		EMoflonEdge __operand_guard_guard = null;
+		EMoflonEdge stepToCombo__target__combo = null;
+		EMoflonEdge altFlowToOperand__source__altFlow = null;
+		EMoflonEdge __message_sendEvent_messageSend = null;
+		EMoflonEdge __line_coveredBy_operand = null;
+		EMoflonEdge stepToCombo__source__step = null;
+		EMoflonEdge stepToMessage__source__step = null;
 
 		// story node 'perform transformation'
 		try {
@@ -3187,6 +3378,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object operand
 			JavaSDM.ensure(_TmpObject instanceof InteractionOperand);
 			operand = (InteractionOperand) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (isApplicableMatch.getObject("spec"));
 
 			// ensure correct type and really bound of object spec
@@ -3235,13 +3431,13 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			alt = UseCaseDSLFactory.eINSTANCE
 					.createAlternativeFlowAlternative();
 
-			// create object stepToCombo
-			stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createNormalStepToCombinedFragment();
-
 			// create object stepToMessage
 			stepToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 					.createNormalStepToMessage();
+
+			// create object stepToCombo
+			stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createNormalStepToCombinedFragment();
 
 			// create object altFlow
 			altFlow = UseCaseDSLFactory.eINSTANCE.createAlternativeFlow();
@@ -3273,13 +3469,13 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					"actor");
 
 			// create link
-			stepToCombo.setSource(step);
+			flow.getSteps().add(step);
 
 			// create link
 			stepToMessage.setSource(step);
 
 			// create link
-			flow.getSteps().add(step);
+			stepToCombo.setSource(step);
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(alt, altFlow,
@@ -3292,10 +3488,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			stepToCombo.setTarget(combo);
 
 			// create link
-			alternative1ToOperand.setTarget(operand);
+			altFlowToOperand.setTarget(operand);
 
 			// create link
-			altFlowToOperand.setTarget(operand);
+			alternative1ToOperand.setTarget(operand);
 
 			// create link
 			altFlowToOperand.setSource(altFlow);
@@ -3345,19 +3541,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alt, "createdElements");
+					operand, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					spec, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					message, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3369,7 +3561,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					guard, "translatedElements");
+					messageReceive, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3377,7 +3569,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					combo, "translatedElements");
+					alt, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					step, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					guard, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToMessage, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3385,15 +3589,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					operand, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					step, "createdElements");
+					combo, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3437,6 +3633,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(messageSend != null);
 			// check object operand is really bound
 			JavaSDM.ensure(operand != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object ruleresult is really bound
 			JavaSDM.ensure(ruleresult != null);
 			// check object spec is really bound
@@ -3492,6 +3690,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects operand and actor 
 			JavaSDM.ensure(!operand.equals(actor));
+
+			// check isomorphic binding between objects packageDeclaration and actor 
+			JavaSDM.ensure(!packageDeclaration.equals(actor));
 
 			// check isomorphic binding between objects spec and actor 
 			JavaSDM.ensure(!spec.equals(actor));
@@ -3550,6 +3751,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and actorToLine 
 			JavaSDM.ensure(!operand.equals(actorToLine));
 
+			// check isomorphic binding between objects packageDeclaration and actorToLine 
+			JavaSDM.ensure(!packageDeclaration.equals(actorToLine));
+
 			// check isomorphic binding between objects spec and actorToLine 
 			JavaSDM.ensure(!spec.equals(actorToLine));
 
@@ -3604,6 +3808,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and alt 
 			JavaSDM.ensure(!operand.equals(alt));
 
+			// check isomorphic binding between objects packageDeclaration and alt 
+			JavaSDM.ensure(!packageDeclaration.equals(alt));
+
 			// check isomorphic binding between objects spec and alt 
 			JavaSDM.ensure(!spec.equals(alt));
 
@@ -3655,6 +3862,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and altFlow 
 			JavaSDM.ensure(!operand.equals(altFlow));
 
+			// check isomorphic binding between objects packageDeclaration and altFlow 
+			JavaSDM.ensure(!packageDeclaration.equals(altFlow));
+
 			// check isomorphic binding between objects spec and altFlow 
 			JavaSDM.ensure(!spec.equals(altFlow));
 
@@ -3703,6 +3913,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and altFlowToOperand 
 			JavaSDM.ensure(!operand.equals(altFlowToOperand));
 
+			// check isomorphic binding between objects packageDeclaration and altFlowToOperand 
+			JavaSDM.ensure(!packageDeclaration.equals(altFlowToOperand));
+
 			// check isomorphic binding between objects spec and altFlowToOperand 
 			JavaSDM.ensure(!spec.equals(altFlowToOperand));
 
@@ -3748,6 +3961,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and alternative1ToOperand 
 			JavaSDM.ensure(!operand.equals(alternative1ToOperand));
 
+			// check isomorphic binding between objects packageDeclaration and alternative1ToOperand 
+			JavaSDM.ensure(!packageDeclaration.equals(alternative1ToOperand));
+
 			// check isomorphic binding between objects spec and alternative1ToOperand 
 			JavaSDM.ensure(!spec.equals(alternative1ToOperand));
 
@@ -3790,6 +4006,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and combo 
 			JavaSDM.ensure(!operand.equals(combo));
 
+			// check isomorphic binding between objects packageDeclaration and combo 
+			JavaSDM.ensure(!packageDeclaration.equals(combo));
+
 			// check isomorphic binding between objects spec and combo 
 			JavaSDM.ensure(!spec.equals(combo));
 
@@ -3829,6 +4048,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and flow 
 			JavaSDM.ensure(!operand.equals(flow));
 
+			// check isomorphic binding between objects packageDeclaration and flow 
+			JavaSDM.ensure(!packageDeclaration.equals(flow));
+
 			// check isomorphic binding between objects spec and flow 
 			JavaSDM.ensure(!spec.equals(flow));
 
@@ -3865,6 +4087,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and guard 
 			JavaSDM.ensure(!operand.equals(guard));
 
+			// check isomorphic binding between objects packageDeclaration and guard 
+			JavaSDM.ensure(!packageDeclaration.equals(guard));
+
 			// check isomorphic binding between objects spec and guard 
 			JavaSDM.ensure(!spec.equals(guard));
 
@@ -3898,6 +4123,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and interaction 
 			JavaSDM.ensure(!operand.equals(interaction));
 
+			// check isomorphic binding between objects packageDeclaration and interaction 
+			JavaSDM.ensure(!packageDeclaration.equals(interaction));
+
 			// check isomorphic binding between objects spec and interaction 
 			JavaSDM.ensure(!spec.equals(interaction));
 
@@ -3928,6 +4156,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and line 
 			JavaSDM.ensure(!operand.equals(line));
 
+			// check isomorphic binding between objects packageDeclaration and line 
+			JavaSDM.ensure(!packageDeclaration.equals(line));
+
 			// check isomorphic binding between objects spec and line 
 			JavaSDM.ensure(!spec.equals(line));
 
@@ -3955,6 +4186,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and message 
 			JavaSDM.ensure(!operand.equals(message));
 
+			// check isomorphic binding between objects packageDeclaration and message 
+			JavaSDM.ensure(!packageDeclaration.equals(message));
+
 			// check isomorphic binding between objects spec and message 
 			JavaSDM.ensure(!spec.equals(message));
 
@@ -3979,6 +4213,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and messageReceive 
 			JavaSDM.ensure(!operand.equals(messageReceive));
 
+			// check isomorphic binding between objects packageDeclaration and messageReceive 
+			JavaSDM.ensure(!packageDeclaration.equals(messageReceive));
+
 			// check isomorphic binding between objects spec and messageReceive 
 			JavaSDM.ensure(!spec.equals(messageReceive));
 
@@ -4000,6 +4237,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and messageSend 
 			JavaSDM.ensure(!operand.equals(messageSend));
 
+			// check isomorphic binding between objects packageDeclaration and messageSend 
+			JavaSDM.ensure(!packageDeclaration.equals(messageSend));
+
 			// check isomorphic binding between objects spec and messageSend 
 			JavaSDM.ensure(!spec.equals(messageSend));
 
@@ -4018,6 +4258,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and messageSend 
 			JavaSDM.ensure(!useCaseToInteraction.equals(messageSend));
 
+			// check isomorphic binding between objects packageDeclaration and operand 
+			JavaSDM.ensure(!packageDeclaration.equals(operand));
+
 			// check isomorphic binding between objects spec and operand 
 			JavaSDM.ensure(!spec.equals(operand));
 
@@ -4035,6 +4278,24 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCaseToInteraction and operand 
 			JavaSDM.ensure(!useCaseToInteraction.equals(operand));
+
+			// check isomorphic binding between objects spec and packageDeclaration 
+			JavaSDM.ensure(!spec.equals(packageDeclaration));
+
+			// check isomorphic binding between objects step and packageDeclaration 
+			JavaSDM.ensure(!step.equals(packageDeclaration));
+
+			// check isomorphic binding between objects stepToCombo and packageDeclaration 
+			JavaSDM.ensure(!stepToCombo.equals(packageDeclaration));
+
+			// check isomorphic binding between objects stepToMessage and packageDeclaration 
+			JavaSDM.ensure(!stepToMessage.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclaration 
+			JavaSDM.ensure(!useCase.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCaseToInteraction and packageDeclaration 
+			JavaSDM.ensure(!useCaseToInteraction.equals(packageDeclaration));
 
 			// check isomorphic binding between objects step and spec 
 			JavaSDM.ensure(!step.equals(spec));
@@ -4081,110 +4342,110 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and useCase 
 			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
 
-			// create object __line_coveredBy_operand
-			__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_message_message
-			__interaction_message_message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object alternative1ToOperand__target__operand
-			alternative1ToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __operand_guard_guard
-			__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __messageSend_message_message
-			__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object stepToMessage__target__message
-			stepToMessage__target__message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object alternative1ToOperand__source__alt
-			alternative1ToOperand__source__alt = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __messageReceive_covered_line
-			__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object step__stepAlternative__alt
 			step__stepAlternative__alt = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __combo_operand_operand
-			__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object stepToMessage__source__step
-			stepToMessage__source__step = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __operand_covered_line
-			__operand_covered_line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __line_coveredBy_messageReceive
-			__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __line_coveredBy_combo
-			__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __message_receiveEvent_messageReceive
-			__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object flow__steps__step
-			flow__steps__step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
-			// create object __guard_specification_spec
-			__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __message_sendEvent_messageSend
-			__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object stepToCombo__source__step
-			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object step__actor__actor
-			step__actor__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object alt__ref__altFlow
-			alt__ref__altFlow = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
-			// create object __message_interaction_interaction
-			__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object stepToCombo__target__combo
-			stepToCombo__target__combo = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __combo_covered_line
-			__combo_covered_line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __messageReceive_message_message
 			__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object altFlowToOperand__source__altFlow
-			altFlowToOperand__source__altFlow = TGGRuntimeFactory.eINSTANCE
+			// create object stepToMessage__target__message
+			stepToMessage__target__message = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __guard_specification_spec
+			__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object alternative1ToOperand__target__operand
+			alternative1ToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __operand_covered_line
+			__operand_covered_line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __message_interaction_interaction
+			__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object altFlowToOperand__target__operand
 			altFlowToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __messageReceive_covered_line
+			__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __combo_operand_operand
+			__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object step__actor__actor
+			step__actor__actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __line_coveredBy_messageReceive
+			__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object alt__ref__altFlow
+			alt__ref__altFlow = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
+			// create object __interaction_message_message
+			__interaction_message_message = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __messageSend_message_message
+			__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __line_coveredBy_combo
+			__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __combo_covered_line
+			__combo_covered_line = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object flow__steps__step
+			flow__steps__step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
+			// create object __message_receiveEvent_messageReceive
+			__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object alternative1ToOperand__source__alt
+			alternative1ToOperand__source__alt = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __operand_guard_guard
+			__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object stepToCombo__target__combo
+			stepToCombo__target__combo = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object altFlowToOperand__source__altFlow
+			altFlowToOperand__source__altFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __message_sendEvent_messageSend
+			__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __line_coveredBy_operand
+			__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object stepToCombo__source__step
+			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object stepToMessage__source__step
+			stepToMessage__source__step = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -4246,99 +4507,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_coveredBy_operand, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_message_message, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alternative1ToOperand__target__operand, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__operand_guard_guard, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageSend_message_message, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage__target__message, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alternative1ToOperand__source__alt, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageReceive_covered_line, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					step__stepAlternative__alt, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__combo_operand_operand, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToMessage__source__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__operand_covered_line, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_coveredBy_messageReceive, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_coveredBy_combo, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__message_receiveEvent_messageReceive, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					flow__steps__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__guard_specification_spec, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__message_sendEvent_messageSend, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__source__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					step__actor__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alt__ref__altFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__message_interaction_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__target__combo, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__combo_covered_line, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -4346,11 +4515,109 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altFlowToOperand__source__altFlow, "createdEdges");
+					stepToMessage__target__message, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__guard_specification_spec, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					alternative1ToOperand__target__operand, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__operand_covered_line, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__message_interaction_interaction, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					altFlowToOperand__target__operand, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__messageReceive_covered_line, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__combo_operand_operand, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					step__actor__actor, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__line_coveredBy_messageReceive, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					alt__ref__altFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__interaction_message_message, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__messageSend_message_message, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__line_coveredBy_combo, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__combo_covered_line, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					flow__steps__step, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__message_receiveEvent_messageReceive, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					alternative1ToOperand__source__alt, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__operand_guard_guard, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToCombo__target__combo, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					altFlowToOperand__source__altFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__message_sendEvent_messageSend, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__line_coveredBy_operand, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToCombo__source__step, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					stepToMessage__source__step, "createdEdges");
+
+			// create link
+			stepToMessage__source__step.setTrg(step);
+
+			// create link
+			step__actor__actor.setSrc(step);
 
 			// create link
 			step__stepAlternative__alt.setSrc(step);
@@ -4362,19 +4629,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			flow__steps__step.setTrg(step);
 
 			// create link
-			stepToMessage__source__step.setTrg(step);
+			step__stepAlternative__alt.setTrg(alt);
 
 			// create link
-			step__actor__actor.setSrc(step);
+			alternative1ToOperand__source__alt.setTrg(alt);
 
 			// create link
 			alt__ref__altFlow.setSrc(alt);
 
 			// create link
-			step__stepAlternative__alt.setTrg(alt);
-
-			// create link
-			alternative1ToOperand__source__alt.setTrg(alt);
+			stepToCombo__target__combo.setTrg(combo);
 
 			// create link
 			__line_coveredBy_combo.setTrg(combo);
@@ -4386,31 +4650,31 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			__combo_operand_operand.setSrc(combo);
 
 			// create link
-			stepToCombo__target__combo.setTrg(combo);
-
-			// create link
-			__line_coveredBy_combo.setSrc(line);
-
-			// create link
-			__operand_covered_line.setTrg(line);
-
-			// create link
-			__combo_covered_line.setTrg(line);
+			__line_coveredBy_messageReceive.setSrc(line);
 
 			// create link
 			__messageReceive_covered_line.setTrg(line);
 
 			// create link
-			__line_coveredBy_messageReceive.setSrc(line);
+			__operand_covered_line.setTrg(line);
 
 			// create link
 			__line_coveredBy_operand.setSrc(line);
+
+			// create link
+			__line_coveredBy_combo.setSrc(line);
+
+			// create link
+			__combo_covered_line.setTrg(line);
 
 			// create link
 			stepToCombo__source__step.setSrc(stepToCombo);
 
 			// create link
 			stepToCombo__target__combo.setSrc(stepToCombo);
+
+			// create link
+			altFlowToOperand__target__operand.setTrg(operand);
 
 			// create link
 			__line_coveredBy_operand.setTrg(operand);
@@ -4422,26 +4686,23 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			__operand_covered_line.setSrc(operand);
 
 			// create link
-			altFlowToOperand__target__operand.setTrg(operand);
-
-			// create link
-			__operand_guard_guard.setSrc(operand);
-
-			// create link
 			alternative1ToOperand__target__operand.setTrg(operand);
 
 			// create link
-			alternative1ToOperand__source__alt.setSrc(alternative1ToOperand);
+			__operand_guard_guard.setSrc(operand);
 
 			// create link
 			alternative1ToOperand__target__operand
 					.setSrc(alternative1ToOperand);
 
 			// create link
-			__operand_guard_guard.setTrg(guard);
+			alternative1ToOperand__source__alt.setSrc(alternative1ToOperand);
 
 			// create link
 			__guard_specification_spec.setSrc(guard);
+
+			// create link
+			__operand_guard_guard.setTrg(guard);
 
 			// create link
 			__guard_specification_spec.setTrg(spec);
@@ -4462,31 +4723,31 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			flow__steps__step.setSrc(flow);
 
 			// create link
-			__message_sendEvent_messageSend.setSrc(message);
-
-			// create link
-			__interaction_message_message.setTrg(message);
-
-			// create link
-			__message_receiveEvent_messageReceive.setSrc(message);
-
-			// create link
 			__messageReceive_message_message.setTrg(message);
-
-			// create link
-			__messageSend_message_message.setTrg(message);
 
 			// create link
 			stepToMessage__target__message.setTrg(message);
 
 			// create link
+			__interaction_message_message.setTrg(message);
+
+			// create link
 			__message_interaction_interaction.setSrc(message);
 
 			// create link
-			__interaction_message_message.setSrc(interaction);
+			__messageSend_message_message.setTrg(message);
+
+			// create link
+			__message_receiveEvent_messageReceive.setSrc(message);
+
+			// create link
+			__message_sendEvent_messageSend.setSrc(message);
 
 			// create link
 			__message_interaction_interaction.setTrg(interaction);
+
+			// create link
+			__interaction_message_message.setSrc(interaction);
 
 			// create link
 			stepToMessage__source__step.setSrc(stepToMessage);
@@ -4501,16 +4762,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			__message_sendEvent_messageSend.setTrg(messageSend);
 
 			// create link
-			__messageReceive_covered_line.setSrc(messageReceive);
+			__line_coveredBy_messageReceive.setTrg(messageReceive);
 
 			// create link
 			__messageReceive_message_message.setSrc(messageReceive);
 
 			// create link
-			__line_coveredBy_messageReceive.setTrg(messageReceive);
+			__message_receiveEvent_messageReceive.setTrg(messageReceive);
 
 			// create link
-			__message_receiveEvent_messageReceive.setTrg(messageReceive);
+			__messageReceive_covered_line.setSrc(messageReceive);
 
 			// create link
 			step__actor__actor.setTrg(actor);
@@ -4527,7 +4788,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				stepToCombo, operand, alternative1ToOperand, guard, spec,
 				altFlow, altFlowToOperand, useCase, useCaseToInteraction, flow,
 				message, interaction, stepToMessage, messageSend,
-				messageReceive, actor, actorToLine);
+				messageReceive, actor, actorToLine, packageDeclaration);
 		return ruleresult;
 	}
 
@@ -4552,32 +4813,35 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		MessageOccurrenceSpecification messageSend = null;
 		InteractionOperand operand = null;
 		LiteralString spec = null;
-		EMoflonEdge __line_coveredBy_combo = null;
-		EMoflonEdge __combo_covered_line = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __combo_covered_line = null;
+		EMoflonEdge __line_coveredBy_combo = null;
 		EMoflonEdge __combo_operand_operand = null;
+		EMoflonEdge __messageReceive_covered_line = null;
+		EMoflonEdge __line_coveredBy_messageReceive = null;
 		EMoflonEdge __interaction_lifeline_line = null;
 		EMoflonEdge __line_coveredBy_operand = null;
-		EMoflonEdge __operand_covered_line = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
 		EMoflonEdge __actorToLine_target_line = null;
 		EMoflonEdge __line_interaction_interaction = null;
-		EMoflonEdge __messageReceive_covered_line = null;
+		EMoflonEdge __operand_covered_line = null;
 		EMoflonEdge __operand_guard_guard = null;
 		EMoflonEdge __guard_specification_spec = null;
 		EMoflonEdge __useCase_flows_flow = null;
 		EMoflonEdge __useCaseToInteraction_source_useCase = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __useCaseToInteraction_target_interaction = null;
 		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __message_interaction_interaction = null;
+		EMoflonEdge __message_sendEvent_messageSend = null;
+		EMoflonEdge __interaction_message_message = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
 		EMoflonEdge __messageSend_message_message = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge __message_sendEvent_messageSend = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge __actorToLine_source_actor = null;
 		CSP csp = null;
 		Iterator fujaba__IterUseCaseToFlow = null;
 		Flow flow = null;
+		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
 		Iterator fujaba__IterInteractionToUseCaseToInteraction = null;
 		UseCaseToInteraction useCaseToInteraction = null;
@@ -4818,6 +5082,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										.equals(useCaseToInteraction
 												.getTarget()));
 
+								// bind object
+								packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+										.eContainer() : null;
+
+								// check object packageDeclaration is really bound
+								JavaSDM.ensure(packageDeclaration != null);
+
+								// check if contained via correct reference
+								JavaSDM.ensure(packageDeclaration.getUseCases()
+										.contains(useCase));
+
+								// check link actors from actor to packageDeclaration
+								JavaSDM.ensure(packageDeclaration.equals(actor
+										.eContainer()));
+
 								// check link covered from line to combo
 								JavaSDM.ensure(line.getCoveredBy().contains(
 										combo));
@@ -4843,20 +5122,28 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 										// check object flow is really bound
 										JavaSDM.ensure(flow != null);
-										// create object __line_coveredBy_combo
-										__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
+										// create object isApplicableMatch
+										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+												.createIsApplicableMatch();
 
 										// create object __combo_covered_line
 										__combo_covered_line = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object isApplicableMatch
-										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-												.createIsApplicableMatch();
+										// create object __line_coveredBy_combo
+										__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
 
 										// create object __combo_operand_operand
 										__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __messageReceive_covered_line
+										__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __line_coveredBy_messageReceive
+										__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __interaction_lifeline_line
@@ -4867,14 +5154,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __operand_covered_line
-										__operand_covered_line = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __line_coveredBy_messageReceive
-										__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
 										// create object __actorToLine_target_line
 										__actorToLine_target_line = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
@@ -4883,8 +5162,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __messageReceive_covered_line
-										__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
+										// create object __operand_covered_line
+										__operand_covered_line = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __operand_guard_guard
@@ -4903,12 +5182,28 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
+										// create object __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
 										// create object __useCaseToInteraction_target_interaction
 										__useCaseToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __messageReceive_message_message
 										__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __message_interaction_interaction
+										__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __message_sendEvent_messageSend
+										__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __interaction_message_message
+										__interaction_message_message = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __message_receiveEvent_messageReceive
@@ -4919,16 +5214,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __message_interaction_interaction
-										__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __interaction_message_message
-										__interaction_message_message = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __message_sendEvent_messageSend
-										__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+										// create object __packageDeclaration_actors_actor
+										__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __actorToLine_source_actor
@@ -4998,12 +5285,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										// assign attribute __actorToLine_target_line
 										__actorToLine_target_line
 												.setName("target");
-
-										// create link
-										__line_coveredBy_combo.setTrg(combo);
-
-										// create link
-										__combo_covered_line.setSrc(combo);
+										// assign attribute __packageDeclaration_actors_actor
+										__packageDeclaration_actors_actor
+												.setName("actors");
+										// assign attribute __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase
+												.setName("useCases");
 
 										// create link
 										isApplicableMatch
@@ -5011,7 +5298,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														combo);
 
 										// create link
+										__combo_covered_line.setSrc(combo);
+
+										// create link
+										__line_coveredBy_combo.setTrg(combo);
+
+										// create link
 										__combo_operand_operand.setSrc(combo);
+
+										// create link
+										__messageReceive_covered_line
+												.setTrg(line);
+
+										// create link
+										__line_coveredBy_messageReceive
+												.setSrc(line);
 
 										// create link
 										__combo_covered_line.setTrg(line);
@@ -5029,11 +5330,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										__line_coveredBy_operand.setSrc(line);
 
 										// create link
-										__operand_covered_line.setTrg(line);
-
-										// create link
-										__line_coveredBy_messageReceive
-												.setSrc(line);
+										__line_coveredBy_combo.setSrc(line);
 
 										// create link
 										__actorToLine_target_line.setTrg(line);
@@ -5043,29 +5340,29 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												.setSrc(line);
 
 										// create link
-										__line_coveredBy_combo.setSrc(line);
+										__operand_covered_line.setTrg(line);
 
 										// create link
-										__messageReceive_covered_line
-												.setTrg(line);
+										isApplicableMatch
+												.getAllContextElements().add(
+														operand);
+
+										// create link
+										__combo_operand_operand.setTrg(operand);
 
 										// create link
 										__line_coveredBy_operand
 												.setTrg(operand);
 
 										// create link
-										__operand_covered_line.setSrc(operand);
-
-										// create link
 										__operand_guard_guard.setSrc(operand);
 
 										// create link
-										__combo_operand_operand.setTrg(operand);
+										__operand_covered_line.setSrc(operand);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														operand);
+										__guard_specification_spec
+												.setSrc(guard);
 
 										// create link
 										isApplicableMatch
@@ -5076,16 +5373,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										__operand_guard_guard.setTrg(guard);
 
 										// create link
-										__guard_specification_spec
-												.setSrc(guard);
+										__guard_specification_spec.setTrg(spec);
 
 										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														spec);
-
-										// create link
-										__guard_specification_spec.setTrg(spec);
 
 										// create link
 										__useCase_flows_flow.setSrc(useCase);
@@ -5100,8 +5393,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												.setTrg(useCase);
 
 										// create link
-										__useCaseToInteraction_source_useCase
-												.setSrc(useCaseToInteraction);
+										__packageDeclaration_useCases_useCase
+												.setTrg(useCase);
 
 										// create link
 										__useCaseToInteraction_target_interaction
@@ -5113,7 +5406,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														useCaseToInteraction);
 
 										// create link
-										__useCase_flows_flow.setTrg(flow);
+										__useCaseToInteraction_source_useCase
+												.setSrc(useCaseToInteraction);
 
 										// create link
 										isApplicableMatch
@@ -5121,7 +5415,22 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														flow);
 
 										// create link
+										__useCase_flows_flow.setTrg(flow);
+
+										// create link
 										__messageReceive_message_message
+												.setTrg(message);
+
+										// create link
+										__message_interaction_interaction
+												.setSrc(message);
+
+										// create link
+										__message_sendEvent_messageSend
+												.setSrc(message);
+
+										// create link
+										__interaction_message_message
 												.setTrg(message);
 
 										// create link
@@ -5129,29 +5438,29 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												.setSrc(message);
 
 										// create link
-										__messageSend_message_message
-												.setTrg(message);
-
-										// create link
-										__message_interaction_interaction
-												.setSrc(message);
-
-										// create link
-										__interaction_message_message
-												.setTrg(message);
-
-										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														message);
 
 										// create link
-										__message_sendEvent_messageSend
-												.setSrc(message);
+										__messageSend_message_message
+												.setTrg(message);
 
 										// create link
 										__message_interaction_interaction
 												.setTrg(interaction);
+
+										// create link
+										__useCaseToInteraction_target_interaction
+												.setTrg(interaction);
+
+										// create link
+										__interaction_message_message
+												.setSrc(interaction);
+
+										// create link
+										__interaction_lifeline_line
+												.setSrc(interaction);
 
 										// create link
 										isApplicableMatch
@@ -5159,20 +5468,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														interaction);
 
 										// create link
-										__interaction_lifeline_line
-												.setSrc(interaction);
-
-										// create link
-										__useCaseToInteraction_target_interaction
-												.setTrg(interaction);
-
-										// create link
 										__line_interaction_interaction
 												.setTrg(interaction);
 
 										// create link
-										__interaction_message_message
-												.setSrc(interaction);
+										__message_sendEvent_messageSend
+												.setTrg(messageSend);
 
 										// create link
 										isApplicableMatch
@@ -5180,15 +5481,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														messageSend);
 
 										// create link
-										__message_sendEvent_messageSend
-												.setTrg(messageSend);
-
-										// create link
 										__messageSend_message_message
 												.setSrc(messageSend);
 
 										// create link
+										__message_receiveEvent_messageReceive
+												.setTrg(messageReceive);
+
+										// create link
 										__messageReceive_covered_line
+												.setSrc(messageReceive);
+
+										// create link
+										__messageReceive_message_message
 												.setSrc(messageReceive);
 
 										// create link
@@ -5197,16 +5502,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														messageReceive);
 
 										// create link
-										__messageReceive_message_message
-												.setSrc(messageReceive);
-
-										// create link
 										__line_coveredBy_messageReceive
 												.setTrg(messageReceive);
 
 										// create link
-										__message_receiveEvent_messageReceive
-												.setTrg(messageReceive);
+										__packageDeclaration_actors_actor
+												.setTrg(actor);
 
 										// create link
 										__actorToLine_source_actor
@@ -5218,11 +5519,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														actor);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														actorToLine);
-
-										// create link
 										__actorToLine_target_line
 												.setSrc(actorToLine);
 
@@ -5231,59 +5527,28 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												.setSrc(actorToLine);
 
 										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__guard_specification_spec,
-														"allContextElements");
+										isApplicableMatch
+												.getAllContextElements().add(
+														actorToLine);
+
+										// create link
+										__packageDeclaration_useCases_useCase
+												.setSrc(packageDeclaration);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														packageDeclaration);
+
+										// create link
+										__packageDeclaration_actors_actor
+												.setSrc(packageDeclaration);
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__line_interaction_interaction,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__useCase_flows_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__line_coveredBy_operand,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__actorToLine_source_actor,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__combo_covered_line,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__line_coveredBy_combo,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__operand_covered_line,
+														__actorToLine_target_line,
 														"allContextElements");
 
 										// create link
@@ -5304,6 +5569,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
+														__line_coveredBy_operand,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__combo_operand_operand,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__message_interaction_interaction,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
 														__useCaseToInteraction_source_useCase,
 														"allContextElements");
 
@@ -5311,7 +5597,35 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__message_receiveEvent_messageReceive,
+														__actorToLine_source_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__useCase_flows_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__packageDeclaration_useCases_useCase,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__line_coveredBy_combo,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__line_interaction_interaction,
 														"allContextElements");
 
 										// create link
@@ -5332,21 +5646,28 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__message_interaction_interaction,
+														__combo_covered_line,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__interaction_message_message,
+														__guard_specification_spec,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__combo_operand_operand,
+														__packageDeclaration_actors_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__message_sendEvent_messageSend,
 														"allContextElements");
 
 										// create link
@@ -5367,14 +5688,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__actorToLine_target_line,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__message_sendEvent_messageSend,
+														__message_receiveEvent_messageReceive,
 														"allContextElements");
 
 										// create link
@@ -5382,6 +5696,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												.addOppositeReference(
 														isApplicableMatch,
 														__line_coveredBy_messageReceive,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__operand_covered_line,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__interaction_message_message,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -5401,7 +5729,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															interaction,
 															messageSend,
 															messageReceive,
-															actor, actorToLine));
+															actor, actorToLine,
+															packageDeclaration));
 
 											// ensure correct type and really bound of object csp
 											JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -5449,6 +5778,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									}
 								}
 								JavaSDM.ensure(fujaba__Success);
+
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
 								fujaba__Success = false;
@@ -5560,7 +5890,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			Message message, Interaction interaction,
 			MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive, Actor actor,
-			ActorToLifeline actorToLine) {
+			ActorToLifeline actorToLine, PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -5627,6 +5957,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("messageReceive", messageReceive);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -5651,7 +5983,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			EObject useCase, EObject useCaseToInteraction, EObject flow,
 			EObject message, EObject interaction, EObject stepToMessage,
 			EObject messageSend, EObject messageReceive, EObject actor,
-			EObject actorToLine) {
+			EObject actorToLine, EObject packageDeclaration) {
 		ruleresult.registerObject("step", step);
 		ruleresult.registerObject("alt", alt);
 		ruleresult.registerObject("combo", combo);
@@ -5674,6 +6006,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		ruleresult.registerObject("messageReceive", messageReceive);
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("actorToLine", actorToLine);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -5727,17 +6060,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_altFlow_flows_926 = null;
-		NormalStep __DEC_alt_stepAlternative_335018 = null;
-		Flow __DEC_step_steps_453232 = null;
-		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_778368 = null;
-		AlternativeFlowAlternative __DEC_altFlow_ref_778368 = null;
+		UseCase __DEC_altFlow_flows_147984 = null;
+		NormalStep __DEC_alt_stepAlternative_927366 = null;
+		Flow __DEC_step_steps_338414 = null;
+		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_470922 = null;
+		AlternativeFlowAlternative __DEC_altFlow_ref_470922 = null;
 		Match match = null;
 		AlternativeFlow altFlow = null;
 		AlternativeFlowAlternative alt = null;
+		PackageDeclaration packageDeclaration = null;
+		Actor actor = null;
 		UseCase useCase = null;
 		Flow flow = null;
-		Actor actor = null;
 		NormalStep step = null;
 
 		// story node 'prepare return value'
@@ -5795,12 +6129,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			step = (NormalStep) _TmpObject;
 
 			// bind object
-			actor = step.getActor();
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-
-			// bind object
 			flow = step.eContainer() instanceof Flow ? (Flow) step.eContainer()
 					: null;
 
@@ -5819,6 +6147,22 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 			// check if contained via correct reference
 			JavaSDM.ensure(useCase.getFlows().contains(flow));
+
+			// bind object
+			actor = step.getActor();
+
+			// check object actor is really bound
+			JavaSDM.ensure(actor != null);
+
+			// bind object
+			packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getActors().contains(actor));
 
 			// bind object
 			_TmpObject = _edge_stepAlternative.getTrg();
@@ -5840,6 +6184,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check link stepAlternative from alt to step
 			JavaSDM.ensure(step.equals(alt.eContainer()));
 
+			// check link useCases from useCase to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 			// story node 'test core match and DECs'
 			try {
 				fujaba__Success = false;
@@ -5849,18 +6196,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_altFlow_flows_926 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
+					__DEC_altFlow_flows_147984 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
 							.eContainer() : null;
 
-					// check object __DEC_altFlow_flows_926 is really bound
-					JavaSDM.ensure(__DEC_altFlow_flows_926 != null);
+					// check object __DEC_altFlow_flows_147984 is really bound
+					JavaSDM.ensure(__DEC_altFlow_flows_147984 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_altFlow_flows_926.getFlows().contains(
-							altFlow));
+					JavaSDM.ensure(__DEC_altFlow_flows_147984.getFlows()
+							.contains(altFlow));
 
-					// check isomorphic binding between objects __DEC_altFlow_flows_926 and useCase 
-					JavaSDM.ensure(!__DEC_altFlow_flows_926.equals(useCase));
+					// check isomorphic binding between objects __DEC_altFlow_flows_147984 and useCase 
+					JavaSDM.ensure(!__DEC_altFlow_flows_147984.equals(useCase));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -5876,18 +6223,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_alt_stepAlternative_335018 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
+					__DEC_alt_stepAlternative_927366 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
 							.eContainer() : null;
 
-					// check object __DEC_alt_stepAlternative_335018 is really bound
-					JavaSDM.ensure(__DEC_alt_stepAlternative_335018 != null);
+					// check object __DEC_alt_stepAlternative_927366 is really bound
+					JavaSDM.ensure(__DEC_alt_stepAlternative_927366 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_alt_stepAlternative_335018
+					JavaSDM.ensure(__DEC_alt_stepAlternative_927366
 							.getStepAlternative().contains(alt));
 
-					// check isomorphic binding between objects __DEC_alt_stepAlternative_335018 and step 
-					JavaSDM.ensure(!__DEC_alt_stepAlternative_335018
+					// check isomorphic binding between objects __DEC_alt_stepAlternative_927366 and step 
+					JavaSDM.ensure(!__DEC_alt_stepAlternative_927366
 							.equals(step));
 
 					fujaba__Success = true;
@@ -5904,21 +6251,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_453232 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_338414 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_453232 is really bound
-					JavaSDM.ensure(__DEC_step_steps_453232 != null);
+					// check object __DEC_step_steps_338414 is really bound
+					JavaSDM.ensure(__DEC_step_steps_338414 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_453232.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_338414.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_453232 and altFlow 
-					JavaSDM.ensure(!__DEC_step_steps_453232.equals(altFlow));
+					// check isomorphic binding between objects __DEC_step_steps_338414 and altFlow 
+					JavaSDM.ensure(!__DEC_step_steps_338414.equals(altFlow));
 
-					// check isomorphic binding between objects __DEC_step_steps_453232 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_453232.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_338414 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_338414.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -5933,26 +6280,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link ref from altFlow to __DEC_altFlow_ref_778368
+					// iterate to-many link ref from altFlow to __DEC_altFlow_ref_470922
 					fujaba__Success = false;
 
-					fujaba__IterAltFlowTo__DEC_altFlow_ref_778368 = new ArrayList(
+					fujaba__IterAltFlowTo__DEC_altFlow_ref_470922 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(altFlow,
 											AlternativeFlowAlternative.class,
 											"ref")).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterAltFlowTo__DEC_altFlow_ref_778368
+							&& fujaba__IterAltFlowTo__DEC_altFlow_ref_470922
 									.hasNext()) {
 						try {
-							__DEC_altFlow_ref_778368 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_778368
+							__DEC_altFlow_ref_470922 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_470922
 									.next();
 
-							// check object __DEC_altFlow_ref_778368 is really bound
-							JavaSDM.ensure(__DEC_altFlow_ref_778368 != null);
-							// check isomorphic binding between objects __DEC_altFlow_ref_778368 and alt 
-							JavaSDM.ensure(!__DEC_altFlow_ref_778368
+							// check object __DEC_altFlow_ref_470922 is really bound
+							JavaSDM.ensure(__DEC_altFlow_ref_470922 != null);
+							// check isomorphic binding between objects __DEC_altFlow_ref_470922 and alt 
+							JavaSDM.ensure(!__DEC_altFlow_ref_470922
 									.equals(alt));
 
 							fujaba__Success = true;
@@ -5981,6 +6328,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(altFlow != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -5993,6 +6342,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// check link ref from alt to altFlow
 				JavaSDM.ensure(altFlow.equals(alt.getRef()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -6019,6 +6371,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_stepAlternative to alt
 				JavaSDM.ensure(alt.equals(_edge_stepAlternative.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -6026,7 +6381,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, step, alt,
-						altFlow, useCase, flow, actor);
+						altFlow, useCase, flow, actor, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -6089,14 +6444,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_altFlow_flows_699242 = null;
-		NormalStep __DEC_alt_stepAlternative_438179 = null;
-		Flow __DEC_step_steps_894541 = null;
-		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_7111 = null;
-		AlternativeFlowAlternative __DEC_altFlow_ref_7111 = null;
+		UseCase __DEC_altFlow_flows_285632 = null;
+		NormalStep __DEC_alt_stepAlternative_618809 = null;
+		Flow __DEC_step_steps_606981 = null;
+		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_450064 = null;
+		AlternativeFlowAlternative __DEC_altFlow_ref_450064 = null;
 		Match match = null;
 		UseCase useCase = null;
 		Flow flow = null;
+		PackageDeclaration packageDeclaration = null;
 		Actor actor = null;
 		NormalStep step = null;
 		AlternativeFlow altFlow = null;
@@ -6180,6 +6536,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(actor != null);
 
 			// bind object
+			packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getActors().contains(actor));
+
+			// bind object
 			flow = step.eContainer() instanceof Flow ? (Flow) step.eContainer()
 					: null;
 
@@ -6205,6 +6571,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check link trg from _edge_ref to altFlow
 			JavaSDM.ensure(altFlow.equals(_edge_ref.getTrg()));
 
+			// check link useCases from useCase to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 			// story node 'test core match and DECs'
 			try {
 				fujaba__Success = false;
@@ -6214,18 +6583,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_altFlow_flows_699242 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
+					__DEC_altFlow_flows_285632 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
 							.eContainer() : null;
 
-					// check object __DEC_altFlow_flows_699242 is really bound
-					JavaSDM.ensure(__DEC_altFlow_flows_699242 != null);
+					// check object __DEC_altFlow_flows_285632 is really bound
+					JavaSDM.ensure(__DEC_altFlow_flows_285632 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_altFlow_flows_699242.getFlows()
+					JavaSDM.ensure(__DEC_altFlow_flows_285632.getFlows()
 							.contains(altFlow));
 
-					// check isomorphic binding between objects __DEC_altFlow_flows_699242 and useCase 
-					JavaSDM.ensure(!__DEC_altFlow_flows_699242.equals(useCase));
+					// check isomorphic binding between objects __DEC_altFlow_flows_285632 and useCase 
+					JavaSDM.ensure(!__DEC_altFlow_flows_285632.equals(useCase));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -6241,18 +6610,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_alt_stepAlternative_438179 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
+					__DEC_alt_stepAlternative_618809 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
 							.eContainer() : null;
 
-					// check object __DEC_alt_stepAlternative_438179 is really bound
-					JavaSDM.ensure(__DEC_alt_stepAlternative_438179 != null);
+					// check object __DEC_alt_stepAlternative_618809 is really bound
+					JavaSDM.ensure(__DEC_alt_stepAlternative_618809 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_alt_stepAlternative_438179
+					JavaSDM.ensure(__DEC_alt_stepAlternative_618809
 							.getStepAlternative().contains(alt));
 
-					// check isomorphic binding between objects __DEC_alt_stepAlternative_438179 and step 
-					JavaSDM.ensure(!__DEC_alt_stepAlternative_438179
+					// check isomorphic binding between objects __DEC_alt_stepAlternative_618809 and step 
+					JavaSDM.ensure(!__DEC_alt_stepAlternative_618809
 							.equals(step));
 
 					fujaba__Success = true;
@@ -6269,21 +6638,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_894541 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_606981 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_894541 is really bound
-					JavaSDM.ensure(__DEC_step_steps_894541 != null);
+					// check object __DEC_step_steps_606981 is really bound
+					JavaSDM.ensure(__DEC_step_steps_606981 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_894541.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_606981.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_894541 and altFlow 
-					JavaSDM.ensure(!__DEC_step_steps_894541.equals(altFlow));
+					// check isomorphic binding between objects __DEC_step_steps_606981 and altFlow 
+					JavaSDM.ensure(!__DEC_step_steps_606981.equals(altFlow));
 
-					// check isomorphic binding between objects __DEC_step_steps_894541 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_894541.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_606981 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_606981.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -6298,26 +6667,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link ref from altFlow to __DEC_altFlow_ref_7111
+					// iterate to-many link ref from altFlow to __DEC_altFlow_ref_450064
 					fujaba__Success = false;
 
-					fujaba__IterAltFlowTo__DEC_altFlow_ref_7111 = new ArrayList(
+					fujaba__IterAltFlowTo__DEC_altFlow_ref_450064 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(altFlow,
 											AlternativeFlowAlternative.class,
 											"ref")).iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterAltFlowTo__DEC_altFlow_ref_7111
+							&& fujaba__IterAltFlowTo__DEC_altFlow_ref_450064
 									.hasNext()) {
 						try {
-							__DEC_altFlow_ref_7111 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_7111
+							__DEC_altFlow_ref_450064 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_450064
 									.next();
 
-							// check object __DEC_altFlow_ref_7111 is really bound
-							JavaSDM.ensure(__DEC_altFlow_ref_7111 != null);
-							// check isomorphic binding between objects __DEC_altFlow_ref_7111 and alt 
-							JavaSDM.ensure(!__DEC_altFlow_ref_7111.equals(alt));
+							// check object __DEC_altFlow_ref_450064 is really bound
+							JavaSDM.ensure(__DEC_altFlow_ref_450064 != null);
+							// check isomorphic binding between objects __DEC_altFlow_ref_450064 and alt 
+							JavaSDM.ensure(!__DEC_altFlow_ref_450064
+									.equals(alt));
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
@@ -6345,6 +6715,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(altFlow != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -6357,6 +6729,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// check link ref from alt to altFlow
 				JavaSDM.ensure(altFlow.equals(alt.getRef()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -6383,6 +6758,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_ref to altFlow
 				JavaSDM.ensure(altFlow.equals(_edge_ref.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -6390,7 +6768,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, step, alt,
-						altFlow, useCase, flow, actor);
+						altFlow, useCase, flow, actor, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -6453,27 +6831,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_838342 = null;
-		InteractionOperand __DEC_combo_fragment_794278 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_468653 = null;
-		InteractionOperand __DEC_messageReceive_fragment_156710 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_448832 = null;
-		InteractionOperand __DEC_messageSend_fragment_827865 = null;
-		Interaction __DEC_operand_enclosingInteraction_956573 = null;
-		InteractionOperand __DEC_operand_fragment_738141 = null;
-		InteractionOperand __DEC_guard_guard_247949 = null;
-		CombinedFragment __DEC_operand_operand_1416 = null;
-		Constraint __DEC_spec_specification_461854 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_144606 = null;
-		Message __DEC_messageReceive_receiveEvent_144606 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_241646 = null;
-		Message __DEC_messageSend_receiveEvent_241646 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_854079 = null;
-		Message __DEC_messageReceive_sendEvent_854079 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_214759 = null;
-		Message __DEC_messageSend_sendEvent_214759 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_122748 = null;
-		MessageEnd __DEC_message_message_122748 = null;
+		Interaction __DEC_combo_enclosingInteraction_333790 = null;
+		InteractionOperand __DEC_combo_fragment_407617 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_205034 = null;
+		InteractionOperand __DEC_messageReceive_fragment_434932 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_361155 = null;
+		InteractionOperand __DEC_messageSend_fragment_796894 = null;
+		Interaction __DEC_operand_enclosingInteraction_167362 = null;
+		InteractionOperand __DEC_operand_fragment_223236 = null;
+		InteractionOperand __DEC_guard_guard_484448 = null;
+		CombinedFragment __DEC_operand_operand_643929 = null;
+		Constraint __DEC_spec_specification_129327 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_44951 = null;
+		Message __DEC_messageReceive_receiveEvent_44951 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_348978 = null;
+		Message __DEC_messageSend_receiveEvent_348978 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_616574 = null;
+		Message __DEC_messageReceive_sendEvent_616574 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_381792 = null;
+		Message __DEC_messageSend_sendEvent_381792 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_794707 = null;
+		MessageEnd __DEC_message_message_794707 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
@@ -6636,14 +7014,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_enclosingInteraction_838342 = combo
+									__DEC_combo_enclosingInteraction_333790 = combo
 											.getEnclosingInteraction();
 
-									// check object __DEC_combo_enclosingInteraction_838342 is really bound
-									JavaSDM.ensure(__DEC_combo_enclosingInteraction_838342 != null);
+									// check object __DEC_combo_enclosingInteraction_333790 is really bound
+									JavaSDM.ensure(__DEC_combo_enclosingInteraction_333790 != null);
 
-									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_838342 and interaction 
-									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_838342
+									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_333790 and interaction 
+									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_333790
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -6660,14 +7038,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_fragment_794278 = combo
+									__DEC_combo_fragment_407617 = combo
 											.getEnclosingOperand();
 
-									// check object __DEC_combo_fragment_794278 is really bound
-									JavaSDM.ensure(__DEC_combo_fragment_794278 != null);
+									// check object __DEC_combo_fragment_407617 is really bound
+									JavaSDM.ensure(__DEC_combo_fragment_407617 != null);
 
-									// check isomorphic binding between objects __DEC_combo_fragment_794278 and operand 
-									JavaSDM.ensure(!__DEC_combo_fragment_794278
+									// check isomorphic binding between objects __DEC_combo_fragment_407617 and operand 
+									JavaSDM.ensure(!__DEC_combo_fragment_407617
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -6684,14 +7062,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_enclosingInteraction_468653 = messageReceive
+									__DEC_messageReceive_enclosingInteraction_205034 = messageReceive
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageReceive_enclosingInteraction_468653 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_468653 != null);
+									// check object __DEC_messageReceive_enclosingInteraction_205034 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_205034 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_468653 and interaction 
-									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_468653
+									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_205034 and interaction 
+									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_205034
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -6708,14 +7086,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_fragment_156710 = messageReceive
+									__DEC_messageReceive_fragment_434932 = messageReceive
 											.getEnclosingOperand();
 
-									// check object __DEC_messageReceive_fragment_156710 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_fragment_156710 != null);
+									// check object __DEC_messageReceive_fragment_434932 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_fragment_434932 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_fragment_156710 and operand 
-									JavaSDM.ensure(!__DEC_messageReceive_fragment_156710
+									// check isomorphic binding between objects __DEC_messageReceive_fragment_434932 and operand 
+									JavaSDM.ensure(!__DEC_messageReceive_fragment_434932
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -6732,14 +7110,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_enclosingInteraction_448832 = messageSend
+									__DEC_messageSend_enclosingInteraction_361155 = messageSend
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageSend_enclosingInteraction_448832 is really bound
-									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_448832 != null);
+									// check object __DEC_messageSend_enclosingInteraction_361155 is really bound
+									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_361155 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_448832 and interaction 
-									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_448832
+									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_361155 and interaction 
+									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_361155
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -6756,14 +7134,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_fragment_827865 = messageSend
+									__DEC_messageSend_fragment_796894 = messageSend
 											.getEnclosingOperand();
 
-									// check object __DEC_messageSend_fragment_827865 is really bound
-									JavaSDM.ensure(__DEC_messageSend_fragment_827865 != null);
+									// check object __DEC_messageSend_fragment_796894 is really bound
+									JavaSDM.ensure(__DEC_messageSend_fragment_796894 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_fragment_827865 and operand 
-									JavaSDM.ensure(!__DEC_messageSend_fragment_827865
+									// check isomorphic binding between objects __DEC_messageSend_fragment_796894 and operand 
+									JavaSDM.ensure(!__DEC_messageSend_fragment_796894
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -6780,14 +7158,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_enclosingInteraction_956573 = operand
+									__DEC_operand_enclosingInteraction_167362 = operand
 											.getEnclosingInteraction();
 
-									// check object __DEC_operand_enclosingInteraction_956573 is really bound
-									JavaSDM.ensure(__DEC_operand_enclosingInteraction_956573 != null);
+									// check object __DEC_operand_enclosingInteraction_167362 is really bound
+									JavaSDM.ensure(__DEC_operand_enclosingInteraction_167362 != null);
 
-									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_956573 and interaction 
-									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_956573
+									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_167362 and interaction 
+									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_167362
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -6804,14 +7182,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_fragment_738141 = operand
+									__DEC_operand_fragment_223236 = operand
 											.getEnclosingOperand();
 
-									// check object __DEC_operand_fragment_738141 is really bound
-									JavaSDM.ensure(__DEC_operand_fragment_738141 != null);
+									// check object __DEC_operand_fragment_223236 is really bound
+									JavaSDM.ensure(__DEC_operand_fragment_223236 != null);
 
-									// check isomorphic binding between objects __DEC_operand_fragment_738141 and operand 
-									JavaSDM.ensure(!__DEC_operand_fragment_738141
+									// check isomorphic binding between objects __DEC_operand_fragment_223236 and operand 
+									JavaSDM.ensure(!__DEC_operand_fragment_223236
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -6840,20 +7218,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_guard_guard_247949 = guard
+									__DEC_guard_guard_484448 = guard
 											.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 											.eContainer() : null;
 
-									// check object __DEC_guard_guard_247949 is really bound
-									JavaSDM.ensure(__DEC_guard_guard_247949 != null);
+									// check object __DEC_guard_guard_484448 is really bound
+									JavaSDM.ensure(__DEC_guard_guard_484448 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(guard
-											.equals(__DEC_guard_guard_247949
+											.equals(__DEC_guard_guard_484448
 													.getGuard()));
 
-									// check isomorphic binding between objects __DEC_guard_guard_247949 and operand 
-									JavaSDM.ensure(!__DEC_guard_guard_247949
+									// check isomorphic binding between objects __DEC_guard_guard_484448 and operand 
+									JavaSDM.ensure(!__DEC_guard_guard_484448
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -6870,19 +7248,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_operand_1416 = operand
+									__DEC_operand_operand_643929 = operand
 											.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 											.eContainer() : null;
 
-									// check object __DEC_operand_operand_1416 is really bound
-									JavaSDM.ensure(__DEC_operand_operand_1416 != null);
+									// check object __DEC_operand_operand_643929 is really bound
+									JavaSDM.ensure(__DEC_operand_operand_643929 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_operand_operand_1416
+									JavaSDM.ensure(__DEC_operand_operand_643929
 											.getOperand().contains(operand));
 
-									// check isomorphic binding between objects __DEC_operand_operand_1416 and combo 
-									JavaSDM.ensure(!__DEC_operand_operand_1416
+									// check isomorphic binding between objects __DEC_operand_operand_643929 and combo 
+									JavaSDM.ensure(!__DEC_operand_operand_643929
 											.equals(combo));
 
 									fujaba__Success = true;
@@ -6899,20 +7277,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_spec_specification_461854 = spec
+									__DEC_spec_specification_129327 = spec
 											.eContainer() instanceof Constraint ? (Constraint) spec
 											.eContainer() : null;
 
-									// check object __DEC_spec_specification_461854 is really bound
-									JavaSDM.ensure(__DEC_spec_specification_461854 != null);
+									// check object __DEC_spec_specification_129327 is really bound
+									JavaSDM.ensure(__DEC_spec_specification_129327 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(spec
-											.equals(__DEC_spec_specification_461854
+											.equals(__DEC_spec_specification_129327
 													.getSpecification()));
 
-									// check isomorphic binding between objects __DEC_spec_specification_461854 and guard 
-									JavaSDM.ensure(!__DEC_spec_specification_461854
+									// check isomorphic binding between objects __DEC_spec_specification_129327 and guard 
+									JavaSDM.ensure(!__DEC_spec_specification_129327
 											.equals(guard));
 
 									fujaba__Success = true;
@@ -6928,10 +7306,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_144606
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_44951
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_144606 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_44951 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -6940,16 +7318,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_144606
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_44951
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_144606 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_144606
+											__DEC_messageReceive_receiveEvent_44951 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_44951
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_144606 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_144606 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_144606 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_144606
+											// check object __DEC_messageReceive_receiveEvent_44951 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_44951 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_44951 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_44951
 													.equals(message));
 
 											fujaba__Success = true;
@@ -6972,10 +7350,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_241646
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_348978
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_241646 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_348978 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -6984,16 +7362,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_241646
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_348978
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_241646 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_241646
+											__DEC_messageSend_receiveEvent_348978 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_348978
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_241646 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_241646 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_241646 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_241646
+											// check object __DEC_messageSend_receiveEvent_348978 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_348978 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_348978 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_348978
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7016,10 +7394,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_854079
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_616574
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_854079 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_616574 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -7028,16 +7406,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_854079
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_616574
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_854079 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_854079
+											__DEC_messageReceive_sendEvent_616574 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_616574
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_854079 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_854079 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_854079 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_854079
+											// check object __DEC_messageReceive_sendEvent_616574 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_616574 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_616574 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_616574
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7060,10 +7438,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_214759
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_381792
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_214759 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_381792 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -7072,16 +7450,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_214759
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_381792
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_214759 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_214759
+											__DEC_messageSend_sendEvent_381792 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_381792
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_214759 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_214759 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_214759 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_214759
+											// check object __DEC_messageSend_sendEvent_381792 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_381792 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_381792 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_381792
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7104,10 +7482,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_122748
+									// iterate to-many link message from message to __DEC_message_message_794707
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_122748 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_794707 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -7116,20 +7494,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_122748
+											&& fujaba__IterMessageTo__DEC_message_message_794707
 													.hasNext()) {
 										try {
-											__DEC_message_message_122748 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_122748
+											__DEC_message_message_794707 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_794707
 													.next();
 
-											// check object __DEC_message_message_122748 is really bound
-											JavaSDM.ensure(__DEC_message_message_122748 != null);
-											// check isomorphic binding between objects __DEC_message_message_122748 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_122748
+											// check object __DEC_message_message_794707 is really bound
+											JavaSDM.ensure(__DEC_message_message_794707 != null);
+											// check isomorphic binding between objects __DEC_message_message_794707 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_794707
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_122748 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_122748
+											// check isomorphic binding between objects __DEC_message_message_794707 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_794707
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -7360,27 +7738,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_111589 = null;
-		InteractionOperand __DEC_combo_fragment_350321 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_704386 = null;
-		InteractionOperand __DEC_messageReceive_fragment_269607 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_92519 = null;
-		InteractionOperand __DEC_messageSend_fragment_5762 = null;
-		Interaction __DEC_operand_enclosingInteraction_65562 = null;
-		InteractionOperand __DEC_operand_fragment_552128 = null;
-		InteractionOperand __DEC_guard_guard_969788 = null;
-		CombinedFragment __DEC_operand_operand_806568 = null;
-		Constraint __DEC_spec_specification_765204 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_290335 = null;
-		Message __DEC_messageReceive_receiveEvent_290335 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_55269 = null;
-		Message __DEC_messageSend_receiveEvent_55269 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_235023 = null;
-		Message __DEC_messageReceive_sendEvent_235023 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_192050 = null;
-		Message __DEC_messageSend_sendEvent_192050 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_847597 = null;
-		MessageEnd __DEC_message_message_847597 = null;
+		Interaction __DEC_combo_enclosingInteraction_479976 = null;
+		InteractionOperand __DEC_combo_fragment_929785 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_695410 = null;
+		InteractionOperand __DEC_messageReceive_fragment_812100 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_654133 = null;
+		InteractionOperand __DEC_messageSend_fragment_10470 = null;
+		Interaction __DEC_operand_enclosingInteraction_477709 = null;
+		InteractionOperand __DEC_operand_fragment_720547 = null;
+		InteractionOperand __DEC_guard_guard_675339 = null;
+		CombinedFragment __DEC_operand_operand_309835 = null;
+		Constraint __DEC_spec_specification_629149 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_793977 = null;
+		Message __DEC_messageReceive_receiveEvent_793977 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_19244 = null;
+		Message __DEC_messageSend_receiveEvent_19244 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_320017 = null;
+		Message __DEC_messageReceive_sendEvent_320017 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_462528 = null;
+		Message __DEC_messageSend_sendEvent_462528 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_126278 = null;
+		MessageEnd __DEC_message_message_126278 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -7541,14 +7919,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_enclosingInteraction_111589 = combo
+									__DEC_combo_enclosingInteraction_479976 = combo
 											.getEnclosingInteraction();
 
-									// check object __DEC_combo_enclosingInteraction_111589 is really bound
-									JavaSDM.ensure(__DEC_combo_enclosingInteraction_111589 != null);
+									// check object __DEC_combo_enclosingInteraction_479976 is really bound
+									JavaSDM.ensure(__DEC_combo_enclosingInteraction_479976 != null);
 
-									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_111589 and interaction 
-									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_111589
+									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_479976 and interaction 
+									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_479976
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -7565,14 +7943,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_fragment_350321 = combo
+									__DEC_combo_fragment_929785 = combo
 											.getEnclosingOperand();
 
-									// check object __DEC_combo_fragment_350321 is really bound
-									JavaSDM.ensure(__DEC_combo_fragment_350321 != null);
+									// check object __DEC_combo_fragment_929785 is really bound
+									JavaSDM.ensure(__DEC_combo_fragment_929785 != null);
 
-									// check isomorphic binding between objects __DEC_combo_fragment_350321 and operand 
-									JavaSDM.ensure(!__DEC_combo_fragment_350321
+									// check isomorphic binding between objects __DEC_combo_fragment_929785 and operand 
+									JavaSDM.ensure(!__DEC_combo_fragment_929785
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -7589,14 +7967,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_enclosingInteraction_704386 = messageReceive
+									__DEC_messageReceive_enclosingInteraction_695410 = messageReceive
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageReceive_enclosingInteraction_704386 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_704386 != null);
+									// check object __DEC_messageReceive_enclosingInteraction_695410 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_695410 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_704386 and interaction 
-									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_704386
+									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_695410 and interaction 
+									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_695410
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -7613,14 +7991,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_fragment_269607 = messageReceive
+									__DEC_messageReceive_fragment_812100 = messageReceive
 											.getEnclosingOperand();
 
-									// check object __DEC_messageReceive_fragment_269607 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_fragment_269607 != null);
+									// check object __DEC_messageReceive_fragment_812100 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_fragment_812100 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_fragment_269607 and operand 
-									JavaSDM.ensure(!__DEC_messageReceive_fragment_269607
+									// check isomorphic binding between objects __DEC_messageReceive_fragment_812100 and operand 
+									JavaSDM.ensure(!__DEC_messageReceive_fragment_812100
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -7637,14 +8015,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_enclosingInteraction_92519 = messageSend
+									__DEC_messageSend_enclosingInteraction_654133 = messageSend
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageSend_enclosingInteraction_92519 is really bound
-									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_92519 != null);
+									// check object __DEC_messageSend_enclosingInteraction_654133 is really bound
+									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_654133 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_92519 and interaction 
-									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_92519
+									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_654133 and interaction 
+									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_654133
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -7661,14 +8039,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_fragment_5762 = messageSend
+									__DEC_messageSend_fragment_10470 = messageSend
 											.getEnclosingOperand();
 
-									// check object __DEC_messageSend_fragment_5762 is really bound
-									JavaSDM.ensure(__DEC_messageSend_fragment_5762 != null);
+									// check object __DEC_messageSend_fragment_10470 is really bound
+									JavaSDM.ensure(__DEC_messageSend_fragment_10470 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_fragment_5762 and operand 
-									JavaSDM.ensure(!__DEC_messageSend_fragment_5762
+									// check isomorphic binding between objects __DEC_messageSend_fragment_10470 and operand 
+									JavaSDM.ensure(!__DEC_messageSend_fragment_10470
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -7685,14 +8063,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_enclosingInteraction_65562 = operand
+									__DEC_operand_enclosingInteraction_477709 = operand
 											.getEnclosingInteraction();
 
-									// check object __DEC_operand_enclosingInteraction_65562 is really bound
-									JavaSDM.ensure(__DEC_operand_enclosingInteraction_65562 != null);
+									// check object __DEC_operand_enclosingInteraction_477709 is really bound
+									JavaSDM.ensure(__DEC_operand_enclosingInteraction_477709 != null);
 
-									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_65562 and interaction 
-									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_65562
+									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_477709 and interaction 
+									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_477709
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -7709,14 +8087,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_fragment_552128 = operand
+									__DEC_operand_fragment_720547 = operand
 											.getEnclosingOperand();
 
-									// check object __DEC_operand_fragment_552128 is really bound
-									JavaSDM.ensure(__DEC_operand_fragment_552128 != null);
+									// check object __DEC_operand_fragment_720547 is really bound
+									JavaSDM.ensure(__DEC_operand_fragment_720547 != null);
 
-									// check isomorphic binding between objects __DEC_operand_fragment_552128 and operand 
-									JavaSDM.ensure(!__DEC_operand_fragment_552128
+									// check isomorphic binding between objects __DEC_operand_fragment_720547 and operand 
+									JavaSDM.ensure(!__DEC_operand_fragment_720547
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -7745,20 +8123,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_guard_guard_969788 = guard
+									__DEC_guard_guard_675339 = guard
 											.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 											.eContainer() : null;
 
-									// check object __DEC_guard_guard_969788 is really bound
-									JavaSDM.ensure(__DEC_guard_guard_969788 != null);
+									// check object __DEC_guard_guard_675339 is really bound
+									JavaSDM.ensure(__DEC_guard_guard_675339 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(guard
-											.equals(__DEC_guard_guard_969788
+											.equals(__DEC_guard_guard_675339
 													.getGuard()));
 
-									// check isomorphic binding between objects __DEC_guard_guard_969788 and operand 
-									JavaSDM.ensure(!__DEC_guard_guard_969788
+									// check isomorphic binding between objects __DEC_guard_guard_675339 and operand 
+									JavaSDM.ensure(!__DEC_guard_guard_675339
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -7775,19 +8153,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_operand_806568 = operand
+									__DEC_operand_operand_309835 = operand
 											.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 											.eContainer() : null;
 
-									// check object __DEC_operand_operand_806568 is really bound
-									JavaSDM.ensure(__DEC_operand_operand_806568 != null);
+									// check object __DEC_operand_operand_309835 is really bound
+									JavaSDM.ensure(__DEC_operand_operand_309835 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_operand_operand_806568
+									JavaSDM.ensure(__DEC_operand_operand_309835
 											.getOperand().contains(operand));
 
-									// check isomorphic binding between objects __DEC_operand_operand_806568 and combo 
-									JavaSDM.ensure(!__DEC_operand_operand_806568
+									// check isomorphic binding between objects __DEC_operand_operand_309835 and combo 
+									JavaSDM.ensure(!__DEC_operand_operand_309835
 											.equals(combo));
 
 									fujaba__Success = true;
@@ -7804,20 +8182,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_spec_specification_765204 = spec
+									__DEC_spec_specification_629149 = spec
 											.eContainer() instanceof Constraint ? (Constraint) spec
 											.eContainer() : null;
 
-									// check object __DEC_spec_specification_765204 is really bound
-									JavaSDM.ensure(__DEC_spec_specification_765204 != null);
+									// check object __DEC_spec_specification_629149 is really bound
+									JavaSDM.ensure(__DEC_spec_specification_629149 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(spec
-											.equals(__DEC_spec_specification_765204
+											.equals(__DEC_spec_specification_629149
 													.getSpecification()));
 
-									// check isomorphic binding between objects __DEC_spec_specification_765204 and guard 
-									JavaSDM.ensure(!__DEC_spec_specification_765204
+									// check isomorphic binding between objects __DEC_spec_specification_629149 and guard 
+									JavaSDM.ensure(!__DEC_spec_specification_629149
 											.equals(guard));
 
 									fujaba__Success = true;
@@ -7833,10 +8211,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_290335
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_793977
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_290335 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_793977 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -7845,16 +8223,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_290335
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_793977
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_290335 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_290335
+											__DEC_messageReceive_receiveEvent_793977 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_793977
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_290335 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_290335 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_290335 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_290335
+											// check object __DEC_messageReceive_receiveEvent_793977 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_793977 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_793977 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_793977
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7877,10 +8255,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_55269
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_19244
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_55269 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_19244 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -7889,16 +8267,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_55269
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_19244
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_55269 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_55269
+											__DEC_messageSend_receiveEvent_19244 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_19244
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_55269 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_55269 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_55269 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_55269
+											// check object __DEC_messageSend_receiveEvent_19244 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_19244 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_19244 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_19244
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7921,10 +8299,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_235023
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_320017
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_235023 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_320017 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -7933,16 +8311,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_235023
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_320017
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_235023 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_235023
+											__DEC_messageReceive_sendEvent_320017 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_320017
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_235023 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_235023 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_235023 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_235023
+											// check object __DEC_messageReceive_sendEvent_320017 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_320017 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_320017 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_320017
 													.equals(message));
 
 											fujaba__Success = true;
@@ -7965,10 +8343,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_192050
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_462528
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_192050 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_462528 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -7977,16 +8355,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_192050
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_462528
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_192050 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_192050
+											__DEC_messageSend_sendEvent_462528 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_462528
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_192050 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_192050 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_192050 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_192050
+											// check object __DEC_messageSend_sendEvent_462528 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_462528 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_462528 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_462528
 													.equals(message));
 
 											fujaba__Success = true;
@@ -8009,10 +8387,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_847597
+									// iterate to-many link message from message to __DEC_message_message_126278
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_847597 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_126278 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -8021,20 +8399,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_847597
+											&& fujaba__IterMessageTo__DEC_message_message_126278
 													.hasNext()) {
 										try {
-											__DEC_message_message_847597 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_847597
+											__DEC_message_message_126278 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_126278
 													.next();
 
-											// check object __DEC_message_message_847597 is really bound
-											JavaSDM.ensure(__DEC_message_message_847597 != null);
-											// check isomorphic binding between objects __DEC_message_message_847597 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_847597
+											// check object __DEC_message_message_126278 is really bound
+											JavaSDM.ensure(__DEC_message_message_126278 != null);
+											// check isomorphic binding between objects __DEC_message_message_126278 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_126278
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_847597 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_847597
+											// check isomorphic binding between objects __DEC_message_message_126278 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_126278
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -8265,27 +8643,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_150078 = null;
-		InteractionOperand __DEC_combo_fragment_538214 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_77207 = null;
-		InteractionOperand __DEC_messageReceive_fragment_991304 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_738498 = null;
-		InteractionOperand __DEC_messageSend_fragment_660388 = null;
-		Interaction __DEC_operand_enclosingInteraction_214340 = null;
-		InteractionOperand __DEC_operand_fragment_976852 = null;
-		InteractionOperand __DEC_guard_guard_926383 = null;
-		CombinedFragment __DEC_operand_operand_927668 = null;
-		Constraint __DEC_spec_specification_599575 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_145170 = null;
-		Message __DEC_messageReceive_receiveEvent_145170 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_516313 = null;
-		Message __DEC_messageSend_receiveEvent_516313 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_745859 = null;
-		Message __DEC_messageReceive_sendEvent_745859 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_935476 = null;
-		Message __DEC_messageSend_sendEvent_935476 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_278681 = null;
-		MessageEnd __DEC_message_message_278681 = null;
+		Interaction __DEC_combo_enclosingInteraction_250469 = null;
+		InteractionOperand __DEC_combo_fragment_548352 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_309211 = null;
+		InteractionOperand __DEC_messageReceive_fragment_186340 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_396470 = null;
+		InteractionOperand __DEC_messageSend_fragment_344715 = null;
+		Interaction __DEC_operand_enclosingInteraction_318186 = null;
+		InteractionOperand __DEC_operand_fragment_372242 = null;
+		InteractionOperand __DEC_guard_guard_399037 = null;
+		CombinedFragment __DEC_operand_operand_898836 = null;
+		Constraint __DEC_spec_specification_649057 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_734965 = null;
+		Message __DEC_messageReceive_receiveEvent_734965 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_229371 = null;
+		Message __DEC_messageSend_receiveEvent_229371 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_55497 = null;
+		Message __DEC_messageReceive_sendEvent_55497 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_738403 = null;
+		Message __DEC_messageSend_sendEvent_738403 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_531223 = null;
+		MessageEnd __DEC_message_message_531223 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -8472,14 +8850,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_enclosingInteraction_150078 = combo
+											__DEC_combo_enclosingInteraction_250469 = combo
 													.getEnclosingInteraction();
 
-											// check object __DEC_combo_enclosingInteraction_150078 is really bound
-											JavaSDM.ensure(__DEC_combo_enclosingInteraction_150078 != null);
+											// check object __DEC_combo_enclosingInteraction_250469 is really bound
+											JavaSDM.ensure(__DEC_combo_enclosingInteraction_250469 != null);
 
-											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_150078 and interaction 
-											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_150078
+											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_250469 and interaction 
+											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_250469
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -8496,14 +8874,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_fragment_538214 = combo
+											__DEC_combo_fragment_548352 = combo
 													.getEnclosingOperand();
 
-											// check object __DEC_combo_fragment_538214 is really bound
-											JavaSDM.ensure(__DEC_combo_fragment_538214 != null);
+											// check object __DEC_combo_fragment_548352 is really bound
+											JavaSDM.ensure(__DEC_combo_fragment_548352 != null);
 
-											// check isomorphic binding between objects __DEC_combo_fragment_538214 and operand 
-											JavaSDM.ensure(!__DEC_combo_fragment_538214
+											// check isomorphic binding between objects __DEC_combo_fragment_548352 and operand 
+											JavaSDM.ensure(!__DEC_combo_fragment_548352
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -8520,14 +8898,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_enclosingInteraction_77207 = messageReceive
+											__DEC_messageReceive_enclosingInteraction_309211 = messageReceive
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageReceive_enclosingInteraction_77207 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_77207 != null);
+											// check object __DEC_messageReceive_enclosingInteraction_309211 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_309211 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_77207 and interaction 
-											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_77207
+											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_309211 and interaction 
+											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_309211
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -8544,14 +8922,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_fragment_991304 = messageReceive
+											__DEC_messageReceive_fragment_186340 = messageReceive
 													.getEnclosingOperand();
 
-											// check object __DEC_messageReceive_fragment_991304 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_fragment_991304 != null);
+											// check object __DEC_messageReceive_fragment_186340 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_fragment_186340 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_fragment_991304 and operand 
-											JavaSDM.ensure(!__DEC_messageReceive_fragment_991304
+											// check isomorphic binding between objects __DEC_messageReceive_fragment_186340 and operand 
+											JavaSDM.ensure(!__DEC_messageReceive_fragment_186340
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -8568,14 +8946,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_enclosingInteraction_738498 = messageSend
+											__DEC_messageSend_enclosingInteraction_396470 = messageSend
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageSend_enclosingInteraction_738498 is really bound
-											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_738498 != null);
+											// check object __DEC_messageSend_enclosingInteraction_396470 is really bound
+											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_396470 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_738498 and interaction 
-											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_738498
+											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_396470 and interaction 
+											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_396470
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -8592,14 +8970,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_fragment_660388 = messageSend
+											__DEC_messageSend_fragment_344715 = messageSend
 													.getEnclosingOperand();
 
-											// check object __DEC_messageSend_fragment_660388 is really bound
-											JavaSDM.ensure(__DEC_messageSend_fragment_660388 != null);
+											// check object __DEC_messageSend_fragment_344715 is really bound
+											JavaSDM.ensure(__DEC_messageSend_fragment_344715 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_fragment_660388 and operand 
-											JavaSDM.ensure(!__DEC_messageSend_fragment_660388
+											// check isomorphic binding between objects __DEC_messageSend_fragment_344715 and operand 
+											JavaSDM.ensure(!__DEC_messageSend_fragment_344715
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -8616,14 +8994,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_enclosingInteraction_214340 = operand
+											__DEC_operand_enclosingInteraction_318186 = operand
 													.getEnclosingInteraction();
 
-											// check object __DEC_operand_enclosingInteraction_214340 is really bound
-											JavaSDM.ensure(__DEC_operand_enclosingInteraction_214340 != null);
+											// check object __DEC_operand_enclosingInteraction_318186 is really bound
+											JavaSDM.ensure(__DEC_operand_enclosingInteraction_318186 != null);
 
-											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_214340 and interaction 
-											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_214340
+											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_318186 and interaction 
+											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_318186
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -8640,14 +9018,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_fragment_976852 = operand
+											__DEC_operand_fragment_372242 = operand
 													.getEnclosingOperand();
 
-											// check object __DEC_operand_fragment_976852 is really bound
-											JavaSDM.ensure(__DEC_operand_fragment_976852 != null);
+											// check object __DEC_operand_fragment_372242 is really bound
+											JavaSDM.ensure(__DEC_operand_fragment_372242 != null);
 
-											// check isomorphic binding between objects __DEC_operand_fragment_976852 and operand 
-											JavaSDM.ensure(!__DEC_operand_fragment_976852
+											// check isomorphic binding between objects __DEC_operand_fragment_372242 and operand 
+											JavaSDM.ensure(!__DEC_operand_fragment_372242
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -8678,20 +9056,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_guard_guard_926383 = guard
+											__DEC_guard_guard_399037 = guard
 													.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 													.eContainer() : null;
 
-											// check object __DEC_guard_guard_926383 is really bound
-											JavaSDM.ensure(__DEC_guard_guard_926383 != null);
+											// check object __DEC_guard_guard_399037 is really bound
+											JavaSDM.ensure(__DEC_guard_guard_399037 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(guard
-													.equals(__DEC_guard_guard_926383
+													.equals(__DEC_guard_guard_399037
 															.getGuard()));
 
-											// check isomorphic binding between objects __DEC_guard_guard_926383 and operand 
-											JavaSDM.ensure(!__DEC_guard_guard_926383
+											// check isomorphic binding between objects __DEC_guard_guard_399037 and operand 
+											JavaSDM.ensure(!__DEC_guard_guard_399037
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -8708,20 +9086,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_operand_927668 = operand
+											__DEC_operand_operand_898836 = operand
 													.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 													.eContainer() : null;
 
-											// check object __DEC_operand_operand_927668 is really bound
-											JavaSDM.ensure(__DEC_operand_operand_927668 != null);
+											// check object __DEC_operand_operand_898836 is really bound
+											JavaSDM.ensure(__DEC_operand_operand_898836 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_operand_operand_927668
+											JavaSDM.ensure(__DEC_operand_operand_898836
 													.getOperand().contains(
 															operand));
 
-											// check isomorphic binding between objects __DEC_operand_operand_927668 and combo 
-											JavaSDM.ensure(!__DEC_operand_operand_927668
+											// check isomorphic binding between objects __DEC_operand_operand_898836 and combo 
+											JavaSDM.ensure(!__DEC_operand_operand_898836
 													.equals(combo));
 
 											fujaba__Success = true;
@@ -8738,20 +9116,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_spec_specification_599575 = spec
+											__DEC_spec_specification_649057 = spec
 													.eContainer() instanceof Constraint ? (Constraint) spec
 													.eContainer() : null;
 
-											// check object __DEC_spec_specification_599575 is really bound
-											JavaSDM.ensure(__DEC_spec_specification_599575 != null);
+											// check object __DEC_spec_specification_649057 is really bound
+											JavaSDM.ensure(__DEC_spec_specification_649057 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(spec
-													.equals(__DEC_spec_specification_599575
+													.equals(__DEC_spec_specification_649057
 															.getSpecification()));
 
-											// check isomorphic binding between objects __DEC_spec_specification_599575 and guard 
-											JavaSDM.ensure(!__DEC_spec_specification_599575
+											// check isomorphic binding between objects __DEC_spec_specification_649057 and guard 
+											JavaSDM.ensure(!__DEC_spec_specification_649057
 													.equals(guard));
 
 											fujaba__Success = true;
@@ -8767,10 +9145,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_145170
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_734965
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_145170 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_734965 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -8779,16 +9157,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_145170
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_734965
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_145170 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_145170
+													__DEC_messageReceive_receiveEvent_734965 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_734965
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_145170 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_145170 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_145170 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_145170
+													// check object __DEC_messageReceive_receiveEvent_734965 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_734965 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_734965 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_734965
 															.equals(message));
 
 													fujaba__Success = true;
@@ -8811,10 +9189,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_516313
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_229371
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_516313 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_229371 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -8823,16 +9201,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_516313
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_229371
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_516313 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_516313
+													__DEC_messageSend_receiveEvent_229371 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_229371
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_516313 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_516313 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_516313 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_516313
+													// check object __DEC_messageSend_receiveEvent_229371 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_229371 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_229371 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_229371
 															.equals(message));
 
 													fujaba__Success = true;
@@ -8855,10 +9233,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_745859
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_55497
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_745859 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_55497 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -8867,16 +9245,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_745859
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_55497
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_745859 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_745859
+													__DEC_messageReceive_sendEvent_55497 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_55497
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_745859 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_745859 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_745859 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_745859
+													// check object __DEC_messageReceive_sendEvent_55497 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_55497 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_55497 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_55497
 															.equals(message));
 
 													fujaba__Success = true;
@@ -8899,10 +9277,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_935476
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_738403
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_935476 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_738403 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -8911,16 +9289,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_935476
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_738403
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_935476 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_935476
+													__DEC_messageSend_sendEvent_738403 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_738403
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_935476 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_935476 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_935476 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_935476
+													// check object __DEC_messageSend_sendEvent_738403 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_738403 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_738403 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_738403
 															.equals(message));
 
 													fujaba__Success = true;
@@ -8943,10 +9321,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_278681
+											// iterate to-many link message from message to __DEC_message_message_531223
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_278681 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_531223 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -8955,20 +9333,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_278681
+													&& fujaba__IterMessageTo__DEC_message_message_531223
 															.hasNext()) {
 												try {
-													__DEC_message_message_278681 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_278681
+													__DEC_message_message_531223 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_531223
 															.next();
 
-													// check object __DEC_message_message_278681 is really bound
-													JavaSDM.ensure(__DEC_message_message_278681 != null);
-													// check isomorphic binding between objects __DEC_message_message_278681 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_278681
+													// check object __DEC_message_message_531223 is really bound
+													JavaSDM.ensure(__DEC_message_message_531223 != null);
+													// check isomorphic binding between objects __DEC_message_message_531223 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_531223
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_278681 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_278681
+													// check isomorphic binding between objects __DEC_message_message_531223 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_531223
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -9234,27 +9612,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_314021 = null;
-		InteractionOperand __DEC_combo_fragment_213049 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_967507 = null;
-		InteractionOperand __DEC_messageReceive_fragment_229808 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_117528 = null;
-		InteractionOperand __DEC_messageSend_fragment_297190 = null;
-		Interaction __DEC_operand_enclosingInteraction_769418 = null;
-		InteractionOperand __DEC_operand_fragment_2975 = null;
-		InteractionOperand __DEC_guard_guard_978567 = null;
-		CombinedFragment __DEC_operand_operand_253104 = null;
-		Constraint __DEC_spec_specification_883789 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_762753 = null;
-		Message __DEC_messageReceive_receiveEvent_762753 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104229 = null;
-		Message __DEC_messageSend_receiveEvent_104229 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_906439 = null;
-		Message __DEC_messageReceive_sendEvent_906439 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_611528 = null;
-		Message __DEC_messageSend_sendEvent_611528 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_537274 = null;
-		MessageEnd __DEC_message_message_537274 = null;
+		Interaction __DEC_combo_enclosingInteraction_615668 = null;
+		InteractionOperand __DEC_combo_fragment_869545 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_579435 = null;
+		InteractionOperand __DEC_messageReceive_fragment_977110 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_394364 = null;
+		InteractionOperand __DEC_messageSend_fragment_186250 = null;
+		Interaction __DEC_operand_enclosingInteraction_539308 = null;
+		InteractionOperand __DEC_operand_fragment_460839 = null;
+		InteractionOperand __DEC_guard_guard_781147 = null;
+		CombinedFragment __DEC_operand_operand_498780 = null;
+		Constraint __DEC_spec_specification_995162 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_862052 = null;
+		Message __DEC_messageReceive_receiveEvent_862052 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_517097 = null;
+		Message __DEC_messageSend_receiveEvent_517097 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_249005 = null;
+		Message __DEC_messageReceive_sendEvent_249005 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_593691 = null;
+		Message __DEC_messageSend_sendEvent_593691 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_196782 = null;
+		MessageEnd __DEC_message_message_196782 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
@@ -9411,14 +9789,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_combo_enclosingInteraction_314021 = combo
+							__DEC_combo_enclosingInteraction_615668 = combo
 									.getEnclosingInteraction();
 
-							// check object __DEC_combo_enclosingInteraction_314021 is really bound
-							JavaSDM.ensure(__DEC_combo_enclosingInteraction_314021 != null);
+							// check object __DEC_combo_enclosingInteraction_615668 is really bound
+							JavaSDM.ensure(__DEC_combo_enclosingInteraction_615668 != null);
 
-							// check isomorphic binding between objects __DEC_combo_enclosingInteraction_314021 and interaction 
-							JavaSDM.ensure(!__DEC_combo_enclosingInteraction_314021
+							// check isomorphic binding between objects __DEC_combo_enclosingInteraction_615668 and interaction 
+							JavaSDM.ensure(!__DEC_combo_enclosingInteraction_615668
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -9435,14 +9813,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_combo_fragment_213049 = combo
+							__DEC_combo_fragment_869545 = combo
 									.getEnclosingOperand();
 
-							// check object __DEC_combo_fragment_213049 is really bound
-							JavaSDM.ensure(__DEC_combo_fragment_213049 != null);
+							// check object __DEC_combo_fragment_869545 is really bound
+							JavaSDM.ensure(__DEC_combo_fragment_869545 != null);
 
-							// check isomorphic binding between objects __DEC_combo_fragment_213049 and operand 
-							JavaSDM.ensure(!__DEC_combo_fragment_213049
+							// check isomorphic binding between objects __DEC_combo_fragment_869545 and operand 
+							JavaSDM.ensure(!__DEC_combo_fragment_869545
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -9459,14 +9837,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_967507 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_579435 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_967507 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_967507 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_579435 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_579435 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_967507 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_967507
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_579435 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_579435
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -9483,14 +9861,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_fragment_229808 = messageReceive
+							__DEC_messageReceive_fragment_977110 = messageReceive
 									.getEnclosingOperand();
 
-							// check object __DEC_messageReceive_fragment_229808 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_fragment_229808 != null);
+							// check object __DEC_messageReceive_fragment_977110 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_fragment_977110 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_fragment_229808 and operand 
-							JavaSDM.ensure(!__DEC_messageReceive_fragment_229808
+							// check isomorphic binding between objects __DEC_messageReceive_fragment_977110 and operand 
+							JavaSDM.ensure(!__DEC_messageReceive_fragment_977110
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -9507,14 +9885,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_117528 = messageSend
+							__DEC_messageSend_enclosingInteraction_394364 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_117528 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_117528 != null);
+							// check object __DEC_messageSend_enclosingInteraction_394364 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_394364 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_117528 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_117528
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_394364 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_394364
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -9531,14 +9909,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_fragment_297190 = messageSend
+							__DEC_messageSend_fragment_186250 = messageSend
 									.getEnclosingOperand();
 
-							// check object __DEC_messageSend_fragment_297190 is really bound
-							JavaSDM.ensure(__DEC_messageSend_fragment_297190 != null);
+							// check object __DEC_messageSend_fragment_186250 is really bound
+							JavaSDM.ensure(__DEC_messageSend_fragment_186250 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_fragment_297190 and operand 
-							JavaSDM.ensure(!__DEC_messageSend_fragment_297190
+							// check isomorphic binding between objects __DEC_messageSend_fragment_186250 and operand 
+							JavaSDM.ensure(!__DEC_messageSend_fragment_186250
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -9555,14 +9933,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_enclosingInteraction_769418 = operand
+							__DEC_operand_enclosingInteraction_539308 = operand
 									.getEnclosingInteraction();
 
-							// check object __DEC_operand_enclosingInteraction_769418 is really bound
-							JavaSDM.ensure(__DEC_operand_enclosingInteraction_769418 != null);
+							// check object __DEC_operand_enclosingInteraction_539308 is really bound
+							JavaSDM.ensure(__DEC_operand_enclosingInteraction_539308 != null);
 
-							// check isomorphic binding between objects __DEC_operand_enclosingInteraction_769418 and interaction 
-							JavaSDM.ensure(!__DEC_operand_enclosingInteraction_769418
+							// check isomorphic binding between objects __DEC_operand_enclosingInteraction_539308 and interaction 
+							JavaSDM.ensure(!__DEC_operand_enclosingInteraction_539308
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -9579,14 +9957,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_fragment_2975 = operand
+							__DEC_operand_fragment_460839 = operand
 									.getEnclosingOperand();
 
-							// check object __DEC_operand_fragment_2975 is really bound
-							JavaSDM.ensure(__DEC_operand_fragment_2975 != null);
+							// check object __DEC_operand_fragment_460839 is really bound
+							JavaSDM.ensure(__DEC_operand_fragment_460839 != null);
 
-							// check isomorphic binding between objects __DEC_operand_fragment_2975 and operand 
-							JavaSDM.ensure(!__DEC_operand_fragment_2975
+							// check isomorphic binding between objects __DEC_operand_fragment_460839 and operand 
+							JavaSDM.ensure(!__DEC_operand_fragment_460839
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -9613,18 +9991,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_guard_guard_978567 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+							__DEC_guard_guard_781147 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 									.eContainer() : null;
 
-							// check object __DEC_guard_guard_978567 is really bound
-							JavaSDM.ensure(__DEC_guard_guard_978567 != null);
+							// check object __DEC_guard_guard_781147 is really bound
+							JavaSDM.ensure(__DEC_guard_guard_781147 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(guard
-									.equals(__DEC_guard_guard_978567.getGuard()));
+									.equals(__DEC_guard_guard_781147.getGuard()));
 
-							// check isomorphic binding between objects __DEC_guard_guard_978567 and operand 
-							JavaSDM.ensure(!__DEC_guard_guard_978567
+							// check isomorphic binding between objects __DEC_guard_guard_781147 and operand 
+							JavaSDM.ensure(!__DEC_guard_guard_781147
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -9641,18 +10019,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_operand_253104 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+							__DEC_operand_operand_498780 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 									.eContainer() : null;
 
-							// check object __DEC_operand_operand_253104 is really bound
-							JavaSDM.ensure(__DEC_operand_operand_253104 != null);
+							// check object __DEC_operand_operand_498780 is really bound
+							JavaSDM.ensure(__DEC_operand_operand_498780 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_operand_operand_253104
+							JavaSDM.ensure(__DEC_operand_operand_498780
 									.getOperand().contains(operand));
 
-							// check isomorphic binding between objects __DEC_operand_operand_253104 and combo 
-							JavaSDM.ensure(!__DEC_operand_operand_253104
+							// check isomorphic binding between objects __DEC_operand_operand_498780 and combo 
+							JavaSDM.ensure(!__DEC_operand_operand_498780
 									.equals(combo));
 
 							fujaba__Success = true;
@@ -9669,19 +10047,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_spec_specification_883789 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+							__DEC_spec_specification_995162 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 									.eContainer() : null;
 
-							// check object __DEC_spec_specification_883789 is really bound
-							JavaSDM.ensure(__DEC_spec_specification_883789 != null);
+							// check object __DEC_spec_specification_995162 is really bound
+							JavaSDM.ensure(__DEC_spec_specification_995162 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(spec
-									.equals(__DEC_spec_specification_883789
+									.equals(__DEC_spec_specification_995162
 											.getSpecification()));
 
-							// check isomorphic binding between objects __DEC_spec_specification_883789 and guard 
-							JavaSDM.ensure(!__DEC_spec_specification_883789
+							// check isomorphic binding between objects __DEC_spec_specification_995162 and guard 
+							JavaSDM.ensure(!__DEC_spec_specification_995162
 									.equals(guard));
 
 							fujaba__Success = true;
@@ -9697,10 +10075,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_762753
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_862052
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_762753 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_862052 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -9708,16 +10086,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_762753
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_862052
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_762753 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_762753
+									__DEC_messageReceive_receiveEvent_862052 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_862052
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_762753 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_762753 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_762753 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_762753
+									// check object __DEC_messageReceive_receiveEvent_862052 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_862052 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_862052 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_862052
 											.equals(message));
 
 									fujaba__Success = true;
@@ -9740,26 +10118,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_104229
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_517097
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104229 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_517097 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104229
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_517097
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_104229 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104229
+									__DEC_messageSend_receiveEvent_517097 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_517097
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_104229 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_104229 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_104229 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_104229
+									// check object __DEC_messageSend_receiveEvent_517097 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_517097 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_517097 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_517097
 											.equals(message));
 
 									fujaba__Success = true;
@@ -9782,10 +10160,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_906439
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_249005
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_906439 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_249005 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -9793,16 +10171,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_906439
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_249005
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_906439 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_906439
+									__DEC_messageReceive_sendEvent_249005 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_249005
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_906439 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_906439 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_906439 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_906439
+									// check object __DEC_messageReceive_sendEvent_249005 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_249005 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_249005 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_249005
 											.equals(message));
 
 									fujaba__Success = true;
@@ -9825,26 +10203,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_611528
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_593691
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_611528 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_593691 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_611528
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_593691
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_611528 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_611528
+									__DEC_messageSend_sendEvent_593691 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_593691
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_611528 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_611528 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_611528 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_611528
+									// check object __DEC_messageSend_sendEvent_593691 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_593691 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_593691 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_593691
 											.equals(message));
 
 									fujaba__Success = true;
@@ -9867,30 +10245,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_537274
+							// iterate to-many link message from message to __DEC_message_message_196782
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_537274 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_196782 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_537274
+									&& fujaba__IterMessageTo__DEC_message_message_196782
 											.hasNext()) {
 								try {
-									__DEC_message_message_537274 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_537274
+									__DEC_message_message_196782 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_196782
 											.next();
 
-									// check object __DEC_message_message_537274 is really bound
-									JavaSDM.ensure(__DEC_message_message_537274 != null);
-									// check isomorphic binding between objects __DEC_message_message_537274 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_537274
+									// check object __DEC_message_message_196782 is really bound
+									JavaSDM.ensure(__DEC_message_message_196782 != null);
+									// check isomorphic binding between objects __DEC_message_message_196782 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_196782
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_537274 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_537274
+									// check isomorphic binding between objects __DEC_message_message_196782 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_196782
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -10101,27 +10479,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_186649 = null;
-		InteractionOperand __DEC_combo_fragment_538323 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_477255 = null;
-		InteractionOperand __DEC_messageReceive_fragment_533869 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_503328 = null;
-		InteractionOperand __DEC_messageSend_fragment_778155 = null;
-		Interaction __DEC_operand_enclosingInteraction_574310 = null;
-		InteractionOperand __DEC_operand_fragment_191839 = null;
-		InteractionOperand __DEC_guard_guard_492631 = null;
-		CombinedFragment __DEC_operand_operand_73729 = null;
-		Constraint __DEC_spec_specification_264274 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_888011 = null;
-		Message __DEC_messageReceive_receiveEvent_888011 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_605521 = null;
-		Message __DEC_messageSend_receiveEvent_605521 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_770080 = null;
-		Message __DEC_messageReceive_sendEvent_770080 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_972335 = null;
-		Message __DEC_messageSend_sendEvent_972335 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_28526 = null;
-		MessageEnd __DEC_message_message_28526 = null;
+		Interaction __DEC_combo_enclosingInteraction_393370 = null;
+		InteractionOperand __DEC_combo_fragment_245242 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_414723 = null;
+		InteractionOperand __DEC_messageReceive_fragment_938678 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_133335 = null;
+		InteractionOperand __DEC_messageSend_fragment_652784 = null;
+		Interaction __DEC_operand_enclosingInteraction_443822 = null;
+		InteractionOperand __DEC_operand_fragment_771682 = null;
+		InteractionOperand __DEC_guard_guard_642052 = null;
+		CombinedFragment __DEC_operand_operand_147525 = null;
+		Constraint __DEC_spec_specification_468369 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_887902 = null;
+		Message __DEC_messageReceive_receiveEvent_887902 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_781132 = null;
+		Message __DEC_messageSend_receiveEvent_781132 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_201103 = null;
+		Message __DEC_messageReceive_sendEvent_201103 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_280014 = null;
+		Message __DEC_messageSend_sendEvent_280014 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_698790 = null;
+		MessageEnd __DEC_message_message_698790 = null;
 		Match match = null;
 		Iterator fujaba__IterOperandTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
@@ -10129,12 +10507,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Message message = null;
 		Iterator fujaba__IterLineToMessageReceive = null;
 		MessageOccurrenceSpecification messageReceive = null;
+		Interaction interaction = null;
+		Lifeline line = null;
 		LiteralString spec = null;
 		CombinedFragment combo = null;
 		InteractionConstraint guard = null;
 		InteractionOperand operand = null;
-		Interaction interaction = null;
-		Lifeline line = null;
 
 		// story node 'prepare return value'
 		try {
@@ -10184,19 +10562,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_covered is really bound
 			JavaSDM.ensure(_edge_covered != null);
 			// bind object
-			_TmpObject = _edge_covered.getTrg();
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-
-			// bind object
-			interaction = line.getInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
 			_TmpObject = _edge_covered.getSrc();
 
 			// ensure correct type and really bound of object operand
@@ -10225,6 +10590,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object spec
 			JavaSDM.ensure(_TmpObject instanceof LiteralString);
 			spec = (LiteralString) _TmpObject;
+
+			// bind object
+			_TmpObject = _edge_covered.getTrg();
+
+			// ensure correct type and really bound of object line
+			JavaSDM.ensure(_TmpObject instanceof Lifeline);
+			line = (Lifeline) _TmpObject;
+
+			// bind object
+			interaction = line.getInteraction();
+
+			// check object interaction is really bound
+			JavaSDM.ensure(interaction != null);
 
 			// check link covered from line to combo
 			JavaSDM.ensure(line.getCoveredBy().contains(combo));
@@ -10303,14 +10681,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_enclosingInteraction_186649 = combo
+									__DEC_combo_enclosingInteraction_393370 = combo
 											.getEnclosingInteraction();
 
-									// check object __DEC_combo_enclosingInteraction_186649 is really bound
-									JavaSDM.ensure(__DEC_combo_enclosingInteraction_186649 != null);
+									// check object __DEC_combo_enclosingInteraction_393370 is really bound
+									JavaSDM.ensure(__DEC_combo_enclosingInteraction_393370 != null);
 
-									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_186649 and interaction 
-									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_186649
+									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_393370 and interaction 
+									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_393370
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -10327,14 +10705,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_fragment_538323 = combo
+									__DEC_combo_fragment_245242 = combo
 											.getEnclosingOperand();
 
-									// check object __DEC_combo_fragment_538323 is really bound
-									JavaSDM.ensure(__DEC_combo_fragment_538323 != null);
+									// check object __DEC_combo_fragment_245242 is really bound
+									JavaSDM.ensure(__DEC_combo_fragment_245242 != null);
 
-									// check isomorphic binding between objects __DEC_combo_fragment_538323 and operand 
-									JavaSDM.ensure(!__DEC_combo_fragment_538323
+									// check isomorphic binding between objects __DEC_combo_fragment_245242 and operand 
+									JavaSDM.ensure(!__DEC_combo_fragment_245242
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -10351,14 +10729,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_enclosingInteraction_477255 = messageReceive
+									__DEC_messageReceive_enclosingInteraction_414723 = messageReceive
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageReceive_enclosingInteraction_477255 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_477255 != null);
+									// check object __DEC_messageReceive_enclosingInteraction_414723 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_414723 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_477255 and interaction 
-									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_477255
+									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_414723 and interaction 
+									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_414723
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -10375,14 +10753,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_fragment_533869 = messageReceive
+									__DEC_messageReceive_fragment_938678 = messageReceive
 											.getEnclosingOperand();
 
-									// check object __DEC_messageReceive_fragment_533869 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_fragment_533869 != null);
+									// check object __DEC_messageReceive_fragment_938678 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_fragment_938678 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_fragment_533869 and operand 
-									JavaSDM.ensure(!__DEC_messageReceive_fragment_533869
+									// check isomorphic binding between objects __DEC_messageReceive_fragment_938678 and operand 
+									JavaSDM.ensure(!__DEC_messageReceive_fragment_938678
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -10399,14 +10777,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_enclosingInteraction_503328 = messageSend
+									__DEC_messageSend_enclosingInteraction_133335 = messageSend
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageSend_enclosingInteraction_503328 is really bound
-									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_503328 != null);
+									// check object __DEC_messageSend_enclosingInteraction_133335 is really bound
+									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_133335 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_503328 and interaction 
-									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_503328
+									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_133335 and interaction 
+									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_133335
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -10423,14 +10801,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_fragment_778155 = messageSend
+									__DEC_messageSend_fragment_652784 = messageSend
 											.getEnclosingOperand();
 
-									// check object __DEC_messageSend_fragment_778155 is really bound
-									JavaSDM.ensure(__DEC_messageSend_fragment_778155 != null);
+									// check object __DEC_messageSend_fragment_652784 is really bound
+									JavaSDM.ensure(__DEC_messageSend_fragment_652784 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_fragment_778155 and operand 
-									JavaSDM.ensure(!__DEC_messageSend_fragment_778155
+									// check isomorphic binding between objects __DEC_messageSend_fragment_652784 and operand 
+									JavaSDM.ensure(!__DEC_messageSend_fragment_652784
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -10447,14 +10825,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_enclosingInteraction_574310 = operand
+									__DEC_operand_enclosingInteraction_443822 = operand
 											.getEnclosingInteraction();
 
-									// check object __DEC_operand_enclosingInteraction_574310 is really bound
-									JavaSDM.ensure(__DEC_operand_enclosingInteraction_574310 != null);
+									// check object __DEC_operand_enclosingInteraction_443822 is really bound
+									JavaSDM.ensure(__DEC_operand_enclosingInteraction_443822 != null);
 
-									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_574310 and interaction 
-									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_574310
+									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_443822 and interaction 
+									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_443822
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -10471,14 +10849,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_fragment_191839 = operand
+									__DEC_operand_fragment_771682 = operand
 											.getEnclosingOperand();
 
-									// check object __DEC_operand_fragment_191839 is really bound
-									JavaSDM.ensure(__DEC_operand_fragment_191839 != null);
+									// check object __DEC_operand_fragment_771682 is really bound
+									JavaSDM.ensure(__DEC_operand_fragment_771682 != null);
 
-									// check isomorphic binding between objects __DEC_operand_fragment_191839 and operand 
-									JavaSDM.ensure(!__DEC_operand_fragment_191839
+									// check isomorphic binding between objects __DEC_operand_fragment_771682 and operand 
+									JavaSDM.ensure(!__DEC_operand_fragment_771682
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -10507,20 +10885,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_guard_guard_492631 = guard
+									__DEC_guard_guard_642052 = guard
 											.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 											.eContainer() : null;
 
-									// check object __DEC_guard_guard_492631 is really bound
-									JavaSDM.ensure(__DEC_guard_guard_492631 != null);
+									// check object __DEC_guard_guard_642052 is really bound
+									JavaSDM.ensure(__DEC_guard_guard_642052 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(guard
-											.equals(__DEC_guard_guard_492631
+											.equals(__DEC_guard_guard_642052
 													.getGuard()));
 
-									// check isomorphic binding between objects __DEC_guard_guard_492631 and operand 
-									JavaSDM.ensure(!__DEC_guard_guard_492631
+									// check isomorphic binding between objects __DEC_guard_guard_642052 and operand 
+									JavaSDM.ensure(!__DEC_guard_guard_642052
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -10537,19 +10915,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_operand_73729 = operand
+									__DEC_operand_operand_147525 = operand
 											.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 											.eContainer() : null;
 
-									// check object __DEC_operand_operand_73729 is really bound
-									JavaSDM.ensure(__DEC_operand_operand_73729 != null);
+									// check object __DEC_operand_operand_147525 is really bound
+									JavaSDM.ensure(__DEC_operand_operand_147525 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_operand_operand_73729
+									JavaSDM.ensure(__DEC_operand_operand_147525
 											.getOperand().contains(operand));
 
-									// check isomorphic binding between objects __DEC_operand_operand_73729 and combo 
-									JavaSDM.ensure(!__DEC_operand_operand_73729
+									// check isomorphic binding between objects __DEC_operand_operand_147525 and combo 
+									JavaSDM.ensure(!__DEC_operand_operand_147525
 											.equals(combo));
 
 									fujaba__Success = true;
@@ -10566,20 +10944,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_spec_specification_264274 = spec
+									__DEC_spec_specification_468369 = spec
 											.eContainer() instanceof Constraint ? (Constraint) spec
 											.eContainer() : null;
 
-									// check object __DEC_spec_specification_264274 is really bound
-									JavaSDM.ensure(__DEC_spec_specification_264274 != null);
+									// check object __DEC_spec_specification_468369 is really bound
+									JavaSDM.ensure(__DEC_spec_specification_468369 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(spec
-											.equals(__DEC_spec_specification_264274
+											.equals(__DEC_spec_specification_468369
 													.getSpecification()));
 
-									// check isomorphic binding between objects __DEC_spec_specification_264274 and guard 
-									JavaSDM.ensure(!__DEC_spec_specification_264274
+									// check isomorphic binding between objects __DEC_spec_specification_468369 and guard 
+									JavaSDM.ensure(!__DEC_spec_specification_468369
 											.equals(guard));
 
 									fujaba__Success = true;
@@ -10595,10 +10973,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_888011
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_887902
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_888011 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_887902 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -10607,16 +10985,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_888011
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_887902
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_888011 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_888011
+											__DEC_messageReceive_receiveEvent_887902 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_887902
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_888011 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_888011 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_888011 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_888011
+											// check object __DEC_messageReceive_receiveEvent_887902 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_887902 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_887902 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_887902
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10639,10 +11017,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_605521
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_781132
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_605521 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_781132 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -10651,16 +11029,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_605521
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_781132
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_605521 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_605521
+											__DEC_messageSend_receiveEvent_781132 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_781132
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_605521 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_605521 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_605521 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_605521
+											// check object __DEC_messageSend_receiveEvent_781132 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_781132 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_781132 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_781132
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10683,10 +11061,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_770080
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_201103
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_770080 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_201103 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -10695,16 +11073,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_770080
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_201103
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_770080 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_770080
+											__DEC_messageReceive_sendEvent_201103 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_201103
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_770080 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_770080 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_770080 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_770080
+											// check object __DEC_messageReceive_sendEvent_201103 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_201103 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_201103 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_201103
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10727,10 +11105,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_972335
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_280014
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_972335 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_280014 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -10739,16 +11117,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_972335
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_280014
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_972335 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_972335
+											__DEC_messageSend_sendEvent_280014 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_280014
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_972335 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_972335 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_972335 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_972335
+											// check object __DEC_messageSend_sendEvent_280014 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_280014 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_280014 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_280014
 													.equals(message));
 
 											fujaba__Success = true;
@@ -10771,10 +11149,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_28526
+									// iterate to-many link message from message to __DEC_message_message_698790
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_28526 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_698790 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -10783,20 +11161,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_28526
+											&& fujaba__IterMessageTo__DEC_message_message_698790
 													.hasNext()) {
 										try {
-											__DEC_message_message_28526 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_28526
+											__DEC_message_message_698790 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_698790
 													.next();
 
-											// check object __DEC_message_message_28526 is really bound
-											JavaSDM.ensure(__DEC_message_message_28526 != null);
-											// check isomorphic binding between objects __DEC_message_message_28526 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_28526
+											// check object __DEC_message_message_698790 is really bound
+											JavaSDM.ensure(__DEC_message_message_698790 != null);
+											// check isomorphic binding between objects __DEC_message_message_698790 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_698790
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_28526 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_28526
+											// check isomorphic binding between objects __DEC_message_message_698790 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_698790
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -11041,27 +11419,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_876788 = null;
-		InteractionOperand __DEC_combo_fragment_327643 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_893459 = null;
-		InteractionOperand __DEC_messageReceive_fragment_276590 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_255934 = null;
-		InteractionOperand __DEC_messageSend_fragment_97473 = null;
-		Interaction __DEC_operand_enclosingInteraction_126502 = null;
-		InteractionOperand __DEC_operand_fragment_239501 = null;
-		InteractionOperand __DEC_guard_guard_911007 = null;
-		CombinedFragment __DEC_operand_operand_651473 = null;
-		Constraint __DEC_spec_specification_379584 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_330756 = null;
-		Message __DEC_messageReceive_receiveEvent_330756 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_966498 = null;
-		Message __DEC_messageSend_receiveEvent_966498 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_615676 = null;
-		Message __DEC_messageReceive_sendEvent_615676 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_53030 = null;
-		Message __DEC_messageSend_sendEvent_53030 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_217128 = null;
-		MessageEnd __DEC_message_message_217128 = null;
+		Interaction __DEC_combo_enclosingInteraction_23878 = null;
+		InteractionOperand __DEC_combo_fragment_682822 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_640506 = null;
+		InteractionOperand __DEC_messageReceive_fragment_747001 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_488371 = null;
+		InteractionOperand __DEC_messageSend_fragment_641243 = null;
+		Interaction __DEC_operand_enclosingInteraction_770109 = null;
+		InteractionOperand __DEC_operand_fragment_498821 = null;
+		InteractionOperand __DEC_guard_guard_90598 = null;
+		CombinedFragment __DEC_operand_operand_187009 = null;
+		Constraint __DEC_spec_specification_432506 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_547064 = null;
+		Message __DEC_messageReceive_receiveEvent_547064 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_772177 = null;
+		Message __DEC_messageSend_receiveEvent_772177 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_932554 = null;
+		Message __DEC_messageReceive_sendEvent_932554 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_164090 = null;
+		Message __DEC_messageSend_sendEvent_164090 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_693277 = null;
+		MessageEnd __DEC_message_message_693277 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
@@ -11227,14 +11605,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_enclosingInteraction_876788 = combo
+									__DEC_combo_enclosingInteraction_23878 = combo
 											.getEnclosingInteraction();
 
-									// check object __DEC_combo_enclosingInteraction_876788 is really bound
-									JavaSDM.ensure(__DEC_combo_enclosingInteraction_876788 != null);
+									// check object __DEC_combo_enclosingInteraction_23878 is really bound
+									JavaSDM.ensure(__DEC_combo_enclosingInteraction_23878 != null);
 
-									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_876788 and interaction 
-									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_876788
+									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_23878 and interaction 
+									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_23878
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -11251,14 +11629,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_fragment_327643 = combo
+									__DEC_combo_fragment_682822 = combo
 											.getEnclosingOperand();
 
-									// check object __DEC_combo_fragment_327643 is really bound
-									JavaSDM.ensure(__DEC_combo_fragment_327643 != null);
+									// check object __DEC_combo_fragment_682822 is really bound
+									JavaSDM.ensure(__DEC_combo_fragment_682822 != null);
 
-									// check isomorphic binding between objects __DEC_combo_fragment_327643 and operand 
-									JavaSDM.ensure(!__DEC_combo_fragment_327643
+									// check isomorphic binding between objects __DEC_combo_fragment_682822 and operand 
+									JavaSDM.ensure(!__DEC_combo_fragment_682822
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -11275,14 +11653,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_enclosingInteraction_893459 = messageReceive
+									__DEC_messageReceive_enclosingInteraction_640506 = messageReceive
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageReceive_enclosingInteraction_893459 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_893459 != null);
+									// check object __DEC_messageReceive_enclosingInteraction_640506 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_640506 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_893459 and interaction 
-									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_893459
+									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_640506 and interaction 
+									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_640506
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -11299,14 +11677,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_fragment_276590 = messageReceive
+									__DEC_messageReceive_fragment_747001 = messageReceive
 											.getEnclosingOperand();
 
-									// check object __DEC_messageReceive_fragment_276590 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_fragment_276590 != null);
+									// check object __DEC_messageReceive_fragment_747001 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_fragment_747001 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_fragment_276590 and operand 
-									JavaSDM.ensure(!__DEC_messageReceive_fragment_276590
+									// check isomorphic binding between objects __DEC_messageReceive_fragment_747001 and operand 
+									JavaSDM.ensure(!__DEC_messageReceive_fragment_747001
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -11323,14 +11701,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_enclosingInteraction_255934 = messageSend
+									__DEC_messageSend_enclosingInteraction_488371 = messageSend
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageSend_enclosingInteraction_255934 is really bound
-									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_255934 != null);
+									// check object __DEC_messageSend_enclosingInteraction_488371 is really bound
+									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_488371 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_255934 and interaction 
-									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_255934
+									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_488371 and interaction 
+									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_488371
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -11347,14 +11725,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_fragment_97473 = messageSend
+									__DEC_messageSend_fragment_641243 = messageSend
 											.getEnclosingOperand();
 
-									// check object __DEC_messageSend_fragment_97473 is really bound
-									JavaSDM.ensure(__DEC_messageSend_fragment_97473 != null);
+									// check object __DEC_messageSend_fragment_641243 is really bound
+									JavaSDM.ensure(__DEC_messageSend_fragment_641243 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_fragment_97473 and operand 
-									JavaSDM.ensure(!__DEC_messageSend_fragment_97473
+									// check isomorphic binding between objects __DEC_messageSend_fragment_641243 and operand 
+									JavaSDM.ensure(!__DEC_messageSend_fragment_641243
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -11371,14 +11749,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_enclosingInteraction_126502 = operand
+									__DEC_operand_enclosingInteraction_770109 = operand
 											.getEnclosingInteraction();
 
-									// check object __DEC_operand_enclosingInteraction_126502 is really bound
-									JavaSDM.ensure(__DEC_operand_enclosingInteraction_126502 != null);
+									// check object __DEC_operand_enclosingInteraction_770109 is really bound
+									JavaSDM.ensure(__DEC_operand_enclosingInteraction_770109 != null);
 
-									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_126502 and interaction 
-									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_126502
+									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_770109 and interaction 
+									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_770109
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -11395,14 +11773,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_fragment_239501 = operand
+									__DEC_operand_fragment_498821 = operand
 											.getEnclosingOperand();
 
-									// check object __DEC_operand_fragment_239501 is really bound
-									JavaSDM.ensure(__DEC_operand_fragment_239501 != null);
+									// check object __DEC_operand_fragment_498821 is really bound
+									JavaSDM.ensure(__DEC_operand_fragment_498821 != null);
 
-									// check isomorphic binding between objects __DEC_operand_fragment_239501 and operand 
-									JavaSDM.ensure(!__DEC_operand_fragment_239501
+									// check isomorphic binding between objects __DEC_operand_fragment_498821 and operand 
+									JavaSDM.ensure(!__DEC_operand_fragment_498821
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -11431,20 +11809,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_guard_guard_911007 = guard
+									__DEC_guard_guard_90598 = guard
 											.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 											.eContainer() : null;
 
-									// check object __DEC_guard_guard_911007 is really bound
-									JavaSDM.ensure(__DEC_guard_guard_911007 != null);
+									// check object __DEC_guard_guard_90598 is really bound
+									JavaSDM.ensure(__DEC_guard_guard_90598 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(guard
-											.equals(__DEC_guard_guard_911007
+											.equals(__DEC_guard_guard_90598
 													.getGuard()));
 
-									// check isomorphic binding between objects __DEC_guard_guard_911007 and operand 
-									JavaSDM.ensure(!__DEC_guard_guard_911007
+									// check isomorphic binding between objects __DEC_guard_guard_90598 and operand 
+									JavaSDM.ensure(!__DEC_guard_guard_90598
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -11461,19 +11839,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_operand_651473 = operand
+									__DEC_operand_operand_187009 = operand
 											.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 											.eContainer() : null;
 
-									// check object __DEC_operand_operand_651473 is really bound
-									JavaSDM.ensure(__DEC_operand_operand_651473 != null);
+									// check object __DEC_operand_operand_187009 is really bound
+									JavaSDM.ensure(__DEC_operand_operand_187009 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_operand_operand_651473
+									JavaSDM.ensure(__DEC_operand_operand_187009
 											.getOperand().contains(operand));
 
-									// check isomorphic binding between objects __DEC_operand_operand_651473 and combo 
-									JavaSDM.ensure(!__DEC_operand_operand_651473
+									// check isomorphic binding between objects __DEC_operand_operand_187009 and combo 
+									JavaSDM.ensure(!__DEC_operand_operand_187009
 											.equals(combo));
 
 									fujaba__Success = true;
@@ -11490,20 +11868,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_spec_specification_379584 = spec
+									__DEC_spec_specification_432506 = spec
 											.eContainer() instanceof Constraint ? (Constraint) spec
 											.eContainer() : null;
 
-									// check object __DEC_spec_specification_379584 is really bound
-									JavaSDM.ensure(__DEC_spec_specification_379584 != null);
+									// check object __DEC_spec_specification_432506 is really bound
+									JavaSDM.ensure(__DEC_spec_specification_432506 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(spec
-											.equals(__DEC_spec_specification_379584
+											.equals(__DEC_spec_specification_432506
 													.getSpecification()));
 
-									// check isomorphic binding between objects __DEC_spec_specification_379584 and guard 
-									JavaSDM.ensure(!__DEC_spec_specification_379584
+									// check isomorphic binding between objects __DEC_spec_specification_432506 and guard 
+									JavaSDM.ensure(!__DEC_spec_specification_432506
 											.equals(guard));
 
 									fujaba__Success = true;
@@ -11519,10 +11897,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_330756
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_547064
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_330756 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_547064 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -11531,16 +11909,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_330756
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_547064
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_330756 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_330756
+											__DEC_messageReceive_receiveEvent_547064 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_547064
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_330756 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_330756 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_330756 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_330756
+											// check object __DEC_messageReceive_receiveEvent_547064 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_547064 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_547064 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_547064
 													.equals(message));
 
 											fujaba__Success = true;
@@ -11563,10 +11941,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_966498
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_772177
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_966498 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_772177 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -11575,16 +11953,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_966498
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_772177
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_966498 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_966498
+											__DEC_messageSend_receiveEvent_772177 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_772177
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_966498 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_966498 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_966498 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_966498
+											// check object __DEC_messageSend_receiveEvent_772177 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_772177 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_772177 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_772177
 													.equals(message));
 
 											fujaba__Success = true;
@@ -11607,10 +11985,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_615676
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_932554
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_615676 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_932554 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -11619,16 +11997,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_615676
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_932554
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_615676 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_615676
+											__DEC_messageReceive_sendEvent_932554 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_932554
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_615676 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_615676 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_615676 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_615676
+											// check object __DEC_messageReceive_sendEvent_932554 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_932554 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_932554 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_932554
 													.equals(message));
 
 											fujaba__Success = true;
@@ -11651,10 +12029,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_53030
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_164090
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_53030 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_164090 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -11663,16 +12041,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_53030
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_164090
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_53030 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_53030
+											__DEC_messageSend_sendEvent_164090 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_164090
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_53030 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_53030 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_53030 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_53030
+											// check object __DEC_messageSend_sendEvent_164090 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_164090 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_164090 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_164090
 													.equals(message));
 
 											fujaba__Success = true;
@@ -11695,10 +12073,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_217128
+									// iterate to-many link message from message to __DEC_message_message_693277
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_217128 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_693277 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -11707,20 +12085,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_217128
+											&& fujaba__IterMessageTo__DEC_message_message_693277
 													.hasNext()) {
 										try {
-											__DEC_message_message_217128 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_217128
+											__DEC_message_message_693277 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_693277
 													.next();
 
-											// check object __DEC_message_message_217128 is really bound
-											JavaSDM.ensure(__DEC_message_message_217128 != null);
-											// check isomorphic binding between objects __DEC_message_message_217128 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_217128
+											// check object __DEC_message_message_693277 is really bound
+											JavaSDM.ensure(__DEC_message_message_693277 != null);
+											// check isomorphic binding between objects __DEC_message_message_693277 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_693277
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_217128 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_217128
+											// check isomorphic binding between objects __DEC_message_message_693277 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_693277
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -11951,27 +12329,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_605500 = null;
-		InteractionOperand __DEC_combo_fragment_117357 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_82624 = null;
-		InteractionOperand __DEC_messageReceive_fragment_823577 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_237515 = null;
-		InteractionOperand __DEC_messageSend_fragment_667687 = null;
-		Interaction __DEC_operand_enclosingInteraction_98056 = null;
-		InteractionOperand __DEC_operand_fragment_660037 = null;
-		InteractionOperand __DEC_guard_guard_861421 = null;
-		CombinedFragment __DEC_operand_operand_781996 = null;
-		Constraint __DEC_spec_specification_61011 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_657656 = null;
-		Message __DEC_messageReceive_receiveEvent_657656 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_468353 = null;
-		Message __DEC_messageSend_receiveEvent_468353 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_54911 = null;
-		Message __DEC_messageReceive_sendEvent_54911 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_840529 = null;
-		Message __DEC_messageSend_sendEvent_840529 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_829403 = null;
-		MessageEnd __DEC_message_message_829403 = null;
+		Interaction __DEC_combo_enclosingInteraction_562221 = null;
+		InteractionOperand __DEC_combo_fragment_433398 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_713382 = null;
+		InteractionOperand __DEC_messageReceive_fragment_640741 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_763732 = null;
+		InteractionOperand __DEC_messageSend_fragment_994216 = null;
+		Interaction __DEC_operand_enclosingInteraction_401161 = null;
+		InteractionOperand __DEC_operand_fragment_77919 = null;
+		InteractionOperand __DEC_guard_guard_751816 = null;
+		CombinedFragment __DEC_operand_operand_855051 = null;
+		Constraint __DEC_spec_specification_515286 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_150898 = null;
+		Message __DEC_messageReceive_receiveEvent_150898 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718282 = null;
+		Message __DEC_messageSend_receiveEvent_718282 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_782647 = null;
+		Message __DEC_messageReceive_sendEvent_782647 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_361228 = null;
+		Message __DEC_messageSend_sendEvent_361228 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_677666 = null;
+		MessageEnd __DEC_message_message_677666 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
@@ -12141,14 +12519,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_enclosingInteraction_605500 = combo
+									__DEC_combo_enclosingInteraction_562221 = combo
 											.getEnclosingInteraction();
 
-									// check object __DEC_combo_enclosingInteraction_605500 is really bound
-									JavaSDM.ensure(__DEC_combo_enclosingInteraction_605500 != null);
+									// check object __DEC_combo_enclosingInteraction_562221 is really bound
+									JavaSDM.ensure(__DEC_combo_enclosingInteraction_562221 != null);
 
-									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_605500 and interaction 
-									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_605500
+									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_562221 and interaction 
+									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_562221
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -12165,14 +12543,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_fragment_117357 = combo
+									__DEC_combo_fragment_433398 = combo
 											.getEnclosingOperand();
 
-									// check object __DEC_combo_fragment_117357 is really bound
-									JavaSDM.ensure(__DEC_combo_fragment_117357 != null);
+									// check object __DEC_combo_fragment_433398 is really bound
+									JavaSDM.ensure(__DEC_combo_fragment_433398 != null);
 
-									// check isomorphic binding between objects __DEC_combo_fragment_117357 and operand 
-									JavaSDM.ensure(!__DEC_combo_fragment_117357
+									// check isomorphic binding between objects __DEC_combo_fragment_433398 and operand 
+									JavaSDM.ensure(!__DEC_combo_fragment_433398
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -12189,14 +12567,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_enclosingInteraction_82624 = messageReceive
+									__DEC_messageReceive_enclosingInteraction_713382 = messageReceive
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageReceive_enclosingInteraction_82624 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_82624 != null);
+									// check object __DEC_messageReceive_enclosingInteraction_713382 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_713382 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_82624 and interaction 
-									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_82624
+									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_713382 and interaction 
+									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_713382
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -12213,14 +12591,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_fragment_823577 = messageReceive
+									__DEC_messageReceive_fragment_640741 = messageReceive
 											.getEnclosingOperand();
 
-									// check object __DEC_messageReceive_fragment_823577 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_fragment_823577 != null);
+									// check object __DEC_messageReceive_fragment_640741 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_fragment_640741 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_fragment_823577 and operand 
-									JavaSDM.ensure(!__DEC_messageReceive_fragment_823577
+									// check isomorphic binding between objects __DEC_messageReceive_fragment_640741 and operand 
+									JavaSDM.ensure(!__DEC_messageReceive_fragment_640741
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -12237,14 +12615,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_enclosingInteraction_237515 = messageSend
+									__DEC_messageSend_enclosingInteraction_763732 = messageSend
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageSend_enclosingInteraction_237515 is really bound
-									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_237515 != null);
+									// check object __DEC_messageSend_enclosingInteraction_763732 is really bound
+									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_763732 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_237515 and interaction 
-									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_237515
+									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_763732 and interaction 
+									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_763732
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -12261,14 +12639,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_fragment_667687 = messageSend
+									__DEC_messageSend_fragment_994216 = messageSend
 											.getEnclosingOperand();
 
-									// check object __DEC_messageSend_fragment_667687 is really bound
-									JavaSDM.ensure(__DEC_messageSend_fragment_667687 != null);
+									// check object __DEC_messageSend_fragment_994216 is really bound
+									JavaSDM.ensure(__DEC_messageSend_fragment_994216 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_fragment_667687 and operand 
-									JavaSDM.ensure(!__DEC_messageSend_fragment_667687
+									// check isomorphic binding between objects __DEC_messageSend_fragment_994216 and operand 
+									JavaSDM.ensure(!__DEC_messageSend_fragment_994216
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -12285,14 +12663,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_enclosingInteraction_98056 = operand
+									__DEC_operand_enclosingInteraction_401161 = operand
 											.getEnclosingInteraction();
 
-									// check object __DEC_operand_enclosingInteraction_98056 is really bound
-									JavaSDM.ensure(__DEC_operand_enclosingInteraction_98056 != null);
+									// check object __DEC_operand_enclosingInteraction_401161 is really bound
+									JavaSDM.ensure(__DEC_operand_enclosingInteraction_401161 != null);
 
-									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_98056 and interaction 
-									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_98056
+									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_401161 and interaction 
+									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_401161
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -12309,14 +12687,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_fragment_660037 = operand
+									__DEC_operand_fragment_77919 = operand
 											.getEnclosingOperand();
 
-									// check object __DEC_operand_fragment_660037 is really bound
-									JavaSDM.ensure(__DEC_operand_fragment_660037 != null);
+									// check object __DEC_operand_fragment_77919 is really bound
+									JavaSDM.ensure(__DEC_operand_fragment_77919 != null);
 
-									// check isomorphic binding between objects __DEC_operand_fragment_660037 and operand 
-									JavaSDM.ensure(!__DEC_operand_fragment_660037
+									// check isomorphic binding between objects __DEC_operand_fragment_77919 and operand 
+									JavaSDM.ensure(!__DEC_operand_fragment_77919
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -12345,20 +12723,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_guard_guard_861421 = guard
+									__DEC_guard_guard_751816 = guard
 											.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 											.eContainer() : null;
 
-									// check object __DEC_guard_guard_861421 is really bound
-									JavaSDM.ensure(__DEC_guard_guard_861421 != null);
+									// check object __DEC_guard_guard_751816 is really bound
+									JavaSDM.ensure(__DEC_guard_guard_751816 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(guard
-											.equals(__DEC_guard_guard_861421
+											.equals(__DEC_guard_guard_751816
 													.getGuard()));
 
-									// check isomorphic binding between objects __DEC_guard_guard_861421 and operand 
-									JavaSDM.ensure(!__DEC_guard_guard_861421
+									// check isomorphic binding between objects __DEC_guard_guard_751816 and operand 
+									JavaSDM.ensure(!__DEC_guard_guard_751816
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -12375,19 +12753,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_operand_781996 = operand
+									__DEC_operand_operand_855051 = operand
 											.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 											.eContainer() : null;
 
-									// check object __DEC_operand_operand_781996 is really bound
-									JavaSDM.ensure(__DEC_operand_operand_781996 != null);
+									// check object __DEC_operand_operand_855051 is really bound
+									JavaSDM.ensure(__DEC_operand_operand_855051 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_operand_operand_781996
+									JavaSDM.ensure(__DEC_operand_operand_855051
 											.getOperand().contains(operand));
 
-									// check isomorphic binding between objects __DEC_operand_operand_781996 and combo 
-									JavaSDM.ensure(!__DEC_operand_operand_781996
+									// check isomorphic binding between objects __DEC_operand_operand_855051 and combo 
+									JavaSDM.ensure(!__DEC_operand_operand_855051
 											.equals(combo));
 
 									fujaba__Success = true;
@@ -12404,20 +12782,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_spec_specification_61011 = spec
+									__DEC_spec_specification_515286 = spec
 											.eContainer() instanceof Constraint ? (Constraint) spec
 											.eContainer() : null;
 
-									// check object __DEC_spec_specification_61011 is really bound
-									JavaSDM.ensure(__DEC_spec_specification_61011 != null);
+									// check object __DEC_spec_specification_515286 is really bound
+									JavaSDM.ensure(__DEC_spec_specification_515286 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(spec
-											.equals(__DEC_spec_specification_61011
+											.equals(__DEC_spec_specification_515286
 													.getSpecification()));
 
-									// check isomorphic binding between objects __DEC_spec_specification_61011 and guard 
-									JavaSDM.ensure(!__DEC_spec_specification_61011
+									// check isomorphic binding between objects __DEC_spec_specification_515286 and guard 
+									JavaSDM.ensure(!__DEC_spec_specification_515286
 											.equals(guard));
 
 									fujaba__Success = true;
@@ -12433,10 +12811,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_657656
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_150898
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_657656 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_150898 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -12445,16 +12823,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_657656
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_150898
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_657656 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_657656
+											__DEC_messageReceive_receiveEvent_150898 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_150898
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_657656 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_657656 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_657656 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_657656
+											// check object __DEC_messageReceive_receiveEvent_150898 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_150898 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_150898 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_150898
 													.equals(message));
 
 											fujaba__Success = true;
@@ -12477,10 +12855,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_468353
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_718282
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_468353 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718282 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -12489,16 +12867,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_468353
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718282
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_468353 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_468353
+											__DEC_messageSend_receiveEvent_718282 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718282
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_468353 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_468353 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_468353 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_468353
+											// check object __DEC_messageSend_receiveEvent_718282 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_718282 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_718282 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_718282
 													.equals(message));
 
 											fujaba__Success = true;
@@ -12521,10 +12899,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_54911
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_782647
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_54911 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_782647 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -12533,16 +12911,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_54911
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_782647
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_54911 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_54911
+											__DEC_messageReceive_sendEvent_782647 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_782647
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_54911 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_54911 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_54911 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_54911
+											// check object __DEC_messageReceive_sendEvent_782647 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_782647 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_782647 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_782647
 													.equals(message));
 
 											fujaba__Success = true;
@@ -12565,10 +12943,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_840529
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_361228
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_840529 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_361228 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -12577,16 +12955,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_840529
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_361228
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_840529 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_840529
+											__DEC_messageSend_sendEvent_361228 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_361228
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_840529 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_840529 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_840529 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_840529
+											// check object __DEC_messageSend_sendEvent_361228 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_361228 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_361228 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_361228
 													.equals(message));
 
 											fujaba__Success = true;
@@ -12609,10 +12987,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_829403
+									// iterate to-many link message from message to __DEC_message_message_677666
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_829403 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_677666 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -12621,20 +12999,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_829403
+											&& fujaba__IterMessageTo__DEC_message_message_677666
 													.hasNext()) {
 										try {
-											__DEC_message_message_829403 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_829403
+											__DEC_message_message_677666 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_677666
 													.next();
 
-											// check object __DEC_message_message_829403 is really bound
-											JavaSDM.ensure(__DEC_message_message_829403 != null);
-											// check isomorphic binding between objects __DEC_message_message_829403 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_829403
+											// check object __DEC_message_message_677666 is really bound
+											JavaSDM.ensure(__DEC_message_message_677666 != null);
+											// check isomorphic binding between objects __DEC_message_message_677666 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_677666
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_829403 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_829403
+											// check isomorphic binding between objects __DEC_message_message_677666 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_677666
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -12865,15 +13243,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_altFlow_flows_766497 = null;
-		NormalStep __DEC_alt_stepAlternative_226013 = null;
-		Flow __DEC_step_steps_549293 = null;
-		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_977868 = null;
-		AlternativeFlowAlternative __DEC_altFlow_ref_977868 = null;
+		UseCase __DEC_altFlow_flows_389762 = null;
+		NormalStep __DEC_alt_stepAlternative_306871 = null;
+		Flow __DEC_step_steps_809252 = null;
+		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_668786 = null;
+		AlternativeFlowAlternative __DEC_altFlow_ref_668786 = null;
 		Match match = null;
 		AlternativeFlow altFlow = null;
 		Iterator fujaba__IterStepToAlt = null;
 		AlternativeFlowAlternative alt = null;
+		PackageDeclaration packageDeclaration = null;
 		Actor actor = null;
 		NormalStep step = null;
 		UseCase useCase = null;
@@ -12956,8 +13335,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check object actor is really bound
 			JavaSDM.ensure(actor != null);
 
+			// bind object
+			packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getActors().contains(actor));
+
 			// check link steps from step to flow
 			JavaSDM.ensure(flow.equals(step.eContainer()));
+
+			// check link useCases from useCase to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
 
 			// iterate to-many link stepAlternative from step to alt
 			fujaba__Success = false;
@@ -12991,18 +13383,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_altFlow_flows_766497 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
+							__DEC_altFlow_flows_389762 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
 									.eContainer() : null;
 
-							// check object __DEC_altFlow_flows_766497 is really bound
-							JavaSDM.ensure(__DEC_altFlow_flows_766497 != null);
+							// check object __DEC_altFlow_flows_389762 is really bound
+							JavaSDM.ensure(__DEC_altFlow_flows_389762 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_altFlow_flows_766497
+							JavaSDM.ensure(__DEC_altFlow_flows_389762
 									.getFlows().contains(altFlow));
 
-							// check isomorphic binding between objects __DEC_altFlow_flows_766497 and useCase 
-							JavaSDM.ensure(!__DEC_altFlow_flows_766497
+							// check isomorphic binding between objects __DEC_altFlow_flows_389762 and useCase 
+							JavaSDM.ensure(!__DEC_altFlow_flows_389762
 									.equals(useCase));
 
 							fujaba__Success = true;
@@ -13019,18 +13411,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_alt_stepAlternative_226013 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
+							__DEC_alt_stepAlternative_306871 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
 									.eContainer() : null;
 
-							// check object __DEC_alt_stepAlternative_226013 is really bound
-							JavaSDM.ensure(__DEC_alt_stepAlternative_226013 != null);
+							// check object __DEC_alt_stepAlternative_306871 is really bound
+							JavaSDM.ensure(__DEC_alt_stepAlternative_306871 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_alt_stepAlternative_226013
+							JavaSDM.ensure(__DEC_alt_stepAlternative_306871
 									.getStepAlternative().contains(alt));
 
-							// check isomorphic binding between objects __DEC_alt_stepAlternative_226013 and step 
-							JavaSDM.ensure(!__DEC_alt_stepAlternative_226013
+							// check isomorphic binding between objects __DEC_alt_stepAlternative_306871 and step 
+							JavaSDM.ensure(!__DEC_alt_stepAlternative_306871
 									.equals(step));
 
 							fujaba__Success = true;
@@ -13047,22 +13439,22 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_step_steps_549293 = step.eContainer() instanceof Flow ? (Flow) step
+							__DEC_step_steps_809252 = step.eContainer() instanceof Flow ? (Flow) step
 									.eContainer() : null;
 
-							// check object __DEC_step_steps_549293 is really bound
-							JavaSDM.ensure(__DEC_step_steps_549293 != null);
+							// check object __DEC_step_steps_809252 is really bound
+							JavaSDM.ensure(__DEC_step_steps_809252 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_step_steps_549293.getSteps()
+							JavaSDM.ensure(__DEC_step_steps_809252.getSteps()
 									.contains(step));
 
-							// check isomorphic binding between objects __DEC_step_steps_549293 and altFlow 
-							JavaSDM.ensure(!__DEC_step_steps_549293
+							// check isomorphic binding between objects __DEC_step_steps_809252 and altFlow 
+							JavaSDM.ensure(!__DEC_step_steps_809252
 									.equals(altFlow));
 
-							// check isomorphic binding between objects __DEC_step_steps_549293 and flow 
-							JavaSDM.ensure(!__DEC_step_steps_549293
+							// check isomorphic binding between objects __DEC_step_steps_809252 and flow 
+							JavaSDM.ensure(!__DEC_step_steps_809252
 									.equals(flow));
 
 							fujaba__Success = true;
@@ -13078,10 +13470,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link ref from altFlow to __DEC_altFlow_ref_977868
+							// iterate to-many link ref from altFlow to __DEC_altFlow_ref_668786
 							fujaba__Success = false;
 
-							fujaba__IterAltFlowTo__DEC_altFlow_ref_977868 = new ArrayList(
+							fujaba__IterAltFlowTo__DEC_altFlow_ref_668786 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													altFlow,
@@ -13089,16 +13481,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"ref")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterAltFlowTo__DEC_altFlow_ref_977868
+									&& fujaba__IterAltFlowTo__DEC_altFlow_ref_668786
 											.hasNext()) {
 								try {
-									__DEC_altFlow_ref_977868 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_977868
+									__DEC_altFlow_ref_668786 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_668786
 											.next();
 
-									// check object __DEC_altFlow_ref_977868 is really bound
-									JavaSDM.ensure(__DEC_altFlow_ref_977868 != null);
-									// check isomorphic binding between objects __DEC_altFlow_ref_977868 and alt 
-									JavaSDM.ensure(!__DEC_altFlow_ref_977868
+									// check object __DEC_altFlow_ref_668786 is really bound
+									JavaSDM.ensure(__DEC_altFlow_ref_668786 != null);
+									// check isomorphic binding between objects __DEC_altFlow_ref_668786 and alt 
+									JavaSDM.ensure(!__DEC_altFlow_ref_668786
 											.equals(alt));
 
 									fujaba__Success = true;
@@ -13127,6 +13519,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						JavaSDM.ensure(altFlow != null);
 						// check object flow is really bound
 						JavaSDM.ensure(flow != null);
+						// check object packageDeclaration is really bound
+						JavaSDM.ensure(packageDeclaration != null);
 						// check object step is really bound
 						JavaSDM.ensure(step != null);
 						// check object useCase is really bound
@@ -13139,6 +13533,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 						// check link ref from alt to altFlow
 						JavaSDM.ensure(altFlow.equals(alt.getRef()));
+
+						// check link actors from actor to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(actor
+								.eContainer()));
 
 						// check link flows from flow to useCase
 						JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -13166,6 +13564,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						// check link trg from _edge_steps to step
 						JavaSDM.ensure(step.equals(_edge_steps.getTrg()));
 
+						// check link useCases from useCase to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(useCase
+								.eContainer()));
+
 						// create object match
 						match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -13173,7 +13575,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						match.setRuleName(__eClass.getName());
 						// statement node 'bookkeeping with generic isAppropriate method'
 						fujaba__Success = this.isAppropriate_FWD(match, step,
-								alt, altFlow, useCase, flow, actor);
+								alt, altFlow, useCase, flow, actor,
+								packageDeclaration);
 						if (fujaba__Success) {
 							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_FWD(match);
@@ -13243,18 +13646,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_altFlow_flows_399520 = null;
-		NormalStep __DEC_alt_stepAlternative_92336 = null;
-		Flow __DEC_step_steps_625154 = null;
-		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_404907 = null;
-		AlternativeFlowAlternative __DEC_altFlow_ref_404907 = null;
+		UseCase __DEC_altFlow_flows_261316 = null;
+		NormalStep __DEC_alt_stepAlternative_977155 = null;
+		Flow __DEC_step_steps_523628 = null;
+		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_88093 = null;
+		AlternativeFlowAlternative __DEC_altFlow_ref_88093 = null;
 		Match match = null;
 		AlternativeFlow altFlow = null;
 		Iterator fujaba__IterStepToAlt = null;
 		AlternativeFlowAlternative alt = null;
+		PackageDeclaration packageDeclaration = null;
+		Actor actor = null;
 		UseCase useCase = null;
 		Flow flow = null;
-		Actor actor = null;
 		NormalStep step = null;
 
 		// story node 'prepare return value'
@@ -13312,12 +13716,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			step = (NormalStep) _TmpObject;
 
 			// bind object
-			actor = step.getActor();
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-
-			// bind object
 			flow = step.eContainer() instanceof Flow ? (Flow) step.eContainer()
 					: null;
 
@@ -13337,8 +13735,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check if contained via correct reference
 			JavaSDM.ensure(useCase.getFlows().contains(flow));
 
+			// bind object
+			actor = step.getActor();
+
+			// check object actor is really bound
+			JavaSDM.ensure(actor != null);
+
+			// bind object
+			packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getActors().contains(actor));
+
 			// check link trg from _edge_actor to actor
 			JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
+
+			// check link useCases from useCase to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
 
 			// iterate to-many link stepAlternative from step to alt
 			fujaba__Success = false;
@@ -13372,18 +13789,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_altFlow_flows_399520 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
+							__DEC_altFlow_flows_261316 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
 									.eContainer() : null;
 
-							// check object __DEC_altFlow_flows_399520 is really bound
-							JavaSDM.ensure(__DEC_altFlow_flows_399520 != null);
+							// check object __DEC_altFlow_flows_261316 is really bound
+							JavaSDM.ensure(__DEC_altFlow_flows_261316 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_altFlow_flows_399520
+							JavaSDM.ensure(__DEC_altFlow_flows_261316
 									.getFlows().contains(altFlow));
 
-							// check isomorphic binding between objects __DEC_altFlow_flows_399520 and useCase 
-							JavaSDM.ensure(!__DEC_altFlow_flows_399520
+							// check isomorphic binding between objects __DEC_altFlow_flows_261316 and useCase 
+							JavaSDM.ensure(!__DEC_altFlow_flows_261316
 									.equals(useCase));
 
 							fujaba__Success = true;
@@ -13400,18 +13817,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_alt_stepAlternative_92336 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
+							__DEC_alt_stepAlternative_977155 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
 									.eContainer() : null;
 
-							// check object __DEC_alt_stepAlternative_92336 is really bound
-							JavaSDM.ensure(__DEC_alt_stepAlternative_92336 != null);
+							// check object __DEC_alt_stepAlternative_977155 is really bound
+							JavaSDM.ensure(__DEC_alt_stepAlternative_977155 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_alt_stepAlternative_92336
+							JavaSDM.ensure(__DEC_alt_stepAlternative_977155
 									.getStepAlternative().contains(alt));
 
-							// check isomorphic binding between objects __DEC_alt_stepAlternative_92336 and step 
-							JavaSDM.ensure(!__DEC_alt_stepAlternative_92336
+							// check isomorphic binding between objects __DEC_alt_stepAlternative_977155 and step 
+							JavaSDM.ensure(!__DEC_alt_stepAlternative_977155
 									.equals(step));
 
 							fujaba__Success = true;
@@ -13428,22 +13845,22 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_step_steps_625154 = step.eContainer() instanceof Flow ? (Flow) step
+							__DEC_step_steps_523628 = step.eContainer() instanceof Flow ? (Flow) step
 									.eContainer() : null;
 
-							// check object __DEC_step_steps_625154 is really bound
-							JavaSDM.ensure(__DEC_step_steps_625154 != null);
+							// check object __DEC_step_steps_523628 is really bound
+							JavaSDM.ensure(__DEC_step_steps_523628 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_step_steps_625154.getSteps()
+							JavaSDM.ensure(__DEC_step_steps_523628.getSteps()
 									.contains(step));
 
-							// check isomorphic binding between objects __DEC_step_steps_625154 and altFlow 
-							JavaSDM.ensure(!__DEC_step_steps_625154
+							// check isomorphic binding between objects __DEC_step_steps_523628 and altFlow 
+							JavaSDM.ensure(!__DEC_step_steps_523628
 									.equals(altFlow));
 
-							// check isomorphic binding between objects __DEC_step_steps_625154 and flow 
-							JavaSDM.ensure(!__DEC_step_steps_625154
+							// check isomorphic binding between objects __DEC_step_steps_523628 and flow 
+							JavaSDM.ensure(!__DEC_step_steps_523628
 									.equals(flow));
 
 							fujaba__Success = true;
@@ -13459,10 +13876,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link ref from altFlow to __DEC_altFlow_ref_404907
+							// iterate to-many link ref from altFlow to __DEC_altFlow_ref_88093
 							fujaba__Success = false;
 
-							fujaba__IterAltFlowTo__DEC_altFlow_ref_404907 = new ArrayList(
+							fujaba__IterAltFlowTo__DEC_altFlow_ref_88093 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													altFlow,
@@ -13470,16 +13887,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"ref")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterAltFlowTo__DEC_altFlow_ref_404907
+									&& fujaba__IterAltFlowTo__DEC_altFlow_ref_88093
 											.hasNext()) {
 								try {
-									__DEC_altFlow_ref_404907 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_404907
+									__DEC_altFlow_ref_88093 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_88093
 											.next();
 
-									// check object __DEC_altFlow_ref_404907 is really bound
-									JavaSDM.ensure(__DEC_altFlow_ref_404907 != null);
-									// check isomorphic binding between objects __DEC_altFlow_ref_404907 and alt 
-									JavaSDM.ensure(!__DEC_altFlow_ref_404907
+									// check object __DEC_altFlow_ref_88093 is really bound
+									JavaSDM.ensure(__DEC_altFlow_ref_88093 != null);
+									// check isomorphic binding between objects __DEC_altFlow_ref_88093 and alt 
+									JavaSDM.ensure(!__DEC_altFlow_ref_88093
 											.equals(alt));
 
 									fujaba__Success = true;
@@ -13508,6 +13925,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						JavaSDM.ensure(altFlow != null);
 						// check object flow is really bound
 						JavaSDM.ensure(flow != null);
+						// check object packageDeclaration is really bound
+						JavaSDM.ensure(packageDeclaration != null);
 						// check object step is really bound
 						JavaSDM.ensure(step != null);
 						// check object useCase is really bound
@@ -13520,6 +13939,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 						// check link ref from alt to altFlow
 						JavaSDM.ensure(altFlow.equals(alt.getRef()));
+
+						// check link actors from actor to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(actor
+								.eContainer()));
 
 						// check link flows from flow to useCase
 						JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -13547,6 +13970,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						// check link trg from _edge_actor to actor
 						JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
 
+						// check link useCases from useCase to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(useCase
+								.eContainer()));
+
 						// create object match
 						match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -13554,7 +13981,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						match.setRuleName(__eClass.getName());
 						// statement node 'bookkeeping with generic isAppropriate method'
 						fujaba__Success = this.isAppropriate_FWD(match, step,
-								alt, altFlow, useCase, flow, actor);
+								alt, altFlow, useCase, flow, actor,
+								packageDeclaration);
 						if (fujaba__Success) {
 							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_FWD(match);
@@ -13624,27 +14052,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_673708 = null;
-		InteractionOperand __DEC_combo_fragment_718771 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_188063 = null;
-		InteractionOperand __DEC_messageReceive_fragment_289470 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_809683 = null;
-		InteractionOperand __DEC_messageSend_fragment_500683 = null;
-		Interaction __DEC_operand_enclosingInteraction_121105 = null;
-		InteractionOperand __DEC_operand_fragment_364794 = null;
-		InteractionOperand __DEC_guard_guard_758741 = null;
-		CombinedFragment __DEC_operand_operand_259082 = null;
-		Constraint __DEC_spec_specification_558263 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_125766 = null;
-		Message __DEC_messageReceive_receiveEvent_125766 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_271534 = null;
-		Message __DEC_messageSend_receiveEvent_271534 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_431712 = null;
-		Message __DEC_messageReceive_sendEvent_431712 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_694712 = null;
-		Message __DEC_messageSend_sendEvent_694712 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_978812 = null;
-		MessageEnd __DEC_message_message_978812 = null;
+		Interaction __DEC_combo_enclosingInteraction_622672 = null;
+		InteractionOperand __DEC_combo_fragment_583531 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_830845 = null;
+		InteractionOperand __DEC_messageReceive_fragment_199054 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_175725 = null;
+		InteractionOperand __DEC_messageSend_fragment_236499 = null;
+		Interaction __DEC_operand_enclosingInteraction_173813 = null;
+		InteractionOperand __DEC_operand_fragment_243644 = null;
+		InteractionOperand __DEC_guard_guard_644038 = null;
+		CombinedFragment __DEC_operand_operand_483061 = null;
+		Constraint __DEC_spec_specification_270923 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_411466 = null;
+		Message __DEC_messageReceive_receiveEvent_411466 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_457889 = null;
+		Message __DEC_messageSend_receiveEvent_457889 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_285769 = null;
+		Message __DEC_messageReceive_sendEvent_285769 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_803121 = null;
+		Message __DEC_messageSend_sendEvent_803121 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_577247 = null;
+		MessageEnd __DEC_message_message_577247 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -13654,9 +14082,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		CombinedFragment combo = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
-		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
+		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 
 		// story node 'prepare return value'
@@ -13714,10 +14142,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			message = (Message) _TmpObject;
 
 			// bind object
+			_TmpObject = message.getSendEvent();
+
+			// ensure correct type and really bound of object messageSend
+			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
+			// bind object
 			interaction = message.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
+
+			// check link message from messageSend to message
+			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// bind object
 			_TmpObject = message.getReceiveEvent();
@@ -13726,21 +14164,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-			// bind object
-			_TmpObject = message.getSendEvent();
-
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
+			// check link message from messageReceive to message
+			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
 
 			// check link trg from _edge_sendEvent to messageSend
 			JavaSDM.ensure(messageSend.equals(_edge_sendEvent.getTrg()));
@@ -13813,14 +14241,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_enclosingInteraction_673708 = combo
+											__DEC_combo_enclosingInteraction_622672 = combo
 													.getEnclosingInteraction();
 
-											// check object __DEC_combo_enclosingInteraction_673708 is really bound
-											JavaSDM.ensure(__DEC_combo_enclosingInteraction_673708 != null);
+											// check object __DEC_combo_enclosingInteraction_622672 is really bound
+											JavaSDM.ensure(__DEC_combo_enclosingInteraction_622672 != null);
 
-											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_673708 and interaction 
-											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_673708
+											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_622672 and interaction 
+											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_622672
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -13837,14 +14265,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_fragment_718771 = combo
+											__DEC_combo_fragment_583531 = combo
 													.getEnclosingOperand();
 
-											// check object __DEC_combo_fragment_718771 is really bound
-											JavaSDM.ensure(__DEC_combo_fragment_718771 != null);
+											// check object __DEC_combo_fragment_583531 is really bound
+											JavaSDM.ensure(__DEC_combo_fragment_583531 != null);
 
-											// check isomorphic binding between objects __DEC_combo_fragment_718771 and operand 
-											JavaSDM.ensure(!__DEC_combo_fragment_718771
+											// check isomorphic binding between objects __DEC_combo_fragment_583531 and operand 
+											JavaSDM.ensure(!__DEC_combo_fragment_583531
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -13861,14 +14289,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_enclosingInteraction_188063 = messageReceive
+											__DEC_messageReceive_enclosingInteraction_830845 = messageReceive
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageReceive_enclosingInteraction_188063 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_188063 != null);
+											// check object __DEC_messageReceive_enclosingInteraction_830845 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_830845 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_188063 and interaction 
-											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_188063
+											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_830845 and interaction 
+											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_830845
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -13885,14 +14313,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_fragment_289470 = messageReceive
+											__DEC_messageReceive_fragment_199054 = messageReceive
 													.getEnclosingOperand();
 
-											// check object __DEC_messageReceive_fragment_289470 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_fragment_289470 != null);
+											// check object __DEC_messageReceive_fragment_199054 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_fragment_199054 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_fragment_289470 and operand 
-											JavaSDM.ensure(!__DEC_messageReceive_fragment_289470
+											// check isomorphic binding between objects __DEC_messageReceive_fragment_199054 and operand 
+											JavaSDM.ensure(!__DEC_messageReceive_fragment_199054
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -13909,14 +14337,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_enclosingInteraction_809683 = messageSend
+											__DEC_messageSend_enclosingInteraction_175725 = messageSend
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageSend_enclosingInteraction_809683 is really bound
-											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_809683 != null);
+											// check object __DEC_messageSend_enclosingInteraction_175725 is really bound
+											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_175725 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_809683 and interaction 
-											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_809683
+											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_175725 and interaction 
+											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_175725
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -13933,14 +14361,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_fragment_500683 = messageSend
+											__DEC_messageSend_fragment_236499 = messageSend
 													.getEnclosingOperand();
 
-											// check object __DEC_messageSend_fragment_500683 is really bound
-											JavaSDM.ensure(__DEC_messageSend_fragment_500683 != null);
+											// check object __DEC_messageSend_fragment_236499 is really bound
+											JavaSDM.ensure(__DEC_messageSend_fragment_236499 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_fragment_500683 and operand 
-											JavaSDM.ensure(!__DEC_messageSend_fragment_500683
+											// check isomorphic binding between objects __DEC_messageSend_fragment_236499 and operand 
+											JavaSDM.ensure(!__DEC_messageSend_fragment_236499
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -13957,14 +14385,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_enclosingInteraction_121105 = operand
+											__DEC_operand_enclosingInteraction_173813 = operand
 													.getEnclosingInteraction();
 
-											// check object __DEC_operand_enclosingInteraction_121105 is really bound
-											JavaSDM.ensure(__DEC_operand_enclosingInteraction_121105 != null);
+											// check object __DEC_operand_enclosingInteraction_173813 is really bound
+											JavaSDM.ensure(__DEC_operand_enclosingInteraction_173813 != null);
 
-											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_121105 and interaction 
-											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_121105
+											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_173813 and interaction 
+											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_173813
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -13981,14 +14409,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_fragment_364794 = operand
+											__DEC_operand_fragment_243644 = operand
 													.getEnclosingOperand();
 
-											// check object __DEC_operand_fragment_364794 is really bound
-											JavaSDM.ensure(__DEC_operand_fragment_364794 != null);
+											// check object __DEC_operand_fragment_243644 is really bound
+											JavaSDM.ensure(__DEC_operand_fragment_243644 != null);
 
-											// check isomorphic binding between objects __DEC_operand_fragment_364794 and operand 
-											JavaSDM.ensure(!__DEC_operand_fragment_364794
+											// check isomorphic binding between objects __DEC_operand_fragment_243644 and operand 
+											JavaSDM.ensure(!__DEC_operand_fragment_243644
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -14019,20 +14447,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_guard_guard_758741 = guard
+											__DEC_guard_guard_644038 = guard
 													.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 													.eContainer() : null;
 
-											// check object __DEC_guard_guard_758741 is really bound
-											JavaSDM.ensure(__DEC_guard_guard_758741 != null);
+											// check object __DEC_guard_guard_644038 is really bound
+											JavaSDM.ensure(__DEC_guard_guard_644038 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(guard
-													.equals(__DEC_guard_guard_758741
+													.equals(__DEC_guard_guard_644038
 															.getGuard()));
 
-											// check isomorphic binding between objects __DEC_guard_guard_758741 and operand 
-											JavaSDM.ensure(!__DEC_guard_guard_758741
+											// check isomorphic binding between objects __DEC_guard_guard_644038 and operand 
+											JavaSDM.ensure(!__DEC_guard_guard_644038
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -14049,20 +14477,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_operand_259082 = operand
+											__DEC_operand_operand_483061 = operand
 													.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 													.eContainer() : null;
 
-											// check object __DEC_operand_operand_259082 is really bound
-											JavaSDM.ensure(__DEC_operand_operand_259082 != null);
+											// check object __DEC_operand_operand_483061 is really bound
+											JavaSDM.ensure(__DEC_operand_operand_483061 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_operand_operand_259082
+											JavaSDM.ensure(__DEC_operand_operand_483061
 													.getOperand().contains(
 															operand));
 
-											// check isomorphic binding between objects __DEC_operand_operand_259082 and combo 
-											JavaSDM.ensure(!__DEC_operand_operand_259082
+											// check isomorphic binding between objects __DEC_operand_operand_483061 and combo 
+											JavaSDM.ensure(!__DEC_operand_operand_483061
 													.equals(combo));
 
 											fujaba__Success = true;
@@ -14079,20 +14507,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_spec_specification_558263 = spec
+											__DEC_spec_specification_270923 = spec
 													.eContainer() instanceof Constraint ? (Constraint) spec
 													.eContainer() : null;
 
-											// check object __DEC_spec_specification_558263 is really bound
-											JavaSDM.ensure(__DEC_spec_specification_558263 != null);
+											// check object __DEC_spec_specification_270923 is really bound
+											JavaSDM.ensure(__DEC_spec_specification_270923 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(spec
-													.equals(__DEC_spec_specification_558263
+													.equals(__DEC_spec_specification_270923
 															.getSpecification()));
 
-											// check isomorphic binding between objects __DEC_spec_specification_558263 and guard 
-											JavaSDM.ensure(!__DEC_spec_specification_558263
+											// check isomorphic binding between objects __DEC_spec_specification_270923 and guard 
+											JavaSDM.ensure(!__DEC_spec_specification_270923
 													.equals(guard));
 
 											fujaba__Success = true;
@@ -14108,10 +14536,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_125766
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_411466
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_125766 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_411466 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -14120,16 +14548,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_125766
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_411466
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_125766 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_125766
+													__DEC_messageReceive_receiveEvent_411466 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_411466
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_125766 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_125766 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_125766 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_125766
+													// check object __DEC_messageReceive_receiveEvent_411466 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_411466 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_411466 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_411466
 															.equals(message));
 
 													fujaba__Success = true;
@@ -14152,10 +14580,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_271534
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_457889
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_271534 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_457889 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -14164,16 +14592,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_271534
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_457889
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_271534 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_271534
+													__DEC_messageSend_receiveEvent_457889 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_457889
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_271534 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_271534 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_271534 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_271534
+													// check object __DEC_messageSend_receiveEvent_457889 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_457889 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_457889 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_457889
 															.equals(message));
 
 													fujaba__Success = true;
@@ -14196,10 +14624,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_431712
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_285769
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_431712 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_285769 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -14208,16 +14636,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_431712
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_285769
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_431712 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_431712
+													__DEC_messageReceive_sendEvent_285769 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_285769
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_431712 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_431712 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_431712 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_431712
+													// check object __DEC_messageReceive_sendEvent_285769 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_285769 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_285769 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_285769
 															.equals(message));
 
 													fujaba__Success = true;
@@ -14240,10 +14668,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_694712
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_803121
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_694712 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_803121 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -14252,16 +14680,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_694712
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_803121
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_694712 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_694712
+													__DEC_messageSend_sendEvent_803121 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_803121
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_694712 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_694712 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_694712 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_694712
+													// check object __DEC_messageSend_sendEvent_803121 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_803121 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_803121 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_803121
 															.equals(message));
 
 													fujaba__Success = true;
@@ -14284,10 +14712,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_978812
+											// iterate to-many link message from message to __DEC_message_message_577247
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_978812 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_577247 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -14296,20 +14724,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_978812
+													&& fujaba__IterMessageTo__DEC_message_message_577247
 															.hasNext()) {
 												try {
-													__DEC_message_message_978812 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_978812
+													__DEC_message_message_577247 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_577247
 															.next();
 
-													// check object __DEC_message_message_978812 is really bound
-													JavaSDM.ensure(__DEC_message_message_978812 != null);
-													// check isomorphic binding between objects __DEC_message_message_978812 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_978812
+													// check object __DEC_message_message_577247 is really bound
+													JavaSDM.ensure(__DEC_message_message_577247 != null);
+													// check isomorphic binding between objects __DEC_message_message_577247 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_577247
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_978812 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_978812
+													// check isomorphic binding between objects __DEC_message_message_577247 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_577247
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -14561,27 +14989,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_525423 = null;
-		InteractionOperand __DEC_combo_fragment_642649 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_822357 = null;
-		InteractionOperand __DEC_messageReceive_fragment_46477 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_294054 = null;
-		InteractionOperand __DEC_messageSend_fragment_72292 = null;
-		Interaction __DEC_operand_enclosingInteraction_104785 = null;
-		InteractionOperand __DEC_operand_fragment_781524 = null;
-		InteractionOperand __DEC_guard_guard_795765 = null;
-		CombinedFragment __DEC_operand_operand_600595 = null;
-		Constraint __DEC_spec_specification_404731 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_665495 = null;
-		Message __DEC_messageReceive_receiveEvent_665495 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_490873 = null;
-		Message __DEC_messageSend_receiveEvent_490873 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_416774 = null;
-		Message __DEC_messageReceive_sendEvent_416774 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_996585 = null;
-		Message __DEC_messageSend_sendEvent_996585 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_386804 = null;
-		MessageEnd __DEC_message_message_386804 = null;
+		Interaction __DEC_combo_enclosingInteraction_367842 = null;
+		InteractionOperand __DEC_combo_fragment_354070 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_993557 = null;
+		InteractionOperand __DEC_messageReceive_fragment_978836 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_368559 = null;
+		InteractionOperand __DEC_messageSend_fragment_82887 = null;
+		Interaction __DEC_operand_enclosingInteraction_447536 = null;
+		InteractionOperand __DEC_operand_fragment_925753 = null;
+		InteractionOperand __DEC_guard_guard_510551 = null;
+		CombinedFragment __DEC_operand_operand_500120 = null;
+		Constraint __DEC_spec_specification_917466 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_11317 = null;
+		Message __DEC_messageReceive_receiveEvent_11317 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884285 = null;
+		Message __DEC_messageSend_receiveEvent_884285 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_658988 = null;
+		Message __DEC_messageReceive_sendEvent_658988 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_650027 = null;
+		Message __DEC_messageSend_sendEvent_650027 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_91729 = null;
+		MessageEnd __DEC_message_message_91729 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -14749,14 +15177,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_enclosingInteraction_525423 = combo
+											__DEC_combo_enclosingInteraction_367842 = combo
 													.getEnclosingInteraction();
 
-											// check object __DEC_combo_enclosingInteraction_525423 is really bound
-											JavaSDM.ensure(__DEC_combo_enclosingInteraction_525423 != null);
+											// check object __DEC_combo_enclosingInteraction_367842 is really bound
+											JavaSDM.ensure(__DEC_combo_enclosingInteraction_367842 != null);
 
-											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_525423 and interaction 
-											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_525423
+											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_367842 and interaction 
+											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_367842
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -14773,14 +15201,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_fragment_642649 = combo
+											__DEC_combo_fragment_354070 = combo
 													.getEnclosingOperand();
 
-											// check object __DEC_combo_fragment_642649 is really bound
-											JavaSDM.ensure(__DEC_combo_fragment_642649 != null);
+											// check object __DEC_combo_fragment_354070 is really bound
+											JavaSDM.ensure(__DEC_combo_fragment_354070 != null);
 
-											// check isomorphic binding between objects __DEC_combo_fragment_642649 and operand 
-											JavaSDM.ensure(!__DEC_combo_fragment_642649
+											// check isomorphic binding between objects __DEC_combo_fragment_354070 and operand 
+											JavaSDM.ensure(!__DEC_combo_fragment_354070
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -14797,14 +15225,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_enclosingInteraction_822357 = messageReceive
+											__DEC_messageReceive_enclosingInteraction_993557 = messageReceive
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageReceive_enclosingInteraction_822357 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_822357 != null);
+											// check object __DEC_messageReceive_enclosingInteraction_993557 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_993557 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_822357 and interaction 
-											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_822357
+											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_993557 and interaction 
+											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_993557
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -14821,14 +15249,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_fragment_46477 = messageReceive
+											__DEC_messageReceive_fragment_978836 = messageReceive
 													.getEnclosingOperand();
 
-											// check object __DEC_messageReceive_fragment_46477 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_fragment_46477 != null);
+											// check object __DEC_messageReceive_fragment_978836 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_fragment_978836 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_fragment_46477 and operand 
-											JavaSDM.ensure(!__DEC_messageReceive_fragment_46477
+											// check isomorphic binding between objects __DEC_messageReceive_fragment_978836 and operand 
+											JavaSDM.ensure(!__DEC_messageReceive_fragment_978836
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -14845,14 +15273,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_enclosingInteraction_294054 = messageSend
+											__DEC_messageSend_enclosingInteraction_368559 = messageSend
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageSend_enclosingInteraction_294054 is really bound
-											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_294054 != null);
+											// check object __DEC_messageSend_enclosingInteraction_368559 is really bound
+											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_368559 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_294054 and interaction 
-											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_294054
+											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_368559 and interaction 
+											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_368559
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -14869,14 +15297,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_fragment_72292 = messageSend
+											__DEC_messageSend_fragment_82887 = messageSend
 													.getEnclosingOperand();
 
-											// check object __DEC_messageSend_fragment_72292 is really bound
-											JavaSDM.ensure(__DEC_messageSend_fragment_72292 != null);
+											// check object __DEC_messageSend_fragment_82887 is really bound
+											JavaSDM.ensure(__DEC_messageSend_fragment_82887 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_fragment_72292 and operand 
-											JavaSDM.ensure(!__DEC_messageSend_fragment_72292
+											// check isomorphic binding between objects __DEC_messageSend_fragment_82887 and operand 
+											JavaSDM.ensure(!__DEC_messageSend_fragment_82887
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -14893,14 +15321,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_enclosingInteraction_104785 = operand
+											__DEC_operand_enclosingInteraction_447536 = operand
 													.getEnclosingInteraction();
 
-											// check object __DEC_operand_enclosingInteraction_104785 is really bound
-											JavaSDM.ensure(__DEC_operand_enclosingInteraction_104785 != null);
+											// check object __DEC_operand_enclosingInteraction_447536 is really bound
+											JavaSDM.ensure(__DEC_operand_enclosingInteraction_447536 != null);
 
-											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_104785 and interaction 
-											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_104785
+											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_447536 and interaction 
+											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_447536
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -14917,14 +15345,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_fragment_781524 = operand
+											__DEC_operand_fragment_925753 = operand
 													.getEnclosingOperand();
 
-											// check object __DEC_operand_fragment_781524 is really bound
-											JavaSDM.ensure(__DEC_operand_fragment_781524 != null);
+											// check object __DEC_operand_fragment_925753 is really bound
+											JavaSDM.ensure(__DEC_operand_fragment_925753 != null);
 
-											// check isomorphic binding between objects __DEC_operand_fragment_781524 and operand 
-											JavaSDM.ensure(!__DEC_operand_fragment_781524
+											// check isomorphic binding between objects __DEC_operand_fragment_925753 and operand 
+											JavaSDM.ensure(!__DEC_operand_fragment_925753
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -14955,20 +15383,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_guard_guard_795765 = guard
+											__DEC_guard_guard_510551 = guard
 													.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 													.eContainer() : null;
 
-											// check object __DEC_guard_guard_795765 is really bound
-											JavaSDM.ensure(__DEC_guard_guard_795765 != null);
+											// check object __DEC_guard_guard_510551 is really bound
+											JavaSDM.ensure(__DEC_guard_guard_510551 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(guard
-													.equals(__DEC_guard_guard_795765
+													.equals(__DEC_guard_guard_510551
 															.getGuard()));
 
-											// check isomorphic binding between objects __DEC_guard_guard_795765 and operand 
-											JavaSDM.ensure(!__DEC_guard_guard_795765
+											// check isomorphic binding between objects __DEC_guard_guard_510551 and operand 
+											JavaSDM.ensure(!__DEC_guard_guard_510551
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -14985,20 +15413,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_operand_600595 = operand
+											__DEC_operand_operand_500120 = operand
 													.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 													.eContainer() : null;
 
-											// check object __DEC_operand_operand_600595 is really bound
-											JavaSDM.ensure(__DEC_operand_operand_600595 != null);
+											// check object __DEC_operand_operand_500120 is really bound
+											JavaSDM.ensure(__DEC_operand_operand_500120 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_operand_operand_600595
+											JavaSDM.ensure(__DEC_operand_operand_500120
 													.getOperand().contains(
 															operand));
 
-											// check isomorphic binding between objects __DEC_operand_operand_600595 and combo 
-											JavaSDM.ensure(!__DEC_operand_operand_600595
+											// check isomorphic binding between objects __DEC_operand_operand_500120 and combo 
+											JavaSDM.ensure(!__DEC_operand_operand_500120
 													.equals(combo));
 
 											fujaba__Success = true;
@@ -15015,20 +15443,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_spec_specification_404731 = spec
+											__DEC_spec_specification_917466 = spec
 													.eContainer() instanceof Constraint ? (Constraint) spec
 													.eContainer() : null;
 
-											// check object __DEC_spec_specification_404731 is really bound
-											JavaSDM.ensure(__DEC_spec_specification_404731 != null);
+											// check object __DEC_spec_specification_917466 is really bound
+											JavaSDM.ensure(__DEC_spec_specification_917466 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(spec
-													.equals(__DEC_spec_specification_404731
+													.equals(__DEC_spec_specification_917466
 															.getSpecification()));
 
-											// check isomorphic binding between objects __DEC_spec_specification_404731 and guard 
-											JavaSDM.ensure(!__DEC_spec_specification_404731
+											// check isomorphic binding between objects __DEC_spec_specification_917466 and guard 
+											JavaSDM.ensure(!__DEC_spec_specification_917466
 													.equals(guard));
 
 											fujaba__Success = true;
@@ -15044,10 +15472,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_665495
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_11317
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_665495 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_11317 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -15056,16 +15484,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_665495
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_11317
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_665495 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_665495
+													__DEC_messageReceive_receiveEvent_11317 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_11317
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_665495 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_665495 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_665495 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_665495
+													// check object __DEC_messageReceive_receiveEvent_11317 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_11317 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_11317 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_11317
 															.equals(message));
 
 													fujaba__Success = true;
@@ -15088,10 +15516,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_490873
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_884285
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_490873 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884285 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -15100,16 +15528,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_490873
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884285
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_490873 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_490873
+													__DEC_messageSend_receiveEvent_884285 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884285
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_490873 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_490873 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_490873 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_490873
+													// check object __DEC_messageSend_receiveEvent_884285 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_884285 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_884285 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_884285
 															.equals(message));
 
 													fujaba__Success = true;
@@ -15132,10 +15560,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_416774
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_658988
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_416774 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_658988 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -15144,16 +15572,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_416774
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_658988
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_416774 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_416774
+													__DEC_messageReceive_sendEvent_658988 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_658988
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_416774 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_416774 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_416774 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_416774
+													// check object __DEC_messageReceive_sendEvent_658988 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_658988 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_658988 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_658988
 															.equals(message));
 
 													fujaba__Success = true;
@@ -15176,10 +15604,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_996585
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_650027
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_996585 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_650027 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -15188,16 +15616,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_996585
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_650027
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_996585 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_996585
+													__DEC_messageSend_sendEvent_650027 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_650027
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_996585 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_996585 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_996585 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_996585
+													// check object __DEC_messageSend_sendEvent_650027 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_650027 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_650027 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_650027
 															.equals(message));
 
 													fujaba__Success = true;
@@ -15220,10 +15648,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_386804
+											// iterate to-many link message from message to __DEC_message_message_91729
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_386804 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_91729 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -15232,20 +15660,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_386804
+													&& fujaba__IterMessageTo__DEC_message_message_91729
 															.hasNext()) {
 												try {
-													__DEC_message_message_386804 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_386804
+													__DEC_message_message_91729 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_91729
 															.next();
 
-													// check object __DEC_message_message_386804 is really bound
-													JavaSDM.ensure(__DEC_message_message_386804 != null);
-													// check isomorphic binding between objects __DEC_message_message_386804 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_386804
+													// check object __DEC_message_message_91729 is really bound
+													JavaSDM.ensure(__DEC_message_message_91729 != null);
+													// check isomorphic binding between objects __DEC_message_message_91729 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_91729
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_386804 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_386804
+													// check isomorphic binding between objects __DEC_message_message_91729 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_91729
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -15497,27 +15925,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_311330 = null;
-		InteractionOperand __DEC_combo_fragment_450886 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_762417 = null;
-		InteractionOperand __DEC_messageReceive_fragment_170303 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_910334 = null;
-		InteractionOperand __DEC_messageSend_fragment_904915 = null;
-		Interaction __DEC_operand_enclosingInteraction_375040 = null;
-		InteractionOperand __DEC_operand_fragment_570848 = null;
-		InteractionOperand __DEC_guard_guard_35641 = null;
-		CombinedFragment __DEC_operand_operand_407639 = null;
-		Constraint __DEC_spec_specification_930955 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_775663 = null;
-		Message __DEC_messageReceive_receiveEvent_775663 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_119724 = null;
-		Message __DEC_messageSend_receiveEvent_119724 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_720775 = null;
-		Message __DEC_messageReceive_sendEvent_720775 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_136614 = null;
-		Message __DEC_messageSend_sendEvent_136614 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_27913 = null;
-		MessageEnd __DEC_message_message_27913 = null;
+		Interaction __DEC_combo_enclosingInteraction_700739 = null;
+		InteractionOperand __DEC_combo_fragment_700151 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_264971 = null;
+		InteractionOperand __DEC_messageReceive_fragment_213237 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_588648 = null;
+		InteractionOperand __DEC_messageSend_fragment_910687 = null;
+		Interaction __DEC_operand_enclosingInteraction_660896 = null;
+		InteractionOperand __DEC_operand_fragment_520394 = null;
+		InteractionOperand __DEC_guard_guard_512338 = null;
+		CombinedFragment __DEC_operand_operand_847425 = null;
+		Constraint __DEC_spec_specification_857111 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_188823 = null;
+		Message __DEC_messageReceive_receiveEvent_188823 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_312622 = null;
+		Message __DEC_messageSend_receiveEvent_312622 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_426394 = null;
+		Message __DEC_messageReceive_sendEvent_426394 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_308503 = null;
+		Message __DEC_messageSend_sendEvent_308503 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_522337 = null;
+		MessageEnd __DEC_message_message_522337 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -15700,14 +16128,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_combo_enclosingInteraction_311330 = combo
+													__DEC_combo_enclosingInteraction_700739 = combo
 															.getEnclosingInteraction();
 
-													// check object __DEC_combo_enclosingInteraction_311330 is really bound
-													JavaSDM.ensure(__DEC_combo_enclosingInteraction_311330 != null);
+													// check object __DEC_combo_enclosingInteraction_700739 is really bound
+													JavaSDM.ensure(__DEC_combo_enclosingInteraction_700739 != null);
 
-													// check isomorphic binding between objects __DEC_combo_enclosingInteraction_311330 and interaction 
-													JavaSDM.ensure(!__DEC_combo_enclosingInteraction_311330
+													// check isomorphic binding between objects __DEC_combo_enclosingInteraction_700739 and interaction 
+													JavaSDM.ensure(!__DEC_combo_enclosingInteraction_700739
 															.equals(interaction));
 
 													fujaba__Success = true;
@@ -15724,14 +16152,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_combo_fragment_450886 = combo
+													__DEC_combo_fragment_700151 = combo
 															.getEnclosingOperand();
 
-													// check object __DEC_combo_fragment_450886 is really bound
-													JavaSDM.ensure(__DEC_combo_fragment_450886 != null);
+													// check object __DEC_combo_fragment_700151 is really bound
+													JavaSDM.ensure(__DEC_combo_fragment_700151 != null);
 
-													// check isomorphic binding between objects __DEC_combo_fragment_450886 and operand 
-													JavaSDM.ensure(!__DEC_combo_fragment_450886
+													// check isomorphic binding between objects __DEC_combo_fragment_700151 and operand 
+													JavaSDM.ensure(!__DEC_combo_fragment_700151
 															.equals(operand));
 
 													fujaba__Success = true;
@@ -15748,14 +16176,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_messageReceive_enclosingInteraction_762417 = messageReceive
+													__DEC_messageReceive_enclosingInteraction_264971 = messageReceive
 															.getEnclosingInteraction();
 
-													// check object __DEC_messageReceive_enclosingInteraction_762417 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_762417 != null);
+													// check object __DEC_messageReceive_enclosingInteraction_264971 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_264971 != null);
 
-													// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_762417 and interaction 
-													JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_762417
+													// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_264971 and interaction 
+													JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_264971
 															.equals(interaction));
 
 													fujaba__Success = true;
@@ -15772,14 +16200,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_messageReceive_fragment_170303 = messageReceive
+													__DEC_messageReceive_fragment_213237 = messageReceive
 															.getEnclosingOperand();
 
-													// check object __DEC_messageReceive_fragment_170303 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_fragment_170303 != null);
+													// check object __DEC_messageReceive_fragment_213237 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_fragment_213237 != null);
 
-													// check isomorphic binding between objects __DEC_messageReceive_fragment_170303 and operand 
-													JavaSDM.ensure(!__DEC_messageReceive_fragment_170303
+													// check isomorphic binding between objects __DEC_messageReceive_fragment_213237 and operand 
+													JavaSDM.ensure(!__DEC_messageReceive_fragment_213237
 															.equals(operand));
 
 													fujaba__Success = true;
@@ -15796,14 +16224,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_messageSend_enclosingInteraction_910334 = messageSend
+													__DEC_messageSend_enclosingInteraction_588648 = messageSend
 															.getEnclosingInteraction();
 
-													// check object __DEC_messageSend_enclosingInteraction_910334 is really bound
-													JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_910334 != null);
+													// check object __DEC_messageSend_enclosingInteraction_588648 is really bound
+													JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_588648 != null);
 
-													// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_910334 and interaction 
-													JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_910334
+													// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_588648 and interaction 
+													JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_588648
 															.equals(interaction));
 
 													fujaba__Success = true;
@@ -15820,14 +16248,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_messageSend_fragment_904915 = messageSend
+													__DEC_messageSend_fragment_910687 = messageSend
 															.getEnclosingOperand();
 
-													// check object __DEC_messageSend_fragment_904915 is really bound
-													JavaSDM.ensure(__DEC_messageSend_fragment_904915 != null);
+													// check object __DEC_messageSend_fragment_910687 is really bound
+													JavaSDM.ensure(__DEC_messageSend_fragment_910687 != null);
 
-													// check isomorphic binding between objects __DEC_messageSend_fragment_904915 and operand 
-													JavaSDM.ensure(!__DEC_messageSend_fragment_904915
+													// check isomorphic binding between objects __DEC_messageSend_fragment_910687 and operand 
+													JavaSDM.ensure(!__DEC_messageSend_fragment_910687
 															.equals(operand));
 
 													fujaba__Success = true;
@@ -15844,14 +16272,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_operand_enclosingInteraction_375040 = operand
+													__DEC_operand_enclosingInteraction_660896 = operand
 															.getEnclosingInteraction();
 
-													// check object __DEC_operand_enclosingInteraction_375040 is really bound
-													JavaSDM.ensure(__DEC_operand_enclosingInteraction_375040 != null);
+													// check object __DEC_operand_enclosingInteraction_660896 is really bound
+													JavaSDM.ensure(__DEC_operand_enclosingInteraction_660896 != null);
 
-													// check isomorphic binding between objects __DEC_operand_enclosingInteraction_375040 and interaction 
-													JavaSDM.ensure(!__DEC_operand_enclosingInteraction_375040
+													// check isomorphic binding between objects __DEC_operand_enclosingInteraction_660896 and interaction 
+													JavaSDM.ensure(!__DEC_operand_enclosingInteraction_660896
 															.equals(interaction));
 
 													fujaba__Success = true;
@@ -15868,14 +16296,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_operand_fragment_570848 = operand
+													__DEC_operand_fragment_520394 = operand
 															.getEnclosingOperand();
 
-													// check object __DEC_operand_fragment_570848 is really bound
-													JavaSDM.ensure(__DEC_operand_fragment_570848 != null);
+													// check object __DEC_operand_fragment_520394 is really bound
+													JavaSDM.ensure(__DEC_operand_fragment_520394 != null);
 
-													// check isomorphic binding between objects __DEC_operand_fragment_570848 and operand 
-													JavaSDM.ensure(!__DEC_operand_fragment_570848
+													// check isomorphic binding between objects __DEC_operand_fragment_520394 and operand 
+													JavaSDM.ensure(!__DEC_operand_fragment_520394
 															.equals(operand));
 
 													fujaba__Success = true;
@@ -15906,21 +16334,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_guard_guard_35641 = guard
+													__DEC_guard_guard_512338 = guard
 															.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 															.eContainer()
 															: null;
 
-													// check object __DEC_guard_guard_35641 is really bound
-													JavaSDM.ensure(__DEC_guard_guard_35641 != null);
+													// check object __DEC_guard_guard_512338 is really bound
+													JavaSDM.ensure(__DEC_guard_guard_512338 != null);
 
 													// check if contained via correct reference
 													JavaSDM.ensure(guard
-															.equals(__DEC_guard_guard_35641
+															.equals(__DEC_guard_guard_512338
 																	.getGuard()));
 
-													// check isomorphic binding between objects __DEC_guard_guard_35641 and operand 
-													JavaSDM.ensure(!__DEC_guard_guard_35641
+													// check isomorphic binding between objects __DEC_guard_guard_512338 and operand 
+													JavaSDM.ensure(!__DEC_guard_guard_512338
 															.equals(operand));
 
 													fujaba__Success = true;
@@ -15937,21 +16365,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_operand_operand_407639 = operand
+													__DEC_operand_operand_847425 = operand
 															.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 															.eContainer()
 															: null;
 
-													// check object __DEC_operand_operand_407639 is really bound
-													JavaSDM.ensure(__DEC_operand_operand_407639 != null);
+													// check object __DEC_operand_operand_847425 is really bound
+													JavaSDM.ensure(__DEC_operand_operand_847425 != null);
 
 													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_operand_operand_407639
+													JavaSDM.ensure(__DEC_operand_operand_847425
 															.getOperand()
 															.contains(operand));
 
-													// check isomorphic binding between objects __DEC_operand_operand_407639 and combo 
-													JavaSDM.ensure(!__DEC_operand_operand_407639
+													// check isomorphic binding between objects __DEC_operand_operand_847425 and combo 
+													JavaSDM.ensure(!__DEC_operand_operand_847425
 															.equals(combo));
 
 													fujaba__Success = true;
@@ -15968,21 +16396,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													fujaba__Success = false;
 
 													// bind object
-													__DEC_spec_specification_930955 = spec
+													__DEC_spec_specification_857111 = spec
 															.eContainer() instanceof Constraint ? (Constraint) spec
 															.eContainer()
 															: null;
 
-													// check object __DEC_spec_specification_930955 is really bound
-													JavaSDM.ensure(__DEC_spec_specification_930955 != null);
+													// check object __DEC_spec_specification_857111 is really bound
+													JavaSDM.ensure(__DEC_spec_specification_857111 != null);
 
 													// check if contained via correct reference
 													JavaSDM.ensure(spec
-															.equals(__DEC_spec_specification_930955
+															.equals(__DEC_spec_specification_857111
 																	.getSpecification()));
 
-													// check isomorphic binding between objects __DEC_spec_specification_930955 and guard 
-													JavaSDM.ensure(!__DEC_spec_specification_930955
+													// check isomorphic binding between objects __DEC_spec_specification_857111 and guard 
+													JavaSDM.ensure(!__DEC_spec_specification_857111
 															.equals(guard));
 
 													fujaba__Success = true;
@@ -15998,10 +16426,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_775663
+													// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_188823
 													fujaba__Success = false;
 
-													fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_775663 = new ArrayList(
+													fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_188823 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			messageReceive,
@@ -16010,16 +16438,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_775663
+															&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_188823
 																	.hasNext()) {
 														try {
-															__DEC_messageReceive_receiveEvent_775663 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_775663
+															__DEC_messageReceive_receiveEvent_188823 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_188823
 																	.next();
 
-															// check object __DEC_messageReceive_receiveEvent_775663 is really bound
-															JavaSDM.ensure(__DEC_messageReceive_receiveEvent_775663 != null);
-															// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_775663 and message 
-															JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_775663
+															// check object __DEC_messageReceive_receiveEvent_188823 is really bound
+															JavaSDM.ensure(__DEC_messageReceive_receiveEvent_188823 != null);
+															// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_188823 and message 
+															JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_188823
 																	.equals(message));
 
 															fujaba__Success = true;
@@ -16042,10 +16470,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_119724
+													// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_312622
 													fujaba__Success = false;
 
-													fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_119724 = new ArrayList(
+													fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_312622 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			messageSend,
@@ -16054,16 +16482,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_119724
+															&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_312622
 																	.hasNext()) {
 														try {
-															__DEC_messageSend_receiveEvent_119724 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_119724
+															__DEC_messageSend_receiveEvent_312622 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_312622
 																	.next();
 
-															// check object __DEC_messageSend_receiveEvent_119724 is really bound
-															JavaSDM.ensure(__DEC_messageSend_receiveEvent_119724 != null);
-															// check isomorphic binding between objects __DEC_messageSend_receiveEvent_119724 and message 
-															JavaSDM.ensure(!__DEC_messageSend_receiveEvent_119724
+															// check object __DEC_messageSend_receiveEvent_312622 is really bound
+															JavaSDM.ensure(__DEC_messageSend_receiveEvent_312622 != null);
+															// check isomorphic binding between objects __DEC_messageSend_receiveEvent_312622 and message 
+															JavaSDM.ensure(!__DEC_messageSend_receiveEvent_312622
 																	.equals(message));
 
 															fujaba__Success = true;
@@ -16086,10 +16514,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_720775
+													// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_426394
 													fujaba__Success = false;
 
-													fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_720775 = new ArrayList(
+													fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_426394 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			messageReceive,
@@ -16098,16 +16526,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_720775
+															&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_426394
 																	.hasNext()) {
 														try {
-															__DEC_messageReceive_sendEvent_720775 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_720775
+															__DEC_messageReceive_sendEvent_426394 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_426394
 																	.next();
 
-															// check object __DEC_messageReceive_sendEvent_720775 is really bound
-															JavaSDM.ensure(__DEC_messageReceive_sendEvent_720775 != null);
-															// check isomorphic binding between objects __DEC_messageReceive_sendEvent_720775 and message 
-															JavaSDM.ensure(!__DEC_messageReceive_sendEvent_720775
+															// check object __DEC_messageReceive_sendEvent_426394 is really bound
+															JavaSDM.ensure(__DEC_messageReceive_sendEvent_426394 != null);
+															// check isomorphic binding between objects __DEC_messageReceive_sendEvent_426394 and message 
+															JavaSDM.ensure(!__DEC_messageReceive_sendEvent_426394
 																	.equals(message));
 
 															fujaba__Success = true;
@@ -16130,10 +16558,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_136614
+													// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_308503
 													fujaba__Success = false;
 
-													fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_136614 = new ArrayList(
+													fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_308503 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			messageSend,
@@ -16142,16 +16570,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_136614
+															&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_308503
 																	.hasNext()) {
 														try {
-															__DEC_messageSend_sendEvent_136614 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_136614
+															__DEC_messageSend_sendEvent_308503 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_308503
 																	.next();
 
-															// check object __DEC_messageSend_sendEvent_136614 is really bound
-															JavaSDM.ensure(__DEC_messageSend_sendEvent_136614 != null);
-															// check isomorphic binding between objects __DEC_messageSend_sendEvent_136614 and message 
-															JavaSDM.ensure(!__DEC_messageSend_sendEvent_136614
+															// check object __DEC_messageSend_sendEvent_308503 is really bound
+															JavaSDM.ensure(__DEC_messageSend_sendEvent_308503 != null);
+															// check isomorphic binding between objects __DEC_messageSend_sendEvent_308503 and message 
+															JavaSDM.ensure(!__DEC_messageSend_sendEvent_308503
 																	.equals(message));
 
 															fujaba__Success = true;
@@ -16174,10 +16602,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 												try {
 													fujaba__Success = false;
 
-													// iterate to-many link message from message to __DEC_message_message_27913
+													// iterate to-many link message from message to __DEC_message_message_522337
 													fujaba__Success = false;
 
-													fujaba__IterMessageTo__DEC_message_message_27913 = new ArrayList(
+													fujaba__IterMessageTo__DEC_message_message_522337 = new ArrayList(
 															org.moflon.util.eMoflonEMFUtil
 																	.getOppositeReference(
 																			message,
@@ -16186,20 +16614,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															.iterator();
 
 													while (!(fujaba__Success)
-															&& fujaba__IterMessageTo__DEC_message_message_27913
+															&& fujaba__IterMessageTo__DEC_message_message_522337
 																	.hasNext()) {
 														try {
-															__DEC_message_message_27913 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_27913
+															__DEC_message_message_522337 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_522337
 																	.next();
 
-															// check object __DEC_message_message_27913 is really bound
-															JavaSDM.ensure(__DEC_message_message_27913 != null);
-															// check isomorphic binding between objects __DEC_message_message_27913 and messageReceive 
-															JavaSDM.ensure(!__DEC_message_message_27913
+															// check object __DEC_message_message_522337 is really bound
+															JavaSDM.ensure(__DEC_message_message_522337 != null);
+															// check isomorphic binding between objects __DEC_message_message_522337 and messageReceive 
+															JavaSDM.ensure(!__DEC_message_message_522337
 																	.equals(messageReceive));
 
-															// check isomorphic binding between objects __DEC_message_message_27913 and messageSend 
-															JavaSDM.ensure(!__DEC_message_message_27913
+															// check isomorphic binding between objects __DEC_message_message_522337 and messageSend 
+															JavaSDM.ensure(!__DEC_message_message_522337
 																	.equals(messageSend));
 
 															fujaba__Success = true;
@@ -16462,28 +16890,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_920537 = null;
-		InteractionOperand __DEC_combo_fragment_871397 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_209343 = null;
-		InteractionOperand __DEC_messageReceive_fragment_358869 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_810785 = null;
-		InteractionOperand __DEC_messageSend_fragment_618472 = null;
-		Interaction __DEC_operand_enclosingInteraction_533638 = null;
-		InteractionOperand __DEC_operand_fragment_623389 = null;
-		InteractionOperand __DEC_guard_guard_806099 = null;
-		CombinedFragment __DEC_operand_operand_788183 = null;
-		Constraint __DEC_spec_specification_5119 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_890683 = null;
-		Message __DEC_messageReceive_receiveEvent_890683 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_874569 = null;
-		Message __DEC_messageSend_receiveEvent_874569 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_355064 = null;
-		Message __DEC_messageReceive_sendEvent_355064 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_402777 = null;
-		Message __DEC_messageSend_sendEvent_402777 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_480130 = null;
-		MessageEnd __DEC_message_message_480130 = null;
+		Interaction __DEC_combo_enclosingInteraction_817991 = null;
+		InteractionOperand __DEC_combo_fragment_115221 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_382493 = null;
+		InteractionOperand __DEC_messageReceive_fragment_592288 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_307660 = null;
+		InteractionOperand __DEC_messageSend_fragment_739260 = null;
+		Interaction __DEC_operand_enclosingInteraction_785979 = null;
+		InteractionOperand __DEC_operand_fragment_356351 = null;
+		InteractionOperand __DEC_guard_guard_529627 = null;
+		CombinedFragment __DEC_operand_operand_308017 = null;
+		Constraint __DEC_spec_specification_585888 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_875034 = null;
+		Message __DEC_messageReceive_receiveEvent_875034 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_663595 = null;
+		Message __DEC_messageSend_receiveEvent_663595 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_681014 = null;
+		Message __DEC_messageReceive_sendEvent_681014 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_610425 = null;
+		Message __DEC_messageSend_sendEvent_610425 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_744340 = null;
+		MessageEnd __DEC_message_message_744340 = null;
 		Match match = null;
+		Iterator fujaba__IterInteractionTo_edge_interaction = null;
+		EMoflonEdge _edge_interaction = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
 		Iterator fujaba__IterLineToOperand = null;
@@ -16496,8 +16926,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		CombinedFragment combo = null;
 		Iterator fujaba__IterInteractionToLine = null;
 		Lifeline line = null;
-		Iterator fujaba__IterInteractionTo_edge_interaction = null;
-		EMoflonEdge _edge_interaction = null;
 		Interaction interaction = null;
 
 		// story node 'prepare return value'
@@ -16554,140 +16982,137 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof Interaction);
 			interaction = (Interaction) _TmpObject;
 
-			// iterate to-many link trg from interaction to _edge_interaction
+			// iterate to-many link lifeline from interaction to line
 			fujaba__Success = false;
 
-			fujaba__IterInteractionTo_edge_interaction = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							interaction, EMoflonEdge.class, "trg")).iterator();
+			fujaba__IterInteractionToLine = new ArrayList(
+					interaction.getLifeline()).iterator();
 
-			while (fujaba__IterInteractionTo_edge_interaction.hasNext()) {
+			while (fujaba__IterInteractionToLine.hasNext()) {
 				try {
-					_edge_interaction = (EMoflonEdge) fujaba__IterInteractionTo_edge_interaction
-							.next();
+					line = (Lifeline) fujaba__IterInteractionToLine.next();
 
-					// check object _edge_interaction is really bound
-					JavaSDM.ensure(_edge_interaction != null);
-					// check isomorphic binding between objects _edge_message and _edge_interaction 
-					JavaSDM.ensure(!_edge_message.equals(_edge_interaction));
-
-					// iterate to-many link lifeline from interaction to line
+					// check object line is really bound
+					JavaSDM.ensure(line != null);
+					// iterate to-many link covered from line to combo
 					fujaba__Success = false;
 
-					fujaba__IterInteractionToLine = new ArrayList(
-							interaction.getLifeline()).iterator();
+					fujaba__IterLineToCombo = new ArrayList(line.getCoveredBy())
+							.iterator();
 
-					while (fujaba__IterInteractionToLine.hasNext()) {
+					while (fujaba__IterLineToCombo.hasNext()) {
 						try {
-							line = (Lifeline) fujaba__IterInteractionToLine
-									.next();
+							_TmpObject = fujaba__IterLineToCombo.next();
 
-							// check object line is really bound
-							JavaSDM.ensure(line != null);
-							// iterate to-many link covered from line to combo
+							// ensure correct type and really bound of object combo
+							JavaSDM.ensure(_TmpObject instanceof CombinedFragment);
+							combo = (CombinedFragment) _TmpObject;
+							// iterate to-many link covered from line to messageReceive
 							fujaba__Success = false;
 
-							fujaba__IterLineToCombo = new ArrayList(
+							fujaba__IterLineToMessageReceive = new ArrayList(
 									line.getCoveredBy()).iterator();
 
-							while (fujaba__IterLineToCombo.hasNext()) {
+							while (fujaba__IterLineToMessageReceive.hasNext()) {
 								try {
-									_TmpObject = fujaba__IterLineToCombo.next();
+									_TmpObject = fujaba__IterLineToMessageReceive
+											.next();
 
-									// ensure correct type and really bound of object combo
-									JavaSDM.ensure(_TmpObject instanceof CombinedFragment);
-									combo = (CombinedFragment) _TmpObject;
-									// iterate to-many link covered from line to messageReceive
+									// ensure correct type and really bound of object messageReceive
+									JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+									messageReceive = (MessageOccurrenceSpecification) _TmpObject;
+									// bind object
+									message = messageReceive.getMessage();
+
+									// check object message is really bound
+									JavaSDM.ensure(message != null);
+
+									// check link message from message to interaction
+									JavaSDM.ensure(interaction.equals(message
+											.getInteraction()));
+
+									// check link receiveEvent from message to messageReceive
+									JavaSDM.ensure(messageReceive
+											.equals(message.getReceiveEvent()));
+
+									// bind object
+									_TmpObject = message.getSendEvent();
+
+									// ensure correct type and really bound of object messageSend
+									JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+									messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
+									// check isomorphic binding between objects messageSend and messageReceive 
+									JavaSDM.ensure(!messageSend
+											.equals(messageReceive));
+
+									// check link message from messageSend to message
+									JavaSDM.ensure(message.equals(messageSend
+											.getMessage()));
+
+									// check link trg from _edge_message to message
+									JavaSDM.ensure(message.equals(_edge_message
+											.getTrg()));
+
+									// iterate to-many link covered from line to operand
 									fujaba__Success = false;
 
-									fujaba__IterLineToMessageReceive = new ArrayList(
+									fujaba__IterLineToOperand = new ArrayList(
 											line.getCoveredBy()).iterator();
 
-									while (fujaba__IterLineToMessageReceive
-											.hasNext()) {
+									while (fujaba__IterLineToOperand.hasNext()) {
 										try {
-											_TmpObject = fujaba__IterLineToMessageReceive
+											_TmpObject = fujaba__IterLineToOperand
 													.next();
 
-											// ensure correct type and really bound of object messageReceive
-											JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-											messageReceive = (MessageOccurrenceSpecification) _TmpObject;
+											// ensure correct type and really bound of object operand
+											JavaSDM.ensure(_TmpObject instanceof InteractionOperand);
+											operand = (InteractionOperand) _TmpObject;
 											// bind object
-											message = messageReceive
-													.getMessage();
+											guard = operand.getGuard();
 
-											// check object message is really bound
-											JavaSDM.ensure(message != null);
+											// check object guard is really bound
+											JavaSDM.ensure(guard != null);
 
-											// check link message from message to interaction
-											JavaSDM.ensure(interaction
-													.equals(message
-															.getInteraction()));
-
-											// check link receiveEvent from message to messageReceive
-											JavaSDM.ensure(messageReceive
-													.equals(message
-															.getReceiveEvent()));
+											// check link operand from operand to combo
+											JavaSDM.ensure(combo.equals(operand
+													.eContainer()));
 
 											// bind object
-											_TmpObject = message.getSendEvent();
+											_TmpObject = guard
+													.getSpecification();
 
-											// ensure correct type and really bound of object messageSend
-											JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-											messageSend = (MessageOccurrenceSpecification) _TmpObject;
+											// ensure correct type and really bound of object spec
+											JavaSDM.ensure(_TmpObject instanceof LiteralString);
+											spec = (LiteralString) _TmpObject;
 
-											// check isomorphic binding between objects messageSend and messageReceive 
-											JavaSDM.ensure(!messageSend
-													.equals(messageReceive));
-
-											// check link message from messageSend to message
-											JavaSDM.ensure(message
-													.equals(messageSend
-															.getMessage()));
-
-											// check link src from _edge_interaction to message
-											JavaSDM.ensure(message
-													.equals(_edge_interaction
-															.getSrc()));
-
-											// check link trg from _edge_message to message
-											JavaSDM.ensure(message
-													.equals(_edge_message
-															.getTrg()));
-
-											// iterate to-many link covered from line to operand
+											// iterate to-many link trg from interaction to _edge_interaction
 											fujaba__Success = false;
 
-											fujaba__IterLineToOperand = new ArrayList(
-													line.getCoveredBy())
+											fujaba__IterInteractionTo_edge_interaction = new ArrayList(
+													org.moflon.util.eMoflonEMFUtil
+															.getOppositeReference(
+																	interaction,
+																	EMoflonEdge.class,
+																	"trg"))
 													.iterator();
 
-											while (fujaba__IterLineToOperand
+											while (fujaba__IterInteractionTo_edge_interaction
 													.hasNext()) {
 												try {
-													_TmpObject = fujaba__IterLineToOperand
+													_edge_interaction = (EMoflonEdge) fujaba__IterInteractionTo_edge_interaction
 															.next();
 
-													// ensure correct type and really bound of object operand
-													JavaSDM.ensure(_TmpObject instanceof InteractionOperand);
-													operand = (InteractionOperand) _TmpObject;
-													// bind object
-													guard = operand.getGuard();
+													// check object _edge_interaction is really bound
+													JavaSDM.ensure(_edge_interaction != null);
+													// check isomorphic binding between objects _edge_message and _edge_interaction 
+													JavaSDM.ensure(!_edge_message
+															.equals(_edge_interaction));
 
-													// check object guard is really bound
-													JavaSDM.ensure(guard != null);
-
-													// check link operand from operand to combo
-													JavaSDM.ensure(combo.equals(operand
-															.eContainer()));
-
-													// bind object
-													_TmpObject = guard
-															.getSpecification();
-
-													// ensure correct type and really bound of object spec
-													JavaSDM.ensure(_TmpObject instanceof LiteralString);
-													spec = (LiteralString) _TmpObject;
+													// check link src from _edge_interaction to message
+													JavaSDM.ensure(message
+															.equals(_edge_interaction
+																	.getSrc()));
 
 													// story node 'test core match and DECs'
 													try {
@@ -16698,14 +17123,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_combo_enclosingInteraction_920537 = combo
+															__DEC_combo_enclosingInteraction_817991 = combo
 																	.getEnclosingInteraction();
 
-															// check object __DEC_combo_enclosingInteraction_920537 is really bound
-															JavaSDM.ensure(__DEC_combo_enclosingInteraction_920537 != null);
+															// check object __DEC_combo_enclosingInteraction_817991 is really bound
+															JavaSDM.ensure(__DEC_combo_enclosingInteraction_817991 != null);
 
-															// check isomorphic binding between objects __DEC_combo_enclosingInteraction_920537 and interaction 
-															JavaSDM.ensure(!__DEC_combo_enclosingInteraction_920537
+															// check isomorphic binding between objects __DEC_combo_enclosingInteraction_817991 and interaction 
+															JavaSDM.ensure(!__DEC_combo_enclosingInteraction_817991
 																	.equals(interaction));
 
 															fujaba__Success = true;
@@ -16722,14 +17147,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_combo_fragment_871397 = combo
+															__DEC_combo_fragment_115221 = combo
 																	.getEnclosingOperand();
 
-															// check object __DEC_combo_fragment_871397 is really bound
-															JavaSDM.ensure(__DEC_combo_fragment_871397 != null);
+															// check object __DEC_combo_fragment_115221 is really bound
+															JavaSDM.ensure(__DEC_combo_fragment_115221 != null);
 
-															// check isomorphic binding between objects __DEC_combo_fragment_871397 and operand 
-															JavaSDM.ensure(!__DEC_combo_fragment_871397
+															// check isomorphic binding between objects __DEC_combo_fragment_115221 and operand 
+															JavaSDM.ensure(!__DEC_combo_fragment_115221
 																	.equals(operand));
 
 															fujaba__Success = true;
@@ -16746,14 +17171,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_messageReceive_enclosingInteraction_209343 = messageReceive
+															__DEC_messageReceive_enclosingInteraction_382493 = messageReceive
 																	.getEnclosingInteraction();
 
-															// check object __DEC_messageReceive_enclosingInteraction_209343 is really bound
-															JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_209343 != null);
+															// check object __DEC_messageReceive_enclosingInteraction_382493 is really bound
+															JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_382493 != null);
 
-															// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_209343 and interaction 
-															JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_209343
+															// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_382493 and interaction 
+															JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_382493
 																	.equals(interaction));
 
 															fujaba__Success = true;
@@ -16770,14 +17195,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_messageReceive_fragment_358869 = messageReceive
+															__DEC_messageReceive_fragment_592288 = messageReceive
 																	.getEnclosingOperand();
 
-															// check object __DEC_messageReceive_fragment_358869 is really bound
-															JavaSDM.ensure(__DEC_messageReceive_fragment_358869 != null);
+															// check object __DEC_messageReceive_fragment_592288 is really bound
+															JavaSDM.ensure(__DEC_messageReceive_fragment_592288 != null);
 
-															// check isomorphic binding between objects __DEC_messageReceive_fragment_358869 and operand 
-															JavaSDM.ensure(!__DEC_messageReceive_fragment_358869
+															// check isomorphic binding between objects __DEC_messageReceive_fragment_592288 and operand 
+															JavaSDM.ensure(!__DEC_messageReceive_fragment_592288
 																	.equals(operand));
 
 															fujaba__Success = true;
@@ -16794,14 +17219,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_messageSend_enclosingInteraction_810785 = messageSend
+															__DEC_messageSend_enclosingInteraction_307660 = messageSend
 																	.getEnclosingInteraction();
 
-															// check object __DEC_messageSend_enclosingInteraction_810785 is really bound
-															JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_810785 != null);
+															// check object __DEC_messageSend_enclosingInteraction_307660 is really bound
+															JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_307660 != null);
 
-															// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_810785 and interaction 
-															JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_810785
+															// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_307660 and interaction 
+															JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_307660
 																	.equals(interaction));
 
 															fujaba__Success = true;
@@ -16818,14 +17243,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_messageSend_fragment_618472 = messageSend
+															__DEC_messageSend_fragment_739260 = messageSend
 																	.getEnclosingOperand();
 
-															// check object __DEC_messageSend_fragment_618472 is really bound
-															JavaSDM.ensure(__DEC_messageSend_fragment_618472 != null);
+															// check object __DEC_messageSend_fragment_739260 is really bound
+															JavaSDM.ensure(__DEC_messageSend_fragment_739260 != null);
 
-															// check isomorphic binding between objects __DEC_messageSend_fragment_618472 and operand 
-															JavaSDM.ensure(!__DEC_messageSend_fragment_618472
+															// check isomorphic binding between objects __DEC_messageSend_fragment_739260 and operand 
+															JavaSDM.ensure(!__DEC_messageSend_fragment_739260
 																	.equals(operand));
 
 															fujaba__Success = true;
@@ -16842,14 +17267,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_operand_enclosingInteraction_533638 = operand
+															__DEC_operand_enclosingInteraction_785979 = operand
 																	.getEnclosingInteraction();
 
-															// check object __DEC_operand_enclosingInteraction_533638 is really bound
-															JavaSDM.ensure(__DEC_operand_enclosingInteraction_533638 != null);
+															// check object __DEC_operand_enclosingInteraction_785979 is really bound
+															JavaSDM.ensure(__DEC_operand_enclosingInteraction_785979 != null);
 
-															// check isomorphic binding between objects __DEC_operand_enclosingInteraction_533638 and interaction 
-															JavaSDM.ensure(!__DEC_operand_enclosingInteraction_533638
+															// check isomorphic binding between objects __DEC_operand_enclosingInteraction_785979 and interaction 
+															JavaSDM.ensure(!__DEC_operand_enclosingInteraction_785979
 																	.equals(interaction));
 
 															fujaba__Success = true;
@@ -16866,14 +17291,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_operand_fragment_623389 = operand
+															__DEC_operand_fragment_356351 = operand
 																	.getEnclosingOperand();
 
-															// check object __DEC_operand_fragment_623389 is really bound
-															JavaSDM.ensure(__DEC_operand_fragment_623389 != null);
+															// check object __DEC_operand_fragment_356351 is really bound
+															JavaSDM.ensure(__DEC_operand_fragment_356351 != null);
 
-															// check isomorphic binding between objects __DEC_operand_fragment_623389 and operand 
-															JavaSDM.ensure(!__DEC_operand_fragment_623389
+															// check isomorphic binding between objects __DEC_operand_fragment_356351 and operand 
+															JavaSDM.ensure(!__DEC_operand_fragment_356351
 																	.equals(operand));
 
 															fujaba__Success = true;
@@ -16904,21 +17329,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_guard_guard_806099 = guard
+															__DEC_guard_guard_529627 = guard
 																	.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_guard_guard_806099 is really bound
-															JavaSDM.ensure(__DEC_guard_guard_806099 != null);
+															// check object __DEC_guard_guard_529627 is really bound
+															JavaSDM.ensure(__DEC_guard_guard_529627 != null);
 
 															// check if contained via correct reference
 															JavaSDM.ensure(guard
-																	.equals(__DEC_guard_guard_806099
+																	.equals(__DEC_guard_guard_529627
 																			.getGuard()));
 
-															// check isomorphic binding between objects __DEC_guard_guard_806099 and operand 
-															JavaSDM.ensure(!__DEC_guard_guard_806099
+															// check isomorphic binding between objects __DEC_guard_guard_529627 and operand 
+															JavaSDM.ensure(!__DEC_guard_guard_529627
 																	.equals(operand));
 
 															fujaba__Success = true;
@@ -16935,22 +17360,22 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_operand_operand_788183 = operand
+															__DEC_operand_operand_308017 = operand
 																	.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_operand_operand_788183 is really bound
-															JavaSDM.ensure(__DEC_operand_operand_788183 != null);
+															// check object __DEC_operand_operand_308017 is really bound
+															JavaSDM.ensure(__DEC_operand_operand_308017 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_operand_operand_788183
+															JavaSDM.ensure(__DEC_operand_operand_308017
 																	.getOperand()
 																	.contains(
 																			operand));
 
-															// check isomorphic binding between objects __DEC_operand_operand_788183 and combo 
-															JavaSDM.ensure(!__DEC_operand_operand_788183
+															// check isomorphic binding between objects __DEC_operand_operand_308017 and combo 
+															JavaSDM.ensure(!__DEC_operand_operand_308017
 																	.equals(combo));
 
 															fujaba__Success = true;
@@ -16967,21 +17392,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_spec_specification_5119 = spec
+															__DEC_spec_specification_585888 = spec
 																	.eContainer() instanceof Constraint ? (Constraint) spec
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_spec_specification_5119 is really bound
-															JavaSDM.ensure(__DEC_spec_specification_5119 != null);
+															// check object __DEC_spec_specification_585888 is really bound
+															JavaSDM.ensure(__DEC_spec_specification_585888 != null);
 
 															// check if contained via correct reference
 															JavaSDM.ensure(spec
-																	.equals(__DEC_spec_specification_5119
+																	.equals(__DEC_spec_specification_585888
 																			.getSpecification()));
 
-															// check isomorphic binding between objects __DEC_spec_specification_5119 and guard 
-															JavaSDM.ensure(!__DEC_spec_specification_5119
+															// check isomorphic binding between objects __DEC_spec_specification_585888 and guard 
+															JavaSDM.ensure(!__DEC_spec_specification_585888
 																	.equals(guard));
 
 															fujaba__Success = true;
@@ -16997,10 +17422,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_890683
+															// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_875034
 															fujaba__Success = false;
 
-															fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_890683 = new ArrayList(
+															fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_875034 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					messageReceive,
@@ -17009,16 +17434,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_890683
+																	&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_875034
 																			.hasNext()) {
 																try {
-																	__DEC_messageReceive_receiveEvent_890683 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_890683
+																	__DEC_messageReceive_receiveEvent_875034 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_875034
 																			.next();
 
-																	// check object __DEC_messageReceive_receiveEvent_890683 is really bound
-																	JavaSDM.ensure(__DEC_messageReceive_receiveEvent_890683 != null);
-																	// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_890683 and message 
-																	JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_890683
+																	// check object __DEC_messageReceive_receiveEvent_875034 is really bound
+																	JavaSDM.ensure(__DEC_messageReceive_receiveEvent_875034 != null);
+																	// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_875034 and message 
+																	JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_875034
 																			.equals(message));
 
 																	fujaba__Success = true;
@@ -17041,10 +17466,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_874569
+															// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_663595
 															fujaba__Success = false;
 
-															fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_874569 = new ArrayList(
+															fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_663595 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					messageSend,
@@ -17053,16 +17478,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_874569
+																	&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_663595
 																			.hasNext()) {
 																try {
-																	__DEC_messageSend_receiveEvent_874569 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_874569
+																	__DEC_messageSend_receiveEvent_663595 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_663595
 																			.next();
 
-																	// check object __DEC_messageSend_receiveEvent_874569 is really bound
-																	JavaSDM.ensure(__DEC_messageSend_receiveEvent_874569 != null);
-																	// check isomorphic binding between objects __DEC_messageSend_receiveEvent_874569 and message 
-																	JavaSDM.ensure(!__DEC_messageSend_receiveEvent_874569
+																	// check object __DEC_messageSend_receiveEvent_663595 is really bound
+																	JavaSDM.ensure(__DEC_messageSend_receiveEvent_663595 != null);
+																	// check isomorphic binding between objects __DEC_messageSend_receiveEvent_663595 and message 
+																	JavaSDM.ensure(!__DEC_messageSend_receiveEvent_663595
 																			.equals(message));
 
 																	fujaba__Success = true;
@@ -17085,10 +17510,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_355064
+															// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_681014
 															fujaba__Success = false;
 
-															fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_355064 = new ArrayList(
+															fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_681014 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					messageReceive,
@@ -17097,16 +17522,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_355064
+																	&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_681014
 																			.hasNext()) {
 																try {
-																	__DEC_messageReceive_sendEvent_355064 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_355064
+																	__DEC_messageReceive_sendEvent_681014 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_681014
 																			.next();
 
-																	// check object __DEC_messageReceive_sendEvent_355064 is really bound
-																	JavaSDM.ensure(__DEC_messageReceive_sendEvent_355064 != null);
-																	// check isomorphic binding between objects __DEC_messageReceive_sendEvent_355064 and message 
-																	JavaSDM.ensure(!__DEC_messageReceive_sendEvent_355064
+																	// check object __DEC_messageReceive_sendEvent_681014 is really bound
+																	JavaSDM.ensure(__DEC_messageReceive_sendEvent_681014 != null);
+																	// check isomorphic binding between objects __DEC_messageReceive_sendEvent_681014 and message 
+																	JavaSDM.ensure(!__DEC_messageReceive_sendEvent_681014
 																			.equals(message));
 
 																	fujaba__Success = true;
@@ -17129,10 +17554,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_402777
+															// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_610425
 															fujaba__Success = false;
 
-															fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_402777 = new ArrayList(
+															fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_610425 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					messageSend,
@@ -17141,16 +17566,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_402777
+																	&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_610425
 																			.hasNext()) {
 																try {
-																	__DEC_messageSend_sendEvent_402777 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_402777
+																	__DEC_messageSend_sendEvent_610425 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_610425
 																			.next();
 
-																	// check object __DEC_messageSend_sendEvent_402777 is really bound
-																	JavaSDM.ensure(__DEC_messageSend_sendEvent_402777 != null);
-																	// check isomorphic binding between objects __DEC_messageSend_sendEvent_402777 and message 
-																	JavaSDM.ensure(!__DEC_messageSend_sendEvent_402777
+																	// check object __DEC_messageSend_sendEvent_610425 is really bound
+																	JavaSDM.ensure(__DEC_messageSend_sendEvent_610425 != null);
+																	// check isomorphic binding between objects __DEC_messageSend_sendEvent_610425 and message 
+																	JavaSDM.ensure(!__DEC_messageSend_sendEvent_610425
 																			.equals(message));
 
 																	fujaba__Success = true;
@@ -17173,10 +17598,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link message from message to __DEC_message_message_480130
+															// iterate to-many link message from message to __DEC_message_message_744340
 															fujaba__Success = false;
 
-															fujaba__IterMessageTo__DEC_message_message_480130 = new ArrayList(
+															fujaba__IterMessageTo__DEC_message_message_744340 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					message,
@@ -17185,20 +17610,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterMessageTo__DEC_message_message_480130
+																	&& fujaba__IterMessageTo__DEC_message_message_744340
 																			.hasNext()) {
 																try {
-																	__DEC_message_message_480130 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_480130
+																	__DEC_message_message_744340 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_744340
 																			.next();
 
-																	// check object __DEC_message_message_480130 is really bound
-																	JavaSDM.ensure(__DEC_message_message_480130 != null);
-																	// check isomorphic binding between objects __DEC_message_message_480130 and messageReceive 
-																	JavaSDM.ensure(!__DEC_message_message_480130
+																	// check object __DEC_message_message_744340 is really bound
+																	JavaSDM.ensure(__DEC_message_message_744340 != null);
+																	// check isomorphic binding between objects __DEC_message_message_744340 and messageReceive 
+																	JavaSDM.ensure(!__DEC_message_message_744340
 																			.equals(messageReceive));
 
-																	// check isomorphic binding between objects __DEC_message_message_480130 and messageSend 
-																	JavaSDM.ensure(!__DEC_message_message_480130
+																	// check isomorphic binding between objects __DEC_message_message_744340 and messageSend 
+																	JavaSDM.ensure(!__DEC_message_message_744340
 																			.equals(messageSend));
 
 																	fujaba__Success = true;
@@ -17488,27 +17913,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_927900 = null;
-		InteractionOperand __DEC_combo_fragment_843026 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_312758 = null;
-		InteractionOperand __DEC_messageReceive_fragment_202417 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_58918 = null;
-		InteractionOperand __DEC_messageSend_fragment_525177 = null;
-		Interaction __DEC_operand_enclosingInteraction_390655 = null;
-		InteractionOperand __DEC_operand_fragment_204420 = null;
-		InteractionOperand __DEC_guard_guard_55872 = null;
-		CombinedFragment __DEC_operand_operand_66513 = null;
-		Constraint __DEC_spec_specification_517477 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_275057 = null;
-		Message __DEC_messageReceive_receiveEvent_275057 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_772023 = null;
-		Message __DEC_messageSend_receiveEvent_772023 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_613907 = null;
-		Message __DEC_messageReceive_sendEvent_613907 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_756179 = null;
-		Message __DEC_messageSend_sendEvent_756179 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_692846 = null;
-		MessageEnd __DEC_message_message_692846 = null;
+		Interaction __DEC_combo_enclosingInteraction_571027 = null;
+		InteractionOperand __DEC_combo_fragment_173498 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_705555 = null;
+		InteractionOperand __DEC_messageReceive_fragment_76511 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_160668 = null;
+		InteractionOperand __DEC_messageSend_fragment_363851 = null;
+		Interaction __DEC_operand_enclosingInteraction_540895 = null;
+		InteractionOperand __DEC_operand_fragment_965220 = null;
+		InteractionOperand __DEC_guard_guard_273145 = null;
+		CombinedFragment __DEC_operand_operand_461093 = null;
+		Constraint __DEC_spec_specification_841735 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_403022 = null;
+		Message __DEC_messageReceive_receiveEvent_403022 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_308194 = null;
+		Message __DEC_messageSend_receiveEvent_308194 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_336438 = null;
+		Message __DEC_messageReceive_sendEvent_336438 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_140662 = null;
+		Message __DEC_messageSend_sendEvent_140662 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_317351 = null;
+		MessageEnd __DEC_message_message_317351 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -17518,9 +17943,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		CombinedFragment combo = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
+		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
-		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 
 		// story node 'prepare return value'
@@ -17578,20 +18003,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			message = (Message) _TmpObject;
 
 			// bind object
-			_TmpObject = message.getSendEvent();
-
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
 			interaction = message.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
-
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// bind object
 			_TmpObject = message.getReceiveEvent();
@@ -17600,11 +18015,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
+			// check link message from messageReceive to message
+			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+
+			// bind object
+			_TmpObject = message.getSendEvent();
+
+			// ensure correct type and really bound of object messageSend
+			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+			// check link message from messageSend to message
+			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// check link src from _edge_message to messageSend
 			JavaSDM.ensure(messageSend.equals(_edge_message.getSrc()));
@@ -17677,14 +18102,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_enclosingInteraction_927900 = combo
+											__DEC_combo_enclosingInteraction_571027 = combo
 													.getEnclosingInteraction();
 
-											// check object __DEC_combo_enclosingInteraction_927900 is really bound
-											JavaSDM.ensure(__DEC_combo_enclosingInteraction_927900 != null);
+											// check object __DEC_combo_enclosingInteraction_571027 is really bound
+											JavaSDM.ensure(__DEC_combo_enclosingInteraction_571027 != null);
 
-											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_927900 and interaction 
-											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_927900
+											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_571027 and interaction 
+											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_571027
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -17701,14 +18126,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_fragment_843026 = combo
+											__DEC_combo_fragment_173498 = combo
 													.getEnclosingOperand();
 
-											// check object __DEC_combo_fragment_843026 is really bound
-											JavaSDM.ensure(__DEC_combo_fragment_843026 != null);
+											// check object __DEC_combo_fragment_173498 is really bound
+											JavaSDM.ensure(__DEC_combo_fragment_173498 != null);
 
-											// check isomorphic binding between objects __DEC_combo_fragment_843026 and operand 
-											JavaSDM.ensure(!__DEC_combo_fragment_843026
+											// check isomorphic binding between objects __DEC_combo_fragment_173498 and operand 
+											JavaSDM.ensure(!__DEC_combo_fragment_173498
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -17725,14 +18150,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_enclosingInteraction_312758 = messageReceive
+											__DEC_messageReceive_enclosingInteraction_705555 = messageReceive
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageReceive_enclosingInteraction_312758 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_312758 != null);
+											// check object __DEC_messageReceive_enclosingInteraction_705555 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_705555 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_312758 and interaction 
-											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_312758
+											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_705555 and interaction 
+											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_705555
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -17749,14 +18174,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_fragment_202417 = messageReceive
+											__DEC_messageReceive_fragment_76511 = messageReceive
 													.getEnclosingOperand();
 
-											// check object __DEC_messageReceive_fragment_202417 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_fragment_202417 != null);
+											// check object __DEC_messageReceive_fragment_76511 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_fragment_76511 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_fragment_202417 and operand 
-											JavaSDM.ensure(!__DEC_messageReceive_fragment_202417
+											// check isomorphic binding between objects __DEC_messageReceive_fragment_76511 and operand 
+											JavaSDM.ensure(!__DEC_messageReceive_fragment_76511
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -17773,14 +18198,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_enclosingInteraction_58918 = messageSend
+											__DEC_messageSend_enclosingInteraction_160668 = messageSend
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageSend_enclosingInteraction_58918 is really bound
-											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_58918 != null);
+											// check object __DEC_messageSend_enclosingInteraction_160668 is really bound
+											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_160668 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_58918 and interaction 
-											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_58918
+											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_160668 and interaction 
+											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_160668
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -17797,14 +18222,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_fragment_525177 = messageSend
+											__DEC_messageSend_fragment_363851 = messageSend
 													.getEnclosingOperand();
 
-											// check object __DEC_messageSend_fragment_525177 is really bound
-											JavaSDM.ensure(__DEC_messageSend_fragment_525177 != null);
+											// check object __DEC_messageSend_fragment_363851 is really bound
+											JavaSDM.ensure(__DEC_messageSend_fragment_363851 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_fragment_525177 and operand 
-											JavaSDM.ensure(!__DEC_messageSend_fragment_525177
+											// check isomorphic binding between objects __DEC_messageSend_fragment_363851 and operand 
+											JavaSDM.ensure(!__DEC_messageSend_fragment_363851
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -17821,14 +18246,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_enclosingInteraction_390655 = operand
+											__DEC_operand_enclosingInteraction_540895 = operand
 													.getEnclosingInteraction();
 
-											// check object __DEC_operand_enclosingInteraction_390655 is really bound
-											JavaSDM.ensure(__DEC_operand_enclosingInteraction_390655 != null);
+											// check object __DEC_operand_enclosingInteraction_540895 is really bound
+											JavaSDM.ensure(__DEC_operand_enclosingInteraction_540895 != null);
 
-											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_390655 and interaction 
-											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_390655
+											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_540895 and interaction 
+											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_540895
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -17845,14 +18270,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_fragment_204420 = operand
+											__DEC_operand_fragment_965220 = operand
 													.getEnclosingOperand();
 
-											// check object __DEC_operand_fragment_204420 is really bound
-											JavaSDM.ensure(__DEC_operand_fragment_204420 != null);
+											// check object __DEC_operand_fragment_965220 is really bound
+											JavaSDM.ensure(__DEC_operand_fragment_965220 != null);
 
-											// check isomorphic binding between objects __DEC_operand_fragment_204420 and operand 
-											JavaSDM.ensure(!__DEC_operand_fragment_204420
+											// check isomorphic binding between objects __DEC_operand_fragment_965220 and operand 
+											JavaSDM.ensure(!__DEC_operand_fragment_965220
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -17883,20 +18308,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_guard_guard_55872 = guard
+											__DEC_guard_guard_273145 = guard
 													.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 													.eContainer() : null;
 
-											// check object __DEC_guard_guard_55872 is really bound
-											JavaSDM.ensure(__DEC_guard_guard_55872 != null);
+											// check object __DEC_guard_guard_273145 is really bound
+											JavaSDM.ensure(__DEC_guard_guard_273145 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(guard
-													.equals(__DEC_guard_guard_55872
+													.equals(__DEC_guard_guard_273145
 															.getGuard()));
 
-											// check isomorphic binding between objects __DEC_guard_guard_55872 and operand 
-											JavaSDM.ensure(!__DEC_guard_guard_55872
+											// check isomorphic binding between objects __DEC_guard_guard_273145 and operand 
+											JavaSDM.ensure(!__DEC_guard_guard_273145
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -17913,20 +18338,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_operand_66513 = operand
+											__DEC_operand_operand_461093 = operand
 													.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 													.eContainer() : null;
 
-											// check object __DEC_operand_operand_66513 is really bound
-											JavaSDM.ensure(__DEC_operand_operand_66513 != null);
+											// check object __DEC_operand_operand_461093 is really bound
+											JavaSDM.ensure(__DEC_operand_operand_461093 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_operand_operand_66513
+											JavaSDM.ensure(__DEC_operand_operand_461093
 													.getOperand().contains(
 															operand));
 
-											// check isomorphic binding between objects __DEC_operand_operand_66513 and combo 
-											JavaSDM.ensure(!__DEC_operand_operand_66513
+											// check isomorphic binding between objects __DEC_operand_operand_461093 and combo 
+											JavaSDM.ensure(!__DEC_operand_operand_461093
 													.equals(combo));
 
 											fujaba__Success = true;
@@ -17943,20 +18368,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_spec_specification_517477 = spec
+											__DEC_spec_specification_841735 = spec
 													.eContainer() instanceof Constraint ? (Constraint) spec
 													.eContainer() : null;
 
-											// check object __DEC_spec_specification_517477 is really bound
-											JavaSDM.ensure(__DEC_spec_specification_517477 != null);
+											// check object __DEC_spec_specification_841735 is really bound
+											JavaSDM.ensure(__DEC_spec_specification_841735 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(spec
-													.equals(__DEC_spec_specification_517477
+													.equals(__DEC_spec_specification_841735
 															.getSpecification()));
 
-											// check isomorphic binding between objects __DEC_spec_specification_517477 and guard 
-											JavaSDM.ensure(!__DEC_spec_specification_517477
+											// check isomorphic binding between objects __DEC_spec_specification_841735 and guard 
+											JavaSDM.ensure(!__DEC_spec_specification_841735
 													.equals(guard));
 
 											fujaba__Success = true;
@@ -17972,10 +18397,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_275057
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_403022
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_275057 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_403022 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -17984,16 +18409,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_275057
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_403022
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_275057 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_275057
+													__DEC_messageReceive_receiveEvent_403022 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_403022
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_275057 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_275057 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_275057 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_275057
+													// check object __DEC_messageReceive_receiveEvent_403022 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_403022 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_403022 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_403022
 															.equals(message));
 
 													fujaba__Success = true;
@@ -18016,10 +18441,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_772023
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_308194
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_772023 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_308194 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -18028,16 +18453,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_772023
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_308194
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_772023 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_772023
+													__DEC_messageSend_receiveEvent_308194 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_308194
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_772023 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_772023 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_772023 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_772023
+													// check object __DEC_messageSend_receiveEvent_308194 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_308194 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_308194 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_308194
 															.equals(message));
 
 													fujaba__Success = true;
@@ -18060,10 +18485,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_613907
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_336438
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_613907 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_336438 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -18072,16 +18497,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_613907
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_336438
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_613907 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_613907
+													__DEC_messageReceive_sendEvent_336438 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_336438
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_613907 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_613907 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_613907 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_613907
+													// check object __DEC_messageReceive_sendEvent_336438 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_336438 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_336438 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_336438
 															.equals(message));
 
 													fujaba__Success = true;
@@ -18104,10 +18529,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_756179
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_140662
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_756179 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_140662 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -18116,16 +18541,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_756179
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_140662
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_756179 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_756179
+													__DEC_messageSend_sendEvent_140662 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_140662
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_756179 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_756179 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_756179 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_756179
+													// check object __DEC_messageSend_sendEvent_140662 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_140662 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_140662 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_140662
 															.equals(message));
 
 													fujaba__Success = true;
@@ -18148,10 +18573,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_692846
+											// iterate to-many link message from message to __DEC_message_message_317351
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_692846 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_317351 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -18160,20 +18585,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_692846
+													&& fujaba__IterMessageTo__DEC_message_message_317351
 															.hasNext()) {
 												try {
-													__DEC_message_message_692846 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_692846
+													__DEC_message_message_317351 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_317351
 															.next();
 
-													// check object __DEC_message_message_692846 is really bound
-													JavaSDM.ensure(__DEC_message_message_692846 != null);
-													// check isomorphic binding between objects __DEC_message_message_692846 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_692846
+													// check object __DEC_message_message_317351 is really bound
+													JavaSDM.ensure(__DEC_message_message_317351 != null);
+													// check isomorphic binding between objects __DEC_message_message_317351 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_317351
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_692846 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_692846
+													// check isomorphic binding between objects __DEC_message_message_317351 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_317351
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -18423,27 +18848,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_637044 = null;
-		InteractionOperand __DEC_combo_fragment_537685 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_529288 = null;
-		InteractionOperand __DEC_messageReceive_fragment_960759 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_457170 = null;
-		InteractionOperand __DEC_messageSend_fragment_723868 = null;
-		Interaction __DEC_operand_enclosingInteraction_138665 = null;
-		InteractionOperand __DEC_operand_fragment_138289 = null;
-		InteractionOperand __DEC_guard_guard_685393 = null;
-		CombinedFragment __DEC_operand_operand_857076 = null;
-		Constraint __DEC_spec_specification_578304 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_516258 = null;
-		Message __DEC_messageReceive_receiveEvent_516258 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_610438 = null;
-		Message __DEC_messageSend_receiveEvent_610438 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_810938 = null;
-		Message __DEC_messageReceive_sendEvent_810938 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_570793 = null;
-		Message __DEC_messageSend_sendEvent_570793 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_787516 = null;
-		MessageEnd __DEC_message_message_787516 = null;
+		Interaction __DEC_combo_enclosingInteraction_448553 = null;
+		InteractionOperand __DEC_combo_fragment_615221 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_48622 = null;
+		InteractionOperand __DEC_messageReceive_fragment_516135 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_256360 = null;
+		InteractionOperand __DEC_messageSend_fragment_138986 = null;
+		Interaction __DEC_operand_enclosingInteraction_575267 = null;
+		InteractionOperand __DEC_operand_fragment_141832 = null;
+		InteractionOperand __DEC_guard_guard_275906 = null;
+		CombinedFragment __DEC_operand_operand_628147 = null;
+		Constraint __DEC_spec_specification_884380 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_665366 = null;
+		Message __DEC_messageReceive_receiveEvent_665366 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_774412 = null;
+		Message __DEC_messageSend_receiveEvent_774412 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_462693 = null;
+		Message __DEC_messageReceive_sendEvent_462693 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_591841 = null;
+		Message __DEC_messageSend_sendEvent_591841 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_530703 = null;
+		MessageEnd __DEC_message_message_530703 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -18611,14 +19036,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_enclosingInteraction_637044 = combo
+											__DEC_combo_enclosingInteraction_448553 = combo
 													.getEnclosingInteraction();
 
-											// check object __DEC_combo_enclosingInteraction_637044 is really bound
-											JavaSDM.ensure(__DEC_combo_enclosingInteraction_637044 != null);
+											// check object __DEC_combo_enclosingInteraction_448553 is really bound
+											JavaSDM.ensure(__DEC_combo_enclosingInteraction_448553 != null);
 
-											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_637044 and interaction 
-											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_637044
+											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_448553 and interaction 
+											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_448553
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -18635,14 +19060,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_fragment_537685 = combo
+											__DEC_combo_fragment_615221 = combo
 													.getEnclosingOperand();
 
-											// check object __DEC_combo_fragment_537685 is really bound
-											JavaSDM.ensure(__DEC_combo_fragment_537685 != null);
+											// check object __DEC_combo_fragment_615221 is really bound
+											JavaSDM.ensure(__DEC_combo_fragment_615221 != null);
 
-											// check isomorphic binding between objects __DEC_combo_fragment_537685 and operand 
-											JavaSDM.ensure(!__DEC_combo_fragment_537685
+											// check isomorphic binding between objects __DEC_combo_fragment_615221 and operand 
+											JavaSDM.ensure(!__DEC_combo_fragment_615221
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -18659,14 +19084,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_enclosingInteraction_529288 = messageReceive
+											__DEC_messageReceive_enclosingInteraction_48622 = messageReceive
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageReceive_enclosingInteraction_529288 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_529288 != null);
+											// check object __DEC_messageReceive_enclosingInteraction_48622 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_48622 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_529288 and interaction 
-											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_529288
+											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_48622 and interaction 
+											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_48622
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -18683,14 +19108,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_fragment_960759 = messageReceive
+											__DEC_messageReceive_fragment_516135 = messageReceive
 													.getEnclosingOperand();
 
-											// check object __DEC_messageReceive_fragment_960759 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_fragment_960759 != null);
+											// check object __DEC_messageReceive_fragment_516135 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_fragment_516135 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_fragment_960759 and operand 
-											JavaSDM.ensure(!__DEC_messageReceive_fragment_960759
+											// check isomorphic binding between objects __DEC_messageReceive_fragment_516135 and operand 
+											JavaSDM.ensure(!__DEC_messageReceive_fragment_516135
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -18707,14 +19132,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_enclosingInteraction_457170 = messageSend
+											__DEC_messageSend_enclosingInteraction_256360 = messageSend
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageSend_enclosingInteraction_457170 is really bound
-											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_457170 != null);
+											// check object __DEC_messageSend_enclosingInteraction_256360 is really bound
+											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_256360 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_457170 and interaction 
-											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_457170
+											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_256360 and interaction 
+											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_256360
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -18731,14 +19156,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_fragment_723868 = messageSend
+											__DEC_messageSend_fragment_138986 = messageSend
 													.getEnclosingOperand();
 
-											// check object __DEC_messageSend_fragment_723868 is really bound
-											JavaSDM.ensure(__DEC_messageSend_fragment_723868 != null);
+											// check object __DEC_messageSend_fragment_138986 is really bound
+											JavaSDM.ensure(__DEC_messageSend_fragment_138986 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_fragment_723868 and operand 
-											JavaSDM.ensure(!__DEC_messageSend_fragment_723868
+											// check isomorphic binding between objects __DEC_messageSend_fragment_138986 and operand 
+											JavaSDM.ensure(!__DEC_messageSend_fragment_138986
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -18755,14 +19180,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_enclosingInteraction_138665 = operand
+											__DEC_operand_enclosingInteraction_575267 = operand
 													.getEnclosingInteraction();
 
-											// check object __DEC_operand_enclosingInteraction_138665 is really bound
-											JavaSDM.ensure(__DEC_operand_enclosingInteraction_138665 != null);
+											// check object __DEC_operand_enclosingInteraction_575267 is really bound
+											JavaSDM.ensure(__DEC_operand_enclosingInteraction_575267 != null);
 
-											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_138665 and interaction 
-											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_138665
+											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_575267 and interaction 
+											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_575267
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -18779,14 +19204,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_fragment_138289 = operand
+											__DEC_operand_fragment_141832 = operand
 													.getEnclosingOperand();
 
-											// check object __DEC_operand_fragment_138289 is really bound
-											JavaSDM.ensure(__DEC_operand_fragment_138289 != null);
+											// check object __DEC_operand_fragment_141832 is really bound
+											JavaSDM.ensure(__DEC_operand_fragment_141832 != null);
 
-											// check isomorphic binding between objects __DEC_operand_fragment_138289 and operand 
-											JavaSDM.ensure(!__DEC_operand_fragment_138289
+											// check isomorphic binding between objects __DEC_operand_fragment_141832 and operand 
+											JavaSDM.ensure(!__DEC_operand_fragment_141832
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -18817,20 +19242,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_guard_guard_685393 = guard
+											__DEC_guard_guard_275906 = guard
 													.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 													.eContainer() : null;
 
-											// check object __DEC_guard_guard_685393 is really bound
-											JavaSDM.ensure(__DEC_guard_guard_685393 != null);
+											// check object __DEC_guard_guard_275906 is really bound
+											JavaSDM.ensure(__DEC_guard_guard_275906 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(guard
-													.equals(__DEC_guard_guard_685393
+													.equals(__DEC_guard_guard_275906
 															.getGuard()));
 
-											// check isomorphic binding between objects __DEC_guard_guard_685393 and operand 
-											JavaSDM.ensure(!__DEC_guard_guard_685393
+											// check isomorphic binding between objects __DEC_guard_guard_275906 and operand 
+											JavaSDM.ensure(!__DEC_guard_guard_275906
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -18847,20 +19272,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_operand_857076 = operand
+											__DEC_operand_operand_628147 = operand
 													.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 													.eContainer() : null;
 
-											// check object __DEC_operand_operand_857076 is really bound
-											JavaSDM.ensure(__DEC_operand_operand_857076 != null);
+											// check object __DEC_operand_operand_628147 is really bound
+											JavaSDM.ensure(__DEC_operand_operand_628147 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_operand_operand_857076
+											JavaSDM.ensure(__DEC_operand_operand_628147
 													.getOperand().contains(
 															operand));
 
-											// check isomorphic binding between objects __DEC_operand_operand_857076 and combo 
-											JavaSDM.ensure(!__DEC_operand_operand_857076
+											// check isomorphic binding between objects __DEC_operand_operand_628147 and combo 
+											JavaSDM.ensure(!__DEC_operand_operand_628147
 													.equals(combo));
 
 											fujaba__Success = true;
@@ -18877,20 +19302,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_spec_specification_578304 = spec
+											__DEC_spec_specification_884380 = spec
 													.eContainer() instanceof Constraint ? (Constraint) spec
 													.eContainer() : null;
 
-											// check object __DEC_spec_specification_578304 is really bound
-											JavaSDM.ensure(__DEC_spec_specification_578304 != null);
+											// check object __DEC_spec_specification_884380 is really bound
+											JavaSDM.ensure(__DEC_spec_specification_884380 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(spec
-													.equals(__DEC_spec_specification_578304
+													.equals(__DEC_spec_specification_884380
 															.getSpecification()));
 
-											// check isomorphic binding between objects __DEC_spec_specification_578304 and guard 
-											JavaSDM.ensure(!__DEC_spec_specification_578304
+											// check isomorphic binding between objects __DEC_spec_specification_884380 and guard 
+											JavaSDM.ensure(!__DEC_spec_specification_884380
 													.equals(guard));
 
 											fujaba__Success = true;
@@ -18906,10 +19331,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_516258
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_665366
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_516258 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_665366 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -18918,16 +19343,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_516258
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_665366
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_516258 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_516258
+													__DEC_messageReceive_receiveEvent_665366 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_665366
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_516258 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_516258 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_516258 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_516258
+													// check object __DEC_messageReceive_receiveEvent_665366 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_665366 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_665366 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_665366
 															.equals(message));
 
 													fujaba__Success = true;
@@ -18950,10 +19375,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_610438
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_774412
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_610438 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_774412 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -18962,16 +19387,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_610438
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_774412
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_610438 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_610438
+													__DEC_messageSend_receiveEvent_774412 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_774412
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_610438 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_610438 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_610438 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_610438
+													// check object __DEC_messageSend_receiveEvent_774412 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_774412 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_774412 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_774412
 															.equals(message));
 
 													fujaba__Success = true;
@@ -18994,10 +19419,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_810938
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_462693
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_810938 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_462693 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -19006,16 +19431,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_810938
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_462693
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_810938 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_810938
+													__DEC_messageReceive_sendEvent_462693 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_462693
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_810938 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_810938 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_810938 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_810938
+													// check object __DEC_messageReceive_sendEvent_462693 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_462693 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_462693 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_462693
 															.equals(message));
 
 													fujaba__Success = true;
@@ -19038,10 +19463,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_570793
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_591841
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_570793 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_591841 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -19050,16 +19475,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_570793
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_591841
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_570793 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_570793
+													__DEC_messageSend_sendEvent_591841 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_591841
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_570793 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_570793 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_570793 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_570793
+													// check object __DEC_messageSend_sendEvent_591841 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_591841 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_591841 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_591841
 															.equals(message));
 
 													fujaba__Success = true;
@@ -19082,10 +19507,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_787516
+											// iterate to-many link message from message to __DEC_message_message_530703
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_787516 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_530703 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -19094,20 +19519,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_787516
+													&& fujaba__IterMessageTo__DEC_message_message_530703
 															.hasNext()) {
 												try {
-													__DEC_message_message_787516 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_787516
+													__DEC_message_message_530703 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_530703
 															.next();
 
-													// check object __DEC_message_message_787516 is really bound
-													JavaSDM.ensure(__DEC_message_message_787516 != null);
-													// check isomorphic binding between objects __DEC_message_message_787516 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_787516
+													// check object __DEC_message_message_530703 is really bound
+													JavaSDM.ensure(__DEC_message_message_530703 != null);
+													// check isomorphic binding between objects __DEC_message_message_530703 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_530703
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_787516 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_787516
+													// check isomorphic binding between objects __DEC_message_message_530703 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_530703
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -19357,27 +19782,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_358478 = null;
-		InteractionOperand __DEC_combo_fragment_135089 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_646278 = null;
-		InteractionOperand __DEC_messageReceive_fragment_163350 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_858617 = null;
-		InteractionOperand __DEC_messageSend_fragment_979959 = null;
-		Interaction __DEC_operand_enclosingInteraction_144270 = null;
-		InteractionOperand __DEC_operand_fragment_926681 = null;
-		InteractionOperand __DEC_guard_guard_712467 = null;
-		CombinedFragment __DEC_operand_operand_39064 = null;
-		Constraint __DEC_spec_specification_89553 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_604156 = null;
-		Message __DEC_messageReceive_receiveEvent_604156 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_118370 = null;
-		Message __DEC_messageSend_receiveEvent_118370 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_611711 = null;
-		Message __DEC_messageReceive_sendEvent_611711 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_31950 = null;
-		Message __DEC_messageSend_sendEvent_31950 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_980855 = null;
-		MessageEnd __DEC_message_message_980855 = null;
+		Interaction __DEC_combo_enclosingInteraction_554802 = null;
+		InteractionOperand __DEC_combo_fragment_730429 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_562004 = null;
+		InteractionOperand __DEC_messageReceive_fragment_37980 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_611679 = null;
+		InteractionOperand __DEC_messageSend_fragment_792910 = null;
+		Interaction __DEC_operand_enclosingInteraction_612415 = null;
+		InteractionOperand __DEC_operand_fragment_804938 = null;
+		InteractionOperand __DEC_guard_guard_158520 = null;
+		CombinedFragment __DEC_operand_operand_496388 = null;
+		Constraint __DEC_spec_specification_630485 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_730977 = null;
+		Message __DEC_messageReceive_receiveEvent_730977 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_140194 = null;
+		Message __DEC_messageSend_receiveEvent_140194 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_653323 = null;
+		Message __DEC_messageReceive_sendEvent_653323 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_792076 = null;
+		Message __DEC_messageSend_sendEvent_792076 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_289273 = null;
+		MessageEnd __DEC_message_message_289273 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -19537,14 +19962,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_enclosingInteraction_358478 = combo
+									__DEC_combo_enclosingInteraction_554802 = combo
 											.getEnclosingInteraction();
 
-									// check object __DEC_combo_enclosingInteraction_358478 is really bound
-									JavaSDM.ensure(__DEC_combo_enclosingInteraction_358478 != null);
+									// check object __DEC_combo_enclosingInteraction_554802 is really bound
+									JavaSDM.ensure(__DEC_combo_enclosingInteraction_554802 != null);
 
-									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_358478 and interaction 
-									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_358478
+									// check isomorphic binding between objects __DEC_combo_enclosingInteraction_554802 and interaction 
+									JavaSDM.ensure(!__DEC_combo_enclosingInteraction_554802
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -19561,14 +19986,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_combo_fragment_135089 = combo
+									__DEC_combo_fragment_730429 = combo
 											.getEnclosingOperand();
 
-									// check object __DEC_combo_fragment_135089 is really bound
-									JavaSDM.ensure(__DEC_combo_fragment_135089 != null);
+									// check object __DEC_combo_fragment_730429 is really bound
+									JavaSDM.ensure(__DEC_combo_fragment_730429 != null);
 
-									// check isomorphic binding between objects __DEC_combo_fragment_135089 and operand 
-									JavaSDM.ensure(!__DEC_combo_fragment_135089
+									// check isomorphic binding between objects __DEC_combo_fragment_730429 and operand 
+									JavaSDM.ensure(!__DEC_combo_fragment_730429
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -19585,14 +20010,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_enclosingInteraction_646278 = messageReceive
+									__DEC_messageReceive_enclosingInteraction_562004 = messageReceive
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageReceive_enclosingInteraction_646278 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_646278 != null);
+									// check object __DEC_messageReceive_enclosingInteraction_562004 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_562004 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_646278 and interaction 
-									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_646278
+									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_562004 and interaction 
+									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_562004
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -19609,14 +20034,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_fragment_163350 = messageReceive
+									__DEC_messageReceive_fragment_37980 = messageReceive
 											.getEnclosingOperand();
 
-									// check object __DEC_messageReceive_fragment_163350 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_fragment_163350 != null);
+									// check object __DEC_messageReceive_fragment_37980 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_fragment_37980 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_fragment_163350 and operand 
-									JavaSDM.ensure(!__DEC_messageReceive_fragment_163350
+									// check isomorphic binding between objects __DEC_messageReceive_fragment_37980 and operand 
+									JavaSDM.ensure(!__DEC_messageReceive_fragment_37980
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -19633,14 +20058,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_enclosingInteraction_858617 = messageSend
+									__DEC_messageSend_enclosingInteraction_611679 = messageSend
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageSend_enclosingInteraction_858617 is really bound
-									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_858617 != null);
+									// check object __DEC_messageSend_enclosingInteraction_611679 is really bound
+									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_611679 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_858617 and interaction 
-									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_858617
+									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_611679 and interaction 
+									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_611679
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -19657,14 +20082,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_fragment_979959 = messageSend
+									__DEC_messageSend_fragment_792910 = messageSend
 											.getEnclosingOperand();
 
-									// check object __DEC_messageSend_fragment_979959 is really bound
-									JavaSDM.ensure(__DEC_messageSend_fragment_979959 != null);
+									// check object __DEC_messageSend_fragment_792910 is really bound
+									JavaSDM.ensure(__DEC_messageSend_fragment_792910 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_fragment_979959 and operand 
-									JavaSDM.ensure(!__DEC_messageSend_fragment_979959
+									// check isomorphic binding between objects __DEC_messageSend_fragment_792910 and operand 
+									JavaSDM.ensure(!__DEC_messageSend_fragment_792910
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -19681,14 +20106,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_enclosingInteraction_144270 = operand
+									__DEC_operand_enclosingInteraction_612415 = operand
 											.getEnclosingInteraction();
 
-									// check object __DEC_operand_enclosingInteraction_144270 is really bound
-									JavaSDM.ensure(__DEC_operand_enclosingInteraction_144270 != null);
+									// check object __DEC_operand_enclosingInteraction_612415 is really bound
+									JavaSDM.ensure(__DEC_operand_enclosingInteraction_612415 != null);
 
-									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_144270 and interaction 
-									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_144270
+									// check isomorphic binding between objects __DEC_operand_enclosingInteraction_612415 and interaction 
+									JavaSDM.ensure(!__DEC_operand_enclosingInteraction_612415
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -19705,14 +20130,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_fragment_926681 = operand
+									__DEC_operand_fragment_804938 = operand
 											.getEnclosingOperand();
 
-									// check object __DEC_operand_fragment_926681 is really bound
-									JavaSDM.ensure(__DEC_operand_fragment_926681 != null);
+									// check object __DEC_operand_fragment_804938 is really bound
+									JavaSDM.ensure(__DEC_operand_fragment_804938 != null);
 
-									// check isomorphic binding between objects __DEC_operand_fragment_926681 and operand 
-									JavaSDM.ensure(!__DEC_operand_fragment_926681
+									// check isomorphic binding between objects __DEC_operand_fragment_804938 and operand 
+									JavaSDM.ensure(!__DEC_operand_fragment_804938
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -19741,20 +20166,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_guard_guard_712467 = guard
+									__DEC_guard_guard_158520 = guard
 											.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 											.eContainer() : null;
 
-									// check object __DEC_guard_guard_712467 is really bound
-									JavaSDM.ensure(__DEC_guard_guard_712467 != null);
+									// check object __DEC_guard_guard_158520 is really bound
+									JavaSDM.ensure(__DEC_guard_guard_158520 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(guard
-											.equals(__DEC_guard_guard_712467
+											.equals(__DEC_guard_guard_158520
 													.getGuard()));
 
-									// check isomorphic binding between objects __DEC_guard_guard_712467 and operand 
-									JavaSDM.ensure(!__DEC_guard_guard_712467
+									// check isomorphic binding between objects __DEC_guard_guard_158520 and operand 
+									JavaSDM.ensure(!__DEC_guard_guard_158520
 											.equals(operand));
 
 									fujaba__Success = true;
@@ -19771,19 +20196,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_operand_operand_39064 = operand
+									__DEC_operand_operand_496388 = operand
 											.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 											.eContainer() : null;
 
-									// check object __DEC_operand_operand_39064 is really bound
-									JavaSDM.ensure(__DEC_operand_operand_39064 != null);
+									// check object __DEC_operand_operand_496388 is really bound
+									JavaSDM.ensure(__DEC_operand_operand_496388 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_operand_operand_39064
+									JavaSDM.ensure(__DEC_operand_operand_496388
 											.getOperand().contains(operand));
 
-									// check isomorphic binding between objects __DEC_operand_operand_39064 and combo 
-									JavaSDM.ensure(!__DEC_operand_operand_39064
+									// check isomorphic binding between objects __DEC_operand_operand_496388 and combo 
+									JavaSDM.ensure(!__DEC_operand_operand_496388
 											.equals(combo));
 
 									fujaba__Success = true;
@@ -19800,20 +20225,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_spec_specification_89553 = spec
+									__DEC_spec_specification_630485 = spec
 											.eContainer() instanceof Constraint ? (Constraint) spec
 											.eContainer() : null;
 
-									// check object __DEC_spec_specification_89553 is really bound
-									JavaSDM.ensure(__DEC_spec_specification_89553 != null);
+									// check object __DEC_spec_specification_630485 is really bound
+									JavaSDM.ensure(__DEC_spec_specification_630485 != null);
 
 									// check if contained via correct reference
 									JavaSDM.ensure(spec
-											.equals(__DEC_spec_specification_89553
+											.equals(__DEC_spec_specification_630485
 													.getSpecification()));
 
-									// check isomorphic binding between objects __DEC_spec_specification_89553 and guard 
-									JavaSDM.ensure(!__DEC_spec_specification_89553
+									// check isomorphic binding between objects __DEC_spec_specification_630485 and guard 
+									JavaSDM.ensure(!__DEC_spec_specification_630485
 											.equals(guard));
 
 									fujaba__Success = true;
@@ -19829,10 +20254,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_604156
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_730977
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_604156 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_730977 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -19841,16 +20266,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_604156
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_730977
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_604156 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_604156
+											__DEC_messageReceive_receiveEvent_730977 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_730977
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_604156 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_604156 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_604156 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_604156
+											// check object __DEC_messageReceive_receiveEvent_730977 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_730977 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_730977 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_730977
 													.equals(message));
 
 											fujaba__Success = true;
@@ -19873,10 +20298,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_118370
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_140194
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_118370 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_140194 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -19885,16 +20310,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_118370
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_140194
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_118370 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_118370
+											__DEC_messageSend_receiveEvent_140194 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_140194
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_118370 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_118370 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_118370 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_118370
+											// check object __DEC_messageSend_receiveEvent_140194 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_140194 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_140194 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_140194
 													.equals(message));
 
 											fujaba__Success = true;
@@ -19917,10 +20342,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_611711
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_653323
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_611711 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_653323 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -19929,16 +20354,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_611711
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_653323
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_611711 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_611711
+											__DEC_messageReceive_sendEvent_653323 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_653323
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_611711 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_611711 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_611711 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_611711
+											// check object __DEC_messageReceive_sendEvent_653323 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_653323 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_653323 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_653323
 													.equals(message));
 
 											fujaba__Success = true;
@@ -19961,10 +20386,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_31950
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_792076
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_31950 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_792076 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -19973,16 +20398,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_31950
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_792076
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_31950 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_31950
+											__DEC_messageSend_sendEvent_792076 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_792076
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_31950 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_31950 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_31950 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_31950
+											// check object __DEC_messageSend_sendEvent_792076 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_792076 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_792076 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_792076
 													.equals(message));
 
 											fujaba__Success = true;
@@ -20005,10 +20430,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_980855
+									// iterate to-many link message from message to __DEC_message_message_289273
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_980855 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_289273 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -20017,20 +20442,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_980855
+											&& fujaba__IterMessageTo__DEC_message_message_289273
 													.hasNext()) {
 										try {
-											__DEC_message_message_980855 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_980855
+											__DEC_message_message_289273 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_289273
 													.next();
 
-											// check object __DEC_message_message_980855 is really bound
-											JavaSDM.ensure(__DEC_message_message_980855 != null);
-											// check isomorphic binding between objects __DEC_message_message_980855 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_980855
+											// check object __DEC_message_message_289273 is really bound
+											JavaSDM.ensure(__DEC_message_message_289273 != null);
+											// check isomorphic binding between objects __DEC_message_message_289273 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_289273
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_980855 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_980855
+											// check isomorphic binding between objects __DEC_message_message_289273 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_289273
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -20261,27 +20686,27 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_combo_enclosingInteraction_509946 = null;
-		InteractionOperand __DEC_combo_fragment_568860 = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_425941 = null;
-		InteractionOperand __DEC_messageReceive_fragment_108088 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_918789 = null;
-		InteractionOperand __DEC_messageSend_fragment_695128 = null;
-		Interaction __DEC_operand_enclosingInteraction_935623 = null;
-		InteractionOperand __DEC_operand_fragment_371185 = null;
-		InteractionOperand __DEC_guard_guard_187551 = null;
-		CombinedFragment __DEC_operand_operand_291794 = null;
-		Constraint __DEC_spec_specification_530469 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678175 = null;
-		Message __DEC_messageReceive_receiveEvent_678175 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_189328 = null;
-		Message __DEC_messageSend_receiveEvent_189328 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_857513 = null;
-		Message __DEC_messageReceive_sendEvent_857513 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_441535 = null;
-		Message __DEC_messageSend_sendEvent_441535 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_435589 = null;
-		MessageEnd __DEC_message_message_435589 = null;
+		Interaction __DEC_combo_enclosingInteraction_744246 = null;
+		InteractionOperand __DEC_combo_fragment_847684 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_335807 = null;
+		InteractionOperand __DEC_messageReceive_fragment_869444 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_198370 = null;
+		InteractionOperand __DEC_messageSend_fragment_679497 = null;
+		Interaction __DEC_operand_enclosingInteraction_64995 = null;
+		InteractionOperand __DEC_operand_fragment_422135 = null;
+		InteractionOperand __DEC_guard_guard_713258 = null;
+		CombinedFragment __DEC_operand_operand_105472 = null;
+		Constraint __DEC_spec_specification_689289 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_255601 = null;
+		Message __DEC_messageReceive_receiveEvent_255601 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_763145 = null;
+		Message __DEC_messageSend_receiveEvent_763145 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_846635 = null;
+		Message __DEC_messageReceive_sendEvent_846635 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_542946 = null;
+		Message __DEC_messageSend_sendEvent_542946 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_936544 = null;
+		MessageEnd __DEC_message_message_936544 = null;
 		Match match = null;
 		Iterator fujaba__IterLineTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
@@ -20467,14 +20892,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_enclosingInteraction_509946 = combo
+											__DEC_combo_enclosingInteraction_744246 = combo
 													.getEnclosingInteraction();
 
-											// check object __DEC_combo_enclosingInteraction_509946 is really bound
-											JavaSDM.ensure(__DEC_combo_enclosingInteraction_509946 != null);
+											// check object __DEC_combo_enclosingInteraction_744246 is really bound
+											JavaSDM.ensure(__DEC_combo_enclosingInteraction_744246 != null);
 
-											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_509946 and interaction 
-											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_509946
+											// check isomorphic binding between objects __DEC_combo_enclosingInteraction_744246 and interaction 
+											JavaSDM.ensure(!__DEC_combo_enclosingInteraction_744246
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -20491,14 +20916,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_combo_fragment_568860 = combo
+											__DEC_combo_fragment_847684 = combo
 													.getEnclosingOperand();
 
-											// check object __DEC_combo_fragment_568860 is really bound
-											JavaSDM.ensure(__DEC_combo_fragment_568860 != null);
+											// check object __DEC_combo_fragment_847684 is really bound
+											JavaSDM.ensure(__DEC_combo_fragment_847684 != null);
 
-											// check isomorphic binding between objects __DEC_combo_fragment_568860 and operand 
-											JavaSDM.ensure(!__DEC_combo_fragment_568860
+											// check isomorphic binding between objects __DEC_combo_fragment_847684 and operand 
+											JavaSDM.ensure(!__DEC_combo_fragment_847684
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -20515,14 +20940,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_enclosingInteraction_425941 = messageReceive
+											__DEC_messageReceive_enclosingInteraction_335807 = messageReceive
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageReceive_enclosingInteraction_425941 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_425941 != null);
+											// check object __DEC_messageReceive_enclosingInteraction_335807 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_335807 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_425941 and interaction 
-											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_425941
+											// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_335807 and interaction 
+											JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_335807
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -20539,14 +20964,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageReceive_fragment_108088 = messageReceive
+											__DEC_messageReceive_fragment_869444 = messageReceive
 													.getEnclosingOperand();
 
-											// check object __DEC_messageReceive_fragment_108088 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_fragment_108088 != null);
+											// check object __DEC_messageReceive_fragment_869444 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_fragment_869444 != null);
 
-											// check isomorphic binding between objects __DEC_messageReceive_fragment_108088 and operand 
-											JavaSDM.ensure(!__DEC_messageReceive_fragment_108088
+											// check isomorphic binding between objects __DEC_messageReceive_fragment_869444 and operand 
+											JavaSDM.ensure(!__DEC_messageReceive_fragment_869444
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -20563,14 +20988,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_enclosingInteraction_918789 = messageSend
+											__DEC_messageSend_enclosingInteraction_198370 = messageSend
 													.getEnclosingInteraction();
 
-											// check object __DEC_messageSend_enclosingInteraction_918789 is really bound
-											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_918789 != null);
+											// check object __DEC_messageSend_enclosingInteraction_198370 is really bound
+											JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_198370 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_918789 and interaction 
-											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_918789
+											// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_198370 and interaction 
+											JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_198370
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -20587,14 +21012,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_messageSend_fragment_695128 = messageSend
+											__DEC_messageSend_fragment_679497 = messageSend
 													.getEnclosingOperand();
 
-											// check object __DEC_messageSend_fragment_695128 is really bound
-											JavaSDM.ensure(__DEC_messageSend_fragment_695128 != null);
+											// check object __DEC_messageSend_fragment_679497 is really bound
+											JavaSDM.ensure(__DEC_messageSend_fragment_679497 != null);
 
-											// check isomorphic binding between objects __DEC_messageSend_fragment_695128 and operand 
-											JavaSDM.ensure(!__DEC_messageSend_fragment_695128
+											// check isomorphic binding between objects __DEC_messageSend_fragment_679497 and operand 
+											JavaSDM.ensure(!__DEC_messageSend_fragment_679497
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -20611,14 +21036,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_enclosingInteraction_935623 = operand
+											__DEC_operand_enclosingInteraction_64995 = operand
 													.getEnclosingInteraction();
 
-											// check object __DEC_operand_enclosingInteraction_935623 is really bound
-											JavaSDM.ensure(__DEC_operand_enclosingInteraction_935623 != null);
+											// check object __DEC_operand_enclosingInteraction_64995 is really bound
+											JavaSDM.ensure(__DEC_operand_enclosingInteraction_64995 != null);
 
-											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_935623 and interaction 
-											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_935623
+											// check isomorphic binding between objects __DEC_operand_enclosingInteraction_64995 and interaction 
+											JavaSDM.ensure(!__DEC_operand_enclosingInteraction_64995
 													.equals(interaction));
 
 											fujaba__Success = true;
@@ -20635,14 +21060,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_fragment_371185 = operand
+											__DEC_operand_fragment_422135 = operand
 													.getEnclosingOperand();
 
-											// check object __DEC_operand_fragment_371185 is really bound
-											JavaSDM.ensure(__DEC_operand_fragment_371185 != null);
+											// check object __DEC_operand_fragment_422135 is really bound
+											JavaSDM.ensure(__DEC_operand_fragment_422135 != null);
 
-											// check isomorphic binding between objects __DEC_operand_fragment_371185 and operand 
-											JavaSDM.ensure(!__DEC_operand_fragment_371185
+											// check isomorphic binding between objects __DEC_operand_fragment_422135 and operand 
+											JavaSDM.ensure(!__DEC_operand_fragment_422135
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -20673,20 +21098,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_guard_guard_187551 = guard
+											__DEC_guard_guard_713258 = guard
 													.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 													.eContainer() : null;
 
-											// check object __DEC_guard_guard_187551 is really bound
-											JavaSDM.ensure(__DEC_guard_guard_187551 != null);
+											// check object __DEC_guard_guard_713258 is really bound
+											JavaSDM.ensure(__DEC_guard_guard_713258 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(guard
-													.equals(__DEC_guard_guard_187551
+													.equals(__DEC_guard_guard_713258
 															.getGuard()));
 
-											// check isomorphic binding between objects __DEC_guard_guard_187551 and operand 
-											JavaSDM.ensure(!__DEC_guard_guard_187551
+											// check isomorphic binding between objects __DEC_guard_guard_713258 and operand 
+											JavaSDM.ensure(!__DEC_guard_guard_713258
 													.equals(operand));
 
 											fujaba__Success = true;
@@ -20703,20 +21128,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_operand_operand_291794 = operand
+											__DEC_operand_operand_105472 = operand
 													.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 													.eContainer() : null;
 
-											// check object __DEC_operand_operand_291794 is really bound
-											JavaSDM.ensure(__DEC_operand_operand_291794 != null);
+											// check object __DEC_operand_operand_105472 is really bound
+											JavaSDM.ensure(__DEC_operand_operand_105472 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_operand_operand_291794
+											JavaSDM.ensure(__DEC_operand_operand_105472
 													.getOperand().contains(
 															operand));
 
-											// check isomorphic binding between objects __DEC_operand_operand_291794 and combo 
-											JavaSDM.ensure(!__DEC_operand_operand_291794
+											// check isomorphic binding between objects __DEC_operand_operand_105472 and combo 
+											JavaSDM.ensure(!__DEC_operand_operand_105472
 													.equals(combo));
 
 											fujaba__Success = true;
@@ -20733,20 +21158,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_spec_specification_530469 = spec
+											__DEC_spec_specification_689289 = spec
 													.eContainer() instanceof Constraint ? (Constraint) spec
 													.eContainer() : null;
 
-											// check object __DEC_spec_specification_530469 is really bound
-											JavaSDM.ensure(__DEC_spec_specification_530469 != null);
+											// check object __DEC_spec_specification_689289 is really bound
+											JavaSDM.ensure(__DEC_spec_specification_689289 != null);
 
 											// check if contained via correct reference
 											JavaSDM.ensure(spec
-													.equals(__DEC_spec_specification_530469
+													.equals(__DEC_spec_specification_689289
 															.getSpecification()));
 
-											// check isomorphic binding between objects __DEC_spec_specification_530469 and guard 
-											JavaSDM.ensure(!__DEC_spec_specification_530469
+											// check isomorphic binding between objects __DEC_spec_specification_689289 and guard 
+											JavaSDM.ensure(!__DEC_spec_specification_689289
 													.equals(guard));
 
 											fujaba__Success = true;
@@ -20762,10 +21187,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_678175
+											// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_255601
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678175 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_255601 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -20774,16 +21199,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678175
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_255601
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_receiveEvent_678175 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678175
+													__DEC_messageReceive_receiveEvent_255601 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_255601
 															.next();
 
-													// check object __DEC_messageReceive_receiveEvent_678175 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_678175 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_678175 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_678175
+													// check object __DEC_messageReceive_receiveEvent_255601 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_receiveEvent_255601 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_255601 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_255601
 															.equals(message));
 
 													fujaba__Success = true;
@@ -20806,10 +21231,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_189328
+											// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_763145
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_189328 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_763145 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -20818,16 +21243,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_189328
+													&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_763145
 															.hasNext()) {
 												try {
-													__DEC_messageSend_receiveEvent_189328 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_189328
+													__DEC_messageSend_receiveEvent_763145 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_763145
 															.next();
 
-													// check object __DEC_messageSend_receiveEvent_189328 is really bound
-													JavaSDM.ensure(__DEC_messageSend_receiveEvent_189328 != null);
-													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_189328 and message 
-													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_189328
+													// check object __DEC_messageSend_receiveEvent_763145 is really bound
+													JavaSDM.ensure(__DEC_messageSend_receiveEvent_763145 != null);
+													// check isomorphic binding between objects __DEC_messageSend_receiveEvent_763145 and message 
+													JavaSDM.ensure(!__DEC_messageSend_receiveEvent_763145
 															.equals(message));
 
 													fujaba__Success = true;
@@ -20850,10 +21275,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_857513
+											// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_846635
 											fujaba__Success = false;
 
-											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_857513 = new ArrayList(
+											fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_846635 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageReceive,
@@ -20862,16 +21287,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_857513
+													&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_846635
 															.hasNext()) {
 												try {
-													__DEC_messageReceive_sendEvent_857513 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_857513
+													__DEC_messageReceive_sendEvent_846635 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_846635
 															.next();
 
-													// check object __DEC_messageReceive_sendEvent_857513 is really bound
-													JavaSDM.ensure(__DEC_messageReceive_sendEvent_857513 != null);
-													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_857513 and message 
-													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_857513
+													// check object __DEC_messageReceive_sendEvent_846635 is really bound
+													JavaSDM.ensure(__DEC_messageReceive_sendEvent_846635 != null);
+													// check isomorphic binding between objects __DEC_messageReceive_sendEvent_846635 and message 
+													JavaSDM.ensure(!__DEC_messageReceive_sendEvent_846635
 															.equals(message));
 
 													fujaba__Success = true;
@@ -20894,10 +21319,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_441535
+											// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_542946
 											fujaba__Success = false;
 
-											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_441535 = new ArrayList(
+											fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_542946 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	messageSend,
@@ -20906,16 +21331,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_441535
+													&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_542946
 															.hasNext()) {
 												try {
-													__DEC_messageSend_sendEvent_441535 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_441535
+													__DEC_messageSend_sendEvent_542946 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_542946
 															.next();
 
-													// check object __DEC_messageSend_sendEvent_441535 is really bound
-													JavaSDM.ensure(__DEC_messageSend_sendEvent_441535 != null);
-													// check isomorphic binding between objects __DEC_messageSend_sendEvent_441535 and message 
-													JavaSDM.ensure(!__DEC_messageSend_sendEvent_441535
+													// check object __DEC_messageSend_sendEvent_542946 is really bound
+													JavaSDM.ensure(__DEC_messageSend_sendEvent_542946 != null);
+													// check isomorphic binding between objects __DEC_messageSend_sendEvent_542946 and message 
+													JavaSDM.ensure(!__DEC_messageSend_sendEvent_542946
 															.equals(message));
 
 													fujaba__Success = true;
@@ -20938,10 +21363,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link message from message to __DEC_message_message_435589
+											// iterate to-many link message from message to __DEC_message_message_936544
 											fujaba__Success = false;
 
-											fujaba__IterMessageTo__DEC_message_message_435589 = new ArrayList(
+											fujaba__IterMessageTo__DEC_message_message_936544 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	message,
@@ -20950,20 +21375,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterMessageTo__DEC_message_message_435589
+													&& fujaba__IterMessageTo__DEC_message_message_936544
 															.hasNext()) {
 												try {
-													__DEC_message_message_435589 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_435589
+													__DEC_message_message_936544 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_936544
 															.next();
 
-													// check object __DEC_message_message_435589 is really bound
-													JavaSDM.ensure(__DEC_message_message_435589 != null);
-													// check isomorphic binding between objects __DEC_message_message_435589 and messageReceive 
-													JavaSDM.ensure(!__DEC_message_message_435589
+													// check object __DEC_message_message_936544 is really bound
+													JavaSDM.ensure(__DEC_message_message_936544 != null);
+													// check isomorphic binding between objects __DEC_message_message_936544 and messageReceive 
+													JavaSDM.ensure(!__DEC_message_message_936544
 															.equals(messageReceive));
 
-													// check isomorphic binding between objects __DEC_message_message_435589 and messageSend 
-													JavaSDM.ensure(!__DEC_message_message_435589
+													// check isomorphic binding between objects __DEC_message_message_936544 and messageSend 
+													JavaSDM.ensure(!__DEC_message_message_936544
 															.equals(messageSend));
 
 													fujaba__Success = true;
@@ -21248,13 +21673,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isAppropriate_FWD(Match match, UseCase useCase, Flow flow,
-			NormalStep step, Actor actor) {
+			NormalStep step, Actor actor, PackageDeclaration packageDeclaration) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
 		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __step_actor_actor = null;
 		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 
 		// story node 'initial bindings'
 		try {
@@ -21266,6 +21693,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(flow != null);
 			// check object match is really bound
 			JavaSDM.ensure(match != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object step is really bound
 			JavaSDM.ensure(step != null);
 			// check object useCase is really bound
@@ -21280,7 +21709,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			fujaba__Success = false;
 
 			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, useCase, flow,
-					step, actor));
+					step, actor, packageDeclaration));
 
 			// ensure correct type and really bound of object csp
 			JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -21303,6 +21732,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -21326,11 +21757,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__step_actor_actor, "toBeTranslatedEdges");
+						step, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						step, "toBeTranslatedNodes");
+						__step_actor_actor, "toBeTranslatedEdges");
 
 				// create link
 				__flow_steps_step.setSrc(flow);
@@ -21359,6 +21790,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -21367,16 +21800,24 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// assign attribute __useCase_flows_flow
 				__useCase_flows_flow.setName("flows");
+				// assign attribute __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor.setName("actors");
+				// assign attribute __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase.setName("useCases");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						useCase, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -21387,10 +21828,39 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						__useCase_flows_flow, "contextEdges");
 
 				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_actors_actor, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_useCases_useCase, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						packageDeclaration, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						actor, "contextNodes");
+
+				// create link
 				__useCase_flows_flow.setSrc(useCase);
 
 				// create link
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
+
+				// create link
 				__useCase_flows_flow.setTrg(flow);
+
+				// create link
+				__packageDeclaration_actors_actor.setTrg(actor);
+
+				// create link
+				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
+
+				// create link
+				__packageDeclaration_useCases_useCase
+						.setSrc(packageDeclaration);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -21398,7 +21868,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			}
 
 			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, useCase, flow, step, actor);
+			this.registerObjectsToMatch_FWD(match, useCase, flow, step, actor,
+					packageDeclaration);
 			return true;
 
 		} else {
@@ -21413,11 +21884,13 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjectsToMatch_FWD(Match match, UseCase useCase,
-			Flow flow, NormalStep step, Actor actor) {
+			Flow flow, NormalStep step, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		match.registerObject("useCase", useCase);
 		match.registerObject("flow", flow);
 		match.registerObject("step", step);
 		match.registerObject("actor", actor);
+		match.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -21427,7 +21900,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, UseCase useCase,
-			Flow flow, NormalStep step, Actor actor) {
+			Flow flow, NormalStep step, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
@@ -21453,7 +21927,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			Flow flow, NormalStep step, Interaction interaction, Lifeline line,
-			Actor actor, ActorToLifeline actorToLine) {
+			Actor actor, ActorToLifeline actorToLine,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -21492,6 +21967,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -21504,7 +21981,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			EObject useCase, EObject useCaseToInteraction, EObject flow,
 			EObject step, EObject message, EObject interaction,
 			EObject stepToMessage, EObject messageSend, EObject messageReceive,
-			EObject line, EObject actor, EObject actorToLine) {
+			EObject line, EObject actor, EObject actorToLine,
+			EObject packageDeclaration) {
 		ruleresult.registerObject("useCase", useCase);
 		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("flow", flow);
@@ -21517,6 +21995,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		ruleresult.registerObject("line", line);
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("actorToLine", actorToLine);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -21532,16 +22011,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __messageSend_message_message = null;
-		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge __message_interaction_interaction = null;
 		EMoflonEdge __message_sendEvent_messageSend = null;
-		EMoflonEdge __interaction_message_message = null;
+		EMoflonEdge __line_coveredBy_messageReceive = null;
 		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __interaction_lifeline_line = null;
+		EMoflonEdge __message_interaction_interaction = null;
+		EMoflonEdge __messageReceive_covered_line = null;
+		EMoflonEdge __interaction_message_message = null;
+		EMoflonEdge __messageReceive_message_message = null;
+		EMoflonEdge __messageSend_message_message = null;
 		EMoflonEdge __line_interaction_interaction = null;
+		EMoflonEdge __interaction_lifeline_line = null;
 
 		// story node 'initial bindings'
 		try {
@@ -21604,36 +22083,36 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
+				// create object __message_sendEvent_messageSend
+				__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __line_coveredBy_messageReceive
 				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __messageReceive_covered_line
-				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageSend_message_message
-				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageReceive_message_message
-				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+				// create object __message_receiveEvent_messageReceive
+				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __message_interaction_interaction
 				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __message_sendEvent_messageSend
-				__message_sendEvent_messageSend = TGGRuntimeFactory.eINSTANCE
+				// create object __messageReceive_covered_line
+				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __interaction_message_message
 				__interaction_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __message_receiveEvent_messageReceive
-				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
+				// create object __messageReceive_message_message
+				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __messageSend_message_message
+				__messageSend_message_message = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __message_sendEvent_messageSend
@@ -21655,7 +22134,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageSend, "toBeTranslatedNodes");
+						__message_sendEvent_messageSend, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -21663,7 +22142,25 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						messageReceive, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						messageSend, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_receiveEvent_messageReceive,
+						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__message_interaction_interaction,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -21671,7 +22168,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageSend_message_message, "toBeTranslatedEdges");
+						__interaction_message_message, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil
@@ -21681,43 +22178,25 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_interaction_interaction,
-						"toBeTranslatedEdges");
+						__messageSend_message_message, "toBeTranslatedEdges");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_sendEvent_messageSend, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_message_message, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_receiveEvent_messageReceive,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageReceive, "toBeTranslatedNodes");
-
-				// create link
-				__interaction_message_message.setTrg(message);
+				__message_interaction_interaction.setSrc(message);
 
 				// create link
 				__message_receiveEvent_messageReceive.setSrc(message);
 
 				// create link
-				__message_interaction_interaction.setSrc(message);
+				__messageSend_message_message.setTrg(message);
+
+				// create link
+				__interaction_message_message.setTrg(message);
 
 				// create link
 				__message_sendEvent_messageSend.setSrc(message);
 
 				// create link
 				__messageReceive_message_message.setTrg(message);
-
-				// create link
-				__messageSend_message_message.setTrg(message);
 
 				// create link
 				__message_interaction_interaction.setTrg(interaction);
@@ -21732,16 +22211,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				__message_sendEvent_messageSend.setTrg(messageSend);
 
 				// create link
-				__message_receiveEvent_messageReceive.setTrg(messageReceive);
+				__line_coveredBy_messageReceive.setTrg(messageReceive);
 
 				// create link
 				__messageReceive_message_message.setSrc(messageReceive);
 
 				// create link
-				__line_coveredBy_messageReceive.setTrg(messageReceive);
+				__messageReceive_covered_line.setSrc(messageReceive);
 
 				// create link
-				__messageReceive_covered_line.setSrc(messageReceive);
+				__message_receiveEvent_messageReceive.setTrg(messageReceive);
 
 				// create link
 				__messageReceive_covered_line.setTrg(line);
@@ -21773,12 +22252,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects messageSend and messageReceive 
 				JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-				// create object __interaction_lifeline_line
-				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __line_interaction_interaction
 				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __interaction_lifeline_line
+				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __line_interaction_interaction
@@ -21792,10 +22271,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_lifeline_line, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__line_interaction_interaction, "contextEdges");
 
 				// create link
@@ -21803,10 +22278,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						interaction, "contextNodes");
 
 				// create link
-				__interaction_lifeline_line.setSrc(interaction);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__interaction_lifeline_line, "contextEdges");
 
 				// create link
 				__line_interaction_interaction.setTrg(interaction);
+
+				// create link
+				__interaction_lifeline_line.setSrc(interaction);
 
 				// create link
 				__interaction_lifeline_line.setTrg(line);
@@ -21883,7 +22362,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			Flow flow, Message message, Interaction interaction,
 			MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			Actor actor, ActorToLifeline actorToLine) {
+			Actor actor, ActorToLifeline actorToLine,
+			PackageDeclaration packageDeclaration) {
 		// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -21924,6 +22404,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
 		return csp;
 	}
 
@@ -21936,7 +22418,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			EObject useCase, EObject useCaseToInteraction, EObject flow,
 			EObject step, EObject message, EObject interaction,
 			EObject stepToMessage, EObject messageSend, EObject messageReceive,
-			EObject line, EObject actor, EObject actorToLine) {
+			EObject line, EObject actor, EObject actorToLine,
+			EObject packageDeclaration) {
 		ruleresult.registerObject("useCase", useCase);
 		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("flow", flow);
@@ -21949,6 +22432,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		ruleresult.registerObject("line", line);
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("actorToLine", actorToLine);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 
 	}
 
@@ -21965,11 +22449,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_178395 = null;
+		Flow __DEC_step_steps_540544 = null;
 		Match match = null;
+		PackageDeclaration packageDeclaration = null;
+		UseCase useCase = null;
 		Actor actor = null;
 		NormalStep step = null;
-		UseCase useCase = null;
 		Flow flow = null;
 
 		// story node 'prepare return value'
@@ -22027,16 +22512,6 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			flow = (Flow) _TmpObject;
 
 			// bind object
-			useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
-					.eContainer() : null;
-
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(useCase.getFlows().contains(flow));
-
-			// bind object
 			_TmpObject = _edge_steps.getTrg();
 
 			// ensure correct type and really bound of object step
@@ -22049,8 +22524,31 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check object actor is really bound
 			JavaSDM.ensure(actor != null);
 
+			// bind object
+			useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
+					.eContainer() : null;
+
+			// check object useCase is really bound
+			JavaSDM.ensure(useCase != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(useCase.getFlows().contains(flow));
+
 			// check link steps from step to flow
 			JavaSDM.ensure(flow.equals(step.eContainer()));
+
+			// bind object
+			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
+
+			// check link actors from actor to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 			// story node 'test core match and DECs'
 			try {
@@ -22061,18 +22559,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_178395 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_540544 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_178395 is really bound
-					JavaSDM.ensure(__DEC_step_steps_178395 != null);
+					// check object __DEC_step_steps_540544 is really bound
+					JavaSDM.ensure(__DEC_step_steps_540544 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_178395.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_540544.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_178395 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_178395.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_540544 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_540544.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -22089,12 +22587,17 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(actor != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
 				// check link actor from step to actor
 				JavaSDM.ensure(actor.equals(step.getActor()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -22108,6 +22611,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_steps to step
 				JavaSDM.ensure(step.equals(_edge_steps.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -22115,7 +22621,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, useCase, flow,
-						step, actor);
+						step, actor, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -22178,8 +22684,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Flow __DEC_step_steps_126427 = null;
+		Flow __DEC_step_steps_567850 = null;
 		Match match = null;
+		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
 		Flow flow = null;
 		Actor actor = null;
@@ -22268,6 +22775,19 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			// check link trg from _edge_actor to actor
 			JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
 
+			// bind object
+			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
+
+			// check link actors from actor to packageDeclaration
+			JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
+
 			// story node 'test core match and DECs'
 			try {
 				fujaba__Success = false;
@@ -22277,18 +22797,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_step_steps_126427 = step.eContainer() instanceof Flow ? (Flow) step
+					__DEC_step_steps_567850 = step.eContainer() instanceof Flow ? (Flow) step
 							.eContainer() : null;
 
-					// check object __DEC_step_steps_126427 is really bound
-					JavaSDM.ensure(__DEC_step_steps_126427 != null);
+					// check object __DEC_step_steps_567850 is really bound
+					JavaSDM.ensure(__DEC_step_steps_567850 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_126427.getSteps().contains(
+					JavaSDM.ensure(__DEC_step_steps_567850.getSteps().contains(
 							step));
 
-					// check isomorphic binding between objects __DEC_step_steps_126427 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_126427.equals(flow));
+					// check isomorphic binding between objects __DEC_step_steps_567850 and flow 
+					JavaSDM.ensure(!__DEC_step_steps_567850.equals(flow));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -22305,12 +22825,17 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(actor != null);
 				// check object flow is really bound
 				JavaSDM.ensure(flow != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
 				JavaSDM.ensure(useCase != null);
 				// check link actor from step to actor
 				JavaSDM.ensure(actor.equals(step.getActor()));
+
+				// check link actors from actor to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
 
 				// check link flows from flow to useCase
 				JavaSDM.ensure(useCase.equals(flow.eContainer()));
@@ -22324,6 +22849,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_actor to actor
 				JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
 
+				// check link useCases from useCase to packageDeclaration
+				JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
+
 				// create object match
 				match = TGGRuntimeFactory.eINSTANCE.createMatch();
 
@@ -22331,7 +22859,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				match.setRuleName(__eClass.getName());
 				// statement node 'bookkeeping with generic isAppropriate method'
 				fujaba__Success = this.isAppropriate_FWD(match, useCase, flow,
-						step, actor);
+						step, actor, packageDeclaration);
 				if (fujaba__Success) {
 					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
@@ -22394,18 +22922,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_418485 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_994376 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_671642 = null;
-		Message __DEC_messageReceive_receiveEvent_671642 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_425158 = null;
-		Message __DEC_messageSend_receiveEvent_425158 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_457521 = null;
-		Message __DEC_messageReceive_sendEvent_457521 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_335539 = null;
-		Message __DEC_messageSend_sendEvent_335539 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_375968 = null;
-		MessageEnd __DEC_message_message_375968 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_193255 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_575804 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777693 = null;
+		Message __DEC_messageReceive_receiveEvent_777693 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718395 = null;
+		Message __DEC_messageSend_receiveEvent_718395 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_474186 = null;
+		Message __DEC_messageReceive_sendEvent_474186 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147918 = null;
+		Message __DEC_messageSend_sendEvent_147918 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_764697 = null;
+		MessageEnd __DEC_message_message_764697 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -22528,14 +23056,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_418485 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_193255 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_418485 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_418485 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_193255 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_193255 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_418485 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_418485
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_193255 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_193255
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -22552,14 +23080,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_994376 = messageSend
+							__DEC_messageSend_enclosingInteraction_575804 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_994376 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_994376 != null);
+							// check object __DEC_messageSend_enclosingInteraction_575804 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_575804 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_994376 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_994376
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_575804 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_575804
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -22575,10 +23103,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_671642
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_777693
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_671642 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777693 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -22586,16 +23114,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_671642
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777693
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_671642 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_671642
+									__DEC_messageReceive_receiveEvent_777693 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_777693
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_671642 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_671642 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_671642 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_671642
+									// check object __DEC_messageReceive_receiveEvent_777693 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_777693 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_777693 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_777693
 											.equals(message));
 
 									fujaba__Success = true;
@@ -22618,26 +23146,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_425158
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_718395
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_425158 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718395 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_425158
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718395
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_425158 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_425158
+									__DEC_messageSend_receiveEvent_718395 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_718395
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_425158 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_425158 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_425158 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_425158
+									// check object __DEC_messageSend_receiveEvent_718395 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_718395 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_718395 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_718395
 											.equals(message));
 
 									fujaba__Success = true;
@@ -22660,10 +23188,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_457521
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_474186
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_457521 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_474186 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -22671,16 +23199,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_457521
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_474186
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_457521 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_457521
+									__DEC_messageReceive_sendEvent_474186 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_474186
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_457521 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_457521 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_457521 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_457521
+									// check object __DEC_messageReceive_sendEvent_474186 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_474186 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_474186 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_474186
 											.equals(message));
 
 									fujaba__Success = true;
@@ -22703,26 +23231,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_335539
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_147918
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_335539 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147918 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_335539
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147918
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_335539 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_335539
+									__DEC_messageSend_sendEvent_147918 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147918
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_335539 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_335539 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_335539 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_335539
+									// check object __DEC_messageSend_sendEvent_147918 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_147918 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_147918 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_147918
 											.equals(message));
 
 									fujaba__Success = true;
@@ -22745,30 +23273,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_375968
+							// iterate to-many link message from message to __DEC_message_message_764697
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_375968 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_764697 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_375968
+									&& fujaba__IterMessageTo__DEC_message_message_764697
 											.hasNext()) {
 								try {
-									__DEC_message_message_375968 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_375968
+									__DEC_message_message_764697 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_764697
 											.next();
 
-									// check object __DEC_message_message_375968 is really bound
-									JavaSDM.ensure(__DEC_message_message_375968 != null);
-									// check isomorphic binding between objects __DEC_message_message_375968 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_375968
+									// check object __DEC_message_message_764697 is really bound
+									JavaSDM.ensure(__DEC_message_message_764697 != null);
+									// check isomorphic binding between objects __DEC_message_message_764697 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_764697
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_375968 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_375968
+									// check isomorphic binding between objects __DEC_message_message_764697 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_764697
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -22929,24 +23457,24 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_810553 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_433896 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_749647 = null;
-		Message __DEC_messageReceive_receiveEvent_749647 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_278131 = null;
-		Message __DEC_messageSend_receiveEvent_278131 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_655332 = null;
-		Message __DEC_messageReceive_sendEvent_655332 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_34294 = null;
-		Message __DEC_messageSend_sendEvent_34294 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_620675 = null;
-		MessageEnd __DEC_message_message_620675 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_747563 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_785572 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581606 = null;
+		Message __DEC_messageReceive_receiveEvent_581606 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_507298 = null;
+		Message __DEC_messageSend_receiveEvent_507298 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_775672 = null;
+		Message __DEC_messageReceive_sendEvent_775672 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_426344 = null;
+		Message __DEC_messageSend_sendEvent_426344 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_516013 = null;
+		MessageEnd __DEC_message_message_516013 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
+		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
-		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 
 		// story node 'prepare return value'
@@ -23004,20 +23532,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			message = (Message) _TmpObject;
 
 			// bind object
-			_TmpObject = message.getSendEvent();
-
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
 			interaction = message.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
-
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// bind object
 			_TmpObject = message.getReceiveEvent();
@@ -23026,11 +23544,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
+			// check link message from messageReceive to message
+			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+
+			// bind object
+			_TmpObject = message.getSendEvent();
+
+			// ensure correct type and really bound of object messageSend
+			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+			// check link message from messageSend to message
+			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// check link trg from _edge_receiveEvent to messageReceive
 			JavaSDM.ensure(messageReceive.equals(_edge_receiveEvent.getTrg()));
@@ -23063,14 +23591,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_810553 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_747563 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_810553 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_810553 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_747563 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_747563 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_810553 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_810553
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_747563 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_747563
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -23087,14 +23615,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_433896 = messageSend
+							__DEC_messageSend_enclosingInteraction_785572 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_433896 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_433896 != null);
+							// check object __DEC_messageSend_enclosingInteraction_785572 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_785572 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_433896 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_433896
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_785572 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_785572
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -23110,10 +23638,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_749647
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_581606
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_749647 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581606 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -23121,16 +23649,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_749647
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581606
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_749647 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_749647
+									__DEC_messageReceive_receiveEvent_581606 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_581606
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_749647 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_749647 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_749647 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_749647
+									// check object __DEC_messageReceive_receiveEvent_581606 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_581606 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_581606 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_581606
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23153,26 +23681,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_278131
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_507298
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_278131 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_507298 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_278131
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_507298
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_278131 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_278131
+									__DEC_messageSend_receiveEvent_507298 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_507298
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_278131 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_278131 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_278131 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_278131
+									// check object __DEC_messageSend_receiveEvent_507298 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_507298 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_507298 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_507298
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23195,10 +23723,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_655332
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_775672
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_655332 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_775672 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -23206,16 +23734,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_655332
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_775672
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_655332 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_655332
+									__DEC_messageReceive_sendEvent_775672 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_775672
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_655332 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_655332 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_655332 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_655332
+									// check object __DEC_messageReceive_sendEvent_775672 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_775672 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_775672 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_775672
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23238,26 +23766,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_34294
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_426344
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_34294 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_426344 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_34294
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_426344
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_34294 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_34294
+									__DEC_messageSend_sendEvent_426344 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_426344
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_34294 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_34294 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_34294 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_34294
+									// check object __DEC_messageSend_sendEvent_426344 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_426344 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_426344 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_426344
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23280,30 +23808,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_620675
+							// iterate to-many link message from message to __DEC_message_message_516013
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_620675 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_516013 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_620675
+									&& fujaba__IterMessageTo__DEC_message_message_516013
 											.hasNext()) {
 								try {
-									__DEC_message_message_620675 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_620675
+									__DEC_message_message_516013 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_516013
 											.next();
 
-									// check object __DEC_message_message_620675 is really bound
-									JavaSDM.ensure(__DEC_message_message_620675 != null);
-									// check isomorphic binding between objects __DEC_message_message_620675 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_620675
+									// check object __DEC_message_message_516013 is really bound
+									JavaSDM.ensure(__DEC_message_message_516013 != null);
+									// check isomorphic binding between objects __DEC_message_message_516013 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_516013
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_620675 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_620675
+									// check isomorphic binding between objects __DEC_message_message_516013 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_516013
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -23465,24 +23993,24 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_17590 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_198678 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_596393 = null;
-		Message __DEC_messageReceive_receiveEvent_596393 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_626973 = null;
-		Message __DEC_messageSend_receiveEvent_626973 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_898503 = null;
-		Message __DEC_messageReceive_sendEvent_898503 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_175081 = null;
-		Message __DEC_messageSend_sendEvent_175081 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_435655 = null;
-		MessageEnd __DEC_message_message_435655 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_529129 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_537296 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_269241 = null;
+		Message __DEC_messageReceive_receiveEvent_269241 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_219307 = null;
+		Message __DEC_messageSend_receiveEvent_219307 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_323478 = null;
+		Message __DEC_messageReceive_sendEvent_323478 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_833660 = null;
+		Message __DEC_messageSend_sendEvent_833660 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_407390 = null;
+		MessageEnd __DEC_message_message_407390 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
-		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
+		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 
 		// story node 'prepare return value'
@@ -23540,10 +24068,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			message = (Message) _TmpObject;
 
 			// bind object
+			_TmpObject = message.getSendEvent();
+
+			// ensure correct type and really bound of object messageSend
+			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
+			// bind object
 			interaction = message.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
+
+			// check link message from messageSend to message
+			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// bind object
 			_TmpObject = message.getReceiveEvent();
@@ -23552,21 +24090,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-			// bind object
-			_TmpObject = message.getSendEvent();
-
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
+			// check link message from messageReceive to message
+			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
 
 			// check link trg from _edge_interaction to interaction
 			JavaSDM.ensure(interaction.equals(_edge_interaction.getTrg()));
@@ -23599,14 +24127,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_17590 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_529129 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_17590 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_17590 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_529129 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_529129 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_17590 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_17590
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_529129 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_529129
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -23623,14 +24151,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_198678 = messageSend
+							__DEC_messageSend_enclosingInteraction_537296 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_198678 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_198678 != null);
+							// check object __DEC_messageSend_enclosingInteraction_537296 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_537296 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_198678 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_198678
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_537296 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_537296
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -23646,10 +24174,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_596393
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_269241
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_596393 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_269241 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -23657,16 +24185,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_596393
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_269241
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_596393 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_596393
+									__DEC_messageReceive_receiveEvent_269241 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_269241
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_596393 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_596393 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_596393 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_596393
+									// check object __DEC_messageReceive_receiveEvent_269241 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_269241 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_269241 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_269241
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23689,26 +24217,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_626973
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_219307
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_626973 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_219307 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_626973
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_219307
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_626973 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_626973
+									__DEC_messageSend_receiveEvent_219307 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_219307
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_626973 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_626973 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_626973 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_626973
+									// check object __DEC_messageSend_receiveEvent_219307 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_219307 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_219307 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_219307
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23731,10 +24259,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_898503
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_323478
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_898503 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_323478 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -23742,16 +24270,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_898503
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_323478
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_898503 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_898503
+									__DEC_messageReceive_sendEvent_323478 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_323478
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_898503 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_898503 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_898503 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_898503
+									// check object __DEC_messageReceive_sendEvent_323478 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_323478 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_323478 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_323478
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23774,26 +24302,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_175081
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_833660
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_175081 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_833660 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_175081
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_833660
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_175081 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_175081
+									__DEC_messageSend_sendEvent_833660 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_833660
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_175081 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_175081 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_175081 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_175081
+									// check object __DEC_messageSend_sendEvent_833660 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_833660 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_833660 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_833660
 											.equals(message));
 
 									fujaba__Success = true;
@@ -23816,30 +24344,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_435655
+							// iterate to-many link message from message to __DEC_message_message_407390
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_435655 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_407390 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_435655
+									&& fujaba__IterMessageTo__DEC_message_message_407390
 											.hasNext()) {
 								try {
-									__DEC_message_message_435655 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_435655
+									__DEC_message_message_407390 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_407390
 											.next();
 
-									// check object __DEC_message_message_435655 is really bound
-									JavaSDM.ensure(__DEC_message_message_435655 != null);
-									// check isomorphic binding between objects __DEC_message_message_435655 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_435655
+									// check object __DEC_message_message_407390 is really bound
+									JavaSDM.ensure(__DEC_message_message_407390 != null);
+									// check isomorphic binding between objects __DEC_message_message_407390 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_407390
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_435655 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_435655
+									// check isomorphic binding between objects __DEC_message_message_407390 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_407390
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -24001,26 +24529,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_593493 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_182504 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_761932 = null;
-		Message __DEC_messageReceive_receiveEvent_761932 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_602587 = null;
-		Message __DEC_messageSend_receiveEvent_602587 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_251347 = null;
-		Message __DEC_messageReceive_sendEvent_251347 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147292 = null;
-		Message __DEC_messageSend_sendEvent_147292 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_17196 = null;
-		MessageEnd __DEC_message_message_17196 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_971747 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_797346 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_495804 = null;
+		Message __DEC_messageReceive_receiveEvent_495804 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_270946 = null;
+		Message __DEC_messageSend_receiveEvent_270946 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_905656 = null;
+		Message __DEC_messageReceive_sendEvent_905656 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_463891 = null;
+		Message __DEC_messageSend_sendEvent_463891 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_864359 = null;
+		MessageEnd __DEC_message_message_864359 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageTo_edge_interaction = null;
 		EMoflonEdge _edge_interaction = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
+		MessageOccurrenceSpecification messageSend = null;
 		MessageOccurrenceSpecification messageReceive = null;
 		Interaction interaction = null;
-		MessageOccurrenceSpecification messageSend = null;
 		Message message = null;
 
 		// story node 'prepare return value'
@@ -24078,20 +24606,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			message = (Message) _TmpObject;
 
 			// bind object
-			_TmpObject = message.getSendEvent();
-
-			// ensure correct type and really bound of object messageSend
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageSend = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
 			interaction = message.getInteraction();
 
 			// check object interaction is really bound
 			JavaSDM.ensure(interaction != null);
-
-			// check link message from messageSend to message
-			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// bind object
 			_TmpObject = message.getReceiveEvent();
@@ -24100,11 +24618,21 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
 			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
 
+			// check link message from messageReceive to message
+			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+
+			// bind object
+			_TmpObject = message.getSendEvent();
+
+			// ensure correct type and really bound of object messageSend
+			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
+			messageSend = (MessageOccurrenceSpecification) _TmpObject;
+
 			// check isomorphic binding between objects messageSend and messageReceive 
 			JavaSDM.ensure(!messageSend.equals(messageReceive));
 
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
+			// check link message from messageSend to message
+			JavaSDM.ensure(message.equals(messageSend.getMessage()));
 
 			// check link src from _edge_message to interaction
 			JavaSDM.ensure(interaction.equals(_edge_message.getSrc()));
@@ -24163,14 +24691,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageReceive_enclosingInteraction_593493 = messageReceive
+									__DEC_messageReceive_enclosingInteraction_971747 = messageReceive
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageReceive_enclosingInteraction_593493 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_593493 != null);
+									// check object __DEC_messageReceive_enclosingInteraction_971747 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_971747 != null);
 
-									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_593493 and interaction 
-									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_593493
+									// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_971747 and interaction 
+									JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_971747
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -24187,14 +24715,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_messageSend_enclosingInteraction_182504 = messageSend
+									__DEC_messageSend_enclosingInteraction_797346 = messageSend
 											.getEnclosingInteraction();
 
-									// check object __DEC_messageSend_enclosingInteraction_182504 is really bound
-									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_182504 != null);
+									// check object __DEC_messageSend_enclosingInteraction_797346 is really bound
+									JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_797346 != null);
 
-									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_182504 and interaction 
-									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_182504
+									// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_797346 and interaction 
+									JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_797346
 											.equals(interaction));
 
 									fujaba__Success = true;
@@ -24210,10 +24738,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_761932
+									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_495804
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_761932 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_495804 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -24222,16 +24750,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_761932
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_495804
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_receiveEvent_761932 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_761932
+											__DEC_messageReceive_receiveEvent_495804 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_495804
 													.next();
 
-											// check object __DEC_messageReceive_receiveEvent_761932 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_761932 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_761932 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_761932
+											// check object __DEC_messageReceive_receiveEvent_495804 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_495804 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_495804 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_495804
 													.equals(message));
 
 											fujaba__Success = true;
@@ -24254,10 +24782,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_602587
+									// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_270946
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_602587 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_270946 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -24266,16 +24794,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_602587
+											&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_270946
 													.hasNext()) {
 										try {
-											__DEC_messageSend_receiveEvent_602587 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_602587
+											__DEC_messageSend_receiveEvent_270946 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_270946
 													.next();
 
-											// check object __DEC_messageSend_receiveEvent_602587 is really bound
-											JavaSDM.ensure(__DEC_messageSend_receiveEvent_602587 != null);
-											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_602587 and message 
-											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_602587
+											// check object __DEC_messageSend_receiveEvent_270946 is really bound
+											JavaSDM.ensure(__DEC_messageSend_receiveEvent_270946 != null);
+											// check isomorphic binding between objects __DEC_messageSend_receiveEvent_270946 and message 
+											JavaSDM.ensure(!__DEC_messageSend_receiveEvent_270946
 													.equals(message));
 
 											fujaba__Success = true;
@@ -24298,10 +24826,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_251347
+									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_905656
 									fujaba__Success = false;
 
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_251347 = new ArrayList(
+									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_905656 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageReceive,
@@ -24310,16 +24838,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_251347
+											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_905656
 													.hasNext()) {
 										try {
-											__DEC_messageReceive_sendEvent_251347 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_251347
+											__DEC_messageReceive_sendEvent_905656 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_905656
 													.next();
 
-											// check object __DEC_messageReceive_sendEvent_251347 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_251347 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_251347 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_251347
+											// check object __DEC_messageReceive_sendEvent_905656 is really bound
+											JavaSDM.ensure(__DEC_messageReceive_sendEvent_905656 != null);
+											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_905656 and message 
+											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_905656
 													.equals(message));
 
 											fujaba__Success = true;
@@ -24342,10 +24870,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_147292
+									// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_463891
 									fujaba__Success = false;
 
-									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147292 = new ArrayList(
+									fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_463891 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															messageSend,
@@ -24354,16 +24882,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147292
+											&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_463891
 													.hasNext()) {
 										try {
-											__DEC_messageSend_sendEvent_147292 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_147292
+											__DEC_messageSend_sendEvent_463891 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_463891
 													.next();
 
-											// check object __DEC_messageSend_sendEvent_147292 is really bound
-											JavaSDM.ensure(__DEC_messageSend_sendEvent_147292 != null);
-											// check isomorphic binding between objects __DEC_messageSend_sendEvent_147292 and message 
-											JavaSDM.ensure(!__DEC_messageSend_sendEvent_147292
+											// check object __DEC_messageSend_sendEvent_463891 is really bound
+											JavaSDM.ensure(__DEC_messageSend_sendEvent_463891 != null);
+											// check isomorphic binding between objects __DEC_messageSend_sendEvent_463891 and message 
+											JavaSDM.ensure(!__DEC_messageSend_sendEvent_463891
 													.equals(message));
 
 											fujaba__Success = true;
@@ -24386,10 +24914,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link message from message to __DEC_message_message_17196
+									// iterate to-many link message from message to __DEC_message_message_864359
 									fujaba__Success = false;
 
-									fujaba__IterMessageTo__DEC_message_message_17196 = new ArrayList(
+									fujaba__IterMessageTo__DEC_message_message_864359 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															message,
@@ -24398,20 +24926,20 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 											.iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_17196
+											&& fujaba__IterMessageTo__DEC_message_message_864359
 													.hasNext()) {
 										try {
-											__DEC_message_message_17196 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_17196
+											__DEC_message_message_864359 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_864359
 													.next();
 
-											// check object __DEC_message_message_17196 is really bound
-											JavaSDM.ensure(__DEC_message_message_17196 != null);
-											// check isomorphic binding between objects __DEC_message_message_17196 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_17196
+											// check object __DEC_message_message_864359 is really bound
+											JavaSDM.ensure(__DEC_message_message_864359 != null);
+											// check isomorphic binding between objects __DEC_message_message_864359 and messageReceive 
+											JavaSDM.ensure(!__DEC_message_message_864359
 													.equals(messageReceive));
 
-											// check isomorphic binding between objects __DEC_message_message_17196 and messageSend 
-											JavaSDM.ensure(!__DEC_message_message_17196
+											// check isomorphic binding between objects __DEC_message_message_864359 and messageSend 
+											JavaSDM.ensure(!__DEC_message_message_864359
 													.equals(messageSend));
 
 											fujaba__Success = true;
@@ -24601,18 +25129,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_567487 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_871348 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_92830 = null;
-		Message __DEC_messageReceive_receiveEvent_92830 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104350 = null;
-		Message __DEC_messageSend_receiveEvent_104350 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_213021 = null;
-		Message __DEC_messageReceive_sendEvent_213021 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_474744 = null;
-		Message __DEC_messageSend_sendEvent_474744 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_766264 = null;
-		MessageEnd __DEC_message_message_766264 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_722399 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_68241 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_558006 = null;
+		Message __DEC_messageReceive_receiveEvent_558006 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_65125 = null;
+		Message __DEC_messageSend_receiveEvent_65125 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_302187 = null;
+		Message __DEC_messageReceive_sendEvent_302187 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_57563 = null;
+		Message __DEC_messageSend_sendEvent_57563 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_884466 = null;
+		MessageEnd __DEC_message_message_884466 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -24735,14 +25263,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_567487 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_722399 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_567487 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_567487 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_722399 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_722399 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_567487 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_567487
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_722399 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_722399
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -24759,14 +25287,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_871348 = messageSend
+							__DEC_messageSend_enclosingInteraction_68241 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_871348 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_871348 != null);
+							// check object __DEC_messageSend_enclosingInteraction_68241 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_68241 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_871348 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_871348
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_68241 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_68241
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -24782,10 +25310,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_92830
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_558006
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_92830 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_558006 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -24793,16 +25321,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_92830
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_558006
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_92830 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_92830
+									__DEC_messageReceive_receiveEvent_558006 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_558006
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_92830 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_92830 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_92830 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_92830
+									// check object __DEC_messageReceive_receiveEvent_558006 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_558006 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_558006 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_558006
 											.equals(message));
 
 									fujaba__Success = true;
@@ -24825,26 +25353,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_104350
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_65125
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104350 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_65125 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104350
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_65125
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_104350 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_104350
+									__DEC_messageSend_receiveEvent_65125 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_65125
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_104350 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_104350 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_104350 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_104350
+									// check object __DEC_messageSend_receiveEvent_65125 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_65125 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_65125 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_65125
 											.equals(message));
 
 									fujaba__Success = true;
@@ -24867,10 +25395,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_213021
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_302187
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_213021 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_302187 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -24878,16 +25406,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_213021
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_302187
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_213021 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_213021
+									__DEC_messageReceive_sendEvent_302187 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_302187
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_213021 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_213021 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_213021 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_213021
+									// check object __DEC_messageReceive_sendEvent_302187 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_302187 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_302187 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_302187
 											.equals(message));
 
 									fujaba__Success = true;
@@ -24910,26 +25438,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_474744
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_57563
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_474744 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_57563 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_474744
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_57563
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_474744 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_474744
+									__DEC_messageSend_sendEvent_57563 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_57563
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_474744 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_474744 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_474744 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_474744
+									// check object __DEC_messageSend_sendEvent_57563 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_57563 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_57563 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_57563
 											.equals(message));
 
 									fujaba__Success = true;
@@ -24952,30 +25480,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_766264
+							// iterate to-many link message from message to __DEC_message_message_884466
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_766264 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_884466 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_766264
+									&& fujaba__IterMessageTo__DEC_message_message_884466
 											.hasNext()) {
 								try {
-									__DEC_message_message_766264 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_766264
+									__DEC_message_message_884466 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_884466
 											.next();
 
-									// check object __DEC_message_message_766264 is really bound
-									JavaSDM.ensure(__DEC_message_message_766264 != null);
-									// check isomorphic binding between objects __DEC_message_message_766264 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_766264
+									// check object __DEC_message_message_884466 is really bound
+									JavaSDM.ensure(__DEC_message_message_884466 != null);
+									// check isomorphic binding between objects __DEC_message_message_884466 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_884466
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_766264 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_766264
+									// check isomorphic binding between objects __DEC_message_message_884466 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_884466
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -25136,18 +25664,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_926079 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_226977 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_936631 = null;
-		Message __DEC_messageReceive_receiveEvent_936631 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_409665 = null;
-		Message __DEC_messageSend_receiveEvent_409665 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832320 = null;
-		Message __DEC_messageReceive_sendEvent_832320 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_125780 = null;
-		Message __DEC_messageSend_sendEvent_125780 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_173905 = null;
-		MessageEnd __DEC_message_message_173905 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_982255 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_962499 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_396785 = null;
+		Message __DEC_messageReceive_receiveEvent_396785 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884766 = null;
+		Message __DEC_messageSend_receiveEvent_884766 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_550904 = null;
+		Message __DEC_messageReceive_sendEvent_550904 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_819494 = null;
+		Message __DEC_messageSend_sendEvent_819494 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_662373 = null;
+		MessageEnd __DEC_message_message_662373 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveToLine = null;
 		Lifeline line = null;
@@ -25270,14 +25798,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_926079 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_982255 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_926079 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_926079 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_982255 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_982255 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_926079 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_926079
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_982255 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_982255
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -25294,14 +25822,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_226977 = messageSend
+							__DEC_messageSend_enclosingInteraction_962499 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_226977 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_226977 != null);
+							// check object __DEC_messageSend_enclosingInteraction_962499 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_962499 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_226977 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_226977
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_962499 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_962499
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -25317,10 +25845,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_936631
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_396785
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_936631 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_396785 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -25328,16 +25856,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_936631
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_396785
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_936631 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_936631
+									__DEC_messageReceive_receiveEvent_396785 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_396785
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_936631 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_936631 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_936631 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_936631
+									// check object __DEC_messageReceive_receiveEvent_396785 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_396785 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_396785 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_396785
 											.equals(message));
 
 									fujaba__Success = true;
@@ -25360,26 +25888,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_409665
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_884766
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_409665 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884766 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_409665
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884766
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_409665 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_409665
+									__DEC_messageSend_receiveEvent_884766 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_884766
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_409665 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_409665 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_409665 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_409665
+									// check object __DEC_messageSend_receiveEvent_884766 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_884766 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_884766 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_884766
 											.equals(message));
 
 									fujaba__Success = true;
@@ -25402,10 +25930,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_832320
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_550904
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832320 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_550904 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -25413,16 +25941,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832320
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_550904
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_832320 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_832320
+									__DEC_messageReceive_sendEvent_550904 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_550904
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_832320 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_832320 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_832320 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_832320
+									// check object __DEC_messageReceive_sendEvent_550904 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_550904 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_550904 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_550904
 											.equals(message));
 
 									fujaba__Success = true;
@@ -25445,26 +25973,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_125780
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_819494
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_125780 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_819494 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_125780
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_819494
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_125780 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_125780
+									__DEC_messageSend_sendEvent_819494 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_819494
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_125780 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_125780 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_125780 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_125780
+									// check object __DEC_messageSend_sendEvent_819494 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_819494 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_819494 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_819494
 											.equals(message));
 
 									fujaba__Success = true;
@@ -25487,30 +26015,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_173905
+							// iterate to-many link message from message to __DEC_message_message_662373
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_173905 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_662373 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_173905
+									&& fujaba__IterMessageTo__DEC_message_message_662373
 											.hasNext()) {
 								try {
-									__DEC_message_message_173905 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_173905
+									__DEC_message_message_662373 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_662373
 											.next();
 
-									// check object __DEC_message_message_173905 is really bound
-									JavaSDM.ensure(__DEC_message_message_173905 != null);
-									// check isomorphic binding between objects __DEC_message_message_173905 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_173905
+									// check object __DEC_message_message_662373 is really bound
+									JavaSDM.ensure(__DEC_message_message_662373 != null);
+									// check isomorphic binding between objects __DEC_message_message_662373 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_662373
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_173905 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_173905
+									// check isomorphic binding between objects __DEC_message_message_662373 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_662373
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -25671,18 +26199,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_186545 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_547043 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909533 = null;
-		Message __DEC_messageReceive_receiveEvent_909533 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_36185 = null;
-		Message __DEC_messageSend_receiveEvent_36185 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_783910 = null;
-		Message __DEC_messageReceive_sendEvent_783910 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_123670 = null;
-		Message __DEC_messageSend_sendEvent_123670 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_498330 = null;
-		MessageEnd __DEC_message_message_498330 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_595591 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_382614 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_795810 = null;
+		Message __DEC_messageReceive_receiveEvent_795810 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_173515 = null;
+		Message __DEC_messageSend_receiveEvent_173515 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_762564 = null;
+		Message __DEC_messageReceive_sendEvent_762564 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_823759 = null;
+		Message __DEC_messageSend_sendEvent_823759 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_158651 = null;
+		MessageEnd __DEC_message_message_158651 = null;
 		Match match = null;
 		MessageOccurrenceSpecification messageSend = null;
 		Interaction interaction = null;
@@ -25798,14 +26326,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_messageReceive_enclosingInteraction_186545 = messageReceive
+					__DEC_messageReceive_enclosingInteraction_595591 = messageReceive
 							.getEnclosingInteraction();
 
-					// check object __DEC_messageReceive_enclosingInteraction_186545 is really bound
-					JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_186545 != null);
+					// check object __DEC_messageReceive_enclosingInteraction_595591 is really bound
+					JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_595591 != null);
 
-					// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_186545 and interaction 
-					JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_186545
+					// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_595591 and interaction 
+					JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_595591
 							.equals(interaction));
 
 					fujaba__Success = true;
@@ -25822,14 +26350,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_messageSend_enclosingInteraction_547043 = messageSend
+					__DEC_messageSend_enclosingInteraction_382614 = messageSend
 							.getEnclosingInteraction();
 
-					// check object __DEC_messageSend_enclosingInteraction_547043 is really bound
-					JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_547043 != null);
+					// check object __DEC_messageSend_enclosingInteraction_382614 is really bound
+					JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_382614 != null);
 
-					// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_547043 and interaction 
-					JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_547043
+					// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_382614 and interaction 
+					JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_382614
 							.equals(interaction));
 
 					fujaba__Success = true;
@@ -25845,26 +26373,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_909533
+					// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_795810
 					fujaba__Success = false;
 
-					fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909533 = new ArrayList(
+					fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_795810 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageReceive,
 											Message.class, "receiveEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909533
+							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_795810
 									.hasNext()) {
 						try {
-							__DEC_messageReceive_receiveEvent_909533 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909533
+							__DEC_messageReceive_receiveEvent_795810 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_795810
 									.next();
 
-							// check object __DEC_messageReceive_receiveEvent_909533 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_receiveEvent_909533 != null);
-							// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_909533 and message 
-							JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_909533
+							// check object __DEC_messageReceive_receiveEvent_795810 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_receiveEvent_795810 != null);
+							// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_795810 and message 
+							JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_795810
 									.equals(message));
 
 							fujaba__Success = true;
@@ -25887,26 +26415,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_36185
+					// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_173515
 					fujaba__Success = false;
 
-					fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_36185 = new ArrayList(
+					fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_173515 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageSend,
 											Message.class, "receiveEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_36185
+							&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_173515
 									.hasNext()) {
 						try {
-							__DEC_messageSend_receiveEvent_36185 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_36185
+							__DEC_messageSend_receiveEvent_173515 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_173515
 									.next();
 
-							// check object __DEC_messageSend_receiveEvent_36185 is really bound
-							JavaSDM.ensure(__DEC_messageSend_receiveEvent_36185 != null);
-							// check isomorphic binding between objects __DEC_messageSend_receiveEvent_36185 and message 
-							JavaSDM.ensure(!__DEC_messageSend_receiveEvent_36185
+							// check object __DEC_messageSend_receiveEvent_173515 is really bound
+							JavaSDM.ensure(__DEC_messageSend_receiveEvent_173515 != null);
+							// check isomorphic binding between objects __DEC_messageSend_receiveEvent_173515 and message 
+							JavaSDM.ensure(!__DEC_messageSend_receiveEvent_173515
 									.equals(message));
 
 							fujaba__Success = true;
@@ -25929,26 +26457,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_783910
+					// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_762564
 					fujaba__Success = false;
 
-					fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_783910 = new ArrayList(
+					fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_762564 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageReceive,
 											Message.class, "sendEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_783910
+							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_762564
 									.hasNext()) {
 						try {
-							__DEC_messageReceive_sendEvent_783910 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_783910
+							__DEC_messageReceive_sendEvent_762564 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_762564
 									.next();
 
-							// check object __DEC_messageReceive_sendEvent_783910 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_sendEvent_783910 != null);
-							// check isomorphic binding between objects __DEC_messageReceive_sendEvent_783910 and message 
-							JavaSDM.ensure(!__DEC_messageReceive_sendEvent_783910
+							// check object __DEC_messageReceive_sendEvent_762564 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_sendEvent_762564 != null);
+							// check isomorphic binding between objects __DEC_messageReceive_sendEvent_762564 and message 
+							JavaSDM.ensure(!__DEC_messageReceive_sendEvent_762564
 									.equals(message));
 
 							fujaba__Success = true;
@@ -25971,26 +26499,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_123670
+					// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_823759
 					fujaba__Success = false;
 
-					fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_123670 = new ArrayList(
+					fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_823759 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(messageSend,
 											Message.class, "sendEvent"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_123670
+							&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_823759
 									.hasNext()) {
 						try {
-							__DEC_messageSend_sendEvent_123670 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_123670
+							__DEC_messageSend_sendEvent_823759 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_823759
 									.next();
 
-							// check object __DEC_messageSend_sendEvent_123670 is really bound
-							JavaSDM.ensure(__DEC_messageSend_sendEvent_123670 != null);
-							// check isomorphic binding between objects __DEC_messageSend_sendEvent_123670 and message 
-							JavaSDM.ensure(!__DEC_messageSend_sendEvent_123670
+							// check object __DEC_messageSend_sendEvent_823759 is really bound
+							JavaSDM.ensure(__DEC_messageSend_sendEvent_823759 != null);
+							// check isomorphic binding between objects __DEC_messageSend_sendEvent_823759 and message 
+							JavaSDM.ensure(!__DEC_messageSend_sendEvent_823759
 									.equals(message));
 
 							fujaba__Success = true;
@@ -26013,30 +26541,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link message from message to __DEC_message_message_498330
+					// iterate to-many link message from message to __DEC_message_message_158651
 					fujaba__Success = false;
 
-					fujaba__IterMessageTo__DEC_message_message_498330 = new ArrayList(
+					fujaba__IterMessageTo__DEC_message_message_158651 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(message,
 											MessageEnd.class, "message"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterMessageTo__DEC_message_message_498330
+							&& fujaba__IterMessageTo__DEC_message_message_158651
 									.hasNext()) {
 						try {
-							__DEC_message_message_498330 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_498330
+							__DEC_message_message_158651 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_158651
 									.next();
 
-							// check object __DEC_message_message_498330 is really bound
-							JavaSDM.ensure(__DEC_message_message_498330 != null);
-							// check isomorphic binding between objects __DEC_message_message_498330 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_message_498330
+							// check object __DEC_message_message_158651 is really bound
+							JavaSDM.ensure(__DEC_message_message_158651 != null);
+							// check isomorphic binding between objects __DEC_message_message_158651 and messageReceive 
+							JavaSDM.ensure(!__DEC_message_message_158651
 									.equals(messageReceive));
 
-							// check isomorphic binding between objects __DEC_message_message_498330 and messageSend 
-							JavaSDM.ensure(!__DEC_message_message_498330
+							// check isomorphic binding between objects __DEC_message_message_158651 and messageSend 
+							JavaSDM.ensure(!__DEC_message_message_158651
 									.equals(messageSend));
 
 							fujaba__Success = true;
@@ -26181,18 +26709,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_messageReceive_enclosingInteraction_575604 = null;
-		Interaction __DEC_messageSend_enclosingInteraction_520538 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232993 = null;
-		Message __DEC_messageReceive_receiveEvent_232993 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_880112 = null;
-		Message __DEC_messageSend_receiveEvent_880112 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_442795 = null;
-		Message __DEC_messageReceive_sendEvent_442795 = null;
-		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_216276 = null;
-		Message __DEC_messageSend_sendEvent_216276 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_925037 = null;
-		MessageEnd __DEC_message_message_925037 = null;
+		Interaction __DEC_messageReceive_enclosingInteraction_123118 = null;
+		Interaction __DEC_messageSend_enclosingInteraction_544555 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909195 = null;
+		Message __DEC_messageReceive_receiveEvent_909195 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_922662 = null;
+		Message __DEC_messageSend_receiveEvent_922662 = null;
+		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_111392 = null;
+		Message __DEC_messageReceive_sendEvent_111392 = null;
+		Iterator fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_618999 = null;
+		Message __DEC_messageSend_sendEvent_618999 = null;
+		Iterator fujaba__IterMessageTo__DEC_message_message_555051 = null;
+		MessageEnd __DEC_message_message_555051 = null;
 		Match match = null;
 		Iterator fujaba__IterMessageReceiveTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
@@ -26331,14 +26859,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageReceive_enclosingInteraction_575604 = messageReceive
+							__DEC_messageReceive_enclosingInteraction_123118 = messageReceive
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageReceive_enclosingInteraction_575604 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_575604 != null);
+							// check object __DEC_messageReceive_enclosingInteraction_123118 is really bound
+							JavaSDM.ensure(__DEC_messageReceive_enclosingInteraction_123118 != null);
 
-							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_575604 and interaction 
-							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_575604
+							// check isomorphic binding between objects __DEC_messageReceive_enclosingInteraction_123118 and interaction 
+							JavaSDM.ensure(!__DEC_messageReceive_enclosingInteraction_123118
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -26355,14 +26883,14 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_messageSend_enclosingInteraction_520538 = messageSend
+							__DEC_messageSend_enclosingInteraction_544555 = messageSend
 									.getEnclosingInteraction();
 
-							// check object __DEC_messageSend_enclosingInteraction_520538 is really bound
-							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_520538 != null);
+							// check object __DEC_messageSend_enclosingInteraction_544555 is really bound
+							JavaSDM.ensure(__DEC_messageSend_enclosingInteraction_544555 != null);
 
-							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_520538 and interaction 
-							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_520538
+							// check isomorphic binding between objects __DEC_messageSend_enclosingInteraction_544555 and interaction 
+							JavaSDM.ensure(!__DEC_messageSend_enclosingInteraction_544555
 									.equals(interaction));
 
 							fujaba__Success = true;
@@ -26378,10 +26906,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_232993
+							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_909195
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232993 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909195 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -26389,16 +26917,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232993
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909195
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_receiveEvent_232993 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_232993
+									__DEC_messageReceive_receiveEvent_909195 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_909195
 											.next();
 
-									// check object __DEC_messageReceive_receiveEvent_232993 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_232993 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_232993 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_232993
+									// check object __DEC_messageReceive_receiveEvent_909195 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_909195 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_909195 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_909195
 											.equals(message));
 
 									fujaba__Success = true;
@@ -26421,26 +26949,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_880112
+							// iterate to-many link receiveEvent from messageSend to __DEC_messageSend_receiveEvent_922662
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_880112 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_922662 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class,
 													"receiveEvent")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_880112
+									&& fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_922662
 											.hasNext()) {
 								try {
-									__DEC_messageSend_receiveEvent_880112 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_880112
+									__DEC_messageSend_receiveEvent_922662 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_receiveEvent_922662
 											.next();
 
-									// check object __DEC_messageSend_receiveEvent_880112 is really bound
-									JavaSDM.ensure(__DEC_messageSend_receiveEvent_880112 != null);
-									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_880112 and message 
-									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_880112
+									// check object __DEC_messageSend_receiveEvent_922662 is really bound
+									JavaSDM.ensure(__DEC_messageSend_receiveEvent_922662 != null);
+									// check isomorphic binding between objects __DEC_messageSend_receiveEvent_922662 and message 
+									JavaSDM.ensure(!__DEC_messageSend_receiveEvent_922662
 											.equals(message));
 
 									fujaba__Success = true;
@@ -26463,10 +26991,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_442795
+							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_111392
 							fujaba__Success = false;
 
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_442795 = new ArrayList(
+							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_111392 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													messageReceive,
@@ -26474,16 +27002,16 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_442795
+									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_111392
 											.hasNext()) {
 								try {
-									__DEC_messageReceive_sendEvent_442795 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_442795
+									__DEC_messageReceive_sendEvent_111392 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_111392
 											.next();
 
-									// check object __DEC_messageReceive_sendEvent_442795 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_442795 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_442795 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_442795
+									// check object __DEC_messageReceive_sendEvent_111392 is really bound
+									JavaSDM.ensure(__DEC_messageReceive_sendEvent_111392 != null);
+									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_111392 and message 
+									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_111392
 											.equals(message));
 
 									fujaba__Success = true;
@@ -26506,26 +27034,26 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_216276
+							// iterate to-many link sendEvent from messageSend to __DEC_messageSend_sendEvent_618999
 							fujaba__Success = false;
 
-							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_216276 = new ArrayList(
+							fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_618999 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(messageSend,
 													Message.class, "sendEvent"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_216276
+									&& fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_618999
 											.hasNext()) {
 								try {
-									__DEC_messageSend_sendEvent_216276 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_216276
+									__DEC_messageSend_sendEvent_618999 = (Message) fujaba__IterMessageSendTo__DEC_messageSend_sendEvent_618999
 											.next();
 
-									// check object __DEC_messageSend_sendEvent_216276 is really bound
-									JavaSDM.ensure(__DEC_messageSend_sendEvent_216276 != null);
-									// check isomorphic binding between objects __DEC_messageSend_sendEvent_216276 and message 
-									JavaSDM.ensure(!__DEC_messageSend_sendEvent_216276
+									// check object __DEC_messageSend_sendEvent_618999 is really bound
+									JavaSDM.ensure(__DEC_messageSend_sendEvent_618999 != null);
+									// check isomorphic binding between objects __DEC_messageSend_sendEvent_618999 and message 
+									JavaSDM.ensure(!__DEC_messageSend_sendEvent_618999
 											.equals(message));
 
 									fujaba__Success = true;
@@ -26548,30 +27076,30 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link message from message to __DEC_message_message_925037
+							// iterate to-many link message from message to __DEC_message_message_555051
 							fujaba__Success = false;
 
-							fujaba__IterMessageTo__DEC_message_message_925037 = new ArrayList(
+							fujaba__IterMessageTo__DEC_message_message_555051 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(message,
 													MessageEnd.class, "message"))
 									.iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_925037
+									&& fujaba__IterMessageTo__DEC_message_message_555051
 											.hasNext()) {
 								try {
-									__DEC_message_message_925037 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_925037
+									__DEC_message_message_555051 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_555051
 											.next();
 
-									// check object __DEC_message_message_925037 is really bound
-									JavaSDM.ensure(__DEC_message_message_925037 != null);
-									// check isomorphic binding between objects __DEC_message_message_925037 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_925037
+									// check object __DEC_message_message_555051 is really bound
+									JavaSDM.ensure(__DEC_message_message_555051 != null);
+									// check isomorphic binding between objects __DEC_message_message_555051 and messageReceive 
+									JavaSDM.ensure(!__DEC_message_message_555051
 											.equals(messageReceive));
 
-									// check isomorphic binding between objects __DEC_message_message_925037 and messageSend 
-									JavaSDM.ensure(!__DEC_message_message_925037
+									// check isomorphic binding between objects __DEC_message_message_555051 and messageSend 
+									JavaSDM.ensure(!__DEC_message_message_555051
 											.equals(messageSend));
 
 									fujaba__Success = true;
@@ -26740,24 +27268,24 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == NormalStepToMessageRule.class) {
 			switch (baseOperationID) {
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
-				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___PERFORM_FWD__ISAPPLICABLEMATCH;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_FWD__MATCH:
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_FWD__MATCH;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
-				return RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
-				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
+				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE:
-				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
+				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
-				return RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+				return RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___CHECK_TYPES_FWD__MATCH:
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___CHECK_TYPES_FWD__MATCH;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE:
@@ -26772,12 +27300,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE:
-				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
+				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP;
-			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
-				return RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
+			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+				return RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 				return RulesPackage.ALT_STEP_TO_COMBO_RULE___CHECK_TYPES_BWD__MATCH;
 			case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE:
@@ -26820,35 +27348,38 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_USECASE_FLOW_ACTOR:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_USECASE_FLOW_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(NormalStep) arguments.get(1),
 					(AlternativeFlowAlternative) arguments.get(2),
 					(AlternativeFlow) arguments.get(3),
 					(UseCase) arguments.get(4), (Flow) arguments.get(5),
-					(Actor) arguments.get(6));
+					(Actor) arguments.get(6),
+					(PackageDeclaration) arguments.get(7));
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_USECASE_FLOW_ACTOR:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_USECASE_FLOW_ACTOR_PACKAGEDECLARATION:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(NormalStep) arguments.get(1),
 					(AlternativeFlowAlternative) arguments.get(2),
 					(AlternativeFlow) arguments.get(3),
 					(UseCase) arguments.get(4), (Flow) arguments.get(5),
-					(Actor) arguments.get(6));
+					(Actor) arguments.get(6),
+					(PackageDeclaration) arguments.get(7));
 			return null;
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_USECASE_FLOW_ACTOR:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_USECASE_FLOW_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
 					(NormalStep) arguments.get(1),
 					(AlternativeFlowAlternative) arguments.get(2),
 					(AlternativeFlow) arguments.get(3),
 					(UseCase) arguments.get(4), (Flow) arguments.get(5),
-					(Actor) arguments.get(6));
+					(Actor) arguments.get(6),
+					(PackageDeclaration) arguments.get(7));
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_LIFELINE_ALTERNATIVEFLOW_USECASE_USECASETOINTERACTION_FLOW_INTERACTION_ACTOR_ACTORTOLIFELINE:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_LIFELINE_ALTERNATIVEFLOW_USECASE_USECASETOINTERACTION_FLOW_INTERACTION_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
 					(NormalStep) arguments.get(1),
@@ -26859,10 +27390,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					(UseCaseToInteraction) arguments.get(6),
 					(Flow) arguments.get(7), (Interaction) arguments.get(8),
 					(Actor) arguments.get(9),
-					(ActorToLifeline) arguments.get(10));
+					(ActorToLifeline) arguments.get(10),
+					(PackageDeclaration) arguments.get(11));
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
@@ -26874,7 +27406,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					(EObject) arguments.get(15), (EObject) arguments.get(16),
 					(EObject) arguments.get(17), (EObject) arguments.get(18),
 					(EObject) arguments.get(19), (EObject) arguments.get(20),
-					(EObject) arguments.get(21));
+					(EObject) arguments.get(21), (EObject) arguments.get(22));
 			return null;
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
@@ -26915,7 +27447,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					(MessageOccurrenceSpecification) arguments.get(9));
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 			return isAppropriate_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_COMBINEDFRAGMENT_LIFELINE_INTERACTIONOPERAND_INTERACTIONCONSTRAINT_LITERALSTRING_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_ACTOR_ACTORTOLIFELINE:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_COMBINEDFRAGMENT_LIFELINE_INTERACTIONOPERAND_INTERACTIONCONSTRAINT_LITERALSTRING_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(CombinedFragment) arguments.get(1),
@@ -26930,10 +27462,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					(MessageOccurrenceSpecification) arguments.get(11),
 					(MessageOccurrenceSpecification) arguments.get(12),
 					(Actor) arguments.get(13),
-					(ActorToLifeline) arguments.get(14));
+					(ActorToLifeline) arguments.get(14),
+					(PackageDeclaration) arguments.get(15));
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 			return isApplicable_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
@@ -26945,7 +27478,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					(EObject) arguments.get(15), (EObject) arguments.get(16),
 					(EObject) arguments.get(17), (EObject) arguments.get(18),
 					(EObject) arguments.get(19), (EObject) arguments.get(20),
-					(EObject) arguments.get(21));
+					(EObject) arguments.get(21), (EObject) arguments.get(22));
 			return null;
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
@@ -27010,20 +27543,23 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(UseCase) arguments.get(1), (Flow) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(UseCase) arguments.get(1), (Flow) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
 			return null;
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_FLOW_NORMALSTEP_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
 					(UseCase) arguments.get(1), (Flow) arguments.get(2),
-					(NormalStep) arguments.get(3), (Actor) arguments.get(4));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE:
+					(NormalStep) arguments.get(3), (Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5));
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_NORMALSTEP_INTERACTION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
 					(UseCase) arguments.get(1),
@@ -27031,15 +27567,17 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					(Flow) arguments.get(3), (NormalStep) arguments.get(4),
 					(Interaction) arguments.get(5),
 					(Lifeline) arguments.get(6), (Actor) arguments.get(7),
-					(ActorToLifeline) arguments.get(8));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+					(ActorToLifeline) arguments.get(8),
+					(PackageDeclaration) arguments.get(9));
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11), (EObject) arguments.get(12));
+					(EObject) arguments.get(11), (EObject) arguments.get(12),
+					(EObject) arguments.get(13));
 			return null;
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE:
 			return isAppropriate_BWD((Match) arguments.get(0),
@@ -27060,7 +27598,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					(MessageOccurrenceSpecification) arguments.get(3),
 					(MessageOccurrenceSpecification) arguments.get(4),
 					(Lifeline) arguments.get(5));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE:
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_USECASETOINTERACTION_FLOW_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_ACTOR_ACTORTOLIFELINE_PACKAGEDECLARATION:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(UseCase) arguments.get(1),
@@ -27070,15 +27608,17 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 					(MessageOccurrenceSpecification) arguments.get(6),
 					(MessageOccurrenceSpecification) arguments.get(7),
 					(Lifeline) arguments.get(8), (Actor) arguments.get(9),
-					(ActorToLifeline) arguments.get(10));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+					(ActorToLifeline) arguments.get(10),
+					(PackageDeclaration) arguments.get(11));
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11), (EObject) arguments.get(12));
+					(EObject) arguments.get(11), (EObject) arguments.get(12),
+					(EObject) arguments.get(13));
 			return null;
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_4((EMoflonEdge) arguments

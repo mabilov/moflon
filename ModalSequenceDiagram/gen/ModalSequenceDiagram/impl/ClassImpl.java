@@ -6,9 +6,9 @@ import ModalSequenceDiagram.Connector;
 import ModalSequenceDiagram.EncapsulatedClassifier;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
 import ModalSequenceDiagram.Operation;
-
 import ModalSequenceDiagram.Property;
 import ModalSequenceDiagram.StructuredClassifier;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -49,6 +49,7 @@ public class ClassImpl extends BehavioredClassifierImpl implements
 	 * @ordered
 	 */
 	protected EList<Connector> ownedConnector;
+
 	/**
 	 * The cached value of the '{@link #getOwnedAttribute() <em>Owned Attribute</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -58,6 +59,7 @@ public class ClassImpl extends BehavioredClassifierImpl implements
 	 * @ordered
 	 */
 	protected EList<Property> ownedAttribute;
+
 	/**
 	 * The cached value of the '{@link #getOwnedOperation() <em>Owned Operation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

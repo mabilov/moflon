@@ -7,9 +7,9 @@ import ModalSequenceDiagram.Interaction;
 import ModalSequenceDiagram.InteractionFragment;
 import ModalSequenceDiagram.Lifeline;
 import ModalSequenceDiagram.ModalSequenceDiagramPackage;
-
 import ModalSequenceDiagram.PartDecomposition;
 import ModalSequenceDiagram.ValueSpecification;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

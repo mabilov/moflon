@@ -20,17 +20,11 @@ import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
 import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
-import TGGLanguage.csp.*;
-
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -70,672 +64,26 @@ import bpmn2.SequenceFlow;
 import bpmn2.ServiceTask;
 import bpmn2.StartEvent;
 import bpmn2.Task;
-import bpmn2.Process;
-
 import bpmn2.UserTask;
-import csp.constraints.*;
 
 import de.upb.tools.sdm.*;
 
 import java.lang.reflect.InvocationTargetException;
+
 import java.util.*;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
 // <-- [user defined imports]
+import org.moflon.csp.*;
+import csp.constraints.*;
+import TGGLanguage.csp.*;
+
 // [user defined imports] -->
 
 /**
@@ -779,14 +127,14 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
 		EMoflonEdge __process_flowElements_outFlow = null;
 		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
+		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
+		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
+		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
 		EMoflonEdge __process_flowElements_exclusiveGateway = null;
 		EMoflonEdge __process_flowElements_defaultFlow = null;
 		EMoflonEdge __exclusiveGateway_outgoing_defaultFlow = null;
-		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
-		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
 
 		// story node 'initial bindings'
 		try {
@@ -845,10 +193,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects outFlow and defaultFlow 
 				JavaSDM.ensure(!outFlow.equals(defaultFlow));
 
-				// create object __exclusiveGateway_outgoing_outFlow
-				__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __process_flowElements_outFlow
 				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -857,17 +201,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __exclusiveGateway_outgoing_outFlow
+				__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// assign attribute __outFlow_sourceRef_exclusiveGateway
 				__outFlow_sourceRef_exclusiveGateway.setName("sourceRef");
 				// assign attribute __exclusiveGateway_outgoing_outFlow
 				__exclusiveGateway_outgoing_outFlow.setName("outgoing");
 				// assign attribute __process_flowElements_outFlow
 				__process_flowElements_outFlow.setName("flowElements");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_outgoing_outFlow,
-						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -883,22 +226,27 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						"toBeTranslatedEdges");
 
 				// create link
-				__exclusiveGateway_outgoing_outFlow.setSrc(exclusiveGateway);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__exclusiveGateway_outgoing_outFlow,
+						"toBeTranslatedEdges");
 
 				// create link
 				__outFlow_sourceRef_exclusiveGateway.setTrg(exclusiveGateway);
 
 				// create link
-				__process_flowElements_outFlow.setSrc(process);
+				__exclusiveGateway_outgoing_outFlow.setSrc(exclusiveGateway);
 
 				// create link
-				__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
+				__process_flowElements_outFlow.setSrc(process);
 
 				// create link
 				__process_flowElements_outFlow.setTrg(outFlow);
 
 				// create link
 				__outFlow_sourceRef_exclusiveGateway.setSrc(outFlow);
+
+				// create link
+				__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -922,6 +270,14 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects outFlow and defaultFlow 
 				JavaSDM.ensure(!outFlow.equals(defaultFlow));
 
+				// create object __defaultFlow_sourceRef_exclusiveGateway
+				__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __exclusiveGateway_default_defaultFlow
+				__exclusiveGateway_default_defaultFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __process_flowElements_exclusiveGateway
 				__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -932,14 +288,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 				// create object __exclusiveGateway_outgoing_defaultFlow
 				__exclusiveGateway_outgoing_defaultFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_default_defaultFlow
-				__exclusiveGateway_default_defaultFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __defaultFlow_sourceRef_exclusiveGateway
-				__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __exclusiveGateway_default_defaultFlow
@@ -954,10 +302,9 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				__process_flowElements_exclusiveGateway.setName("flowElements");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__process_flowElements_exclusiveGateway,
-								"contextEdges");
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__defaultFlow_sourceRef_exclusiveGateway,
+						"contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -965,11 +312,25 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_defaultFlow, "contextEdges");
+						__exclusiveGateway_default_defaultFlow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						process, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						exclusiveGateway, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil
+						.addOppositeReference(match,
+								__process_flowElements_exclusiveGateway,
+								"contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_defaultFlow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil
@@ -978,29 +339,20 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 								"contextEdges");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_default_defaultFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						exclusiveGateway, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__defaultFlow_sourceRef_exclusiveGateway,
-						"contextEdges");
+				__exclusiveGateway_outgoing_defaultFlow.setTrg(defaultFlow);
 
 				// create link
 				__defaultFlow_sourceRef_exclusiveGateway.setSrc(defaultFlow);
 
 				// create link
-				__process_flowElements_defaultFlow.setTrg(defaultFlow);
-
-				// create link
 				__exclusiveGateway_default_defaultFlow.setTrg(defaultFlow);
 
 				// create link
-				__exclusiveGateway_outgoing_defaultFlow.setTrg(defaultFlow);
+				__process_flowElements_defaultFlow.setTrg(defaultFlow);
+
+				// create link
+				__exclusiveGateway_outgoing_defaultFlow
+						.setSrc(exclusiveGateway);
 
 				// create link
 				__defaultFlow_sourceRef_exclusiveGateway
@@ -1008,10 +360,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				__exclusiveGateway_default_defaultFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_outgoing_defaultFlow
-						.setSrc(exclusiveGateway);
 
 				// create link
 				__process_flowElements_exclusiveGateway
@@ -1064,15 +412,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		SequenceFlowToUCFlow outFlowToAlternativeFlow = null;
 		SeqFlowToAltFlowAlt outFlowToAlt = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge alt__ref__alternativeFlow = null;
 		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge useCase__flows__alternativeFlow = null;
-		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge outFlowToAlternativeFlow__target__alternativeFlow = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
 		EMoflonEdge outFlowToAlternativeFlow__source__outFlow = null;
+		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
 		EMoflonEdge outFlowToAlt__source__outFlow = null;
+		EMoflonEdge alt__ref__alternativeFlow = null;
+		EMoflonEdge useCase__flows__alternativeFlow = null;
+		EMoflonEdge outFlowToAlternativeFlow__target__alternativeFlow = null;
 		EMoflonEdge normalStep__stepAlternative__alt = null;
+		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
 		EMoflonEdge outFlowToAlt__target__alt = null;
 
 		// story node 'perform transformation'
@@ -1155,10 +503,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object alternativeFlow
 			alternativeFlow = UseCaseDSLFactory.eINSTANCE
 					.createAlternativeFlow();
@@ -1176,12 +521,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					.createSeqFlowToAltFlowAlt();
 
 			// assign attribute alternativeFlow
-			alternativeFlow
-					.setName((java.lang.String) csp.getAttributeVariable(
-							"alternativeFlow", "name").getValue());
+			alternativeFlow.setName((java.lang.String) csp.getValue(
+					"alternativeFlow", "name"));
 			// assign attribute alt
-			alt.setCondition((java.lang.String) csp.getAttributeVariable("alt",
-					"condition").getValue());
+			alt.setCondition((java.lang.String) csp
+					.getValue("alt", "condition"));
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToAlt,
@@ -1194,10 +538,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			normalStep.getStepAlternative().add(alt); // add link
 
 			// create link
-			alt.setRef(alternativeFlow);
+			outFlowToAlternativeFlow.setTarget(alternativeFlow);
 
 			// create link
-			outFlowToAlternativeFlow.setTarget(alternativeFlow);
+			alt.setRef(alternativeFlow);
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -1230,6 +574,14 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					alt, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlow, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToAlt, "createdLinkElements");
 
 			// create link
@@ -1238,15 +590,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlowToAlternativeFlow, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alt, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1564,40 +908,40 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and processToUseCase 
 			JavaSDM.ensure(!useCase.equals(processToUseCase));
 
-			// create object alt__ref__alternativeFlow
-			alt__ref__alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __process_flowElements_outFlow
 			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCase__flows__alternativeFlow
-			useCase__flows__alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __outFlow_sourceRef_exclusiveGateway
-			__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlternativeFlow__target__alternativeFlow
-			outFlowToAlternativeFlow__target__alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __exclusiveGateway_outgoing_outFlow
-			__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object outFlowToAlternativeFlow__source__outFlow
 			outFlowToAlternativeFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object __exclusiveGateway_outgoing_outFlow
+			__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object outFlowToAlt__source__outFlow
 			outFlowToAlt__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object alt__ref__alternativeFlow
+			alt__ref__alternativeFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object useCase__flows__alternativeFlow
+			useCase__flows__alternativeFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToAlternativeFlow__target__alternativeFlow
+			outFlowToAlternativeFlow__target__alternativeFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object normalStep__stepAlternative__alt
 			normalStep__stepAlternative__alt = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __outFlow_sourceRef_exclusiveGateway
+			__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object outFlowToAlt__target__alt
@@ -1629,19 +973,27 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alt__ref__alternativeFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__process_flowElements_outFlow, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase__flows__alternativeFlow, "createdEdges");
+					outFlowToAlternativeFlow__source__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__outFlow_sourceRef_exclusiveGateway, "translatedEdges");
+					__exclusiveGateway_outgoing_outFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToAlt__source__outFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					alt__ref__alternativeFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCase__flows__alternativeFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1650,19 +1002,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__exclusiveGateway_outgoing_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlternativeFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					normalStep__stepAlternative__alt, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__outFlow_sourceRef_exclusiveGateway, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1675,14 +1019,14 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			normalStep__stepAlternative__alt.setSrc(normalStep);
 
 			// create link
-			useCase__flows__alternativeFlow.setTrg(alternativeFlow);
+			alt__ref__alternativeFlow.setTrg(alternativeFlow);
 
 			// create link
 			outFlowToAlternativeFlow__target__alternativeFlow
 					.setTrg(alternativeFlow);
 
 			// create link
-			alt__ref__alternativeFlow.setTrg(alternativeFlow);
+			useCase__flows__alternativeFlow.setTrg(alternativeFlow);
 
 			// create link
 			outFlowToAlternativeFlow__source__outFlow
@@ -1696,16 +1040,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			alt__ref__alternativeFlow.setSrc(alt);
 
 			// create link
-			outFlowToAlt__target__alt.setTrg(alt);
-
-			// create link
 			normalStep__stepAlternative__alt.setTrg(alt);
 
 			// create link
-			outFlowToAlt__source__outFlow.setSrc(outFlowToAlt);
+			outFlowToAlt__target__alt.setTrg(alt);
 
 			// create link
 			outFlowToAlt__target__alt.setSrc(outFlowToAlt);
+
+			// create link
+			outFlowToAlt__source__outFlow.setSrc(outFlowToAlt);
 
 			// create link
 			__outFlow_sourceRef_exclusiveGateway.setTrg(exclusiveGateway);
@@ -1717,19 +1061,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			__process_flowElements_outFlow.setSrc(process);
 
 			// create link
-			__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
-
-			// create link
 			outFlowToAlternativeFlow__source__outFlow.setTrg(outFlow);
 
 			// create link
-			outFlowToAlt__source__outFlow.setTrg(outFlow);
+			__process_flowElements_outFlow.setTrg(outFlow);
 
 			// create link
 			__outFlow_sourceRef_exclusiveGateway.setSrc(outFlow);
 
 			// create link
-			__process_flowElements_outFlow.setTrg(outFlow);
+			__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
+
+			// create link
+			outFlowToAlt__source__outFlow.setTrg(outFlow);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1764,21 +1108,21 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		SequenceFlow outFlow = null;
 		bpmn2.Process process = null;
 		EMoflonEdge __processToUseCase_target_useCase = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __useCase_flows_flow = null;
+		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __processToUseCase_source_process = null;
+		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
+		EMoflonEdge __defaultFlowToFlow_source_defaultFlow = null;
 		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
 		EMoflonEdge __process_flowElements_defaultFlow = null;
 		EMoflonEdge __exclusiveGateway_outgoing_defaultFlow = null;
-		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __defaultFlowToFlow_source_defaultFlow = null;
-		EMoflonEdge __flow_steps_normalStep = null;
 		EMoflonEdge __defaultFlowToFlow_target_flow = null;
+		EMoflonEdge __flow_steps_normalStep = null;
 		EMoflonEdge __exclusiveGatewayToNormalStep_target_normalStep = null;
 		EMoflonEdge __exclusiveGatewayToNormalStep_source_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
 		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
 		EMoflonEdge __process_flowElements_exclusiveGateway = null;
+		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
 		EMoflonEdge __process_flowElements_outFlow = null;
 		CSP csp = null;
 		UseCase useCase = null;
@@ -1990,15 +1334,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(useCase.equals(flow
 												.eContainer()));
 
-										// check link outgoing from defaultFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(defaultFlow
-														.getSourceRef()));
-
-										// check link outgoing from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
 										// check link source from defaultFlowToFlow to defaultFlow
 										JavaSDM.ensure(defaultFlow
 												.equals(defaultFlowToFlow
@@ -2013,6 +1348,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process
 												.equals(processToUseCase
 														.getSource()));
+
+										// check link sourceRef from defaultFlow to exclusiveGateway
+										JavaSDM.ensure(exclusiveGateway
+												.equals(defaultFlow
+														.getSourceRef()));
+
+										// check link sourceRef from outFlow to exclusiveGateway
+										JavaSDM.ensure(exclusiveGateway
+												.equals(outFlow.getSourceRef()));
 
 										// check link steps from normalStep to flow
 										JavaSDM.ensure(flow.equals(normalStep
@@ -2037,16 +1381,24 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										__processToUseCase_target_useCase = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object isApplicableMatch
-										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-												.createIsApplicableMatch();
-
 										// create object __useCase_flows_flow
 										__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
+										// create object isApplicableMatch
+										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+												.createIsApplicableMatch();
+
 										// create object __processToUseCase_source_process
 										__processToUseCase_source_process = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __defaultFlow_sourceRef_exclusiveGateway
+										__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __defaultFlowToFlow_source_defaultFlow
+										__defaultFlowToFlow_source_defaultFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __exclusiveGateway_default_defaultFlow
@@ -2061,20 +1413,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										__exclusiveGateway_outgoing_defaultFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __defaultFlow_sourceRef_exclusiveGateway
-										__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __defaultFlowToFlow_source_defaultFlow
-										__defaultFlowToFlow_source_defaultFlow = TGGRuntimeFactory.eINSTANCE
+										// create object __defaultFlowToFlow_target_flow
+										__defaultFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __flow_steps_normalStep
 										__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __defaultFlowToFlow_target_flow
-										__defaultFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __exclusiveGatewayToNormalStep_target_normalStep
@@ -2085,16 +1429,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										__exclusiveGatewayToNormalStep_source_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __exclusiveGateway_outgoing_outFlow
-										__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
 										// create object __outFlow_sourceRef_exclusiveGateway
 										__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __process_flowElements_exclusiveGateway
 										__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __exclusiveGateway_outgoing_outFlow
+										__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __process_flowElements_outFlow
@@ -2154,15 +1498,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.setTrg(useCase);
 
 										// create link
+										__useCase_flows_flow.setSrc(useCase);
+
+										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														useCase);
 
 										// create link
-										__useCase_flows_flow.setSrc(useCase);
+										__processToUseCase_target_useCase
+												.setSrc(processToUseCase);
 
 										// create link
-										__processToUseCase_target_useCase
+										__processToUseCase_source_process
 												.setSrc(processToUseCase);
 
 										// create link
@@ -2171,25 +1519,9 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														processToUseCase);
 
 										// create link
-										__processToUseCase_source_process
-												.setSrc(processToUseCase);
-
-										// create link
-										__exclusiveGateway_default_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														defaultFlow);
-
-										// create link
-										__process_flowElements_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__exclusiveGateway_outgoing_defaultFlow
-												.setTrg(defaultFlow);
 
 										// create link
 										__defaultFlow_sourceRef_exclusiveGateway
@@ -2200,23 +1532,31 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.setTrg(defaultFlow);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														flow);
+										__exclusiveGateway_default_defaultFlow
+												.setTrg(defaultFlow);
 
 										// create link
-										__useCase_flows_flow.setTrg(flow);
+										__process_flowElements_defaultFlow
+												.setTrg(defaultFlow);
 
 										// create link
-										__flow_steps_normalStep.setSrc(flow);
+										__exclusiveGateway_outgoing_defaultFlow
+												.setTrg(defaultFlow);
 
 										// create link
 										__defaultFlowToFlow_target_flow
 												.setTrg(flow);
 
 										// create link
-										__defaultFlowToFlow_target_flow
-												.setSrc(defaultFlowToFlow);
+										__flow_steps_normalStep.setSrc(flow);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														flow);
+
+										// create link
+										__useCase_flows_flow.setTrg(flow);
 
 										// create link
 										__defaultFlowToFlow_source_defaultFlow
@@ -2228,6 +1568,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														defaultFlowToFlow);
 
 										// create link
+										__defaultFlowToFlow_target_flow
+												.setSrc(defaultFlowToFlow);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														normalStep);
+
+										// create link
 										__flow_steps_normalStep
 												.setTrg(normalStep);
 
@@ -2237,8 +1586,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 										// create link
 										isApplicableMatch
-												.getAllContextElements().add(
-														normalStep);
+												.getAllContextElements()
+												.add(exclusiveGatewayToNormalStep);
 
 										// create link
 										__exclusiveGatewayToNormalStep_source_exclusiveGateway
@@ -2249,25 +1598,23 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.setSrc(exclusiveGatewayToNormalStep);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements()
-												.add(exclusiveGatewayToNormalStep);
+										__outFlow_sourceRef_exclusiveGateway
+												.setTrg(exclusiveGateway);
+
+										// create link
+										__process_flowElements_exclusiveGateway
+												.setTrg(exclusiveGateway);
 
 										// create link
 										__exclusiveGateway_outgoing_outFlow
 												.setSrc(exclusiveGateway);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														exclusiveGateway);
-
-										// create link
 										__exclusiveGatewayToNormalStep_source_exclusiveGateway
 												.setTrg(exclusiveGateway);
 
 										// create link
-										__outFlow_sourceRef_exclusiveGateway
+										__defaultFlow_sourceRef_exclusiveGateway
 												.setTrg(exclusiveGateway);
 
 										// create link
@@ -2279,20 +1626,9 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.setSrc(exclusiveGateway);
 
 										// create link
-										__defaultFlow_sourceRef_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__process_flowElements_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__process_flowElements_exclusiveGateway
-												.setSrc(process);
-
-										// create link
-										__processToUseCase_source_process
-												.setTrg(process);
+										isApplicableMatch
+												.getAllContextElements().add(
+														exclusiveGateway);
 
 										// create link
 										isApplicableMatch
@@ -2300,19 +1636,27 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														process);
 
 										// create link
-										__process_flowElements_outFlow
-												.setSrc(process);
-
-										// create link
 										__process_flowElements_defaultFlow
 												.setSrc(process);
 
 										// create link
-										__outFlow_sourceRef_exclusiveGateway
-												.setSrc(outFlow);
+										__process_flowElements_outFlow
+												.setSrc(process);
+
+										// create link
+										__processToUseCase_source_process
+												.setTrg(process);
+
+										// create link
+										__process_flowElements_exclusiveGateway
+												.setSrc(process);
 
 										// create link
 										__exclusiveGateway_outgoing_outFlow
+												.setTrg(outFlow);
+
+										// create link
+										__process_flowElements_outFlow
 												.setTrg(outFlow);
 
 										// create link
@@ -2321,63 +1665,14 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														outFlow);
 
 										// create link
-										__process_flowElements_outFlow
-												.setTrg(outFlow);
+										__outFlow_sourceRef_exclusiveGateway
+												.setSrc(outFlow);
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__processToUseCase_target_useCase,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__flow_steps_normalStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_outgoing_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__useCase_flows_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_default_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGatewayToNormalStep_source_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlow_sourceRef_exclusiveGateway,
+														__processToUseCase_source_process,
 														"allContextElements");
 
 										// create link
@@ -2391,35 +1686,21 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__process_flowElements_outFlow,
+														__exclusiveGateway_outgoing_outFlow,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__defaultFlowToFlow_source_defaultFlow,
+														__processToUseCase_target_useCase,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__processToUseCase_source_process,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlowToFlow_target_flow,
+														__useCase_flows_flow,
 														"allContextElements");
 
 										// create link
@@ -2433,7 +1714,70 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
+														__process_flowElements_exclusiveGateway,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__process_flowElements_outFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
 														__exclusiveGateway_outgoing_defaultFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__process_flowElements_defaultFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__flow_steps_normalStep,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__defaultFlowToFlow_source_defaultFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__exclusiveGateway_default_defaultFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__defaultFlowToFlow_target_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__defaultFlow_sourceRef_exclusiveGateway,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__exclusiveGatewayToNormalStep_source_exclusiveGateway,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -2472,15 +1816,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												JavaSDM.ensure(isApplicableMatch != null);
 												// check object ruleresult is really bound
 												JavaSDM.ensure(ruleresult != null);
-												// assign attribute ruleresult
-												ruleresult.setSuccess(true);
 												// assign attribute isApplicableMatch
 												isApplicableMatch
 														.setRuleName("SeqFlowAfterEGToAltFlowRule");
+												// assign attribute ruleresult
+												ruleresult.setSuccess(true);
 
 												// create link
-												isApplicableMatch
-														.setIsApplicableRuleResult(ruleresult);
+												ruleresult
+														.getIsApplicableMatch()
+														.add(isApplicableMatch);
 
 												fujaba__Success = true;
 											} catch (JavaSDMException fujaba__InternalException) {
@@ -2703,8 +2048,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge __useCase_flows_alternativeFlow = null;
 		EMoflonEdge __alt_ref_alternativeFlow = null;
 		EMoflonEdge __normalStep_stepAlternative_alt = null;
-		EMoflonEdge __useCase_flows_flow = null;
 		EMoflonEdge __flow_steps_normalStep = null;
+		EMoflonEdge __useCase_flows_flow = null;
 
 		// story node 'initial bindings'
 		try {
@@ -2787,16 +2132,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				__alt_ref_alternativeFlow.setName("ref");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match, alt,
-						"toBeTranslatedNodes");
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__useCase_flows_alternativeFlow, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						alternativeFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_alternativeFlow, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -2807,6 +2148,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						.addOppositeReference(match,
 								__normalStep_stepAlternative_alt,
 								"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match, alt,
+						"toBeTranslatedNodes");
 
 				// create link
 				__useCase_flows_alternativeFlow.setSrc(useCase);
@@ -2850,12 +2195,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects flow and alternativeFlow 
 				JavaSDM.ensure(!flow.equals(alternativeFlow));
 
-				// create object __useCase_flows_flow
-				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __flow_steps_normalStep
 				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __useCase_flows_flow
+				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __useCase_flows_flow
@@ -2865,11 +2210,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_flow, "contextEdges");
+						normalStep, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -2877,20 +2218,24 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
+						__useCase_flows_flow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						normalStep, "contextNodes");
+						flow, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						useCase, "contextNodes");
 
 				// create link
 				__useCase_flows_flow.setSrc(useCase);
 
 				// create link
-				__flow_steps_normalStep.setSrc(flow);
+				__useCase_flows_flow.setTrg(flow);
 
 				// create link
-				__useCase_flows_flow.setTrg(flow);
+				__flow_steps_normalStep.setSrc(flow);
 
 				// create link
 				__flow_steps_normalStep.setTrg(normalStep);
@@ -2936,16 +2281,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		SequenceFlow outFlow = null;
 		SeqFlowToAltFlowAlt outFlowToAlt = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __normalStep_stepAlternative_alt = null;
-		EMoflonEdge outFlowToAlt__source__outFlow = null;
-		EMoflonEdge __useCase_flows_alternativeFlow = null;
-		EMoflonEdge outFlowToAlternativeFlow__target__alternativeFlow = null;
 		EMoflonEdge outFlow__sourceRef__exclusiveGateway = null;
-		EMoflonEdge process__flowElements__outFlow = null;
-		EMoflonEdge __alt_ref_alternativeFlow = null;
-		EMoflonEdge outFlowToAlternativeFlow__source__outFlow = null;
 		EMoflonEdge exclusiveGateway__outgoing__outFlow = null;
+		EMoflonEdge __useCase_flows_alternativeFlow = null;
+		EMoflonEdge outFlowToAlt__source__outFlow = null;
+		EMoflonEdge outFlowToAlternativeFlow__target__alternativeFlow = null;
+		EMoflonEdge __normalStep_stepAlternative_alt = null;
+		EMoflonEdge process__flowElements__outFlow = null;
 		EMoflonEdge outFlowToAlt__target__alt = null;
+		EMoflonEdge outFlowToAlternativeFlow__source__outFlow = null;
+		EMoflonEdge __alt_ref_alternativeFlow = null;
 
 		// story node 'perform transformation'
 		try {
@@ -3032,10 +2377,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object outFlowToAlternativeFlow
 			outFlowToAlternativeFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createSequenceFlowToUCFlow();
@@ -3048,11 +2390,9 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					.createSeqFlowToAltFlowAlt();
 
 			// assign attribute outFlow
-			outFlow.setId((java.lang.String) csp.getAttributeVariable(
-					"outFlow", "id").getValue());
+			outFlow.setId((java.lang.String) csp.getValue("outFlow", "id"));
 			// assign attribute outFlow
-			outFlow.setName((java.lang.String) csp.getAttributeVariable(
-					"outFlow", "name").getValue());
+			outFlow.setName((java.lang.String) csp.getValue("outFlow", "name"));
 
 			// create link
 			outFlowToAlternativeFlow.setTarget(alternativeFlow);
@@ -3098,11 +2438,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlternativeFlow, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alternativeFlow, "translatedElements");
+					alt, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3110,11 +2446,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToAlternativeFlow, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					outFlow, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alt, "translatedElements");
+					alternativeFlow, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -3432,44 +2772,44 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and processToUseCase 
 			JavaSDM.ensure(!useCase.equals(processToUseCase));
 
-			// create object __normalStep_stepAlternative_alt
-			__normalStep_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlt__source__outFlow
-			outFlowToAlt__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __useCase_flows_alternativeFlow
-			__useCase_flows_alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlternativeFlow__target__alternativeFlow
-			outFlowToAlternativeFlow__target__alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object outFlow__sourceRef__exclusiveGateway
 			outFlow__sourceRef__exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object process__flowElements__outFlow
-			process__flowElements__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __alt_ref_alternativeFlow
-			__alt_ref_alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlternativeFlow__source__outFlow
-			outFlowToAlternativeFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object exclusiveGateway__outgoing__outFlow
 			exclusiveGateway__outgoing__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object __useCase_flows_alternativeFlow
+			__useCase_flows_alternativeFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToAlt__source__outFlow
+			outFlowToAlt__source__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToAlternativeFlow__target__alternativeFlow
+			outFlowToAlternativeFlow__target__alternativeFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __normalStep_stepAlternative_alt
+			__normalStep_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object process__flowElements__outFlow
+			process__flowElements__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object outFlowToAlt__target__alt
 			outFlowToAlt__target__alt = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToAlternativeFlow__source__outFlow
+			outFlowToAlternativeFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __alt_ref_alternativeFlow
+			__alt_ref_alternativeFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -3497,15 +2837,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__normalStep_stepAlternative_alt, "translatedEdges");
+					outFlow__sourceRef__exclusiveGateway, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt__source__outFlow, "createdEdges");
+					exclusiveGateway__outgoing__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__useCase_flows_alternativeFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToAlt__source__outFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3514,7 +2858,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow__sourceRef__exclusiveGateway, "createdEdges");
+					__normalStep_stepAlternative_alt, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3522,7 +2866,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__alt_ref_alternativeFlow, "translatedEdges");
+					outFlowToAlt__target__alt, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -3530,11 +2874,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGateway__outgoing__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt__target__alt, "createdEdges");
+					__alt_ref_alternativeFlow, "translatedEdges");
 
 			// create link
 			__useCase_flows_alternativeFlow.setSrc(useCase);
@@ -3561,43 +2901,43 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					.setSrc(outFlowToAlternativeFlow);
 
 			// create link
+			__normalStep_stepAlternative_alt.setTrg(alt);
+
+			// create link
 			outFlowToAlt__target__alt.setTrg(alt);
 
 			// create link
 			__alt_ref_alternativeFlow.setSrc(alt);
 
 			// create link
-			__normalStep_stepAlternative_alt.setTrg(alt);
+			outFlowToAlt__source__outFlow.setSrc(outFlowToAlt);
 
 			// create link
 			outFlowToAlt__target__alt.setSrc(outFlowToAlt);
 
 			// create link
-			outFlowToAlt__source__outFlow.setSrc(outFlowToAlt);
+			outFlow__sourceRef__exclusiveGateway.setTrg(exclusiveGateway);
 
 			// create link
 			exclusiveGateway__outgoing__outFlow.setSrc(exclusiveGateway);
 
 			// create link
-			outFlow__sourceRef__exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
 			process__flowElements__outFlow.setSrc(process);
-
-			// create link
-			outFlowToAlt__source__outFlow.setTrg(outFlow);
-
-			// create link
-			outFlow__sourceRef__exclusiveGateway.setSrc(outFlow);
-
-			// create link
-			outFlowToAlternativeFlow__source__outFlow.setTrg(outFlow);
 
 			// create link
 			process__flowElements__outFlow.setTrg(outFlow);
 
 			// create link
+			outFlowToAlternativeFlow__source__outFlow.setTrg(outFlow);
+
+			// create link
+			outFlowToAlt__source__outFlow.setTrg(outFlow);
+
+			// create link
 			exclusiveGateway__outgoing__outFlow.setTrg(outFlow);
+
+			// create link
+			outFlow__sourceRef__exclusiveGateway.setSrc(outFlow);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -3632,20 +2972,20 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Flow flow = null;
 		NormalStep normalStep = null;
 		UseCase useCase = null;
+		EMoflonEdge __processToUseCase_target_useCase = null;
+		EMoflonEdge __useCase_flows_flow = null;
 		EMoflonEdge __useCase_flows_alternativeFlow = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __useCase_flows_flow = null;
-		EMoflonEdge __processToUseCase_target_useCase = null;
 		EMoflonEdge __processToUseCase_source_process = null;
 		EMoflonEdge __exclusiveGateway_outgoing_defaultFlow = null;
-		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __process_flowElements_defaultFlow = null;
 		EMoflonEdge __defaultFlowToFlow_source_defaultFlow = null;
+		EMoflonEdge __process_flowElements_defaultFlow = null;
 		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
-		EMoflonEdge __defaultFlowToFlow_target_flow = null;
+		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
 		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge __normalStep_stepAlternative_alt = null;
+		EMoflonEdge __defaultFlowToFlow_target_flow = null;
 		EMoflonEdge __exclusiveGatewayToNormalStep_target_normalStep = null;
+		EMoflonEdge __normalStep_stepAlternative_alt = null;
 		EMoflonEdge __exclusiveGatewayToNormalStep_source_exclusiveGateway = null;
 		EMoflonEdge __alt_ref_alternativeFlow = null;
 		EMoflonEdge __process_flowElements_exclusiveGateway = null;
@@ -3870,11 +3210,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(useCase.equals(flow
 												.eContainer()));
 
-										// check link outgoing from defaultFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(defaultFlow
-														.getSourceRef()));
-
 										// check link source from defaultFlowToFlow to defaultFlow
 										JavaSDM.ensure(defaultFlow
 												.equals(defaultFlowToFlow
@@ -3889,6 +3224,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(process
 												.equals(processToUseCase
 														.getSource()));
+
+										// check link sourceRef from defaultFlow to exclusiveGateway
+										JavaSDM.ensure(exclusiveGateway
+												.equals(defaultFlow
+														.getSourceRef()));
 
 										// check link stepAlternative from alt to normalStep
 										JavaSDM.ensure(normalStep.equals(alt
@@ -3913,6 +3253,14 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.equals(processToUseCase
 														.getTarget()));
 
+										// create object __processToUseCase_target_useCase
+										__processToUseCase_target_useCase = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __useCase_flows_flow
+										__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
 										// create object __useCase_flows_alternativeFlow
 										__useCase_flows_alternativeFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
@@ -3920,14 +3268,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										// create object isApplicableMatch
 										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 												.createIsApplicableMatch();
-
-										// create object __useCase_flows_flow
-										__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __processToUseCase_target_useCase
-										__processToUseCase_target_useCase = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
 
 										// create object __processToUseCase_source_process
 										__processToUseCase_source_process = TGGRuntimeFactory.eINSTANCE
@@ -3937,36 +3277,36 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										__exclusiveGateway_outgoing_defaultFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __defaultFlow_sourceRef_exclusiveGateway
-										__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
+										// create object __defaultFlowToFlow_source_defaultFlow
+										__defaultFlowToFlow_source_defaultFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __process_flowElements_defaultFlow
 										__process_flowElements_defaultFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __defaultFlowToFlow_source_defaultFlow
-										__defaultFlowToFlow_source_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
 										// create object __exclusiveGateway_default_defaultFlow
 										__exclusiveGateway_default_defaultFlow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __defaultFlowToFlow_target_flow
-										__defaultFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
+										// create object __defaultFlow_sourceRef_exclusiveGateway
+										__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __flow_steps_normalStep
 										__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __normalStep_stepAlternative_alt
-										__normalStep_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
+										// create object __defaultFlowToFlow_target_flow
+										__defaultFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __exclusiveGatewayToNormalStep_target_normalStep
 										__exclusiveGatewayToNormalStep_target_normalStep = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __normalStep_stepAlternative_alt
+										__normalStep_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __exclusiveGatewayToNormalStep_source_exclusiveGateway
@@ -4030,6 +3370,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.setName("flowElements");
 
 										// create link
+										__processToUseCase_target_useCase
+												.setTrg(useCase);
+
+										// create link
+										__useCase_flows_flow.setSrc(useCase);
+
+										// create link
 										__useCase_flows_alternativeFlow
 												.setSrc(useCase);
 
@@ -4039,44 +3386,17 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														useCase);
 
 										// create link
-										__useCase_flows_flow.setSrc(useCase);
-
-										// create link
-										__processToUseCase_target_useCase
-												.setTrg(useCase);
-
-										// create link
-										__processToUseCase_target_useCase
-												.setSrc(processToUseCase);
-
-										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														processToUseCase);
 
 										// create link
-										__processToUseCase_source_process
+										__processToUseCase_target_useCase
 												.setSrc(processToUseCase);
 
 										// create link
-										__exclusiveGateway_outgoing_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__defaultFlow_sourceRef_exclusiveGateway
-												.setSrc(defaultFlow);
-
-										// create link
-										__process_flowElements_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__defaultFlowToFlow_source_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__exclusiveGateway_default_defaultFlow
-												.setTrg(defaultFlow);
+										__processToUseCase_source_process
+												.setSrc(processToUseCase);
 
 										// create link
 										isApplicableMatch
@@ -4084,8 +3404,29 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														defaultFlow);
 
 										// create link
-										__defaultFlowToFlow_target_flow
-												.setTrg(flow);
+										__exclusiveGateway_outgoing_defaultFlow
+												.setTrg(defaultFlow);
+
+										// create link
+										__defaultFlowToFlow_source_defaultFlow
+												.setTrg(defaultFlow);
+
+										// create link
+										__process_flowElements_defaultFlow
+												.setTrg(defaultFlow);
+
+										// create link
+										__exclusiveGateway_default_defaultFlow
+												.setTrg(defaultFlow);
+
+										// create link
+										__defaultFlow_sourceRef_exclusiveGateway
+												.setSrc(defaultFlow);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														flow);
 
 										// create link
 										__useCase_flows_flow.setTrg(flow);
@@ -4094,14 +3435,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										__flow_steps_normalStep.setSrc(flow);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														flow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														defaultFlowToFlow);
+										__defaultFlowToFlow_target_flow
+												.setTrg(flow);
 
 										// create link
 										__defaultFlowToFlow_source_defaultFlow
@@ -4114,11 +3449,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
-														normalStep);
-
-										// create link
-										__normalStep_stepAlternative_alt
-												.setSrc(normalStep);
+														defaultFlowToFlow);
 
 										// create link
 										__exclusiveGatewayToNormalStep_target_normalStep
@@ -4129,17 +3460,30 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.setTrg(normalStep);
 
 										// create link
+										__normalStep_stepAlternative_alt
+												.setSrc(normalStep);
+
+										// create link
 										isApplicableMatch
-												.getAllContextElements()
-												.add(exclusiveGatewayToNormalStep);
+												.getAllContextElements().add(
+														normalStep);
+
+										// create link
+										__exclusiveGatewayToNormalStep_source_exclusiveGateway
+												.setSrc(exclusiveGatewayToNormalStep);
 
 										// create link
 										__exclusiveGatewayToNormalStep_target_normalStep
 												.setSrc(exclusiveGatewayToNormalStep);
 
 										// create link
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway
-												.setSrc(exclusiveGatewayToNormalStep);
+										isApplicableMatch
+												.getAllContextElements()
+												.add(exclusiveGatewayToNormalStep);
+
+										// create link
+										__alt_ref_alternativeFlow
+												.setTrg(alternativeFlow);
 
 										// create link
 										isApplicableMatch
@@ -4151,15 +3495,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.setTrg(alternativeFlow);
 
 										// create link
-										__alt_ref_alternativeFlow
-												.setTrg(alternativeFlow);
-
-										// create link
 										__alt_ref_alternativeFlow.setSrc(alt);
-
-										// create link
-										__normalStep_stepAlternative_alt
-												.setTrg(alt);
 
 										// create link
 										isApplicableMatch
@@ -4167,7 +3503,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														alt);
 
 										// create link
+										__normalStep_stepAlternative_alt
+												.setTrg(alt);
+
+										// create link
 										__exclusiveGateway_default_defaultFlow
+												.setSrc(exclusiveGateway);
+
+										// create link
+										__exclusiveGateway_outgoing_defaultFlow
 												.setSrc(exclusiveGateway);
 
 										// create link
@@ -4180,10 +3524,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														exclusiveGateway);
 
 										// create link
-										__exclusiveGateway_outgoing_defaultFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
 										__exclusiveGatewayToNormalStep_source_exclusiveGateway
 												.setTrg(exclusiveGateway);
 
@@ -4192,7 +3532,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												.setTrg(exclusiveGateway);
 
 										// create link
-										__process_flowElements_defaultFlow
+										__process_flowElements_exclusiveGateway
 												.setSrc(process);
 
 										// create link
@@ -4201,7 +3541,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														process);
 
 										// create link
-										__process_flowElements_exclusiveGateway
+										__process_flowElements_defaultFlow
 												.setSrc(process);
 
 										// create link
@@ -4212,42 +3552,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__defaultFlowToFlow_source_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlow_sourceRef_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__useCase_flows_alternativeFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
 														__normalStep_stepAlternative_alt,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlowToFlow_target_flow,
 														"allContextElements");
 
 										// create link
@@ -4261,28 +3566,21 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__flow_steps_normalStep,
+														__process_flowElements_exclusiveGateway,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__exclusiveGateway_default_defaultFlow,
+														__useCase_flows_alternativeFlow,
 														"allContextElements");
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__useCase_flows_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToUseCase_target_useCase,
+														__process_flowElements_defaultFlow,
 														"allContextElements");
 
 										// create link
@@ -4296,7 +3594,28 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__process_flowElements_exclusiveGateway,
+														__exclusiveGateway_default_defaultFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__defaultFlowToFlow_target_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__processToUseCase_target_useCase,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__defaultFlow_sourceRef_exclusiveGateway,
 														"allContextElements");
 
 										// create link
@@ -4310,6 +3629,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
+														__flow_steps_normalStep,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
 														__exclusiveGatewayToNormalStep_target_normalStep,
 														"allContextElements");
 
@@ -4317,7 +3643,21 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
+														__useCase_flows_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
 														__exclusiveGateway_outgoing_defaultFlow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__defaultFlowToFlow_source_defaultFlow,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -4358,15 +3698,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 												JavaSDM.ensure(isApplicableMatch != null);
 												// check object ruleresult is really bound
 												JavaSDM.ensure(ruleresult != null);
-												// assign attribute ruleresult
-												ruleresult.setSuccess(true);
 												// assign attribute isApplicableMatch
 												isApplicableMatch
 														.setRuleName("SeqFlowAfterEGToAltFlowRule");
+												// assign attribute ruleresult
+												ruleresult.setSuccess(true);
 
 												// create link
-												isApplicableMatch
-														.setIsApplicableRuleResult(ruleresult);
+												ruleresult
+														.getIsApplicableMatch()
+														.add(isApplicableMatch);
 
 												fujaba__Success = true;
 											} catch (JavaSDMException fujaba__InternalException) {
@@ -4597,17 +3938,17 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_alternativeFlow_flows_337264 = null;
-		NormalStep __DEC_alt_stepAlternative_177203 = null;
-		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_613940 = null;
-		AlternativeFlowAlternative __DEC_alternativeFlow_ref_613940 = null;
+		UseCase __DEC_alternativeFlow_flows_40136 = null;
+		NormalStep __DEC_alt_stepAlternative_442571 = null;
+		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_427914 = null;
+		AlternativeFlowAlternative __DEC_alternativeFlow_ref_427914 = null;
 		Match match = null;
 		Iterator fujaba__IterFlowToNormalStep = null;
 		NormalStep normalStep = null;
-		Iterator fujaba__IterAlternativeFlowToAlt = null;
-		AlternativeFlowAlternative alt = null;
 		Iterator fujaba__IterUseCaseToFlow = null;
 		Flow flow = null;
+		Iterator fujaba__IterAlternativeFlowToAlt = null;
+		AlternativeFlowAlternative alt = null;
 		AlternativeFlow alternativeFlow = null;
 		UseCase useCase = null;
 
@@ -4675,37 +4016,36 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			// check link flows from alternativeFlow to useCase
 			JavaSDM.ensure(useCase.equals(alternativeFlow.eContainer()));
 
-			// iterate to-many link flows from useCase to flow
+			// iterate to-many link ref from alternativeFlow to alt
 			fujaba__Success = false;
 
-			fujaba__IterUseCaseToFlow = new ArrayList(useCase.getFlows())
-					.iterator();
+			fujaba__IterAlternativeFlowToAlt = new ArrayList(
+					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
+							alternativeFlow, AlternativeFlowAlternative.class,
+							"ref")).iterator();
 
-			while (fujaba__IterUseCaseToFlow.hasNext()) {
+			while (fujaba__IterAlternativeFlowToAlt.hasNext()) {
 				try {
-					flow = (Flow) fujaba__IterUseCaseToFlow.next();
+					alt = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowToAlt
+							.next();
 
-					// check object flow is really bound
-					JavaSDM.ensure(flow != null);
-					// check isomorphic binding between objects flow and alternativeFlow 
-					JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-					// iterate to-many link ref from alternativeFlow to alt
+					// check object alt is really bound
+					JavaSDM.ensure(alt != null);
+					// iterate to-many link flows from useCase to flow
 					fujaba__Success = false;
 
-					fujaba__IterAlternativeFlowToAlt = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(alternativeFlow,
-											AlternativeFlowAlternative.class,
-											"ref")).iterator();
+					fujaba__IterUseCaseToFlow = new ArrayList(
+							useCase.getFlows()).iterator();
 
-					while (fujaba__IterAlternativeFlowToAlt.hasNext()) {
+					while (fujaba__IterUseCaseToFlow.hasNext()) {
 						try {
-							alt = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowToAlt
-									.next();
+							flow = (Flow) fujaba__IterUseCaseToFlow.next();
 
-							// check object alt is really bound
-							JavaSDM.ensure(alt != null);
+							// check object flow is really bound
+							JavaSDM.ensure(flow != null);
+							// check isomorphic binding between objects flow and alternativeFlow 
+							JavaSDM.ensure(!flow.equals(alternativeFlow));
+
 							// iterate to-many link steps from flow to normalStep
 							fujaba__Success = false;
 
@@ -4733,20 +4073,20 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_alternativeFlow_flows_337264 = alternativeFlow
+											__DEC_alternativeFlow_flows_40136 = alternativeFlow
 													.eContainer() instanceof UseCase ? (UseCase) alternativeFlow
 													.eContainer() : null;
 
-											// check object __DEC_alternativeFlow_flows_337264 is really bound
-											JavaSDM.ensure(__DEC_alternativeFlow_flows_337264 != null);
+											// check object __DEC_alternativeFlow_flows_40136 is really bound
+											JavaSDM.ensure(__DEC_alternativeFlow_flows_40136 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_alternativeFlow_flows_337264
+											JavaSDM.ensure(__DEC_alternativeFlow_flows_40136
 													.getFlows().contains(
 															alternativeFlow));
 
-											// check isomorphic binding between objects __DEC_alternativeFlow_flows_337264 and useCase 
-											JavaSDM.ensure(!__DEC_alternativeFlow_flows_337264
+											// check isomorphic binding between objects __DEC_alternativeFlow_flows_40136 and useCase 
+											JavaSDM.ensure(!__DEC_alternativeFlow_flows_40136
 													.equals(useCase));
 
 											fujaba__Success = true;
@@ -4763,20 +4103,20 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 											fujaba__Success = false;
 
 											// bind object
-											__DEC_alt_stepAlternative_177203 = alt
+											__DEC_alt_stepAlternative_442571 = alt
 													.eContainer() instanceof NormalStep ? (NormalStep) alt
 													.eContainer() : null;
 
-											// check object __DEC_alt_stepAlternative_177203 is really bound
-											JavaSDM.ensure(__DEC_alt_stepAlternative_177203 != null);
+											// check object __DEC_alt_stepAlternative_442571 is really bound
+											JavaSDM.ensure(__DEC_alt_stepAlternative_442571 != null);
 
 											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_alt_stepAlternative_177203
+											JavaSDM.ensure(__DEC_alt_stepAlternative_442571
 													.getStepAlternative()
 													.contains(alt));
 
-											// check isomorphic binding between objects __DEC_alt_stepAlternative_177203 and normalStep 
-											JavaSDM.ensure(!__DEC_alt_stepAlternative_177203
+											// check isomorphic binding between objects __DEC_alt_stepAlternative_442571 and normalStep 
+											JavaSDM.ensure(!__DEC_alt_stepAlternative_442571
 													.equals(normalStep));
 
 											fujaba__Success = true;
@@ -4792,10 +4132,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										try {
 											fujaba__Success = false;
 
-											// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_613940
+											// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_427914
 											fujaba__Success = false;
 
-											fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_613940 = new ArrayList(
+											fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_427914 = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
 																	alternativeFlow,
@@ -4804,16 +4144,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 													.iterator();
 
 											while (!(fujaba__Success)
-													&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_613940
+													&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_427914
 															.hasNext()) {
 												try {
-													__DEC_alternativeFlow_ref_613940 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_613940
+													__DEC_alternativeFlow_ref_427914 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_427914
 															.next();
 
-													// check object __DEC_alternativeFlow_ref_613940 is really bound
-													JavaSDM.ensure(__DEC_alternativeFlow_ref_613940 != null);
-													// check isomorphic binding between objects __DEC_alternativeFlow_ref_613940 and alt 
-													JavaSDM.ensure(!__DEC_alternativeFlow_ref_613940
+													// check object __DEC_alternativeFlow_ref_427914 is really bound
+													JavaSDM.ensure(__DEC_alternativeFlow_ref_427914 != null);
+													// check isomorphic binding between objects __DEC_alternativeFlow_ref_427914 and alt 
+													JavaSDM.ensure(!__DEC_alternativeFlow_ref_427914
 															.equals(alt));
 
 													fujaba__Success = true;
@@ -4890,7 +4230,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														normalStep,
 														alternativeFlow, alt);
 										if (fujaba__Success) {
-											// statement node ''
+											// statement node 'Ensure that the correct types of elements are matched'
 											fujaba__Success = this
 													.checkTypes_BWD(match);
 											if (fujaba__Success) {
@@ -4975,10 +4315,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_alternativeFlow_flows_493778 = null;
-		NormalStep __DEC_alt_stepAlternative_719506 = null;
-		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_428694 = null;
-		AlternativeFlowAlternative __DEC_alternativeFlow_ref_428694 = null;
+		UseCase __DEC_alternativeFlow_flows_656650 = null;
+		NormalStep __DEC_alt_stepAlternative_94222 = null;
+		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_181397 = null;
+		AlternativeFlowAlternative __DEC_alternativeFlow_ref_181397 = null;
 		Match match = null;
 		Iterator fujaba__IterUseCaseToAlternativeFlow = null;
 		AlternativeFlow alternativeFlow = null;
@@ -5099,19 +4439,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_alternativeFlow_flows_493778 = alternativeFlow
+							__DEC_alternativeFlow_flows_656650 = alternativeFlow
 									.eContainer() instanceof UseCase ? (UseCase) alternativeFlow
 									.eContainer() : null;
 
-							// check object __DEC_alternativeFlow_flows_493778 is really bound
-							JavaSDM.ensure(__DEC_alternativeFlow_flows_493778 != null);
+							// check object __DEC_alternativeFlow_flows_656650 is really bound
+							JavaSDM.ensure(__DEC_alternativeFlow_flows_656650 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_alternativeFlow_flows_493778
+							JavaSDM.ensure(__DEC_alternativeFlow_flows_656650
 									.getFlows().contains(alternativeFlow));
 
-							// check isomorphic binding between objects __DEC_alternativeFlow_flows_493778 and useCase 
-							JavaSDM.ensure(!__DEC_alternativeFlow_flows_493778
+							// check isomorphic binding between objects __DEC_alternativeFlow_flows_656650 and useCase 
+							JavaSDM.ensure(!__DEC_alternativeFlow_flows_656650
 									.equals(useCase));
 
 							fujaba__Success = true;
@@ -5128,18 +4468,18 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_alt_stepAlternative_719506 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
+							__DEC_alt_stepAlternative_94222 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
 									.eContainer() : null;
 
-							// check object __DEC_alt_stepAlternative_719506 is really bound
-							JavaSDM.ensure(__DEC_alt_stepAlternative_719506 != null);
+							// check object __DEC_alt_stepAlternative_94222 is really bound
+							JavaSDM.ensure(__DEC_alt_stepAlternative_94222 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_alt_stepAlternative_719506
+							JavaSDM.ensure(__DEC_alt_stepAlternative_94222
 									.getStepAlternative().contains(alt));
 
-							// check isomorphic binding between objects __DEC_alt_stepAlternative_719506 and normalStep 
-							JavaSDM.ensure(!__DEC_alt_stepAlternative_719506
+							// check isomorphic binding between objects __DEC_alt_stepAlternative_94222 and normalStep 
+							JavaSDM.ensure(!__DEC_alt_stepAlternative_94222
 									.equals(normalStep));
 
 							fujaba__Success = true;
@@ -5155,10 +4495,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_428694
+							// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_181397
 							fujaba__Success = false;
 
-							fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_428694 = new ArrayList(
+							fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_181397 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(
 													alternativeFlow,
@@ -5166,16 +4506,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 													"ref")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_428694
+									&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_181397
 											.hasNext()) {
 								try {
-									__DEC_alternativeFlow_ref_428694 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_428694
+									__DEC_alternativeFlow_ref_181397 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_181397
 											.next();
 
-									// check object __DEC_alternativeFlow_ref_428694 is really bound
-									JavaSDM.ensure(__DEC_alternativeFlow_ref_428694 != null);
-									// check isomorphic binding between objects __DEC_alternativeFlow_ref_428694 and alt 
-									JavaSDM.ensure(!__DEC_alternativeFlow_ref_428694
+									// check object __DEC_alternativeFlow_ref_181397 is really bound
+									JavaSDM.ensure(__DEC_alternativeFlow_ref_181397 != null);
+									// check isomorphic binding between objects __DEC_alternativeFlow_ref_181397 and alt 
+									JavaSDM.ensure(!__DEC_alternativeFlow_ref_181397
 											.equals(alt));
 
 									fujaba__Success = true;
@@ -5243,7 +4583,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 								.isAppropriate_BWD(match, useCase, flow,
 										normalStep, alternativeFlow, alt);
 						if (fujaba__Success) {
-							// statement node ''
+							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_BWD(match);
 							if (fujaba__Success) {
 								// story node 'Add match to rule result'
@@ -5311,10 +4651,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_alternativeFlow_flows_127045 = null;
-		NormalStep __DEC_alt_stepAlternative_78203 = null;
-		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_322091 = null;
-		AlternativeFlowAlternative __DEC_alternativeFlow_ref_322091 = null;
+		UseCase __DEC_alternativeFlow_flows_153638 = null;
+		NormalStep __DEC_alt_stepAlternative_741875 = null;
+		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_521829 = null;
+		AlternativeFlowAlternative __DEC_alternativeFlow_ref_521829 = null;
 		Match match = null;
 		Iterator fujaba__IterFlowToNormalStep = null;
 		NormalStep normalStep = null;
@@ -5438,20 +4778,20 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_alternativeFlow_flows_127045 = alternativeFlow
+									__DEC_alternativeFlow_flows_153638 = alternativeFlow
 											.eContainer() instanceof UseCase ? (UseCase) alternativeFlow
 											.eContainer() : null;
 
-									// check object __DEC_alternativeFlow_flows_127045 is really bound
-									JavaSDM.ensure(__DEC_alternativeFlow_flows_127045 != null);
+									// check object __DEC_alternativeFlow_flows_153638 is really bound
+									JavaSDM.ensure(__DEC_alternativeFlow_flows_153638 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_alternativeFlow_flows_127045
+									JavaSDM.ensure(__DEC_alternativeFlow_flows_153638
 											.getFlows().contains(
 													alternativeFlow));
 
-									// check isomorphic binding between objects __DEC_alternativeFlow_flows_127045 and useCase 
-									JavaSDM.ensure(!__DEC_alternativeFlow_flows_127045
+									// check isomorphic binding between objects __DEC_alternativeFlow_flows_153638 and useCase 
+									JavaSDM.ensure(!__DEC_alternativeFlow_flows_153638
 											.equals(useCase));
 
 									fujaba__Success = true;
@@ -5468,19 +4808,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									fujaba__Success = false;
 
 									// bind object
-									__DEC_alt_stepAlternative_78203 = alt
+									__DEC_alt_stepAlternative_741875 = alt
 											.eContainer() instanceof NormalStep ? (NormalStep) alt
 											.eContainer() : null;
 
-									// check object __DEC_alt_stepAlternative_78203 is really bound
-									JavaSDM.ensure(__DEC_alt_stepAlternative_78203 != null);
+									// check object __DEC_alt_stepAlternative_741875 is really bound
+									JavaSDM.ensure(__DEC_alt_stepAlternative_741875 != null);
 
 									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_alt_stepAlternative_78203
+									JavaSDM.ensure(__DEC_alt_stepAlternative_741875
 											.getStepAlternative().contains(alt));
 
-									// check isomorphic binding between objects __DEC_alt_stepAlternative_78203 and normalStep 
-									JavaSDM.ensure(!__DEC_alt_stepAlternative_78203
+									// check isomorphic binding between objects __DEC_alt_stepAlternative_741875 and normalStep 
+									JavaSDM.ensure(!__DEC_alt_stepAlternative_741875
 											.equals(normalStep));
 
 									fujaba__Success = true;
@@ -5496,10 +4836,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 								try {
 									fujaba__Success = false;
 
-									// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_322091
+									// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_521829
 									fujaba__Success = false;
 
-									fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_322091 = new ArrayList(
+									fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_521829 = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
 															alternativeFlow,
@@ -5507,16 +4847,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 															"ref")).iterator();
 
 									while (!(fujaba__Success)
-											&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_322091
+											&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_521829
 													.hasNext()) {
 										try {
-											__DEC_alternativeFlow_ref_322091 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_322091
+											__DEC_alternativeFlow_ref_521829 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_521829
 													.next();
 
-											// check object __DEC_alternativeFlow_ref_322091 is really bound
-											JavaSDM.ensure(__DEC_alternativeFlow_ref_322091 != null);
-											// check isomorphic binding between objects __DEC_alternativeFlow_ref_322091 and alt 
-											JavaSDM.ensure(!__DEC_alternativeFlow_ref_322091
+											// check object __DEC_alternativeFlow_ref_521829 is really bound
+											JavaSDM.ensure(__DEC_alternativeFlow_ref_521829 != null);
+											// check isomorphic binding between objects __DEC_alternativeFlow_ref_521829 and alt 
+											JavaSDM.ensure(!__DEC_alternativeFlow_ref_521829
 													.equals(alt));
 
 											fujaba__Success = true;
@@ -5587,7 +4927,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										useCase, flow, normalStep,
 										alternativeFlow, alt);
 								if (fujaba__Success) {
-									// statement node ''
+									// statement node 'Ensure that the correct types of elements are matched'
 									fujaba__Success = this
 											.checkTypes_BWD(match);
 									if (fujaba__Success) {
@@ -5664,9 +5004,9 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_451926 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_509013 = null;
-		ExclusiveGateway __DEC_outFlow_default_509013 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_790649 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_105514 = null;
+		ExclusiveGateway __DEC_outFlow_default_105514 = null;
 		Match match = null;
 		bpmn2.Process process = null;
 		SequenceFlow defaultFlow = null;
@@ -5760,10 +5100,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			// check link flowElements from outFlow to process
 			JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-			// check link outgoing from defaultFlow to exclusiveGateway
+			// check link sourceRef from defaultFlow to exclusiveGateway
 			JavaSDM.ensure(exclusiveGateway.equals(defaultFlow.getSourceRef()));
 
-			// check link outgoing from outFlow to exclusiveGateway
+			// check link sourceRef from outFlow to exclusiveGateway
 			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
 
 			// story node 'test core match and DECs'
@@ -5775,18 +5115,18 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_outFlow_flowElements_451926 = outFlow.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
+					__DEC_outFlow_flowElements_790649 = outFlow.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 							.eContainer() : null;
 
-					// check object __DEC_outFlow_flowElements_451926 is really bound
-					JavaSDM.ensure(__DEC_outFlow_flowElements_451926 != null);
+					// check object __DEC_outFlow_flowElements_790649 is really bound
+					JavaSDM.ensure(__DEC_outFlow_flowElements_790649 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_outFlow_flowElements_451926
+					JavaSDM.ensure(__DEC_outFlow_flowElements_790649
 							.getFlowElements().contains(outFlow));
 
-					// check isomorphic binding between objects __DEC_outFlow_flowElements_451926 and process 
-					JavaSDM.ensure(!__DEC_outFlow_flowElements_451926
+					// check isomorphic binding between objects __DEC_outFlow_flowElements_790649 and process 
+					JavaSDM.ensure(!__DEC_outFlow_flowElements_790649
 							.equals(process));
 
 					fujaba__Success = true;
@@ -5802,26 +5142,26 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link default from outFlow to __DEC_outFlow_default_509013
+					// iterate to-many link default from outFlow to __DEC_outFlow_default_105514
 					fujaba__Success = false;
 
-					fujaba__IterOutFlowTo__DEC_outFlow_default_509013 = new ArrayList(
+					fujaba__IterOutFlowTo__DEC_outFlow_default_105514 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(outFlow,
 											ExclusiveGateway.class, "default"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterOutFlowTo__DEC_outFlow_default_509013
+							&& fujaba__IterOutFlowTo__DEC_outFlow_default_105514
 									.hasNext()) {
 						try {
-							__DEC_outFlow_default_509013 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_509013
+							__DEC_outFlow_default_105514 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_105514
 									.next();
 
-							// check object __DEC_outFlow_default_509013 is really bound
-							JavaSDM.ensure(__DEC_outFlow_default_509013 != null);
-							// check isomorphic binding between objects __DEC_outFlow_default_509013 and exclusiveGateway 
-							JavaSDM.ensure(!__DEC_outFlow_default_509013
+							// check object __DEC_outFlow_default_105514 is really bound
+							JavaSDM.ensure(__DEC_outFlow_default_105514 != null);
+							// check isomorphic binding between objects __DEC_outFlow_default_105514 and exclusiveGateway 
+							JavaSDM.ensure(!__DEC_outFlow_default_105514
 									.equals(exclusiveGateway));
 
 							fujaba__Success = true;
@@ -5868,11 +5208,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				// check link flowElements from outFlow to process
 				JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-				// check link outgoing from defaultFlow to exclusiveGateway
+				// check link sourceRef from defaultFlow to exclusiveGateway
 				JavaSDM.ensure(exclusiveGateway.equals(defaultFlow
 						.getSourceRef()));
 
-				// check link outgoing from outFlow to exclusiveGateway
+				// check link sourceRef from outFlow to exclusiveGateway
 				JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
 
 				// check link src from _edge_sourceRef to outFlow
@@ -5890,7 +5230,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_FWD(match, defaultFlow,
 						exclusiveGateway, process, outFlow);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -5951,16 +5291,16 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_598387 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_403078 = null;
-		ExclusiveGateway __DEC_outFlow_default_403078 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_22648 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_832625 = null;
+		ExclusiveGateway __DEC_outFlow_default_832625 = null;
 		Match match = null;
 		Iterator fujaba__IterExclusiveGatewayTo_edge_sourceRef = null;
 		EMoflonEdge _edge_sourceRef = null;
-		SequenceFlow outFlow = null;
 		bpmn2.Process process = null;
 		SequenceFlow defaultFlow = null;
 		ExclusiveGateway exclusiveGateway = null;
+		SequenceFlow outFlow = null;
 
 		// story node 'prepare return value'
 		try {
@@ -6010,6 +5350,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_outgoing is really bound
 			JavaSDM.ensure(_edge_outgoing != null);
 			// bind object
+			_TmpObject = _edge_outgoing.getTrg();
+
+			// ensure correct type and really bound of object outFlow
+			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+			outFlow = (SequenceFlow) _TmpObject;
+
+			// bind object
 			_TmpObject = _edge_outgoing.getSrc();
 
 			// ensure correct type and really bound of object exclusiveGateway
@@ -6021,6 +5368,9 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 			// check object defaultFlow is really bound
 			JavaSDM.ensure(defaultFlow != null);
+
+			// check isomorphic binding between objects outFlow and defaultFlow 
+			JavaSDM.ensure(!outFlow.equals(defaultFlow));
 
 			// bind object
 			_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
@@ -6036,23 +5386,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			// check link flowElements from defaultFlow to process
 			JavaSDM.ensure(process.equals(defaultFlow.eContainer()));
 
-			// check link outgoing from defaultFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(defaultFlow.getSourceRef()));
-
-			// bind object
-			_TmpObject = _edge_outgoing.getTrg();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// check isomorphic binding between objects outFlow and defaultFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
 			// check link flowElements from outFlow to process
 			JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-			// check link outgoing from outFlow to exclusiveGateway
+			// check link sourceRef from defaultFlow to exclusiveGateway
+			JavaSDM.ensure(exclusiveGateway.equals(defaultFlow.getSourceRef()));
+
+			// check link sourceRef from outFlow to exclusiveGateway
 			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
 
 			// iterate to-many link trg from exclusiveGateway to _edge_sourceRef
@@ -6085,19 +5425,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_outFlow_flowElements_598387 = outFlow
+							__DEC_outFlow_flowElements_22648 = outFlow
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 									.eContainer() : null;
 
-							// check object __DEC_outFlow_flowElements_598387 is really bound
-							JavaSDM.ensure(__DEC_outFlow_flowElements_598387 != null);
+							// check object __DEC_outFlow_flowElements_22648 is really bound
+							JavaSDM.ensure(__DEC_outFlow_flowElements_22648 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_outFlow_flowElements_598387
+							JavaSDM.ensure(__DEC_outFlow_flowElements_22648
 									.getFlowElements().contains(outFlow));
 
-							// check isomorphic binding between objects __DEC_outFlow_flowElements_598387 and process 
-							JavaSDM.ensure(!__DEC_outFlow_flowElements_598387
+							// check isomorphic binding between objects __DEC_outFlow_flowElements_22648 and process 
+							JavaSDM.ensure(!__DEC_outFlow_flowElements_22648
 									.equals(process));
 
 							fujaba__Success = true;
@@ -6113,26 +5453,26 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link default from outFlow to __DEC_outFlow_default_403078
+							// iterate to-many link default from outFlow to __DEC_outFlow_default_832625
 							fujaba__Success = false;
 
-							fujaba__IterOutFlowTo__DEC_outFlow_default_403078 = new ArrayList(
+							fujaba__IterOutFlowTo__DEC_outFlow_default_832625 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(outFlow,
 													ExclusiveGateway.class,
 													"default")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterOutFlowTo__DEC_outFlow_default_403078
+									&& fujaba__IterOutFlowTo__DEC_outFlow_default_832625
 											.hasNext()) {
 								try {
-									__DEC_outFlow_default_403078 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_403078
+									__DEC_outFlow_default_832625 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_832625
 											.next();
 
-									// check object __DEC_outFlow_default_403078 is really bound
-									JavaSDM.ensure(__DEC_outFlow_default_403078 != null);
-									// check isomorphic binding between objects __DEC_outFlow_default_403078 and exclusiveGateway 
-									JavaSDM.ensure(!__DEC_outFlow_default_403078
+									// check object __DEC_outFlow_default_832625 is really bound
+									JavaSDM.ensure(__DEC_outFlow_default_832625 != null);
+									// check isomorphic binding between objects __DEC_outFlow_default_832625 and exclusiveGateway 
+									JavaSDM.ensure(!__DEC_outFlow_default_832625
 											.equals(exclusiveGateway));
 
 									fujaba__Success = true;
@@ -6187,11 +5527,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						// check link flowElements from outFlow to process
 						JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-						// check link outgoing from defaultFlow to exclusiveGateway
+						// check link sourceRef from defaultFlow to exclusiveGateway
 						JavaSDM.ensure(exclusiveGateway.equals(defaultFlow
 								.getSourceRef()));
 
-						// check link outgoing from outFlow to exclusiveGateway
+						// check link sourceRef from outFlow to exclusiveGateway
 						JavaSDM.ensure(exclusiveGateway.equals(outFlow
 								.getSourceRef()));
 
@@ -6219,7 +5559,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 								.isAppropriate_FWD(match, defaultFlow,
 										exclusiveGateway, process, outFlow);
 						if (fujaba__Success) {
-							// statement node ''
+							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_FWD(match);
 							if (fujaba__Success) {
 								// story node 'Add match to rule result'
@@ -6287,15 +5627,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_781235 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_974275 = null;
-		ExclusiveGateway __DEC_outFlow_default_974275 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_375195 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_707913 = null;
+		ExclusiveGateway __DEC_outFlow_default_707913 = null;
 		Match match = null;
 		ExclusiveGateway exclusiveGateway = null;
 		Iterator fujaba__IterProcessToDefaultFlow = null;
 		SequenceFlow defaultFlow = null;
-		bpmn2.Process process = null;
 		SequenceFlow outFlow = null;
+		bpmn2.Process process = null;
 
 		// story node 'prepare return value'
 		try {
@@ -6345,18 +5685,18 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_flowElements is really bound
 			JavaSDM.ensure(_edge_flowElements != null);
 			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
 			_TmpObject = _edge_flowElements.getSrc();
 
 			// ensure correct type and really bound of object process
 			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
 			process = (bpmn2.Process) _TmpObject;
+
+			// bind object
+			_TmpObject = _edge_flowElements.getTrg();
+
+			// ensure correct type and really bound of object outFlow
+			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+			outFlow = (SequenceFlow) _TmpObject;
 
 			// check link flowElements from outFlow to process
 			JavaSDM.ensure(process.equals(outFlow.eContainer()));
@@ -6391,7 +5731,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					// check link flowElements from exclusiveGateway to process
 					JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
 
-					// check link outgoing from outFlow to exclusiveGateway
+					// check link sourceRef from outFlow to exclusiveGateway
 					JavaSDM.ensure(exclusiveGateway.equals(outFlow
 							.getSourceRef()));
 
@@ -6404,19 +5744,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_outFlow_flowElements_781235 = outFlow
+							__DEC_outFlow_flowElements_375195 = outFlow
 									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 									.eContainer() : null;
 
-							// check object __DEC_outFlow_flowElements_781235 is really bound
-							JavaSDM.ensure(__DEC_outFlow_flowElements_781235 != null);
+							// check object __DEC_outFlow_flowElements_375195 is really bound
+							JavaSDM.ensure(__DEC_outFlow_flowElements_375195 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_outFlow_flowElements_781235
+							JavaSDM.ensure(__DEC_outFlow_flowElements_375195
 									.getFlowElements().contains(outFlow));
 
-							// check isomorphic binding between objects __DEC_outFlow_flowElements_781235 and process 
-							JavaSDM.ensure(!__DEC_outFlow_flowElements_781235
+							// check isomorphic binding between objects __DEC_outFlow_flowElements_375195 and process 
+							JavaSDM.ensure(!__DEC_outFlow_flowElements_375195
 									.equals(process));
 
 							fujaba__Success = true;
@@ -6432,26 +5772,26 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link default from outFlow to __DEC_outFlow_default_974275
+							// iterate to-many link default from outFlow to __DEC_outFlow_default_707913
 							fujaba__Success = false;
 
-							fujaba__IterOutFlowTo__DEC_outFlow_default_974275 = new ArrayList(
+							fujaba__IterOutFlowTo__DEC_outFlow_default_707913 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(outFlow,
 													ExclusiveGateway.class,
 													"default")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterOutFlowTo__DEC_outFlow_default_974275
+									&& fujaba__IterOutFlowTo__DEC_outFlow_default_707913
 											.hasNext()) {
 								try {
-									__DEC_outFlow_default_974275 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_974275
+									__DEC_outFlow_default_707913 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_707913
 											.next();
 
-									// check object __DEC_outFlow_default_974275 is really bound
-									JavaSDM.ensure(__DEC_outFlow_default_974275 != null);
-									// check isomorphic binding between objects __DEC_outFlow_default_974275 and exclusiveGateway 
-									JavaSDM.ensure(!__DEC_outFlow_default_974275
+									// check object __DEC_outFlow_default_707913 is really bound
+									JavaSDM.ensure(__DEC_outFlow_default_707913 != null);
+									// check isomorphic binding between objects __DEC_outFlow_default_707913 and exclusiveGateway 
+									JavaSDM.ensure(!__DEC_outFlow_default_707913
 											.equals(exclusiveGateway));
 
 									fujaba__Success = true;
@@ -6501,11 +5841,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						// check link flowElements from outFlow to process
 						JavaSDM.ensure(process.equals(outFlow.eContainer()));
 
-						// check link outgoing from defaultFlow to exclusiveGateway
+						// check link sourceRef from defaultFlow to exclusiveGateway
 						JavaSDM.ensure(exclusiveGateway.equals(defaultFlow
 								.getSourceRef()));
 
-						// check link outgoing from outFlow to exclusiveGateway
+						// check link sourceRef from outFlow to exclusiveGateway
 						JavaSDM.ensure(exclusiveGateway.equals(outFlow
 								.getSourceRef()));
 
@@ -6527,7 +5867,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 								.isAppropriate_FWD(match, defaultFlow,
 										exclusiveGateway, process, outFlow);
 						if (fujaba__Success) {
-							// statement node ''
+							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_FWD(match);
 							if (fujaba__Success) {
 								// story node 'Add match to rule result'
@@ -6613,489 +5953,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			FlowNodeToStep exclusiveGatewayToNormalStepDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		AlternativeFlow alternativeFlow = null;
-		AlternativeFlowAlternative alt = null;
-		SequenceFlowToUCFlow outFlowToAlternativeFlow = null;
-		SequenceFlow outFlow = null;
-		SeqFlowToAltFlowAlt outFlowToAlt = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterUseCaseToProcessToUseCase = null;
-		ProcessToUseCase processToUseCase = null;
-		Iterator fujaba__IterFlowToDefaultFlowToFlow = null;
-		SequenceFlowToUCFlow defaultFlowToFlow = null;
-		SequenceFlow defaultFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		UseCase useCase = null;
-		Flow flow = null;
-		NormalStep normalStep = null;
-		Iterator fujaba__IterExclusiveGatewayToNormalStepListToExclusiveGatewayToNormalStep = null;
-		FlowNodeToStep exclusiveGatewayToNormalStep = null;
-		Iterator fujaba__IterRuleEntryContainerToExclusiveGatewayToNormalStepList = null;
-		RuleEntryList exclusiveGatewayToNormalStepList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to exclusiveGatewayToNormalStepList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToExclusiveGatewayToNormalStepList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToExclusiveGatewayToNormalStepList
-					.hasNext()) {
-				try {
-					exclusiveGatewayToNormalStepList = (RuleEntryList) fujaba__IterRuleEntryContainerToExclusiveGatewayToNormalStepList
-							.next();
-
-					// check object exclusiveGatewayToNormalStepList is really bound
-					JavaSDM.ensure(exclusiveGatewayToNormalStepList != null);
-					// iterate to-many link entryObjects from exclusiveGatewayToNormalStepList to exclusiveGatewayToNormalStep
-					fujaba__Success = false;
-
-					fujaba__IterExclusiveGatewayToNormalStepListToExclusiveGatewayToNormalStep = new ArrayList(
-							exclusiveGatewayToNormalStepList.getEntryObjects())
-							.iterator();
-
-					while (fujaba__IterExclusiveGatewayToNormalStepListToExclusiveGatewayToNormalStep
-							.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterExclusiveGatewayToNormalStepListToExclusiveGatewayToNormalStep
-									.next();
-
-							// ensure correct type and really bound of object exclusiveGatewayToNormalStep
-							JavaSDM.ensure(_TmpObject instanceof FlowNodeToStep);
-							exclusiveGatewayToNormalStep = (FlowNodeToStep) _TmpObject;
-							// bind object
-							_TmpObject = exclusiveGatewayToNormalStep
-									.getTarget();
-
-							// ensure correct type and really bound of object normalStep
-							JavaSDM.ensure(_TmpObject instanceof NormalStep);
-							normalStep = (NormalStep) _TmpObject;
-
-							// bind object
-							flow = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
-									.eContainer() : null;
-
-							// check object flow is really bound
-							JavaSDM.ensure(flow != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(flow.getSteps().contains(normalStep));
-
-							// bind object
-							useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
-									.eContainer() : null;
-
-							// check object useCase is really bound
-							JavaSDM.ensure(useCase != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(useCase.getFlows().contains(flow));
-
-							// bind object
-							_TmpObject = exclusiveGatewayToNormalStep
-									.getSource();
-
-							// ensure correct type and really bound of object exclusiveGateway
-							JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-							exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-							// bind object
-							defaultFlow = exclusiveGateway.getDefault();
-
-							// check object defaultFlow is really bound
-							JavaSDM.ensure(defaultFlow != null);
-
-							// check link outgoing from defaultFlow to exclusiveGateway
-							JavaSDM.ensure(exclusiveGateway.equals(defaultFlow
-									.getSourceRef()));
-
-							// iterate to-many link target from flow to defaultFlowToFlow
-							fujaba__Success = false;
-
-							fujaba__IterFlowToDefaultFlowToFlow = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(flow,
-													SequenceFlowToUCFlow.class,
-													"target")).iterator();
-
-							while (fujaba__IterFlowToDefaultFlowToFlow
-									.hasNext()) {
-								try {
-									defaultFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterFlowToDefaultFlowToFlow
-											.next();
-
-									// check object defaultFlowToFlow is really bound
-									JavaSDM.ensure(defaultFlowToFlow != null);
-									// check link source from defaultFlowToFlow to defaultFlow
-									JavaSDM.ensure(defaultFlow
-											.equals(defaultFlowToFlow
-													.getSource()));
-
-									// iterate to-many link target from useCase to processToUseCase
-									fujaba__Success = false;
-
-									fujaba__IterUseCaseToProcessToUseCase = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															useCase,
-															ProcessToUseCase.class,
-															"target"))
-											.iterator();
-
-									while (fujaba__IterUseCaseToProcessToUseCase
-											.hasNext()) {
-										try {
-											processToUseCase = (ProcessToUseCase) fujaba__IterUseCaseToProcessToUseCase
-													.next();
-
-											// check object processToUseCase is really bound
-											JavaSDM.ensure(processToUseCase != null);
-											// bind object
-											process = processToUseCase
-													.getSource();
-
-											// check object process is really bound
-											JavaSDM.ensure(process != null);
-
-											// check link flowElements from defaultFlow to process
-											JavaSDM.ensure(process
-													.equals(defaultFlow
-															.eContainer()));
-
-											// check link flowElements from exclusiveGateway to process
-											JavaSDM.ensure(process
-													.equals(exclusiveGateway
-															.eContainer()));
-
-											// story node 'solve CSP'
-											try {
-												fujaba__Success = false;
-
-												_TmpObject = (this
-														.generateModel_solveCsp_BWD(
-																isApplicableMatch,
-																useCase,
-																processToUseCase,
-																defaultFlow,
-																flow,
-																defaultFlowToFlow,
-																normalStep,
-																exclusiveGatewayToNormalStep,
-																alternativeFlow,
-																outFlowToAlternativeFlow,
-																alt,
-																outFlowToAlt,
-																exclusiveGateway,
-																process,
-																outFlow,
-																ruleResult));
-
-												// ensure correct type and really bound of object csp
-												JavaSDM.ensure(_TmpObject instanceof CSP);
-												csp = (CSP) _TmpObject;
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
-											}
-
-											// statement node 'check CSP'
-											fujaba__Success = this
-													.generateModel_checkCsp_BWD(csp);
-											if (fujaba__Success) {
-												// story node 'perform'
-												try {
-													fujaba__Success = false;
-
-													// check object defaultFlow is really bound
-													JavaSDM.ensure(defaultFlow != null);
-													// check object defaultFlowToFlow is really bound
-													JavaSDM.ensure(defaultFlowToFlow != null);
-													// check object exclusiveGateway is really bound
-													JavaSDM.ensure(exclusiveGateway != null);
-													// check object exclusiveGatewayToNormalStep is really bound
-													JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-													// check object flow is really bound
-													JavaSDM.ensure(flow != null);
-													// check object normalStep is really bound
-													JavaSDM.ensure(normalStep != null);
-													// check object process is really bound
-													JavaSDM.ensure(process != null);
-													// check object processToUseCase is really bound
-													JavaSDM.ensure(processToUseCase != null);
-													// check object ruleResult is really bound
-													JavaSDM.ensure(ruleResult != null);
-													// check object useCase is really bound
-													JavaSDM.ensure(useCase != null);
-													// create object alternativeFlow
-													alternativeFlow = UseCaseDSLFactory.eINSTANCE
-															.createAlternativeFlow();
-
-													// create object alt
-													alt = UseCaseDSLFactory.eINSTANCE
-															.createAlternativeFlowAlternative();
-
-													// create object outFlowToAlternativeFlow
-													outFlowToAlternativeFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-															.createSequenceFlowToUCFlow();
-
-													// create object outFlow
-													outFlow = Bpmn2Factory.eINSTANCE
-															.createSequenceFlow();
-
-													// create object outFlowToAlt
-													outFlowToAlt = BpmnToUseCaseIntegrationFactory.eINSTANCE
-															.createSeqFlowToAltFlowAlt();
-
-													// assign attribute alternativeFlow
-													alternativeFlow
-															.setName((java.lang.String) csp
-																	.getAttributeVariable(
-																			"alternativeFlow",
-																			"name")
-																	.getValue());
-													// assign attribute alt
-													alt.setCondition((java.lang.String) csp
-															.getAttributeVariable(
-																	"alt",
-																	"condition")
-															.getValue());
-													// assign attribute outFlow
-													outFlow.setId((java.lang.String) csp
-															.getAttributeVariable(
-																	"outFlow",
-																	"id")
-															.getValue());
-													// assign attribute outFlow
-													outFlow.setName((java.lang.String) csp
-															.getAttributeVariable(
-																	"outFlow",
-																	"name")
-															.getValue());
-													// assign attribute ruleResult
-													ruleResult.setSuccess(true);
-
-													// create link
-													useCase.getFlows().add(
-															alternativeFlow); // add link
-
-													// create link
-													normalStep
-															.getStepAlternative()
-															.add(alt); // add link
-
-													// create link
-													ruleResult
-															.getTargetObjects()
-															.add(alternativeFlow);
-
-													// create link
-													outFlowToAlternativeFlow
-															.setTarget(alternativeFlow);
-
-													// create link
-													alt.setRef(alternativeFlow);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	outFlowToAlternativeFlow,
-																	outFlow,
-																	"source");
-
-													// create link
-													ruleResult
-															.getCorrObjects()
-															.add(outFlowToAlternativeFlow);
-
-													// create link
-													outFlowToAlt.setTarget(alt);
-
-													// create link
-													ruleResult
-															.getTargetObjects()
-															.add(alt);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	outFlowToAlt,
-																	outFlow,
-																	"source");
-
-													// create link
-													ruleResult.getCorrObjects()
-															.add(outFlowToAlt);
-
-													// create link
-													outFlow.setSourceRef(exclusiveGateway);
-
-													// create link
-													process.getFlowElements()
-															.add(outFlow); // add link
-
-													// create link
-													ruleResult
-															.getSourceObjects()
-															.add(outFlow);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												return ruleResult;
-
-											}
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			UseCase useCase, ProcessToUseCase processToUseCase,
-			SequenceFlow defaultFlow, Flow flow,
-			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
-			FlowNodeToStep exclusiveGatewayToNormalStep,
-			AlternativeFlow alternativeFlow,
-			SequenceFlowToUCFlow outFlowToAlternativeFlow,
-			AlternativeFlowAlternative alt, SeqFlowToAltFlowAlt outFlowToAlt,
-			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
-			SequenceFlow outFlow, ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-
-		// Create attribute variables
-
-		// Create explicit parameters
-
-		// Create unbound variables
-		Variable var_outFlow_id = CSPFactoryHelper.eINSTANCE.createVariable(
-				"outFlow.id", csp);
-		var_outFlow_id.setType("");
-		Variable var_alternativeFlow_name = CSPFactoryHelper.eINSTANCE
-				.createVariable("alternativeFlow.name", csp);
-		var_alternativeFlow_name.setType("");
-		Variable var_outFlow_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"outFlow.name", csp);
-		var_outFlow_name.setType("");
-		Variable var_alt_condition = CSPFactoryHelper.eINSTANCE.createVariable(
-				"alt.condition", csp);
-		var_alt_condition.setType("");
-
-		// Create constraints
-		Eq eq = new Eq();
-		Eq eq_0 = new Eq();
-
-		csp.getConstraints().add(eq);
-		csp.getConstraints().add(eq_0);
-
-		// Solve CSP
-		eq.setRuleName("");
-		eq.solve(var_outFlow_id, var_alternativeFlow_name);
-		eq_0.setRuleName("");
-		eq_0.solve(var_outFlow_name, var_alt_condition);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("useCase", useCase);
-		isApplicableMatch.registerObject("processToUseCase", processToUseCase);
-		isApplicableMatch.registerObject("defaultFlow", defaultFlow);
-		isApplicableMatch.registerObject("flow", flow);
-		isApplicableMatch
-				.registerObject("defaultFlowToFlow", defaultFlowToFlow);
-		isApplicableMatch.registerObject("normalStep", normalStep);
-		isApplicableMatch.registerObject("exclusiveGatewayToNormalStep",
-				exclusiveGatewayToNormalStep);
-		isApplicableMatch.registerObject("exclusiveGateway", exclusiveGateway);
-		isApplicableMatch.registerObject("process", process);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -7106,10 +5963,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					(ExclusiveGateway) arguments.get(2),
 					(bpmn2.Process) arguments.get(3),
 					(SequenceFlow) arguments.get(4));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPLICABLE_FWD__MATCH:
-			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPLICABLE_FWD__MATCH:
+			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_PROCESS_SEQUENCEFLOW:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(SequenceFlow) arguments.get(1),
@@ -7157,10 +6014,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					(NormalStep) arguments.get(3),
 					(AlternativeFlow) arguments.get(4),
 					(AlternativeFlowAlternative) arguments.get(5));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPLICABLE_BWD__MATCH:
-			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPLICABLE_BWD__MATCH:
+			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_USECASE_FLOW_NORMALSTEP_ALTERNATIVEFLOW_ALTERNATIVEFLOWALTERNATIVE:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
 					(UseCase) arguments.get(1), (Flow) arguments.get(2),
@@ -7225,28 +6082,6 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(FlowNodeToStep) arguments.get(1));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_PROCESSTOUSECASE_SEQUENCEFLOW_FLOW_SEQUENCEFLOWTOUCFLOW_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_EXCLUSIVEGATEWAY_PROCESS_SEQUENCEFLOW_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(UseCase) arguments.get(1),
-					(ProcessToUseCase) arguments.get(2),
-					(SequenceFlow) arguments.get(3), (Flow) arguments.get(4),
-					(SequenceFlowToUCFlow) arguments.get(5),
-					(NormalStep) arguments.get(6),
-					(FlowNodeToStep) arguments.get(7),
-					(AlternativeFlow) arguments.get(8),
-					(SequenceFlowToUCFlow) arguments.get(9),
-					(AlternativeFlowAlternative) arguments.get(10),
-					(SeqFlowToAltFlowAlt) arguments.get(11),
-					(ExclusiveGateway) arguments.get(12),
-					(bpmn2.Process) arguments.get(13),
-					(SequenceFlow) arguments.get(14),
-					(ModelgeneratorRuleResult) arguments.get(15));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

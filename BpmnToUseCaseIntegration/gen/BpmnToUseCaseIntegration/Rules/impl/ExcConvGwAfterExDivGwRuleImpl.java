@@ -20,15 +20,11 @@ import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
 import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -69,7 +65,6 @@ import bpmn2.ServiceTask;
 import bpmn2.StartEvent;
 import bpmn2.Task;
 import bpmn2.UserTask;
-import bpmn2.Process;
 
 import de.upb.tools.sdm.*;
 
@@ -85,81 +80,6 @@ import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
@@ -209,21 +129,21 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
 		EMoflonEdge __process_flowElements_exConvGateway = null;
+		EMoflonEdge __exConvGateway_outgoing_outFlow = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge __exConvGateway_incoming_inFlow = null;
 		EMoflonEdge __lane_flowNodeRefs_exConvGateway = null;
 		EMoflonEdge __outFlow_sourceRef_exConvGateway = null;
-		EMoflonEdge __exConvGateway_outgoing_outFlow = null;
 		EMoflonEdge __inFlow_targetRef_exConvGateway = null;
-		EMoflonEdge __exConvGateway_incoming_inFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __exclusiveGateway_outgoing_divergeFlow = null;
-		EMoflonEdge __process_flowElements_divergeFlow = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
 		EMoflonEdge __process_flowElements_defaultFlow = null;
 		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
 		EMoflonEdge __process_flowElements_exclusiveGateway = null;
 		EMoflonEdge __divergeFlow_sourceRef_exclusiveGateway = null;
+		EMoflonEdge __process_flowElements_divergeFlow = null;
+		EMoflonEdge __laneSet_lanes_lane = null;
+		EMoflonEdge __exclusiveGateway_outgoing_divergeFlow = null;
+		EMoflonEdge __process_laneSets_laneSet = null;
 
 		// story node 'initial bindings'
 		try {
@@ -339,12 +259,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects outFlow and inFlow 
 				JavaSDM.ensure(!outFlow.equals(inFlow));
 
+				// create object __process_flowElements_exConvGateway
+				__process_flowElements_exConvGateway = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __exConvGateway_outgoing_outFlow
+				__exConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __process_flowElements_outFlow
 				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __process_flowElements_exConvGateway
-				__process_flowElements_exConvGateway = TGGRuntimeFactory.eINSTANCE
+				// create object __exConvGateway_incoming_inFlow
+				__exConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __lane_flowNodeRefs_exConvGateway
@@ -355,16 +283,8 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 				__outFlow_sourceRef_exConvGateway = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __exConvGateway_outgoing_outFlow
-				__exConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __inFlow_targetRef_exConvGateway
 				__inFlow_targetRef_exConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exConvGateway_incoming_inFlow
-				__exConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __process_flowElements_outFlow
@@ -384,16 +304,30 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_outFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						exConvGateway, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__process_flowElements_exConvGateway,
 						"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						outFlow, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil
+						.addOppositeReference(match,
+								__exConvGateway_outgoing_outFlow,
+								"toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_outFlow, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__exConvGateway_incoming_inFlow, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -408,22 +342,8 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 				// create link
 				org.moflon.util.eMoflonEMFUtil
 						.addOppositeReference(match,
-								__exConvGateway_outgoing_outFlow,
-								"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
 								__inFlow_targetRef_exConvGateway,
 								"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exConvGateway_incoming_inFlow, "toBeTranslatedEdges");
 
 				// create link
 				__inFlow_targetRef_exConvGateway.setSrc(inFlow);
@@ -432,34 +352,34 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 				__exConvGateway_incoming_inFlow.setTrg(inFlow);
 
 				// create link
-				__process_flowElements_exConvGateway.setSrc(process);
+				__process_flowElements_outFlow.setSrc(process);
 
 				// create link
-				__process_flowElements_outFlow.setSrc(process);
+				__process_flowElements_exConvGateway.setSrc(process);
 
 				// create link
 				__lane_flowNodeRefs_exConvGateway.setTrg(exConvGateway);
 
 				// create link
-				__process_flowElements_exConvGateway.setTrg(exConvGateway);
-
-				// create link
 				__outFlow_sourceRef_exConvGateway.setTrg(exConvGateway);
-
-				// create link
-				__exConvGateway_outgoing_outFlow.setSrc(exConvGateway);
 
 				// create link
 				__exConvGateway_incoming_inFlow.setSrc(exConvGateway);
 
 				// create link
+				__exConvGateway_outgoing_outFlow.setSrc(exConvGateway);
+
+				// create link
 				__inFlow_targetRef_exConvGateway.setTrg(exConvGateway);
 
 				// create link
-				__process_flowElements_outFlow.setTrg(outFlow);
+				__process_flowElements_exConvGateway.setTrg(exConvGateway);
 
 				// create link
 				__exConvGateway_outgoing_outFlow.setTrg(outFlow);
+
+				// create link
+				__process_flowElements_outFlow.setTrg(outFlow);
 
 				// create link
 				__outFlow_sourceRef_exConvGateway.setSrc(outFlow);
@@ -517,22 +437,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 				// check isomorphic binding between objects outFlow and inFlow 
 				JavaSDM.ensure(!outFlow.equals(inFlow));
 
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_outgoing_divergeFlow
-				__exclusiveGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_divergeFlow
-				__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __process_flowElements_defaultFlow
 				__process_flowElements_defaultFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
@@ -547,6 +451,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 				// create object __divergeFlow_sourceRef_exclusiveGateway
 				__divergeFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_flowElements_divergeFlow
+				__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __laneSet_lanes_lane
+				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __exclusiveGateway_outgoing_divergeFlow
+				__exclusiveGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __process_laneSets_laneSet
+				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __process_flowElements_exclusiveGateway
@@ -572,21 +492,46 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__exclusiveGateway_outgoing_divergeFlow,
-								"contextEdges");
+						laneSet, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_divergeFlow, "contextEdges");
+						__process_flowElements_defaultFlow, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__exclusiveGateway_default_defaultFlow, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						inFlow, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						process, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						divergeFlow, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						exclusiveGateway, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil
+						.addOppositeReference(match,
+								__process_flowElements_exclusiveGateway,
+								"contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__divergeFlow_sourceRef_exclusiveGateway,
+						"contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__process_flowElements_divergeFlow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -597,39 +542,14 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 						lane, "contextNodes");
 
 				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_defaultFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_default_defaultFlow, "contextEdges");
-
-				// create link
 				org.moflon.util.eMoflonEMFUtil
 						.addOppositeReference(match,
-								__process_flowElements_exclusiveGateway,
+								__exclusiveGateway_outgoing_divergeFlow,
 								"contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						divergeFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__divergeFlow_sourceRef_exclusiveGateway,
-						"contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
+						__process_laneSets_laneSet, "contextEdges");
 
 				// create link
 				__process_laneSets_laneSet.setSrc(process);
@@ -638,23 +558,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 				__process_flowElements_exclusiveGateway.setSrc(process);
 
 				// create link
-				__process_flowElements_divergeFlow.setSrc(process);
-
-				// create link
 				__process_flowElements_defaultFlow.setSrc(process);
 
 				// create link
-				__process_flowElements_defaultFlow.setTrg(defaultFlow);
+				__process_flowElements_divergeFlow.setSrc(process);
 
 				// create link
 				__exclusiveGateway_default_defaultFlow.setTrg(defaultFlow);
 
 				// create link
-				__divergeFlow_sourceRef_exclusiveGateway
-						.setTrg(exclusiveGateway);
+				__process_flowElements_defaultFlow.setTrg(defaultFlow);
 
 				// create link
-				__process_flowElements_exclusiveGateway
+				__exclusiveGateway_default_defaultFlow.setSrc(exclusiveGateway);
+
+				// create link
+				__divergeFlow_sourceRef_exclusiveGateway
 						.setTrg(exclusiveGateway);
 
 				// create link
@@ -662,16 +581,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 						.setSrc(exclusiveGateway);
 
 				// create link
-				__exclusiveGateway_default_defaultFlow.setSrc(exclusiveGateway);
+				__process_flowElements_exclusiveGateway
+						.setTrg(exclusiveGateway);
+
+				// create link
+				__divergeFlow_sourceRef_exclusiveGateway.setSrc(divergeFlow);
 
 				// create link
 				__exclusiveGateway_outgoing_divergeFlow.setTrg(divergeFlow);
 
 				// create link
 				__process_flowElements_divergeFlow.setTrg(divergeFlow);
-
-				// create link
-				__divergeFlow_sourceRef_exclusiveGateway.setSrc(divergeFlow);
 
 				// create link
 				__laneSet_lanes_lane.setTrg(lane);
@@ -728,23 +648,23 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Step step = null;
 		Iterator fujaba__IterIsApplicableMatchToCsp = null;
 		CSP csp = null;
-		FlowNodeToStep ecgwToStep = null;
 		SequenceFlowToStep outFlowToNormalStep = null;
+		FlowNodeToStep ecgwToStep = null;
 		SequenceFlowToUCFlow outFlowToInitFlow = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __exConvGateway_incoming_inFlow = null;
-		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
-		EMoflonEdge __process_flowElements_exConvGateway = null;
-		EMoflonEdge __inFlow_targetRef_exConvGateway = null;
-		EMoflonEdge outFlowToInitFlow__source__outFlow = null;
-		EMoflonEdge ecgwToStep__target__normalStep = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge outFlowToInitFlow__target__initFlow = null;
-		EMoflonEdge ecgwToStep__source__exConvGateway = null;
-		EMoflonEdge __exConvGateway_outgoing_outFlow = null;
 		EMoflonEdge __lane_flowNodeRefs_exConvGateway = null;
 		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
+		EMoflonEdge __process_flowElements_exConvGateway = null;
+		EMoflonEdge outFlowToInitFlow__source__outFlow = null;
 		EMoflonEdge __outFlow_sourceRef_exConvGateway = null;
+		EMoflonEdge __exConvGateway_incoming_inFlow = null;
+		EMoflonEdge __inFlow_targetRef_exConvGateway = null;
+		EMoflonEdge ecgwToStep__source__exConvGateway = null;
+		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
+		EMoflonEdge __exConvGateway_outgoing_outFlow = null;
+		EMoflonEdge outFlowToInitFlow__target__initFlow = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
+		EMoflonEdge ecgwToStep__target__normalStep = null;
 
 		// story node 'perform transformation'
 		try {
@@ -897,27 +817,24 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
-			// create object ecgwToStep
-			ecgwToStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createFlowNodeToStep();
-
+			JavaSDM.ensure(fujaba__Success);
 			// create object outFlowToNormalStep
 			outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createSequenceFlowToStep();
+
+			// create object ecgwToStep
+			ecgwToStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+					.createFlowNodeToStep();
 
 			// create object outFlowToInitFlow
 			outFlowToInitFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createSequenceFlowToUCFlow();
 
 			// create link
-			ecgwToStep.setTarget(normalStep);
+			outFlowToNormalStep.setTarget(normalStep);
 
 			// create link
-			outFlowToNormalStep.setTarget(normalStep);
+			ecgwToStep.setTarget(normalStep);
 
 			// create link
 			outFlowToInitFlow.setTarget(initFlow);
@@ -955,7 +872,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToInitFlow, "createdLinkElements");
+					outFlow, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -963,15 +880,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					ecgwToStep, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "translatedElements");
+					outFlowToInitFlow, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1720,46 +1637,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects step and process 
 			JavaSDM.ensure(!step.equals(process));
 
-			// create object __exConvGateway_incoming_inFlow
-			__exConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_exConvGateway
-			__process_flowElements_exConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __inFlow_targetRef_exConvGateway
-			__inFlow_targetRef_exConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToInitFlow__source__outFlow
-			outFlowToInitFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object ecgwToStep__target__normalStep
-			ecgwToStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_outFlow
-			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToInitFlow__target__initFlow
-			outFlowToInitFlow__target__initFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object ecgwToStep__source__exConvGateway
-			ecgwToStep__source__exConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __exConvGateway_outgoing_outFlow
-			__exConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __lane_flowNodeRefs_exConvGateway
 			__lane_flowNodeRefs_exConvGateway = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
@@ -1768,8 +1645,48 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object __process_flowElements_exConvGateway
+			__process_flowElements_exConvGateway = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToInitFlow__source__outFlow
+			outFlowToInitFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object __outFlow_sourceRef_exConvGateway
 			__outFlow_sourceRef_exConvGateway = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __exConvGateway_incoming_inFlow
+			__exConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __inFlow_targetRef_exConvGateway
+			__inFlow_targetRef_exConvGateway = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object ecgwToStep__source__exConvGateway
+			ecgwToStep__source__exConvGateway = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToNormalStep__target__normalStep
+			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __exConvGateway_outgoing_outFlow
+			__exConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object outFlowToInitFlow__target__initFlow
+			outFlowToInitFlow__target__initFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __process_flowElements_outFlow
+			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object ecgwToStep__target__normalStep
+			ecgwToStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1803,46 +1720,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__exConvGateway_incoming_inFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_exConvGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__inFlow_targetRef_exConvGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToInitFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					ecgwToStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToInitFlow__target__initFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					ecgwToStep__source__exConvGateway, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__exConvGateway_outgoing_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__lane_flowNodeRefs_exConvGateway, "translatedEdges");
 
 			// create link
@@ -1851,13 +1728,53 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__process_flowElements_exConvGateway, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToInitFlow__source__outFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__outFlow_sourceRef_exConvGateway, "translatedEdges");
 
 			// create link
-			__exConvGateway_incoming_inFlow.setTrg(inFlow);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__exConvGateway_incoming_inFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__inFlow_targetRef_exConvGateway, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					ecgwToStep__source__exConvGateway, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToNormalStep__target__normalStep, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__exConvGateway_outgoing_outFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					outFlowToInitFlow__target__initFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__process_flowElements_outFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					ecgwToStep__target__normalStep, "createdEdges");
 
 			// create link
 			__inFlow_targetRef_exConvGateway.setSrc(inFlow);
+
+			// create link
+			__exConvGateway_incoming_inFlow.setTrg(inFlow);
 
 			// create link
 			__process_flowElements_outFlow.setSrc(process);
@@ -1875,46 +1792,46 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			outFlowToInitFlow__target__initFlow.setTrg(initFlow);
 
 			// create link
+			ecgwToStep__source__exConvGateway.setTrg(exConvGateway);
+
+			// create link
+			__lane_flowNodeRefs_exConvGateway.setTrg(exConvGateway);
+
+			// create link
+			__exConvGateway_incoming_inFlow.setSrc(exConvGateway);
+
+			// create link
+			__outFlow_sourceRef_exConvGateway.setTrg(exConvGateway);
+
+			// create link
 			__exConvGateway_outgoing_outFlow.setSrc(exConvGateway);
 
 			// create link
 			__process_flowElements_exConvGateway.setTrg(exConvGateway);
 
 			// create link
-			__lane_flowNodeRefs_exConvGateway.setTrg(exConvGateway);
-
-			// create link
-			__outFlow_sourceRef_exConvGateway.setTrg(exConvGateway);
-
-			// create link
-			__exConvGateway_incoming_inFlow.setSrc(exConvGateway);
-
-			// create link
-			ecgwToStep__source__exConvGateway.setTrg(exConvGateway);
-
-			// create link
 			__inFlow_targetRef_exConvGateway.setTrg(exConvGateway);
-
-			// create link
-			outFlowToInitFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
-
-			// create link
-			__outFlow_sourceRef_exConvGateway.setSrc(outFlow);
 
 			// create link
 			__exConvGateway_outgoing_outFlow.setTrg(outFlow);
 
 			// create link
+			__outFlow_sourceRef_exConvGateway.setSrc(outFlow);
+
+			// create link
+			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
+
+			// create link
+			outFlowToInitFlow__source__outFlow.setTrg(outFlow);
+
+			// create link
 			__process_flowElements_outFlow.setTrg(outFlow);
 
 			// create link
-			ecgwToStep__target__normalStep.setSrc(ecgwToStep);
+			ecgwToStep__source__exConvGateway.setSrc(ecgwToStep);
 
 			// create link
-			ecgwToStep__source__exConvGateway.setSrc(ecgwToStep);
+			ecgwToStep__target__normalStep.setSrc(ecgwToStep);
 
 			// create link
 			outFlowToInitFlow__target__initFlow.setSrc(outFlowToInitFlow);
@@ -1970,25 +1887,25 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		SequenceFlow outFlow = null;
 		bpmn2.Process process = null;
 		Step nextStep = null;
-		EMoflonEdge __inFlow_targetRef_exConvGateway = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __inFlowToStep_source_inFlow = null;
 		EMoflonEdge __exConvGateway_incoming_inFlow = null;
-		EMoflonEdge __flow_steps_step = null;
+		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __inFlow_targetRef_exConvGateway = null;
 		EMoflonEdge __inFlowToStep_target_step = null;
-		EMoflonEdge __process_flowElements_divergeFlow = null;
-		EMoflonEdge __process_flowElements_exclusiveGateway = null;
+		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __process_flowElements_exConvGateway = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
 		EMoflonEdge __process_flowElements_defaultFlow = null;
-		EMoflonEdge __defaultFlowToInitFlow_source_defaultFlow = null;
+		EMoflonEdge __process_laneSets_laneSet = null;
+		EMoflonEdge __process_flowElements_exclusiveGateway = null;
+		EMoflonEdge __process_flowElements_divergeFlow = null;
+		EMoflonEdge __process_flowElements_outFlow = null;
 		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
+		EMoflonEdge __defaultFlowToInitFlow_source_defaultFlow = null;
+		EMoflonEdge __exclusiveGateway_outgoing_divergeFlow = null;
 		EMoflonEdge __egwToStep_source_exclusiveGateway = null;
 		EMoflonEdge __divergeFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_outgoing_divergeFlow = null;
-		EMoflonEdge __divergeFlowToAlt_source_divergeFlow = null;
 		EMoflonEdge __divergeFlowToFlow_source_divergeFlow = null;
+		EMoflonEdge __divergeFlowToAlt_source_divergeFlow = null;
 		EMoflonEdge __egwToStep_target_normalStep = null;
 		EMoflonEdge __divergeFlowToAlt_target_alt = null;
 		EMoflonEdge __defaultFlowToInitFlow_target_initFlow = null;
@@ -1998,21 +1915,21 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge __exConvGateway_outgoing_outFlow = null;
 		EMoflonEdge __laneSet_lanes_lane = null;
 		CSP csp = null;
-		Step step = null;
-		Iterator fujaba__IterInFlowToInFlowToStep = null;
-		SequenceFlowToStep inFlowToStep = null;
 		NormalStep normalStep = null;
 		Iterator fujaba__IterExclusiveGatewayToEgwToStep = null;
 		FlowNodeToStep egwToStep = null;
+		Step step = null;
+		Iterator fujaba__IterInFlowToInFlowToStep = null;
+		SequenceFlowToStep inFlowToStep = null;
+		Flow initFlow = null;
+		Iterator fujaba__IterDefaultFlowToDefaultFlowToInitFlow = null;
+		SequenceFlowToUCFlow defaultFlowToInitFlow = null;
 		AlternativeFlow flow = null;
 		Iterator fujaba__IterDivergeFlowToDivergeFlowToFlow = null;
 		SequenceFlowToUCFlow divergeFlowToFlow = null;
 		AlternativeFlowAlternative alt = null;
 		Iterator fujaba__IterDivergeFlowToDivergeFlowToAlt = null;
 		SeqFlowToAltFlowAlt divergeFlowToAlt = null;
-		Flow initFlow = null;
-		Iterator fujaba__IterDefaultFlowToDefaultFlowToInitFlow = null;
-		SequenceFlowToUCFlow defaultFlowToInitFlow = null;
 
 		// story node 'prepare return value'
 		try {
@@ -2136,131 +2053,132 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects outFlow and inFlow 
 			JavaSDM.ensure(!outFlow.equals(inFlow));
 
-			// iterate to-many link source from defaultFlow to defaultFlowToInitFlow
+			// iterate to-many link source from divergeFlow to divergeFlowToAlt
 			fujaba__Success = false;
 
-			fujaba__IterDefaultFlowToDefaultFlowToInitFlow = new ArrayList(
+			fujaba__IterDivergeFlowToDivergeFlowToAlt = new ArrayList(
 					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							defaultFlow, SequenceFlowToUCFlow.class, "source"))
+							divergeFlow, SeqFlowToAltFlowAlt.class, "source"))
 					.iterator();
 
-			while (fujaba__IterDefaultFlowToDefaultFlowToInitFlow.hasNext()) {
+			while (fujaba__IterDivergeFlowToDivergeFlowToAlt.hasNext()) {
 				try {
-					defaultFlowToInitFlow = (SequenceFlowToUCFlow) fujaba__IterDefaultFlowToDefaultFlowToInitFlow
+					divergeFlowToAlt = (SeqFlowToAltFlowAlt) fujaba__IterDivergeFlowToDivergeFlowToAlt
 							.next();
 
-					// check object defaultFlowToInitFlow is really bound
-					JavaSDM.ensure(defaultFlowToInitFlow != null);
+					// check object divergeFlowToAlt is really bound
+					JavaSDM.ensure(divergeFlowToAlt != null);
 					// bind object
-					initFlow = defaultFlowToInitFlow.getTarget();
+					alt = divergeFlowToAlt.getTarget();
 
-					// check object initFlow is really bound
-					JavaSDM.ensure(initFlow != null);
+					// check object alt is really bound
+					JavaSDM.ensure(alt != null);
 
-					// iterate to-many link source from divergeFlow to divergeFlowToAlt
+					// iterate to-many link source from divergeFlow to divergeFlowToFlow
 					fujaba__Success = false;
 
-					fujaba__IterDivergeFlowToDivergeFlowToAlt = new ArrayList(
+					fujaba__IterDivergeFlowToDivergeFlowToFlow = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(divergeFlow,
-											SeqFlowToAltFlowAlt.class, "source"))
-							.iterator();
+											SequenceFlowToUCFlow.class,
+											"source")).iterator();
 
-					while (fujaba__IterDivergeFlowToDivergeFlowToAlt.hasNext()) {
+					while (fujaba__IterDivergeFlowToDivergeFlowToFlow.hasNext()) {
 						try {
-							divergeFlowToAlt = (SeqFlowToAltFlowAlt) fujaba__IterDivergeFlowToDivergeFlowToAlt
+							divergeFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterDivergeFlowToDivergeFlowToFlow
 									.next();
 
-							// check object divergeFlowToAlt is really bound
-							JavaSDM.ensure(divergeFlowToAlt != null);
+							// check object divergeFlowToFlow is really bound
+							JavaSDM.ensure(divergeFlowToFlow != null);
 							// bind object
-							alt = divergeFlowToAlt.getTarget();
+							_TmpObject = divergeFlowToFlow.getTarget();
 
-							// check object alt is really bound
-							JavaSDM.ensure(alt != null);
+							// ensure correct type and really bound of object flow
+							JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
+							flow = (AlternativeFlow) _TmpObject;
 
-							// iterate to-many link source from divergeFlow to divergeFlowToFlow
+							// iterate to-many link source from defaultFlow to defaultFlowToInitFlow
 							fujaba__Success = false;
 
-							fujaba__IterDivergeFlowToDivergeFlowToFlow = new ArrayList(
+							fujaba__IterDefaultFlowToDefaultFlowToInitFlow = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(divergeFlow,
+											.getOppositeReference(defaultFlow,
 													SequenceFlowToUCFlow.class,
 													"source")).iterator();
 
-							while (fujaba__IterDivergeFlowToDivergeFlowToFlow
+							while (fujaba__IterDefaultFlowToDefaultFlowToInitFlow
 									.hasNext()) {
 								try {
-									divergeFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterDivergeFlowToDivergeFlowToFlow
+									defaultFlowToInitFlow = (SequenceFlowToUCFlow) fujaba__IterDefaultFlowToDefaultFlowToInitFlow
 											.next();
 
-									// check object divergeFlowToFlow is really bound
-									JavaSDM.ensure(divergeFlowToFlow != null);
+									// check object defaultFlowToInitFlow is really bound
+									JavaSDM.ensure(defaultFlowToInitFlow != null);
 									// check isomorphic binding between objects divergeFlowToFlow and defaultFlowToInitFlow 
 									JavaSDM.ensure(!divergeFlowToFlow
 											.equals(defaultFlowToInitFlow));
 
 									// bind object
-									_TmpObject = divergeFlowToFlow.getTarget();
+									initFlow = defaultFlowToInitFlow
+											.getTarget();
 
-									// ensure correct type and really bound of object flow
-									JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-									flow = (AlternativeFlow) _TmpObject;
+									// check object initFlow is really bound
+									JavaSDM.ensure(initFlow != null);
 
 									// check isomorphic binding between objects initFlow and flow 
 									JavaSDM.ensure(!initFlow.equals(flow));
 
-									// iterate to-many link source from exclusiveGateway to egwToStep
+									// iterate to-many link source from inFlow to inFlowToStep
 									fujaba__Success = false;
 
-									fujaba__IterExclusiveGatewayToEgwToStep = new ArrayList(
+									fujaba__IterInFlowToInFlowToStep = new ArrayList(
 											org.moflon.util.eMoflonEMFUtil
 													.getOppositeReference(
-															exclusiveGateway,
-															FlowNodeToStep.class,
+															inFlow,
+															SequenceFlowToStep.class,
 															"source"))
 											.iterator();
 
-									while (fujaba__IterExclusiveGatewayToEgwToStep
+									while (fujaba__IterInFlowToInFlowToStep
 											.hasNext()) {
 										try {
-											egwToStep = (FlowNodeToStep) fujaba__IterExclusiveGatewayToEgwToStep
+											inFlowToStep = (SequenceFlowToStep) fujaba__IterInFlowToInFlowToStep
 													.next();
 
-											// check object egwToStep is really bound
-											JavaSDM.ensure(egwToStep != null);
+											// check object inFlowToStep is really bound
+											JavaSDM.ensure(inFlowToStep != null);
 											// bind object
-											_TmpObject = egwToStep.getTarget();
+											step = inFlowToStep.getTarget();
 
-											// ensure correct type and really bound of object normalStep
-											JavaSDM.ensure(_TmpObject instanceof NormalStep);
-											normalStep = (NormalStep) _TmpObject;
+											// check object step is really bound
+											JavaSDM.ensure(step != null);
 
-											// iterate to-many link source from inFlow to inFlowToStep
+											// iterate to-many link source from exclusiveGateway to egwToStep
 											fujaba__Success = false;
 
-											fujaba__IterInFlowToInFlowToStep = new ArrayList(
+											fujaba__IterExclusiveGatewayToEgwToStep = new ArrayList(
 													org.moflon.util.eMoflonEMFUtil
 															.getOppositeReference(
-																	inFlow,
-																	SequenceFlowToStep.class,
+																	exclusiveGateway,
+																	FlowNodeToStep.class,
 																	"source"))
 													.iterator();
 
-											while (fujaba__IterInFlowToInFlowToStep
+											while (fujaba__IterExclusiveGatewayToEgwToStep
 													.hasNext()) {
 												try {
-													inFlowToStep = (SequenceFlowToStep) fujaba__IterInFlowToInFlowToStep
+													egwToStep = (FlowNodeToStep) fujaba__IterExclusiveGatewayToEgwToStep
 															.next();
 
-													// check object inFlowToStep is really bound
-													JavaSDM.ensure(inFlowToStep != null);
+													// check object egwToStep is really bound
+													JavaSDM.ensure(egwToStep != null);
 													// bind object
-													step = inFlowToStep
+													_TmpObject = egwToStep
 															.getTarget();
 
-													// check object step is really bound
-													JavaSDM.ensure(step != null);
+													// ensure correct type and really bound of object normalStep
+													JavaSDM.ensure(_TmpObject instanceof NormalStep);
+													normalStep = (NormalStep) _TmpObject;
 
 													// check isomorphic binding between objects step and normalStep 
 													JavaSDM.ensure(!step
@@ -2405,10 +2323,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(process.equals(outFlow
 																.eContainer()));
 
-														// check link incoming from inFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(inFlow
-																.getTargetRef()));
-
 														// check link laneSets from laneSet to process
 														JavaSDM.ensure(process.equals(laneSet
 																.eContainer()));
@@ -2416,15 +2330,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														// check link lanes from lane to laneSet
 														JavaSDM.ensure(laneSet.equals(lane
 																.eContainer()));
-
-														// check link outgoing from outFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link outgoing from divergeFlow to exclusiveGateway
-														JavaSDM.ensure(exclusiveGateway
-																.equals(divergeFlow
-																		.getSourceRef()));
 
 														// check link source from defaultFlowToInitFlow to defaultFlow
 														JavaSDM.ensure(defaultFlow
@@ -2450,6 +2355,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(inFlow
 																.equals(inFlowToStep
 																		.getSource()));
+
+														// check link sourceRef from divergeFlow to exclusiveGateway
+														JavaSDM.ensure(exclusiveGateway
+																.equals(divergeFlow
+																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(outFlow
+																.getSourceRef()));
 
 														// check link steps from step to flow
 														JavaSDM.ensure(flow.equals(step
@@ -2480,19 +2394,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.equals(inFlowToStep
 																		.getTarget()));
 
+														// check link targetRef from inFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(inFlow
+																.getTargetRef()));
+
 														// check link flowNodeRefs from lane to exConvGateway
 														JavaSDM.ensure(lane
 																.getFlowNodeRefs()
 																.contains(
 																		exConvGateway));
-
-														// create object __inFlow_targetRef_exConvGateway
-														__inFlow_targetRef_exConvGateway = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object isApplicableMatch
-														isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-																.createIsApplicableMatch();
 
 														// create object __inFlowToStep_source_inFlow
 														__inFlowToStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
@@ -2502,44 +2412,56 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														__exConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
-														// create object __flow_steps_step
-														__flow_steps_step = TGGRuntimeFactory.eINSTANCE
+														// create object isApplicableMatch
+														isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+																.createIsApplicableMatch();
+
+														// create object __inFlow_targetRef_exConvGateway
+														__inFlow_targetRef_exConvGateway = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __inFlowToStep_target_step
 														__inFlowToStep_target_step = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
-														// create object __process_flowElements_divergeFlow
-														__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __process_flowElements_exclusiveGateway
-														__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
+														// create object __flow_steps_step
+														__flow_steps_step = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __process_flowElements_exConvGateway
 														__process_flowElements_exConvGateway = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
-														// create object __process_flowElements_outFlow
-														__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+														// create object __process_flowElements_defaultFlow
+														__process_flowElements_defaultFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __process_laneSets_laneSet
 														__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
-														// create object __process_flowElements_defaultFlow
-														__process_flowElements_defaultFlow = TGGRuntimeFactory.eINSTANCE
+														// create object __process_flowElements_exclusiveGateway
+														__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
+																.createEMoflonEdge();
+
+														// create object __process_flowElements_divergeFlow
+														__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
+																.createEMoflonEdge();
+
+														// create object __process_flowElements_outFlow
+														__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
+																.createEMoflonEdge();
+
+														// create object __exclusiveGateway_default_defaultFlow
+														__exclusiveGateway_default_defaultFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __defaultFlowToInitFlow_source_defaultFlow
 														__defaultFlowToInitFlow_source_defaultFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
-														// create object __exclusiveGateway_default_defaultFlow
-														__exclusiveGateway_default_defaultFlow = TGGRuntimeFactory.eINSTANCE
+														// create object __exclusiveGateway_outgoing_divergeFlow
+														__exclusiveGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __egwToStep_source_exclusiveGateway
@@ -2550,16 +2472,12 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														__divergeFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
-														// create object __exclusiveGateway_outgoing_divergeFlow
-														__exclusiveGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
+														// create object __divergeFlowToFlow_source_divergeFlow
+														__divergeFlowToFlow_source_divergeFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __divergeFlowToAlt_source_divergeFlow
 														__divergeFlowToAlt_source_divergeFlow = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __divergeFlowToFlow_source_divergeFlow
-														__divergeFlowToFlow_source_divergeFlow = TGGRuntimeFactory.eINSTANCE
 																.createEMoflonEdge();
 
 														// create object __egwToStep_target_normalStep
@@ -2674,15 +2592,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setName("lanes");
 
 														// create link
-														__inFlow_targetRef_exConvGateway
-																.setSrc(inFlow);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(inFlow);
-
-														// create link
 														__inFlowToStep_source_inFlow
 																.setTrg(inFlow);
 
@@ -2691,11 +2600,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setTrg(inFlow);
 
 														// create link
-														__flow_steps_step
-																.setTrg(step);
+														isApplicableMatch
+																.getAllContextElements()
+																.add(inFlow);
+
+														// create link
+														__inFlow_targetRef_exConvGateway
+																.setSrc(inFlow);
 
 														// create link
 														__inFlowToStep_target_step
+																.setTrg(step);
+
+														// create link
+														__flow_steps_step
 																.setTrg(step);
 
 														// create link
@@ -2708,33 +2626,13 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setSrc(inFlowToStep);
 
 														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(inFlowToStep);
-
-														// create link
 														__inFlowToStep_target_step
 																.setSrc(inFlowToStep);
 
 														// create link
-														__process_flowElements_divergeFlow
-																.setSrc(process);
-
-														// create link
-														__process_flowElements_exclusiveGateway
-																.setSrc(process);
-
-														// create link
-														__process_flowElements_exConvGateway
-																.setSrc(process);
-
-														// create link
-														__process_flowElements_outFlow
-																.setSrc(process);
-
-														// create link
-														__process_laneSets_laneSet
-																.setSrc(process);
+														isApplicableMatch
+																.getAllContextElements()
+																.add(inFlowToStep);
 
 														// create link
 														isApplicableMatch
@@ -2742,20 +2640,28 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.add(process);
 
 														// create link
-														__process_flowElements_defaultFlow
+														__process_flowElements_exConvGateway
 																.setSrc(process);
 
 														// create link
 														__process_flowElements_defaultFlow
-																.setTrg(defaultFlow);
+																.setSrc(process);
 
 														// create link
-														__defaultFlowToInitFlow_source_defaultFlow
-																.setTrg(defaultFlow);
+														__process_laneSets_laneSet
+																.setSrc(process);
 
 														// create link
-														__exclusiveGateway_default_defaultFlow
-																.setTrg(defaultFlow);
+														__process_flowElements_exclusiveGateway
+																.setSrc(process);
+
+														// create link
+														__process_flowElements_divergeFlow
+																.setSrc(process);
+
+														// create link
+														__process_flowElements_outFlow
+																.setSrc(process);
 
 														// create link
 														isApplicableMatch
@@ -2763,16 +2669,36 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.add(defaultFlow);
 
 														// create link
+														__exclusiveGateway_default_defaultFlow
+																.setTrg(defaultFlow);
+
+														// create link
+														__defaultFlowToInitFlow_source_defaultFlow
+																.setTrg(defaultFlow);
+
+														// create link
+														__process_flowElements_defaultFlow
+																.setTrg(defaultFlow);
+
+														// create link
+														__exclusiveGateway_default_defaultFlow
+																.setSrc(exclusiveGateway);
+
+														// create link
+														__exclusiveGateway_outgoing_divergeFlow
+																.setSrc(exclusiveGateway);
+
+														// create link
 														isApplicableMatch
 																.getAllContextElements()
 																.add(exclusiveGateway);
 
 														// create link
-														__egwToStep_source_exclusiveGateway
+														__process_flowElements_exclusiveGateway
 																.setTrg(exclusiveGateway);
 
 														// create link
-														__process_flowElements_exclusiveGateway
+														__egwToStep_source_exclusiveGateway
 																.setTrg(exclusiveGateway);
 
 														// create link
@@ -2780,19 +2706,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setTrg(exclusiveGateway);
 
 														// create link
-														__exclusiveGateway_outgoing_divergeFlow
-																.setSrc(exclusiveGateway);
-
-														// create link
-														__exclusiveGateway_default_defaultFlow
-																.setSrc(exclusiveGateway);
-
-														// create link
 														__process_flowElements_divergeFlow
-																.setTrg(divergeFlow);
-
-														// create link
-														__divergeFlowToAlt_source_divergeFlow
 																.setTrg(divergeFlow);
 
 														// create link
@@ -2801,11 +2715,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.add(divergeFlow);
 
 														// create link
-														__divergeFlowToFlow_source_divergeFlow
+														__exclusiveGateway_outgoing_divergeFlow
 																.setTrg(divergeFlow);
 
 														// create link
-														__exclusiveGateway_outgoing_divergeFlow
+														__divergeFlowToFlow_source_divergeFlow
 																.setTrg(divergeFlow);
 
 														// create link
@@ -2813,13 +2727,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setSrc(divergeFlow);
 
 														// create link
+														__divergeFlowToAlt_source_divergeFlow
+																.setTrg(divergeFlow);
+
+														// create link
+														__egwToStep_target_normalStep
+																.setTrg(normalStep);
+
+														// create link
 														isApplicableMatch
 																.getAllContextElements()
 																.add(normalStep);
 
 														// create link
-														__egwToStep_target_normalStep
-																.setTrg(normalStep);
+														isApplicableMatch
+																.getAllContextElements()
+																.add(alt);
 
 														// create link
 														__divergeFlowToAlt_target_alt
@@ -2828,19 +2751,14 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														// create link
 														isApplicableMatch
 																.getAllContextElements()
-																.add(alt);
+																.add(initFlow);
 
 														// create link
 														__defaultFlowToInitFlow_target_initFlow
 																.setTrg(initFlow);
 
 														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(initFlow);
-
-														// create link
-														__defaultFlowToInitFlow_source_defaultFlow
+														__defaultFlowToInitFlow_target_initFlow
 																.setSrc(defaultFlowToInitFlow);
 
 														// create link
@@ -2849,7 +2767,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.add(defaultFlowToInitFlow);
 
 														// create link
-														__defaultFlowToInitFlow_target_initFlow
+														__defaultFlowToInitFlow_source_defaultFlow
 																.setSrc(defaultFlowToInitFlow);
 
 														// create link
@@ -2866,34 +2784,30 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setSrc(egwToStep);
 
 														// create link
-														__divergeFlowToAlt_source_divergeFlow
-																.setSrc(divergeFlowToAlt);
-
-														// create link
 														isApplicableMatch
 																.getAllContextElements()
 																.add(divergeFlowToAlt);
+
+														// create link
+														__divergeFlowToAlt_source_divergeFlow
+																.setSrc(divergeFlowToAlt);
 
 														// create link
 														__divergeFlowToAlt_target_alt
 																.setSrc(divergeFlowToAlt);
 
 														// create link
-														__flow_steps_step
-																.setSrc(flow);
-
-														// create link
 														__divergeFlowToFlow_target_flow
 																.setTrg(flow);
+
+														// create link
+														__flow_steps_step
+																.setSrc(flow);
 
 														// create link
 														isApplicableMatch
 																.getAllContextElements()
 																.add(flow);
-
-														// create link
-														__divergeFlowToFlow_source_divergeFlow
-																.setSrc(divergeFlowToFlow);
 
 														// create link
 														__divergeFlowToFlow_target_flow
@@ -2905,11 +2819,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.add(divergeFlowToFlow);
 
 														// create link
-														__lane_flowNodeRefs_exConvGateway
-																.setTrg(exConvGateway);
+														__divergeFlowToFlow_source_divergeFlow
+																.setSrc(divergeFlowToFlow);
 
 														// create link
-														__inFlow_targetRef_exConvGateway
+														__lane_flowNodeRefs_exConvGateway
 																.setTrg(exConvGateway);
 
 														// create link
@@ -2925,13 +2839,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setSrc(exConvGateway);
 
 														// create link
+														__process_flowElements_exConvGateway
+																.setTrg(exConvGateway);
+
+														// create link
 														isApplicableMatch
 																.getAllContextElements()
 																.add(exConvGateway);
 
 														// create link
-														__process_flowElements_exConvGateway
+														__inFlow_targetRef_exConvGateway
 																.setTrg(exConvGateway);
+
+														// create link
+														__exConvGateway_outgoing_outFlow
+																.setTrg(outFlow);
+
+														// create link
+														isApplicableMatch
+																.getAllContextElements()
+																.add(outFlow);
 
 														// create link
 														__process_flowElements_outFlow
@@ -2942,13 +2869,8 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setSrc(outFlow);
 
 														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(outFlow);
-
-														// create link
-														__exConvGateway_outgoing_outFlow
-																.setTrg(outFlow);
+														__lane_flowNodeRefs_exConvGateway
+																.setSrc(lane);
 
 														// create link
 														isApplicableMatch
@@ -2960,16 +2882,8 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.setTrg(lane);
 
 														// create link
-														__lane_flowNodeRefs_exConvGateway
-																.setSrc(lane);
-
-														// create link
 														__process_laneSets_laneSet
 																.setTrg(laneSet);
-
-														// create link
-														__laneSet_lanes_lane
-																.setSrc(laneSet);
 
 														// create link
 														isApplicableMatch
@@ -2977,17 +2891,28 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.add(laneSet);
 
 														// create link
+														__laneSet_lanes_lane
+																.setSrc(laneSet);
+
+														// create link
 														org.moflon.util.eMoflonEMFUtil
 																.addOppositeReference(
 																		isApplicableMatch,
-																		__egwToStep_source_exclusiveGateway,
+																		__lane_flowNodeRefs_exConvGateway,
 																		"allContextElements");
 
 														// create link
 														org.moflon.util.eMoflonEMFUtil
 																.addOppositeReference(
 																		isApplicableMatch,
-																		__defaultFlowToInitFlow_source_defaultFlow,
+																		__laneSet_lanes_lane,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__divergeFlow_sourceRef_exclusiveGateway,
 																		"allContextElements");
 
 														// create link
@@ -3001,7 +2926,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														org.moflon.util.eMoflonEMFUtil
 																.addOppositeReference(
 																		isApplicableMatch,
-																		__exclusiveGateway_outgoing_divergeFlow,
+																		__inFlowToStep_target_step,
 																		"allContextElements");
 
 														// create link
@@ -3009,6 +2934,132 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.addOppositeReference(
 																		isApplicableMatch,
 																		__process_flowElements_divergeFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__exclusiveGateway_outgoing_divergeFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__process_laneSets_laneSet,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__process_flowElements_exclusiveGateway,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__divergeFlowToFlow_source_divergeFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__outFlow_sourceRef_exConvGateway,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__defaultFlowToInitFlow_target_initFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__defaultFlowToInitFlow_source_defaultFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__exConvGateway_outgoing_outFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__process_flowElements_exConvGateway,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__egwToStep_source_exclusiveGateway,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__process_flowElements_defaultFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__exConvGateway_incoming_inFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__inFlowToStep_source_inFlow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__divergeFlowToFlow_target_flow,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__inFlow_targetRef_exConvGateway,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__flow_steps_step,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__divergeFlowToAlt_target_alt,
+																		"allContextElements");
+
+														// create link
+														org.moflon.util.eMoflonEMFUtil
+																.addOppositeReference(
+																		isApplicableMatch,
+																		__exclusiveGateway_default_defaultFlow,
 																		"allContextElements");
 
 														// create link
@@ -3023,139 +3074,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																.addOppositeReference(
 																		isApplicableMatch,
 																		__process_flowElements_outFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlow_targetRef_exConvGateway,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__divergeFlow_sourceRef_exclusiveGateway,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlowToStep_source_inFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__defaultFlowToInitFlow_target_initFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__divergeFlowToAlt_target_alt,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__divergeFlowToFlow_target_flow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlowToStep_target_step,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__flow_steps_step,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__lane_flowNodeRefs_exConvGateway,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__exConvGateway_incoming_inFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__exConvGateway_outgoing_outFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__laneSet_lanes_lane,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__divergeFlowToFlow_source_divergeFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__process_flowElements_exConvGateway,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__exclusiveGateway_default_defaultFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__outFlow_sourceRef_exConvGateway,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__process_flowElements_exclusiveGateway,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__process_laneSets_laneSet,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__process_flowElements_defaultFlow,
 																		"allContextElements");
 														// story node 'solve CSP'
 														try {
@@ -3204,16 +3122,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																JavaSDM.ensure(isApplicableMatch != null);
 																// check object ruleresult is really bound
 																JavaSDM.ensure(ruleresult != null);
-																// assign attribute ruleresult
-																ruleresult
-																		.setSuccess(true);
 																// assign attribute isApplicableMatch
 																isApplicableMatch
 																		.setRuleName("ExcConvGwAfterExDivGwRule");
+																// assign attribute ruleresult
+																ruleresult
+																		.setSuccess(true);
 
 																// create link
-																isApplicableMatch
-																		.setIsApplicableRuleResult(ruleresult);
+																ruleresult
+																		.getIsApplicableMatch()
+																		.add(isApplicableMatch);
 
 																fujaba__Success = true;
 															} catch (JavaSDMException fujaba__InternalException) {
@@ -3490,13 +3409,13 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exConvGateway_flowElements_186239 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_944194 = null;
-		SequenceFlow __DEC_exConvGateway_default_271447 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_805120 = null;
-		ExclusiveGateway __DEC_outFlow_default_805120 = null;
-		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_753053 = null;
-		SequenceFlow __DEC_exConvGateway_targetRef_753053 = null;
+		FlowElementsContainer __DEC_exConvGateway_flowElements_379205 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_173607 = null;
+		SequenceFlow __DEC_exConvGateway_default_369453 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_871907 = null;
+		ExclusiveGateway __DEC_outFlow_default_871907 = null;
+		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_756331 = null;
+		SequenceFlow __DEC_exConvGateway_targetRef_756331 = null;
 		Match match = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
@@ -3588,7 +3507,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
-					// iterate to-many link incoming from exConvGateway to inFlow
+					// iterate to-many link targetRef from exConvGateway to inFlow
 					fujaba__Success = false;
 
 					fujaba__IterExConvGatewayToInFlow = new ArrayList(
@@ -3716,22 +3635,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_exConvGateway_flowElements_186239 = exConvGateway
+															__DEC_exConvGateway_flowElements_379205 = exConvGateway
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exConvGateway
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_exConvGateway_flowElements_186239 is really bound
-															JavaSDM.ensure(__DEC_exConvGateway_flowElements_186239 != null);
+															// check object __DEC_exConvGateway_flowElements_379205 is really bound
+															JavaSDM.ensure(__DEC_exConvGateway_flowElements_379205 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_exConvGateway_flowElements_186239
+															JavaSDM.ensure(__DEC_exConvGateway_flowElements_379205
 																	.getFlowElements()
 																	.contains(
 																			exConvGateway));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_flowElements_186239 and process 
-															JavaSDM.ensure(!__DEC_exConvGateway_flowElements_186239
+															// check isomorphic binding between objects __DEC_exConvGateway_flowElements_379205 and process 
+															JavaSDM.ensure(!__DEC_exConvGateway_flowElements_379205
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -3748,22 +3667,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_outFlow_flowElements_944194 = outFlow
+															__DEC_outFlow_flowElements_173607 = outFlow
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_outFlow_flowElements_944194 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_944194 != null);
+															// check object __DEC_outFlow_flowElements_173607 is really bound
+															JavaSDM.ensure(__DEC_outFlow_flowElements_173607 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_944194
+															JavaSDM.ensure(__DEC_outFlow_flowElements_173607
 																	.getFlowElements()
 																	.contains(
 																			outFlow));
 
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_944194 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_944194
+															// check isomorphic binding between objects __DEC_outFlow_flowElements_173607 and process 
+															JavaSDM.ensure(!__DEC_outFlow_flowElements_173607
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -3780,26 +3699,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_exConvGateway_default_271447 = exConvGateway
+															__DEC_exConvGateway_default_369453 = exConvGateway
 																	.getDefault();
 
-															// check object __DEC_exConvGateway_default_271447 is really bound
-															JavaSDM.ensure(__DEC_exConvGateway_default_271447 != null);
+															// check object __DEC_exConvGateway_default_369453 is really bound
+															JavaSDM.ensure(__DEC_exConvGateway_default_369453 != null);
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_271447 and defaultFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_271447
+															// check isomorphic binding between objects __DEC_exConvGateway_default_369453 and defaultFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_369453
 																	.equals(defaultFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_271447 and divergeFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_271447
+															// check isomorphic binding between objects __DEC_exConvGateway_default_369453 and divergeFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_369453
 																	.equals(divergeFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_271447 and inFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_271447
+															// check isomorphic binding between objects __DEC_exConvGateway_default_369453 and inFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_369453
 																	.equals(inFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_271447 and outFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_271447
+															// check isomorphic binding between objects __DEC_exConvGateway_default_369453 and outFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_369453
 																	.equals(outFlow));
 
 															fujaba__Success = true;
@@ -3815,10 +3734,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link default from outFlow to __DEC_outFlow_default_805120
+															// iterate to-many link default from outFlow to __DEC_outFlow_default_871907
 															fujaba__Success = false;
 
-															fujaba__IterOutFlowTo__DEC_outFlow_default_805120 = new ArrayList(
+															fujaba__IterOutFlowTo__DEC_outFlow_default_871907 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					outFlow,
@@ -3827,20 +3746,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterOutFlowTo__DEC_outFlow_default_805120
+																	&& fujaba__IterOutFlowTo__DEC_outFlow_default_871907
 																			.hasNext()) {
 																try {
-																	__DEC_outFlow_default_805120 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_805120
+																	__DEC_outFlow_default_871907 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_871907
 																			.next();
 
-																	// check object __DEC_outFlow_default_805120 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_default_805120 != null);
-																	// check isomorphic binding between objects __DEC_outFlow_default_805120 and exConvGateway 
-																	JavaSDM.ensure(!__DEC_outFlow_default_805120
+																	// check object __DEC_outFlow_default_871907 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_default_871907 != null);
+																	// check isomorphic binding between objects __DEC_outFlow_default_871907 and exConvGateway 
+																	JavaSDM.ensure(!__DEC_outFlow_default_871907
 																			.equals(exConvGateway));
 
-																	// check isomorphic binding between objects __DEC_outFlow_default_805120 and exclusiveGateway 
-																	JavaSDM.ensure(!__DEC_outFlow_default_805120
+																	// check isomorphic binding between objects __DEC_outFlow_default_871907 and exclusiveGateway 
+																	JavaSDM.ensure(!__DEC_outFlow_default_871907
 																			.equals(exclusiveGateway));
 
 																	fujaba__Success = true;
@@ -3863,37 +3782,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link incoming from exConvGateway to __DEC_exConvGateway_targetRef_753053
+															// iterate to-many link targetRef from exConvGateway to __DEC_exConvGateway_targetRef_756331
 															fujaba__Success = false;
 
-															fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_753053 = new ArrayList(
+															fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_756331 = new ArrayList(
 																	exConvGateway
 																			.getIncoming())
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_753053
+																	&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_756331
 																			.hasNext()) {
 																try {
-																	__DEC_exConvGateway_targetRef_753053 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_753053
+																	__DEC_exConvGateway_targetRef_756331 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_756331
 																			.next();
 
-																	// check object __DEC_exConvGateway_targetRef_753053 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_targetRef_753053 != null);
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_753053 and defaultFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_753053
+																	// check object __DEC_exConvGateway_targetRef_756331 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_targetRef_756331 != null);
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_756331 and defaultFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_756331
 																			.equals(defaultFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_753053 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_753053
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_756331 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_756331
 																			.equals(divergeFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_753053 and inFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_753053
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_756331 and inFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_756331
 																			.equals(inFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_753053 and outFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_753053
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_756331 and outFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_756331
 																			.equals(outFlow));
 
 																	fujaba__Success = true;
@@ -4014,24 +3933,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(process.equals(outFlow
 																.eContainer()));
 
-														// check link incoming from inFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link incoming from defaultFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway
-																.equals(defaultFlow
-																		.getTargetRef())));
-
-														// check link incoming from divergeFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link incoming from outFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway.equals(outFlow
-																.getTargetRef())));
-
 														// check link laneSets from laneSet to process
 														JavaSDM.ensure(process.equals(laneSet
 																.eContainer()));
@@ -4040,19 +3941,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(laneSet.equals(lane
 																.eContainer()));
 
-														// check link outgoing from outFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link outgoing from divergeFlow to exclusiveGateway
+														// check link sourceRef from divergeFlow to exclusiveGateway
 														JavaSDM.ensure(exclusiveGateway
 																.equals(divergeFlow
 																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(outFlow
+																.getSourceRef()));
 
 														// check link src from _edge_flowElements to process
 														JavaSDM.ensure(process
 																.equals(_edge_flowElements
 																		.getSrc()));
+
+														// check link targetRef from inFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(inFlow
+																.getTargetRef()));
+
+														// check link targetRef from defaultFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway
+																.equals(defaultFlow
+																		.getTargetRef())));
+
+														// check link targetRef from divergeFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway
+																.equals(divergeFlow
+																		.getTargetRef())));
+
+														// check link targetRef from outFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway.equals(outFlow
+																.getTargetRef())));
 
 														// check link trg from _edge_flowElements to outFlow
 														JavaSDM.ensure(outFlow
@@ -4086,7 +4005,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		lane,
 																		laneSet);
 														if (fujaba__Success) {
-															// statement node ''
+															// statement node 'Ensure that the correct types of elements are matched'
 															fujaba__Success = this
 																	.checkTypes_FWD(match);
 															if (fujaba__Success) {
@@ -4185,29 +4104,29 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exConvGateway_flowElements_24324 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_553239 = null;
-		SequenceFlow __DEC_exConvGateway_default_31899 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_474889 = null;
-		ExclusiveGateway __DEC_outFlow_default_474889 = null;
-		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_750243 = null;
-		SequenceFlow __DEC_exConvGateway_targetRef_750243 = null;
+		FlowElementsContainer __DEC_exConvGateway_flowElements_143700 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_607344 = null;
+		SequenceFlow __DEC_exConvGateway_default_505393 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_258516 = null;
+		ExclusiveGateway __DEC_outFlow_default_258516 = null;
+		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_620450 = null;
+		SequenceFlow __DEC_exConvGateway_targetRef_620450 = null;
 		Match match = null;
+		Iterator fujaba__IterExConvGatewayToInFlow = null;
+		SequenceFlow inFlow = null;
 		Iterator fujaba__IterExConvGatewayToOutFlow = null;
 		SequenceFlow outFlow = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
-		ExclusiveGateway exclusiveGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		Iterator fujaba__IterProcessToDefaultFlow = null;
-		SequenceFlow defaultFlow = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterExConvGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
 		Iterator fujaba__IterExConvGatewayToLane = null;
 		Lane lane = null;
 		ExclusiveGateway exConvGateway = null;
+		Iterator fujaba__IterProcessToDefaultFlow = null;
+		SequenceFlow defaultFlow = null;
+		ExclusiveGateway exclusiveGateway = null;
+		Iterator fujaba__IterProcessToDivergeFlow = null;
+		SequenceFlow divergeFlow = null;
+		bpmn2.Process process = null;
 
 		// story node 'prepare return value'
 		try {
@@ -4257,164 +4176,159 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_flowElements is really bound
 			JavaSDM.ensure(_edge_flowElements != null);
 			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
+			_TmpObject = _edge_flowElements.getSrc();
 
-			// ensure correct type and really bound of object exConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exConvGateway = (ExclusiveGateway) _TmpObject;
+			// ensure correct type and really bound of object process
+			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+			process = (bpmn2.Process) _TmpObject;
 
-			// iterate to-many link flowNodeRefs from exConvGateway to lane
+			// iterate to-many link flowElements from process to divergeFlow
 			fujaba__Success = false;
 
-			fujaba__IterExConvGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exConvGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
+			fujaba__IterProcessToDivergeFlow = new ArrayList(
+					process.getFlowElements()).iterator();
 
-			while (fujaba__IterExConvGatewayToLane.hasNext()) {
+			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
 				try {
-					lane = (Lane) fujaba__IterExConvGatewayToLane.next();
+					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
 
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// iterate to-many link incoming from exConvGateway to inFlow
+					// ensure correct type and really bound of object divergeFlow
+					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+					divergeFlow = (SequenceFlow) _TmpObject;
+					// bind object
+					_TmpObject = divergeFlow.getSourceRef();
+
+					// ensure correct type and really bound of object exclusiveGateway
+					JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
+					exclusiveGateway = (ExclusiveGateway) _TmpObject;
+
+					// check link flowElements from exclusiveGateway to process
+					JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
+
+					// iterate to-many link flowElements from process to defaultFlow
 					fujaba__Success = false;
 
-					fujaba__IterExConvGatewayToInFlow = new ArrayList(
-							exConvGateway.getIncoming()).iterator();
+					fujaba__IterProcessToDefaultFlow = new ArrayList(
+							process.getFlowElements()).iterator();
 
-					while (fujaba__IterExConvGatewayToInFlow.hasNext()) {
+					while (fujaba__IterProcessToDefaultFlow.hasNext()) {
 						try {
-							inFlow = (SequenceFlow) fujaba__IterExConvGatewayToInFlow
+							_TmpObject = fujaba__IterProcessToDefaultFlow
 									.next();
 
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-							// bind object
-							_TmpObject = _edge_flowElements.getSrc();
+							// ensure correct type and really bound of object defaultFlow
+							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+							defaultFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects divergeFlow and defaultFlow 
+							JavaSDM.ensure(!divergeFlow.equals(defaultFlow));
 
-							// ensure correct type and really bound of object process
-							JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-							process = (bpmn2.Process) _TmpObject;
+							// check link default from exclusiveGateway to defaultFlow
+							JavaSDM.ensure(defaultFlow.equals(exclusiveGateway
+									.getDefault()));
+
+							// bind object
+							_TmpObject = _edge_flowElements.getTrg();
+
+							// ensure correct type and really bound of object exConvGateway
+							JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
+							exConvGateway = (ExclusiveGateway) _TmpObject;
+
+							// check isomorphic binding between objects exclusiveGateway and exConvGateway 
+							JavaSDM.ensure(!exclusiveGateway
+									.equals(exConvGateway));
 
 							// check link flowElements from exConvGateway to process
 							JavaSDM.ensure(process.equals(exConvGateway
 									.eContainer()));
 
-							// iterate to-many link flowElements from process to defaultFlow
+							// iterate to-many link flowNodeRefs from exConvGateway to lane
 							fujaba__Success = false;
 
-							fujaba__IterProcessToDefaultFlow = new ArrayList(
-									process.getFlowElements()).iterator();
+							fujaba__IterExConvGatewayToLane = new ArrayList(
+									org.moflon.util.eMoflonEMFUtil
+											.getOppositeReference(
+													exConvGateway, Lane.class,
+													"flowNodeRefs")).iterator();
 
-							while (fujaba__IterProcessToDefaultFlow.hasNext()) {
+							while (fujaba__IterExConvGatewayToLane.hasNext()) {
 								try {
-									_TmpObject = fujaba__IterProcessToDefaultFlow
+									lane = (Lane) fujaba__IterExConvGatewayToLane
 											.next();
 
-									// ensure correct type and really bound of object defaultFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									defaultFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow and defaultFlow 
-									JavaSDM.ensure(!inFlow.equals(defaultFlow));
-
-									// iterate to-many link flowElements from process to divergeFlow
+									// check object lane is really bound
+									JavaSDM.ensure(lane != null);
+									// iterate to-many link laneSets from process to laneSet
 									fujaba__Success = false;
 
-									fujaba__IterProcessToDivergeFlow = new ArrayList(
-											process.getFlowElements())
-											.iterator();
+									fujaba__IterProcessToLaneSet = new ArrayList(
+											process.getLaneSets()).iterator();
 
-									while (fujaba__IterProcessToDivergeFlow
+									while (fujaba__IterProcessToLaneSet
 											.hasNext()) {
 										try {
-											_TmpObject = fujaba__IterProcessToDivergeFlow
+											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
 													.next();
 
-											// ensure correct type and really bound of object divergeFlow
-											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-											divergeFlow = (SequenceFlow) _TmpObject;
-											// check isomorphic binding between objects divergeFlow and defaultFlow 
-											JavaSDM.ensure(!divergeFlow
-													.equals(defaultFlow));
+											// check object laneSet is really bound
+											JavaSDM.ensure(laneSet != null);
+											// check link lanes from lane to laneSet
+											JavaSDM.ensure(laneSet.equals(lane
+													.eContainer()));
 
-											// check isomorphic binding between objects inFlow and divergeFlow 
-											JavaSDM.ensure(!inFlow
-													.equals(divergeFlow));
-
-											// bind object
-											_TmpObject = divergeFlow
-													.getSourceRef();
-
-											// ensure correct type and really bound of object exclusiveGateway
-											JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-											exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-											// check isomorphic binding between objects exclusiveGateway and exConvGateway 
-											JavaSDM.ensure(!exclusiveGateway
-													.equals(exConvGateway));
-
-											// check link default from exclusiveGateway to defaultFlow
-											JavaSDM.ensure(defaultFlow
-													.equals(exclusiveGateway
-															.getDefault()));
-
-											// check link flowElements from exclusiveGateway to process
-											JavaSDM.ensure(process
-													.equals(exclusiveGateway
-															.eContainer()));
-
-											// iterate to-many link laneSets from process to laneSet
+											// iterate to-many link sourceRef from exConvGateway to outFlow
 											fujaba__Success = false;
 
-											fujaba__IterProcessToLaneSet = new ArrayList(
-													process.getLaneSets())
+											fujaba__IterExConvGatewayToOutFlow = new ArrayList(
+													exConvGateway.getOutgoing())
 													.iterator();
 
-											while (fujaba__IterProcessToLaneSet
+											while (fujaba__IterExConvGatewayToOutFlow
 													.hasNext()) {
 												try {
-													laneSet = (LaneSet) fujaba__IterProcessToLaneSet
+													outFlow = (SequenceFlow) fujaba__IterExConvGatewayToOutFlow
 															.next();
 
-													// check object laneSet is really bound
-													JavaSDM.ensure(laneSet != null);
-													// check link lanes from lane to laneSet
-													JavaSDM.ensure(laneSet.equals(lane
+													// check object outFlow is really bound
+													JavaSDM.ensure(outFlow != null);
+													// check isomorphic binding between objects outFlow and defaultFlow 
+													JavaSDM.ensure(!outFlow
+															.equals(defaultFlow));
+
+													// check isomorphic binding between objects outFlow and divergeFlow 
+													JavaSDM.ensure(!outFlow
+															.equals(divergeFlow));
+
+													// check link flowElements from outFlow to process
+													JavaSDM.ensure(process.equals(outFlow
 															.eContainer()));
 
-													// iterate to-many link outgoing from exConvGateway to outFlow
+													// iterate to-many link targetRef from exConvGateway to inFlow
 													fujaba__Success = false;
 
-													fujaba__IterExConvGatewayToOutFlow = new ArrayList(
+													fujaba__IterExConvGatewayToInFlow = new ArrayList(
 															exConvGateway
-																	.getOutgoing())
+																	.getIncoming())
 															.iterator();
 
-													while (fujaba__IterExConvGatewayToOutFlow
+													while (fujaba__IterExConvGatewayToInFlow
 															.hasNext()) {
 														try {
-															outFlow = (SequenceFlow) fujaba__IterExConvGatewayToOutFlow
+															inFlow = (SequenceFlow) fujaba__IterExConvGatewayToInFlow
 																	.next();
 
-															// check object outFlow is really bound
-															JavaSDM.ensure(outFlow != null);
-															// check isomorphic binding between objects outFlow and defaultFlow 
-															JavaSDM.ensure(!outFlow
+															// check object inFlow is really bound
+															JavaSDM.ensure(inFlow != null);
+															// check isomorphic binding between objects inFlow and defaultFlow 
+															JavaSDM.ensure(!inFlow
 																	.equals(defaultFlow));
 
-															// check isomorphic binding between objects outFlow and divergeFlow 
-															JavaSDM.ensure(!outFlow
+															// check isomorphic binding between objects inFlow and divergeFlow 
+															JavaSDM.ensure(!inFlow
 																	.equals(divergeFlow));
 
 															// check isomorphic binding between objects outFlow and inFlow 
 															JavaSDM.ensure(!outFlow
 																	.equals(inFlow));
-
-															// check link flowElements from outFlow to process
-															JavaSDM.ensure(process
-																	.equals(outFlow
-																			.eContainer()));
 
 															// story node 'test core match and DECs'
 															try {
@@ -4425,22 +4339,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_exConvGateway_flowElements_24324 = exConvGateway
+																	__DEC_exConvGateway_flowElements_143700 = exConvGateway
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exConvGateway
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_exConvGateway_flowElements_24324 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_24324 != null);
+																	// check object __DEC_exConvGateway_flowElements_143700 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_143700 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_24324
+																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_143700
 																			.getFlowElements()
 																			.contains(
 																					exConvGateway));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_flowElements_24324 and process 
-																	JavaSDM.ensure(!__DEC_exConvGateway_flowElements_24324
+																	// check isomorphic binding between objects __DEC_exConvGateway_flowElements_143700 and process 
+																	JavaSDM.ensure(!__DEC_exConvGateway_flowElements_143700
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -4457,22 +4371,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_outFlow_flowElements_553239 = outFlow
+																	__DEC_outFlow_flowElements_607344 = outFlow
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_outFlow_flowElements_553239 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_553239 != null);
+																	// check object __DEC_outFlow_flowElements_607344 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_607344 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_553239
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_607344
 																			.getFlowElements()
 																			.contains(
 																					outFlow));
 
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_553239 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_553239
+																	// check isomorphic binding between objects __DEC_outFlow_flowElements_607344 and process 
+																	JavaSDM.ensure(!__DEC_outFlow_flowElements_607344
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -4489,26 +4403,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_exConvGateway_default_31899 = exConvGateway
+																	__DEC_exConvGateway_default_505393 = exConvGateway
 																			.getDefault();
 
-																	// check object __DEC_exConvGateway_default_31899 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_default_31899 != null);
+																	// check object __DEC_exConvGateway_default_505393 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_default_505393 != null);
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_31899 and defaultFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_31899
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_505393 and defaultFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_505393
 																			.equals(defaultFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_31899 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_31899
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_505393 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_505393
 																			.equals(divergeFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_31899 and inFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_31899
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_505393 and inFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_505393
 																			.equals(inFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_31899 and outFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_31899
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_505393 and outFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_505393
 																			.equals(outFlow));
 
 																	fujaba__Success = true;
@@ -4524,10 +4438,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																try {
 																	fujaba__Success = false;
 
-																	// iterate to-many link default from outFlow to __DEC_outFlow_default_474889
+																	// iterate to-many link default from outFlow to __DEC_outFlow_default_258516
 																	fujaba__Success = false;
 
-																	fujaba__IterOutFlowTo__DEC_outFlow_default_474889 = new ArrayList(
+																	fujaba__IterOutFlowTo__DEC_outFlow_default_258516 = new ArrayList(
 																			org.moflon.util.eMoflonEMFUtil
 																					.getOppositeReference(
 																							outFlow,
@@ -4536,20 +4450,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																			.iterator();
 
 																	while (!(fujaba__Success)
-																			&& fujaba__IterOutFlowTo__DEC_outFlow_default_474889
+																			&& fujaba__IterOutFlowTo__DEC_outFlow_default_258516
 																					.hasNext()) {
 																		try {
-																			__DEC_outFlow_default_474889 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_474889
+																			__DEC_outFlow_default_258516 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_258516
 																					.next();
 
-																			// check object __DEC_outFlow_default_474889 is really bound
-																			JavaSDM.ensure(__DEC_outFlow_default_474889 != null);
-																			// check isomorphic binding between objects __DEC_outFlow_default_474889 and exConvGateway 
-																			JavaSDM.ensure(!__DEC_outFlow_default_474889
+																			// check object __DEC_outFlow_default_258516 is really bound
+																			JavaSDM.ensure(__DEC_outFlow_default_258516 != null);
+																			// check isomorphic binding between objects __DEC_outFlow_default_258516 and exConvGateway 
+																			JavaSDM.ensure(!__DEC_outFlow_default_258516
 																					.equals(exConvGateway));
 
-																			// check isomorphic binding between objects __DEC_outFlow_default_474889 and exclusiveGateway 
-																			JavaSDM.ensure(!__DEC_outFlow_default_474889
+																			// check isomorphic binding between objects __DEC_outFlow_default_258516 and exclusiveGateway 
+																			JavaSDM.ensure(!__DEC_outFlow_default_258516
 																					.equals(exclusiveGateway));
 
 																			fujaba__Success = true;
@@ -4572,37 +4486,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																try {
 																	fujaba__Success = false;
 
-																	// iterate to-many link incoming from exConvGateway to __DEC_exConvGateway_targetRef_750243
+																	// iterate to-many link targetRef from exConvGateway to __DEC_exConvGateway_targetRef_620450
 																	fujaba__Success = false;
 
-																	fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_750243 = new ArrayList(
+																	fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_620450 = new ArrayList(
 																			exConvGateway
 																					.getIncoming())
 																			.iterator();
 
 																	while (!(fujaba__Success)
-																			&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_750243
+																			&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_620450
 																					.hasNext()) {
 																		try {
-																			__DEC_exConvGateway_targetRef_750243 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_750243
+																			__DEC_exConvGateway_targetRef_620450 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_620450
 																					.next();
 
-																			// check object __DEC_exConvGateway_targetRef_750243 is really bound
-																			JavaSDM.ensure(__DEC_exConvGateway_targetRef_750243 != null);
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_750243 and defaultFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_750243
+																			// check object __DEC_exConvGateway_targetRef_620450 is really bound
+																			JavaSDM.ensure(__DEC_exConvGateway_targetRef_620450 != null);
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_620450 and defaultFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_620450
 																					.equals(defaultFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_750243 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_750243
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_620450 and divergeFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_620450
 																					.equals(divergeFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_750243 and inFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_750243
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_620450 and inFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_620450
 																					.equals(inFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_750243 and outFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_750243
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_620450 and outFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_620450
 																					.equals(outFlow));
 
 																			fujaba__Success = true;
@@ -4724,26 +4638,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		.equals(outFlow
 																				.eContainer()));
 
-																// check link incoming from inFlow to exConvGateway
-																JavaSDM.ensure(exConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link incoming from defaultFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(defaultFlow
-																				.getTargetRef())));
-
-																// check link incoming from divergeFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link incoming from outFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
 																// check link laneSets from laneSet to process
 																JavaSDM.ensure(process
 																		.equals(laneSet
@@ -4754,20 +4648,40 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		.equals(lane
 																				.eContainer()));
 
-																// check link outgoing from outFlow to exConvGateway
-																JavaSDM.ensure(exConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link outgoing from divergeFlow to exclusiveGateway
+																// check link sourceRef from divergeFlow to exclusiveGateway
 																JavaSDM.ensure(exclusiveGateway
 																		.equals(divergeFlow
+																				.getSourceRef()));
+
+																// check link sourceRef from outFlow to exConvGateway
+																JavaSDM.ensure(exConvGateway
+																		.equals(outFlow
 																				.getSourceRef()));
 
 																// check link src from _edge_flowElements to process
 																JavaSDM.ensure(process
 																		.equals(_edge_flowElements
 																				.getSrc()));
+
+																// check link targetRef from inFlow to exConvGateway
+																JavaSDM.ensure(exConvGateway
+																		.equals(inFlow
+																				.getTargetRef()));
+
+																// check link targetRef from defaultFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(defaultFlow
+																				.getTargetRef())));
+
+																// check link targetRef from divergeFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(divergeFlow
+																				.getTargetRef())));
+
+																// check link targetRef from outFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(outFlow
+																				.getTargetRef())));
 
 																// check link trg from _edge_flowElements to exConvGateway
 																JavaSDM.ensure(exConvGateway
@@ -4801,7 +4715,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																				lane,
 																				laneSet);
 																if (fujaba__Success) {
-																	// statement node ''
+																	// statement node 'Ensure that the correct types of elements are matched'
 																	fujaba__Success = this
 																			.checkTypes_FWD(match);
 																	if (fujaba__Success) {
@@ -4907,26 +4821,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exConvGateway_flowElements_729250 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_804964 = null;
-		SequenceFlow __DEC_exConvGateway_default_189377 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_93410 = null;
-		ExclusiveGateway __DEC_outFlow_default_93410 = null;
-		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_425442 = null;
-		SequenceFlow __DEC_exConvGateway_targetRef_425442 = null;
+		FlowElementsContainer __DEC_exConvGateway_flowElements_828780 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_127508 = null;
+		SequenceFlow __DEC_exConvGateway_default_689710 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_174932 = null;
+		ExclusiveGateway __DEC_outFlow_default_174932 = null;
+		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_870776 = null;
+		SequenceFlow __DEC_exConvGateway_targetRef_870776 = null;
 		Match match = null;
 		Iterator fujaba__IterExConvGatewayToOutFlow = null;
 		SequenceFlow outFlow = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
-		Iterator fujaba__IterExConvGatewayToLane = null;
-		Lane lane = null;
 		ExclusiveGateway exclusiveGateway = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
 		SequenceFlow divergeFlow = null;
 		Iterator fujaba__IterProcessToDefaultFlow = null;
 		SequenceFlow defaultFlow = null;
 		bpmn2.Process process = null;
+		Iterator fujaba__IterExConvGatewayToLane = null;
+		Lane lane = null;
 		ExclusiveGateway exConvGateway = null;
 		SequenceFlow inFlow = null;
 
@@ -4991,91 +4905,94 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
 			exConvGateway = (ExclusiveGateway) _TmpObject;
 
-			// bind object
-			_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(exConvGateway));
-
-			// check link incoming from inFlow to exConvGateway
+			// check link targetRef from inFlow to exConvGateway
 			JavaSDM.ensure(exConvGateway.equals(inFlow.getTargetRef()));
 
-			// iterate to-many link flowElements from process to defaultFlow
+			// iterate to-many link flowNodeRefs from exConvGateway to lane
 			fujaba__Success = false;
 
-			fujaba__IterProcessToDefaultFlow = new ArrayList(
-					process.getFlowElements()).iterator();
+			fujaba__IterExConvGatewayToLane = new ArrayList(
+					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
+							exConvGateway, Lane.class, "flowNodeRefs"))
+					.iterator();
 
-			while (fujaba__IterProcessToDefaultFlow.hasNext()) {
+			while (fujaba__IterExConvGatewayToLane.hasNext()) {
 				try {
-					_TmpObject = fujaba__IterProcessToDefaultFlow.next();
+					lane = (Lane) fujaba__IterExConvGatewayToLane.next();
 
-					// ensure correct type and really bound of object defaultFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					defaultFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects inFlow and defaultFlow 
-					JavaSDM.ensure(!inFlow.equals(defaultFlow));
+					// check object lane is really bound
+					JavaSDM.ensure(lane != null);
+					// bind object
+					_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
+							.eContainer() : null;
 
-					// iterate to-many link flowElements from process to divergeFlow
+					// ensure correct type and really bound of object process
+					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+					process = (bpmn2.Process) _TmpObject;
+
+					// check if contained via correct reference
+					JavaSDM.ensure(process.getFlowElements().contains(
+							exConvGateway));
+
+					// iterate to-many link flowElements from process to defaultFlow
 					fujaba__Success = false;
 
-					fujaba__IterProcessToDivergeFlow = new ArrayList(
+					fujaba__IterProcessToDefaultFlow = new ArrayList(
 							process.getFlowElements()).iterator();
 
-					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
+					while (fujaba__IterProcessToDefaultFlow.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterProcessToDivergeFlow
+							_TmpObject = fujaba__IterProcessToDefaultFlow
 									.next();
 
-							// ensure correct type and really bound of object divergeFlow
+							// ensure correct type and really bound of object defaultFlow
 							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							divergeFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects divergeFlow and defaultFlow 
-							JavaSDM.ensure(!divergeFlow.equals(defaultFlow));
+							defaultFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects inFlow and defaultFlow 
+							JavaSDM.ensure(!inFlow.equals(defaultFlow));
 
-							// check isomorphic binding between objects inFlow and divergeFlow 
-							JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-							// bind object
-							_TmpObject = divergeFlow.getSourceRef();
-
-							// ensure correct type and really bound of object exclusiveGateway
-							JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-							exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-							// check isomorphic binding between objects exclusiveGateway and exConvGateway 
-							JavaSDM.ensure(!exclusiveGateway
-									.equals(exConvGateway));
-
-							// check link default from exclusiveGateway to defaultFlow
-							JavaSDM.ensure(defaultFlow.equals(exclusiveGateway
-									.getDefault()));
-
-							// check link flowElements from exclusiveGateway to process
-							JavaSDM.ensure(process.equals(exclusiveGateway
-									.eContainer()));
-
-							// iterate to-many link flowNodeRefs from exConvGateway to lane
+							// iterate to-many link flowElements from process to divergeFlow
 							fujaba__Success = false;
 
-							fujaba__IterExConvGatewayToLane = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													exConvGateway, Lane.class,
-													"flowNodeRefs")).iterator();
+							fujaba__IterProcessToDivergeFlow = new ArrayList(
+									process.getFlowElements()).iterator();
 
-							while (fujaba__IterExConvGatewayToLane.hasNext()) {
+							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
 								try {
-									lane = (Lane) fujaba__IterExConvGatewayToLane
+									_TmpObject = fujaba__IterProcessToDivergeFlow
 											.next();
 
-									// check object lane is really bound
-									JavaSDM.ensure(lane != null);
+									// ensure correct type and really bound of object divergeFlow
+									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+									divergeFlow = (SequenceFlow) _TmpObject;
+									// check isomorphic binding between objects divergeFlow and defaultFlow 
+									JavaSDM.ensure(!divergeFlow
+											.equals(defaultFlow));
+
+									// check isomorphic binding between objects inFlow and divergeFlow 
+									JavaSDM.ensure(!inFlow.equals(divergeFlow));
+
+									// bind object
+									_TmpObject = divergeFlow.getSourceRef();
+
+									// ensure correct type and really bound of object exclusiveGateway
+									JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
+									exclusiveGateway = (ExclusiveGateway) _TmpObject;
+
+									// check isomorphic binding between objects exclusiveGateway and exConvGateway 
+									JavaSDM.ensure(!exclusiveGateway
+											.equals(exConvGateway));
+
+									// check link default from exclusiveGateway to defaultFlow
+									JavaSDM.ensure(defaultFlow
+											.equals(exclusiveGateway
+													.getDefault()));
+
+									// check link flowElements from exclusiveGateway to process
+									JavaSDM.ensure(process
+											.equals(exclusiveGateway
+													.eContainer()));
+
 									// iterate to-many link laneSets from process to laneSet
 									fujaba__Success = false;
 
@@ -5094,7 +5011,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 											JavaSDM.ensure(laneSet.equals(lane
 													.eContainer()));
 
-											// iterate to-many link outgoing from exConvGateway to outFlow
+											// iterate to-many link sourceRef from exConvGateway to outFlow
 											fujaba__Success = false;
 
 											fujaba__IterExConvGatewayToOutFlow = new ArrayList(
@@ -5134,22 +5051,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_exConvGateway_flowElements_729250 = exConvGateway
+															__DEC_exConvGateway_flowElements_828780 = exConvGateway
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exConvGateway
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_exConvGateway_flowElements_729250 is really bound
-															JavaSDM.ensure(__DEC_exConvGateway_flowElements_729250 != null);
+															// check object __DEC_exConvGateway_flowElements_828780 is really bound
+															JavaSDM.ensure(__DEC_exConvGateway_flowElements_828780 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_exConvGateway_flowElements_729250
+															JavaSDM.ensure(__DEC_exConvGateway_flowElements_828780
 																	.getFlowElements()
 																	.contains(
 																			exConvGateway));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_flowElements_729250 and process 
-															JavaSDM.ensure(!__DEC_exConvGateway_flowElements_729250
+															// check isomorphic binding between objects __DEC_exConvGateway_flowElements_828780 and process 
+															JavaSDM.ensure(!__DEC_exConvGateway_flowElements_828780
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -5166,22 +5083,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_outFlow_flowElements_804964 = outFlow
+															__DEC_outFlow_flowElements_127508 = outFlow
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_outFlow_flowElements_804964 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_804964 != null);
+															// check object __DEC_outFlow_flowElements_127508 is really bound
+															JavaSDM.ensure(__DEC_outFlow_flowElements_127508 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_804964
+															JavaSDM.ensure(__DEC_outFlow_flowElements_127508
 																	.getFlowElements()
 																	.contains(
 																			outFlow));
 
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_804964 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_804964
+															// check isomorphic binding between objects __DEC_outFlow_flowElements_127508 and process 
+															JavaSDM.ensure(!__DEC_outFlow_flowElements_127508
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -5198,26 +5115,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_exConvGateway_default_189377 = exConvGateway
+															__DEC_exConvGateway_default_689710 = exConvGateway
 																	.getDefault();
 
-															// check object __DEC_exConvGateway_default_189377 is really bound
-															JavaSDM.ensure(__DEC_exConvGateway_default_189377 != null);
+															// check object __DEC_exConvGateway_default_689710 is really bound
+															JavaSDM.ensure(__DEC_exConvGateway_default_689710 != null);
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_189377 and defaultFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_189377
+															// check isomorphic binding between objects __DEC_exConvGateway_default_689710 and defaultFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_689710
 																	.equals(defaultFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_189377 and divergeFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_189377
+															// check isomorphic binding between objects __DEC_exConvGateway_default_689710 and divergeFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_689710
 																	.equals(divergeFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_189377 and inFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_189377
+															// check isomorphic binding between objects __DEC_exConvGateway_default_689710 and inFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_689710
 																	.equals(inFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_189377 and outFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_189377
+															// check isomorphic binding between objects __DEC_exConvGateway_default_689710 and outFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_689710
 																	.equals(outFlow));
 
 															fujaba__Success = true;
@@ -5233,10 +5150,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link default from outFlow to __DEC_outFlow_default_93410
+															// iterate to-many link default from outFlow to __DEC_outFlow_default_174932
 															fujaba__Success = false;
 
-															fujaba__IterOutFlowTo__DEC_outFlow_default_93410 = new ArrayList(
+															fujaba__IterOutFlowTo__DEC_outFlow_default_174932 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					outFlow,
@@ -5245,20 +5162,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterOutFlowTo__DEC_outFlow_default_93410
+																	&& fujaba__IterOutFlowTo__DEC_outFlow_default_174932
 																			.hasNext()) {
 																try {
-																	__DEC_outFlow_default_93410 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_93410
+																	__DEC_outFlow_default_174932 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_174932
 																			.next();
 
-																	// check object __DEC_outFlow_default_93410 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_default_93410 != null);
-																	// check isomorphic binding between objects __DEC_outFlow_default_93410 and exConvGateway 
-																	JavaSDM.ensure(!__DEC_outFlow_default_93410
+																	// check object __DEC_outFlow_default_174932 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_default_174932 != null);
+																	// check isomorphic binding between objects __DEC_outFlow_default_174932 and exConvGateway 
+																	JavaSDM.ensure(!__DEC_outFlow_default_174932
 																			.equals(exConvGateway));
 
-																	// check isomorphic binding between objects __DEC_outFlow_default_93410 and exclusiveGateway 
-																	JavaSDM.ensure(!__DEC_outFlow_default_93410
+																	// check isomorphic binding between objects __DEC_outFlow_default_174932 and exclusiveGateway 
+																	JavaSDM.ensure(!__DEC_outFlow_default_174932
 																			.equals(exclusiveGateway));
 
 																	fujaba__Success = true;
@@ -5281,37 +5198,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link incoming from exConvGateway to __DEC_exConvGateway_targetRef_425442
+															// iterate to-many link targetRef from exConvGateway to __DEC_exConvGateway_targetRef_870776
 															fujaba__Success = false;
 
-															fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_425442 = new ArrayList(
+															fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_870776 = new ArrayList(
 																	exConvGateway
 																			.getIncoming())
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_425442
+																	&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_870776
 																			.hasNext()) {
 																try {
-																	__DEC_exConvGateway_targetRef_425442 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_425442
+																	__DEC_exConvGateway_targetRef_870776 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_870776
 																			.next();
 
-																	// check object __DEC_exConvGateway_targetRef_425442 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_targetRef_425442 != null);
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_425442 and defaultFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_425442
+																	// check object __DEC_exConvGateway_targetRef_870776 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_targetRef_870776 != null);
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_870776 and defaultFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_870776
 																			.equals(defaultFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_425442 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_425442
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_870776 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_870776
 																			.equals(divergeFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_425442 and inFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_425442
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_870776 and inFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_870776
 																			.equals(inFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_425442 and outFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_425442
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_870776 and outFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_870776
 																			.equals(outFlow));
 
 																	fujaba__Success = true;
@@ -5432,24 +5349,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(process.equals(outFlow
 																.eContainer()));
 
-														// check link incoming from inFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link incoming from defaultFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway
-																.equals(defaultFlow
-																		.getTargetRef())));
-
-														// check link incoming from divergeFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link incoming from outFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway.equals(outFlow
-																.getTargetRef())));
-
 														// check link laneSets from laneSet to process
 														JavaSDM.ensure(process.equals(laneSet
 																.eContainer()));
@@ -5458,19 +5357,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(laneSet.equals(lane
 																.eContainer()));
 
-														// check link outgoing from outFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link outgoing from divergeFlow to exclusiveGateway
+														// check link sourceRef from divergeFlow to exclusiveGateway
 														JavaSDM.ensure(exclusiveGateway
 																.equals(divergeFlow
 																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(outFlow
+																.getSourceRef()));
 
 														// check link src from _edge_targetRef to inFlow
 														JavaSDM.ensure(inFlow
 																.equals(_edge_targetRef
 																		.getSrc()));
+
+														// check link targetRef from inFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(inFlow
+																.getTargetRef()));
+
+														// check link targetRef from defaultFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway
+																.equals(defaultFlow
+																		.getTargetRef())));
+
+														// check link targetRef from divergeFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway
+																.equals(divergeFlow
+																		.getTargetRef())));
+
+														// check link targetRef from outFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway.equals(outFlow
+																.getTargetRef())));
 
 														// check link trg from _edge_targetRef to exConvGateway
 														JavaSDM.ensure(exConvGateway
@@ -5504,7 +5421,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		lane,
 																		laneSet);
 														if (fujaba__Success) {
-															// statement node ''
+															// statement node 'Ensure that the correct types of elements are matched'
 															fujaba__Success = this
 																	.checkTypes_FWD(match);
 															if (fujaba__Success) {
@@ -5603,13 +5520,13 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exConvGateway_flowElements_300308 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_280486 = null;
-		SequenceFlow __DEC_exConvGateway_default_780081 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_817713 = null;
-		ExclusiveGateway __DEC_outFlow_default_817713 = null;
-		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_985473 = null;
-		SequenceFlow __DEC_exConvGateway_targetRef_985473 = null;
+		FlowElementsContainer __DEC_exConvGateway_flowElements_174255 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_19666 = null;
+		SequenceFlow __DEC_exConvGateway_default_265345 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_447136 = null;
+		ExclusiveGateway __DEC_outFlow_default_447136 = null;
+		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_698252 = null;
+		SequenceFlow __DEC_exConvGateway_targetRef_698252 = null;
 		Match match = null;
 		Iterator fujaba__IterInFlowTo_edge_targetRef = null;
 		EMoflonEdge _edge_targetRef = null;
@@ -5617,16 +5534,16 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		SequenceFlow outFlow = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
+		Iterator fujaba__IterExConvGatewayToLane = null;
+		Lane lane = null;
 		ExclusiveGateway exclusiveGateway = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
 		SequenceFlow divergeFlow = null;
 		Iterator fujaba__IterProcessToDefaultFlow = null;
 		SequenceFlow defaultFlow = null;
-		SequenceFlow inFlow = null;
 		bpmn2.Process process = null;
-		Iterator fujaba__IterExConvGatewayToLane = null;
-		Lane lane = null;
 		ExclusiveGateway exConvGateway = null;
+		SequenceFlow inFlow = null;
 
 		// story node 'prepare return value'
 		try {
@@ -5676,107 +5593,104 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_incoming is really bound
 			JavaSDM.ensure(_edge_incoming != null);
 			// bind object
+			_TmpObject = _edge_incoming.getTrg();
+
+			// ensure correct type and really bound of object inFlow
+			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+			inFlow = (SequenceFlow) _TmpObject;
+
+			// bind object
 			_TmpObject = _edge_incoming.getSrc();
 
 			// ensure correct type and really bound of object exConvGateway
 			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
 			exConvGateway = (ExclusiveGateway) _TmpObject;
 
-			// iterate to-many link flowNodeRefs from exConvGateway to lane
+			// bind object
+			_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
+					.eContainer() : null;
+
+			// ensure correct type and really bound of object process
+			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+			process = (bpmn2.Process) _TmpObject;
+
+			// check if contained via correct reference
+			JavaSDM.ensure(process.getFlowElements().contains(exConvGateway));
+
+			// check link targetRef from inFlow to exConvGateway
+			JavaSDM.ensure(exConvGateway.equals(inFlow.getTargetRef()));
+
+			// iterate to-many link flowElements from process to defaultFlow
 			fujaba__Success = false;
 
-			fujaba__IterExConvGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exConvGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
+			fujaba__IterProcessToDefaultFlow = new ArrayList(
+					process.getFlowElements()).iterator();
 
-			while (fujaba__IterExConvGatewayToLane.hasNext()) {
+			while (fujaba__IterProcessToDefaultFlow.hasNext()) {
 				try {
-					lane = (Lane) fujaba__IterExConvGatewayToLane.next();
+					_TmpObject = fujaba__IterProcessToDefaultFlow.next();
 
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							exConvGateway));
-
-					// bind object
-					_TmpObject = _edge_incoming.getTrg();
-
-					// ensure correct type and really bound of object inFlow
+					// ensure correct type and really bound of object defaultFlow
 					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
+					defaultFlow = (SequenceFlow) _TmpObject;
+					// check isomorphic binding between objects inFlow and defaultFlow 
+					JavaSDM.ensure(!inFlow.equals(defaultFlow));
 
-					// check link incoming from inFlow to exConvGateway
-					JavaSDM.ensure(exConvGateway.equals(inFlow.getTargetRef()));
-
-					// iterate to-many link flowElements from process to defaultFlow
+					// iterate to-many link flowElements from process to divergeFlow
 					fujaba__Success = false;
 
-					fujaba__IterProcessToDefaultFlow = new ArrayList(
+					fujaba__IterProcessToDivergeFlow = new ArrayList(
 							process.getFlowElements()).iterator();
 
-					while (fujaba__IterProcessToDefaultFlow.hasNext()) {
+					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterProcessToDefaultFlow
+							_TmpObject = fujaba__IterProcessToDivergeFlow
 									.next();
 
-							// ensure correct type and really bound of object defaultFlow
+							// ensure correct type and really bound of object divergeFlow
 							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							defaultFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow and defaultFlow 
-							JavaSDM.ensure(!inFlow.equals(defaultFlow));
+							divergeFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects divergeFlow and defaultFlow 
+							JavaSDM.ensure(!divergeFlow.equals(defaultFlow));
 
-							// iterate to-many link flowElements from process to divergeFlow
+							// check isomorphic binding between objects inFlow and divergeFlow 
+							JavaSDM.ensure(!inFlow.equals(divergeFlow));
+
+							// bind object
+							_TmpObject = divergeFlow.getSourceRef();
+
+							// ensure correct type and really bound of object exclusiveGateway
+							JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
+							exclusiveGateway = (ExclusiveGateway) _TmpObject;
+
+							// check isomorphic binding between objects exclusiveGateway and exConvGateway 
+							JavaSDM.ensure(!exclusiveGateway
+									.equals(exConvGateway));
+
+							// check link default from exclusiveGateway to defaultFlow
+							JavaSDM.ensure(defaultFlow.equals(exclusiveGateway
+									.getDefault()));
+
+							// check link flowElements from exclusiveGateway to process
+							JavaSDM.ensure(process.equals(exclusiveGateway
+									.eContainer()));
+
+							// iterate to-many link flowNodeRefs from exConvGateway to lane
 							fujaba__Success = false;
 
-							fujaba__IterProcessToDivergeFlow = new ArrayList(
-									process.getFlowElements()).iterator();
+							fujaba__IterExConvGatewayToLane = new ArrayList(
+									org.moflon.util.eMoflonEMFUtil
+											.getOppositeReference(
+													exConvGateway, Lane.class,
+													"flowNodeRefs")).iterator();
 
-							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
+							while (fujaba__IterExConvGatewayToLane.hasNext()) {
 								try {
-									_TmpObject = fujaba__IterProcessToDivergeFlow
+									lane = (Lane) fujaba__IterExConvGatewayToLane
 											.next();
 
-									// ensure correct type and really bound of object divergeFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									divergeFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects divergeFlow and defaultFlow 
-									JavaSDM.ensure(!divergeFlow
-											.equals(defaultFlow));
-
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// bind object
-									_TmpObject = divergeFlow.getSourceRef();
-
-									// ensure correct type and really bound of object exclusiveGateway
-									JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-									exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-									// check isomorphic binding between objects exclusiveGateway and exConvGateway 
-									JavaSDM.ensure(!exclusiveGateway
-											.equals(exConvGateway));
-
-									// check link default from exclusiveGateway to defaultFlow
-									JavaSDM.ensure(defaultFlow
-											.equals(exclusiveGateway
-													.getDefault()));
-
-									// check link flowElements from exclusiveGateway to process
-									JavaSDM.ensure(process
-											.equals(exclusiveGateway
-													.eContainer()));
-
+									// check object lane is really bound
+									JavaSDM.ensure(lane != null);
 									// iterate to-many link laneSets from process to laneSet
 									fujaba__Success = false;
 
@@ -5795,7 +5709,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 											JavaSDM.ensure(laneSet.equals(lane
 													.eContainer()));
 
-											// iterate to-many link outgoing from exConvGateway to outFlow
+											// iterate to-many link sourceRef from exConvGateway to outFlow
 											fujaba__Success = false;
 
 											fujaba__IterExConvGatewayToOutFlow = new ArrayList(
@@ -5863,22 +5777,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_exConvGateway_flowElements_300308 = exConvGateway
+																	__DEC_exConvGateway_flowElements_174255 = exConvGateway
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exConvGateway
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_exConvGateway_flowElements_300308 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_300308 != null);
+																	// check object __DEC_exConvGateway_flowElements_174255 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_174255 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_300308
+																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_174255
 																			.getFlowElements()
 																			.contains(
 																					exConvGateway));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_flowElements_300308 and process 
-																	JavaSDM.ensure(!__DEC_exConvGateway_flowElements_300308
+																	// check isomorphic binding between objects __DEC_exConvGateway_flowElements_174255 and process 
+																	JavaSDM.ensure(!__DEC_exConvGateway_flowElements_174255
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -5895,22 +5809,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_outFlow_flowElements_280486 = outFlow
+																	__DEC_outFlow_flowElements_19666 = outFlow
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_outFlow_flowElements_280486 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_280486 != null);
+																	// check object __DEC_outFlow_flowElements_19666 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_19666 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_280486
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_19666
 																			.getFlowElements()
 																			.contains(
 																					outFlow));
 
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_280486 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_280486
+																	// check isomorphic binding between objects __DEC_outFlow_flowElements_19666 and process 
+																	JavaSDM.ensure(!__DEC_outFlow_flowElements_19666
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -5927,26 +5841,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_exConvGateway_default_780081 = exConvGateway
+																	__DEC_exConvGateway_default_265345 = exConvGateway
 																			.getDefault();
 
-																	// check object __DEC_exConvGateway_default_780081 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_default_780081 != null);
+																	// check object __DEC_exConvGateway_default_265345 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_default_265345 != null);
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_780081 and defaultFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_780081
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_265345 and defaultFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_265345
 																			.equals(defaultFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_780081 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_780081
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_265345 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_265345
 																			.equals(divergeFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_780081 and inFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_780081
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_265345 and inFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_265345
 																			.equals(inFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_780081 and outFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_780081
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_265345 and outFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_265345
 																			.equals(outFlow));
 
 																	fujaba__Success = true;
@@ -5962,10 +5876,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																try {
 																	fujaba__Success = false;
 
-																	// iterate to-many link default from outFlow to __DEC_outFlow_default_817713
+																	// iterate to-many link default from outFlow to __DEC_outFlow_default_447136
 																	fujaba__Success = false;
 
-																	fujaba__IterOutFlowTo__DEC_outFlow_default_817713 = new ArrayList(
+																	fujaba__IterOutFlowTo__DEC_outFlow_default_447136 = new ArrayList(
 																			org.moflon.util.eMoflonEMFUtil
 																					.getOppositeReference(
 																							outFlow,
@@ -5974,20 +5888,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																			.iterator();
 
 																	while (!(fujaba__Success)
-																			&& fujaba__IterOutFlowTo__DEC_outFlow_default_817713
+																			&& fujaba__IterOutFlowTo__DEC_outFlow_default_447136
 																					.hasNext()) {
 																		try {
-																			__DEC_outFlow_default_817713 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_817713
+																			__DEC_outFlow_default_447136 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_447136
 																					.next();
 
-																			// check object __DEC_outFlow_default_817713 is really bound
-																			JavaSDM.ensure(__DEC_outFlow_default_817713 != null);
-																			// check isomorphic binding between objects __DEC_outFlow_default_817713 and exConvGateway 
-																			JavaSDM.ensure(!__DEC_outFlow_default_817713
+																			// check object __DEC_outFlow_default_447136 is really bound
+																			JavaSDM.ensure(__DEC_outFlow_default_447136 != null);
+																			// check isomorphic binding between objects __DEC_outFlow_default_447136 and exConvGateway 
+																			JavaSDM.ensure(!__DEC_outFlow_default_447136
 																					.equals(exConvGateway));
 
-																			// check isomorphic binding between objects __DEC_outFlow_default_817713 and exclusiveGateway 
-																			JavaSDM.ensure(!__DEC_outFlow_default_817713
+																			// check isomorphic binding between objects __DEC_outFlow_default_447136 and exclusiveGateway 
+																			JavaSDM.ensure(!__DEC_outFlow_default_447136
 																					.equals(exclusiveGateway));
 
 																			fujaba__Success = true;
@@ -6010,37 +5924,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																try {
 																	fujaba__Success = false;
 
-																	// iterate to-many link incoming from exConvGateway to __DEC_exConvGateway_targetRef_985473
+																	// iterate to-many link targetRef from exConvGateway to __DEC_exConvGateway_targetRef_698252
 																	fujaba__Success = false;
 
-																	fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_985473 = new ArrayList(
+																	fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_698252 = new ArrayList(
 																			exConvGateway
 																					.getIncoming())
 																			.iterator();
 
 																	while (!(fujaba__Success)
-																			&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_985473
+																			&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_698252
 																					.hasNext()) {
 																		try {
-																			__DEC_exConvGateway_targetRef_985473 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_985473
+																			__DEC_exConvGateway_targetRef_698252 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_698252
 																					.next();
 
-																			// check object __DEC_exConvGateway_targetRef_985473 is really bound
-																			JavaSDM.ensure(__DEC_exConvGateway_targetRef_985473 != null);
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_985473 and defaultFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_985473
+																			// check object __DEC_exConvGateway_targetRef_698252 is really bound
+																			JavaSDM.ensure(__DEC_exConvGateway_targetRef_698252 != null);
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_698252 and defaultFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_698252
 																					.equals(defaultFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_985473 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_985473
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_698252 and divergeFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_698252
 																					.equals(divergeFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_985473 and inFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_985473
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_698252 and inFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_698252
 																					.equals(inFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_985473 and outFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_985473
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_698252 and outFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_698252
 																					.equals(outFlow));
 
 																			fujaba__Success = true;
@@ -6168,26 +6082,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		.equals(outFlow
 																				.eContainer()));
 
-																// check link incoming from inFlow to exConvGateway
-																JavaSDM.ensure(exConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link incoming from defaultFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(defaultFlow
-																				.getTargetRef())));
-
-																// check link incoming from divergeFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link incoming from outFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
 																// check link laneSets from laneSet to process
 																JavaSDM.ensure(process
 																		.equals(laneSet
@@ -6198,14 +6092,14 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		.equals(lane
 																				.eContainer()));
 
-																// check link outgoing from outFlow to exConvGateway
-																JavaSDM.ensure(exConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link outgoing from divergeFlow to exclusiveGateway
+																// check link sourceRef from divergeFlow to exclusiveGateway
 																JavaSDM.ensure(exclusiveGateway
 																		.equals(divergeFlow
+																				.getSourceRef()));
+
+																// check link sourceRef from outFlow to exConvGateway
+																JavaSDM.ensure(exConvGateway
+																		.equals(outFlow
 																				.getSourceRef()));
 
 																// check link src from _edge_incoming to exConvGateway
@@ -6217,6 +6111,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																JavaSDM.ensure(inFlow
 																		.equals(_edge_targetRef
 																				.getSrc()));
+
+																// check link targetRef from inFlow to exConvGateway
+																JavaSDM.ensure(exConvGateway
+																		.equals(inFlow
+																				.getTargetRef()));
+
+																// check link targetRef from defaultFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(defaultFlow
+																				.getTargetRef())));
+
+																// check link targetRef from divergeFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(divergeFlow
+																				.getTargetRef())));
+
+																// check link targetRef from outFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(outFlow
+																				.getTargetRef())));
 
 																// check link trg from _edge_incoming to inFlow
 																JavaSDM.ensure(inFlow
@@ -6255,7 +6169,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																				lane,
 																				laneSet);
 																if (fujaba__Success) {
-																	// statement node ''
+																	// statement node 'Ensure that the correct types of elements are matched'
 																	fujaba__Success = this
 																			.checkTypes_FWD(match);
 																	if (fujaba__Success) {
@@ -6361,14 +6275,16 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exConvGateway_flowElements_288118 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_701836 = null;
-		SequenceFlow __DEC_exConvGateway_default_442469 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_351485 = null;
-		ExclusiveGateway __DEC_outFlow_default_351485 = null;
-		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_689252 = null;
-		SequenceFlow __DEC_exConvGateway_targetRef_689252 = null;
+		FlowElementsContainer __DEC_exConvGateway_flowElements_91107 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_140448 = null;
+		SequenceFlow __DEC_exConvGateway_default_615372 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_452724 = null;
+		ExclusiveGateway __DEC_outFlow_default_452724 = null;
+		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_904539 = null;
+		SequenceFlow __DEC_exConvGateway_targetRef_904539 = null;
 		Match match = null;
+		Iterator fujaba__IterExConvGatewayToInFlow = null;
+		SequenceFlow inFlow = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
 		ExclusiveGateway exclusiveGateway = null;
@@ -6377,8 +6293,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__IterProcessToDefaultFlow = null;
 		SequenceFlow defaultFlow = null;
 		bpmn2.Process process = null;
-		Iterator fujaba__IterExConvGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
 		Iterator fujaba__IterExConvGatewayToLane = null;
 		Lane lane = null;
 		ExclusiveGateway exConvGateway = null;
@@ -6445,7 +6359,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
 			exConvGateway = (ExclusiveGateway) _TmpObject;
 
-			// check link outgoing from outFlow to exConvGateway
+			// check link sourceRef from outFlow to exConvGateway
 			JavaSDM.ensure(exConvGateway.equals(outFlow.getSourceRef()));
 
 			// iterate to-many link flowNodeRefs from exConvGateway to lane
@@ -6462,125 +6376,124 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
-					// iterate to-many link incoming from exConvGateway to inFlow
+					// bind object
+					_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
+							.eContainer() : null;
+
+					// ensure correct type and really bound of object process
+					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+					process = (bpmn2.Process) _TmpObject;
+
+					// check if contained via correct reference
+					JavaSDM.ensure(process.getFlowElements().contains(
+							exConvGateway));
+
+					// check link flowElements from outFlow to process
+					JavaSDM.ensure(process.equals(outFlow.eContainer()));
+
+					// iterate to-many link flowElements from process to defaultFlow
 					fujaba__Success = false;
 
-					fujaba__IterExConvGatewayToInFlow = new ArrayList(
-							exConvGateway.getIncoming()).iterator();
+					fujaba__IterProcessToDefaultFlow = new ArrayList(
+							process.getFlowElements()).iterator();
 
-					while (fujaba__IterExConvGatewayToInFlow.hasNext()) {
+					while (fujaba__IterProcessToDefaultFlow.hasNext()) {
 						try {
-							inFlow = (SequenceFlow) fujaba__IterExConvGatewayToInFlow
+							_TmpObject = fujaba__IterProcessToDefaultFlow
 									.next();
 
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
+							// ensure correct type and really bound of object defaultFlow
+							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+							defaultFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects outFlow and defaultFlow 
+							JavaSDM.ensure(!outFlow.equals(defaultFlow));
 
-							// bind object
-							_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
-									.eContainer() : null;
-
-							// ensure correct type and really bound of object process
-							JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-							process = (bpmn2.Process) _TmpObject;
-
-							// check if contained via correct reference
-							JavaSDM.ensure(process.getFlowElements().contains(
-									exConvGateway));
-
-							// check link flowElements from outFlow to process
-							JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-							// iterate to-many link flowElements from process to defaultFlow
+							// iterate to-many link flowElements from process to divergeFlow
 							fujaba__Success = false;
 
-							fujaba__IterProcessToDefaultFlow = new ArrayList(
+							fujaba__IterProcessToDivergeFlow = new ArrayList(
 									process.getFlowElements()).iterator();
 
-							while (fujaba__IterProcessToDefaultFlow.hasNext()) {
+							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
 								try {
-									_TmpObject = fujaba__IterProcessToDefaultFlow
+									_TmpObject = fujaba__IterProcessToDivergeFlow
 											.next();
 
-									// ensure correct type and really bound of object defaultFlow
+									// ensure correct type and really bound of object divergeFlow
 									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									defaultFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow and defaultFlow 
-									JavaSDM.ensure(!inFlow.equals(defaultFlow));
+									divergeFlow = (SequenceFlow) _TmpObject;
+									// check isomorphic binding between objects divergeFlow and defaultFlow 
+									JavaSDM.ensure(!divergeFlow
+											.equals(defaultFlow));
 
-									// check isomorphic binding between objects outFlow and defaultFlow 
-									JavaSDM.ensure(!outFlow.equals(defaultFlow));
+									// check isomorphic binding between objects outFlow and divergeFlow 
+									JavaSDM.ensure(!outFlow.equals(divergeFlow));
 
-									// iterate to-many link flowElements from process to divergeFlow
+									// bind object
+									_TmpObject = divergeFlow.getSourceRef();
+
+									// ensure correct type and really bound of object exclusiveGateway
+									JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
+									exclusiveGateway = (ExclusiveGateway) _TmpObject;
+
+									// check isomorphic binding between objects exclusiveGateway and exConvGateway 
+									JavaSDM.ensure(!exclusiveGateway
+											.equals(exConvGateway));
+
+									// check link default from exclusiveGateway to defaultFlow
+									JavaSDM.ensure(defaultFlow
+											.equals(exclusiveGateway
+													.getDefault()));
+
+									// check link flowElements from exclusiveGateway to process
+									JavaSDM.ensure(process
+											.equals(exclusiveGateway
+													.eContainer()));
+
+									// iterate to-many link laneSets from process to laneSet
 									fujaba__Success = false;
 
-									fujaba__IterProcessToDivergeFlow = new ArrayList(
-											process.getFlowElements())
-											.iterator();
+									fujaba__IterProcessToLaneSet = new ArrayList(
+											process.getLaneSets()).iterator();
 
-									while (fujaba__IterProcessToDivergeFlow
+									while (fujaba__IterProcessToLaneSet
 											.hasNext()) {
 										try {
-											_TmpObject = fujaba__IterProcessToDivergeFlow
+											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
 													.next();
 
-											// ensure correct type and really bound of object divergeFlow
-											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-											divergeFlow = (SequenceFlow) _TmpObject;
-											// check isomorphic binding between objects divergeFlow and defaultFlow 
-											JavaSDM.ensure(!divergeFlow
-													.equals(defaultFlow));
+											// check object laneSet is really bound
+											JavaSDM.ensure(laneSet != null);
+											// check link lanes from lane to laneSet
+											JavaSDM.ensure(laneSet.equals(lane
+													.eContainer()));
 
-											// check isomorphic binding between objects inFlow and divergeFlow 
-											JavaSDM.ensure(!inFlow
-													.equals(divergeFlow));
-
-											// check isomorphic binding between objects outFlow and divergeFlow 
-											JavaSDM.ensure(!outFlow
-													.equals(divergeFlow));
-
-											// bind object
-											_TmpObject = divergeFlow
-													.getSourceRef();
-
-											// ensure correct type and really bound of object exclusiveGateway
-											JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-											exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-											// check isomorphic binding between objects exclusiveGateway and exConvGateway 
-											JavaSDM.ensure(!exclusiveGateway
-													.equals(exConvGateway));
-
-											// check link default from exclusiveGateway to defaultFlow
-											JavaSDM.ensure(defaultFlow
-													.equals(exclusiveGateway
-															.getDefault()));
-
-											// check link flowElements from exclusiveGateway to process
-											JavaSDM.ensure(process
-													.equals(exclusiveGateway
-															.eContainer()));
-
-											// iterate to-many link laneSets from process to laneSet
+											// iterate to-many link targetRef from exConvGateway to inFlow
 											fujaba__Success = false;
 
-											fujaba__IterProcessToLaneSet = new ArrayList(
-													process.getLaneSets())
+											fujaba__IterExConvGatewayToInFlow = new ArrayList(
+													exConvGateway.getIncoming())
 													.iterator();
 
-											while (fujaba__IterProcessToLaneSet
+											while (fujaba__IterExConvGatewayToInFlow
 													.hasNext()) {
 												try {
-													laneSet = (LaneSet) fujaba__IterProcessToLaneSet
+													inFlow = (SequenceFlow) fujaba__IterExConvGatewayToInFlow
 															.next();
 
-													// check object laneSet is really bound
-													JavaSDM.ensure(laneSet != null);
-													// check link lanes from lane to laneSet
-													JavaSDM.ensure(laneSet.equals(lane
-															.eContainer()));
+													// check object inFlow is really bound
+													JavaSDM.ensure(inFlow != null);
+													// check isomorphic binding between objects inFlow and defaultFlow 
+													JavaSDM.ensure(!inFlow
+															.equals(defaultFlow));
+
+													// check isomorphic binding between objects inFlow and divergeFlow 
+													JavaSDM.ensure(!inFlow
+															.equals(divergeFlow));
+
+													// check isomorphic binding between objects outFlow and inFlow 
+													JavaSDM.ensure(!outFlow
+															.equals(inFlow));
 
 													// story node 'test core match and DECs'
 													try {
@@ -6591,22 +6504,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_exConvGateway_flowElements_288118 = exConvGateway
+															__DEC_exConvGateway_flowElements_91107 = exConvGateway
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exConvGateway
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_exConvGateway_flowElements_288118 is really bound
-															JavaSDM.ensure(__DEC_exConvGateway_flowElements_288118 != null);
+															// check object __DEC_exConvGateway_flowElements_91107 is really bound
+															JavaSDM.ensure(__DEC_exConvGateway_flowElements_91107 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_exConvGateway_flowElements_288118
+															JavaSDM.ensure(__DEC_exConvGateway_flowElements_91107
 																	.getFlowElements()
 																	.contains(
 																			exConvGateway));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_flowElements_288118 and process 
-															JavaSDM.ensure(!__DEC_exConvGateway_flowElements_288118
+															// check isomorphic binding between objects __DEC_exConvGateway_flowElements_91107 and process 
+															JavaSDM.ensure(!__DEC_exConvGateway_flowElements_91107
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -6623,22 +6536,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_outFlow_flowElements_701836 = outFlow
+															__DEC_outFlow_flowElements_140448 = outFlow
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_outFlow_flowElements_701836 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_701836 != null);
+															// check object __DEC_outFlow_flowElements_140448 is really bound
+															JavaSDM.ensure(__DEC_outFlow_flowElements_140448 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_701836
+															JavaSDM.ensure(__DEC_outFlow_flowElements_140448
 																	.getFlowElements()
 																	.contains(
 																			outFlow));
 
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_701836 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_701836
+															// check isomorphic binding between objects __DEC_outFlow_flowElements_140448 and process 
+															JavaSDM.ensure(!__DEC_outFlow_flowElements_140448
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -6655,26 +6568,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_exConvGateway_default_442469 = exConvGateway
+															__DEC_exConvGateway_default_615372 = exConvGateway
 																	.getDefault();
 
-															// check object __DEC_exConvGateway_default_442469 is really bound
-															JavaSDM.ensure(__DEC_exConvGateway_default_442469 != null);
+															// check object __DEC_exConvGateway_default_615372 is really bound
+															JavaSDM.ensure(__DEC_exConvGateway_default_615372 != null);
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_442469 and defaultFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_442469
+															// check isomorphic binding between objects __DEC_exConvGateway_default_615372 and defaultFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_615372
 																	.equals(defaultFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_442469 and divergeFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_442469
+															// check isomorphic binding between objects __DEC_exConvGateway_default_615372 and divergeFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_615372
 																	.equals(divergeFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_442469 and inFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_442469
+															// check isomorphic binding between objects __DEC_exConvGateway_default_615372 and inFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_615372
 																	.equals(inFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_442469 and outFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_442469
+															// check isomorphic binding between objects __DEC_exConvGateway_default_615372 and outFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_615372
 																	.equals(outFlow));
 
 															fujaba__Success = true;
@@ -6690,10 +6603,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link default from outFlow to __DEC_outFlow_default_351485
+															// iterate to-many link default from outFlow to __DEC_outFlow_default_452724
 															fujaba__Success = false;
 
-															fujaba__IterOutFlowTo__DEC_outFlow_default_351485 = new ArrayList(
+															fujaba__IterOutFlowTo__DEC_outFlow_default_452724 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					outFlow,
@@ -6702,20 +6615,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterOutFlowTo__DEC_outFlow_default_351485
+																	&& fujaba__IterOutFlowTo__DEC_outFlow_default_452724
 																			.hasNext()) {
 																try {
-																	__DEC_outFlow_default_351485 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_351485
+																	__DEC_outFlow_default_452724 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_452724
 																			.next();
 
-																	// check object __DEC_outFlow_default_351485 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_default_351485 != null);
-																	// check isomorphic binding between objects __DEC_outFlow_default_351485 and exConvGateway 
-																	JavaSDM.ensure(!__DEC_outFlow_default_351485
+																	// check object __DEC_outFlow_default_452724 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_default_452724 != null);
+																	// check isomorphic binding between objects __DEC_outFlow_default_452724 and exConvGateway 
+																	JavaSDM.ensure(!__DEC_outFlow_default_452724
 																			.equals(exConvGateway));
 
-																	// check isomorphic binding between objects __DEC_outFlow_default_351485 and exclusiveGateway 
-																	JavaSDM.ensure(!__DEC_outFlow_default_351485
+																	// check isomorphic binding between objects __DEC_outFlow_default_452724 and exclusiveGateway 
+																	JavaSDM.ensure(!__DEC_outFlow_default_452724
 																			.equals(exclusiveGateway));
 
 																	fujaba__Success = true;
@@ -6738,37 +6651,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link incoming from exConvGateway to __DEC_exConvGateway_targetRef_689252
+															// iterate to-many link targetRef from exConvGateway to __DEC_exConvGateway_targetRef_904539
 															fujaba__Success = false;
 
-															fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_689252 = new ArrayList(
+															fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_904539 = new ArrayList(
 																	exConvGateway
 																			.getIncoming())
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_689252
+																	&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_904539
 																			.hasNext()) {
 																try {
-																	__DEC_exConvGateway_targetRef_689252 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_689252
+																	__DEC_exConvGateway_targetRef_904539 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_904539
 																			.next();
 
-																	// check object __DEC_exConvGateway_targetRef_689252 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_targetRef_689252 != null);
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_689252 and defaultFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_689252
+																	// check object __DEC_exConvGateway_targetRef_904539 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_targetRef_904539 != null);
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_904539 and defaultFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_904539
 																			.equals(defaultFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_689252 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_689252
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_904539 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_904539
 																			.equals(divergeFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_689252 and inFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_689252
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_904539 and inFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_904539
 																			.equals(inFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_689252 and outFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_689252
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_904539 and outFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_904539
 																			.equals(outFlow));
 
 																	fujaba__Success = true;
@@ -6889,24 +6802,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(process.equals(outFlow
 																.eContainer()));
 
-														// check link incoming from inFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link incoming from defaultFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway
-																.equals(defaultFlow
-																		.getTargetRef())));
-
-														// check link incoming from divergeFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link incoming from outFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway.equals(outFlow
-																.getTargetRef())));
-
 														// check link laneSets from laneSet to process
 														JavaSDM.ensure(process.equals(laneSet
 																.eContainer()));
@@ -6915,19 +6810,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(laneSet.equals(lane
 																.eContainer()));
 
-														// check link outgoing from outFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link outgoing from divergeFlow to exclusiveGateway
+														// check link sourceRef from divergeFlow to exclusiveGateway
 														JavaSDM.ensure(exclusiveGateway
 																.equals(divergeFlow
 																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(outFlow
+																.getSourceRef()));
 
 														// check link src from _edge_sourceRef to outFlow
 														JavaSDM.ensure(outFlow
 																.equals(_edge_sourceRef
 																		.getSrc()));
+
+														// check link targetRef from inFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(inFlow
+																.getTargetRef()));
+
+														// check link targetRef from defaultFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway
+																.equals(defaultFlow
+																		.getTargetRef())));
+
+														// check link targetRef from divergeFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway
+																.equals(divergeFlow
+																		.getTargetRef())));
+
+														// check link targetRef from outFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway.equals(outFlow
+																.getTargetRef())));
 
 														// check link trg from _edge_sourceRef to exConvGateway
 														JavaSDM.ensure(exConvGateway
@@ -6961,7 +6874,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		lane,
 																		laneSet);
 														if (fujaba__Success) {
-															// statement node ''
+															// statement node 'Ensure that the correct types of elements are matched'
 															fujaba__Success = this
 																	.checkTypes_FWD(match);
 															if (fujaba__Success) {
@@ -7060,27 +6973,27 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exConvGateway_flowElements_469486 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_889953 = null;
-		SequenceFlow __DEC_exConvGateway_default_160 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_926011 = null;
-		ExclusiveGateway __DEC_outFlow_default_926011 = null;
-		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_74653 = null;
-		SequenceFlow __DEC_exConvGateway_targetRef_74653 = null;
+		FlowElementsContainer __DEC_exConvGateway_flowElements_442164 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_286102 = null;
+		SequenceFlow __DEC_exConvGateway_default_862855 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_973279 = null;
+		ExclusiveGateway __DEC_outFlow_default_973279 = null;
+		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_28607 = null;
+		SequenceFlow __DEC_exConvGateway_targetRef_28607 = null;
 		Match match = null;
 		Iterator fujaba__IterExConvGatewayTo_edge_sourceRef = null;
 		EMoflonEdge _edge_sourceRef = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
 		LaneSet laneSet = null;
-		Iterator fujaba__IterExConvGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
 		ExclusiveGateway exclusiveGateway = null;
 		Iterator fujaba__IterProcessToDivergeFlow = null;
 		SequenceFlow divergeFlow = null;
 		Iterator fujaba__IterProcessToDefaultFlow = null;
 		SequenceFlow defaultFlow = null;
-		SequenceFlow outFlow = null;
 		bpmn2.Process process = null;
+		Iterator fujaba__IterExConvGatewayToInFlow = null;
+		SequenceFlow inFlow = null;
+		SequenceFlow outFlow = null;
 		Iterator fujaba__IterExConvGatewayToLane = null;
 		Lane lane = null;
 		ExclusiveGateway exConvGateway = null;
@@ -7154,115 +7067,115 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					// check object lane is really bound
 					JavaSDM.ensure(lane != null);
 					// bind object
-					_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							exConvGateway));
-
-					// bind object
 					_TmpObject = _edge_outgoing.getTrg();
 
 					// ensure correct type and really bound of object outFlow
 					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
 					outFlow = (SequenceFlow) _TmpObject;
 
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-					// check link outgoing from outFlow to exConvGateway
+					// check link sourceRef from outFlow to exConvGateway
 					JavaSDM.ensure(exConvGateway.equals(outFlow.getSourceRef()));
 
-					// iterate to-many link flowElements from process to defaultFlow
+					// iterate to-many link targetRef from exConvGateway to inFlow
 					fujaba__Success = false;
 
-					fujaba__IterProcessToDefaultFlow = new ArrayList(
-							process.getFlowElements()).iterator();
+					fujaba__IterExConvGatewayToInFlow = new ArrayList(
+							exConvGateway.getIncoming()).iterator();
 
-					while (fujaba__IterProcessToDefaultFlow.hasNext()) {
+					while (fujaba__IterExConvGatewayToInFlow.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterProcessToDefaultFlow
+							inFlow = (SequenceFlow) fujaba__IterExConvGatewayToInFlow
 									.next();
 
-							// ensure correct type and really bound of object defaultFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							defaultFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects outFlow and defaultFlow 
-							JavaSDM.ensure(!outFlow.equals(defaultFlow));
+							// check object inFlow is really bound
+							JavaSDM.ensure(inFlow != null);
+							// check isomorphic binding between objects outFlow and inFlow 
+							JavaSDM.ensure(!outFlow.equals(inFlow));
 
-							// iterate to-many link flowElements from process to divergeFlow
+							// bind object
+							_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
+									.eContainer() : null;
+
+							// ensure correct type and really bound of object process
+							JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+							process = (bpmn2.Process) _TmpObject;
+
+							// check if contained via correct reference
+							JavaSDM.ensure(process.getFlowElements().contains(
+									exConvGateway));
+
+							// check link flowElements from outFlow to process
+							JavaSDM.ensure(process.equals(outFlow.eContainer()));
+
+							// iterate to-many link flowElements from process to defaultFlow
 							fujaba__Success = false;
 
-							fujaba__IterProcessToDivergeFlow = new ArrayList(
+							fujaba__IterProcessToDefaultFlow = new ArrayList(
 									process.getFlowElements()).iterator();
 
-							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
+							while (fujaba__IterProcessToDefaultFlow.hasNext()) {
 								try {
-									_TmpObject = fujaba__IterProcessToDivergeFlow
+									_TmpObject = fujaba__IterProcessToDefaultFlow
 											.next();
 
-									// ensure correct type and really bound of object divergeFlow
+									// ensure correct type and really bound of object defaultFlow
 									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									divergeFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects divergeFlow and defaultFlow 
-									JavaSDM.ensure(!divergeFlow
-											.equals(defaultFlow));
+									defaultFlow = (SequenceFlow) _TmpObject;
+									// check isomorphic binding between objects inFlow and defaultFlow 
+									JavaSDM.ensure(!inFlow.equals(defaultFlow));
 
-									// check isomorphic binding between objects outFlow and divergeFlow 
-									JavaSDM.ensure(!outFlow.equals(divergeFlow));
+									// check isomorphic binding between objects outFlow and defaultFlow 
+									JavaSDM.ensure(!outFlow.equals(defaultFlow));
 
-									// bind object
-									_TmpObject = divergeFlow.getSourceRef();
-
-									// ensure correct type and really bound of object exclusiveGateway
-									JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-									exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-									// check isomorphic binding between objects exclusiveGateway and exConvGateway 
-									JavaSDM.ensure(!exclusiveGateway
-											.equals(exConvGateway));
-
-									// check link default from exclusiveGateway to defaultFlow
-									JavaSDM.ensure(defaultFlow
-											.equals(exclusiveGateway
-													.getDefault()));
-
-									// check link flowElements from exclusiveGateway to process
-									JavaSDM.ensure(process
-											.equals(exclusiveGateway
-													.eContainer()));
-
-									// iterate to-many link incoming from exConvGateway to inFlow
+									// iterate to-many link flowElements from process to divergeFlow
 									fujaba__Success = false;
 
-									fujaba__IterExConvGatewayToInFlow = new ArrayList(
-											exConvGateway.getIncoming())
+									fujaba__IterProcessToDivergeFlow = new ArrayList(
+											process.getFlowElements())
 											.iterator();
 
-									while (fujaba__IterExConvGatewayToInFlow
+									while (fujaba__IterProcessToDivergeFlow
 											.hasNext()) {
 										try {
-											inFlow = (SequenceFlow) fujaba__IterExConvGatewayToInFlow
+											_TmpObject = fujaba__IterProcessToDivergeFlow
 													.next();
 
-											// check object inFlow is really bound
-											JavaSDM.ensure(inFlow != null);
-											// check isomorphic binding between objects inFlow and defaultFlow 
-											JavaSDM.ensure(!inFlow
+											// ensure correct type and really bound of object divergeFlow
+											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+											divergeFlow = (SequenceFlow) _TmpObject;
+											// check isomorphic binding between objects divergeFlow and defaultFlow 
+											JavaSDM.ensure(!divergeFlow
 													.equals(defaultFlow));
 
 											// check isomorphic binding between objects inFlow and divergeFlow 
 											JavaSDM.ensure(!inFlow
 													.equals(divergeFlow));
 
-											// check isomorphic binding between objects outFlow and inFlow 
+											// check isomorphic binding between objects outFlow and divergeFlow 
 											JavaSDM.ensure(!outFlow
-													.equals(inFlow));
+													.equals(divergeFlow));
+
+											// bind object
+											_TmpObject = divergeFlow
+													.getSourceRef();
+
+											// ensure correct type and really bound of object exclusiveGateway
+											JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
+											exclusiveGateway = (ExclusiveGateway) _TmpObject;
+
+											// check isomorphic binding between objects exclusiveGateway and exConvGateway 
+											JavaSDM.ensure(!exclusiveGateway
+													.equals(exConvGateway));
+
+											// check link default from exclusiveGateway to defaultFlow
+											JavaSDM.ensure(defaultFlow
+													.equals(exclusiveGateway
+															.getDefault()));
+
+											// check link flowElements from exclusiveGateway to process
+											JavaSDM.ensure(process
+													.equals(exclusiveGateway
+															.eContainer()));
 
 											// iterate to-many link laneSets from process to laneSet
 											fujaba__Success = false;
@@ -7320,22 +7233,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_exConvGateway_flowElements_469486 = exConvGateway
+																	__DEC_exConvGateway_flowElements_442164 = exConvGateway
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exConvGateway
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_exConvGateway_flowElements_469486 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_469486 != null);
+																	// check object __DEC_exConvGateway_flowElements_442164 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_442164 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_469486
+																	JavaSDM.ensure(__DEC_exConvGateway_flowElements_442164
 																			.getFlowElements()
 																			.contains(
 																					exConvGateway));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_flowElements_469486 and process 
-																	JavaSDM.ensure(!__DEC_exConvGateway_flowElements_469486
+																	// check isomorphic binding between objects __DEC_exConvGateway_flowElements_442164 and process 
+																	JavaSDM.ensure(!__DEC_exConvGateway_flowElements_442164
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -7352,22 +7265,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_outFlow_flowElements_889953 = outFlow
+																	__DEC_outFlow_flowElements_286102 = outFlow
 																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																			.eContainer()
 																			: null;
 
-																	// check object __DEC_outFlow_flowElements_889953 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_889953 != null);
+																	// check object __DEC_outFlow_flowElements_286102 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_286102 != null);
 
 																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_889953
+																	JavaSDM.ensure(__DEC_outFlow_flowElements_286102
 																			.getFlowElements()
 																			.contains(
 																					outFlow));
 
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_889953 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_889953
+																	// check isomorphic binding between objects __DEC_outFlow_flowElements_286102 and process 
+																	JavaSDM.ensure(!__DEC_outFlow_flowElements_286102
 																			.equals(process));
 
 																	fujaba__Success = true;
@@ -7384,26 +7297,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	fujaba__Success = false;
 
 																	// bind object
-																	__DEC_exConvGateway_default_160 = exConvGateway
+																	__DEC_exConvGateway_default_862855 = exConvGateway
 																			.getDefault();
 
-																	// check object __DEC_exConvGateway_default_160 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_default_160 != null);
+																	// check object __DEC_exConvGateway_default_862855 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_default_862855 != null);
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_160 and defaultFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_160
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_862855 and defaultFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_862855
 																			.equals(defaultFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_160 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_160
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_862855 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_862855
 																			.equals(divergeFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_160 and inFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_160
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_862855 and inFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_862855
 																			.equals(inFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_default_160 and outFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_default_160
+																	// check isomorphic binding between objects __DEC_exConvGateway_default_862855 and outFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_default_862855
 																			.equals(outFlow));
 
 																	fujaba__Success = true;
@@ -7419,10 +7332,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																try {
 																	fujaba__Success = false;
 
-																	// iterate to-many link default from outFlow to __DEC_outFlow_default_926011
+																	// iterate to-many link default from outFlow to __DEC_outFlow_default_973279
 																	fujaba__Success = false;
 
-																	fujaba__IterOutFlowTo__DEC_outFlow_default_926011 = new ArrayList(
+																	fujaba__IterOutFlowTo__DEC_outFlow_default_973279 = new ArrayList(
 																			org.moflon.util.eMoflonEMFUtil
 																					.getOppositeReference(
 																							outFlow,
@@ -7431,20 +7344,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																			.iterator();
 
 																	while (!(fujaba__Success)
-																			&& fujaba__IterOutFlowTo__DEC_outFlow_default_926011
+																			&& fujaba__IterOutFlowTo__DEC_outFlow_default_973279
 																					.hasNext()) {
 																		try {
-																			__DEC_outFlow_default_926011 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_926011
+																			__DEC_outFlow_default_973279 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_973279
 																					.next();
 
-																			// check object __DEC_outFlow_default_926011 is really bound
-																			JavaSDM.ensure(__DEC_outFlow_default_926011 != null);
-																			// check isomorphic binding between objects __DEC_outFlow_default_926011 and exConvGateway 
-																			JavaSDM.ensure(!__DEC_outFlow_default_926011
+																			// check object __DEC_outFlow_default_973279 is really bound
+																			JavaSDM.ensure(__DEC_outFlow_default_973279 != null);
+																			// check isomorphic binding between objects __DEC_outFlow_default_973279 and exConvGateway 
+																			JavaSDM.ensure(!__DEC_outFlow_default_973279
 																					.equals(exConvGateway));
 
-																			// check isomorphic binding between objects __DEC_outFlow_default_926011 and exclusiveGateway 
-																			JavaSDM.ensure(!__DEC_outFlow_default_926011
+																			// check isomorphic binding between objects __DEC_outFlow_default_973279 and exclusiveGateway 
+																			JavaSDM.ensure(!__DEC_outFlow_default_973279
 																					.equals(exclusiveGateway));
 
 																			fujaba__Success = true;
@@ -7467,37 +7380,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																try {
 																	fujaba__Success = false;
 
-																	// iterate to-many link incoming from exConvGateway to __DEC_exConvGateway_targetRef_74653
+																	// iterate to-many link targetRef from exConvGateway to __DEC_exConvGateway_targetRef_28607
 																	fujaba__Success = false;
 
-																	fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_74653 = new ArrayList(
+																	fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_28607 = new ArrayList(
 																			exConvGateway
 																					.getIncoming())
 																			.iterator();
 
 																	while (!(fujaba__Success)
-																			&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_74653
+																			&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_28607
 																					.hasNext()) {
 																		try {
-																			__DEC_exConvGateway_targetRef_74653 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_74653
+																			__DEC_exConvGateway_targetRef_28607 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_28607
 																					.next();
 
-																			// check object __DEC_exConvGateway_targetRef_74653 is really bound
-																			JavaSDM.ensure(__DEC_exConvGateway_targetRef_74653 != null);
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_74653 and defaultFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_74653
+																			// check object __DEC_exConvGateway_targetRef_28607 is really bound
+																			JavaSDM.ensure(__DEC_exConvGateway_targetRef_28607 != null);
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_28607 and defaultFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_28607
 																					.equals(defaultFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_74653 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_74653
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_28607 and divergeFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_28607
 																					.equals(divergeFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_74653 and inFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_74653
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_28607 and inFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_28607
 																					.equals(inFlow));
 
-																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_74653 and outFlow 
-																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_74653
+																			// check isomorphic binding between objects __DEC_exConvGateway_targetRef_28607 and outFlow 
+																			JavaSDM.ensure(!__DEC_exConvGateway_targetRef_28607
 																					.equals(outFlow));
 
 																			fujaba__Success = true;
@@ -7625,26 +7538,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		.equals(outFlow
 																				.eContainer()));
 
-																// check link incoming from inFlow to exConvGateway
-																JavaSDM.ensure(exConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link incoming from defaultFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(defaultFlow
-																				.getTargetRef())));
-
-																// check link incoming from divergeFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link incoming from outFlow to exConvGateway
-																JavaSDM.ensure(!(exConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
 																// check link laneSets from laneSet to process
 																JavaSDM.ensure(process
 																		.equals(laneSet
@@ -7655,14 +7548,14 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		.equals(lane
 																				.eContainer()));
 
-																// check link outgoing from outFlow to exConvGateway
-																JavaSDM.ensure(exConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link outgoing from divergeFlow to exclusiveGateway
+																// check link sourceRef from divergeFlow to exclusiveGateway
 																JavaSDM.ensure(exclusiveGateway
 																		.equals(divergeFlow
+																				.getSourceRef()));
+
+																// check link sourceRef from outFlow to exConvGateway
+																JavaSDM.ensure(exConvGateway
+																		.equals(outFlow
 																				.getSourceRef()));
 
 																// check link src from _edge_outgoing to exConvGateway
@@ -7674,6 +7567,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																JavaSDM.ensure(outFlow
 																		.equals(_edge_sourceRef
 																				.getSrc()));
+
+																// check link targetRef from inFlow to exConvGateway
+																JavaSDM.ensure(exConvGateway
+																		.equals(inFlow
+																				.getTargetRef()));
+
+																// check link targetRef from defaultFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(defaultFlow
+																				.getTargetRef())));
+
+																// check link targetRef from divergeFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(divergeFlow
+																				.getTargetRef())));
+
+																// check link targetRef from outFlow to exConvGateway
+																JavaSDM.ensure(!(exConvGateway
+																		.equals(outFlow
+																				.getTargetRef())));
 
 																// check link trg from _edge_outgoing to outFlow
 																JavaSDM.ensure(outFlow
@@ -7712,7 +7625,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																				lane,
 																				laneSet);
 																if (fujaba__Success) {
-																	// statement node ''
+																	// statement node 'Ensure that the correct types of elements are matched'
 																	fujaba__Success = this
 																			.checkTypes_FWD(match);
 																	if (fujaba__Success) {
@@ -7818,14 +7731,16 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exConvGateway_flowElements_736016 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_218128 = null;
-		SequenceFlow __DEC_exConvGateway_default_628235 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_830752 = null;
-		ExclusiveGateway __DEC_outFlow_default_830752 = null;
-		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_382951 = null;
-		SequenceFlow __DEC_exConvGateway_targetRef_382951 = null;
+		FlowElementsContainer __DEC_exConvGateway_flowElements_632792 = null;
+		FlowElementsContainer __DEC_outFlow_flowElements_687587 = null;
+		SequenceFlow __DEC_exConvGateway_default_20809 = null;
+		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_625077 = null;
+		ExclusiveGateway __DEC_outFlow_default_625077 = null;
+		Iterator fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_283160 = null;
+		SequenceFlow __DEC_exConvGateway_targetRef_283160 = null;
 		Match match = null;
+		Iterator fujaba__IterExConvGatewayToInFlow = null;
+		SequenceFlow inFlow = null;
 		Iterator fujaba__IterExConvGatewayToOutFlow = null;
 		SequenceFlow outFlow = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
@@ -7836,8 +7751,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__IterProcessToDefaultFlow = null;
 		SequenceFlow defaultFlow = null;
 		bpmn2.Process process = null;
-		Iterator fujaba__IterExConvGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
 		ExclusiveGateway exConvGateway = null;
 		Lane lane = null;
 
@@ -7902,141 +7815,140 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
 			exConvGateway = (ExclusiveGateway) _TmpObject;
 
+			// bind object
+			_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
+					.eContainer() : null;
+
+			// ensure correct type and really bound of object process
+			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
+			process = (bpmn2.Process) _TmpObject;
+
+			// check if contained via correct reference
+			JavaSDM.ensure(process.getFlowElements().contains(exConvGateway));
+
 			// check link flowNodeRefs from lane to exConvGateway
 			JavaSDM.ensure(lane.getFlowNodeRefs().contains(exConvGateway));
 
-			// iterate to-many link incoming from exConvGateway to inFlow
+			// iterate to-many link flowElements from process to defaultFlow
 			fujaba__Success = false;
 
-			fujaba__IterExConvGatewayToInFlow = new ArrayList(
-					exConvGateway.getIncoming()).iterator();
+			fujaba__IterProcessToDefaultFlow = new ArrayList(
+					process.getFlowElements()).iterator();
 
-			while (fujaba__IterExConvGatewayToInFlow.hasNext()) {
+			while (fujaba__IterProcessToDefaultFlow.hasNext()) {
 				try {
-					inFlow = (SequenceFlow) fujaba__IterExConvGatewayToInFlow
-							.next();
+					_TmpObject = fujaba__IterProcessToDefaultFlow.next();
 
-					// check object inFlow is really bound
-					JavaSDM.ensure(inFlow != null);
-					// bind object
-					_TmpObject = exConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exConvGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							exConvGateway));
-
-					// iterate to-many link flowElements from process to defaultFlow
+					// ensure correct type and really bound of object defaultFlow
+					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+					defaultFlow = (SequenceFlow) _TmpObject;
+					// iterate to-many link flowElements from process to divergeFlow
 					fujaba__Success = false;
 
-					fujaba__IterProcessToDefaultFlow = new ArrayList(
+					fujaba__IterProcessToDivergeFlow = new ArrayList(
 							process.getFlowElements()).iterator();
 
-					while (fujaba__IterProcessToDefaultFlow.hasNext()) {
+					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterProcessToDefaultFlow
+							_TmpObject = fujaba__IterProcessToDivergeFlow
 									.next();
 
-							// ensure correct type and really bound of object defaultFlow
+							// ensure correct type and really bound of object divergeFlow
 							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							defaultFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow and defaultFlow 
-							JavaSDM.ensure(!inFlow.equals(defaultFlow));
+							divergeFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects divergeFlow and defaultFlow 
+							JavaSDM.ensure(!divergeFlow.equals(defaultFlow));
 
-							// iterate to-many link flowElements from process to divergeFlow
+							// bind object
+							_TmpObject = divergeFlow.getSourceRef();
+
+							// ensure correct type and really bound of object exclusiveGateway
+							JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
+							exclusiveGateway = (ExclusiveGateway) _TmpObject;
+
+							// check isomorphic binding between objects exclusiveGateway and exConvGateway 
+							JavaSDM.ensure(!exclusiveGateway
+									.equals(exConvGateway));
+
+							// check link default from exclusiveGateway to defaultFlow
+							JavaSDM.ensure(defaultFlow.equals(exclusiveGateway
+									.getDefault()));
+
+							// check link flowElements from exclusiveGateway to process
+							JavaSDM.ensure(process.equals(exclusiveGateway
+									.eContainer()));
+
+							// iterate to-many link laneSets from process to laneSet
 							fujaba__Success = false;
 
-							fujaba__IterProcessToDivergeFlow = new ArrayList(
-									process.getFlowElements()).iterator();
+							fujaba__IterProcessToLaneSet = new ArrayList(
+									process.getLaneSets()).iterator();
 
-							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
+							while (fujaba__IterProcessToLaneSet.hasNext()) {
 								try {
-									_TmpObject = fujaba__IterProcessToDivergeFlow
+									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
 											.next();
 
-									// ensure correct type and really bound of object divergeFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									divergeFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects divergeFlow and defaultFlow 
-									JavaSDM.ensure(!divergeFlow
-											.equals(defaultFlow));
+									// check object laneSet is really bound
+									JavaSDM.ensure(laneSet != null);
+									// check link lanes from lane to laneSet
+									JavaSDM.ensure(laneSet.equals(lane
+											.eContainer()));
 
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// bind object
-									_TmpObject = divergeFlow.getSourceRef();
-
-									// ensure correct type and really bound of object exclusiveGateway
-									JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-									exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-									// check isomorphic binding between objects exclusiveGateway and exConvGateway 
-									JavaSDM.ensure(!exclusiveGateway
-											.equals(exConvGateway));
-
-									// check link default from exclusiveGateway to defaultFlow
-									JavaSDM.ensure(defaultFlow
-											.equals(exclusiveGateway
-													.getDefault()));
-
-									// check link flowElements from exclusiveGateway to process
-									JavaSDM.ensure(process
-											.equals(exclusiveGateway
-													.eContainer()));
-
-									// iterate to-many link laneSets from process to laneSet
+									// iterate to-many link sourceRef from exConvGateway to outFlow
 									fujaba__Success = false;
 
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
+									fujaba__IterExConvGatewayToOutFlow = new ArrayList(
+											exConvGateway.getOutgoing())
+											.iterator();
 
-									while (fujaba__IterProcessToLaneSet
+									while (fujaba__IterExConvGatewayToOutFlow
 											.hasNext()) {
 										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
+											outFlow = (SequenceFlow) fujaba__IterExConvGatewayToOutFlow
 													.next();
 
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// check link lanes from lane to laneSet
-											JavaSDM.ensure(laneSet.equals(lane
-													.eContainer()));
+											// check object outFlow is really bound
+											JavaSDM.ensure(outFlow != null);
+											// check isomorphic binding between objects outFlow and defaultFlow 
+											JavaSDM.ensure(!outFlow
+													.equals(defaultFlow));
 
-											// iterate to-many link outgoing from exConvGateway to outFlow
+											// check isomorphic binding between objects outFlow and divergeFlow 
+											JavaSDM.ensure(!outFlow
+													.equals(divergeFlow));
+
+											// check link flowElements from outFlow to process
+											JavaSDM.ensure(process
+													.equals(outFlow
+															.eContainer()));
+
+											// iterate to-many link targetRef from exConvGateway to inFlow
 											fujaba__Success = false;
 
-											fujaba__IterExConvGatewayToOutFlow = new ArrayList(
-													exConvGateway.getOutgoing())
+											fujaba__IterExConvGatewayToInFlow = new ArrayList(
+													exConvGateway.getIncoming())
 													.iterator();
 
-											while (fujaba__IterExConvGatewayToOutFlow
+											while (fujaba__IterExConvGatewayToInFlow
 													.hasNext()) {
 												try {
-													outFlow = (SequenceFlow) fujaba__IterExConvGatewayToOutFlow
+													inFlow = (SequenceFlow) fujaba__IterExConvGatewayToInFlow
 															.next();
 
-													// check object outFlow is really bound
-													JavaSDM.ensure(outFlow != null);
-													// check isomorphic binding between objects outFlow and defaultFlow 
-													JavaSDM.ensure(!outFlow
+													// check object inFlow is really bound
+													JavaSDM.ensure(inFlow != null);
+													// check isomorphic binding between objects inFlow and defaultFlow 
+													JavaSDM.ensure(!inFlow
 															.equals(defaultFlow));
 
-													// check isomorphic binding between objects outFlow and divergeFlow 
-													JavaSDM.ensure(!outFlow
+													// check isomorphic binding between objects inFlow and divergeFlow 
+													JavaSDM.ensure(!inFlow
 															.equals(divergeFlow));
 
 													// check isomorphic binding between objects outFlow and inFlow 
 													JavaSDM.ensure(!outFlow
 															.equals(inFlow));
-
-													// check link flowElements from outFlow to process
-													JavaSDM.ensure(process.equals(outFlow
-															.eContainer()));
 
 													// story node 'test core match and DECs'
 													try {
@@ -8047,22 +7959,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_exConvGateway_flowElements_736016 = exConvGateway
+															__DEC_exConvGateway_flowElements_632792 = exConvGateway
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exConvGateway
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_exConvGateway_flowElements_736016 is really bound
-															JavaSDM.ensure(__DEC_exConvGateway_flowElements_736016 != null);
+															// check object __DEC_exConvGateway_flowElements_632792 is really bound
+															JavaSDM.ensure(__DEC_exConvGateway_flowElements_632792 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_exConvGateway_flowElements_736016
+															JavaSDM.ensure(__DEC_exConvGateway_flowElements_632792
 																	.getFlowElements()
 																	.contains(
 																			exConvGateway));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_flowElements_736016 and process 
-															JavaSDM.ensure(!__DEC_exConvGateway_flowElements_736016
+															// check isomorphic binding between objects __DEC_exConvGateway_flowElements_632792 and process 
+															JavaSDM.ensure(!__DEC_exConvGateway_flowElements_632792
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -8079,22 +7991,22 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_outFlow_flowElements_218128 = outFlow
+															__DEC_outFlow_flowElements_687587 = outFlow
 																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
 																	.eContainer()
 																	: null;
 
-															// check object __DEC_outFlow_flowElements_218128 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_218128 != null);
+															// check object __DEC_outFlow_flowElements_687587 is really bound
+															JavaSDM.ensure(__DEC_outFlow_flowElements_687587 != null);
 
 															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_218128
+															JavaSDM.ensure(__DEC_outFlow_flowElements_687587
 																	.getFlowElements()
 																	.contains(
 																			outFlow));
 
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_218128 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_218128
+															// check isomorphic binding between objects __DEC_outFlow_flowElements_687587 and process 
+															JavaSDM.ensure(!__DEC_outFlow_flowElements_687587
 																	.equals(process));
 
 															fujaba__Success = true;
@@ -8111,26 +8023,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															fujaba__Success = false;
 
 															// bind object
-															__DEC_exConvGateway_default_628235 = exConvGateway
+															__DEC_exConvGateway_default_20809 = exConvGateway
 																	.getDefault();
 
-															// check object __DEC_exConvGateway_default_628235 is really bound
-															JavaSDM.ensure(__DEC_exConvGateway_default_628235 != null);
+															// check object __DEC_exConvGateway_default_20809 is really bound
+															JavaSDM.ensure(__DEC_exConvGateway_default_20809 != null);
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_628235 and defaultFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_628235
+															// check isomorphic binding between objects __DEC_exConvGateway_default_20809 and defaultFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_20809
 																	.equals(defaultFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_628235 and divergeFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_628235
+															// check isomorphic binding between objects __DEC_exConvGateway_default_20809 and divergeFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_20809
 																	.equals(divergeFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_628235 and inFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_628235
+															// check isomorphic binding between objects __DEC_exConvGateway_default_20809 and inFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_20809
 																	.equals(inFlow));
 
-															// check isomorphic binding between objects __DEC_exConvGateway_default_628235 and outFlow 
-															JavaSDM.ensure(!__DEC_exConvGateway_default_628235
+															// check isomorphic binding between objects __DEC_exConvGateway_default_20809 and outFlow 
+															JavaSDM.ensure(!__DEC_exConvGateway_default_20809
 																	.equals(outFlow));
 
 															fujaba__Success = true;
@@ -8146,10 +8058,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link default from outFlow to __DEC_outFlow_default_830752
+															// iterate to-many link default from outFlow to __DEC_outFlow_default_625077
 															fujaba__Success = false;
 
-															fujaba__IterOutFlowTo__DEC_outFlow_default_830752 = new ArrayList(
+															fujaba__IterOutFlowTo__DEC_outFlow_default_625077 = new ArrayList(
 																	org.moflon.util.eMoflonEMFUtil
 																			.getOppositeReference(
 																					outFlow,
@@ -8158,20 +8070,20 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterOutFlowTo__DEC_outFlow_default_830752
+																	&& fujaba__IterOutFlowTo__DEC_outFlow_default_625077
 																			.hasNext()) {
 																try {
-																	__DEC_outFlow_default_830752 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_830752
+																	__DEC_outFlow_default_625077 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_625077
 																			.next();
 
-																	// check object __DEC_outFlow_default_830752 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_default_830752 != null);
-																	// check isomorphic binding between objects __DEC_outFlow_default_830752 and exConvGateway 
-																	JavaSDM.ensure(!__DEC_outFlow_default_830752
+																	// check object __DEC_outFlow_default_625077 is really bound
+																	JavaSDM.ensure(__DEC_outFlow_default_625077 != null);
+																	// check isomorphic binding between objects __DEC_outFlow_default_625077 and exConvGateway 
+																	JavaSDM.ensure(!__DEC_outFlow_default_625077
 																			.equals(exConvGateway));
 
-																	// check isomorphic binding between objects __DEC_outFlow_default_830752 and exclusiveGateway 
-																	JavaSDM.ensure(!__DEC_outFlow_default_830752
+																	// check isomorphic binding between objects __DEC_outFlow_default_625077 and exclusiveGateway 
+																	JavaSDM.ensure(!__DEC_outFlow_default_625077
 																			.equals(exclusiveGateway));
 
 																	fujaba__Success = true;
@@ -8194,37 +8106,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														try {
 															fujaba__Success = false;
 
-															// iterate to-many link incoming from exConvGateway to __DEC_exConvGateway_targetRef_382951
+															// iterate to-many link targetRef from exConvGateway to __DEC_exConvGateway_targetRef_283160
 															fujaba__Success = false;
 
-															fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_382951 = new ArrayList(
+															fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_283160 = new ArrayList(
 																	exConvGateway
 																			.getIncoming())
 																	.iterator();
 
 															while (!(fujaba__Success)
-																	&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_382951
+																	&& fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_283160
 																			.hasNext()) {
 																try {
-																	__DEC_exConvGateway_targetRef_382951 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_382951
+																	__DEC_exConvGateway_targetRef_283160 = (SequenceFlow) fujaba__IterExConvGatewayTo__DEC_exConvGateway_targetRef_283160
 																			.next();
 
-																	// check object __DEC_exConvGateway_targetRef_382951 is really bound
-																	JavaSDM.ensure(__DEC_exConvGateway_targetRef_382951 != null);
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_382951 and defaultFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_382951
+																	// check object __DEC_exConvGateway_targetRef_283160 is really bound
+																	JavaSDM.ensure(__DEC_exConvGateway_targetRef_283160 != null);
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_283160 and defaultFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_283160
 																			.equals(defaultFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_382951 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_382951
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_283160 and divergeFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_283160
 																			.equals(divergeFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_382951 and inFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_382951
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_283160 and inFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_283160
 																			.equals(inFlow));
 
-																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_382951 and outFlow 
-																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_382951
+																	// check isomorphic binding between objects __DEC_exConvGateway_targetRef_283160 and outFlow 
+																	JavaSDM.ensure(!__DEC_exConvGateway_targetRef_283160
 																			.equals(outFlow));
 
 																	fujaba__Success = true;
@@ -8345,24 +8257,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(process.equals(outFlow
 																.eContainer()));
 
-														// check link incoming from inFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link incoming from defaultFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway
-																.equals(defaultFlow
-																		.getTargetRef())));
-
-														// check link incoming from divergeFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link incoming from outFlow to exConvGateway
-														JavaSDM.ensure(!(exConvGateway.equals(outFlow
-																.getTargetRef())));
-
 														// check link laneSets from laneSet to process
 														JavaSDM.ensure(process.equals(laneSet
 																.eContainer()));
@@ -8371,19 +8265,37 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 														JavaSDM.ensure(laneSet.equals(lane
 																.eContainer()));
 
-														// check link outgoing from outFlow to exConvGateway
-														JavaSDM.ensure(exConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link outgoing from divergeFlow to exclusiveGateway
+														// check link sourceRef from divergeFlow to exclusiveGateway
 														JavaSDM.ensure(exclusiveGateway
 																.equals(divergeFlow
 																		.getSourceRef()));
+
+														// check link sourceRef from outFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(outFlow
+																.getSourceRef()));
 
 														// check link src from _edge_flowNodeRefs to lane
 														JavaSDM.ensure(lane
 																.equals(_edge_flowNodeRefs
 																		.getSrc()));
+
+														// check link targetRef from inFlow to exConvGateway
+														JavaSDM.ensure(exConvGateway.equals(inFlow
+																.getTargetRef()));
+
+														// check link targetRef from defaultFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway
+																.equals(defaultFlow
+																		.getTargetRef())));
+
+														// check link targetRef from divergeFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway
+																.equals(divergeFlow
+																		.getTargetRef())));
+
+														// check link targetRef from outFlow to exConvGateway
+														JavaSDM.ensure(!(exConvGateway.equals(outFlow
+																.getTargetRef())));
 
 														// check link trg from _edge_flowNodeRefs to exConvGateway
 														JavaSDM.ensure(exConvGateway
@@ -8417,7 +8329,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																		lane,
 																		laneSet);
 														if (fujaba__Success) {
-															// statement node ''
+															// statement node 'Ensure that the correct types of elements are matched'
 															fujaba__Success = this
 																	.checkTypes_FWD(match);
 															if (fujaba__Success) {
@@ -8521,734 +8433,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			SequenceFlowToStep inFlowToStepDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Step nextStep = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		ExclusiveGateway exConvGateway = null;
-		SequenceFlow outFlow = null;
-		FlowNodeToStep ecgwToStep = null;
-		SequenceFlowToStep outFlowToNormalStep = null;
-		SequenceFlowToUCFlow outFlowToInitFlow = null;
-		NormalStep normalStep = null;
-		Iterator fujaba__IterExclusiveGatewayToEgwToStep = null;
-		FlowNodeToStep egwToStep = null;
-		AlternativeFlowAlternative alt = null;
-		Iterator fujaba__IterDivergeFlowToDivergeFlowToAlt = null;
-		SeqFlowToAltFlowAlt divergeFlowToAlt = null;
-		Flow initFlow = null;
-		Iterator fujaba__IterDefaultFlowToDefaultFlowToInitFlow = null;
-		SequenceFlowToUCFlow defaultFlowToInitFlow = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToDefaultFlow = null;
-		SequenceFlow defaultFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		bpmn2.Process process = null;
-		SequenceFlow divergeFlow = null;
-		Iterator fujaba__IterFlowToDivergeFlowToFlow = null;
-		SequenceFlowToUCFlow divergeFlowToFlow = null;
-		AlternativeFlow flow = null;
-		Step step = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterInFlowToStepListToInFlowToStep = null;
-		SequenceFlowToStep inFlowToStep = null;
-		Iterator fujaba__IterRuleEntryContainerToInFlowToStepList = null;
-		RuleEntryList inFlowToStepList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to inFlowToStepList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToInFlowToStepList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToInFlowToStepList.hasNext()) {
-				try {
-					inFlowToStepList = (RuleEntryList) fujaba__IterRuleEntryContainerToInFlowToStepList
-							.next();
-
-					// check object inFlowToStepList is really bound
-					JavaSDM.ensure(inFlowToStepList != null);
-					// iterate to-many link entryObjects from inFlowToStepList to inFlowToStep
-					fujaba__Success = false;
-
-					fujaba__IterInFlowToStepListToInFlowToStep = new ArrayList(
-							inFlowToStepList.getEntryObjects()).iterator();
-
-					while (fujaba__IterInFlowToStepListToInFlowToStep.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterInFlowToStepListToInFlowToStep
-									.next();
-
-							// ensure correct type and really bound of object inFlowToStep
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlowToStep);
-							inFlowToStep = (SequenceFlowToStep) _TmpObject;
-							// bind object
-							inFlow = inFlowToStep.getSource();
-
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-
-							// bind object
-							step = inFlowToStep.getTarget();
-
-							// check object step is really bound
-							JavaSDM.ensure(step != null);
-
-							// bind object
-							_TmpObject = step.eContainer() instanceof AlternativeFlow ? (AlternativeFlow) step
-									.eContainer() : null;
-
-							// ensure correct type and really bound of object flow
-							JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-							flow = (AlternativeFlow) _TmpObject;
-
-							// check if contained via correct reference
-							JavaSDM.ensure(flow.getSteps().contains(step));
-
-							// iterate to-many link target from flow to divergeFlowToFlow
-							fujaba__Success = false;
-
-							fujaba__IterFlowToDivergeFlowToFlow = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(flow,
-													SequenceFlowToUCFlow.class,
-													"target")).iterator();
-
-							while (fujaba__IterFlowToDivergeFlowToFlow
-									.hasNext()) {
-								try {
-									divergeFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterFlowToDivergeFlowToFlow
-											.next();
-
-									// check object divergeFlowToFlow is really bound
-									JavaSDM.ensure(divergeFlowToFlow != null);
-									// bind object
-									divergeFlow = divergeFlowToFlow.getSource();
-
-									// check object divergeFlow is really bound
-									JavaSDM.ensure(divergeFlow != null);
-
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// bind object
-									_TmpObject = divergeFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) divergeFlow
-											.eContainer() : null;
-
-									// ensure correct type and really bound of object process
-									JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-									process = (bpmn2.Process) _TmpObject;
-
-									// check if contained via correct reference
-									JavaSDM.ensure(process.getFlowElements()
-											.contains(divergeFlow));
-
-									// bind object
-									_TmpObject = divergeFlow.getSourceRef();
-
-									// ensure correct type and really bound of object exclusiveGateway
-									JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-									exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-									// check link flowElements from exclusiveGateway to process
-									JavaSDM.ensure(process
-											.equals(exclusiveGateway
-													.eContainer()));
-
-									// iterate to-many link flowElements from process to defaultFlow
-									fujaba__Success = false;
-
-									fujaba__IterProcessToDefaultFlow = new ArrayList(
-											process.getFlowElements())
-											.iterator();
-
-									while (fujaba__IterProcessToDefaultFlow
-											.hasNext()) {
-										try {
-											_TmpObject = fujaba__IterProcessToDefaultFlow
-													.next();
-
-											// ensure correct type and really bound of object defaultFlow
-											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-											defaultFlow = (SequenceFlow) _TmpObject;
-											// check isomorphic binding between objects divergeFlow and defaultFlow 
-											JavaSDM.ensure(!divergeFlow
-													.equals(defaultFlow));
-
-											// check isomorphic binding between objects inFlow and defaultFlow 
-											JavaSDM.ensure(!inFlow
-													.equals(defaultFlow));
-
-											// check link default from exclusiveGateway to defaultFlow
-											JavaSDM.ensure(defaultFlow
-													.equals(exclusiveGateway
-															.getDefault()));
-
-											// iterate to-many link laneSets from process to laneSet
-											fujaba__Success = false;
-
-											fujaba__IterProcessToLaneSet = new ArrayList(
-													process.getLaneSets())
-													.iterator();
-
-											while (fujaba__IterProcessToLaneSet
-													.hasNext()) {
-												try {
-													laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-															.next();
-
-													// check object laneSet is really bound
-													JavaSDM.ensure(laneSet != null);
-													// iterate to-many link lanes from laneSet to lane
-													fujaba__Success = false;
-
-													fujaba__IterLaneSetToLane = new ArrayList(
-															laneSet.getLanes())
-															.iterator();
-
-													while (fujaba__IterLaneSetToLane
-															.hasNext()) {
-														try {
-															lane = (Lane) fujaba__IterLaneSetToLane
-																	.next();
-
-															// check object lane is really bound
-															JavaSDM.ensure(lane != null);
-															// iterate to-many link source from defaultFlow to defaultFlowToInitFlow
-															fujaba__Success = false;
-
-															fujaba__IterDefaultFlowToDefaultFlowToInitFlow = new ArrayList(
-																	org.moflon.util.eMoflonEMFUtil
-																			.getOppositeReference(
-																					defaultFlow,
-																					SequenceFlowToUCFlow.class,
-																					"source"))
-																	.iterator();
-
-															while (fujaba__IterDefaultFlowToDefaultFlowToInitFlow
-																	.hasNext()) {
-																try {
-																	defaultFlowToInitFlow = (SequenceFlowToUCFlow) fujaba__IterDefaultFlowToDefaultFlowToInitFlow
-																			.next();
-
-																	// check object defaultFlowToInitFlow is really bound
-																	JavaSDM.ensure(defaultFlowToInitFlow != null);
-																	// check isomorphic binding between objects divergeFlowToFlow and defaultFlowToInitFlow 
-																	JavaSDM.ensure(!divergeFlowToFlow
-																			.equals(defaultFlowToInitFlow));
-
-																	// bind object
-																	initFlow = defaultFlowToInitFlow
-																			.getTarget();
-
-																	// check object initFlow is really bound
-																	JavaSDM.ensure(initFlow != null);
-
-																	// check isomorphic binding between objects initFlow and flow 
-																	JavaSDM.ensure(!initFlow
-																			.equals(flow));
-
-																	// iterate to-many link source from divergeFlow to divergeFlowToAlt
-																	fujaba__Success = false;
-
-																	fujaba__IterDivergeFlowToDivergeFlowToAlt = new ArrayList(
-																			org.moflon.util.eMoflonEMFUtil
-																					.getOppositeReference(
-																							divergeFlow,
-																							SeqFlowToAltFlowAlt.class,
-																							"source"))
-																			.iterator();
-
-																	while (fujaba__IterDivergeFlowToDivergeFlowToAlt
-																			.hasNext()) {
-																		try {
-																			divergeFlowToAlt = (SeqFlowToAltFlowAlt) fujaba__IterDivergeFlowToDivergeFlowToAlt
-																					.next();
-
-																			// check object divergeFlowToAlt is really bound
-																			JavaSDM.ensure(divergeFlowToAlt != null);
-																			// bind object
-																			alt = divergeFlowToAlt
-																					.getTarget();
-
-																			// check object alt is really bound
-																			JavaSDM.ensure(alt != null);
-
-																			// iterate to-many link source from exclusiveGateway to egwToStep
-																			fujaba__Success = false;
-
-																			fujaba__IterExclusiveGatewayToEgwToStep = new ArrayList(
-																					org.moflon.util.eMoflonEMFUtil
-																							.getOppositeReference(
-																									exclusiveGateway,
-																									FlowNodeToStep.class,
-																									"source"))
-																					.iterator();
-
-																			while (fujaba__IterExclusiveGatewayToEgwToStep
-																					.hasNext()) {
-																				try {
-																					egwToStep = (FlowNodeToStep) fujaba__IterExclusiveGatewayToEgwToStep
-																							.next();
-
-																					// check object egwToStep is really bound
-																					JavaSDM.ensure(egwToStep != null);
-																					// bind object
-																					_TmpObject = egwToStep
-																							.getTarget();
-
-																					// ensure correct type and really bound of object normalStep
-																					JavaSDM.ensure(_TmpObject instanceof NormalStep);
-																					normalStep = (NormalStep) _TmpObject;
-
-																					// check negative bindings
-																					try {
-																						fujaba__Success = false;
-
-																						// bind object
-																						nextStep = step
-																								.getNext();
-
-																						// check object nextStep is really bound
-																						JavaSDM.ensure(nextStep != null);
-
-																						// check isomorphic binding between objects nextStep and normalStep 
-																						JavaSDM.ensure(!nextStep
-																								.equals(normalStep));
-
-																						// check isomorphic binding between objects nextStep and step 
-																						JavaSDM.ensure(!nextStep
-																								.equals(step));
-
-																						fujaba__Success = true;
-																					} catch (JavaSDMException fujaba__InternalException) {
-																						fujaba__Success = false;
-																					}
-
-																					fujaba__Success = !(fujaba__Success);
-
-																					JavaSDM.ensure(fujaba__Success);
-
-																					// check isomorphic binding between objects step and normalStep 
-																					JavaSDM.ensure(!step
-																							.equals(normalStep));
-
-																					// story node 'solve CSP'
-																					try {
-																						fujaba__Success = false;
-
-																						_TmpObject = (this
-																								.generateModel_solveCsp_BWD(
-																										isApplicableMatch,
-																										inFlow,
-																										step,
-																										inFlowToStep,
-																										process,
-																										defaultFlow,
-																										exclusiveGateway,
-																										divergeFlow,
-																										normalStep,
-																										alt,
-																										initFlow,
-																										defaultFlowToInitFlow,
-																										egwToStep,
-																										divergeFlowToAlt,
-																										flow,
-																										divergeFlowToFlow,
-																										exConvGateway,
-																										outFlow,
-																										ecgwToStep,
-																										outFlowToInitFlow,
-																										outFlowToNormalStep,
-																										lane,
-																										laneSet,
-																										ruleResult));
-
-																						// ensure correct type and really bound of object csp
-																						JavaSDM.ensure(_TmpObject instanceof CSP);
-																						csp = (CSP) _TmpObject;
-																						fujaba__Success = true;
-																					} catch (JavaSDMException fujaba__InternalException) {
-																						fujaba__Success = false;
-																					}
-
-																					// statement node 'check CSP'
-																					fujaba__Success = this
-																							.generateModel_checkCsp_BWD(csp);
-																					if (fujaba__Success) {
-																						// story node 'perform'
-																						try {
-																							fujaba__Success = false;
-
-																							// check object alt is really bound
-																							JavaSDM.ensure(alt != null);
-																							// check object defaultFlow is really bound
-																							JavaSDM.ensure(defaultFlow != null);
-																							// check object defaultFlowToInitFlow is really bound
-																							JavaSDM.ensure(defaultFlowToInitFlow != null);
-																							// check object divergeFlow is really bound
-																							JavaSDM.ensure(divergeFlow != null);
-																							// check object divergeFlowToAlt is really bound
-																							JavaSDM.ensure(divergeFlowToAlt != null);
-																							// check object divergeFlowToFlow is really bound
-																							JavaSDM.ensure(divergeFlowToFlow != null);
-																							// check object egwToStep is really bound
-																							JavaSDM.ensure(egwToStep != null);
-																							// check object exclusiveGateway is really bound
-																							JavaSDM.ensure(exclusiveGateway != null);
-																							// check object flow is really bound
-																							JavaSDM.ensure(flow != null);
-																							// check object inFlow is really bound
-																							JavaSDM.ensure(inFlow != null);
-																							// check object inFlowToStep is really bound
-																							JavaSDM.ensure(inFlowToStep != null);
-																							// check object initFlow is really bound
-																							JavaSDM.ensure(initFlow != null);
-																							// check object lane is really bound
-																							JavaSDM.ensure(lane != null);
-																							// check object laneSet is really bound
-																							JavaSDM.ensure(laneSet != null);
-																							// check object normalStep is really bound
-																							JavaSDM.ensure(normalStep != null);
-																							// check object process is really bound
-																							JavaSDM.ensure(process != null);
-																							// check object ruleResult is really bound
-																							JavaSDM.ensure(ruleResult != null);
-																							// check object step is really bound
-																							JavaSDM.ensure(step != null);
-																							// check isomorphic binding between objects divergeFlow and defaultFlow 
-																							JavaSDM.ensure(!divergeFlow
-																									.equals(defaultFlow));
-
-																							// check isomorphic binding between objects inFlow and defaultFlow 
-																							JavaSDM.ensure(!inFlow
-																									.equals(defaultFlow));
-
-																							// check isomorphic binding between objects divergeFlowToFlow and defaultFlowToInitFlow 
-																							JavaSDM.ensure(!divergeFlowToFlow
-																									.equals(defaultFlowToInitFlow));
-
-																							// check isomorphic binding between objects inFlow and divergeFlow 
-																							JavaSDM.ensure(!inFlow
-																									.equals(divergeFlow));
-
-																							// check isomorphic binding between objects initFlow and flow 
-																							JavaSDM.ensure(!initFlow
-																									.equals(flow));
-
-																							// check isomorphic binding between objects step and normalStep 
-																							JavaSDM.ensure(!step
-																									.equals(normalStep));
-
-																							// create object exConvGateway
-																							exConvGateway = Bpmn2Factory.eINSTANCE
-																									.createExclusiveGateway();
-
-																							// create object outFlow
-																							outFlow = Bpmn2Factory.eINSTANCE
-																									.createSequenceFlow();
-
-																							// create object ecgwToStep
-																							ecgwToStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																									.createFlowNodeToStep();
-
-																							// create object outFlowToNormalStep
-																							outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																									.createSequenceFlowToStep();
-
-																							// create object outFlowToInitFlow
-																							outFlowToInitFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																									.createSequenceFlowToUCFlow();
-
-																							// assign attribute exConvGateway
-																							exConvGateway
-																									.setGatewayDirection((bpmn2.GatewayDirection) csp
-																											.getAttributeVariable(
-																													"exConvGateway",
-																													"gatewayDirection")
-																											.getValue());
-																							// assign attribute ruleResult
-																							ruleResult
-																									.setSuccess(true);
-
-																							// create link
-																							exConvGateway
-																									.getIncoming()
-																									.add(inFlow);
-
-																							// create link
-																							process.getFlowElements()
-																									.add(outFlow); // add link
-
-																							// create link
-																							process.getFlowElements()
-																									.add(exConvGateway); // add link
-
-																							// create link
-																							ecgwToStep
-																									.setTarget(normalStep);
-
-																							// create link
-																							outFlowToNormalStep
-																									.setTarget(normalStep);
-
-																							// create link
-																							outFlowToInitFlow
-																									.setTarget(initFlow);
-
-																							// create link
-																							outFlow.setSourceRef(exConvGateway);
-
-																							// create link
-																							ecgwToStep
-																									.setSource(exConvGateway);
-
-																							// create link
-																							ruleResult
-																									.getSourceObjects()
-																									.add(exConvGateway);
-
-																							// create link
-																							lane.getFlowNodeRefs()
-																									.add(exConvGateway);
-
-																							// create link
-																							ruleResult
-																									.getSourceObjects()
-																									.add(outFlow);
-
-																							// create link
-																							outFlowToInitFlow
-																									.setSource(outFlow);
-
-																							// create link
-																							outFlowToNormalStep
-																									.setSource(outFlow);
-
-																							// create link
-																							ruleResult
-																									.getCorrObjects()
-																									.add(ecgwToStep);
-
-																							// create link
-																							ruleResult
-																									.getCorrObjects()
-																									.add(outFlowToInitFlow);
-
-																							// create link
-																							ruleResult
-																									.getCorrObjects()
-																									.add(outFlowToNormalStep);
-
-																							fujaba__Success = true;
-																						} catch (JavaSDMException fujaba__InternalException) {
-																							fujaba__Success = false;
-																						}
-
-																						return ruleResult;
-
-																					}
-
-																					fujaba__Success = true;
-																				} catch (JavaSDMException fujaba__InternalException) {
-																					fujaba__Success = false;
-																				}
-																			}
-																			JavaSDM.ensure(fujaba__Success);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
-			bpmn2.Process process, SequenceFlow defaultFlow,
-			ExclusiveGateway exclusiveGateway, SequenceFlow divergeFlow,
-			NormalStep normalStep, AlternativeFlowAlternative alt,
-			Flow initFlow, SequenceFlowToUCFlow defaultFlowToInitFlow,
-			FlowNodeToStep egwToStep, SeqFlowToAltFlowAlt divergeFlowToAlt,
-			AlternativeFlow flow, SequenceFlowToUCFlow divergeFlowToFlow,
-			ExclusiveGateway exConvGateway, SequenceFlow outFlow,
-			FlowNodeToStep ecgwToStep, SequenceFlowToUCFlow outFlowToInitFlow,
-			SequenceFlowToStep outFlowToNormalStep, Lane lane, LaneSet laneSet,
-			ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal0", true, csp);
-		literal0.setValue("Diverging");
-		literal0.setType("String");
-		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal1", true, csp);
-		literal1.setValue("Converging");
-		literal1.setType("String");
-
-		// Create attribute variables
-		Variable var_exclusiveGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
-				.createVariable("exclusiveGateway.gatewayDirection", true, csp);
-		var_exclusiveGateway_gatewayDirection.setValue(exclusiveGateway
-				.getGatewayDirection());
-		var_exclusiveGateway_gatewayDirection.setType("EObject");
-
-		// Create explicit parameters
-
-		// Create unbound variables
-		Variable var_exConvGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
-				.createVariable("exConvGateway.gatewayDirection", csp);
-		var_exConvGateway_gatewayDirection.setType("EObject");
-
-		// Create constraints
-		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
-		EqGatewayDirection eqGatewayDirection_0 = new EqGatewayDirection();
-
-		csp.getConstraints().add(eqGatewayDirection);
-		csp.getConstraints().add(eqGatewayDirection_0);
-
-		// Solve CSP
-		eqGatewayDirection.setRuleName("");
-		eqGatewayDirection.solve(var_exclusiveGateway_gatewayDirection,
-				literal0);
-		eqGatewayDirection_0.setRuleName("");
-		eqGatewayDirection_0
-				.solve(var_exConvGateway_gatewayDirection, literal1);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("inFlow", inFlow);
-		isApplicableMatch.registerObject("step", step);
-		isApplicableMatch.registerObject("inFlowToStep", inFlowToStep);
-		isApplicableMatch.registerObject("process", process);
-		isApplicableMatch.registerObject("defaultFlow", defaultFlow);
-		isApplicableMatch.registerObject("exclusiveGateway", exclusiveGateway);
-		isApplicableMatch.registerObject("divergeFlow", divergeFlow);
-		isApplicableMatch.registerObject("normalStep", normalStep);
-		isApplicableMatch.registerObject("alt", alt);
-		isApplicableMatch.registerObject("initFlow", initFlow);
-		isApplicableMatch.registerObject("defaultFlowToInitFlow",
-				defaultFlowToInitFlow);
-		isApplicableMatch.registerObject("egwToStep", egwToStep);
-		isApplicableMatch.registerObject("divergeFlowToAlt", divergeFlowToAlt);
-		isApplicableMatch.registerObject("flow", flow);
-		isApplicableMatch
-				.registerObject("divergeFlowToFlow", divergeFlowToFlow);
-		isApplicableMatch.registerObject("lane", lane);
-		isApplicableMatch.registerObject("laneSet", laneSet);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -9263,10 +8447,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					(ExclusiveGateway) arguments.get(6),
 					(SequenceFlow) arguments.get(7), (Lane) arguments.get(8),
 					(LaneSet) arguments.get(9));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPLICABLE_FWD__MATCH:
-			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPLICABLE_FWD__MATCH:
+			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(SequenceFlow) arguments.get(1),
@@ -9351,35 +8535,6 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					.get(0));
 		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(SequenceFlowToStep) arguments.get(1));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODETOSTEP_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_FLOWNODETOSTEP_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOWTOSTEP_LANE_LANESET_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(SequenceFlow) arguments.get(1), (Step) arguments.get(2),
-					(SequenceFlowToStep) arguments.get(3),
-					(bpmn2.Process) arguments.get(4),
-					(SequenceFlow) arguments.get(5),
-					(ExclusiveGateway) arguments.get(6),
-					(SequenceFlow) arguments.get(7),
-					(NormalStep) arguments.get(8),
-					(AlternativeFlowAlternative) arguments.get(9),
-					(Flow) arguments.get(10),
-					(SequenceFlowToUCFlow) arguments.get(11),
-					(FlowNodeToStep) arguments.get(12),
-					(SeqFlowToAltFlowAlt) arguments.get(13),
-					(AlternativeFlow) arguments.get(14),
-					(SequenceFlowToUCFlow) arguments.get(15),
-					(ExclusiveGateway) arguments.get(16),
-					(SequenceFlow) arguments.get(17),
-					(FlowNodeToStep) arguments.get(18),
-					(SequenceFlowToUCFlow) arguments.get(19),
-					(SequenceFlowToStep) arguments.get(20),
-					(Lane) arguments.get(21), (LaneSet) arguments.get(22),
-					(ModelgeneratorRuleResult) arguments.get(23));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

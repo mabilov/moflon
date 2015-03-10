@@ -48,57 +48,58 @@
     <rules ruleName="UseCasePrecondToFoundMessageRule">
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_21"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_22"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_23"/>
     </rules>
     <rules ruleName="SystemStepBFToMessageRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_23"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_24"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_25"/>
     </rules>
     <rules ruleName="StepAltToOperandRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_25"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_26"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_27"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_28"/>
     </rules>
     <rules ruleName="AltStepBFToComboRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_28"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_29"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_30"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_31"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_32"/>
     </rules>
     <rules ruleName="UserStepBFMessageRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_32"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_33"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_34"/>
     </rules>
     <rules ruleName="SystemStepNFToMessageRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_34"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_35"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_36"/>
     </rules>
     <rules ruleName="UserStepNfToMessageRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_36"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_37"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_38"/>
     </rules>
     <rules ruleName="AltSysStepBFToComboRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_38"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_39"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_40"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_41"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_42"/>
     </rules>
     <rules ruleName="AltUserStepBFToComboRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_42"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_43"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_44"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_45"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepBFToComboRule/isAppropriate_FWD_EMoflonEdge_46"/>
     </rules>
     <rules ruleName="AltSysStepNFToComboRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_46"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_47"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_48"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_49"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltSysStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_50"/>
     </rules>
     <rules ruleName="AltUserStepNFToComboRule">
-      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_50"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_51"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_52"/>
       <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_53"/>
+      <isAppropriateMethods href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltUserStepNFToComboRule/isAppropriate_FWD_EMoflonEdge_54"/>
     </rules>
   </sourceRules>
   <targetRules>

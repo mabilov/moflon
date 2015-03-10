@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:expressions="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//expressions" xmlns:patternExpressions="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//patterns/patternExpressions" name="UseCaseCodeAdapter">
-  <domain name="Source" metamodel="//@metamodel.2" type="SOURCE"/>
+  <domain name="Source" metamodel="//@metamodel.0" type="SOURCE"/>
   <domain name="Target" metamodel="//@metamodel.1" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.0"/>
+  <domain name="Correspondence" metamodel="//@metamodel.2"/>
   <tggRule name="FileToUCModel" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="file" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//File"/>
@@ -813,7 +813,7 @@
     </csp>
   </tggRule>
   <tggRule name="ActorExtendsRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="superActorNode" incomingLink="//@tggRule.16/@linkVariable.0" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="superActorNode" incomingLink="//@tggRule.16/@linkVariable.0" outgoingLink="//@tggRule.16/@linkVariable.8" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Node"/>
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="superActorNodeToSuperActor" outgoingLink="//@tggRule.16/@linkVariable.0 //@tggRule.16/@linkVariable.1" domain="//@domain.2">
@@ -829,7 +829,7 @@
         <valueExpression xsi:type="expressions:LiteralExpression" value="&quot;extends&quot;"/>
       </attributeAssignment>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actorNode" incomingLink="//@tggRule.16/@linkVariable.5 //@tggRule.16/@linkVariable.3" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actorNode" incomingLink="//@tggRule.16/@linkVariable.5 //@tggRule.16/@linkVariable.3" outgoingLink="//@tggRule.16/@linkVariable.7" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Node"/>
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.16/@linkVariable.6" outgoingLink="//@tggRule.16/@linkVariable.4" domain="//@domain.1">
@@ -840,6 +840,17 @@
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actorNodeToActor" outgoingLink="//@tggRule.16/@linkVariable.5 //@tggRule.16/@linkVariable.6" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToActor"/>
+    </objectVariable>
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actorsNode" incomingLink="//@tggRule.16/@linkVariable.7 //@tggRule.16/@linkVariable.8" domain="//@domain.0">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Node"/>
+      <constraint>
+        <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
+          <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;actors&quot;"/>
+          <leftExpression xsi:type="patternExpressions:AttributeValueExpression" object="//@tggRule.16/@objectVariable.8">
+            <attribute href="platform:/plugin/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+          </leftExpression>
+        </constraintExpression>
+      </constraint>
     </objectVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="source" target="//@tggRule.16/@objectVariable.0" source="//@tggRule.16/@objectVariable.1" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToActor/source"/>
@@ -861,6 +872,12 @@
     </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.16/@objectVariable.5" source="//@tggRule.16/@objectVariable.7" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToActor/target"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="parentNode" target="//@tggRule.16/@objectVariable.8" source="//@tggRule.16/@objectVariable.4" domain="//@domain.0">
+      <type href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="parentNode" target="//@tggRule.16/@objectVariable.8" source="//@tggRule.16/@objectVariable.0" domain="//@domain.0">
+      <type href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Text/parentNode"/>
     </linkVariable>
     <csp>
       <constraints variables="//@tggRule.16/@csp/@variables.0 //@tggRule.16/@csp/@variables.1" name="eq">
@@ -1473,13 +1490,13 @@
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="flow"/>
     </csp>
   </tggRule>
-  <metamodel name="UseCaseCodeAdapter">
-    <outermostPackage href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#/"/>
+  <metamodel name="MocaTree">
+    <outermostPackage href="platform:/plugin/MocaTree/model/MocaTree.ecore#/"/>
   </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
-  <metamodel name="MocaTree">
-    <outermostPackage href="platform:/plugin/MocaTree/model/MocaTree.ecore#/"/>
+  <metamodel name="UseCaseCodeAdapter">
+    <outermostPackage href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

@@ -17,8 +17,9 @@ Require-Bundle: UseCaseDSL,
  MocaTree,
  SDMLanguage,
  TGGLanguage,
- TGGRuntime
+ TGGRuntime,
+ de.abilov.tgg.constraints
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: TU Darmstadt
+Bundle-Vendor: Marat Abilov

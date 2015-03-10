@@ -16,7 +16,8 @@ Require-Bundle: MocaTree,
  SDMLanguage,
  TGGLanguage,
  TGGRuntime,
- Moca
+ Moca,
+ de.abilov.tgg.constraints;visibility:=reexport
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

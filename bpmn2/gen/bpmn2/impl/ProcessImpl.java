@@ -8,12 +8,13 @@ import bpmn2.FlowElement;
 import bpmn2.FlowElementsContainer;
 import bpmn2.FlowNode;
 import bpmn2.LaneSet;
-
 import bpmn2.SequenceFlow;
+
 import de.upb.tools.sdm.*;
+
 import java.lang.reflect.InvocationTargetException;
+
 import java.util.*;
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -161,11 +162,10 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 	 */
 	public FlowNode removeNode(FlowNode node) {
 		boolean fujaba__Success = false;
+		FlowNode nextNode = null;
 		Iterator fujaba__IterThisToOutFlow = null;
 		Object _TmpObject = null;
 		SequenceFlow outFlow = null;
-		Iterator fujaba__IterThisToNextNode = null;
-		FlowNode nextNode = null;
 		Iterator fujaba__IterThisToInFlow = null;
 		SequenceFlow inFlow = null;
 
@@ -193,55 +193,37 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 					// check link incoming from inFlow to node
 					JavaSDM.ensure(node.equals(inFlow.getTargetRef()));
 
-					// iterate to-many link flowElements from this to nextNode
+					// iterate to-many link flowElements from this to outFlow
 					fujaba__Success = false;
 
-					fujaba__IterThisToNextNode = this.getFlowElements()
+					fujaba__IterThisToOutFlow = this.getFlowElements()
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterThisToNextNode.hasNext()) {
+							&& fujaba__IterThisToOutFlow.hasNext()) {
 						try {
-							_TmpObject = fujaba__IterThisToNextNode.next();
+							_TmpObject = fujaba__IterThisToOutFlow.next();
 
-							// ensure correct type and really bound of object nextNode
-							JavaSDM.ensure(_TmpObject instanceof FlowNode);
-							nextNode = (FlowNode) _TmpObject;
+							// ensure correct type and really bound of object outFlow
+							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
+							outFlow = (SequenceFlow) _TmpObject;
+							// check isomorphic binding between objects outFlow and inFlow 
+							JavaSDM.ensure(!outFlow.equals(inFlow));
+
+							// check link outgoing from outFlow to node
+							JavaSDM.ensure(node.equals(outFlow.getSourceRef()));
+
+							// bind object
+							nextNode = outFlow.getTargetRef();
+
+							// check object nextNode is really bound
+							JavaSDM.ensure(nextNode != null);
+
 							// check isomorphic binding between objects node and nextNode 
 							JavaSDM.ensure(!node.equals(nextNode));
 
-							// iterate to-many link flowElements from this to outFlow
-							fujaba__Success = false;
-
-							fujaba__IterThisToOutFlow = this.getFlowElements()
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterThisToOutFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterThisToOutFlow
-											.next();
-
-									// ensure correct type and really bound of object outFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									outFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link incoming from outFlow to nextNode
-									JavaSDM.ensure(nextNode.equals(outFlow
-											.getTargetRef()));
-
-									// check link outgoing from outFlow to node
-									JavaSDM.ensure(node.equals(outFlow
-											.getSourceRef()));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
+							// check link flowElements from nextNode to this
+							JavaSDM.ensure(this.equals(nextNode.eContainer()));
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
@@ -257,21 +239,21 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 			}
 			JavaSDM.ensure(fujaba__Success);
 			// destroy link
-			this.getFlowElements().remove(node); // delete link
-
-			// destroy link
 			this.getFlowElements().remove(outFlow); // delete link
 
 			// destroy link
-			inFlow.setTargetRef(null);
+			this.getFlowElements().remove(node); // delete link
+
 			// destroy link
 			outFlow.setSourceRef(null);
 			// destroy link
+			inFlow.setTargetRef(null);
+			// destroy link
 			nextNode.getIncoming().remove(outFlow);
-			// delete object node
-			org.moflon.util.eMoflonEMFUtil.remove(node);
 			// delete object outFlow
 			org.moflon.util.eMoflonEMFUtil.remove(outFlow);
+			// delete object node
+			org.moflon.util.eMoflonEMFUtil.remove(node);
 
 			// create link
 			nextNode.getIncoming().add(inFlow);

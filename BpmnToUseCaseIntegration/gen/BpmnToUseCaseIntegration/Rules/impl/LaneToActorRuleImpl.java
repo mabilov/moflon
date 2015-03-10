@@ -20,15 +20,11 @@ import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
 import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -69,7 +65,6 @@ import bpmn2.ServiceTask;
 import bpmn2.StartEvent;
 import bpmn2.Task;
 import bpmn2.UserTask;
-import bpmn2.Process;
 
 import de.upb.tools.sdm.*;
 
@@ -85,735 +80,6 @@ import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
@@ -982,20 +248,20 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						definitions, "contextNodes");
+						process, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
+						definitions, "contextNodes");
 
 				// create link
 				__process_laneSets_laneSet.setTrg(laneSet);
 
 				// create link
-				__definitions_rootElements_process.setTrg(process);
+				__process_laneSets_laneSet.setSrc(process);
 
 				// create link
-				__process_laneSets_laneSet.setSrc(process);
+				__definitions_rootElements_process.setTrg(process);
 
 				// create link
 				__definitions_rootElements_process.setSrc(definitions);
@@ -1037,10 +303,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Actor actor = null;
 		LaneToActor laneToActor = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge laneToActor__source__lane = null;
 		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge packageDeclaration__actors__actor = null;
 		EMoflonEdge laneToActor__target__actor = null;
+		EMoflonEdge laneToActor__source__lane = null;
+		EMoflonEdge packageDeclaration__actors__actor = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1108,10 +374,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object actor
 			actor = UseCaseDSLFactory.eINSTANCE.createActor();
 
@@ -1120,14 +383,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 					.createLaneToActor();
 
 			// assign attribute actor
-			actor.setName((java.lang.String) csp.getAttributeVariable("actor",
-					"name").getValue());
+			actor.setName((java.lang.String) csp.getValue("actor", "name"));
 			// assign attribute actor
-			actor.setDescription((java.lang.String) csp.getAttributeVariable(
-					"actor", "description").getValue());
+			actor.setDescription((java.lang.String) csp.getValue("actor",
+					"description"));
 			// assign attribute actor
-			actor.setType((UseCaseDSL.ActorType) csp.getAttributeVariable(
-					"actor", "type").getValue());
+			actor.setType((UseCaseDSL.ActorType) csp.getValue("actor", "type"));
 
 			// create link
 			packageDeclaration.getActors().add(actor); // add link
@@ -1158,7 +419,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					lane, "translatedElements");
+					actor, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1166,7 +427,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actor, "createdElements");
+					lane, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1333,20 +594,20 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and processToUseCase 
 			JavaSDM.ensure(!useCase.equals(processToUseCase));
 
-			// create object laneToActor__source__lane
-			laneToActor__source__lane = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __laneSet_lanes_lane
 			__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object packageDeclaration__actors__actor
-			packageDeclaration__actors__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object laneToActor__target__actor
 			laneToActor__target__actor = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object laneToActor__source__lane
+			laneToActor__source__lane = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object packageDeclaration__actors__actor
+			packageDeclaration__actors__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1362,19 +623,19 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					laneToActor__source__lane, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__laneSet_lanes_lane, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration__actors__actor, "createdEdges");
+					laneToActor__target__actor, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					laneToActor__target__actor, "createdEdges");
+					laneToActor__source__lane, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclaration__actors__actor, "createdEdges");
 
 			// create link
 			__laneSet_lanes_lane.setSrc(laneSet);
@@ -1389,16 +650,16 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			laneToActor__source__lane.setTrg(lane);
 
 			// create link
-			laneToActor__target__actor.setTrg(actor);
-
-			// create link
 			packageDeclaration__actors__actor.setTrg(actor);
 
 			// create link
-			laneToActor__source__lane.setSrc(laneToActor);
+			laneToActor__target__actor.setTrg(actor);
 
 			// create link
 			laneToActor__target__actor.setSrc(laneToActor);
+
+			// create link
+			laneToActor__source__lane.setSrc(laneToActor);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1430,14 +691,14 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Lane lane = null;
 		LaneSet laneSet = null;
 		bpmn2.Process process = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __process_laneSets_laneSet = null;
+		EMoflonEdge __laneSet_lanes_lane = null;
 		EMoflonEdge __definitions_rootElements_process = null;
 		EMoflonEdge __processToUseCase_source_process = null;
 		EMoflonEdge __definitionsToPackage_source_definitions = null;
-		EMoflonEdge __definitionsToPackage_target_packageDeclaration = null;
 		EMoflonEdge __packageDeclaration_useCases_useCase = null;
+		EMoflonEdge __definitionsToPackage_target_packageDeclaration = null;
 		EMoflonEdge __processToUseCase_target_useCase = null;
 		CSP csp = null;
 		UseCase useCase = null;
@@ -1619,17 +880,17 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(packageDeclaration
 										.equals(useCase.eContainer()));
 
-								// create object __laneSet_lanes_lane
-								__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
+								// create object isApplicableMatch
+								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+										.createIsApplicableMatch();
 
 								// create object __process_laneSets_laneSet
 								__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object isApplicableMatch
-								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-										.createIsApplicableMatch();
+								// create object __laneSet_lanes_lane
+								__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
 
 								// create object __definitions_rootElements_process
 								__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
@@ -1643,12 +904,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								__definitionsToPackage_source_definitions = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object __definitionsToPackage_target_packageDeclaration
-								__definitionsToPackage_target_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
 								// create object __packageDeclaration_useCases_useCase
 								__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __definitionsToPackage_target_packageDeclaration
+								__definitionsToPackage_target_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __processToUseCase_target_useCase
@@ -1679,14 +940,14 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										.setName("target");
 
 								// create link
-								__laneSet_lanes_lane.setSrc(laneSet);
+								isApplicableMatch.getAllContextElements().add(
+										laneSet);
 
 								// create link
 								__process_laneSets_laneSet.setTrg(laneSet);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										laneSet);
+								__laneSet_lanes_lane.setSrc(laneSet);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
@@ -1704,16 +965,20 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								__process_laneSets_laneSet.setSrc(process);
 
 								// create link
-								__definitions_rootElements_process
-										.setSrc(definitions);
-
-								// create link
 								isApplicableMatch.getAllContextElements().add(
 										definitions);
 
 								// create link
 								__definitionsToPackage_source_definitions
 										.setTrg(definitions);
+
+								// create link
+								__definitions_rootElements_process
+										.setSrc(definitions);
+
+								// create link
+								__packageDeclaration_useCases_useCase
+										.setSrc(packageDeclaration);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
@@ -1724,15 +989,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										.setTrg(packageDeclaration);
 
 								// create link
-								__packageDeclaration_useCases_useCase
-										.setSrc(packageDeclaration);
-
-								// create link
 								__definitionsToPackage_target_packageDeclaration
-										.setSrc(definitionsToPackage);
-
-								// create link
-								__definitionsToPackage_source_definitions
 										.setSrc(definitionsToPackage);
 
 								// create link
@@ -1740,16 +997,24 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										definitionsToPackage);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										useCase);
+								__definitionsToPackage_source_definitions
+										.setSrc(definitionsToPackage);
 
 								// create link
 								__packageDeclaration_useCases_useCase
 										.setTrg(useCase);
 
 								// create link
+								isApplicableMatch.getAllContextElements().add(
+										useCase);
+
+								// create link
 								__processToUseCase_target_useCase
 										.setTrg(useCase);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										processToUseCase);
 
 								// create link
 								__processToUseCase_source_process
@@ -1761,28 +1026,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
-										processToUseCase);
-
-								// create link
-								__laneSet_lanes_lane.setTrg(lane);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
 										lane);
 
 								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__definitionsToPackage_target_packageDeclaration,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__processToUseCase_target_useCase,
-												"allContextElements");
+								__laneSet_lanes_lane.setTrg(lane);
 
 								// create link
 								org.moflon.util.eMoflonEMFUtil
@@ -1796,6 +1043,20 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										.addOppositeReference(
 												isApplicableMatch,
 												__processToUseCase_source_process,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__packageDeclaration_useCases_useCase,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__definitionsToPackage_target_packageDeclaration,
 												"allContextElements");
 
 								// create link
@@ -1816,14 +1077,14 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__packageDeclaration_useCases_useCase,
+												__process_laneSets_laneSet,
 												"allContextElements");
 
 								// create link
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__process_laneSets_laneSet,
+												__processToUseCase_target_useCase,
 												"allContextElements");
 								// story node 'solve CSP'
 								try {
@@ -1858,15 +1119,15 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										JavaSDM.ensure(isApplicableMatch != null);
 										// check object ruleresult is really bound
 										JavaSDM.ensure(ruleresult != null);
-										// assign attribute ruleresult
-										ruleresult.setSuccess(true);
 										// assign attribute isApplicableMatch
 										isApplicableMatch
 												.setRuleName("LaneToActorRule");
+										// assign attribute ruleresult
+										ruleresult.setSuccess(true);
 
 										// create link
-										isApplicableMatch
-												.setIsApplicableRuleResult(ruleresult);
+										ruleresult.getIsApplicableMatch().add(
+												isApplicableMatch);
 
 										fujaba__Success = true;
 									} catch (JavaSDMException fujaba__InternalException) {
@@ -2177,11 +1438,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
+						packageDeclaration, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						packageDeclaration, "contextNodes");
+						useCase, "contextNodes");
 
 				// create link
 				__packageDeclaration_useCases_useCase
@@ -2229,8 +1490,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		PerformRuleResult ruleresult = null;
 		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge laneToActor__source__lane = null;
-		EMoflonEdge laneToActor__target__actor = null;
 		EMoflonEdge laneSet__lanes__lane = null;
+		EMoflonEdge laneToActor__target__actor = null;
 
 		// story node 'perform transformation'
 		try {
@@ -2298,10 +1559,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object lane
 			lane = Bpmn2Factory.eINSTANCE.createLane();
 
@@ -2310,11 +1568,9 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 					.createLaneToActor();
 
 			// assign attribute lane
-			lane.setId((java.lang.String) csp
-					.getAttributeVariable("lane", "id").getValue());
+			lane.setId((java.lang.String) csp.getValue("lane", "id"));
 			// assign attribute lane
-			lane.setName((java.lang.String) csp.getAttributeVariable("lane",
-					"name").getValue());
+			lane.setName((java.lang.String) csp.getValue("lane", "name"));
 
 			// create link
 			laneToActor.setTarget(actor);
@@ -2345,11 +1601,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					laneToActor, "createdLinkElements");
+					lane, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					lane, "createdElements");
+					laneToActor, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2528,12 +1784,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			laneToActor__source__lane = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object laneToActor__target__actor
-			laneToActor__target__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object laneSet__lanes__lane
 			laneSet__lanes__lane = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object laneToActor__target__actor
+			laneToActor__target__actor = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -2557,11 +1813,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					laneToActor__target__actor, "createdEdges");
+					laneSet__lanes__lane, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					laneSet__lanes__lane, "createdEdges");
+					laneToActor__target__actor, "createdEdges");
 
 			// create link
 			laneSet__lanes__lane.setSrc(laneSet);
@@ -2576,10 +1832,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			laneSet__lanes__lane.setTrg(lane);
 
 			// create link
-			__packageDeclaration_actors_actor.setTrg(actor);
+			laneToActor__target__actor.setTrg(actor);
 
 			// create link
-			laneToActor__target__actor.setTrg(actor);
+			__packageDeclaration_actors_actor.setTrg(actor);
 
 			// create link
 			laneToActor__target__actor.setSrc(laneToActor);
@@ -2616,14 +1872,14 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Actor actor = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __process_laneSets_laneSet = null;
+		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __definitions_rootElements_process = null;
 		EMoflonEdge __processToUseCase_source_process = null;
 		EMoflonEdge __definitionsToPackage_source_definitions = null;
-		EMoflonEdge __definitionsToPackage_target_packageDeclaration = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
 		EMoflonEdge __packageDeclaration_useCases_useCase = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge __definitionsToPackage_target_packageDeclaration = null;
 		EMoflonEdge __processToUseCase_target_useCase = null;
 		CSP csp = null;
 		Iterator fujaba__IterProcessToLaneSet = null;
@@ -2811,13 +2067,13 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 										// check object laneSet is really bound
 										JavaSDM.ensure(laneSet != null);
-										// create object isApplicableMatch
-										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-												.createIsApplicableMatch();
-
 										// create object __process_laneSets_laneSet
 										__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
+
+										// create object isApplicableMatch
+										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+												.createIsApplicableMatch();
 
 										// create object __definitions_rootElements_process
 										__definitions_rootElements_process = TGGRuntimeFactory.eINSTANCE
@@ -2831,16 +2087,16 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										__definitionsToPackage_source_definitions = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __definitionsToPackage_target_packageDeclaration
-										__definitionsToPackage_target_packageDeclaration = TGGRuntimeFactory.eINSTANCE
+										// create object __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __packageDeclaration_actors_actor
 										__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
-										// create object __packageDeclaration_useCases_useCase
-										__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+										// create object __definitionsToPackage_target_packageDeclaration
+										__definitionsToPackage_target_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 												.createEMoflonEdge();
 
 										// create object __processToUseCase_target_useCase
@@ -2873,13 +2129,13 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.setName("target");
 
 										// create link
+										__process_laneSets_laneSet
+												.setTrg(laneSet);
+
+										// create link
 										isApplicableMatch
 												.getAllContextElements().add(
 														laneSet);
-
-										// create link
-										__process_laneSets_laneSet
-												.setTrg(laneSet);
 
 										// create link
 										isApplicableMatch
@@ -2887,16 +2143,20 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 														process);
 
 										// create link
-										__process_laneSets_laneSet
-												.setSrc(process);
-
-										// create link
 										__definitions_rootElements_process
 												.setTrg(process);
 
 										// create link
+										__process_laneSets_laneSet
+												.setSrc(process);
+
+										// create link
 										__processToUseCase_source_process
 												.setTrg(process);
+
+										// create link
+										__definitions_rootElements_process
+												.setSrc(definitions);
 
 										// create link
 										__definitionsToPackage_source_definitions
@@ -2908,12 +2168,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 														definitions);
 
 										// create link
-										__definitions_rootElements_process
-												.setSrc(definitions);
-
-										// create link
-										__definitionsToPackage_target_packageDeclaration
-												.setTrg(packageDeclaration);
+										__packageDeclaration_useCases_useCase
+												.setSrc(packageDeclaration);
 
 										// create link
 										isApplicableMatch
@@ -2925,8 +2181,13 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.setSrc(packageDeclaration);
 
 										// create link
-										__packageDeclaration_useCases_useCase
-												.setSrc(packageDeclaration);
+										__definitionsToPackage_target_packageDeclaration
+												.setTrg(packageDeclaration);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														definitionsToPackage);
 
 										// create link
 										__definitionsToPackage_target_packageDeclaration
@@ -2937,16 +2198,6 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.setSrc(definitionsToPackage);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														definitionsToPackage);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														useCase);
-
-										// create link
 										__processToUseCase_target_useCase
 												.setTrg(useCase);
 
@@ -2955,11 +2206,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												.setTrg(useCase);
 
 										// create link
-										__processToUseCase_source_process
-												.setSrc(processToUseCase);
+										isApplicableMatch
+												.getAllContextElements().add(
+														useCase);
 
 										// create link
-										__processToUseCase_target_useCase
+										__processToUseCase_source_process
 												.setSrc(processToUseCase);
 
 										// create link
@@ -2968,26 +2220,23 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 														processToUseCase);
 
 										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														actor);
+										__processToUseCase_target_useCase
+												.setSrc(processToUseCase);
 
 										// create link
 										__packageDeclaration_actors_actor
 												.setTrg(actor);
 
 										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToUseCase_source_process,
-														"allContextElements");
+										isApplicableMatch
+												.getAllContextElements().add(
+														actor);
 
 										// create link
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__definitionsToPackage_source_definitions,
+														__processToUseCase_source_process,
 														"allContextElements");
 
 										// create link
@@ -3001,7 +2250,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__processToUseCase_target_useCase,
+														__packageDeclaration_actors_actor,
 														"allContextElements");
 
 										// create link
@@ -3022,6 +2271,13 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
+														__processToUseCase_target_useCase,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
 														__definitionsToPackage_target_packageDeclaration,
 														"allContextElements");
 
@@ -3029,7 +2285,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 										org.moflon.util.eMoflonEMFUtil
 												.addOppositeReference(
 														isApplicableMatch,
-														__packageDeclaration_actors_actor,
+														__definitionsToPackage_source_definitions,
 														"allContextElements");
 										// story node 'solve CSP'
 										try {
@@ -3067,15 +2323,16 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 												JavaSDM.ensure(isApplicableMatch != null);
 												// check object ruleresult is really bound
 												JavaSDM.ensure(ruleresult != null);
-												// assign attribute ruleresult
-												ruleresult.setSuccess(true);
 												// assign attribute isApplicableMatch
 												isApplicableMatch
 														.setRuleName("LaneToActorRule");
+												// assign attribute ruleresult
+												ruleresult.setSuccess(true);
 
 												// create link
-												isApplicableMatch
-														.setIsApplicableRuleResult(ruleresult);
+												ruleresult
+														.getIsApplicableMatch()
+														.add(isApplicableMatch);
 
 												fujaba__Success = true;
 											} catch (JavaSDMException fujaba__InternalException) {
@@ -3295,7 +2552,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		LaneSet __DEC_lane_lanes_693727 = null;
+		LaneSet __DEC_lane_lanes_299442 = null;
 		Match match = null;
 		Lane lane = null;
 		Definitions definitions = null;
@@ -3396,18 +2653,18 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_lane_lanes_693727 = lane.eContainer() instanceof LaneSet ? (LaneSet) lane
+					__DEC_lane_lanes_299442 = lane.eContainer() instanceof LaneSet ? (LaneSet) lane
 							.eContainer() : null;
 
-					// check object __DEC_lane_lanes_693727 is really bound
-					JavaSDM.ensure(__DEC_lane_lanes_693727 != null);
+					// check object __DEC_lane_lanes_299442 is really bound
+					JavaSDM.ensure(__DEC_lane_lanes_299442 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_lane_lanes_693727.getLanes().contains(
+					JavaSDM.ensure(__DEC_lane_lanes_299442.getLanes().contains(
 							lane));
 
-					// check isomorphic binding between objects __DEC_lane_lanes_693727 and laneSet 
-					JavaSDM.ensure(!__DEC_lane_lanes_693727.equals(laneSet));
+					// check isomorphic binding between objects __DEC_lane_lanes_299442 and laneSet 
+					JavaSDM.ensure(!__DEC_lane_lanes_299442.equals(laneSet));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -3452,7 +2709,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_FWD(match, laneSet,
 						process, definitions, lane);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -3513,7 +2770,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_436672 = null;
+		PackageDeclaration __DEC_actor_actors_258111 = null;
 		Match match = null;
 		Iterator fujaba__IterPackageDeclarationToUseCase = null;
 		UseCase useCase = null;
@@ -3606,18 +2863,18 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_actor_actors_436672 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+							__DEC_actor_actors_258111 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
 									.eContainer() : null;
 
-							// check object __DEC_actor_actors_436672 is really bound
-							JavaSDM.ensure(__DEC_actor_actors_436672 != null);
+							// check object __DEC_actor_actors_258111 is really bound
+							JavaSDM.ensure(__DEC_actor_actors_258111 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_actor_actors_436672
+							JavaSDM.ensure(__DEC_actor_actors_258111
 									.getActors().contains(actor));
 
-							// check isomorphic binding between objects __DEC_actor_actors_436672 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_actor_actors_436672
+							// check isomorphic binding between objects __DEC_actor_actors_258111 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_actor_actors_258111
 									.equals(packageDeclaration));
 
 							fujaba__Success = true;
@@ -3661,7 +2918,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						fujaba__Success = this.isAppropriate_BWD(match,
 								packageDeclaration, useCase, actor);
 						if (fujaba__Success) {
-							// statement node ''
+							// statement node 'Ensure that the correct types of elements are matched'
 							fujaba__Success = this.checkTypes_BWD(match);
 							if (fujaba__Success) {
 								// story node 'Add match to rule result'
@@ -3747,423 +3004,6 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			DefinitionsToPackage definitionsToPackageDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		Lane lane = null;
-		Actor actor = null;
-		LaneToActor laneToActor = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterProcessToProcessToUseCase = null;
-		ProcessToUseCase processToUseCase = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterDefinitionsToProcess = null;
-		bpmn2.Process process = null;
-		PackageDeclaration packageDeclaration = null;
-		Definitions definitions = null;
-		Iterator fujaba__IterDefinitionsToPackageListToDefinitionsToPackage = null;
-		DefinitionsToPackage definitionsToPackage = null;
-		Iterator fujaba__IterRuleEntryContainerToDefinitionsToPackageList = null;
-		RuleEntryList definitionsToPackageList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to definitionsToPackageList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToDefinitionsToPackageList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToDefinitionsToPackageList
-					.hasNext()) {
-				try {
-					definitionsToPackageList = (RuleEntryList) fujaba__IterRuleEntryContainerToDefinitionsToPackageList
-							.next();
-
-					// check object definitionsToPackageList is really bound
-					JavaSDM.ensure(definitionsToPackageList != null);
-					// iterate to-many link entryObjects from definitionsToPackageList to definitionsToPackage
-					fujaba__Success = false;
-
-					fujaba__IterDefinitionsToPackageListToDefinitionsToPackage = new ArrayList(
-							definitionsToPackageList.getEntryObjects())
-							.iterator();
-
-					while (fujaba__IterDefinitionsToPackageListToDefinitionsToPackage
-							.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterDefinitionsToPackageListToDefinitionsToPackage
-									.next();
-
-							// ensure correct type and really bound of object definitionsToPackage
-							JavaSDM.ensure(_TmpObject instanceof DefinitionsToPackage);
-							definitionsToPackage = (DefinitionsToPackage) _TmpObject;
-							// bind object
-							definitions = definitionsToPackage.getSource();
-
-							// check object definitions is really bound
-							JavaSDM.ensure(definitions != null);
-
-							// bind object
-							packageDeclaration = definitionsToPackage
-									.getTarget();
-
-							// check object packageDeclaration is really bound
-							JavaSDM.ensure(packageDeclaration != null);
-
-							// iterate to-many link rootElements from definitions to process
-							fujaba__Success = false;
-
-							fujaba__IterDefinitionsToProcess = new ArrayList(
-									definitions.getRootElements()).iterator();
-
-							while (fujaba__IterDefinitionsToProcess.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterDefinitionsToProcess
-											.next();
-
-									// ensure correct type and really bound of object process
-									JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-									process = (bpmn2.Process) _TmpObject;
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link source from process to processToUseCase
-											fujaba__Success = false;
-
-											fujaba__IterProcessToProcessToUseCase = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	process,
-																	ProcessToUseCase.class,
-																	"source"))
-													.iterator();
-
-											while (fujaba__IterProcessToProcessToUseCase
-													.hasNext()) {
-												try {
-													processToUseCase = (ProcessToUseCase) fujaba__IterProcessToProcessToUseCase
-															.next();
-
-													// check object processToUseCase is really bound
-													JavaSDM.ensure(processToUseCase != null);
-													// bind object
-													useCase = processToUseCase
-															.getTarget();
-
-													// check object useCase is really bound
-													JavaSDM.ensure(useCase != null);
-
-													// check link useCases from useCase to packageDeclaration
-													JavaSDM.ensure(packageDeclaration.equals(useCase
-															.eContainer()));
-
-													// story node 'solve CSP'
-													try {
-														fujaba__Success = false;
-
-														_TmpObject = (this
-																.generateModel_solveCsp_BWD(
-																		isApplicableMatch,
-																		laneSet,
-																		process,
-																		definitions,
-																		packageDeclaration,
-																		definitionsToPackage,
-																		useCase,
-																		processToUseCase,
-																		lane,
-																		actor,
-																		laneToActor,
-																		ruleResult));
-
-														// ensure correct type and really bound of object csp
-														JavaSDM.ensure(_TmpObject instanceof CSP);
-														csp = (CSP) _TmpObject;
-														fujaba__Success = true;
-													} catch (JavaSDMException fujaba__InternalException) {
-														fujaba__Success = false;
-													}
-
-													// statement node 'check CSP'
-													fujaba__Success = this
-															.generateModel_checkCsp_BWD(csp);
-													if (fujaba__Success) {
-														// story node 'perform'
-														try {
-															fujaba__Success = false;
-
-															// check object definitions is really bound
-															JavaSDM.ensure(definitions != null);
-															// check object definitionsToPackage is really bound
-															JavaSDM.ensure(definitionsToPackage != null);
-															// check object laneSet is really bound
-															JavaSDM.ensure(laneSet != null);
-															// check object packageDeclaration is really bound
-															JavaSDM.ensure(packageDeclaration != null);
-															// check object process is really bound
-															JavaSDM.ensure(process != null);
-															// check object processToUseCase is really bound
-															JavaSDM.ensure(processToUseCase != null);
-															// check object ruleResult is really bound
-															JavaSDM.ensure(ruleResult != null);
-															// check object useCase is really bound
-															JavaSDM.ensure(useCase != null);
-															// create object lane
-															lane = Bpmn2Factory.eINSTANCE
-																	.createLane();
-
-															// create object actor
-															actor = UseCaseDSLFactory.eINSTANCE
-																	.createActor();
-
-															// create object laneToActor
-															laneToActor = BpmnToUseCaseIntegrationFactory.eINSTANCE
-																	.createLaneToActor();
-
-															// assign attribute lane
-															lane.setId((java.lang.String) csp
-																	.getAttributeVariable(
-																			"lane",
-																			"id")
-																	.getValue());
-															// assign attribute lane
-															lane.setName((java.lang.String) csp
-																	.getAttributeVariable(
-																			"lane",
-																			"name")
-																	.getValue());
-															// assign attribute actor
-															actor.setName((java.lang.String) csp
-																	.getAttributeVariable(
-																			"actor",
-																			"name")
-																	.getValue());
-															// assign attribute actor
-															actor.setDescription((java.lang.String) csp
-																	.getAttributeVariable(
-																			"actor",
-																			"description")
-																	.getValue());
-															// assign attribute actor
-															actor.setType((UseCaseDSL.ActorType) csp
-																	.getAttributeVariable(
-																			"actor",
-																			"type")
-																	.getValue());
-															// assign attribute ruleResult
-															ruleResult
-																	.setSuccess(true);
-
-															// create link
-															laneSet.getLanes()
-																	.add(lane); // add link
-
-															// create link
-															packageDeclaration
-																	.getActors()
-																	.add(actor); // add link
-
-															// create link
-															ruleResult
-																	.getSourceObjects()
-																	.add(lane);
-
-															// create link
-															laneToActor
-																	.setSource(lane);
-
-															// create link
-															ruleResult
-																	.getTargetObjects()
-																	.add(actor);
-
-															// create link
-															laneToActor
-																	.setTarget(actor);
-
-															// create link
-															ruleResult
-																	.getCorrObjects()
-																	.add(laneToActor);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														return ruleResult;
-
-													}
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			LaneSet laneSet, bpmn2.Process process, Definitions definitions,
-			PackageDeclaration packageDeclaration,
-			DefinitionsToPackage definitionsToPackage, UseCase useCase,
-			ProcessToUseCase processToUseCase, Lane lane, Actor actor,
-			LaneToActor laneToActor, ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal0", true, csp);
-		literal0.setValue("PERSON");
-		literal0.setType("String");
-
-		// Create attribute variables
-
-		// Create explicit parameters
-
-		// Create unbound variables
-		Variable var_lane_id = CSPFactoryHelper.eINSTANCE.createVariable(
-				"lane.id", csp);
-		var_lane_id.setType("");
-		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"actor.name", csp);
-		var_actor_name.setType("");
-		Variable var_lane_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"lane.name", csp);
-		var_lane_name.setType("");
-		Variable var_actor_description = CSPFactoryHelper.eINSTANCE
-				.createVariable("actor.description", csp);
-		var_actor_description.setType("");
-		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
-				"actor.type", csp);
-		var_actor_type.setType("EObject");
-
-		// Create constraints
-		EqActorType eqActorType = new EqActorType();
-		Eq eq = new Eq();
-		Eq eq_0 = new Eq();
-
-		csp.getConstraints().add(eqActorType);
-		csp.getConstraints().add(eq);
-		csp.getConstraints().add(eq_0);
-
-		// Solve CSP
-		eqActorType.setRuleName("");
-		eqActorType.solve(var_actor_type, literal0);
-		eq.setRuleName("");
-		eq.solve(var_lane_id, var_actor_name);
-		eq_0.setRuleName("");
-		eq_0.solve(var_lane_name, var_actor_description);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("laneSet", laneSet);
-		isApplicableMatch.registerObject("process", process);
-		isApplicableMatch.registerObject("definitions", definitions);
-		isApplicableMatch.registerObject("packageDeclaration",
-				packageDeclaration);
-		isApplicableMatch.registerObject("definitionsToPackage",
-				definitionsToPackage);
-		isApplicableMatch.registerObject("useCase", useCase);
-		isApplicableMatch.registerObject("processToUseCase", processToUseCase);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -4173,10 +3013,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 					(LaneSet) arguments.get(1),
 					(bpmn2.Process) arguments.get(2),
 					(Definitions) arguments.get(3), (Lane) arguments.get(4));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPLICABLE_FWD__MATCH:
-			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPLICABLE_FWD__MATCH:
+			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_LANESET_PROCESS_DEFINITIONS_LANE:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(LaneSet) arguments.get(1),
@@ -4217,10 +3057,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			return isAppropriate_BWD((Match) arguments.get(0),
 					(PackageDeclaration) arguments.get(1),
 					(UseCase) arguments.get(2), (Actor) arguments.get(3));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPLICABLE_BWD__MATCH:
-			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPLICABLE_BWD__MATCH:
+			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_PACKAGEDECLARATION_USECASE_ACTOR:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
 					(PackageDeclaration) arguments.get(1),
@@ -4265,24 +3105,6 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.LANE_TO_ACTOR_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_DEFINITIONSTOPACKAGE:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(DefinitionsToPackage) arguments.get(1));
-		case RulesPackage.LANE_TO_ACTOR_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_LANESET_PROCESS_DEFINITIONS_PACKAGEDECLARATION_DEFINITIONSTOPACKAGE_USECASE_PROCESSTOUSECASE_LANE_ACTOR_LANETOACTOR_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(LaneSet) arguments.get(1),
-					(bpmn2.Process) arguments.get(2),
-					(Definitions) arguments.get(3),
-					(PackageDeclaration) arguments.get(4),
-					(DefinitionsToPackage) arguments.get(5),
-					(UseCase) arguments.get(6),
-					(ProcessToUseCase) arguments.get(7),
-					(Lane) arguments.get(8), (Actor) arguments.get(9),
-					(LaneToActor) arguments.get(10),
-					(ModelgeneratorRuleResult) arguments.get(11));
-		case RulesPackage.LANE_TO_ACTOR_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -182,15 +182,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						basicFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__useCase_flows_basicFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -198,14 +190,22 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						"toBeTranslatedEdges");
 
 				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						useCase, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						basicFlow, "toBeTranslatedNodes");
+
+				// create link
 				__packageDeclaration_useCases_useCase
 						.setSrc(packageDeclaration);
 
 				// create link
-				__useCase_flows_basicFlow.setSrc(useCase);
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 				// create link
-				__packageDeclaration_useCases_useCase.setTrg(useCase);
+				__useCase_flows_basicFlow.setSrc(useCase);
 
 				// create link
 				__useCase_flows_basicFlow.setTrg(basicFlow);
@@ -266,13 +266,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		UseCaseToInteraction useCaseToInteraction = null;
 		FlowToInteractionFragment basicFlowToInteraction = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge _package__packagedElement__interaction = null;
-		EMoflonEdge useCaseToInteraction__target__interaction = null;
-		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
-		EMoflonEdge basicFlowToInteraction__target__interaction = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge useCaseToInteraction__source__useCase = null;
+		EMoflonEdge useCaseToInteraction__target__interaction = null;
+		EMoflonEdge basicFlowToInteraction__target__interaction = null;
+		EMoflonEdge __useCase_flows_basicFlow = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
+		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
+		EMoflonEdge _package__packagedElement__interaction = null;
 
 		// story node 'perform transformation'
 		try {
@@ -382,15 +382,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction, "createdLinkElements");
+					interaction, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -398,7 +390,15 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction, "createdElements");
+					useCase, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCaseToInteraction, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlowToInteraction, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -513,32 +513,32 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and useCase 
 			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
 
-			// create object _package__packagedElement__interaction
-			_package__packagedElement__interaction = TGGRuntimeFactory.eINSTANCE
+			// create object useCaseToInteraction__source__useCase
+			useCaseToInteraction__source__useCase = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object useCaseToInteraction__target__interaction
 			useCaseToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
+			// create object basicFlowToInteraction__target__interaction
+			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __useCase_flows_basicFlow
 			__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __packageDeclaration_useCases_useCase
 			__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object useCaseToInteraction__source__useCase
-			useCaseToInteraction__source__useCase = TGGRuntimeFactory.eINSTANCE
+			// create object basicFlowToInteraction__source__basicFlow
+			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object _package__packagedElement__interaction
+			_package__packagedElement__interaction = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -560,19 +560,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					_package__packagedElement__interaction, "createdEdges");
+					useCaseToInteraction__source__useCase, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					useCaseToInteraction__target__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction__source__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCase_flows_basicFlow, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil
@@ -582,11 +574,19 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__useCase_flows_basicFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__packageDeclaration_useCases_useCase, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction__source__useCase, "createdEdges");
+					basicFlowToInteraction__source__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					_package__packagedElement__interaction, "createdEdges");
 
 			// create link
 			__packageDeclaration_useCases_useCase.setSrc(packageDeclaration);
@@ -598,13 +598,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 			// create link
-			useCaseToInteraction__source__useCase.setTrg(useCase);
-
-			// create link
 			__useCase_flows_basicFlow.setSrc(useCase);
 
 			// create link
-			basicFlowToInteraction__target__interaction.setTrg(interaction);
+			useCaseToInteraction__source__useCase.setTrg(useCase);
 
 			// create link
 			useCaseToInteraction__target__interaction.setTrg(interaction);
@@ -613,24 +610,27 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			_package__packagedElement__interaction.setTrg(interaction);
 
 			// create link
-			useCaseToInteraction__target__interaction
-					.setSrc(useCaseToInteraction);
+			basicFlowToInteraction__target__interaction.setTrg(interaction);
 
 			// create link
 			useCaseToInteraction__source__useCase.setSrc(useCaseToInteraction);
 
 			// create link
-			__useCase_flows_basicFlow.setTrg(basicFlow);
+			useCaseToInteraction__target__interaction
+					.setSrc(useCaseToInteraction);
 
 			// create link
 			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
 
 			// create link
-			basicFlowToInteraction__source__basicFlow
-					.setSrc(basicFlowToInteraction);
+			__useCase_flows_basicFlow.setTrg(basicFlow);
 
 			// create link
 			basicFlowToInteraction__target__interaction
+					.setSrc(basicFlowToInteraction);
+
+			// create link
+			basicFlowToInteraction__source__basicFlow
 					.setSrc(basicFlowToInteraction);
 
 			fujaba__Success = true;
@@ -662,9 +662,9 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		BasicFlow basicFlow = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
-		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 		EMoflonEdge __packageDeclarationToPackage_target__package = null;
 		EMoflonEdge __useCase_flows_basicFlow = null;
 		CSP csp = null;
@@ -795,17 +795,17 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						JavaSDM.ensure(packageDeclaration.equals(useCase
 								.eContainer()));
 
-						// create object __packageDeclaration_useCases_useCase
-						__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
+						// create object isApplicableMatch
+						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+								.createIsApplicableMatch();
 
 						// create object __packageDeclarationToPackage_source_packageDeclaration
 						__packageDeclarationToPackage_source_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
+						// create object __packageDeclaration_useCases_useCase
+						__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
 
 						// create object __packageDeclarationToPackage_target__package
 						__packageDeclarationToPackage_target__package = TGGRuntimeFactory.eINSTANCE
@@ -828,23 +828,23 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						__useCase_flows_basicFlow.setName("flows");
 
 						// create link
-						__packageDeclaration_useCases_useCase
-								.setSrc(packageDeclaration);
+						isApplicableMatch.getAllContextElements().add(
+								packageDeclaration);
 
 						// create link
 						__packageDeclarationToPackage_source_packageDeclaration
 								.setTrg(packageDeclaration);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
+						__packageDeclaration_useCases_useCase
+								.setSrc(packageDeclaration);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(_package);
 
 						// create link
 						__packageDeclarationToPackage_target__package
 								.setTrg(_package);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(_package);
 
 						// create link
 						__packageDeclarationToPackage_source_packageDeclaration
@@ -859,13 +859,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								.setSrc(packageDeclarationToPackage);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(useCase);
+						__packageDeclaration_useCases_useCase.setTrg(useCase);
 
 						// create link
 						__useCase_flows_basicFlow.setSrc(useCase);
 
 						// create link
-						__packageDeclaration_useCases_useCase.setTrg(useCase);
+						isApplicableMatch.getAllContextElements().add(useCase);
 
 						// create link
 						isApplicableMatch.getAllContextElements()
@@ -873,11 +873,6 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 						// create link
 						__useCase_flows_basicFlow.setTrg(basicFlow);
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __useCase_flows_basicFlow,
-								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -896,6 +891,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
 								__packageDeclarationToPackage_target__package,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __useCase_flows_basicFlow,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -1173,12 +1173,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						___package_packagedElement_interaction,
-						"toBeTranslatedEdges");
+						interaction, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "toBeTranslatedNodes");
+						___package_packagedElement_interaction,
+						"toBeTranslatedEdges");
 
 				// create link
 				___package_packagedElement_interaction.setSrc(_package);
@@ -1239,13 +1239,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		UseCaseToInteraction useCaseToInteraction = null;
 		FlowToInteractionFragment basicFlowToInteraction = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge ___package_packagedElement_interaction = null;
-		EMoflonEdge useCaseToInteraction__source__useCase = null;
 		EMoflonEdge basicFlowToInteraction__target__interaction = null;
-		EMoflonEdge packageDeclaration__useCases__useCase = null;
-		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
 		EMoflonEdge useCase__flows__basicFlow = null;
+		EMoflonEdge useCaseToInteraction__source__useCase = null;
+		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
+		EMoflonEdge ___package_packagedElement_interaction = null;
 		EMoflonEdge useCaseToInteraction__target__interaction = null;
+		EMoflonEdge packageDeclaration__useCases__useCase = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1354,15 +1354,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlow, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					interaction, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction, "createdLinkElements");
+					basicFlow, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1371,6 +1367,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					useCase, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					basicFlowToInteraction, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1485,32 +1485,32 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCaseToInteraction and useCase 
 			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
 
-			// create object ___package_packagedElement_interaction
-			___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCaseToInteraction__source__useCase
-			useCaseToInteraction__source__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object basicFlowToInteraction__target__interaction
 			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclaration__useCases__useCase
-			packageDeclaration__useCases__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object useCase__flows__basicFlow
 			useCase__flows__basicFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object useCaseToInteraction__source__useCase
+			useCaseToInteraction__source__useCase = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object basicFlowToInteraction__source__basicFlow
+			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object ___package_packagedElement_interaction
+			___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// create object useCaseToInteraction__target__interaction
 			useCaseToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object packageDeclaration__useCases__useCase
+			packageDeclaration__useCases__useCase = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1531,14 +1531,6 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			basicFlowToInteraction__target__interaction.setName("target");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					___package_packagedElement_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToInteraction__source__useCase, "createdEdges");
-
-			// create link
 			org.moflon.util.eMoflonEMFUtil
 					.addOppositeReference(ruleresult,
 							basicFlowToInteraction__target__interaction,
@@ -1546,7 +1538,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration__useCases__useCase, "createdEdges");
+					useCase__flows__basicFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					useCaseToInteraction__source__useCase, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1554,11 +1550,15 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase__flows__basicFlow, "createdEdges");
+					___package_packagedElement_interaction, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					useCaseToInteraction__target__interaction, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					packageDeclaration__useCases__useCase, "createdEdges");
 
 			// create link
 			packageDeclaration__useCases__useCase.setSrc(packageDeclaration);
@@ -1576,13 +1576,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			useCaseToInteraction__source__useCase.setTrg(useCase);
 
 			// create link
-			___package_packagedElement_interaction.setTrg(interaction);
-
-			// create link
 			basicFlowToInteraction__target__interaction.setTrg(interaction);
 
 			// create link
 			useCaseToInteraction__target__interaction.setTrg(interaction);
+
+			// create link
+			___package_packagedElement_interaction.setTrg(interaction);
 
 			// create link
 			useCaseToInteraction__source__useCase.setSrc(useCaseToInteraction);
@@ -1592,10 +1592,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					.setSrc(useCaseToInteraction);
 
 			// create link
-			useCase__flows__basicFlow.setTrg(basicFlow);
+			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
 
 			// create link
-			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
+			useCase__flows__basicFlow.setTrg(basicFlow);
 
 			// create link
 			basicFlowToInteraction__source__basicFlow
@@ -1633,8 +1633,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		IsApplicableRuleResult ruleresult = null;
 		ModalSequenceDiagram.Package _package = null;
 		Interaction interaction = null;
-		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
+		IsApplicableMatch isApplicableMatch = null;
 		EMoflonEdge __packageDeclarationToPackage_target__package = null;
 		EMoflonEdge ___package_packagedElement_interaction = null;
 		CSP csp = null;
@@ -1753,13 +1753,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						JavaSDM.ensure(_package
 								.equals(packageDeclarationToPackage.getTarget()));
 
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
 						// create object __packageDeclarationToPackage_source_packageDeclaration
 						__packageDeclarationToPackage_source_packageDeclaration = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
+
+						// create object isApplicableMatch
+						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+								.createIsApplicableMatch();
 
 						// create object __packageDeclarationToPackage_target__package
 						__packageDeclarationToPackage_target__package = TGGRuntimeFactory.eINSTANCE
@@ -1780,12 +1780,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								.setName("target");
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
-
-						// create link
 						__packageDeclarationToPackage_source_packageDeclaration
 								.setTrg(packageDeclaration);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(
+								packageDeclaration);
 
 						// create link
 						__packageDeclarationToPackage_target__package
@@ -1798,12 +1798,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch.getAllContextElements().add(_package);
 
 						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setSrc(packageDeclarationToPackage);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								packageDeclarationToPackage);
+
+						// create link
+						__packageDeclarationToPackage_source_packageDeclaration
+								.setSrc(packageDeclarationToPackage);
 
 						// create link
 						__packageDeclarationToPackage_target__package
@@ -1827,13 +1827,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								___package_packagedElement_interaction,
+								__packageDeclarationToPackage_target__package,
 								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch,
-								__packageDeclarationToPackage_target__package,
+								___package_packagedElement_interaction,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -2051,8 +2051,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_basicFlow_flows_913239 = null;
-		PackageDeclaration __DEC_useCase_useCases_11345 = null;
+		UseCase __DEC_basicFlow_flows_952494 = null;
+		PackageDeclaration __DEC_useCase_useCases_52060 = null;
 		Match match = null;
 		Iterator fujaba__IterUseCaseToBasicFlow = null;
 		BasicFlow basicFlow = null;
@@ -2145,19 +2145,19 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_basicFlow_flows_913239 = basicFlow
+							__DEC_basicFlow_flows_952494 = basicFlow
 									.eContainer() instanceof UseCase ? (UseCase) basicFlow
 									.eContainer() : null;
 
-							// check object __DEC_basicFlow_flows_913239 is really bound
-							JavaSDM.ensure(__DEC_basicFlow_flows_913239 != null);
+							// check object __DEC_basicFlow_flows_952494 is really bound
+							JavaSDM.ensure(__DEC_basicFlow_flows_952494 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_basicFlow_flows_913239
+							JavaSDM.ensure(__DEC_basicFlow_flows_952494
 									.getFlows().contains(basicFlow));
 
-							// check isomorphic binding between objects __DEC_basicFlow_flows_913239 and useCase 
-							JavaSDM.ensure(!__DEC_basicFlow_flows_913239
+							// check isomorphic binding between objects __DEC_basicFlow_flows_952494 and useCase 
+							JavaSDM.ensure(!__DEC_basicFlow_flows_952494
 									.equals(useCase));
 
 							fujaba__Success = true;
@@ -2174,18 +2174,18 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_useCase_useCases_11345 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+							__DEC_useCase_useCases_52060 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 									.eContainer() : null;
 
-							// check object __DEC_useCase_useCases_11345 is really bound
-							JavaSDM.ensure(__DEC_useCase_useCases_11345 != null);
+							// check object __DEC_useCase_useCases_52060 is really bound
+							JavaSDM.ensure(__DEC_useCase_useCases_52060 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_useCase_useCases_11345
+							JavaSDM.ensure(__DEC_useCase_useCases_52060
 									.getUseCases().contains(useCase));
 
-							// check isomorphic binding between objects __DEC_useCase_useCases_11345 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_useCase_useCases_11345
+							// check isomorphic binding between objects __DEC_useCase_useCases_52060 and packageDeclaration 
+							JavaSDM.ensure(!__DEC_useCase_useCases_52060
 									.equals(packageDeclaration));
 
 							fujaba__Success = true;
@@ -2296,8 +2296,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_543640 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_875639 = null;
+		Interaction __DEC_interaction_enclosingInteraction_186900 = null;
+		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_700481 = null;
 		Match match = null;
 		Interaction interaction = null;
 		ModalSequenceDiagram.Package _package = null;
@@ -2377,14 +2377,14 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_interaction_enclosingInteraction_543640 = interaction
+					__DEC_interaction_enclosingInteraction_186900 = interaction
 							.getEnclosingInteraction();
 
-					// check object __DEC_interaction_enclosingInteraction_543640 is really bound
-					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_543640 != null);
+					// check object __DEC_interaction_enclosingInteraction_186900 is really bound
+					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_186900 != null);
 
-					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_543640 and interaction 
-					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_543640
+					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_186900 and interaction 
+					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_186900
 							.equals(interaction));
 
 					fujaba__Success = true;
@@ -2401,19 +2401,19 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_interaction_packagedElement_875639 = interaction
+					__DEC_interaction_packagedElement_700481 = interaction
 							.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
 							.eContainer() : null;
 
-					// check object __DEC_interaction_packagedElement_875639 is really bound
-					JavaSDM.ensure(__DEC_interaction_packagedElement_875639 != null);
+					// check object __DEC_interaction_packagedElement_700481 is really bound
+					JavaSDM.ensure(__DEC_interaction_packagedElement_700481 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_interaction_packagedElement_875639
+					JavaSDM.ensure(__DEC_interaction_packagedElement_700481
 							.getPackagedElement().contains(interaction));
 
-					// check isomorphic binding between objects __DEC_interaction_packagedElement_875639 and _package 
-					JavaSDM.ensure(!__DEC_interaction_packagedElement_875639
+					// check isomorphic binding between objects __DEC_interaction_packagedElement_700481 and _package 
+					JavaSDM.ensure(!__DEC_interaction_packagedElement_700481
 							.equals(_package));
 
 					fujaba__Success = true;
@@ -2519,8 +2519,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_basicFlow_flows_218046 = null;
-		PackageDeclaration __DEC_useCase_useCases_360863 = null;
+		UseCase __DEC_basicFlow_flows_672020 = null;
+		PackageDeclaration __DEC_useCase_useCases_82129 = null;
 		Match match = null;
 		PackageDeclaration packageDeclaration = null;
 		BasicFlow basicFlow = null;
@@ -2609,18 +2609,18 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_basicFlow_flows_218046 = basicFlow.eContainer() instanceof UseCase ? (UseCase) basicFlow
+					__DEC_basicFlow_flows_672020 = basicFlow.eContainer() instanceof UseCase ? (UseCase) basicFlow
 							.eContainer() : null;
 
-					// check object __DEC_basicFlow_flows_218046 is really bound
-					JavaSDM.ensure(__DEC_basicFlow_flows_218046 != null);
+					// check object __DEC_basicFlow_flows_672020 is really bound
+					JavaSDM.ensure(__DEC_basicFlow_flows_672020 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_basicFlow_flows_218046.getFlows()
+					JavaSDM.ensure(__DEC_basicFlow_flows_672020.getFlows()
 							.contains(basicFlow));
 
-					// check isomorphic binding between objects __DEC_basicFlow_flows_218046 and useCase 
-					JavaSDM.ensure(!__DEC_basicFlow_flows_218046
+					// check isomorphic binding between objects __DEC_basicFlow_flows_672020 and useCase 
+					JavaSDM.ensure(!__DEC_basicFlow_flows_672020
 							.equals(useCase));
 
 					fujaba__Success = true;
@@ -2637,18 +2637,18 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_useCase_useCases_360863 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					__DEC_useCase_useCases_82129 = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
 							.eContainer() : null;
 
-					// check object __DEC_useCase_useCases_360863 is really bound
-					JavaSDM.ensure(__DEC_useCase_useCases_360863 != null);
+					// check object __DEC_useCase_useCases_82129 is really bound
+					JavaSDM.ensure(__DEC_useCase_useCases_82129 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_useCase_useCases_360863.getUseCases()
+					JavaSDM.ensure(__DEC_useCase_useCases_82129.getUseCases()
 							.contains(useCase));
 
-					// check isomorphic binding between objects __DEC_useCase_useCases_360863 and packageDeclaration 
-					JavaSDM.ensure(!__DEC_useCase_useCases_360863
+					// check isomorphic binding between objects __DEC_useCase_useCases_82129 and packageDeclaration 
+					JavaSDM.ensure(!__DEC_useCase_useCases_82129
 							.equals(packageDeclaration));
 
 					fujaba__Success = true;

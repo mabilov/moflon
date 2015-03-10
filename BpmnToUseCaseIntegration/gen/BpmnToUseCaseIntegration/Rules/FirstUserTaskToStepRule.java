@@ -18,16 +18,12 @@ import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
 import TGGLanguage.csp.*;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.AbstractRule;
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -64,9 +60,9 @@ import bpmn2.ParallelGateway;
 import bpmn2.SequenceFlow;
 import bpmn2.ServiceTask;
 import bpmn2.StartEvent;
-
 import bpmn2.Task;
 import bpmn2.UserTask;
+
 import csp.constraints.*;
 
 import de.upb.tools.sdm.*;
@@ -92,7 +88,7 @@ import org.moflon.csp.CSPFactoryHelper;
  * @generated
  */
 public interface FirstUserTaskToStepRule extends AbstractRule,
-		TaskToStepCoreRule {
+		TaskToStepCoreRule { // <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
 } // FirstUserTaskToStepRule

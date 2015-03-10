@@ -20,15 +20,11 @@ import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
 import BpmnToUseCaseIntegration.StartEventToBasicFlow;
 
-import TGGLanguage.modelgenerator.RuleEntryContainer;
-import TGGLanguage.modelgenerator.RuleEntryList;
-
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
-import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -67,9 +63,9 @@ import bpmn2.ParallelGateway;
 import bpmn2.SequenceFlow;
 import bpmn2.ServiceTask;
 import bpmn2.StartEvent;
-
 import bpmn2.Task;
 import bpmn2.UserTask;
+
 import de.upb.tools.sdm.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -84,735 +80,6 @@ import org.eclipse.emf.ecore.EOperation;
 
 import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
-import org.moflon.csp.*;
-import csp.constraints.*;
-import TGGLanguage.csp.*;
 import org.moflon.csp.*;
 import csp.constraints.*;
 import TGGLanguage.csp.*;
@@ -913,12 +180,12 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__documentRoot_definitions_definitions,
-						"toBeTranslatedEdges");
+						definitions, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						definitions, "toBeTranslatedNodes");
+						__documentRoot_definitions_definitions,
+						"toBeTranslatedEdges");
 
 				// create link
 				__documentRoot_definitions_definitions.setTrg(definitions);
@@ -978,9 +245,9 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		PackageDeclaration packageDeclaration = null;
 		PerformRuleResult ruleresult = null;
 		EMoflonEdge definitionsToPackage__target__packageDeclaration = null;
-		EMoflonEdge definitionsToPackage__source__definitions = null;
 		EMoflonEdge useCasesModel__packages__packageDeclaration = null;
 		EMoflonEdge __documentRoot_definitions_definitions = null;
+		EMoflonEdge definitionsToPackage__source__definitions = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1029,10 +296,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object definitionsToPackage
 			definitionsToPackage = BpmnToUseCaseIntegrationFactory.eINSTANCE
 					.createDefinitionsToPackage();
@@ -1042,18 +306,17 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					.createPackageDeclaration();
 
 			// assign attribute packageDeclaration
-			packageDeclaration.setName((java.lang.String) csp
-					.getAttributeVariable("packageDeclaration", "name")
-					.getValue());
+			packageDeclaration.setName((java.lang.String) csp.getValue(
+					"packageDeclaration", "name"));
 
 			// create link
 			definitionsToPackage.setSource(definitions);
 
 			// create link
-			useCasesModel.getPackages().add(packageDeclaration);
+			definitionsToPackage.setTarget(packageDeclaration);
 
 			// create link
-			definitionsToPackage.setTarget(packageDeclaration);
+			useCasesModel.getPackages().add(packageDeclaration);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1079,11 +342,11 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage, "createdLinkElements");
+					packageDeclaration, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration, "createdElements");
+					definitionsToPackage, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1158,16 +421,16 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			definitionsToPackage__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object definitionsToPackage__source__definitions
-			definitionsToPackage__source__definitions = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object useCasesModel__packages__packageDeclaration
 			useCasesModel__packages__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __documentRoot_definitions_definitions
 			__documentRoot_definitions_definitions = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object definitionsToPackage__source__definitions
+			definitionsToPackage__source__definitions = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1187,10 +450,6 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					"createdEdges");
 
 			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage__source__definitions, "createdEdges");
-
-			// create link
 			org.moflon.util.eMoflonEMFUtil
 					.addOppositeReference(ruleresult,
 							useCasesModel__packages__packageDeclaration,
@@ -1201,10 +460,14 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					__documentRoot_definitions_definitions, "translatedEdges");
 
 			// create link
-			definitionsToPackage__source__definitions.setTrg(definitions);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					definitionsToPackage__source__definitions, "createdEdges");
 
 			// create link
 			__documentRoot_definitions_definitions.setTrg(definitions);
+
+			// create link
+			definitionsToPackage__source__definitions.setTrg(definitions);
 
 			// create link
 			definitionsToPackage__target__packageDeclaration
@@ -1215,11 +478,11 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					.setTrg(packageDeclaration);
 
 			// create link
-			definitionsToPackage__source__definitions
+			definitionsToPackage__target__packageDeclaration
 					.setSrc(definitionsToPackage);
 
 			// create link
-			definitionsToPackage__target__packageDeclaration
+			definitionsToPackage__source__definitions
 					.setSrc(definitionsToPackage);
 
 			// create link
@@ -1412,16 +675,16 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								.setTrg(definitions);
 
 						// create link
-						__documentRootToUseCasesModel_source_documentRoot
-								.setTrg(documentRoot);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								documentRoot);
 
 						// create link
 						__documentRoot_definitions_definitions
 								.setSrc(documentRoot);
+
+						// create link
+						__documentRootToUseCasesModel_source_documentRoot
+								.setTrg(documentRoot);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(
@@ -1436,12 +699,12 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								.setSrc(documentRootToUseCasesModel);
 
 						// create link
-						__documentRootToUseCasesModel_target_useCasesModel
-								.setSrc(documentRootToUseCasesModel);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								documentRootToUseCasesModel);
+
+						// create link
+						__documentRootToUseCasesModel_target_useCasesModel
+								.setSrc(documentRootToUseCasesModel);
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil
@@ -1451,17 +714,17 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 										"allContextElements");
 
 						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__documentRoot_definitions_definitions,
-								"allContextElements");
-
-						// create link
 						org.moflon.util.eMoflonEMFUtil
 								.addOppositeReference(
 										isApplicableMatch,
 										__documentRootToUseCasesModel_target_useCasesModel,
 										"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch,
+								__documentRoot_definitions_definitions,
+								"allContextElements");
 						// story node 'solve CSP'
 						try {
 							fujaba__Success = false;
@@ -1490,15 +753,15 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(isApplicableMatch != null);
 								// check object ruleresult is really bound
 								JavaSDM.ensure(ruleresult != null);
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
 								// assign attribute isApplicableMatch
 								isApplicableMatch
 										.setRuleName("DefinitionsToPackageRule");
+								// assign attribute ruleresult
+								ruleresult.setSuccess(true);
 
 								// create link
-								isApplicableMatch
-										.setIsApplicableRuleResult(ruleresult);
+								ruleresult.getIsApplicableMatch().add(
+										isApplicableMatch);
 
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
@@ -1726,12 +989,12 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						packageDeclaration, "toBeTranslatedNodes");
+						__useCasesModel_packages_packageDeclaration,
+						"toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCasesModel_packages_packageDeclaration,
-						"toBeTranslatedEdges");
+						packageDeclaration, "toBeTranslatedNodes");
 
 				// create link
 				__useCasesModel_packages_packageDeclaration
@@ -1793,10 +1056,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		Definitions definitions = null;
 		DefinitionsToPackage definitionsToPackage = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge definitionsToPackage__target__packageDeclaration = null;
-		EMoflonEdge documentRoot__definitions__definitions = null;
 		EMoflonEdge definitionsToPackage__source__definitions = null;
+		EMoflonEdge documentRoot__definitions__definitions = null;
 		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
+		EMoflonEdge definitionsToPackage__target__packageDeclaration = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1845,10 +1108,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 				}
 			}
-			if (!fujaba__Success) {
-				fujaba__Success = true;
-				csp = null;
-			}
+			JavaSDM.ensure(fujaba__Success);
 			// create object definitions
 			definitions = Bpmn2Factory.eINSTANCE.createDefinitions();
 
@@ -1857,18 +1117,17 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					.createDefinitionsToPackage();
 
 			// assign attribute definitions
-			definitions.setTargetNamespace((java.lang.String) csp
-					.getAttributeVariable("definitions", "targetNamespace")
-					.getValue());
+			definitions.setTargetNamespace((java.lang.String) csp.getValue(
+					"definitions", "targetNamespace"));
 
 			// create link
 			definitionsToPackage.setTarget(packageDeclaration);
 
 			// create link
-			documentRoot.getDefinitions().add(definitions);
+			definitionsToPackage.setSource(definitions);
 
 			// create link
-			definitionsToPackage.setSource(definitions);
+			documentRoot.getDefinitions().add(definitions);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -1890,15 +1149,15 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					definitionsToPackage, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					definitions, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					packageDeclaration, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1969,20 +1228,20 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCasesModel and packageDeclaration 
 			JavaSDM.ensure(!useCasesModel.equals(packageDeclaration));
 
-			// create object definitionsToPackage__target__packageDeclaration
-			definitionsToPackage__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
+			// create object definitionsToPackage__source__definitions
+			definitionsToPackage__source__definitions = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object documentRoot__definitions__definitions
 			documentRoot__definitions__definitions = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object definitionsToPackage__source__definitions
-			definitionsToPackage__source__definitions = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
 			// create object __useCasesModel_packages_packageDeclaration
 			__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object definitionsToPackage__target__packageDeclaration
+			definitionsToPackage__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1998,8 +1257,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage__target__packageDeclaration,
-					"createdEdges");
+					definitionsToPackage__source__definitions, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2007,18 +1265,19 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage__source__definitions, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					__useCasesModel_packages_packageDeclaration,
 					"translatedEdges");
 
 			// create link
-			definitionsToPackage__source__definitions.setTrg(definitions);
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					definitionsToPackage__target__packageDeclaration,
+					"createdEdges");
 
 			// create link
 			documentRoot__definitions__definitions.setTrg(definitions);
+
+			// create link
+			definitionsToPackage__source__definitions.setTrg(definitions);
 
 			// create link
 			__useCasesModel_packages_packageDeclaration
@@ -2226,28 +1485,24 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								.setTrg(packageDeclaration);
 
 						// create link
-						__documentRootToUseCasesModel_source_documentRoot
-								.setTrg(documentRoot);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								documentRoot);
 
 						// create link
-						__useCasesModel_packages_packageDeclaration
-								.setSrc(useCasesModel);
+						__documentRootToUseCasesModel_source_documentRoot
+								.setTrg(documentRoot);
 
 						// create link
 						__documentRootToUseCasesModel_target_useCasesModel
 								.setTrg(useCasesModel);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCasesModel);
+						__useCasesModel_packages_packageDeclaration
+								.setSrc(useCasesModel);
 
 						// create link
-						__documentRootToUseCasesModel_source_documentRoot
-								.setSrc(documentRootToUseCasesModel);
+						isApplicableMatch.getAllContextElements().add(
+								useCasesModel);
 
 						// create link
 						__documentRootToUseCasesModel_target_useCasesModel
@@ -2258,17 +1513,21 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								documentRootToUseCasesModel);
 
 						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__documentRootToUseCasesModel_target_useCasesModel,
-										"allContextElements");
+						__documentRootToUseCasesModel_source_documentRoot
+								.setSrc(documentRootToUseCasesModel);
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil
 								.addOppositeReference(
 										isApplicableMatch,
 										__documentRootToUseCasesModel_source_documentRoot,
+										"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil
+								.addOppositeReference(
+										isApplicableMatch,
+										__documentRootToUseCasesModel_target_useCasesModel,
 										"allContextElements");
 
 						// create link
@@ -2304,15 +1563,15 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 								JavaSDM.ensure(isApplicableMatch != null);
 								// check object ruleresult is really bound
 								JavaSDM.ensure(ruleresult != null);
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
 								// assign attribute isApplicableMatch
 								isApplicableMatch
 										.setRuleName("DefinitionsToPackageRule");
+								// assign attribute ruleresult
+								ruleresult.setSuccess(true);
 
 								// create link
-								isApplicableMatch
-										.setIsApplicableRuleResult(ruleresult);
+								ruleresult.getIsApplicableMatch().add(
+										isApplicableMatch);
 
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
@@ -2492,7 +1751,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		DocumentRoot __DEC_definitions_definitions_593074 = null;
+		DocumentRoot __DEC_definitions_definitions_475461 = null;
 		Match match = null;
 		Definitions definitions = null;
 		DocumentRoot documentRoot = null;
@@ -2570,19 +1829,19 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_definitions_definitions_593074 = definitions
+					__DEC_definitions_definitions_475461 = definitions
 							.eContainer() instanceof DocumentRoot ? (DocumentRoot) definitions
 							.eContainer() : null;
 
-					// check object __DEC_definitions_definitions_593074 is really bound
-					JavaSDM.ensure(__DEC_definitions_definitions_593074 != null);
+					// check object __DEC_definitions_definitions_475461 is really bound
+					JavaSDM.ensure(__DEC_definitions_definitions_475461 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_definitions_definitions_593074
+					JavaSDM.ensure(__DEC_definitions_definitions_475461
 							.getDefinitions().contains(definitions));
 
-					// check isomorphic binding between objects __DEC_definitions_definitions_593074 and documentRoot 
-					JavaSDM.ensure(!__DEC_definitions_definitions_593074
+					// check isomorphic binding between objects __DEC_definitions_definitions_475461 and documentRoot 
+					JavaSDM.ensure(!__DEC_definitions_definitions_475461
 							.equals(documentRoot));
 
 					fujaba__Success = true;
@@ -2618,7 +1877,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_FWD(match, definitions,
 						documentRoot);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_FWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -2679,7 +1938,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCasesModel __DEC_packageDeclaration_packages_60115 = null;
+		UseCasesModel __DEC_packageDeclaration_packages_897050 = null;
 		Match match = null;
 		PackageDeclaration packageDeclaration = null;
 		UseCasesModel useCasesModel = null;
@@ -2757,19 +2016,19 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_packageDeclaration_packages_60115 = packageDeclaration
+					__DEC_packageDeclaration_packages_897050 = packageDeclaration
 							.eContainer() instanceof UseCasesModel ? (UseCasesModel) packageDeclaration
 							.eContainer() : null;
 
-					// check object __DEC_packageDeclaration_packages_60115 is really bound
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_60115 != null);
+					// check object __DEC_packageDeclaration_packages_897050 is really bound
+					JavaSDM.ensure(__DEC_packageDeclaration_packages_897050 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_60115
+					JavaSDM.ensure(__DEC_packageDeclaration_packages_897050
 							.getPackages().contains(packageDeclaration));
 
-					// check isomorphic binding between objects __DEC_packageDeclaration_packages_60115 and useCasesModel 
-					JavaSDM.ensure(!__DEC_packageDeclaration_packages_60115
+					// check isomorphic binding between objects __DEC_packageDeclaration_packages_897050 and useCasesModel 
+					JavaSDM.ensure(!__DEC_packageDeclaration_packages_897050
 							.equals(useCasesModel));
 
 					fujaba__Success = true;
@@ -2807,7 +2066,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 				fujaba__Success = this.isAppropriate_BWD(match,
 						packageDeclaration, useCasesModel);
 				if (fujaba__Success) {
-					// statement node ''
+					// statement node 'Ensure that the correct types of elements are matched'
 					fujaba__Success = this.checkTypes_BWD(match);
 					if (fujaba__Success) {
 						// story node 'Add match to rule result'
@@ -2886,280 +2145,6 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelgeneratorRuleResult generateModel(
-			RuleEntryContainer ruleEntryContainer,
-			DocRootToUCModel documentRootToUseCasesModelDummyParameter) {
-		boolean fujaba__Success = false;
-		ModelgeneratorRuleResult ruleResult = null;
-		IsApplicableMatch isApplicableMatch = null;
-		Object _TmpObject = null;
-		CSP csp = null;
-		Definitions definitions = null;
-		DefinitionsToPackage definitionsToPackage = null;
-		PackageDeclaration packageDeclaration = null;
-		UseCasesModel useCasesModel = null;
-		DocumentRoot documentRoot = null;
-		Iterator fujaba__IterDocumentRootToUseCasesModelListToDocumentRootToUseCasesModel = null;
-		DocRootToUCModel documentRootToUseCasesModel = null;
-		Iterator fujaba__IterRuleEntryContainerToDocumentRootToUseCasesModelList = null;
-		RuleEntryList documentRootToUseCasesModelList = null;
-
-		// story node 'create result'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleResult
-			ruleResult = TGGRuntimeFactory.eINSTANCE
-					.createModelgeneratorRuleResult();
-
-			// create object isApplicableMatch
-			isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableMatch();
-
-			// assign attribute ruleResult
-			ruleResult.setSuccess(false);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'is applicable core'
-		try {
-			fujaba__Success = false;
-
-			// check object ruleEntryContainer is really bound
-			JavaSDM.ensure(ruleEntryContainer != null);
-			// iterate to-many link ruleEntryList from ruleEntryContainer to documentRootToUseCasesModelList
-			fujaba__Success = false;
-
-			fujaba__IterRuleEntryContainerToDocumentRootToUseCasesModelList = new ArrayList(
-					ruleEntryContainer.getRuleEntryList()).iterator();
-
-			while (fujaba__IterRuleEntryContainerToDocumentRootToUseCasesModelList
-					.hasNext()) {
-				try {
-					documentRootToUseCasesModelList = (RuleEntryList) fujaba__IterRuleEntryContainerToDocumentRootToUseCasesModelList
-							.next();
-
-					// check object documentRootToUseCasesModelList is really bound
-					JavaSDM.ensure(documentRootToUseCasesModelList != null);
-					// iterate to-many link entryObjects from documentRootToUseCasesModelList to documentRootToUseCasesModel
-					fujaba__Success = false;
-
-					fujaba__IterDocumentRootToUseCasesModelListToDocumentRootToUseCasesModel = new ArrayList(
-							documentRootToUseCasesModelList.getEntryObjects())
-							.iterator();
-
-					while (fujaba__IterDocumentRootToUseCasesModelListToDocumentRootToUseCasesModel
-							.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterDocumentRootToUseCasesModelListToDocumentRootToUseCasesModel
-									.next();
-
-							// ensure correct type and really bound of object documentRootToUseCasesModel
-							JavaSDM.ensure(_TmpObject instanceof DocRootToUCModel);
-							documentRootToUseCasesModel = (DocRootToUCModel) _TmpObject;
-							// bind object
-							documentRoot = documentRootToUseCasesModel
-									.getSource();
-
-							// check object documentRoot is really bound
-							JavaSDM.ensure(documentRoot != null);
-
-							// bind object
-							useCasesModel = documentRootToUseCasesModel
-									.getTarget();
-
-							// check object useCasesModel is really bound
-							JavaSDM.ensure(useCasesModel != null);
-
-							// story node 'solve CSP'
-							try {
-								fujaba__Success = false;
-
-								_TmpObject = (this
-										.generateModel_solveCsp_BWD(
-												isApplicableMatch, definitions,
-												packageDeclaration,
-												definitionsToPackage,
-												documentRoot, useCasesModel,
-												documentRootToUseCasesModel,
-												ruleResult));
-
-								// ensure correct type and really bound of object csp
-								JavaSDM.ensure(_TmpObject instanceof CSP);
-								csp = (CSP) _TmpObject;
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							// statement node 'check CSP'
-							fujaba__Success = this
-									.generateModel_checkCsp_BWD(csp);
-							if (fujaba__Success) {
-								// story node 'perform'
-								try {
-									fujaba__Success = false;
-
-									// check object documentRoot is really bound
-									JavaSDM.ensure(documentRoot != null);
-									// check object documentRootToUseCasesModel is really bound
-									JavaSDM.ensure(documentRootToUseCasesModel != null);
-									// check object ruleResult is really bound
-									JavaSDM.ensure(ruleResult != null);
-									// check object useCasesModel is really bound
-									JavaSDM.ensure(useCasesModel != null);
-									// create object definitions
-									definitions = Bpmn2Factory.eINSTANCE
-											.createDefinitions();
-
-									// create object definitionsToPackage
-									definitionsToPackage = BpmnToUseCaseIntegrationFactory.eINSTANCE
-											.createDefinitionsToPackage();
-
-									// create object packageDeclaration
-									packageDeclaration = UseCaseDSLFactory.eINSTANCE
-											.createPackageDeclaration();
-
-									// assign attribute definitions
-									definitions
-											.setTargetNamespace((java.lang.String) csp
-													.getAttributeVariable(
-															"definitions",
-															"targetNamespace")
-													.getValue());
-									// assign attribute packageDeclaration
-									packageDeclaration
-											.setName((java.lang.String) csp
-													.getAttributeVariable(
-															"packageDeclaration",
-															"name").getValue());
-									// assign attribute ruleResult
-									ruleResult.setSuccess(true);
-
-									// create link
-									ruleResult.getSourceObjects().add(
-											definitions);
-
-									// create link
-									documentRoot.getDefinitions().add(
-											definitions);
-
-									// create link
-									definitionsToPackage.setSource(definitions);
-
-									// create link
-									useCasesModel.getPackages().add(
-											packageDeclaration);
-
-									// create link
-									ruleResult.getTargetObjects().add(
-											packageDeclaration);
-
-									// create link
-									definitionsToPackage
-											.setTarget(packageDeclaration);
-
-									// create link
-									ruleResult.getCorrObjects().add(
-											definitionsToPackage);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								return ruleResult;
-
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return ruleResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			Definitions definitions, PackageDeclaration packageDeclaration,
-			DefinitionsToPackage definitionsToPackage,
-			DocumentRoot documentRoot, UseCasesModel useCasesModel,
-			DocRootToUCModel documentRootToUseCasesModel,
-			ModelgeneratorRuleResult ruleResult) {
-		// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal0", true, csp);
-		literal0.setValue("http://");
-		literal0.setType("String");
-
-		// Create attribute variables
-
-		// Create explicit parameters
-
-		// Create unbound variables
-		Variable var_packageDeclaration_name = CSPFactoryHelper.eINSTANCE
-				.createVariable("packageDeclaration.name", csp);
-		var_packageDeclaration_name.setType("String");
-		Variable var_definitions_targetNamespace = CSPFactoryHelper.eINSTANCE
-				.createVariable("definitions.targetNamespace", csp);
-		var_definitions_targetNamespace.setType("String");
-
-		// Create constraints
-		AddPrefix addPrefix = new AddPrefix();
-
-		csp.getConstraints().add(addPrefix);
-
-		// Solve CSP
-		addPrefix.setRuleName("");
-		addPrefix.solve(literal0, var_packageDeclaration_name,
-				var_definitions_targetNamespace);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("documentRoot", documentRoot);
-		isApplicableMatch.registerObject("useCasesModel", useCasesModel);
-		isApplicableMatch.registerObject("documentRootToUseCasesModel",
-				documentRootToUseCasesModel);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean generateModel_checkCsp_BWD(CSP csp) {
-		return csp.check();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -3168,10 +2153,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(Definitions) arguments.get(1),
 					(DocumentRoot) arguments.get(2));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPLICABLE_FWD__MATCH:
-			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPLICABLE_FWD__MATCH:
+			return isApplicable_FWD((Match) arguments.get(0));
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_DEFINITIONS_DOCUMENTROOT:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(Definitions) arguments.get(1),
@@ -3204,10 +2189,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			return isAppropriate_BWD((Match) arguments.get(0),
 					(PackageDeclaration) arguments.get(1),
 					(UseCasesModel) arguments.get(2));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPLICABLE_BWD__MATCH:
-			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPLICABLE_BWD__MATCH:
+			return isApplicable_BWD((Match) arguments.get(0));
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_PACKAGEDECLARATION_USECASESMODEL:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
 					(PackageDeclaration) arguments.get(1),
@@ -3246,21 +2231,6 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_DOCROOTTOUCMODEL:
-			return generateModel((RuleEntryContainer) arguments.get(0),
-					(DocRootToUCModel) arguments.get(1));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_DEFINITIONS_PACKAGEDECLARATION_DEFINITIONSTOPACKAGE_DOCUMENTROOT_USECASESMODEL_DOCROOTTOUCMODEL_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(Definitions) arguments.get(1),
-					(PackageDeclaration) arguments.get(2),
-					(DefinitionsToPackage) arguments.get(3),
-					(DocumentRoot) arguments.get(4),
-					(UseCasesModel) arguments.get(5),
-					(DocRootToUCModel) arguments.get(6),
-					(ModelgeneratorRuleResult) arguments.get(7));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
