@@ -1,16 +1,17 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: UseCaseDSL;singleton:=true
 Export-Package: UseCaseDSL,
+ UseCaseDSL.formatting,
+ UseCaseDSL.generator,
  UseCaseDSL.impl,
- UseCaseDSL.util,
- UseCaseDSL.services,
- UseCaseDSL.serializer,
  UseCaseDSL.parser.antlr,
  UseCaseDSL.parser.antlr.internal,
- UseCaseDSL.validation,
+ UseCaseDSL.resource,
  UseCaseDSL.scoping,
- UseCaseDSL.generator,
- UseCaseDSL.formatting
+ UseCaseDSL.serializer,
+ UseCaseDSL.services,
+ UseCaseDSL.util,
+ UseCaseDSL.validation
 Bundle-Name: UseCaseDSL
 Bundle-Version: 1.0
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
