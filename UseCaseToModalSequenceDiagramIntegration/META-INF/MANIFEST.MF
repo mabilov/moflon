@@ -23,10 +23,7 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Marat Abilov
-Import-Package: org.eclipse.emf.compare,
- org.eclipse.emf.compare.match,
- org.eclipse.emf.compare.match.eobject,
- org.eclipse.emf.compare.match.impl,
- org.eclipse.emf.compare.merge,
- org.eclipse.emf.compare.scope,
- org.eclipse.emf.compare.utils
+Import-Package: org.eclipse.emf.compare,org.eclipse.emf.compare.match,
+ org.eclipse.emf.compare.match.eobject,org.eclipse.emf.compare.match.i
+ mpl,org.eclipse.emf.compare.merge,org.eclipse.emf.compare.scope,org.e
+ clipse.emf.compare.utils
