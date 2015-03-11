@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: Bpmn2UseCaseTest;singleton:=true
-Export-Package: bpmn2usecase.test
+Export-Package: de.abilov.tgg.bpmn2usecase.test
 Bundle-Name: Bpmn2UseCaseTest
 Bundle-Version: 1.0
 Bundle-ManifestVersion: 2
