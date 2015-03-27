@@ -102,6 +102,11 @@ public class UseCaseToModalSequenceDiagramIntegrationAdapterFactory extends
 		}
 
 		@Override
+		public Adapter caseUseCaseToMessage(UseCaseToMessage object) {
+			return createUseCaseToMessageAdapter();
+		}
+
+		@Override
 		public Adapter caseStepAlternativeToInteractionOperand(
 				StepAlternativeToInteractionOperand object) {
 			return createStepAlternativeToInteractionOperandAdapter();
@@ -224,6 +229,20 @@ public class UseCaseToModalSequenceDiagramIntegrationAdapterFactory extends
 	 * @generated
 	 */
 	public Adapter createFlowToInteractionFragmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage <em>Use Case To Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage
+	 * @generated
+	 */
+	public Adapter createUseCaseToMessageAdapter() {
 		return null;
 	}
 

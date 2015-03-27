@@ -41,67 +41,22 @@ public interface RulesFactory extends EFactory {
 	UCPackageToMSDPackage createUCPackageToMSDPackage();
 
 	/**
-	 * Returns a new object of class '<em>Use Case To Interaction Rule</em>'.
+	 * Returns a new object of class '<em>Use Case No Precond Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Use Case To Interaction Rule</em>'.
+	 * @return a new object of class '<em>Use Case No Precond Rule</em>'.
 	 * @generated
 	 */
-	UseCaseToInteractionRule createUseCaseToInteractionRule();
+	UseCaseNoPrecondRule createUseCaseNoPrecondRule();
 
 	/**
-	 * Returns a new object of class '<em>Actor To Lifeline Rule</em>'.
+	 * Returns a new object of class '<em>User Actor To Lifeline Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Actor To Lifeline Rule</em>'.
+	 * @return a new object of class '<em>User Actor To Lifeline Rule</em>'.
 	 * @generated
 	 */
-	ActorToLifelineRule createActorToLifelineRule();
-
-	/**
-	 * Returns a new object of class '<em>Normal Step To Message Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Normal Step To Message Rule</em>'.
-	 * @generated
-	 */
-	NormalStepToMessageRule createNormalStepToMessageRule();
-
-	/**
-	 * Returns a new object of class '<em>Normal Step BF To Message Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Normal Step BF To Message Rule</em>'.
-	 * @generated
-	 */
-	NormalStepBFToMessageRule createNormalStepBFToMessageRule();
-
-	/**
-	 * Returns a new object of class '<em>Normal Step NF To Message Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Normal Step NF To Message Rule</em>'.
-	 * @generated
-	 */
-	NormalStepNFToMessageRule createNormalStepNFToMessageRule();
-
-	/**
-	 * Returns a new object of class '<em>Alt Step To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alt Step To Combo Rule</em>'.
-	 * @generated
-	 */
-	AltStepToComboRule createAltStepToComboRule();
-
-	/**
-	 * Returns a new object of class '<em>Alt Step NF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alt Step NF To Combo Rule</em>'.
-	 * @generated
-	 */
-	AltStepNFToComboRule createAltStepNFToComboRule();
+	UserActorToLifelineRule createUserActorToLifelineRule();
 
 	/**
 	 * Returns a new object of class '<em>Parallel Step To Combined Fragment Rule</em>'.
@@ -147,15 +102,6 @@ public interface RulesFactory extends EFactory {
 	 * @generated
 	 */
 	StepAltToOperandRule createStepAltToOperandRule();
-
-	/**
-	 * Returns a new object of class '<em>Alt Step BF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alt Step BF To Combo Rule</em>'.
-	 * @generated
-	 */
-	AltStepBFToComboRule createAltStepBFToComboRule();
 
 	/**
 	 * Returns a new object of class '<em>User Step BF Message Rule</em>'.

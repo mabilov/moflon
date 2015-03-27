@@ -26,7 +26,7 @@ public enum MessageSort implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SYNCH_CALL(1, "synchCall", "SYNCHCALL"),
+	SYNCH_CALL(1, "synchCall", "SYNCH_CALL"),
 
 	/**
 	 * The '<em><b>Asynch Call</b></em>' literal object.
@@ -36,7 +36,7 @@ public enum MessageSort implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ASYNCH_CALL(2, "asynchCall", "ASYNCHCALL"),
+	ASYNCH_CALL(2, "asynchCall", "ASYNCH_CALL"),
 
 	/**
 	 * The '<em><b>Asynch Signal</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum MessageSort implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ASYNCH_SIGNAL(3, "asynchSignal", "ASYNCHSIGNAL"),
+	ASYNCH_SIGNAL(3, "asynchSignal", "ASYNCH_SIGNAL"),
 
 	/**
 	 * The '<em><b>Create Message</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum MessageSort implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CREATE_MESSAGE(4, "createMessage", "CREATEMESSAGE"),
+	CREATE_MESSAGE(4, "createMessage", "CREATE_MESSAGE"),
 
 	/**
 	 * The '<em><b>Delete Message</b></em>' literal object.
@@ -66,7 +66,7 @@ public enum MessageSort implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DELETE_MESSAGE(5, "deleteMessage", "DELTEMESSAGE"),
+	DELETE_MESSAGE(5, "deleteMessage", "DELETE_MESSAGE"),
 
 	/**
 	 * The '<em><b>Reply</b></em>' literal object.
@@ -87,7 +87,7 @@ public enum MessageSort implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SYNCH_CALL
-	 * @model name="synchCall" literal="SYNCHCALL"
+	 * @model name="synchCall" literal="SYNCH_CALL"
 	 * @generated
 	 * @ordered
 	 */
@@ -102,7 +102,7 @@ public enum MessageSort implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ASYNCH_CALL
-	 * @model name="asynchCall" literal="ASYNCHCALL"
+	 * @model name="asynchCall" literal="ASYNCH_CALL"
 	 * @generated
 	 * @ordered
 	 */
@@ -117,7 +117,7 @@ public enum MessageSort implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ASYNCH_SIGNAL
-	 * @model name="asynchSignal" literal="ASYNCHSIGNAL"
+	 * @model name="asynchSignal" literal="ASYNCH_SIGNAL"
 	 * @generated
 	 * @ordered
 	 */
@@ -132,7 +132,7 @@ public enum MessageSort implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CREATE_MESSAGE
-	 * @model name="createMessage" literal="CREATEMESSAGE"
+	 * @model name="createMessage" literal="CREATE_MESSAGE"
 	 * @generated
 	 * @ordered
 	 */
@@ -147,7 +147,7 @@ public enum MessageSort implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DELETE_MESSAGE
-	 * @model name="deleteMessage" literal="DELTEMESSAGE"
+	 * @model name="deleteMessage" literal="DELETE_MESSAGE"
 	 * @generated
 	 * @ordered
 	 */

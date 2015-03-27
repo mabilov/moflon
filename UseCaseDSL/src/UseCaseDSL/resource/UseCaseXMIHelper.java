@@ -3,37 +3,46 @@ package UseCaseDSL.resource;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
+
 import UseCaseDSL.UseCaseStandaloneSetupGenerated;
 
 public class UseCaseXMIHelper {
 	public static void serializeUseCase(String xmiFileName, String dslFileName)
 			throws IOException {
 		XtextResourceSet resourceSet = getResourceSet();
-		XtextResource resource = (XtextResource) resourceSet.createResource(
-				getUri(dslFileName), "usecase");
-		resource.getContents().add(
+		XtextResource xtextResource = (XtextResource) resourceSet
+				.createResource(getUri(dslFileName), "usecase");
+		xtextResource.getContents().add(
 				resourceSet.getResource(getUri(xmiFileName), true)
 						.getContents().get(0));
 		SaveOptions.Builder options = SaveOptions.newBuilder();
 		options.format();
 		options.noValidation();
-		resource.save(options.getOptions().toOptionsMap());
+		xtextResource.save(options.getOptions().toOptionsMap());
 	}
 
 	public static void parseUseCase(String dslFileName, String xmiFileName)
 			throws IOException {
 		XtextResourceSet resourceSet = getResourceSet();
+		Resource xtextResource = resourceSet
+				.createResource(getUri(dslFileName));
+		if (!(xtextResource instanceof XtextResource)) {
+			throw new IllegalArgumentException("Resource "
+					+ xtextResource.toString() + " is not XTextResource");
+		}
+		xtextResource.load(null);
+		EObject root = xtextResource.getContents().get(0);
 		Resource xmiResource = resourceSet.createResource(getUri(xmiFileName));
-		xmiResource.getContents().add(
-				resourceSet.createResource(URI.createFileURI(dslFileName))
-						.getContents().get(0));
+		xmiResource.getContents().add(root);
 		xmiResource.save(null);
 	}
 

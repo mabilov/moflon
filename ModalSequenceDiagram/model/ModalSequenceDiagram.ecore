@@ -101,11 +101,11 @@
     <eLiterals name="unknown" value="4" literal="UNKNOWN"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MessageSort">
-    <eLiterals name="synchCall" value="1" literal="SYNCHCALL"/>
-    <eLiterals name="asynchCall" value="2" literal="ASYNCHCALL"/>
-    <eLiterals name="asynchSignal" value="3" literal="ASYNCHSIGNAL"/>
-    <eLiterals name="createMessage" value="4" literal="CREATEMESSAGE"/>
-    <eLiterals name="deleteMessage" value="5" literal="DELTEMESSAGE"/>
+    <eLiterals name="synchCall" value="1" literal="SYNCH_CALL"/>
+    <eLiterals name="asynchCall" value="2" literal="ASYNCH_CALL"/>
+    <eLiterals name="asynchSignal" value="3" literal="ASYNCH_SIGNAL"/>
+    <eLiterals name="createMessage" value="4" literal="CREATE_MESSAGE"/>
+    <eLiterals name="deleteMessage" value="5" literal="DELETE_MESSAGE"/>
     <eLiterals name="reply" value="6" literal="REPLY"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DestructionOccurenceSpecification" eSuperTypes="//MessageOccurrenceSpecification"/>

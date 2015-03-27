@@ -69,6 +69,8 @@ public class UseCaseToModalSequenceDiagramIntegrationFactoryImpl extends
 			return createActorToLifeline();
 		case UseCaseToModalSequenceDiagramIntegrationPackage.FLOW_TO_INTERACTION_FRAGMENT:
 			return createFlowToInteractionFragment();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_MESSAGE:
+			return createUseCaseToMessage();
 		case UseCaseToModalSequenceDiagramIntegrationPackage.STEP_ALTERNATIVE_TO_INTERACTION_OPERAND:
 			return createStepAlternativeToInteractionOperand();
 		case UseCaseToModalSequenceDiagramIntegrationPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT:
@@ -139,6 +141,16 @@ public class UseCaseToModalSequenceDiagramIntegrationFactoryImpl extends
 	public FlowToInteractionFragment createFlowToInteractionFragment() {
 		FlowToInteractionFragmentImpl flowToInteractionFragment = new FlowToInteractionFragmentImpl();
 		return flowToInteractionFragment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UseCaseToMessage createUseCaseToMessage() {
+		UseCaseToMessageImpl useCaseToMessage = new UseCaseToMessageImpl();
+		return useCaseToMessage;
 	}
 
 	/**

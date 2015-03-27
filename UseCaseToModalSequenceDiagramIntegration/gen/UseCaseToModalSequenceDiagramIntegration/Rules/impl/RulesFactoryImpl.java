@@ -60,20 +60,10 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createUCModelToMSDModelRule();
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE:
 			return createUCPackageToMSDPackage();
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE:
-			return createUseCaseToInteractionRule();
-		case RulesPackage.ACTOR_TO_LIFELINE_RULE:
-			return createActorToLifelineRule();
-		case RulesPackage.NORMAL_STEP_TO_MESSAGE_RULE:
-			return createNormalStepToMessageRule();
-		case RulesPackage.NORMAL_STEP_BF_TO_MESSAGE_RULE:
-			return createNormalStepBFToMessageRule();
-		case RulesPackage.NORMAL_STEP_NF_TO_MESSAGE_RULE:
-			return createNormalStepNFToMessageRule();
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE:
-			return createAltStepToComboRule();
-		case RulesPackage.ALT_STEP_NF_TO_COMBO_RULE:
-			return createAltStepNFToComboRule();
+		case RulesPackage.USE_CASE_NO_PRECOND_RULE:
+			return createUseCaseNoPrecondRule();
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE:
+			return createUserActorToLifelineRule();
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE:
 			return createParallelStepToCombinedFragmentRule();
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE:
@@ -84,8 +74,6 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createSystemStepBFToMessageRule();
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE:
 			return createStepAltToOperandRule();
-		case RulesPackage.ALT_STEP_BF_TO_COMBO_RULE:
-			return createAltStepBFToComboRule();
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE:
 			return createUserStepBFMessageRule();
 		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE:
@@ -131,9 +119,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UseCaseToInteractionRule createUseCaseToInteractionRule() {
-		UseCaseToInteractionRuleImpl useCaseToInteractionRule = new UseCaseToInteractionRuleImpl();
-		return useCaseToInteractionRule;
+	public UseCaseNoPrecondRule createUseCaseNoPrecondRule() {
+		UseCaseNoPrecondRuleImpl useCaseNoPrecondRule = new UseCaseNoPrecondRuleImpl();
+		return useCaseNoPrecondRule;
 	}
 
 	/**
@@ -141,59 +129,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActorToLifelineRule createActorToLifelineRule() {
-		ActorToLifelineRuleImpl actorToLifelineRule = new ActorToLifelineRuleImpl();
-		return actorToLifelineRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NormalStepToMessageRule createNormalStepToMessageRule() {
-		NormalStepToMessageRuleImpl normalStepToMessageRule = new NormalStepToMessageRuleImpl();
-		return normalStepToMessageRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NormalStepBFToMessageRule createNormalStepBFToMessageRule() {
-		NormalStepBFToMessageRuleImpl normalStepBFToMessageRule = new NormalStepBFToMessageRuleImpl();
-		return normalStepBFToMessageRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NormalStepNFToMessageRule createNormalStepNFToMessageRule() {
-		NormalStepNFToMessageRuleImpl normalStepNFToMessageRule = new NormalStepNFToMessageRuleImpl();
-		return normalStepNFToMessageRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AltStepToComboRule createAltStepToComboRule() {
-		AltStepToComboRuleImpl altStepToComboRule = new AltStepToComboRuleImpl();
-		return altStepToComboRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AltStepNFToComboRule createAltStepNFToComboRule() {
-		AltStepNFToComboRuleImpl altStepNFToComboRule = new AltStepNFToComboRuleImpl();
-		return altStepNFToComboRule;
+	public UserActorToLifelineRule createUserActorToLifelineRule() {
+		UserActorToLifelineRuleImpl userActorToLifelineRule = new UserActorToLifelineRuleImpl();
+		return userActorToLifelineRule;
 	}
 
 	/**
@@ -244,16 +182,6 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	public StepAltToOperandRule createStepAltToOperandRule() {
 		StepAltToOperandRuleImpl stepAltToOperandRule = new StepAltToOperandRuleImpl();
 		return stepAltToOperandRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AltStepBFToComboRule createAltStepBFToComboRule() {
-		AltStepBFToComboRuleImpl altStepBFToComboRule = new AltStepBFToComboRuleImpl();
-		return altStepBFToComboRule;
 	}
 
 	/**

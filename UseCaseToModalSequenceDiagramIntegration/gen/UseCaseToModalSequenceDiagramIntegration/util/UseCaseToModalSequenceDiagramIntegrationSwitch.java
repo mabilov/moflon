@@ -123,6 +123,15 @@ public class UseCaseToModalSequenceDiagramIntegrationSwitch<T> extends
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case UseCaseToModalSequenceDiagramIntegrationPackage.USE_CASE_TO_MESSAGE: {
+			UseCaseToMessage useCaseToMessage = (UseCaseToMessage) theEObject;
+			T result = caseUseCaseToMessage(useCaseToMessage);
+			if (result == null)
+				result = caseAbstractCorrespondence(useCaseToMessage);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case UseCaseToModalSequenceDiagramIntegrationPackage.STEP_ALTERNATIVE_TO_INTERACTION_OPERAND: {
 			StepAlternativeToInteractionOperand stepAlternativeToInteractionOperand = (StepAlternativeToInteractionOperand) theEObject;
 			T result = caseStepAlternativeToInteractionOperand(stepAlternativeToInteractionOperand);
@@ -242,6 +251,21 @@ public class UseCaseToModalSequenceDiagramIntegrationSwitch<T> extends
 	 * @generated
 	 */
 	public T caseFlowToInteractionFragment(FlowToInteractionFragment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Use Case To Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Use Case To Message</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUseCaseToMessage(UseCaseToMessage object) {
 		return null;
 	}
 

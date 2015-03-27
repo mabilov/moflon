@@ -53,6 +53,7 @@ import UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule;
 
 import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
@@ -111,22 +112,28 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, NormalStep step,
+	public boolean isAppropriate_FWD(Match match, Actor actor,
+			PackageDeclaration packageDeclaration, NormalStep step,
 			AlternativeFlowAlternative alt, AlternativeFlow altFlow, Flow flow,
 			UseCase useCase) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
 		EMoflonEdge __alt_ref_altFlow = null;
-		EMoflonEdge __useCase_flows_altFlow = null;
 		EMoflonEdge __step_stepAlternative_alt = null;
+		EMoflonEdge __useCase_flows_altFlow = null;
 		EMoflonEdge __flow_steps_step = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge __step_actor_actor = null;
 		EMoflonEdge __useCase_flows_flow = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
 
 		// story node 'initial bindings'
 		try {
 			fujaba__Success = false;
 
+			// check object actor is really bound
+			JavaSDM.ensure(actor != null);
 			// check object alt is really bound
 			JavaSDM.ensure(alt != null);
 			// check object altFlow is really bound
@@ -135,6 +142,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(flow != null);
 			// check object match is really bound
 			JavaSDM.ensure(match != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object step is really bound
 			JavaSDM.ensure(step != null);
 			// check object useCase is really bound
@@ -151,8 +160,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		try {
 			fujaba__Success = false;
 
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, step, alt,
-					altFlow, flow, useCase));
+			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, actor,
+					packageDeclaration, step, alt, altFlow, flow, useCase));
 
 			// ensure correct type and really bound of object csp
 			JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -169,6 +178,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			try {
 				fujaba__Success = false;
 
+				// check object actor is really bound
+				JavaSDM.ensure(actor != null);
 				// check object alt is really bound
 				JavaSDM.ensure(alt != null);
 				// check object altFlow is really bound
@@ -177,6 +188,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -188,12 +201,12 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				__alt_ref_altFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __useCase_flows_altFlow
-				__useCase_flows_altFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __step_stepAlternative_alt
 				__step_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __useCase_flows_altFlow
+				__useCase_flows_altFlow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __step_stepAlternative_alt
@@ -209,14 +222,6 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						altFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_altFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__step_stepAlternative_alt, "toBeTranslatedEdges");
 
 				// create link
@@ -224,13 +229,21 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						"toBeTranslatedNodes");
 
 				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__useCase_flows_altFlow, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						altFlow, "toBeTranslatedNodes");
+
+				// create link
 				__step_stepAlternative_alt.setSrc(step);
 
 				// create link
-				__alt_ref_altFlow.setSrc(alt);
+				__step_stepAlternative_alt.setTrg(alt);
 
 				// create link
-				__step_stepAlternative_alt.setTrg(alt);
+				__alt_ref_altFlow.setSrc(alt);
 
 				// create link
 				__alt_ref_altFlow.setTrg(altFlow);
@@ -250,6 +263,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			try {
 				fujaba__Success = false;
 
+				// check object actor is really bound
+				JavaSDM.ensure(actor != null);
 				// check object alt is really bound
 				JavaSDM.ensure(alt != null);
 				// check object altFlow is really bound
@@ -258,6 +273,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(flow != null);
 				// check object match is really bound
 				JavaSDM.ensure(match != null);
+				// check object packageDeclaration is really bound
+				JavaSDM.ensure(packageDeclaration != null);
 				// check object step is really bound
 				JavaSDM.ensure(step != null);
 				// check object useCase is really bound
@@ -269,10 +286,28 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				__flow_steps_step = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __step_actor_actor
+				__step_actor_actor = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
 				// create object __useCase_flows_flow
 				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
+				// create object __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// assign attribute __packageDeclaration_useCases_useCase
+				__packageDeclaration_useCases_useCase.setName("useCases");
+				// assign attribute __packageDeclaration_actors_actor
+				__packageDeclaration_actors_actor.setName("actors");
+				// assign attribute __step_actor_actor
+				__step_actor_actor.setName("actor");
 				// assign attribute __flow_steps_step
 				__flow_steps_step.setName("steps");
 				// assign attribute __useCase_flows_flow
@@ -280,15 +315,27 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						packageDeclaration, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__flow_steps_step, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
+						actor, "contextNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						flow, "contextNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_actors_actor, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__step_actor_actor, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -297,6 +344,30 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__useCase_flows_flow, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__packageDeclaration_useCases_useCase, "contextEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						useCase, "contextNodes");
+
+				// create link
+				__step_actor_actor.setTrg(actor);
+
+				// create link
+				__packageDeclaration_actors_actor.setTrg(actor);
+
+				// create link
+				__packageDeclaration_useCases_useCase
+						.setSrc(packageDeclaration);
+
+				// create link
+				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
+
+				// create link
+				__step_actor_actor.setSrc(step);
 
 				// create link
 				__flow_steps_step.setTrg(step);
@@ -308,6 +379,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				__useCase_flows_flow.setTrg(flow);
 
 				// create link
+				__packageDeclaration_useCases_useCase.setTrg(useCase);
+
+				// create link
 				__useCase_flows_flow.setSrc(useCase);
 
 				fujaba__Success = true;
@@ -316,8 +390,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			}
 
 			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, step, alt, altFlow, flow,
-					useCase);
+			this.registerObjectsToMatch_FWD(match, actor, packageDeclaration,
+					step, alt, altFlow, flow, useCase);
 			return true;
 
 		} else {
@@ -334,36 +408,52 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
+		Actor actor = null;
+		ActorToLifeline actorToLine = null;
 		AlternativeFlowAlternative alt = null;
 		AlternativeFlow altFlow = null;
 		CombinedFragment combo = null;
 		Flow flow = null;
 		Lifeline line = null;
+		PackageDeclaration packageDeclaration = null;
 		NormalStep step = null;
 		NormalStepToCombinedFragment stepToCombo = null;
 		UseCase useCase = null;
 		Iterator fujaba__IterIsApplicableMatchToCsp = null;
 		CSP csp = null;
+		FlowToInteractionFragment altFlowToOperand = null;
 		InteractionOperand operand = null;
 		StepAlternativeToInteractionOperand altToOperand = null;
 		InteractionConstraint guard = null;
 		LiteralString spec = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __alt_ref_altFlow = null;
-		EMoflonEdge operand__guard__guard = null;
-		EMoflonEdge line__coveredBy__operand = null;
-		EMoflonEdge __step_stepAlternative_alt = null;
-		EMoflonEdge guard__specification__spec = null;
-		EMoflonEdge operand__covered__line = null;
-		EMoflonEdge __useCase_flows_altFlow = null;
-		EMoflonEdge altToOperand__target__operand = null;
-		EMoflonEdge combo__operand__operand = null;
 		EMoflonEdge altToOperand__source__alt = null;
+		EMoflonEdge __step_stepAlternative_alt = null;
+		EMoflonEdge __alt_ref_altFlow = null;
+		EMoflonEdge guard__specification__spec = null;
+		EMoflonEdge __useCase_flows_altFlow = null;
+		EMoflonEdge altFlowToOperand__source__altFlow = null;
+		EMoflonEdge operand__guard__guard = null;
+		EMoflonEdge altFlowToOperand__target__operand = null;
+		EMoflonEdge operand__covered__line = null;
+		EMoflonEdge combo__operand__operand = null;
+		EMoflonEdge line__coveredBy__operand = null;
+		EMoflonEdge altToOperand__target__operand = null;
 
 		// story node 'perform transformation'
 		try {
 			fujaba__Success = false;
 
+			_TmpObject = (isApplicableMatch.getObject("actor"));
+
+			// ensure correct type and really bound of object actor
+			JavaSDM.ensure(_TmpObject instanceof Actor);
+			actor = (Actor) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("actorToLine"));
+
+			// ensure correct type and really bound of object actorToLine
+			JavaSDM.ensure(_TmpObject instanceof ActorToLifeline);
+			actorToLine = (ActorToLifeline) _TmpObject;
 			_TmpObject = (isApplicableMatch.getObject("alt"));
 
 			// ensure correct type and really bound of object alt
@@ -389,6 +479,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object line
 			JavaSDM.ensure(_TmpObject instanceof Lifeline);
 			line = (Lifeline) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (isApplicableMatch.getObject("step"));
 
 			// ensure correct type and really bound of object step
@@ -430,6 +525,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				}
 			}
 			JavaSDM.ensure(fujaba__Success);
+			// create object altFlowToOperand
+			altFlowToOperand = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createFlowToInteractionFragment();
+
 			// create object operand
 			operand = ModalSequenceDiagramFactory.eINSTANCE
 					.createInteractionOperand();
@@ -449,6 +548,14 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			guard.setName((java.lang.String) csp.getValue("guard", "name"));
 			// assign attribute spec
 			spec.setValue((java.lang.String) csp.getValue("spec", "value"));
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+					altFlowToOperand, altFlow, "source");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+					altFlowToOperand, operand, "target");
 
 			// create link
 			combo.getOperand().add(operand); // add link
@@ -481,6 +588,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(alt != null);
 			// check object altFlow is really bound
 			JavaSDM.ensure(altFlow != null);
+			// check object altFlowToOperand is really bound
+			JavaSDM.ensure(altFlowToOperand != null);
 			// check object altToOperand is really bound
 			JavaSDM.ensure(altToOperand != null);
 			// check object guard is really bound
@@ -494,15 +603,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altToOperand, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					operand, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altFlow, "translatedElements");
+					spec, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -510,11 +611,23 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					spec, "createdElements");
+					altFlow, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					altFlowToOperand, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					altToOperand, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					guard, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					operand, "createdElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -524,10 +637,16 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		try {
 			fujaba__Success = false;
 
+			// check object actor is really bound
+			JavaSDM.ensure(actor != null);
+			// check object actorToLine is really bound
+			JavaSDM.ensure(actorToLine != null);
 			// check object alt is really bound
 			JavaSDM.ensure(alt != null);
 			// check object altFlow is really bound
 			JavaSDM.ensure(altFlow != null);
+			// check object altFlowToOperand is really bound
+			JavaSDM.ensure(altFlowToOperand != null);
 			// check object altToOperand is really bound
 			JavaSDM.ensure(altToOperand != null);
 			// check object combo is really bound
@@ -540,6 +659,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(line != null);
 			// check object operand is really bound
 			JavaSDM.ensure(operand != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object ruleresult is really bound
 			JavaSDM.ensure(ruleresult != null);
 			// check object spec is really bound
@@ -550,8 +671,98 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(stepToCombo != null);
 			// check object useCase is really bound
 			JavaSDM.ensure(useCase != null);
+			// check isomorphic binding between objects actorToLine and actor 
+			JavaSDM.ensure(!actorToLine.equals(actor));
+
+			// check isomorphic binding between objects alt and actor 
+			JavaSDM.ensure(!alt.equals(actor));
+
+			// check isomorphic binding between objects altFlow and actor 
+			JavaSDM.ensure(!altFlow.equals(actor));
+
+			// check isomorphic binding between objects altFlowToOperand and actor 
+			JavaSDM.ensure(!altFlowToOperand.equals(actor));
+
+			// check isomorphic binding between objects altToOperand and actor 
+			JavaSDM.ensure(!altToOperand.equals(actor));
+
+			// check isomorphic binding between objects combo and actor 
+			JavaSDM.ensure(!combo.equals(actor));
+
+			// check isomorphic binding between objects flow and actor 
+			JavaSDM.ensure(!flow.equals(actor));
+
+			// check isomorphic binding between objects guard and actor 
+			JavaSDM.ensure(!guard.equals(actor));
+
+			// check isomorphic binding between objects line and actor 
+			JavaSDM.ensure(!line.equals(actor));
+
+			// check isomorphic binding between objects operand and actor 
+			JavaSDM.ensure(!operand.equals(actor));
+
+			// check isomorphic binding between objects packageDeclaration and actor 
+			JavaSDM.ensure(!packageDeclaration.equals(actor));
+
+			// check isomorphic binding between objects spec and actor 
+			JavaSDM.ensure(!spec.equals(actor));
+
+			// check isomorphic binding between objects step and actor 
+			JavaSDM.ensure(!step.equals(actor));
+
+			// check isomorphic binding between objects stepToCombo and actor 
+			JavaSDM.ensure(!stepToCombo.equals(actor));
+
+			// check isomorphic binding between objects useCase and actor 
+			JavaSDM.ensure(!useCase.equals(actor));
+
+			// check isomorphic binding between objects alt and actorToLine 
+			JavaSDM.ensure(!alt.equals(actorToLine));
+
+			// check isomorphic binding between objects altFlow and actorToLine 
+			JavaSDM.ensure(!altFlow.equals(actorToLine));
+
+			// check isomorphic binding between objects altFlowToOperand and actorToLine 
+			JavaSDM.ensure(!altFlowToOperand.equals(actorToLine));
+
+			// check isomorphic binding between objects altToOperand and actorToLine 
+			JavaSDM.ensure(!altToOperand.equals(actorToLine));
+
+			// check isomorphic binding between objects combo and actorToLine 
+			JavaSDM.ensure(!combo.equals(actorToLine));
+
+			// check isomorphic binding between objects flow and actorToLine 
+			JavaSDM.ensure(!flow.equals(actorToLine));
+
+			// check isomorphic binding between objects guard and actorToLine 
+			JavaSDM.ensure(!guard.equals(actorToLine));
+
+			// check isomorphic binding between objects line and actorToLine 
+			JavaSDM.ensure(!line.equals(actorToLine));
+
+			// check isomorphic binding between objects operand and actorToLine 
+			JavaSDM.ensure(!operand.equals(actorToLine));
+
+			// check isomorphic binding between objects packageDeclaration and actorToLine 
+			JavaSDM.ensure(!packageDeclaration.equals(actorToLine));
+
+			// check isomorphic binding between objects spec and actorToLine 
+			JavaSDM.ensure(!spec.equals(actorToLine));
+
+			// check isomorphic binding between objects step and actorToLine 
+			JavaSDM.ensure(!step.equals(actorToLine));
+
+			// check isomorphic binding between objects stepToCombo and actorToLine 
+			JavaSDM.ensure(!stepToCombo.equals(actorToLine));
+
+			// check isomorphic binding between objects useCase and actorToLine 
+			JavaSDM.ensure(!useCase.equals(actorToLine));
+
 			// check isomorphic binding between objects altFlow and alt 
 			JavaSDM.ensure(!altFlow.equals(alt));
+
+			// check isomorphic binding between objects altFlowToOperand and alt 
+			JavaSDM.ensure(!altFlowToOperand.equals(alt));
 
 			// check isomorphic binding between objects altToOperand and alt 
 			JavaSDM.ensure(!altToOperand.equals(alt));
@@ -571,6 +782,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and alt 
 			JavaSDM.ensure(!operand.equals(alt));
 
+			// check isomorphic binding between objects packageDeclaration and alt 
+			JavaSDM.ensure(!packageDeclaration.equals(alt));
+
 			// check isomorphic binding between objects spec and alt 
 			JavaSDM.ensure(!spec.equals(alt));
 
@@ -582,6 +796,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCase and alt 
 			JavaSDM.ensure(!useCase.equals(alt));
+
+			// check isomorphic binding between objects altFlowToOperand and altFlow 
+			JavaSDM.ensure(!altFlowToOperand.equals(altFlow));
 
 			// check isomorphic binding between objects altToOperand and altFlow 
 			JavaSDM.ensure(!altToOperand.equals(altFlow));
@@ -601,6 +818,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and altFlow 
 			JavaSDM.ensure(!operand.equals(altFlow));
 
+			// check isomorphic binding between objects packageDeclaration and altFlow 
+			JavaSDM.ensure(!packageDeclaration.equals(altFlow));
+
 			// check isomorphic binding between objects spec and altFlow 
 			JavaSDM.ensure(!spec.equals(altFlow));
 
@@ -612,6 +832,39 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCase and altFlow 
 			JavaSDM.ensure(!useCase.equals(altFlow));
+
+			// check isomorphic binding between objects altToOperand and altFlowToOperand 
+			JavaSDM.ensure(!altToOperand.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects combo and altFlowToOperand 
+			JavaSDM.ensure(!combo.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects flow and altFlowToOperand 
+			JavaSDM.ensure(!flow.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects guard and altFlowToOperand 
+			JavaSDM.ensure(!guard.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects line and altFlowToOperand 
+			JavaSDM.ensure(!line.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects operand and altFlowToOperand 
+			JavaSDM.ensure(!operand.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects packageDeclaration and altFlowToOperand 
+			JavaSDM.ensure(!packageDeclaration.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects spec and altFlowToOperand 
+			JavaSDM.ensure(!spec.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects step and altFlowToOperand 
+			JavaSDM.ensure(!step.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects stepToCombo and altFlowToOperand 
+			JavaSDM.ensure(!stepToCombo.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects useCase and altFlowToOperand 
+			JavaSDM.ensure(!useCase.equals(altFlowToOperand));
 
 			// check isomorphic binding between objects combo and altToOperand 
 			JavaSDM.ensure(!combo.equals(altToOperand));
@@ -627,6 +880,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects operand and altToOperand 
 			JavaSDM.ensure(!operand.equals(altToOperand));
+
+			// check isomorphic binding between objects packageDeclaration and altToOperand 
+			JavaSDM.ensure(!packageDeclaration.equals(altToOperand));
 
 			// check isomorphic binding between objects spec and altToOperand 
 			JavaSDM.ensure(!spec.equals(altToOperand));
@@ -652,6 +908,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and combo 
 			JavaSDM.ensure(!operand.equals(combo));
 
+			// check isomorphic binding between objects packageDeclaration and combo 
+			JavaSDM.ensure(!packageDeclaration.equals(combo));
+
 			// check isomorphic binding between objects spec and combo 
 			JavaSDM.ensure(!spec.equals(combo));
 
@@ -673,6 +932,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and flow 
 			JavaSDM.ensure(!operand.equals(flow));
 
+			// check isomorphic binding between objects packageDeclaration and flow 
+			JavaSDM.ensure(!packageDeclaration.equals(flow));
+
 			// check isomorphic binding between objects spec and flow 
 			JavaSDM.ensure(!spec.equals(flow));
 
@@ -691,6 +953,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and guard 
 			JavaSDM.ensure(!operand.equals(guard));
 
+			// check isomorphic binding between objects packageDeclaration and guard 
+			JavaSDM.ensure(!packageDeclaration.equals(guard));
+
 			// check isomorphic binding between objects spec and guard 
 			JavaSDM.ensure(!spec.equals(guard));
 
@@ -706,6 +971,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and line 
 			JavaSDM.ensure(!operand.equals(line));
 
+			// check isomorphic binding between objects packageDeclaration and line 
+			JavaSDM.ensure(!packageDeclaration.equals(line));
+
 			// check isomorphic binding between objects spec and line 
 			JavaSDM.ensure(!spec.equals(line));
 
@@ -718,6 +986,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and line 
 			JavaSDM.ensure(!useCase.equals(line));
 
+			// check isomorphic binding between objects packageDeclaration and operand 
+			JavaSDM.ensure(!packageDeclaration.equals(operand));
+
 			// check isomorphic binding between objects spec and operand 
 			JavaSDM.ensure(!spec.equals(operand));
 
@@ -729,6 +1000,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCase and operand 
 			JavaSDM.ensure(!useCase.equals(operand));
+
+			// check isomorphic binding between objects spec and packageDeclaration 
+			JavaSDM.ensure(!spec.equals(packageDeclaration));
+
+			// check isomorphic binding between objects step and packageDeclaration 
+			JavaSDM.ensure(!step.equals(packageDeclaration));
+
+			// check isomorphic binding between objects stepToCombo and packageDeclaration 
+			JavaSDM.ensure(!stepToCombo.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclaration 
+			JavaSDM.ensure(!useCase.equals(packageDeclaration));
 
 			// check isomorphic binding between objects step and spec 
 			JavaSDM.ensure(!step.equals(spec));
@@ -748,47 +1031,59 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and stepToCombo 
 			JavaSDM.ensure(!useCase.equals(stepToCombo));
 
-			// create object __alt_ref_altFlow
-			__alt_ref_altFlow = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
-			// create object operand__guard__guard
-			operand__guard__guard = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object line__coveredBy__operand
-			line__coveredBy__operand = TGGRuntimeFactory.eINSTANCE
+			// create object altToOperand__source__alt
+			altToOperand__source__alt = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __step_stepAlternative_alt
 			__step_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object __alt_ref_altFlow
+			__alt_ref_altFlow = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
 			// create object guard__specification__spec
 			guard__specification__spec = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object operand__covered__line
-			operand__covered__line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __useCase_flows_altFlow
 			__useCase_flows_altFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object altToOperand__target__operand
-			altToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
+			// create object altFlowToOperand__source__altFlow
+			altFlowToOperand__source__altFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object operand__guard__guard
+			operand__guard__guard = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object altFlowToOperand__target__operand
+			altFlowToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object operand__covered__line
+			operand__covered__line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object combo__operand__operand
 			combo__operand__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object altToOperand__source__alt
-			altToOperand__source__alt = TGGRuntimeFactory.eINSTANCE
+			// create object line__coveredBy__operand
+			line__coveredBy__operand = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object altToOperand__target__operand
+			altToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
 			ruleresult.setRuleName("StepAltToOperandRule");
+			// assign attribute altFlowToOperand__source__altFlow
+			altFlowToOperand__source__altFlow.setName("source");
+			// assign attribute altFlowToOperand__target__operand
+			altFlowToOperand__target__operand.setName("target");
 			// assign attribute combo__operand__operand
 			combo__operand__operand.setName("operand");
 			// assign attribute __step_stepAlternative_alt
@@ -812,15 +1107,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__alt_ref_altFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					operand__guard__guard, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line__coveredBy__operand, "createdEdges");
+					altToOperand__source__alt, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -828,11 +1115,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					guard__specification__spec, "createdEdges");
+					__alt_ref_altFlow, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					operand__covered__line, "createdEdges");
+					guard__specification__spec, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -840,7 +1127,19 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altToOperand__target__operand, "createdEdges");
+					altFlowToOperand__source__altFlow, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					operand__guard__guard, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					altFlowToOperand__target__operand, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					operand__covered__line, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -848,7 +1147,17 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altToOperand__source__alt, "createdEdges");
+					line__coveredBy__operand, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					altToOperand__target__operand, "createdEdges");
+
+			// create link
+			altFlowToOperand__source__altFlow.setSrc(altFlowToOperand);
+
+			// create link
+			altFlowToOperand__target__operand.setSrc(altFlowToOperand);
 
 			// create link
 			combo__operand__operand.setSrc(combo);
@@ -866,19 +1175,22 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			__step_stepAlternative_alt.setTrg(alt);
 
 			// create link
-			altToOperand__target__operand.setTrg(operand);
+			combo__operand__operand.setTrg(operand);
+
+			// create link
+			operand__covered__line.setSrc(operand);
 
 			// create link
 			line__coveredBy__operand.setTrg(operand);
 
 			// create link
-			combo__operand__operand.setTrg(operand);
+			altToOperand__target__operand.setTrg(operand);
 
 			// create link
 			operand__guard__guard.setSrc(operand);
 
 			// create link
-			operand__covered__line.setSrc(operand);
+			altFlowToOperand__target__operand.setTrg(operand);
 
 			// create link
 			altToOperand__source__alt.setSrc(altToOperand);
@@ -897,6 +1209,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			__alt_ref_altFlow.setTrg(altFlow);
+
+			// create link
+			altFlowToOperand__source__altFlow.setTrg(altFlow);
 
 			// create link
 			__useCase_flows_altFlow.setTrg(altFlow);
@@ -918,7 +1233,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		// statement node 'perform postprocessing'
 		// No post processing method found
 		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, combo, step, stepToCombo, alt,
+		this.registerObjects_FWD(ruleresult, altFlowToOperand, actor,
+				packageDeclaration, actorToLine, combo, step, stepToCombo, alt,
 				operand, altToOperand, guard, spec, altFlow, flow, useCase,
 				line);
 		return ruleresult;
@@ -936,27 +1252,35 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__IterEClassToPerformOperation = null;
 		EOperation performOperation = null;
 		IsApplicableRuleResult ruleresult = null;
+		Actor actor = null;
 		AlternativeFlowAlternative alt = null;
 		AlternativeFlow altFlow = null;
 		Flow flow = null;
+		PackageDeclaration packageDeclaration = null;
 		NormalStep step = null;
 		UseCase useCase = null;
+		EMoflonEdge __actorToLine_source_actor = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __step_actor_actor = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
+		EMoflonEdge __actorToLine_target_line = null;
 		EMoflonEdge __line_coveredBy_combo = null;
 		EMoflonEdge __stepToCombo_target_combo = null;
 		EMoflonEdge __combo_covered_line = null;
-		EMoflonEdge __stepToCombo_source_step = null;
 		EMoflonEdge __step_stepAlternative_alt = null;
 		EMoflonEdge __flow_steps_step = null;
+		EMoflonEdge __stepToCombo_source_step = null;
 		EMoflonEdge __alt_ref_altFlow = null;
 		EMoflonEdge __useCase_flows_altFlow = null;
 		EMoflonEdge __useCase_flows_flow = null;
 		CSP csp = null;
-		Iterator fujaba__IterComboToLine = null;
-		Lifeline line = null;
 		CombinedFragment combo = null;
 		Iterator fujaba__IterStepToStepToCombo = null;
 		NormalStepToCombinedFragment stepToCombo = null;
+		Lifeline line = null;
+		Iterator fujaba__IterActorToActorToLine = null;
+		ActorToLifeline actorToLine = null;
 
 		// story node 'prepare return value'
 		try {
@@ -1012,6 +1336,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		try {
 			fujaba__Success = false;
 
+			_TmpObject = (match.getObject("actor"));
+
+			// ensure correct type and really bound of object actor
+			JavaSDM.ensure(_TmpObject instanceof Actor);
+			actor = (Actor) _TmpObject;
 			_TmpObject = (match.getObject("alt"));
 
 			// ensure correct type and really bound of object alt
@@ -1027,6 +1356,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object flow
 			JavaSDM.ensure(_TmpObject instanceof Flow);
 			flow = (Flow) _TmpObject;
+			_TmpObject = (match.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (match.getObject("step"));
 
 			// ensure correct type and really bound of object step
@@ -1042,85 +1376,147 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects flow and altFlow 
 			JavaSDM.ensure(!flow.equals(altFlow));
 
-			// iterate to-many link source from step to stepToCombo
+			// iterate to-many link source from actor to actorToLine
 			fujaba__Success = false;
 
-			fujaba__IterStepToStepToCombo = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(step,
-							NormalStepToCombinedFragment.class, "source"))
-					.iterator();
+			fujaba__IterActorToActorToLine = new ArrayList(
+					org.moflon.util.eMoflonEMFUtil.getOppositeReference(actor,
+							ActorToLifeline.class, "source")).iterator();
 
-			while (fujaba__IterStepToStepToCombo.hasNext()) {
+			while (fujaba__IterActorToActorToLine.hasNext()) {
 				try {
-					stepToCombo = (NormalStepToCombinedFragment) fujaba__IterStepToStepToCombo
+					actorToLine = (ActorToLifeline) fujaba__IterActorToActorToLine
 							.next();
 
-					// check object stepToCombo is really bound
-					JavaSDM.ensure(stepToCombo != null);
+					// check object actorToLine is really bound
+					JavaSDM.ensure(actorToLine != null);
 					// bind object
-					combo = stepToCombo.getTarget();
+					line = actorToLine.getTarget();
 
-					// check object combo is really bound
-					JavaSDM.ensure(combo != null);
+					// check object line is really bound
+					JavaSDM.ensure(line != null);
 
-					// story node 'find context'
-					try {
-						fujaba__Success = false;
+					// iterate to-many link source from step to stepToCombo
+					fujaba__Success = false;
 
-						// check object alt is really bound
-						JavaSDM.ensure(alt != null);
-						// check object altFlow is really bound
-						JavaSDM.ensure(altFlow != null);
-						// check object combo is really bound
-						JavaSDM.ensure(combo != null);
-						// check object flow is really bound
-						JavaSDM.ensure(flow != null);
-						// check object step is really bound
-						JavaSDM.ensure(step != null);
-						// check object stepToCombo is really bound
-						JavaSDM.ensure(stepToCombo != null);
-						// check object useCase is really bound
-						JavaSDM.ensure(useCase != null);
-						// check isomorphic binding between objects flow and altFlow 
-						JavaSDM.ensure(!flow.equals(altFlow));
+					fujaba__IterStepToStepToCombo = new ArrayList(
+							org.moflon.util.eMoflonEMFUtil
+									.getOppositeReference(step,
+											NormalStepToCombinedFragment.class,
+											"source")).iterator();
 
-						// check link ref from alt to altFlow
-						JavaSDM.ensure(altFlow.equals(alt.getRef()));
+					while (fujaba__IterStepToStepToCombo.hasNext()) {
+						try {
+							stepToCombo = (NormalStepToCombinedFragment) fujaba__IterStepToStepToCombo
+									.next();
 
-						// check link flows from altFlow to useCase
-						JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
+							// check object stepToCombo is really bound
+							JavaSDM.ensure(stepToCombo != null);
+							// bind object
+							combo = stepToCombo.getTarget();
 
-						// check link flows from flow to useCase
-						JavaSDM.ensure(useCase.equals(flow.eContainer()));
+							// check object combo is really bound
+							JavaSDM.ensure(combo != null);
 
-						// check link source from stepToCombo to step
-						JavaSDM.ensure(step.equals(stepToCombo.getSource()));
-
-						// check link stepAlternative from alt to step
-						JavaSDM.ensure(step.equals(alt.eContainer()));
-
-						// check link steps from step to flow
-						JavaSDM.ensure(flow.equals(step.eContainer()));
-
-						// check link target from stepToCombo to combo
-						JavaSDM.ensure(combo.equals(stepToCombo.getTarget()));
-
-						// iterate to-many link covered from combo to line
-						fujaba__Success = false;
-
-						fujaba__IterComboToLine = new ArrayList(
-								combo.getCovered()).iterator();
-
-						while (fujaba__IterComboToLine.hasNext()) {
+							// story node 'find context'
 							try {
-								line = (Lifeline) fujaba__IterComboToLine
-										.next();
+								fujaba__Success = false;
 
+								// check object actor is really bound
+								JavaSDM.ensure(actor != null);
+								// check object actorToLine is really bound
+								JavaSDM.ensure(actorToLine != null);
+								// check object alt is really bound
+								JavaSDM.ensure(alt != null);
+								// check object altFlow is really bound
+								JavaSDM.ensure(altFlow != null);
+								// check object combo is really bound
+								JavaSDM.ensure(combo != null);
+								// check object flow is really bound
+								JavaSDM.ensure(flow != null);
 								// check object line is really bound
 								JavaSDM.ensure(line != null);
+								// check object packageDeclaration is really bound
+								JavaSDM.ensure(packageDeclaration != null);
+								// check object step is really bound
+								JavaSDM.ensure(step != null);
+								// check object stepToCombo is really bound
+								JavaSDM.ensure(stepToCombo != null);
+								// check object useCase is really bound
+								JavaSDM.ensure(useCase != null);
+								// check isomorphic binding between objects flow and altFlow 
+								JavaSDM.ensure(!flow.equals(altFlow));
+
+								// check link actor from step to actor
+								JavaSDM.ensure(actor.equals(step.getActor()));
+
+								// check link ref from alt to altFlow
+								JavaSDM.ensure(altFlow.equals(alt.getRef()));
+
+								// check link actors from actor to packageDeclaration
+								JavaSDM.ensure(packageDeclaration.equals(actor
+										.eContainer()));
+
+								// check link flows from altFlow to useCase
+								JavaSDM.ensure(useCase.equals(altFlow
+										.eContainer()));
+
+								// check link flows from flow to useCase
+								JavaSDM.ensure(useCase.equals(flow.eContainer()));
+
+								// check link source from actorToLine to actor
+								JavaSDM.ensure(actor.equals(actorToLine
+										.getSource()));
+
+								// check link source from stepToCombo to step
+								JavaSDM.ensure(step.equals(stepToCombo
+										.getSource()));
+
+								// check link stepAlternative from alt to step
+								JavaSDM.ensure(step.equals(alt.eContainer()));
+
+								// check link steps from step to flow
+								JavaSDM.ensure(flow.equals(step.eContainer()));
+
+								// check link target from actorToLine to line
+								JavaSDM.ensure(line.equals(actorToLine
+										.getTarget()));
+
+								// check link target from stepToCombo to combo
+								JavaSDM.ensure(combo.equals(stepToCombo
+										.getTarget()));
+
+								// check link useCases from useCase to packageDeclaration
+								JavaSDM.ensure(packageDeclaration
+										.equals(useCase.eContainer()));
+
+								// check link coveredBy from line to combo
+								JavaSDM.ensure(line.getCoveredBy().contains(
+										combo));
+
+								// create object __actorToLine_source_actor
+								__actorToLine_source_actor = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __packageDeclaration_actors_actor
+								__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
 								// create object isApplicableMatch
 								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 										.createIsApplicableMatch();
+
+								// create object __step_actor_actor
+								__step_actor_actor = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __packageDeclaration_useCases_useCase
+								__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __actorToLine_target_line
+								__actorToLine_target_line = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
 
 								// create object __line_coveredBy_combo
 								__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
@@ -1134,16 +1530,16 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								__combo_covered_line = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
-								// create object __stepToCombo_source_step
-								__stepToCombo_source_step = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
 								// create object __step_stepAlternative_alt
 								__step_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __flow_steps_step
 								__flow_steps_step = TGGRuntimeFactory.eINSTANCE
+										.createEMoflonEdge();
+
+								// create object __stepToCombo_source_step
+								__stepToCombo_source_step = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
 								// create object __alt_ref_altFlow
@@ -1158,6 +1554,16 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
 										.createEMoflonEdge();
 
+								// assign attribute __packageDeclaration_useCases_useCase
+								__packageDeclaration_useCases_useCase
+										.setName("useCases");
+								// assign attribute __packageDeclaration_actors_actor
+								__packageDeclaration_actors_actor
+										.setName("actors");
+								// assign attribute __actorToLine_source_actor
+								__actorToLine_source_actor.setName("source");
+								// assign attribute __actorToLine_target_line
+								__actorToLine_target_line.setName("target");
 								// assign attribute __line_coveredBy_combo
 								__line_coveredBy_combo.setName("coveredBy");
 								// assign attribute __combo_covered_line
@@ -1165,6 +1571,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								// assign attribute __step_stepAlternative_alt
 								__step_stepAlternative_alt
 										.setName("stepAlternative");
+								// assign attribute __step_actor_actor
+								__step_actor_actor.setName("actor");
 								// assign attribute __stepToCombo_source_step
 								__stepToCombo_source_step.setName("source");
 								// assign attribute __stepToCombo_target_combo
@@ -1179,11 +1587,46 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								__useCase_flows_altFlow.setName("flows");
 
 								// create link
+								__actorToLine_source_actor.setTrg(actor);
+
+								// create link
+								__packageDeclaration_actors_actor.setTrg(actor);
+
+								// create link
 								isApplicableMatch.getAllContextElements().add(
-										combo);
+										actor);
+
+								// create link
+								__step_actor_actor.setTrg(actor);
+
+								// create link
+								__packageDeclaration_actors_actor
+										.setSrc(packageDeclaration);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										packageDeclaration);
+
+								// create link
+								__packageDeclaration_useCases_useCase
+										.setSrc(packageDeclaration);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										actorToLine);
+
+								// create link
+								__actorToLine_target_line.setSrc(actorToLine);
+
+								// create link
+								__actorToLine_source_actor.setSrc(actorToLine);
 
 								// create link
 								__line_coveredBy_combo.setTrg(combo);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										combo);
 
 								// create link
 								__stepToCombo_target_combo.setTrg(combo);
@@ -1192,17 +1635,20 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								__combo_covered_line.setSrc(combo);
 
 								// create link
-								__stepToCombo_source_step.setTrg(step);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										step);
+								__step_actor_actor.setSrc(step);
 
 								// create link
 								__step_stepAlternative_alt.setSrc(step);
 
 								// create link
 								__flow_steps_step.setTrg(step);
+
+								// create link
+								__stepToCombo_source_step.setTrg(step);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										step);
 
 								// create link
 								__stepToCombo_source_step.setSrc(stepToCombo);
@@ -1215,10 +1661,6 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 										stepToCombo);
 
 								// create link
-								isApplicableMatch.getAllContextElements().add(
-										alt);
-
-								// create link
 								__alt_ref_altFlow.setSrc(alt);
 
 								// create link
@@ -1226,19 +1668,23 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
-										altFlow);
-
-								// create link
-								__alt_ref_altFlow.setTrg(altFlow);
+										alt);
 
 								// create link
 								__useCase_flows_altFlow.setTrg(altFlow);
 
 								// create link
-								__flow_steps_step.setSrc(flow);
+								__alt_ref_altFlow.setTrg(altFlow);
+
+								// create link
+								isApplicableMatch.getAllContextElements().add(
+										altFlow);
 
 								// create link
 								__useCase_flows_flow.setTrg(flow);
+
+								// create link
+								__flow_steps_step.setSrc(flow);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
@@ -1255,14 +1701,21 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								__useCase_flows_flow.setSrc(useCase);
 
 								// create link
-								__combo_covered_line.setTrg(line);
+								__packageDeclaration_useCases_useCase
+										.setTrg(useCase);
+
+								// create link
+								__line_coveredBy_combo.setSrc(line);
 
 								// create link
 								isApplicableMatch.getAllContextElements().add(
 										line);
 
 								// create link
-								__line_coveredBy_combo.setSrc(line);
+								__actorToLine_target_line.setTrg(line);
+
+								// create link
+								__combo_covered_line.setTrg(line);
 
 								// create link
 								org.moflon.util.eMoflonEMFUtil
@@ -1275,7 +1728,56 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
+												__line_coveredBy_combo,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__stepToCombo_source_step,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
 												__step_stepAlternative_alt,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__useCase_flows_flow,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__alt_ref_altFlow,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__packageDeclaration_actors_actor,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__flow_steps_step,
+												"allContextElements");
+
+								// create link
+								org.moflon.util.eMoflonEMFUtil
+										.addOppositeReference(
+												isApplicableMatch,
+												__packageDeclaration_useCases_useCase,
 												"allContextElements");
 
 								// create link
@@ -1296,35 +1798,21 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__flow_steps_step,
+												__actorToLine_source_actor,
 												"allContextElements");
 
 								// create link
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__stepToCombo_source_step,
+												__actorToLine_target_line,
 												"allContextElements");
 
 								// create link
 								org.moflon.util.eMoflonEMFUtil
 										.addOppositeReference(
 												isApplicableMatch,
-												__alt_ref_altFlow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__line_coveredBy_combo,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCase_flows_flow,
+												__step_actor_actor,
 												"allContextElements");
 								// story node 'solve CSP'
 								try {
@@ -1332,10 +1820,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 									_TmpObject = (this
 											.isApplicable_solveCsp_FWD(
-													isApplicableMatch, combo,
-													step, stepToCombo, alt,
-													altFlow, flow, useCase,
-													line));
+													isApplicableMatch, actor,
+													packageDeclaration,
+													actorToLine, combo, step,
+													stepToCombo, alt, altFlow,
+													flow, useCase, line));
 
 									// ensure correct type and really bound of object csp
 									JavaSDM.ensure(_TmpObject instanceof CSP);
@@ -1375,17 +1864,17 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								} else {
 
 								}
-
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
 								fujaba__Success = false;
 							}
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
 						}
-						JavaSDM.ensure(fujaba__Success);
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
 					}
+					JavaSDM.ensure(fujaba__Success);
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -1406,9 +1895,12 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, NormalStep step,
+	public void registerObjectsToMatch_FWD(Match match, Actor actor,
+			PackageDeclaration packageDeclaration, NormalStep step,
 			AlternativeFlowAlternative alt, AlternativeFlow altFlow, Flow flow,
 			UseCase useCase) {
+		match.registerObject("actor", actor);
+		match.registerObject("packageDeclaration", packageDeclaration);
 		match.registerObject("step", step);
 		match.registerObject("alt", alt);
 		match.registerObject("altFlow", altFlow);
@@ -1422,7 +1914,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, NormalStep step,
+	public CSP isAppropriate_solveCsp_FWD(Match match, Actor actor,
+			PackageDeclaration packageDeclaration, NormalStep step,
 			AlternativeFlowAlternative alt, AlternativeFlow altFlow, Flow flow,
 			UseCase useCase) {
 		// Create CSP
@@ -1457,8 +1950,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
-			CombinedFragment combo, NormalStep step,
-			NormalStepToCombinedFragment stepToCombo,
+			Actor actor, PackageDeclaration packageDeclaration,
+			ActorToLifeline actorToLine, CombinedFragment combo,
+			NormalStep step, NormalStepToCombinedFragment stepToCombo,
 			AlternativeFlowAlternative alt, AlternativeFlow altFlow, Flow flow,
 			UseCase useCase, Lifeline line) {
 		// Create CSP
@@ -1501,6 +1995,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		eq_0.solve(var_altFlow_name, var_guard_name);
 
 		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("actor", actor);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
+		isApplicableMatch.registerObject("actorToLine", actorToLine);
 		isApplicableMatch.registerObject("combo", combo);
 		isApplicableMatch.registerObject("step", step);
 		isApplicableMatch.registerObject("stepToCombo", stepToCombo);
@@ -1527,9 +2025,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjects_FWD(PerformRuleResult ruleresult,
-			EObject combo, EObject step, EObject stepToCombo, EObject alt,
-			EObject operand, EObject altToOperand, EObject guard, EObject spec,
-			EObject altFlow, EObject flow, EObject useCase, EObject line) {
+			EObject altFlowToOperand, EObject actor,
+			EObject packageDeclaration, EObject actorToLine, EObject combo,
+			EObject step, EObject stepToCombo, EObject alt, EObject operand,
+			EObject altToOperand, EObject guard, EObject spec, EObject altFlow,
+			EObject flow, EObject useCase, EObject line) {
+		ruleresult.registerObject("altFlowToOperand", altFlowToOperand);
+		ruleresult.registerObject("actor", actor);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
+		ruleresult.registerObject("actorToLine", actorToLine);
 		ruleresult.registerObject("combo", combo);
 		ruleresult.registerObject("step", step);
 		ruleresult.registerObject("stepToCombo", stepToCombo);
@@ -1573,11 +2077,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __operand_covered_line = null;
 		EMoflonEdge __combo_operand_operand = null;
-		EMoflonEdge __line_coveredBy_operand = null;
-		EMoflonEdge __guard_specification_spec = null;
 		EMoflonEdge __operand_guard_guard = null;
+		EMoflonEdge __line_coveredBy_operand = null;
+		EMoflonEdge __operand_covered_line = null;
+		EMoflonEdge __guard_specification_spec = null;
 		EMoflonEdge __line_coveredBy_combo = null;
 		EMoflonEdge __combo_covered_line = null;
 
@@ -1636,24 +2140,24 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(operand != null);
 				// check object spec is really bound
 				JavaSDM.ensure(spec != null);
-				// create object __operand_covered_line
-				__operand_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
 				// create object __combo_operand_operand
 				__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
+						.createEMoflonEdge();
+
+				// create object __operand_guard_guard
+				__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __line_coveredBy_operand
 				__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __guard_specification_spec
-				__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
+				// create object __operand_covered_line
+				__operand_covered_line = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __operand_guard_guard
-				__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
+				// create object __guard_specification_spec
+				__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __combo_operand_operand
@@ -1669,15 +2173,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__operand_covered_line, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						__combo_operand_operand, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_coveredBy_operand, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1685,11 +2181,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__guard_specification_spec, "toBeTranslatedEdges");
+						__operand_guard_guard, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__operand_guard_guard, "toBeTranslatedEdges");
+						spec, "toBeTranslatedNodes");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__line_coveredBy_operand, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1697,37 +2197,41 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						spec, "toBeTranslatedNodes");
+						__operand_covered_line, "toBeTranslatedEdges");
+
+				// create link
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						__guard_specification_spec, "toBeTranslatedEdges");
 
 				// create link
 				__combo_operand_operand.setSrc(combo);
 
 				// create link
-				__operand_covered_line.setSrc(operand);
+				__combo_operand_operand.setTrg(operand);
 
 				// create link
 				__operand_guard_guard.setSrc(operand);
 
 				// create link
-				__combo_operand_operand.setTrg(operand);
-
-				// create link
 				__line_coveredBy_operand.setTrg(operand);
 
 				// create link
-				__operand_guard_guard.setTrg(guard);
+				__operand_covered_line.setSrc(operand);
 
 				// create link
 				__guard_specification_spec.setSrc(guard);
 
 				// create link
+				__operand_guard_guard.setTrg(guard);
+
+				// create link
 				__guard_specification_spec.setTrg(spec);
 
 				// create link
-				__operand_covered_line.setTrg(line);
+				__line_coveredBy_operand.setSrc(line);
 
 				// create link
-				__line_coveredBy_operand.setSrc(line);
+				__operand_covered_line.setTrg(line);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -1765,10 +2269,6 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						combo, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
 						line, "contextNodes");
 
 				// create link
@@ -1780,10 +2280,14 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						__combo_covered_line, "contextEdges");
 
 				// create link
-				__line_coveredBy_combo.setTrg(combo);
+				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
+						combo, "contextNodes");
 
 				// create link
 				__combo_covered_line.setSrc(combo);
+
+				// create link
+				__line_coveredBy_combo.setTrg(combo);
 
 				// create link
 				__line_coveredBy_combo.setSrc(line);
@@ -1815,36 +2319,52 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
+		Actor actor = null;
+		ActorToLifeline actorToLine = null;
 		CombinedFragment combo = null;
 		Flow flow = null;
 		InteractionConstraint guard = null;
 		Lifeline line = null;
 		InteractionOperand operand = null;
+		PackageDeclaration packageDeclaration = null;
 		LiteralString spec = null;
 		NormalStep step = null;
 		NormalStepToCombinedFragment stepToCombo = null;
 		UseCase useCase = null;
 		Iterator fujaba__IterIsApplicableMatchToCsp = null;
 		CSP csp = null;
-		AlternativeFlowAlternative alt = null;
+		FlowToInteractionFragment altFlowToOperand = null;
 		AlternativeFlow altFlow = null;
+		AlternativeFlowAlternative alt = null;
 		StepAlternativeToInteractionOperand altToOperand = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge __combo_operand_operand = null;
-		EMoflonEdge altToOperand__target__operand = null;
-		EMoflonEdge __operand_covered_line = null;
+		EMoflonEdge __line_coveredBy_operand = null;
+		EMoflonEdge useCase__flows__altFlow = null;
+		EMoflonEdge altFlowToOperand__source__altFlow = null;
 		EMoflonEdge altToOperand__source__alt = null;
 		EMoflonEdge __operand_guard_guard = null;
-		EMoflonEdge __guard_specification_spec = null;
-		EMoflonEdge useCase__flows__altFlow = null;
-		EMoflonEdge alt__ref__altFlow = null;
-		EMoflonEdge __line_coveredBy_operand = null;
+		EMoflonEdge __operand_covered_line = null;
+		EMoflonEdge altFlowToOperand__target__operand = null;
+		EMoflonEdge __combo_operand_operand = null;
 		EMoflonEdge step__stepAlternative__alt = null;
+		EMoflonEdge alt__ref__altFlow = null;
+		EMoflonEdge altToOperand__target__operand = null;
+		EMoflonEdge __guard_specification_spec = null;
 
 		// story node 'perform transformation'
 		try {
 			fujaba__Success = false;
 
+			_TmpObject = (isApplicableMatch.getObject("actor"));
+
+			// ensure correct type and really bound of object actor
+			JavaSDM.ensure(_TmpObject instanceof Actor);
+			actor = (Actor) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("actorToLine"));
+
+			// ensure correct type and really bound of object actorToLine
+			JavaSDM.ensure(_TmpObject instanceof ActorToLifeline);
+			actorToLine = (ActorToLifeline) _TmpObject;
 			_TmpObject = (isApplicableMatch.getObject("combo"));
 
 			// ensure correct type and really bound of object combo
@@ -1870,6 +2390,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// ensure correct type and really bound of object operand
 			JavaSDM.ensure(_TmpObject instanceof InteractionOperand);
 			operand = (InteractionOperand) _TmpObject;
+			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
+
+			// ensure correct type and really bound of object packageDeclaration
+			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
+			packageDeclaration = (PackageDeclaration) _TmpObject;
 			_TmpObject = (isApplicableMatch.getObject("spec"));
 
 			// ensure correct type and really bound of object spec
@@ -1913,12 +2438,16 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				}
 			}
 			JavaSDM.ensure(fujaba__Success);
-			// create object alt
-			alt = UseCaseDSLFactory.eINSTANCE
-					.createAlternativeFlowAlternative();
+			// create object altFlowToOperand
+			altFlowToOperand = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+					.createFlowToInteractionFragment();
 
 			// create object altFlow
 			altFlow = UseCaseDSLFactory.eINSTANCE.createAlternativeFlow();
+
+			// create object alt
+			alt = UseCaseDSLFactory.eINSTANCE
+					.createAlternativeFlowAlternative();
 
 			// create object altToOperand
 			altToOperand = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
@@ -1929,6 +2458,14 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 					.getValue("alt", "condition"));
 			// assign attribute altFlow
 			altFlow.setName((java.lang.String) csp.getValue("altFlow", "name"));
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+					altFlowToOperand, operand, "target");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+					altFlowToOperand, altFlow, "source");
 
 			// create link
 			step.getStepAlternative().add(alt); // add link
@@ -1959,6 +2496,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(alt != null);
 			// check object altFlow is really bound
 			JavaSDM.ensure(altFlow != null);
+			// check object altFlowToOperand is really bound
+			JavaSDM.ensure(altFlowToOperand != null);
 			// check object altToOperand is really bound
 			JavaSDM.ensure(altToOperand != null);
 			// check object guard is really bound
@@ -1972,15 +2511,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					spec, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					operand, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altFlow, "createdElements");
+					guard, "translatedElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1988,11 +2523,19 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					altFlowToOperand, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					altToOperand, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					guard, "translatedElements");
+					altFlow, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					spec, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -2002,10 +2545,16 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		try {
 			fujaba__Success = false;
 
+			// check object actor is really bound
+			JavaSDM.ensure(actor != null);
+			// check object actorToLine is really bound
+			JavaSDM.ensure(actorToLine != null);
 			// check object alt is really bound
 			JavaSDM.ensure(alt != null);
 			// check object altFlow is really bound
 			JavaSDM.ensure(altFlow != null);
+			// check object altFlowToOperand is really bound
+			JavaSDM.ensure(altFlowToOperand != null);
 			// check object altToOperand is really bound
 			JavaSDM.ensure(altToOperand != null);
 			// check object combo is really bound
@@ -2018,6 +2567,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(line != null);
 			// check object operand is really bound
 			JavaSDM.ensure(operand != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 			// check object ruleresult is really bound
 			JavaSDM.ensure(ruleresult != null);
 			// check object spec is really bound
@@ -2028,8 +2579,98 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(stepToCombo != null);
 			// check object useCase is really bound
 			JavaSDM.ensure(useCase != null);
+			// check isomorphic binding between objects actorToLine and actor 
+			JavaSDM.ensure(!actorToLine.equals(actor));
+
+			// check isomorphic binding between objects alt and actor 
+			JavaSDM.ensure(!alt.equals(actor));
+
+			// check isomorphic binding between objects altFlow and actor 
+			JavaSDM.ensure(!altFlow.equals(actor));
+
+			// check isomorphic binding between objects altFlowToOperand and actor 
+			JavaSDM.ensure(!altFlowToOperand.equals(actor));
+
+			// check isomorphic binding between objects altToOperand and actor 
+			JavaSDM.ensure(!altToOperand.equals(actor));
+
+			// check isomorphic binding between objects combo and actor 
+			JavaSDM.ensure(!combo.equals(actor));
+
+			// check isomorphic binding between objects flow and actor 
+			JavaSDM.ensure(!flow.equals(actor));
+
+			// check isomorphic binding between objects guard and actor 
+			JavaSDM.ensure(!guard.equals(actor));
+
+			// check isomorphic binding between objects line and actor 
+			JavaSDM.ensure(!line.equals(actor));
+
+			// check isomorphic binding between objects operand and actor 
+			JavaSDM.ensure(!operand.equals(actor));
+
+			// check isomorphic binding between objects packageDeclaration and actor 
+			JavaSDM.ensure(!packageDeclaration.equals(actor));
+
+			// check isomorphic binding between objects spec and actor 
+			JavaSDM.ensure(!spec.equals(actor));
+
+			// check isomorphic binding between objects step and actor 
+			JavaSDM.ensure(!step.equals(actor));
+
+			// check isomorphic binding between objects stepToCombo and actor 
+			JavaSDM.ensure(!stepToCombo.equals(actor));
+
+			// check isomorphic binding between objects useCase and actor 
+			JavaSDM.ensure(!useCase.equals(actor));
+
+			// check isomorphic binding between objects alt and actorToLine 
+			JavaSDM.ensure(!alt.equals(actorToLine));
+
+			// check isomorphic binding between objects altFlow and actorToLine 
+			JavaSDM.ensure(!altFlow.equals(actorToLine));
+
+			// check isomorphic binding between objects altFlowToOperand and actorToLine 
+			JavaSDM.ensure(!altFlowToOperand.equals(actorToLine));
+
+			// check isomorphic binding between objects altToOperand and actorToLine 
+			JavaSDM.ensure(!altToOperand.equals(actorToLine));
+
+			// check isomorphic binding between objects combo and actorToLine 
+			JavaSDM.ensure(!combo.equals(actorToLine));
+
+			// check isomorphic binding between objects flow and actorToLine 
+			JavaSDM.ensure(!flow.equals(actorToLine));
+
+			// check isomorphic binding between objects guard and actorToLine 
+			JavaSDM.ensure(!guard.equals(actorToLine));
+
+			// check isomorphic binding between objects line and actorToLine 
+			JavaSDM.ensure(!line.equals(actorToLine));
+
+			// check isomorphic binding between objects operand and actorToLine 
+			JavaSDM.ensure(!operand.equals(actorToLine));
+
+			// check isomorphic binding between objects packageDeclaration and actorToLine 
+			JavaSDM.ensure(!packageDeclaration.equals(actorToLine));
+
+			// check isomorphic binding between objects spec and actorToLine 
+			JavaSDM.ensure(!spec.equals(actorToLine));
+
+			// check isomorphic binding between objects step and actorToLine 
+			JavaSDM.ensure(!step.equals(actorToLine));
+
+			// check isomorphic binding between objects stepToCombo and actorToLine 
+			JavaSDM.ensure(!stepToCombo.equals(actorToLine));
+
+			// check isomorphic binding between objects useCase and actorToLine 
+			JavaSDM.ensure(!useCase.equals(actorToLine));
+
 			// check isomorphic binding between objects altFlow and alt 
 			JavaSDM.ensure(!altFlow.equals(alt));
+
+			// check isomorphic binding between objects altFlowToOperand and alt 
+			JavaSDM.ensure(!altFlowToOperand.equals(alt));
 
 			// check isomorphic binding between objects altToOperand and alt 
 			JavaSDM.ensure(!altToOperand.equals(alt));
@@ -2049,6 +2690,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and alt 
 			JavaSDM.ensure(!operand.equals(alt));
 
+			// check isomorphic binding between objects packageDeclaration and alt 
+			JavaSDM.ensure(!packageDeclaration.equals(alt));
+
 			// check isomorphic binding between objects spec and alt 
 			JavaSDM.ensure(!spec.equals(alt));
 
@@ -2060,6 +2704,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCase and alt 
 			JavaSDM.ensure(!useCase.equals(alt));
+
+			// check isomorphic binding between objects altFlowToOperand and altFlow 
+			JavaSDM.ensure(!altFlowToOperand.equals(altFlow));
 
 			// check isomorphic binding between objects altToOperand and altFlow 
 			JavaSDM.ensure(!altToOperand.equals(altFlow));
@@ -2079,6 +2726,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and altFlow 
 			JavaSDM.ensure(!operand.equals(altFlow));
 
+			// check isomorphic binding between objects packageDeclaration and altFlow 
+			JavaSDM.ensure(!packageDeclaration.equals(altFlow));
+
 			// check isomorphic binding between objects spec and altFlow 
 			JavaSDM.ensure(!spec.equals(altFlow));
 
@@ -2090,6 +2740,39 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCase and altFlow 
 			JavaSDM.ensure(!useCase.equals(altFlow));
+
+			// check isomorphic binding between objects altToOperand and altFlowToOperand 
+			JavaSDM.ensure(!altToOperand.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects combo and altFlowToOperand 
+			JavaSDM.ensure(!combo.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects flow and altFlowToOperand 
+			JavaSDM.ensure(!flow.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects guard and altFlowToOperand 
+			JavaSDM.ensure(!guard.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects line and altFlowToOperand 
+			JavaSDM.ensure(!line.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects operand and altFlowToOperand 
+			JavaSDM.ensure(!operand.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects packageDeclaration and altFlowToOperand 
+			JavaSDM.ensure(!packageDeclaration.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects spec and altFlowToOperand 
+			JavaSDM.ensure(!spec.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects step and altFlowToOperand 
+			JavaSDM.ensure(!step.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects stepToCombo and altFlowToOperand 
+			JavaSDM.ensure(!stepToCombo.equals(altFlowToOperand));
+
+			// check isomorphic binding between objects useCase and altFlowToOperand 
+			JavaSDM.ensure(!useCase.equals(altFlowToOperand));
 
 			// check isomorphic binding between objects combo and altToOperand 
 			JavaSDM.ensure(!combo.equals(altToOperand));
@@ -2105,6 +2788,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects operand and altToOperand 
 			JavaSDM.ensure(!operand.equals(altToOperand));
+
+			// check isomorphic binding between objects packageDeclaration and altToOperand 
+			JavaSDM.ensure(!packageDeclaration.equals(altToOperand));
 
 			// check isomorphic binding between objects spec and altToOperand 
 			JavaSDM.ensure(!spec.equals(altToOperand));
@@ -2130,6 +2816,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and combo 
 			JavaSDM.ensure(!operand.equals(combo));
 
+			// check isomorphic binding between objects packageDeclaration and combo 
+			JavaSDM.ensure(!packageDeclaration.equals(combo));
+
 			// check isomorphic binding between objects spec and combo 
 			JavaSDM.ensure(!spec.equals(combo));
 
@@ -2151,6 +2840,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and flow 
 			JavaSDM.ensure(!operand.equals(flow));
 
+			// check isomorphic binding between objects packageDeclaration and flow 
+			JavaSDM.ensure(!packageDeclaration.equals(flow));
+
 			// check isomorphic binding between objects spec and flow 
 			JavaSDM.ensure(!spec.equals(flow));
 
@@ -2169,6 +2861,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and guard 
 			JavaSDM.ensure(!operand.equals(guard));
 
+			// check isomorphic binding between objects packageDeclaration and guard 
+			JavaSDM.ensure(!packageDeclaration.equals(guard));
+
 			// check isomorphic binding between objects spec and guard 
 			JavaSDM.ensure(!spec.equals(guard));
 
@@ -2184,6 +2879,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects operand and line 
 			JavaSDM.ensure(!operand.equals(line));
 
+			// check isomorphic binding between objects packageDeclaration and line 
+			JavaSDM.ensure(!packageDeclaration.equals(line));
+
 			// check isomorphic binding between objects spec and line 
 			JavaSDM.ensure(!spec.equals(line));
 
@@ -2196,6 +2894,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and line 
 			JavaSDM.ensure(!useCase.equals(line));
 
+			// check isomorphic binding between objects packageDeclaration and operand 
+			JavaSDM.ensure(!packageDeclaration.equals(operand));
+
 			// check isomorphic binding between objects spec and operand 
 			JavaSDM.ensure(!spec.equals(operand));
 
@@ -2207,6 +2908,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// check isomorphic binding between objects useCase and operand 
 			JavaSDM.ensure(!useCase.equals(operand));
+
+			// check isomorphic binding between objects spec and packageDeclaration 
+			JavaSDM.ensure(!spec.equals(packageDeclaration));
+
+			// check isomorphic binding between objects step and packageDeclaration 
+			JavaSDM.ensure(!step.equals(packageDeclaration));
+
+			// check isomorphic binding between objects stepToCombo and packageDeclaration 
+			JavaSDM.ensure(!stepToCombo.equals(packageDeclaration));
+
+			// check isomorphic binding between objects useCase and packageDeclaration 
+			JavaSDM.ensure(!useCase.equals(packageDeclaration));
 
 			// check isomorphic binding between objects step and spec 
 			JavaSDM.ensure(!step.equals(spec));
@@ -2226,16 +2939,16 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and stepToCombo 
 			JavaSDM.ensure(!useCase.equals(stepToCombo));
 
-			// create object __combo_operand_operand
-			__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
+			// create object __line_coveredBy_operand
+			__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object altToOperand__target__operand
-			altToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
+			// create object useCase__flows__altFlow
+			useCase__flows__altFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __operand_covered_line
-			__operand_covered_line = TGGRuntimeFactory.eINSTANCE
+			// create object altFlowToOperand__source__altFlow
+			altFlowToOperand__source__altFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object altToOperand__source__alt
@@ -2246,27 +2959,39 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __guard_specification_spec
-			__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
+			// create object __operand_covered_line
+			__operand_covered_line = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object useCase__flows__altFlow
-			useCase__flows__altFlow = TGGRuntimeFactory.eINSTANCE
+			// create object altFlowToOperand__target__operand
+			altFlowToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object alt__ref__altFlow
-			alt__ref__altFlow = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
-			// create object __line_coveredBy_operand
-			__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
+			// create object __combo_operand_operand
+			__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object step__stepAlternative__alt
 			step__stepAlternative__alt = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
+			// create object alt__ref__altFlow
+			alt__ref__altFlow = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
+
+			// create object altToOperand__target__operand
+			altToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object __guard_specification_spec
+			__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
 			// assign attribute ruleresult
 			ruleresult.setRuleName("StepAltToOperandRule");
+			// assign attribute altFlowToOperand__source__altFlow
+			altFlowToOperand__source__altFlow.setName("source");
+			// assign attribute altFlowToOperand__target__operand
+			altFlowToOperand__target__operand.setName("target");
 			// assign attribute __combo_operand_operand
 			__combo_operand_operand.setName("operand");
 			// assign attribute step__stepAlternative__alt
@@ -2290,15 +3015,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__combo_operand_operand, "translatedEdges");
+					__line_coveredBy_operand, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					altToOperand__target__operand, "createdEdges");
+					useCase__flows__altFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__operand_covered_line, "translatedEdges");
+					altFlowToOperand__source__altFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2310,11 +3035,19 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__guard_specification_spec, "translatedEdges");
+					__operand_covered_line, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase__flows__altFlow, "createdEdges");
+					altFlowToOperand__target__operand, "createdEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					__combo_operand_operand, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					step__stepAlternative__alt, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -2322,11 +3055,17 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_coveredBy_operand, "translatedEdges");
+					altToOperand__target__operand, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					step__stepAlternative__alt, "createdEdges");
+					__guard_specification_spec, "translatedEdges");
+
+			// create link
+			altFlowToOperand__source__altFlow.setSrc(altFlowToOperand);
+
+			// create link
+			altFlowToOperand__target__operand.setSrc(altFlowToOperand);
 
 			// create link
 			__combo_operand_operand.setSrc(combo);
@@ -2335,19 +3074,25 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			step__stepAlternative__alt.setSrc(step);
 
 			// create link
-			step__stepAlternative__alt.setTrg(alt);
+			altToOperand__source__alt.setTrg(alt);
 
 			// create link
-			altToOperand__source__alt.setTrg(alt);
+			step__stepAlternative__alt.setTrg(alt);
 
 			// create link
 			alt__ref__altFlow.setSrc(alt);
 
 			// create link
-			__operand_covered_line.setSrc(operand);
+			__line_coveredBy_operand.setTrg(operand);
 
 			// create link
 			__operand_guard_guard.setSrc(operand);
+
+			// create link
+			altFlowToOperand__target__operand.setTrg(operand);
+
+			// create link
+			__operand_covered_line.setSrc(operand);
 
 			// create link
 			__combo_operand_operand.setTrg(operand);
@@ -2356,19 +3101,16 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			altToOperand__target__operand.setTrg(operand);
 
 			// create link
-			__line_coveredBy_operand.setTrg(operand);
-
-			// create link
 			altToOperand__target__operand.setSrc(altToOperand);
 
 			// create link
 			altToOperand__source__alt.setSrc(altToOperand);
 
 			// create link
-			__operand_guard_guard.setTrg(guard);
+			__guard_specification_spec.setSrc(guard);
 
 			// create link
-			__guard_specification_spec.setSrc(guard);
+			__operand_guard_guard.setTrg(guard);
 
 			// create link
 			__guard_specification_spec.setTrg(spec);
@@ -2378,6 +3120,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			useCase__flows__altFlow.setTrg(altFlow);
+
+			// create link
+			altFlowToOperand__source__altFlow.setTrg(altFlow);
 
 			// create link
 			useCase__flows__altFlow.setSrc(useCase);
@@ -2396,7 +3141,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		// statement node 'perform postprocessing'
 		// No post processing method found
 		// statement node 'register objects'
-		this.registerObjects_BWD(ruleresult, combo, step, stepToCombo, alt,
+		this.registerObjects_BWD(ruleresult, altFlowToOperand, actor,
+				packageDeclaration, actorToLine, combo, step, stepToCombo, alt,
 				operand, altToOperand, guard, spec, altFlow, flow, useCase,
 				line);
 		return ruleresult;
@@ -2419,24 +3165,34 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Lifeline line = null;
 		InteractionOperand operand = null;
 		LiteralString spec = null;
-		EMoflonEdge __combo_operand_operand = null;
+		EMoflonEdge __actorToLine_source_actor = null;
 		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __stepToCombo_target_combo = null;
+		EMoflonEdge __packageDeclaration_actors_actor = null;
+		EMoflonEdge __step_actor_actor = null;
+		EMoflonEdge __packageDeclaration_useCases_useCase = null;
+		EMoflonEdge __actorToLine_target_line = null;
 		EMoflonEdge __combo_covered_line = null;
 		EMoflonEdge __line_coveredBy_combo = null;
-		EMoflonEdge __stepToCombo_source_step = null;
+		EMoflonEdge __stepToCombo_target_combo = null;
+		EMoflonEdge __combo_operand_operand = null;
 		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge __operand_covered_line = null;
+		EMoflonEdge __stepToCombo_source_step = null;
 		EMoflonEdge __operand_guard_guard = null;
 		EMoflonEdge __line_coveredBy_operand = null;
+		EMoflonEdge __operand_covered_line = null;
 		EMoflonEdge __guard_specification_spec = null;
 		EMoflonEdge __useCase_flows_flow = null;
 		CSP csp = null;
+		Iterator fujaba__IterPackageDeclarationToUseCase = null;
 		UseCase useCase = null;
 		Flow flow = null;
+		PackageDeclaration packageDeclaration = null;
 		NormalStep step = null;
 		Iterator fujaba__IterComboToStepToCombo = null;
 		NormalStepToCombinedFragment stepToCombo = null;
+		Actor actor = null;
+		Iterator fujaba__IterLineToActorToLine = null;
+		ActorToLifeline actorToLine = null;
 
 		// story node 'prepare return value'
 		try {
@@ -2519,356 +3275,611 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			spec = (LiteralString) _TmpObject;
 			// check object match is really bound
 			JavaSDM.ensure(match != null);
-			// iterate to-many link target from combo to stepToCombo
+			// iterate to-many link target from line to actorToLine
 			fujaba__Success = false;
 
-			fujaba__IterComboToStepToCombo = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(combo,
-							NormalStepToCombinedFragment.class, "target"))
-					.iterator();
+			fujaba__IterLineToActorToLine = new ArrayList(
+					org.moflon.util.eMoflonEMFUtil.getOppositeReference(line,
+							ActorToLifeline.class, "target")).iterator();
 
-			while (fujaba__IterComboToStepToCombo.hasNext()) {
+			while (fujaba__IterLineToActorToLine.hasNext()) {
 				try {
-					stepToCombo = (NormalStepToCombinedFragment) fujaba__IterComboToStepToCombo
+					actorToLine = (ActorToLifeline) fujaba__IterLineToActorToLine
 							.next();
 
-					// check object stepToCombo is really bound
-					JavaSDM.ensure(stepToCombo != null);
+					// check object actorToLine is really bound
+					JavaSDM.ensure(actorToLine != null);
 					// bind object
-					step = stepToCombo.getSource();
+					actor = actorToLine.getSource();
 
-					// check object step is really bound
-					JavaSDM.ensure(step != null);
+					// check object actor is really bound
+					JavaSDM.ensure(actor != null);
 
-					// story node 'find context'
-					try {
-						fujaba__Success = false;
+					// iterate to-many link target from combo to stepToCombo
+					fujaba__Success = false;
 
-						// check object combo is really bound
-						JavaSDM.ensure(combo != null);
-						// check object guard is really bound
-						JavaSDM.ensure(guard != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object operand is really bound
-						JavaSDM.ensure(operand != null);
-						// check object spec is really bound
-						JavaSDM.ensure(spec != null);
-						// check object step is really bound
-						JavaSDM.ensure(step != null);
-						// check object stepToCombo is really bound
-						JavaSDM.ensure(stepToCombo != null);
-						// check link guard from operand to guard
-						JavaSDM.ensure(guard.equals(operand.getGuard()));
+					fujaba__IterComboToStepToCombo = new ArrayList(
+							org.moflon.util.eMoflonEMFUtil
+									.getOppositeReference(combo,
+											NormalStepToCombinedFragment.class,
+											"target")).iterator();
 
-						// check link operand from operand to combo
-						JavaSDM.ensure(combo.equals(operand.eContainer()));
-
-						// check link source from stepToCombo to step
-						JavaSDM.ensure(step.equals(stepToCombo.getSource()));
-
-						// check link specification from spec to guard
-						JavaSDM.ensure(guard.equals(spec.eContainer()));
-
-						// bind object
-						flow = step.eContainer() instanceof Flow ? (Flow) step
-								.eContainer() : null;
-
-						// check object flow is really bound
-						JavaSDM.ensure(flow != null);
-
-						// check if contained via correct reference
-						JavaSDM.ensure(flow.getSteps().contains(step));
-
-						// bind object
-						useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
-								.eContainer() : null;
-
-						// check object useCase is really bound
-						JavaSDM.ensure(useCase != null);
-
-						// check if contained via correct reference
-						JavaSDM.ensure(useCase.getFlows().contains(flow));
-
-						// check link target from stepToCombo to combo
-						JavaSDM.ensure(combo.equals(stepToCombo.getTarget()));
-
-						// check link covered from line to combo
-						JavaSDM.ensure(line.getCoveredBy().contains(combo));
-
-						// check link covered from line to operand
-						JavaSDM.ensure(line.getCoveredBy().contains(operand));
-
-						// create object __combo_operand_operand
-						__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
-						// create object __stepToCombo_target_combo
-						__stepToCombo_target_combo = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __combo_covered_line
-						__combo_covered_line = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __line_coveredBy_combo
-						__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __stepToCombo_source_step
-						__stepToCombo_source_step = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __flow_steps_step
-						__flow_steps_step = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __operand_covered_line
-						__operand_covered_line = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __operand_guard_guard
-						__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __line_coveredBy_operand
-						__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __guard_specification_spec
-						__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __useCase_flows_flow
-						__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// assign attribute __combo_operand_operand
-						__combo_operand_operand.setName("operand");
-						// assign attribute __line_coveredBy_combo
-						__line_coveredBy_combo.setName("coveredBy");
-						// assign attribute __combo_covered_line
-						__combo_covered_line.setName("covered");
-						// assign attribute __stepToCombo_source_step
-						__stepToCombo_source_step.setName("source");
-						// assign attribute __stepToCombo_target_combo
-						__stepToCombo_target_combo.setName("target");
-						// assign attribute __operand_guard_guard
-						__operand_guard_guard.setName("guard");
-						// assign attribute __line_coveredBy_operand
-						__line_coveredBy_operand.setName("coveredBy");
-						// assign attribute __operand_covered_line
-						__operand_covered_line.setName("covered");
-						// assign attribute __guard_specification_spec
-						__guard_specification_spec.setName("specification");
-						// assign attribute __flow_steps_step
-						__flow_steps_step.setName("steps");
-						// assign attribute __useCase_flows_flow
-						__useCase_flows_flow.setName("flows");
-
-						// create link
-						__combo_operand_operand.setSrc(combo);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(combo);
-
-						// create link
-						__stepToCombo_target_combo.setTrg(combo);
-
-						// create link
-						__combo_covered_line.setSrc(combo);
-
-						// create link
-						__line_coveredBy_combo.setTrg(combo);
-
-						// create link
-						__stepToCombo_source_step.setTrg(step);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(step);
-
-						// create link
-						__flow_steps_step.setTrg(step);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								stepToCombo);
-
-						// create link
-						__stepToCombo_source_step.setSrc(stepToCombo);
-
-						// create link
-						__stepToCombo_target_combo.setSrc(stepToCombo);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(operand);
-
-						// create link
-						__operand_covered_line.setSrc(operand);
-
-						// create link
-						__combo_operand_operand.setTrg(operand);
-
-						// create link
-						__operand_guard_guard.setSrc(operand);
-
-						// create link
-						__line_coveredBy_operand.setTrg(operand);
-
-						// create link
-						__guard_specification_spec.setSrc(guard);
-
-						// create link
-						__operand_guard_guard.setTrg(guard);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(guard);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(spec);
-
-						// create link
-						__guard_specification_spec.setTrg(spec);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(flow);
-
-						// create link
-						__flow_steps_step.setSrc(flow);
-
-						// create link
-						__useCase_flows_flow.setTrg(flow);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(useCase);
-
-						// create link
-						__useCase_flows_flow.setSrc(useCase);
-
-						// create link
-						__line_coveredBy_combo.setSrc(line);
-
-						// create link
-						__combo_covered_line.setTrg(line);
-
-						// create link
-						__operand_covered_line.setTrg(line);
-
-						// create link
-						__line_coveredBy_operand.setSrc(line);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(line);
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __guard_specification_spec,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __useCase_flows_flow,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __line_coveredBy_operand,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __line_coveredBy_combo,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __operand_covered_line,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __flow_steps_step,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __stepToCombo_source_step,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __combo_covered_line,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __stepToCombo_target_combo,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __operand_guard_guard,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __combo_operand_operand,
-								"allContextElements");
-						// story node 'solve CSP'
+					while (fujaba__IterComboToStepToCombo.hasNext()) {
 						try {
-							fujaba__Success = false;
+							stepToCombo = (NormalStepToCombinedFragment) fujaba__IterComboToStepToCombo
+									.next();
 
-							_TmpObject = (this.isApplicable_solveCsp_BWD(
-									isApplicableMatch, combo, step,
-									stepToCombo, operand, guard, spec, flow,
-									useCase, line));
+							// check object stepToCombo is really bound
+							JavaSDM.ensure(stepToCombo != null);
+							// bind object
+							step = stepToCombo.getSource();
 
-							// ensure correct type and really bound of object csp
-							JavaSDM.ensure(_TmpObject instanceof CSP);
-							csp = (CSP) _TmpObject;
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+							// check object step is really bound
+							JavaSDM.ensure(step != null);
 
-						// statement node 'check CSP'
-						fujaba__Success = this.isApplicable_checkCsp_BWD(csp);
-						if (fujaba__Success) {
-							// story node 'add match to rule result'
+							// story node 'find context'
 							try {
 								fujaba__Success = false;
 
-								// check object isApplicableMatch is really bound
-								JavaSDM.ensure(isApplicableMatch != null);
-								// check object ruleresult is really bound
-								JavaSDM.ensure(ruleresult != null);
-								// assign attribute isApplicableMatch
-								isApplicableMatch
-										.setRuleName("StepAltToOperandRule");
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
+								// check object actor is really bound
+								JavaSDM.ensure(actor != null);
+								// check object actorToLine is really bound
+								JavaSDM.ensure(actorToLine != null);
+								// check object combo is really bound
+								JavaSDM.ensure(combo != null);
+								// check object guard is really bound
+								JavaSDM.ensure(guard != null);
+								// check object line is really bound
+								JavaSDM.ensure(line != null);
+								// check object operand is really bound
+								JavaSDM.ensure(operand != null);
+								// check object spec is really bound
+								JavaSDM.ensure(spec != null);
+								// check object step is really bound
+								JavaSDM.ensure(step != null);
+								// check object stepToCombo is really bound
+								JavaSDM.ensure(stepToCombo != null);
+								// check link actor from step to actor
+								JavaSDM.ensure(actor.equals(step.getActor()));
 
-								// create link
-								ruleresult.getIsApplicableMatch().add(
-										isApplicableMatch);
+								// check link guard from operand to guard
+								JavaSDM.ensure(guard.equals(operand.getGuard()));
+
+								// bind object
+								packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+										.eContainer() : null;
+
+								// check object packageDeclaration is really bound
+								JavaSDM.ensure(packageDeclaration != null);
+
+								// check if contained via correct reference
+								JavaSDM.ensure(packageDeclaration.getActors()
+										.contains(actor));
+
+								// check link operand from operand to combo
+								JavaSDM.ensure(combo.equals(operand
+										.eContainer()));
+
+								// check link source from actorToLine to actor
+								JavaSDM.ensure(actor.equals(actorToLine
+										.getSource()));
+
+								// check link source from stepToCombo to step
+								JavaSDM.ensure(step.equals(stepToCombo
+										.getSource()));
+
+								// check link specification from spec to guard
+								JavaSDM.ensure(guard.equals(spec.eContainer()));
+
+								// bind object
+								flow = step.eContainer() instanceof Flow ? (Flow) step
+										.eContainer() : null;
+
+								// check object flow is really bound
+								JavaSDM.ensure(flow != null);
+
+								// check if contained via correct reference
+								JavaSDM.ensure(flow.getSteps().contains(step));
+
+								// check link target from actorToLine to line
+								JavaSDM.ensure(line.equals(actorToLine
+										.getTarget()));
+
+								// check link target from stepToCombo to combo
+								JavaSDM.ensure(combo.equals(stepToCombo
+										.getTarget()));
+
+								// check link coveredBy from line to combo
+								JavaSDM.ensure(line.getCoveredBy().contains(
+										combo));
+
+								// check link coveredBy from line to operand
+								JavaSDM.ensure(line.getCoveredBy().contains(
+										operand));
+
+								// iterate to-many link useCases from packageDeclaration to useCase
+								fujaba__Success = false;
+
+								fujaba__IterPackageDeclarationToUseCase = new ArrayList(
+										packageDeclaration.getUseCases())
+										.iterator();
+
+								while (fujaba__IterPackageDeclarationToUseCase
+										.hasNext()) {
+									try {
+										useCase = (UseCase) fujaba__IterPackageDeclarationToUseCase
+												.next();
+
+										// check object useCase is really bound
+										JavaSDM.ensure(useCase != null);
+										// check link flows from flow to useCase
+										JavaSDM.ensure(useCase.equals(flow
+												.eContainer()));
+
+										// create object __actorToLine_source_actor
+										__actorToLine_source_actor = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object isApplicableMatch
+										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+												.createIsApplicableMatch();
+
+										// create object __packageDeclaration_actors_actor
+										__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __step_actor_actor
+										__step_actor_actor = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __actorToLine_target_line
+										__actorToLine_target_line = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __combo_covered_line
+										__combo_covered_line = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __line_coveredBy_combo
+										__line_coveredBy_combo = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __stepToCombo_target_combo
+										__stepToCombo_target_combo = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __combo_operand_operand
+										__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __flow_steps_step
+										__flow_steps_step = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __stepToCombo_source_step
+										__stepToCombo_source_step = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __operand_guard_guard
+										__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __line_coveredBy_operand
+										__line_coveredBy_operand = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __operand_covered_line
+										__operand_covered_line = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __guard_specification_spec
+										__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// create object __useCase_flows_flow
+										__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
+												.createEMoflonEdge();
+
+										// assign attribute __packageDeclaration_useCases_useCase
+										__packageDeclaration_useCases_useCase
+												.setName("useCases");
+										// assign attribute __packageDeclaration_actors_actor
+										__packageDeclaration_actors_actor
+												.setName("actors");
+										// assign attribute __actorToLine_source_actor
+										__actorToLine_source_actor
+												.setName("source");
+										// assign attribute __actorToLine_target_line
+										__actorToLine_target_line
+												.setName("target");
+										// assign attribute __combo_operand_operand
+										__combo_operand_operand
+												.setName("operand");
+										// assign attribute __line_coveredBy_combo
+										__line_coveredBy_combo
+												.setName("coveredBy");
+										// assign attribute __combo_covered_line
+										__combo_covered_line.setName("covered");
+										// assign attribute __step_actor_actor
+										__step_actor_actor.setName("actor");
+										// assign attribute __stepToCombo_source_step
+										__stepToCombo_source_step
+												.setName("source");
+										// assign attribute __stepToCombo_target_combo
+										__stepToCombo_target_combo
+												.setName("target");
+										// assign attribute __operand_guard_guard
+										__operand_guard_guard.setName("guard");
+										// assign attribute __line_coveredBy_operand
+										__line_coveredBy_operand
+												.setName("coveredBy");
+										// assign attribute __operand_covered_line
+										__operand_covered_line
+												.setName("covered");
+										// assign attribute __guard_specification_spec
+										__guard_specification_spec
+												.setName("specification");
+										// assign attribute __flow_steps_step
+										__flow_steps_step.setName("steps");
+										// assign attribute __useCase_flows_flow
+										__useCase_flows_flow.setName("flows");
+
+										// create link
+										__actorToLine_source_actor
+												.setTrg(actor);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														actor);
+
+										// create link
+										__packageDeclaration_actors_actor
+												.setTrg(actor);
+
+										// create link
+										__step_actor_actor.setTrg(actor);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														packageDeclaration);
+
+										// create link
+										__packageDeclaration_useCases_useCase
+												.setSrc(packageDeclaration);
+
+										// create link
+										__packageDeclaration_actors_actor
+												.setSrc(packageDeclaration);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														actorToLine);
+
+										// create link
+										__actorToLine_target_line
+												.setSrc(actorToLine);
+
+										// create link
+										__actorToLine_source_actor
+												.setSrc(actorToLine);
+
+										// create link
+										__combo_covered_line.setSrc(combo);
+
+										// create link
+										__line_coveredBy_combo.setTrg(combo);
+
+										// create link
+										__stepToCombo_target_combo
+												.setTrg(combo);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														combo);
+
+										// create link
+										__combo_operand_operand.setSrc(combo);
+
+										// create link
+										__flow_steps_step.setTrg(step);
+
+										// create link
+										__step_actor_actor.setSrc(step);
+
+										// create link
+										__stepToCombo_source_step.setTrg(step);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														step);
+
+										// create link
+										__stepToCombo_source_step
+												.setSrc(stepToCombo);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														stepToCombo);
+
+										// create link
+										__stepToCombo_target_combo
+												.setSrc(stepToCombo);
+
+										// create link
+										__operand_guard_guard.setSrc(operand);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														operand);
+
+										// create link
+										__line_coveredBy_operand
+												.setTrg(operand);
+
+										// create link
+										__combo_operand_operand.setTrg(operand);
+
+										// create link
+										__operand_covered_line.setSrc(operand);
+
+										// create link
+										__guard_specification_spec
+												.setSrc(guard);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														guard);
+
+										// create link
+										__operand_guard_guard.setTrg(guard);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														spec);
+
+										// create link
+										__guard_specification_spec.setTrg(spec);
+
+										// create link
+										__flow_steps_step.setSrc(flow);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														flow);
+
+										// create link
+										__useCase_flows_flow.setTrg(flow);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														useCase);
+
+										// create link
+										__useCase_flows_flow.setSrc(useCase);
+
+										// create link
+										__packageDeclaration_useCases_useCase
+												.setTrg(useCase);
+
+										// create link
+										__line_coveredBy_operand.setSrc(line);
+
+										// create link
+										__line_coveredBy_combo.setSrc(line);
+
+										// create link
+										__operand_covered_line.setTrg(line);
+
+										// create link
+										isApplicableMatch
+												.getAllContextElements().add(
+														line);
+
+										// create link
+										__actorToLine_target_line.setTrg(line);
+
+										// create link
+										__combo_covered_line.setTrg(line);
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__operand_covered_line,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__packageDeclaration_actors_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__guard_specification_spec,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__stepToCombo_source_step,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__actorToLine_source_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__step_actor_actor,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__flow_steps_step,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__operand_guard_guard,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__useCase_flows_flow,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__stepToCombo_target_combo,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__actorToLine_target_line,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__line_coveredBy_combo,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__combo_operand_operand,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__line_coveredBy_operand,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__combo_covered_line,
+														"allContextElements");
+
+										// create link
+										org.moflon.util.eMoflonEMFUtil
+												.addOppositeReference(
+														isApplicableMatch,
+														__packageDeclaration_useCases_useCase,
+														"allContextElements");
+										// story node 'solve CSP'
+										try {
+											fujaba__Success = false;
+
+											_TmpObject = (this
+													.isApplicable_solveCsp_BWD(
+															isApplicableMatch,
+															actor,
+															packageDeclaration,
+															actorToLine, combo,
+															step, stepToCombo,
+															operand, guard,
+															spec, flow,
+															useCase, line));
+
+											// ensure correct type and really bound of object csp
+											JavaSDM.ensure(_TmpObject instanceof CSP);
+											csp = (CSP) _TmpObject;
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+										// statement node 'check CSP'
+										fujaba__Success = this
+												.isApplicable_checkCsp_BWD(csp);
+										if (fujaba__Success) {
+											// story node 'add match to rule result'
+											try {
+												fujaba__Success = false;
+
+												// check object isApplicableMatch is really bound
+												JavaSDM.ensure(isApplicableMatch != null);
+												// check object ruleresult is really bound
+												JavaSDM.ensure(ruleresult != null);
+												// assign attribute isApplicableMatch
+												isApplicableMatch
+														.setRuleName("StepAltToOperandRule");
+												// assign attribute ruleresult
+												ruleresult.setSuccess(true);
+
+												// create link
+												ruleresult
+														.getIsApplicableMatch()
+														.add(isApplicableMatch);
+
+												fujaba__Success = true;
+											} catch (JavaSDMException fujaba__InternalException) {
+												fujaba__Success = false;
+											}
+
+										} else {
+
+										}
+
+										fujaba__Success = true;
+									} catch (JavaSDMException fujaba__InternalException) {
+										fujaba__Success = false;
+									}
+								}
+								JavaSDM.ensure(fujaba__Success);
 
 								fujaba__Success = true;
 							} catch (JavaSDMException fujaba__InternalException) {
 								fujaba__Success = false;
 							}
 
-						} else {
-
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
 						}
-
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
 					}
+					JavaSDM.ensure(fujaba__Success);
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -2940,8 +3951,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			CombinedFragment combo, NormalStep step,
-			NormalStepToCombinedFragment stepToCombo,
+			Actor actor, PackageDeclaration packageDeclaration,
+			ActorToLifeline actorToLine, CombinedFragment combo,
+			NormalStep step, NormalStepToCombinedFragment stepToCombo,
 			InteractionOperand operand, InteractionConstraint guard,
 			LiteralString spec, Flow flow, UseCase useCase, Lifeline line) {
 		// Create CSP
@@ -2984,6 +3996,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		eq_0.solve(var_altFlow_name, var_guard_name);
 
 		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("actor", actor);
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
+		isApplicableMatch.registerObject("actorToLine", actorToLine);
 		isApplicableMatch.registerObject("combo", combo);
 		isApplicableMatch.registerObject("step", step);
 		isApplicableMatch.registerObject("stepToCombo", stepToCombo);
@@ -3011,9 +4027,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjects_BWD(PerformRuleResult ruleresult,
-			EObject combo, EObject step, EObject stepToCombo, EObject alt,
-			EObject operand, EObject altToOperand, EObject guard, EObject spec,
-			EObject altFlow, EObject flow, EObject useCase, EObject line) {
+			EObject altFlowToOperand, EObject actor,
+			EObject packageDeclaration, EObject actorToLine, EObject combo,
+			EObject step, EObject stepToCombo, EObject alt, EObject operand,
+			EObject altToOperand, EObject guard, EObject spec, EObject altFlow,
+			EObject flow, EObject useCase, EObject line) {
+		ruleresult.registerObject("altFlowToOperand", altFlowToOperand);
+		ruleresult.registerObject("actor", actor);
+		ruleresult.registerObject("packageDeclaration", packageDeclaration);
+		ruleresult.registerObject("actorToLine", actorToLine);
 		ruleresult.registerObject("combo", combo);
 		ruleresult.registerObject("step", step);
 		ruleresult.registerObject("stepToCombo", stepToCombo);
@@ -3055,7 +4077,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_104(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_356(
 			EMoflonEdge _edge_operand) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3063,10 +4085,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		InteractionOperand __DEC_operand_fragment_860201 = null;
-		InteractionOperand __DEC_guard_guard_680880 = null;
-		CombinedFragment __DEC_operand_operand_259743 = null;
-		Constraint __DEC_spec_specification_217656 = null;
+		InteractionOperand __DEC_operand_fragment_666559 = null;
+		InteractionOperand __DEC_guard_guard_791587 = null;
+		CombinedFragment __DEC_operand_operand_797295 = null;
+		Constraint __DEC_spec_specification_814749 = null;
 		Match match = null;
 		Iterator fujaba__IterComboToLine = null;
 		Lifeline line = null;
@@ -3152,7 +4174,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof LiteralString);
 			spec = (LiteralString) _TmpObject;
 
-			// iterate to-many link covered from combo to line
+			// iterate to-many link coveredBy from combo to line
 			fujaba__Success = false;
 
 			fujaba__IterComboToLine = new ArrayList(combo.getCovered())
@@ -3164,7 +4186,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 					// check object line is really bound
 					JavaSDM.ensure(line != null);
-					// check link covered from line to operand
+					// check link coveredBy from line to operand
 					JavaSDM.ensure(line.getCoveredBy().contains(operand));
 
 					// story node 'test core match and DECs'
@@ -3178,14 +4200,14 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_fragment_860201 = operand
+							__DEC_operand_fragment_666559 = operand
 									.getEnclosingOperand();
 
-							// check object __DEC_operand_fragment_860201 is really bound
-							JavaSDM.ensure(__DEC_operand_fragment_860201 != null);
+							// check object __DEC_operand_fragment_666559 is really bound
+							JavaSDM.ensure(__DEC_operand_fragment_666559 != null);
 
-							// check isomorphic binding between objects __DEC_operand_fragment_860201 and operand 
-							JavaSDM.ensure(!__DEC_operand_fragment_860201
+							// check isomorphic binding between objects __DEC_operand_fragment_666559 and operand 
+							JavaSDM.ensure(!__DEC_operand_fragment_666559
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -3212,18 +4234,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_guard_guard_680880 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+							__DEC_guard_guard_791587 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 									.eContainer() : null;
 
-							// check object __DEC_guard_guard_680880 is really bound
-							JavaSDM.ensure(__DEC_guard_guard_680880 != null);
+							// check object __DEC_guard_guard_791587 is really bound
+							JavaSDM.ensure(__DEC_guard_guard_791587 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(guard
-									.equals(__DEC_guard_guard_680880.getGuard()));
+									.equals(__DEC_guard_guard_791587.getGuard()));
 
-							// check isomorphic binding between objects __DEC_guard_guard_680880 and operand 
-							JavaSDM.ensure(!__DEC_guard_guard_680880
+							// check isomorphic binding between objects __DEC_guard_guard_791587 and operand 
+							JavaSDM.ensure(!__DEC_guard_guard_791587
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -3240,18 +4262,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_operand_259743 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+							__DEC_operand_operand_797295 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 									.eContainer() : null;
 
-							// check object __DEC_operand_operand_259743 is really bound
-							JavaSDM.ensure(__DEC_operand_operand_259743 != null);
+							// check object __DEC_operand_operand_797295 is really bound
+							JavaSDM.ensure(__DEC_operand_operand_797295 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_operand_operand_259743
+							JavaSDM.ensure(__DEC_operand_operand_797295
 									.getOperand().contains(operand));
 
-							// check isomorphic binding between objects __DEC_operand_operand_259743 and combo 
-							JavaSDM.ensure(!__DEC_operand_operand_259743
+							// check isomorphic binding between objects __DEC_operand_operand_797295 and combo 
+							JavaSDM.ensure(!__DEC_operand_operand_797295
 									.equals(combo));
 
 							fujaba__Success = true;
@@ -3268,19 +4290,19 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_spec_specification_217656 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+							__DEC_spec_specification_814749 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 									.eContainer() : null;
 
-							// check object __DEC_spec_specification_217656 is really bound
-							JavaSDM.ensure(__DEC_spec_specification_217656 != null);
+							// check object __DEC_spec_specification_814749 is really bound
+							JavaSDM.ensure(__DEC_spec_specification_814749 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(spec
-									.equals(__DEC_spec_specification_217656
+									.equals(__DEC_spec_specification_814749
 											.getSpecification()));
 
-							// check isomorphic binding between objects __DEC_spec_specification_217656 and guard 
-							JavaSDM.ensure(!__DEC_spec_specification_217656
+							// check isomorphic binding between objects __DEC_spec_specification_814749 and guard 
+							JavaSDM.ensure(!__DEC_spec_specification_814749
 									.equals(guard));
 
 							fujaba__Success = true;
@@ -3327,10 +4349,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						// check link trg from _edge_operand to operand
 						JavaSDM.ensure(operand.equals(_edge_operand.getTrg()));
 
-						// check link covered from line to combo
+						// check link coveredBy from line to combo
 						JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
-						// check link covered from line to operand
+						// check link coveredBy from line to operand
 						JavaSDM.ensure(line.getCoveredBy().contains(operand));
 
 						// create object match
@@ -3402,7 +4424,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_26(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_86(
 			EMoflonEdge _edge_stepAlternative) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3410,14 +4432,17 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_altFlow_flows_331266 = null;
-		NormalStep __DEC_alt_stepAlternative_422541 = null;
-		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_625637 = null;
-		AlternativeFlowAlternative __DEC_altFlow_ref_625637 = null;
+		UseCase __DEC_altFlow_flows_693395 = null;
+		NormalStep __DEC_alt_stepAlternative_942645 = null;
+		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_940961 = null;
+		AlternativeFlowAlternative __DEC_altFlow_ref_940961 = null;
 		Match match = null;
+		Iterator fujaba__IterPackageDeclarationToUseCase = null;
+		UseCase useCase = null;
 		AlternativeFlow altFlow = null;
 		AlternativeFlowAlternative alt = null;
-		UseCase useCase = null;
+		PackageDeclaration packageDeclaration = null;
+		Actor actor = null;
 		Flow flow = null;
 		NormalStep step = null;
 
@@ -3486,14 +4511,20 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(flow.getSteps().contains(step));
 
 			// bind object
-			useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
+			actor = step.getActor();
+
+			// check object actor is really bound
+			JavaSDM.ensure(actor != null);
+
+			// bind object
+			packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
 					.eContainer() : null;
 
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 
 			// check if contained via correct reference
-			JavaSDM.ensure(useCase.getFlows().contains(flow));
+			JavaSDM.ensure(packageDeclaration.getActors().contains(actor));
 
 			// bind object
 			_TmpObject = _edge_stepAlternative.getTrg();
@@ -3512,197 +4543,240 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects flow and altFlow 
 			JavaSDM.ensure(!flow.equals(altFlow));
 
-			// check link flows from altFlow to useCase
-			JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
-
 			// check link stepAlternative from alt to step
 			JavaSDM.ensure(step.equals(alt.eContainer()));
 
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
+			// iterate to-many link useCases from packageDeclaration to useCase
+			fujaba__Success = false;
 
-				// check negative bindings
+			fujaba__IterPackageDeclarationToUseCase = new ArrayList(
+					packageDeclaration.getUseCases()).iterator();
+
+			while (fujaba__IterPackageDeclarationToUseCase.hasNext()) {
 				try {
-					fujaba__Success = false;
+					useCase = (UseCase) fujaba__IterPackageDeclarationToUseCase
+							.next();
 
-					// bind object
-					__DEC_altFlow_flows_331266 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
-							.eContainer() : null;
+					// check object useCase is really bound
+					JavaSDM.ensure(useCase != null);
+					// check link flows from altFlow to useCase
+					JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
 
-					// check object __DEC_altFlow_flows_331266 is really bound
-					JavaSDM.ensure(__DEC_altFlow_flows_331266 != null);
+					// check link flows from flow to useCase
+					JavaSDM.ensure(useCase.equals(flow.eContainer()));
 
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_altFlow_flows_331266.getFlows()
-							.contains(altFlow));
+					// story node 'test core match and DECs'
+					try {
+						fujaba__Success = false;
 
-					// check isomorphic binding between objects __DEC_altFlow_flows_331266 and useCase 
-					JavaSDM.ensure(!__DEC_altFlow_flows_331266.equals(useCase));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_alt_stepAlternative_422541 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
-							.eContainer() : null;
-
-					// check object __DEC_alt_stepAlternative_422541 is really bound
-					JavaSDM.ensure(__DEC_alt_stepAlternative_422541 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_alt_stepAlternative_422541
-							.getStepAlternative().contains(alt));
-
-					// check isomorphic binding between objects __DEC_alt_stepAlternative_422541 and step 
-					JavaSDM.ensure(!__DEC_alt_stepAlternative_422541
-							.equals(step));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link ref from altFlow to __DEC_altFlow_ref_625637
-					fujaba__Success = false;
-
-					fujaba__IterAltFlowTo__DEC_altFlow_ref_625637 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(altFlow,
-											AlternativeFlowAlternative.class,
-											"ref")).iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterAltFlowTo__DEC_altFlow_ref_625637
-									.hasNext()) {
-						try {
-							__DEC_altFlow_ref_625637 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_625637
-									.next();
-
-							// check object __DEC_altFlow_ref_625637 is really bound
-							JavaSDM.ensure(__DEC_altFlow_ref_625637 != null);
-							// check isomorphic binding between objects __DEC_altFlow_ref_625637 and alt 
-							JavaSDM.ensure(!__DEC_altFlow_ref_625637
-									.equals(alt));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_stepAlternative is really bound
-				JavaSDM.ensure(_edge_stepAlternative != null);
-				// check object alt is really bound
-				JavaSDM.ensure(alt != null);
-				// check object altFlow is really bound
-				JavaSDM.ensure(altFlow != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object step is really bound
-				JavaSDM.ensure(step != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// check isomorphic binding between objects flow and altFlow 
-				JavaSDM.ensure(!flow.equals(altFlow));
-
-				// check link ref from alt to altFlow
-				JavaSDM.ensure(altFlow.equals(alt.getRef()));
-
-				// check link flows from altFlow to useCase
-				JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
-
-				// check link flows from flow to useCase
-				JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-				// check link src from _edge_stepAlternative to step
-				JavaSDM.ensure(step.equals(_edge_stepAlternative.getSrc()));
-
-				// check link stepAlternative from alt to step
-				JavaSDM.ensure(step.equals(alt.eContainer()));
-
-				// check link steps from step to flow
-				JavaSDM.ensure(flow.equals(step.eContainer()));
-
-				// check link trg from _edge_stepAlternative to alt
-				JavaSDM.ensure(alt.equals(_edge_stepAlternative.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, step, alt,
-						altFlow, flow, useCase);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
+						// check negative bindings
 						try {
 							fujaba__Success = false;
 
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
+							// bind object
+							__DEC_altFlow_flows_693395 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
+									.eContainer() : null;
 
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
+							// check object __DEC_altFlow_flows_693395 is really bound
+							JavaSDM.ensure(__DEC_altFlow_flows_693395 != null);
 
-							// create link
-							__result.getContents().add(match);
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_altFlow_flows_693395
+									.getFlows().contains(altFlow));
+
+							// check isomorphic binding between objects __DEC_altFlow_flows_693395 and useCase 
+							JavaSDM.ensure(!__DEC_altFlow_flows_693395
+									.equals(useCase));
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
 							fujaba__Success = false;
 						}
 
-					} else {
+						fujaba__Success = !(fujaba__Success);
 
+						JavaSDM.ensure(fujaba__Success);
+
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// bind object
+							__DEC_alt_stepAlternative_942645 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
+									.eContainer() : null;
+
+							// check object __DEC_alt_stepAlternative_942645 is really bound
+							JavaSDM.ensure(__DEC_alt_stepAlternative_942645 != null);
+
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_alt_stepAlternative_942645
+									.getStepAlternative().contains(alt));
+
+							// check isomorphic binding between objects __DEC_alt_stepAlternative_942645 and step 
+							JavaSDM.ensure(!__DEC_alt_stepAlternative_942645
+									.equals(step));
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// iterate to-many link ref from altFlow to __DEC_altFlow_ref_940961
+							fujaba__Success = false;
+
+							fujaba__IterAltFlowTo__DEC_altFlow_ref_940961 = new ArrayList(
+									org.moflon.util.eMoflonEMFUtil
+											.getOppositeReference(
+													altFlow,
+													AlternativeFlowAlternative.class,
+													"ref")).iterator();
+
+							while (!(fujaba__Success)
+									&& fujaba__IterAltFlowTo__DEC_altFlow_ref_940961
+											.hasNext()) {
+								try {
+									__DEC_altFlow_ref_940961 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_940961
+											.next();
+
+									// check object __DEC_altFlow_ref_940961 is really bound
+									JavaSDM.ensure(__DEC_altFlow_ref_940961 != null);
+									// check isomorphic binding between objects __DEC_altFlow_ref_940961 and alt 
+									JavaSDM.ensure(!__DEC_altFlow_ref_940961
+											.equals(alt));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+							}
+							JavaSDM.ensure(fujaba__Success);
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// check object _edge_stepAlternative is really bound
+						JavaSDM.ensure(_edge_stepAlternative != null);
+						// check object actor is really bound
+						JavaSDM.ensure(actor != null);
+						// check object alt is really bound
+						JavaSDM.ensure(alt != null);
+						// check object altFlow is really bound
+						JavaSDM.ensure(altFlow != null);
+						// check object flow is really bound
+						JavaSDM.ensure(flow != null);
+						// check object packageDeclaration is really bound
+						JavaSDM.ensure(packageDeclaration != null);
+						// check object step is really bound
+						JavaSDM.ensure(step != null);
+						// check object useCase is really bound
+						JavaSDM.ensure(useCase != null);
+						// check isomorphic binding between objects flow and altFlow 
+						JavaSDM.ensure(!flow.equals(altFlow));
+
+						// check link actor from step to actor
+						JavaSDM.ensure(actor.equals(step.getActor()));
+
+						// check link ref from alt to altFlow
+						JavaSDM.ensure(altFlow.equals(alt.getRef()));
+
+						// check link actors from actor to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(actor
+								.eContainer()));
+
+						// check link flows from altFlow to useCase
+						JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
+
+						// check link flows from flow to useCase
+						JavaSDM.ensure(useCase.equals(flow.eContainer()));
+
+						// check link src from _edge_stepAlternative to step
+						JavaSDM.ensure(step.equals(_edge_stepAlternative
+								.getSrc()));
+
+						// check link stepAlternative from alt to step
+						JavaSDM.ensure(step.equals(alt.eContainer()));
+
+						// check link steps from step to flow
+						JavaSDM.ensure(flow.equals(step.eContainer()));
+
+						// check link trg from _edge_stepAlternative to alt
+						JavaSDM.ensure(alt.equals(_edge_stepAlternative
+								.getTrg()));
+
+						// check link useCases from useCase to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(useCase
+								.eContainer()));
+
+						// create object match
+						match = TGGRuntimeFactory.eINSTANCE.createMatch();
+
+						// assign attribute match
+						match.setRuleName(__eClass.getName());
+						// statement node 'bookkeeping with generic isAppropriate method'
+						fujaba__Success = this.isAppropriate_FWD(match, actor,
+								packageDeclaration, step, alt, altFlow, flow,
+								useCase);
+						if (fujaba__Success) {
+							// statement node 'Ensure that the correct types of elements are matched'
+							fujaba__Success = this.checkTypes_FWD(match);
+							if (fujaba__Success) {
+								// story node 'Add match to rule result'
+								try {
+									fujaba__Success = false;
+
+									// check object __performOperation is really bound
+									JavaSDM.ensure(__performOperation != null);
+									// check object __result is really bound
+									JavaSDM.ensure(__result != null);
+									// check object match is really bound
+									JavaSDM.ensure(match != null);
+
+									// create link
+									org.moflon.util.eMoflonEMFUtil
+											.addOppositeReference(match,
+													__performOperation,
+													"isApplicableOperation");
+
+									// create link
+									__result.getContents().add(match);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+							} else {
+
+							}
+
+						} else {
+
+						}
+						fujaba__Success = true;
+					} catch (JavaSDMException fujaba__InternalException) {
+						fujaba__Success = false;
 					}
 
-				} else {
-
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
 			}
+			JavaSDM.ensure(fujaba__Success);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -3717,7 +4791,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_27(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_87(
 			EMoflonEdge _edge_ref) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3725,13 +4799,16 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_altFlow_flows_444271 = null;
-		NormalStep __DEC_alt_stepAlternative_53585 = null;
-		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_775077 = null;
-		AlternativeFlowAlternative __DEC_altFlow_ref_775077 = null;
+		UseCase __DEC_altFlow_flows_41124 = null;
+		NormalStep __DEC_alt_stepAlternative_82814 = null;
+		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_672285 = null;
+		AlternativeFlowAlternative __DEC_altFlow_ref_672285 = null;
 		Match match = null;
+		Iterator fujaba__IterPackageDeclarationToUseCase = null;
 		UseCase useCase = null;
 		Flow flow = null;
+		PackageDeclaration packageDeclaration = null;
+		Actor actor = null;
 		NormalStep step = null;
 		AlternativeFlow altFlow = null;
 		AlternativeFlowAlternative alt = null;
@@ -3808,6 +4885,22 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(step.getStepAlternative().contains(alt));
 
 			// bind object
+			actor = step.getActor();
+
+			// check object actor is really bound
+			JavaSDM.ensure(actor != null);
+
+			// bind object
+			packageDeclaration = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
+					.eContainer() : null;
+
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
+
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getActors().contains(actor));
+
+			// bind object
 			flow = step.eContainer() instanceof Flow ? (Flow) step.eContainer()
 					: null;
 
@@ -3820,207 +4913,238 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects flow and altFlow 
 			JavaSDM.ensure(!flow.equals(altFlow));
 
-			// bind object
-			useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
-					.eContainer() : null;
-
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(useCase.getFlows().contains(flow));
-
-			// check link flows from altFlow to useCase
-			JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
-
 			// check link trg from _edge_ref to altFlow
 			JavaSDM.ensure(altFlow.equals(_edge_ref.getTrg()));
 
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
+			// iterate to-many link useCases from packageDeclaration to useCase
+			fujaba__Success = false;
 
-				// check negative bindings
+			fujaba__IterPackageDeclarationToUseCase = new ArrayList(
+					packageDeclaration.getUseCases()).iterator();
+
+			while (fujaba__IterPackageDeclarationToUseCase.hasNext()) {
 				try {
-					fujaba__Success = false;
+					useCase = (UseCase) fujaba__IterPackageDeclarationToUseCase
+							.next();
 
-					// bind object
-					__DEC_altFlow_flows_444271 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
-							.eContainer() : null;
+					// check object useCase is really bound
+					JavaSDM.ensure(useCase != null);
+					// check link flows from altFlow to useCase
+					JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
 
-					// check object __DEC_altFlow_flows_444271 is really bound
-					JavaSDM.ensure(__DEC_altFlow_flows_444271 != null);
+					// check link flows from flow to useCase
+					JavaSDM.ensure(useCase.equals(flow.eContainer()));
 
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_altFlow_flows_444271.getFlows()
-							.contains(altFlow));
+					// story node 'test core match and DECs'
+					try {
+						fujaba__Success = false;
 
-					// check isomorphic binding between objects __DEC_altFlow_flows_444271 and useCase 
-					JavaSDM.ensure(!__DEC_altFlow_flows_444271.equals(useCase));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_alt_stepAlternative_53585 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
-							.eContainer() : null;
-
-					// check object __DEC_alt_stepAlternative_53585 is really bound
-					JavaSDM.ensure(__DEC_alt_stepAlternative_53585 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_alt_stepAlternative_53585
-							.getStepAlternative().contains(alt));
-
-					// check isomorphic binding between objects __DEC_alt_stepAlternative_53585 and step 
-					JavaSDM.ensure(!__DEC_alt_stepAlternative_53585
-							.equals(step));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link ref from altFlow to __DEC_altFlow_ref_775077
-					fujaba__Success = false;
-
-					fujaba__IterAltFlowTo__DEC_altFlow_ref_775077 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(altFlow,
-											AlternativeFlowAlternative.class,
-											"ref")).iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterAltFlowTo__DEC_altFlow_ref_775077
-									.hasNext()) {
-						try {
-							__DEC_altFlow_ref_775077 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_775077
-									.next();
-
-							// check object __DEC_altFlow_ref_775077 is really bound
-							JavaSDM.ensure(__DEC_altFlow_ref_775077 != null);
-							// check isomorphic binding between objects __DEC_altFlow_ref_775077 and alt 
-							JavaSDM.ensure(!__DEC_altFlow_ref_775077
-									.equals(alt));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_ref is really bound
-				JavaSDM.ensure(_edge_ref != null);
-				// check object alt is really bound
-				JavaSDM.ensure(alt != null);
-				// check object altFlow is really bound
-				JavaSDM.ensure(altFlow != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object step is really bound
-				JavaSDM.ensure(step != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// check isomorphic binding between objects flow and altFlow 
-				JavaSDM.ensure(!flow.equals(altFlow));
-
-				// check link ref from alt to altFlow
-				JavaSDM.ensure(altFlow.equals(alt.getRef()));
-
-				// check link flows from altFlow to useCase
-				JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
-
-				// check link flows from flow to useCase
-				JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-				// check link src from _edge_ref to alt
-				JavaSDM.ensure(alt.equals(_edge_ref.getSrc()));
-
-				// check link stepAlternative from alt to step
-				JavaSDM.ensure(step.equals(alt.eContainer()));
-
-				// check link steps from step to flow
-				JavaSDM.ensure(flow.equals(step.eContainer()));
-
-				// check link trg from _edge_ref to altFlow
-				JavaSDM.ensure(altFlow.equals(_edge_ref.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, step, alt,
-						altFlow, flow, useCase);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
+						// check negative bindings
 						try {
 							fujaba__Success = false;
 
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
+							// bind object
+							__DEC_altFlow_flows_41124 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
+									.eContainer() : null;
 
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
+							// check object __DEC_altFlow_flows_41124 is really bound
+							JavaSDM.ensure(__DEC_altFlow_flows_41124 != null);
 
-							// create link
-							__result.getContents().add(match);
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_altFlow_flows_41124.getFlows()
+									.contains(altFlow));
+
+							// check isomorphic binding between objects __DEC_altFlow_flows_41124 and useCase 
+							JavaSDM.ensure(!__DEC_altFlow_flows_41124
+									.equals(useCase));
 
 							fujaba__Success = true;
 						} catch (JavaSDMException fujaba__InternalException) {
 							fujaba__Success = false;
 						}
 
-					} else {
+						fujaba__Success = !(fujaba__Success);
 
+						JavaSDM.ensure(fujaba__Success);
+
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// bind object
+							__DEC_alt_stepAlternative_82814 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
+									.eContainer() : null;
+
+							// check object __DEC_alt_stepAlternative_82814 is really bound
+							JavaSDM.ensure(__DEC_alt_stepAlternative_82814 != null);
+
+							// check if contained via correct reference
+							JavaSDM.ensure(__DEC_alt_stepAlternative_82814
+									.getStepAlternative().contains(alt));
+
+							// check isomorphic binding between objects __DEC_alt_stepAlternative_82814 and step 
+							JavaSDM.ensure(!__DEC_alt_stepAlternative_82814
+									.equals(step));
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// check negative bindings
+						try {
+							fujaba__Success = false;
+
+							// iterate to-many link ref from altFlow to __DEC_altFlow_ref_672285
+							fujaba__Success = false;
+
+							fujaba__IterAltFlowTo__DEC_altFlow_ref_672285 = new ArrayList(
+									org.moflon.util.eMoflonEMFUtil
+											.getOppositeReference(
+													altFlow,
+													AlternativeFlowAlternative.class,
+													"ref")).iterator();
+
+							while (!(fujaba__Success)
+									&& fujaba__IterAltFlowTo__DEC_altFlow_ref_672285
+											.hasNext()) {
+								try {
+									__DEC_altFlow_ref_672285 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_672285
+											.next();
+
+									// check object __DEC_altFlow_ref_672285 is really bound
+									JavaSDM.ensure(__DEC_altFlow_ref_672285 != null);
+									// check isomorphic binding between objects __DEC_altFlow_ref_672285 and alt 
+									JavaSDM.ensure(!__DEC_altFlow_ref_672285
+											.equals(alt));
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+							}
+							JavaSDM.ensure(fujaba__Success);
+
+							fujaba__Success = true;
+						} catch (JavaSDMException fujaba__InternalException) {
+							fujaba__Success = false;
+						}
+
+						fujaba__Success = !(fujaba__Success);
+
+						JavaSDM.ensure(fujaba__Success);
+
+						// check object _edge_ref is really bound
+						JavaSDM.ensure(_edge_ref != null);
+						// check object actor is really bound
+						JavaSDM.ensure(actor != null);
+						// check object alt is really bound
+						JavaSDM.ensure(alt != null);
+						// check object altFlow is really bound
+						JavaSDM.ensure(altFlow != null);
+						// check object flow is really bound
+						JavaSDM.ensure(flow != null);
+						// check object packageDeclaration is really bound
+						JavaSDM.ensure(packageDeclaration != null);
+						// check object step is really bound
+						JavaSDM.ensure(step != null);
+						// check object useCase is really bound
+						JavaSDM.ensure(useCase != null);
+						// check isomorphic binding between objects flow and altFlow 
+						JavaSDM.ensure(!flow.equals(altFlow));
+
+						// check link actor from step to actor
+						JavaSDM.ensure(actor.equals(step.getActor()));
+
+						// check link ref from alt to altFlow
+						JavaSDM.ensure(altFlow.equals(alt.getRef()));
+
+						// check link actors from actor to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(actor
+								.eContainer()));
+
+						// check link flows from altFlow to useCase
+						JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
+
+						// check link flows from flow to useCase
+						JavaSDM.ensure(useCase.equals(flow.eContainer()));
+
+						// check link src from _edge_ref to alt
+						JavaSDM.ensure(alt.equals(_edge_ref.getSrc()));
+
+						// check link stepAlternative from alt to step
+						JavaSDM.ensure(step.equals(alt.eContainer()));
+
+						// check link steps from step to flow
+						JavaSDM.ensure(flow.equals(step.eContainer()));
+
+						// check link trg from _edge_ref to altFlow
+						JavaSDM.ensure(altFlow.equals(_edge_ref.getTrg()));
+
+						// check link useCases from useCase to packageDeclaration
+						JavaSDM.ensure(packageDeclaration.equals(useCase
+								.eContainer()));
+
+						// create object match
+						match = TGGRuntimeFactory.eINSTANCE.createMatch();
+
+						// assign attribute match
+						match.setRuleName(__eClass.getName());
+						// statement node 'bookkeeping with generic isAppropriate method'
+						fujaba__Success = this.isAppropriate_FWD(match, actor,
+								packageDeclaration, step, alt, altFlow, flow,
+								useCase);
+						if (fujaba__Success) {
+							// statement node 'Ensure that the correct types of elements are matched'
+							fujaba__Success = this.checkTypes_FWD(match);
+							if (fujaba__Success) {
+								// story node 'Add match to rule result'
+								try {
+									fujaba__Success = false;
+
+									// check object __performOperation is really bound
+									JavaSDM.ensure(__performOperation != null);
+									// check object __result is really bound
+									JavaSDM.ensure(__result != null);
+									// check object match is really bound
+									JavaSDM.ensure(match != null);
+
+									// create link
+									org.moflon.util.eMoflonEMFUtil
+											.addOppositeReference(match,
+													__performOperation,
+													"isApplicableOperation");
+
+									// create link
+									__result.getContents().add(match);
+
+									fujaba__Success = true;
+								} catch (JavaSDMException fujaba__InternalException) {
+									fujaba__Success = false;
+								}
+
+							} else {
+
+							}
+
+						} else {
+
+						}
+						fujaba__Success = true;
+					} catch (JavaSDMException fujaba__InternalException) {
+						fujaba__Success = false;
 					}
 
-				} else {
-
+					fujaba__Success = true;
+				} catch (JavaSDMException fujaba__InternalException) {
+					fujaba__Success = false;
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
 			}
+			JavaSDM.ensure(fujaba__Success);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -4035,7 +5159,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_105(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_357(
 			EMoflonEdge _edge_guard) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4043,10 +5167,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		InteractionOperand __DEC_operand_fragment_941486 = null;
-		InteractionOperand __DEC_guard_guard_755150 = null;
-		CombinedFragment __DEC_operand_operand_796509 = null;
-		Constraint __DEC_spec_specification_565151 = null;
+		InteractionOperand __DEC_operand_fragment_846083 = null;
+		InteractionOperand __DEC_guard_guard_115505 = null;
+		CombinedFragment __DEC_operand_operand_131981 = null;
+		Constraint __DEC_spec_specification_418416 = null;
 		Match match = null;
 		Iterator fujaba__IterOperandToLine = null;
 		Lifeline line = null;
@@ -4135,7 +5259,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check link trg from _edge_guard to guard
 			JavaSDM.ensure(guard.equals(_edge_guard.getTrg()));
 
-			// iterate to-many link covered from operand to line
+			// iterate to-many link coveredBy from operand to line
 			fujaba__Success = false;
 
 			fujaba__IterOperandToLine = new ArrayList(operand.getCovered())
@@ -4147,7 +5271,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 					// check object line is really bound
 					JavaSDM.ensure(line != null);
-					// check link covered from line to combo
+					// check link coveredBy from line to combo
 					JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
 					// story node 'test core match and DECs'
@@ -4161,14 +5285,14 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_fragment_941486 = operand
+							__DEC_operand_fragment_846083 = operand
 									.getEnclosingOperand();
 
-							// check object __DEC_operand_fragment_941486 is really bound
-							JavaSDM.ensure(__DEC_operand_fragment_941486 != null);
+							// check object __DEC_operand_fragment_846083 is really bound
+							JavaSDM.ensure(__DEC_operand_fragment_846083 != null);
 
-							// check isomorphic binding between objects __DEC_operand_fragment_941486 and operand 
-							JavaSDM.ensure(!__DEC_operand_fragment_941486
+							// check isomorphic binding between objects __DEC_operand_fragment_846083 and operand 
+							JavaSDM.ensure(!__DEC_operand_fragment_846083
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -4195,18 +5319,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_guard_guard_755150 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+							__DEC_guard_guard_115505 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 									.eContainer() : null;
 
-							// check object __DEC_guard_guard_755150 is really bound
-							JavaSDM.ensure(__DEC_guard_guard_755150 != null);
+							// check object __DEC_guard_guard_115505 is really bound
+							JavaSDM.ensure(__DEC_guard_guard_115505 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(guard
-									.equals(__DEC_guard_guard_755150.getGuard()));
+									.equals(__DEC_guard_guard_115505.getGuard()));
 
-							// check isomorphic binding between objects __DEC_guard_guard_755150 and operand 
-							JavaSDM.ensure(!__DEC_guard_guard_755150
+							// check isomorphic binding between objects __DEC_guard_guard_115505 and operand 
+							JavaSDM.ensure(!__DEC_guard_guard_115505
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -4223,18 +5347,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_operand_796509 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+							__DEC_operand_operand_131981 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 									.eContainer() : null;
 
-							// check object __DEC_operand_operand_796509 is really bound
-							JavaSDM.ensure(__DEC_operand_operand_796509 != null);
+							// check object __DEC_operand_operand_131981 is really bound
+							JavaSDM.ensure(__DEC_operand_operand_131981 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_operand_operand_796509
+							JavaSDM.ensure(__DEC_operand_operand_131981
 									.getOperand().contains(operand));
 
-							// check isomorphic binding between objects __DEC_operand_operand_796509 and combo 
-							JavaSDM.ensure(!__DEC_operand_operand_796509
+							// check isomorphic binding between objects __DEC_operand_operand_131981 and combo 
+							JavaSDM.ensure(!__DEC_operand_operand_131981
 									.equals(combo));
 
 							fujaba__Success = true;
@@ -4251,19 +5375,19 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_spec_specification_565151 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+							__DEC_spec_specification_418416 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 									.eContainer() : null;
 
-							// check object __DEC_spec_specification_565151 is really bound
-							JavaSDM.ensure(__DEC_spec_specification_565151 != null);
+							// check object __DEC_spec_specification_418416 is really bound
+							JavaSDM.ensure(__DEC_spec_specification_418416 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(spec
-									.equals(__DEC_spec_specification_565151
+									.equals(__DEC_spec_specification_418416
 											.getSpecification()));
 
-							// check isomorphic binding between objects __DEC_spec_specification_565151 and guard 
-							JavaSDM.ensure(!__DEC_spec_specification_565151
+							// check isomorphic binding between objects __DEC_spec_specification_418416 and guard 
+							JavaSDM.ensure(!__DEC_spec_specification_418416
 									.equals(guard));
 
 							fujaba__Success = true;
@@ -4310,10 +5434,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						// check link trg from _edge_guard to guard
 						JavaSDM.ensure(guard.equals(_edge_guard.getTrg()));
 
-						// check link covered from line to combo
+						// check link coveredBy from line to combo
 						JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
-						// check link covered from line to operand
+						// check link coveredBy from line to operand
 						JavaSDM.ensure(line.getCoveredBy().contains(operand));
 
 						// create object match
@@ -4385,7 +5509,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_106(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_358(
 			EMoflonEdge _edge_coveredBy) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4393,10 +5517,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		InteractionOperand __DEC_operand_fragment_712127 = null;
-		InteractionOperand __DEC_guard_guard_508580 = null;
-		CombinedFragment __DEC_operand_operand_514502 = null;
-		Constraint __DEC_spec_specification_404016 = null;
+		InteractionOperand __DEC_operand_fragment_87454 = null;
+		InteractionOperand __DEC_guard_guard_76497 = null;
+		CombinedFragment __DEC_operand_operand_175802 = null;
+		Constraint __DEC_spec_specification_692872 = null;
 		Match match = null;
 		LiteralString spec = null;
 		CombinedFragment combo = null;
@@ -4488,10 +5612,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof LiteralString);
 			spec = (LiteralString) _TmpObject;
 
-			// check link covered from line to combo
+			// check link coveredBy from line to combo
 			JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
-			// check link covered from line to operand
+			// check link coveredBy from line to operand
 			JavaSDM.ensure(line.getCoveredBy().contains(operand));
 
 			// story node 'test core match and DECs'
@@ -4505,14 +5629,14 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_operand_fragment_712127 = operand
+					__DEC_operand_fragment_87454 = operand
 							.getEnclosingOperand();
 
-					// check object __DEC_operand_fragment_712127 is really bound
-					JavaSDM.ensure(__DEC_operand_fragment_712127 != null);
+					// check object __DEC_operand_fragment_87454 is really bound
+					JavaSDM.ensure(__DEC_operand_fragment_87454 != null);
 
-					// check isomorphic binding between objects __DEC_operand_fragment_712127 and operand 
-					JavaSDM.ensure(!__DEC_operand_fragment_712127
+					// check isomorphic binding between objects __DEC_operand_fragment_87454 and operand 
+					JavaSDM.ensure(!__DEC_operand_fragment_87454
 							.equals(operand));
 
 					fujaba__Success = true;
@@ -4539,18 +5663,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_guard_guard_508580 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+					__DEC_guard_guard_76497 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 							.eContainer() : null;
 
-					// check object __DEC_guard_guard_508580 is really bound
-					JavaSDM.ensure(__DEC_guard_guard_508580 != null);
+					// check object __DEC_guard_guard_76497 is really bound
+					JavaSDM.ensure(__DEC_guard_guard_76497 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(guard.equals(__DEC_guard_guard_508580
+					JavaSDM.ensure(guard.equals(__DEC_guard_guard_76497
 							.getGuard()));
 
-					// check isomorphic binding between objects __DEC_guard_guard_508580 and operand 
-					JavaSDM.ensure(!__DEC_guard_guard_508580.equals(operand));
+					// check isomorphic binding between objects __DEC_guard_guard_76497 and operand 
+					JavaSDM.ensure(!__DEC_guard_guard_76497.equals(operand));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -4566,18 +5690,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_operand_operand_514502 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+					__DEC_operand_operand_175802 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 							.eContainer() : null;
 
-					// check object __DEC_operand_operand_514502 is really bound
-					JavaSDM.ensure(__DEC_operand_operand_514502 != null);
+					// check object __DEC_operand_operand_175802 is really bound
+					JavaSDM.ensure(__DEC_operand_operand_175802 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_operand_operand_514502.getOperand()
+					JavaSDM.ensure(__DEC_operand_operand_175802.getOperand()
 							.contains(operand));
 
-					// check isomorphic binding between objects __DEC_operand_operand_514502 and combo 
-					JavaSDM.ensure(!__DEC_operand_operand_514502.equals(combo));
+					// check isomorphic binding between objects __DEC_operand_operand_175802 and combo 
+					JavaSDM.ensure(!__DEC_operand_operand_175802.equals(combo));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -4593,18 +5717,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_spec_specification_404016 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+					__DEC_spec_specification_692872 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 							.eContainer() : null;
 
-					// check object __DEC_spec_specification_404016 is really bound
-					JavaSDM.ensure(__DEC_spec_specification_404016 != null);
+					// check object __DEC_spec_specification_692872 is really bound
+					JavaSDM.ensure(__DEC_spec_specification_692872 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(spec.equals(__DEC_spec_specification_404016
+					JavaSDM.ensure(spec.equals(__DEC_spec_specification_692872
 							.getSpecification()));
 
-					// check isomorphic binding between objects __DEC_spec_specification_404016 and guard 
-					JavaSDM.ensure(!__DEC_spec_specification_404016
+					// check isomorphic binding between objects __DEC_spec_specification_692872 and guard 
+					JavaSDM.ensure(!__DEC_spec_specification_692872
 							.equals(guard));
 
 					fujaba__Success = true;
@@ -4649,10 +5773,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				// check link trg from _edge_coveredBy to operand
 				JavaSDM.ensure(operand.equals(_edge_coveredBy.getTrg()));
 
-				// check link covered from line to combo
+				// check link coveredBy from line to combo
 				JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
-				// check link covered from line to operand
+				// check link coveredBy from line to operand
 				JavaSDM.ensure(line.getCoveredBy().contains(operand));
 
 				// create object match
@@ -4717,7 +5841,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_107(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_359(
 			EMoflonEdge _edge_covered) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -4725,18 +5849,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		InteractionOperand __DEC_operand_fragment_363869 = null;
-		InteractionOperand __DEC_guard_guard_175535 = null;
-		CombinedFragment __DEC_operand_operand_873107 = null;
-		Constraint __DEC_spec_specification_607536 = null;
+		InteractionOperand __DEC_operand_fragment_272248 = null;
+		InteractionOperand __DEC_guard_guard_453625 = null;
+		CombinedFragment __DEC_operand_operand_710917 = null;
+		Constraint __DEC_spec_specification_473013 = null;
 		Match match = null;
 		Iterator fujaba__IterOperandTo_edge_coveredBy = null;
 		EMoflonEdge _edge_coveredBy = null;
+		Lifeline line = null;
 		LiteralString spec = null;
 		CombinedFragment combo = null;
 		InteractionConstraint guard = null;
 		InteractionOperand operand = null;
-		Lifeline line = null;
 
 		// story node 'prepare return value'
 		try {
@@ -4786,13 +5910,6 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check object _edge_covered is really bound
 			JavaSDM.ensure(_edge_covered != null);
 			// bind object
-			_TmpObject = _edge_covered.getTrg();
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-
-			// bind object
 			_TmpObject = _edge_covered.getSrc();
 
 			// ensure correct type and really bound of object operand
@@ -4822,10 +5939,17 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			JavaSDM.ensure(_TmpObject instanceof LiteralString);
 			spec = (LiteralString) _TmpObject;
 
-			// check link covered from line to combo
+			// bind object
+			_TmpObject = _edge_covered.getTrg();
+
+			// ensure correct type and really bound of object line
+			JavaSDM.ensure(_TmpObject instanceof Lifeline);
+			line = (Lifeline) _TmpObject;
+
+			// check link coveredBy from line to combo
 			JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
-			// check link covered from line to operand
+			// check link coveredBy from line to operand
 			JavaSDM.ensure(line.getCoveredBy().contains(operand));
 
 			// iterate to-many link trg from operand to _edge_coveredBy
@@ -4859,14 +5983,14 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_fragment_363869 = operand
+							__DEC_operand_fragment_272248 = operand
 									.getEnclosingOperand();
 
-							// check object __DEC_operand_fragment_363869 is really bound
-							JavaSDM.ensure(__DEC_operand_fragment_363869 != null);
+							// check object __DEC_operand_fragment_272248 is really bound
+							JavaSDM.ensure(__DEC_operand_fragment_272248 != null);
 
-							// check isomorphic binding between objects __DEC_operand_fragment_363869 and operand 
-							JavaSDM.ensure(!__DEC_operand_fragment_363869
+							// check isomorphic binding between objects __DEC_operand_fragment_272248 and operand 
+							JavaSDM.ensure(!__DEC_operand_fragment_272248
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -4893,18 +6017,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_guard_guard_175535 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+							__DEC_guard_guard_453625 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 									.eContainer() : null;
 
-							// check object __DEC_guard_guard_175535 is really bound
-							JavaSDM.ensure(__DEC_guard_guard_175535 != null);
+							// check object __DEC_guard_guard_453625 is really bound
+							JavaSDM.ensure(__DEC_guard_guard_453625 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(guard
-									.equals(__DEC_guard_guard_175535.getGuard()));
+									.equals(__DEC_guard_guard_453625.getGuard()));
 
-							// check isomorphic binding between objects __DEC_guard_guard_175535 and operand 
-							JavaSDM.ensure(!__DEC_guard_guard_175535
+							// check isomorphic binding between objects __DEC_guard_guard_453625 and operand 
+							JavaSDM.ensure(!__DEC_guard_guard_453625
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -4921,18 +6045,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_operand_873107 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+							__DEC_operand_operand_710917 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 									.eContainer() : null;
 
-							// check object __DEC_operand_operand_873107 is really bound
-							JavaSDM.ensure(__DEC_operand_operand_873107 != null);
+							// check object __DEC_operand_operand_710917 is really bound
+							JavaSDM.ensure(__DEC_operand_operand_710917 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_operand_operand_873107
+							JavaSDM.ensure(__DEC_operand_operand_710917
 									.getOperand().contains(operand));
 
-							// check isomorphic binding between objects __DEC_operand_operand_873107 and combo 
-							JavaSDM.ensure(!__DEC_operand_operand_873107
+							// check isomorphic binding between objects __DEC_operand_operand_710917 and combo 
+							JavaSDM.ensure(!__DEC_operand_operand_710917
 									.equals(combo));
 
 							fujaba__Success = true;
@@ -4949,19 +6073,19 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_spec_specification_607536 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+							__DEC_spec_specification_473013 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 									.eContainer() : null;
 
-							// check object __DEC_spec_specification_607536 is really bound
-							JavaSDM.ensure(__DEC_spec_specification_607536 != null);
+							// check object __DEC_spec_specification_473013 is really bound
+							JavaSDM.ensure(__DEC_spec_specification_473013 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(spec
-									.equals(__DEC_spec_specification_607536
+									.equals(__DEC_spec_specification_473013
 											.getSpecification()));
 
-							// check isomorphic binding between objects __DEC_spec_specification_607536 and guard 
-							JavaSDM.ensure(!__DEC_spec_specification_607536
+							// check isomorphic binding between objects __DEC_spec_specification_473013 and guard 
+							JavaSDM.ensure(!__DEC_spec_specification_473013
 									.equals(guard));
 
 							fujaba__Success = true;
@@ -5019,10 +6143,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						// check link trg from _edge_coveredBy to operand
 						JavaSDM.ensure(operand.equals(_edge_coveredBy.getTrg()));
 
-						// check link covered from line to combo
+						// check link coveredBy from line to combo
 						JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
-						// check link covered from line to operand
+						// check link coveredBy from line to operand
 						JavaSDM.ensure(line.getCoveredBy().contains(operand));
 
 						// create object match
@@ -5094,7 +6218,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_108(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_360(
 			EMoflonEdge _edge_specification) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5102,10 +6226,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		InteractionOperand __DEC_operand_fragment_733409 = null;
-		InteractionOperand __DEC_guard_guard_953790 = null;
-		CombinedFragment __DEC_operand_operand_41588 = null;
-		Constraint __DEC_spec_specification_305770 = null;
+		InteractionOperand __DEC_operand_fragment_710127 = null;
+		InteractionOperand __DEC_guard_guard_689544 = null;
+		CombinedFragment __DEC_operand_operand_22734 = null;
+		Constraint __DEC_spec_specification_951944 = null;
 		Match match = null;
 		Iterator fujaba__IterOperandToLine = null;
 		Lifeline line = null;
@@ -5198,7 +6322,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			// check link specification from spec to guard
 			JavaSDM.ensure(guard.equals(spec.eContainer()));
 
-			// iterate to-many link covered from operand to line
+			// iterate to-many link coveredBy from operand to line
 			fujaba__Success = false;
 
 			fujaba__IterOperandToLine = new ArrayList(operand.getCovered())
@@ -5210,7 +6334,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 					// check object line is really bound
 					JavaSDM.ensure(line != null);
-					// check link covered from line to combo
+					// check link coveredBy from line to combo
 					JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
 					// story node 'test core match and DECs'
@@ -5224,14 +6348,14 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_fragment_733409 = operand
+							__DEC_operand_fragment_710127 = operand
 									.getEnclosingOperand();
 
-							// check object __DEC_operand_fragment_733409 is really bound
-							JavaSDM.ensure(__DEC_operand_fragment_733409 != null);
+							// check object __DEC_operand_fragment_710127 is really bound
+							JavaSDM.ensure(__DEC_operand_fragment_710127 != null);
 
-							// check isomorphic binding between objects __DEC_operand_fragment_733409 and operand 
-							JavaSDM.ensure(!__DEC_operand_fragment_733409
+							// check isomorphic binding between objects __DEC_operand_fragment_710127 and operand 
+							JavaSDM.ensure(!__DEC_operand_fragment_710127
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -5258,18 +6382,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_guard_guard_953790 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+							__DEC_guard_guard_689544 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 									.eContainer() : null;
 
-							// check object __DEC_guard_guard_953790 is really bound
-							JavaSDM.ensure(__DEC_guard_guard_953790 != null);
+							// check object __DEC_guard_guard_689544 is really bound
+							JavaSDM.ensure(__DEC_guard_guard_689544 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(guard
-									.equals(__DEC_guard_guard_953790.getGuard()));
+									.equals(__DEC_guard_guard_689544.getGuard()));
 
-							// check isomorphic binding between objects __DEC_guard_guard_953790 and operand 
-							JavaSDM.ensure(!__DEC_guard_guard_953790
+							// check isomorphic binding between objects __DEC_guard_guard_689544 and operand 
+							JavaSDM.ensure(!__DEC_guard_guard_689544
 									.equals(operand));
 
 							fujaba__Success = true;
@@ -5286,18 +6410,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_operand_operand_41588 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+							__DEC_operand_operand_22734 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 									.eContainer() : null;
 
-							// check object __DEC_operand_operand_41588 is really bound
-							JavaSDM.ensure(__DEC_operand_operand_41588 != null);
+							// check object __DEC_operand_operand_22734 is really bound
+							JavaSDM.ensure(__DEC_operand_operand_22734 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_operand_operand_41588
+							JavaSDM.ensure(__DEC_operand_operand_22734
 									.getOperand().contains(operand));
 
-							// check isomorphic binding between objects __DEC_operand_operand_41588 and combo 
-							JavaSDM.ensure(!__DEC_operand_operand_41588
+							// check isomorphic binding between objects __DEC_operand_operand_22734 and combo 
+							JavaSDM.ensure(!__DEC_operand_operand_22734
 									.equals(combo));
 
 							fujaba__Success = true;
@@ -5314,19 +6438,19 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_spec_specification_305770 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+							__DEC_spec_specification_951944 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 									.eContainer() : null;
 
-							// check object __DEC_spec_specification_305770 is really bound
-							JavaSDM.ensure(__DEC_spec_specification_305770 != null);
+							// check object __DEC_spec_specification_951944 is really bound
+							JavaSDM.ensure(__DEC_spec_specification_951944 != null);
 
 							// check if contained via correct reference
 							JavaSDM.ensure(spec
-									.equals(__DEC_spec_specification_305770
+									.equals(__DEC_spec_specification_951944
 											.getSpecification()));
 
-							// check isomorphic binding between objects __DEC_spec_specification_305770 and guard 
-							JavaSDM.ensure(!__DEC_spec_specification_305770
+							// check isomorphic binding between objects __DEC_spec_specification_951944 and guard 
+							JavaSDM.ensure(!__DEC_spec_specification_951944
 									.equals(guard));
 
 							fujaba__Success = true;
@@ -5374,10 +6498,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						// check link trg from _edge_specification to spec
 						JavaSDM.ensure(spec.equals(_edge_specification.getTrg()));
 
-						// check link covered from line to combo
+						// check link coveredBy from line to combo
 						JavaSDM.ensure(line.getCoveredBy().contains(combo));
 
-						// check link covered from line to operand
+						// check link coveredBy from line to operand
 						JavaSDM.ensure(line.getCoveredBy().contains(operand));
 
 						// create object match
@@ -5449,7 +6573,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_28(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_88(
 			EMoflonEdge _edge_flows) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -5457,16 +6581,20 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_altFlow_flows_141748 = null;
-		NormalStep __DEC_alt_stepAlternative_901075 = null;
-		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_990381 = null;
-		AlternativeFlowAlternative __DEC_altFlow_ref_990381 = null;
+		UseCase __DEC_altFlow_flows_280078 = null;
+		NormalStep __DEC_alt_stepAlternative_410539 = null;
+		Iterator fujaba__IterAltFlowTo__DEC_altFlow_ref_57271 = null;
+		AlternativeFlowAlternative __DEC_altFlow_ref_57271 = null;
 		Match match = null;
-		Flow flow = null;
-		NormalStep step = null;
-		Iterator fujaba__IterAltFlowToAlt = null;
-		AlternativeFlowAlternative alt = null;
 		AlternativeFlow altFlow = null;
+		Iterator fujaba__IterStepToAlt = null;
+		AlternativeFlowAlternative alt = null;
+		Flow flow = null;
+		Iterator fujaba__IterActorToStep = null;
+		NormalStep step = null;
+		Iterator fujaba__IterPackageDeclarationToActor = null;
+		Actor actor = null;
+		PackageDeclaration packageDeclaration = null;
 		UseCase useCase = null;
 
 		// story node 'prepare return value'
@@ -5524,142 +6652,310 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			useCase = (UseCase) _TmpObject;
 
 			// bind object
-			_TmpObject = _edge_flows.getTrg();
+			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
+					.eContainer() : null;
 
-			// ensure correct type and really bound of object altFlow
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-			altFlow = (AlternativeFlow) _TmpObject;
+			// check object packageDeclaration is really bound
+			JavaSDM.ensure(packageDeclaration != null);
 
-			// check link flows from altFlow to useCase
-			JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
+			// check if contained via correct reference
+			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
 
-			// iterate to-many link ref from altFlow to alt
+			// iterate to-many link actors from packageDeclaration to actor
 			fujaba__Success = false;
 
-			fujaba__IterAltFlowToAlt = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							altFlow, AlternativeFlowAlternative.class, "ref"))
-					.iterator();
+			fujaba__IterPackageDeclarationToActor = new ArrayList(
+					packageDeclaration.getActors()).iterator();
 
-			while (fujaba__IterAltFlowToAlt.hasNext()) {
+			while (fujaba__IterPackageDeclarationToActor.hasNext()) {
 				try {
-					alt = (AlternativeFlowAlternative) fujaba__IterAltFlowToAlt
+					actor = (Actor) fujaba__IterPackageDeclarationToActor
 							.next();
 
-					// check object alt is really bound
-					JavaSDM.ensure(alt != null);
-					// bind object
-					step = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
-							.eContainer() : null;
+					// check object actor is really bound
+					JavaSDM.ensure(actor != null);
+					// iterate to-many link actor from actor to step
+					fujaba__Success = false;
 
-					// check object step is really bound
-					JavaSDM.ensure(step != null);
+					fujaba__IterActorToStep = new ArrayList(
+							org.moflon.util.eMoflonEMFUtil
+									.getOppositeReference(actor,
+											NormalStep.class, "actor"))
+							.iterator();
 
-					// check if contained via correct reference
-					JavaSDM.ensure(step.getStepAlternative().contains(alt));
-
-					// bind object
-					flow = step.eContainer() instanceof Flow ? (Flow) step
-							.eContainer() : null;
-
-					// check object flow is really bound
-					JavaSDM.ensure(flow != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(flow.getSteps().contains(step));
-
-					// check isomorphic binding between objects flow and altFlow 
-					JavaSDM.ensure(!flow.equals(altFlow));
-
-					// check link flows from flow to useCase
-					JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// check negative bindings
+					while (fujaba__IterActorToStep.hasNext()) {
 						try {
-							fujaba__Success = false;
+							step = (NormalStep) fujaba__IterActorToStep.next();
 
+							// check object step is really bound
+							JavaSDM.ensure(step != null);
 							// bind object
-							__DEC_altFlow_flows_141748 = altFlow.eContainer() instanceof UseCase ? (UseCase) altFlow
+							flow = step.eContainer() instanceof Flow ? (Flow) step
 									.eContainer() : null;
 
-							// check object __DEC_altFlow_flows_141748 is really bound
-							JavaSDM.ensure(__DEC_altFlow_flows_141748 != null);
+							// check object flow is really bound
+							JavaSDM.ensure(flow != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_altFlow_flows_141748
-									.getFlows().contains(altFlow));
+							JavaSDM.ensure(flow.getSteps().contains(step));
 
-							// check isomorphic binding between objects __DEC_altFlow_flows_141748 and useCase 
-							JavaSDM.ensure(!__DEC_altFlow_flows_141748
-									.equals(useCase));
+							// check link flows from flow to useCase
+							JavaSDM.ensure(useCase.equals(flow.eContainer()));
 
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
+							// iterate to-many link stepAlternative from step to alt
 							fujaba__Success = false;
 
-							// bind object
-							__DEC_alt_stepAlternative_901075 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
-									.eContainer() : null;
+							fujaba__IterStepToAlt = new ArrayList(
+									step.getStepAlternative()).iterator();
 
-							// check object __DEC_alt_stepAlternative_901075 is really bound
-							JavaSDM.ensure(__DEC_alt_stepAlternative_901075 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_alt_stepAlternative_901075
-									.getStepAlternative().contains(alt));
-
-							// check isomorphic binding between objects __DEC_alt_stepAlternative_901075 and step 
-							JavaSDM.ensure(!__DEC_alt_stepAlternative_901075
-									.equals(step));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link ref from altFlow to __DEC_altFlow_ref_990381
-							fujaba__Success = false;
-
-							fujaba__IterAltFlowTo__DEC_altFlow_ref_990381 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													altFlow,
-													AlternativeFlowAlternative.class,
-													"ref")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterAltFlowTo__DEC_altFlow_ref_990381
-											.hasNext()) {
+							while (fujaba__IterStepToAlt.hasNext()) {
 								try {
-									__DEC_altFlow_ref_990381 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_990381
-											.next();
+									_TmpObject = fujaba__IterStepToAlt.next();
 
-									// check object __DEC_altFlow_ref_990381 is really bound
-									JavaSDM.ensure(__DEC_altFlow_ref_990381 != null);
-									// check isomorphic binding between objects __DEC_altFlow_ref_990381 and alt 
-									JavaSDM.ensure(!__DEC_altFlow_ref_990381
-											.equals(alt));
+									// ensure correct type and really bound of object alt
+									JavaSDM.ensure(_TmpObject instanceof AlternativeFlowAlternative);
+									alt = (AlternativeFlowAlternative) _TmpObject;
+									// bind object
+									_TmpObject = alt.getRef();
+
+									// ensure correct type and really bound of object altFlow
+									JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
+									altFlow = (AlternativeFlow) _TmpObject;
+
+									// check isomorphic binding between objects flow and altFlow 
+									JavaSDM.ensure(!flow.equals(altFlow));
+
+									// check link flows from altFlow to useCase
+									JavaSDM.ensure(useCase.equals(altFlow
+											.eContainer()));
+
+									// check link trg from _edge_flows to altFlow
+									JavaSDM.ensure(altFlow.equals(_edge_flows
+											.getTrg()));
+
+									// story node 'test core match and DECs'
+									try {
+										fujaba__Success = false;
+
+										// check negative bindings
+										try {
+											fujaba__Success = false;
+
+											// bind object
+											__DEC_altFlow_flows_280078 = altFlow
+													.eContainer() instanceof UseCase ? (UseCase) altFlow
+													.eContainer() : null;
+
+											// check object __DEC_altFlow_flows_280078 is really bound
+											JavaSDM.ensure(__DEC_altFlow_flows_280078 != null);
+
+											// check if contained via correct reference
+											JavaSDM.ensure(__DEC_altFlow_flows_280078
+													.getFlows().contains(
+															altFlow));
+
+											// check isomorphic binding between objects __DEC_altFlow_flows_280078 and useCase 
+											JavaSDM.ensure(!__DEC_altFlow_flows_280078
+													.equals(useCase));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+										fujaba__Success = !(fujaba__Success);
+
+										JavaSDM.ensure(fujaba__Success);
+
+										// check negative bindings
+										try {
+											fujaba__Success = false;
+
+											// bind object
+											__DEC_alt_stepAlternative_410539 = alt
+													.eContainer() instanceof NormalStep ? (NormalStep) alt
+													.eContainer() : null;
+
+											// check object __DEC_alt_stepAlternative_410539 is really bound
+											JavaSDM.ensure(__DEC_alt_stepAlternative_410539 != null);
+
+											// check if contained via correct reference
+											JavaSDM.ensure(__DEC_alt_stepAlternative_410539
+													.getStepAlternative()
+													.contains(alt));
+
+											// check isomorphic binding between objects __DEC_alt_stepAlternative_410539 and step 
+											JavaSDM.ensure(!__DEC_alt_stepAlternative_410539
+													.equals(step));
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+										fujaba__Success = !(fujaba__Success);
+
+										JavaSDM.ensure(fujaba__Success);
+
+										// check negative bindings
+										try {
+											fujaba__Success = false;
+
+											// iterate to-many link ref from altFlow to __DEC_altFlow_ref_57271
+											fujaba__Success = false;
+
+											fujaba__IterAltFlowTo__DEC_altFlow_ref_57271 = new ArrayList(
+													org.moflon.util.eMoflonEMFUtil
+															.getOppositeReference(
+																	altFlow,
+																	AlternativeFlowAlternative.class,
+																	"ref"))
+													.iterator();
+
+											while (!(fujaba__Success)
+													&& fujaba__IterAltFlowTo__DEC_altFlow_ref_57271
+															.hasNext()) {
+												try {
+													__DEC_altFlow_ref_57271 = (AlternativeFlowAlternative) fujaba__IterAltFlowTo__DEC_altFlow_ref_57271
+															.next();
+
+													// check object __DEC_altFlow_ref_57271 is really bound
+													JavaSDM.ensure(__DEC_altFlow_ref_57271 != null);
+													// check isomorphic binding between objects __DEC_altFlow_ref_57271 and alt 
+													JavaSDM.ensure(!__DEC_altFlow_ref_57271
+															.equals(alt));
+
+													fujaba__Success = true;
+												} catch (JavaSDMException fujaba__InternalException) {
+													fujaba__Success = false;
+												}
+											}
+											JavaSDM.ensure(fujaba__Success);
+
+											fujaba__Success = true;
+										} catch (JavaSDMException fujaba__InternalException) {
+											fujaba__Success = false;
+										}
+
+										fujaba__Success = !(fujaba__Success);
+
+										JavaSDM.ensure(fujaba__Success);
+
+										// check object _edge_flows is really bound
+										JavaSDM.ensure(_edge_flows != null);
+										// check object actor is really bound
+										JavaSDM.ensure(actor != null);
+										// check object alt is really bound
+										JavaSDM.ensure(alt != null);
+										// check object altFlow is really bound
+										JavaSDM.ensure(altFlow != null);
+										// check object flow is really bound
+										JavaSDM.ensure(flow != null);
+										// check object packageDeclaration is really bound
+										JavaSDM.ensure(packageDeclaration != null);
+										// check object step is really bound
+										JavaSDM.ensure(step != null);
+										// check object useCase is really bound
+										JavaSDM.ensure(useCase != null);
+										// check isomorphic binding between objects flow and altFlow 
+										JavaSDM.ensure(!flow.equals(altFlow));
+
+										// check link actor from step to actor
+										JavaSDM.ensure(actor.equals(step
+												.getActor()));
+
+										// check link ref from alt to altFlow
+										JavaSDM.ensure(altFlow.equals(alt
+												.getRef()));
+
+										// check link actors from actor to packageDeclaration
+										JavaSDM.ensure(packageDeclaration
+												.equals(actor.eContainer()));
+
+										// check link flows from altFlow to useCase
+										JavaSDM.ensure(useCase.equals(altFlow
+												.eContainer()));
+
+										// check link flows from flow to useCase
+										JavaSDM.ensure(useCase.equals(flow
+												.eContainer()));
+
+										// check link src from _edge_flows to useCase
+										JavaSDM.ensure(useCase
+												.equals(_edge_flows.getSrc()));
+
+										// check link stepAlternative from alt to step
+										JavaSDM.ensure(step.equals(alt
+												.eContainer()));
+
+										// check link steps from step to flow
+										JavaSDM.ensure(flow.equals(step
+												.eContainer()));
+
+										// check link trg from _edge_flows to altFlow
+										JavaSDM.ensure(altFlow
+												.equals(_edge_flows.getTrg()));
+
+										// check link useCases from useCase to packageDeclaration
+										JavaSDM.ensure(packageDeclaration
+												.equals(useCase.eContainer()));
+
+										// create object match
+										match = TGGRuntimeFactory.eINSTANCE
+												.createMatch();
+
+										// assign attribute match
+										match.setRuleName(__eClass.getName());
+										// statement node 'bookkeeping with generic isAppropriate method'
+										fujaba__Success = this
+												.isAppropriate_FWD(match,
+														actor,
+														packageDeclaration,
+														step, alt, altFlow,
+														flow, useCase);
+										if (fujaba__Success) {
+											// statement node 'Ensure that the correct types of elements are matched'
+											fujaba__Success = this
+													.checkTypes_FWD(match);
+											if (fujaba__Success) {
+												// story node 'Add match to rule result'
+												try {
+													fujaba__Success = false;
+
+													// check object __performOperation is really bound
+													JavaSDM.ensure(__performOperation != null);
+													// check object __result is really bound
+													JavaSDM.ensure(__result != null);
+													// check object match is really bound
+													JavaSDM.ensure(match != null);
+
+													// create link
+													org.moflon.util.eMoflonEMFUtil
+															.addOppositeReference(
+																	match,
+																	__performOperation,
+																	"isApplicableOperation");
+
+													// create link
+													__result.getContents().add(
+															match);
+
+													fujaba__Success = true;
+												} catch (JavaSDMException fujaba__InternalException) {
+													fujaba__Success = false;
+												}
+
+											} else {
+
+											}
+
+										} else {
+
+										}
+										fujaba__Success = true;
+									} catch (JavaSDMException fujaba__InternalException) {
+										fujaba__Success = false;
+									}
 
 									fujaba__Success = true;
 								} catch (JavaSDMException fujaba__InternalException) {
@@ -5672,95 +6968,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						} catch (JavaSDMException fujaba__InternalException) {
 							fujaba__Success = false;
 						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check object _edge_flows is really bound
-						JavaSDM.ensure(_edge_flows != null);
-						// check object alt is really bound
-						JavaSDM.ensure(alt != null);
-						// check object altFlow is really bound
-						JavaSDM.ensure(altFlow != null);
-						// check object flow is really bound
-						JavaSDM.ensure(flow != null);
-						// check object step is really bound
-						JavaSDM.ensure(step != null);
-						// check object useCase is really bound
-						JavaSDM.ensure(useCase != null);
-						// check isomorphic binding between objects flow and altFlow 
-						JavaSDM.ensure(!flow.equals(altFlow));
-
-						// check link ref from alt to altFlow
-						JavaSDM.ensure(altFlow.equals(alt.getRef()));
-
-						// check link flows from altFlow to useCase
-						JavaSDM.ensure(useCase.equals(altFlow.eContainer()));
-
-						// check link flows from flow to useCase
-						JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-						// check link src from _edge_flows to useCase
-						JavaSDM.ensure(useCase.equals(_edge_flows.getSrc()));
-
-						// check link stepAlternative from alt to step
-						JavaSDM.ensure(step.equals(alt.eContainer()));
-
-						// check link steps from step to flow
-						JavaSDM.ensure(flow.equals(step.eContainer()));
-
-						// check link trg from _edge_flows to altFlow
-						JavaSDM.ensure(altFlow.equals(_edge_flows.getTrg()));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_FWD(match, step,
-								alt, altFlow, flow, useCase);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_FWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
 					}
+					JavaSDM.ensure(fujaba__Success);
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -5812,51 +7021,62 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_FLOW_USECASE:
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD__MATCH_ACTOR_PACKAGEDECLARATION_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_FLOW_USECASE:
 			return isAppropriate_FWD((Match) arguments.get(0),
-					(NormalStep) arguments.get(1),
-					(AlternativeFlowAlternative) arguments.get(2),
-					(AlternativeFlow) arguments.get(3),
-					(Flow) arguments.get(4), (UseCase) arguments.get(5));
+					(Actor) arguments.get(1),
+					(PackageDeclaration) arguments.get(2),
+					(NormalStep) arguments.get(3),
+					(AlternativeFlowAlternative) arguments.get(4),
+					(AlternativeFlow) arguments.get(5),
+					(Flow) arguments.get(6), (UseCase) arguments.get(7));
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_FLOW_USECASE:
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_ACTOR_PACKAGEDECLARATION_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_FLOW_USECASE:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
-					(NormalStep) arguments.get(1),
-					(AlternativeFlowAlternative) arguments.get(2),
-					(AlternativeFlow) arguments.get(3),
-					(Flow) arguments.get(4), (UseCase) arguments.get(5));
-			return null;
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_FLOW_USECASE:
-			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
-					(NormalStep) arguments.get(1),
-					(AlternativeFlowAlternative) arguments.get(2),
-					(AlternativeFlow) arguments.get(3),
-					(Flow) arguments.get(4), (UseCase) arguments.get(5));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
-			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_COMBINEDFRAGMENT_NORMALSTEP_NORMALSTEPTOCOMBINEDFRAGMENT_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_FLOW_USECASE_LIFELINE:
-			return isApplicable_solveCsp_FWD(
-					(IsApplicableMatch) arguments.get(0),
-					(CombinedFragment) arguments.get(1),
-					(NormalStep) arguments.get(2),
-					(NormalStepToCombinedFragment) arguments.get(3),
+					(Actor) arguments.get(1),
+					(PackageDeclaration) arguments.get(2),
+					(NormalStep) arguments.get(3),
 					(AlternativeFlowAlternative) arguments.get(4),
 					(AlternativeFlow) arguments.get(5),
-					(Flow) arguments.get(6), (UseCase) arguments.get(7),
-					(Lifeline) arguments.get(8));
+					(Flow) arguments.get(6), (UseCase) arguments.get(7));
+			return null;
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_ACTOR_PACKAGEDECLARATION_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_FLOW_USECASE:
+			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
+					(Actor) arguments.get(1),
+					(PackageDeclaration) arguments.get(2),
+					(NormalStep) arguments.get(3),
+					(AlternativeFlowAlternative) arguments.get(4),
+					(AlternativeFlow) arguments.get(5),
+					(Flow) arguments.get(6), (UseCase) arguments.get(7));
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
+			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ACTOR_PACKAGEDECLARATION_ACTORTOLIFELINE_COMBINEDFRAGMENT_NORMALSTEP_NORMALSTEPTOCOMBINEDFRAGMENT_ALTERNATIVEFLOWALTERNATIVE_ALTERNATIVEFLOW_FLOW_USECASE_LIFELINE:
+			return isApplicable_solveCsp_FWD(
+					(IsApplicableMatch) arguments.get(0),
+					(Actor) arguments.get(1),
+					(PackageDeclaration) arguments.get(2),
+					(ActorToLifeline) arguments.get(3),
+					(CombinedFragment) arguments.get(4),
+					(NormalStep) arguments.get(5),
+					(NormalStepToCombinedFragment) arguments.get(6),
+					(AlternativeFlowAlternative) arguments.get(7),
+					(AlternativeFlow) arguments.get(8),
+					(Flow) arguments.get(9), (UseCase) arguments.get(10),
+					(Lifeline) arguments.get(11));
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11), (EObject) arguments.get(12));
+					(EObject) arguments.get(11), (EObject) arguments.get(12),
+					(EObject) arguments.get(13), (EObject) arguments.get(14),
+					(EObject) arguments.get(15), (EObject) arguments.get(16));
 			return null;
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
@@ -5888,52 +7108,57 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 					(Lifeline) arguments.get(5));
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 			return isAppropriate_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_COMBINEDFRAGMENT_NORMALSTEP_NORMALSTEPTOCOMBINEDFRAGMENT_INTERACTIONOPERAND_INTERACTIONCONSTRAINT_LITERALSTRING_FLOW_USECASE_LIFELINE:
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_ACTOR_PACKAGEDECLARATION_ACTORTOLIFELINE_COMBINEDFRAGMENT_NORMALSTEP_NORMALSTEPTOCOMBINEDFRAGMENT_INTERACTIONOPERAND_INTERACTIONCONSTRAINT_LITERALSTRING_FLOW_USECASE_LIFELINE:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
-					(CombinedFragment) arguments.get(1),
-					(NormalStep) arguments.get(2),
-					(NormalStepToCombinedFragment) arguments.get(3),
-					(InteractionOperand) arguments.get(4),
-					(InteractionConstraint) arguments.get(5),
-					(LiteralString) arguments.get(6), (Flow) arguments.get(7),
-					(UseCase) arguments.get(8), (Lifeline) arguments.get(9));
+					(Actor) arguments.get(1),
+					(PackageDeclaration) arguments.get(2),
+					(ActorToLifeline) arguments.get(3),
+					(CombinedFragment) arguments.get(4),
+					(NormalStep) arguments.get(5),
+					(NormalStepToCombinedFragment) arguments.get(6),
+					(InteractionOperand) arguments.get(7),
+					(InteractionConstraint) arguments.get(8),
+					(LiteralString) arguments.get(9), (Flow) arguments.get(10),
+					(UseCase) arguments.get(11), (Lifeline) arguments.get(12));
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 			return isApplicable_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11), (EObject) arguments.get(12));
+					(EObject) arguments.get(11), (EObject) arguments.get(12),
+					(EObject) arguments.get(13), (EObject) arguments.get(14),
+					(EObject) arguments.get(15), (EObject) arguments.get(16));
 			return null;
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_104__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_104((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_356__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_356((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_26__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_26((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_86__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_86((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_27__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_27((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_87__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_87((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_105__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_105((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_357__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_357((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_106__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_106((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_358__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_358((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_107__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_107((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_359__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_359((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_108__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_108((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_360__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_360((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_28__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_28((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_88__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_88((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

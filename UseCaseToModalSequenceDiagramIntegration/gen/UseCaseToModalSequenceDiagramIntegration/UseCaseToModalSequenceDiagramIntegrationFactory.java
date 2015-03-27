@@ -78,6 +78,15 @@ public interface UseCaseToModalSequenceDiagramIntegrationFactory extends
 	FlowToInteractionFragment createFlowToInteractionFragment();
 
 	/**
+	 * Returns a new object of class '<em>Use Case To Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Use Case To Message</em>'.
+	 * @generated
+	 */
+	UseCaseToMessage createUseCaseToMessage();
+
+	/**
 	 * Returns a new object of class '<em>Step Alternative To Interaction Operand</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

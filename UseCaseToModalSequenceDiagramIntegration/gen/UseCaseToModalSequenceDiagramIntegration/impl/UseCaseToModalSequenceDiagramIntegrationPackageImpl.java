@@ -95,6 +95,13 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass useCaseToMessageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass stepAlternativeToInteractionOperandEClass = null;
 
 	/**
@@ -403,12 +410,47 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUseCaseToMessage() {
+		if (useCaseToMessageEClass == null) {
+			useCaseToMessageEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(6);
+		}
+		return useCaseToMessageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUseCaseToMessage_Source() {
+		return (EReference) getUseCaseToMessage().getEStructuralFeatures().get(
+				0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUseCaseToMessage_Target() {
+		return (EReference) getUseCaseToMessage().getEStructuralFeatures().get(
+				1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStepAlternativeToInteractionOperand() {
 		if (stepAlternativeToInteractionOperandEClass == null) {
 			stepAlternativeToInteractionOperandEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(
 							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
-					.getEClassifiers().get(6);
+					.getEClassifiers().get(7);
 		}
 		return stepAlternativeToInteractionOperandEClass;
 	}
@@ -443,7 +485,7 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 			parallelStepToCombinedFragmentEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(
 							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
-					.getEClassifiers().get(7);
+					.getEClassifiers().get(8);
 		}
 		return parallelStepToCombinedFragmentEClass;
 	}
@@ -478,7 +520,7 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 			normalStepToCombinedFragmentEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(
 							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
-					.getEClassifiers().get(8);
+					.getEClassifiers().get(9);
 		}
 		return normalStepToCombinedFragmentEClass;
 	}

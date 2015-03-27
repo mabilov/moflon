@@ -53,6 +53,7 @@ import UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule;
 
 import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
@@ -268,11 +269,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCasesModelToModel, "createdLinkElements");
+					model, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					model, "createdElements");
+					useCasesModelToModel, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -335,11 +336,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 			useCasesModelToModel__target__model.setTrg(model);
 
 			// create link
-			useCasesModelToModel__source__useCasesModel
-					.setSrc(useCasesModelToModel);
+			useCasesModelToModel__target__model.setSrc(useCasesModelToModel);
 
 			// create link
-			useCasesModelToModel__target__model.setSrc(useCasesModelToModel);
+			useCasesModelToModel__source__useCasesModel
+					.setSrc(useCasesModelToModel);
 
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
@@ -749,11 +750,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCasesModelToModel, "createdLinkElements");
+					useCasesModel, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCasesModel, "createdElements");
+					useCasesModelToModel, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1063,7 +1064,7 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_UseCasesModel_0(
+	public EObjectContainer isAppropriate_FWD_UseCasesModel_2(
 			UseCasesModel useCasesModel) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -1187,14 +1188,14 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_Model_0(Model model) {
+	public EObjectContainer isAppropriate_BWD_Model_2(Model model) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		EClass __eClass = null;
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		ModalSequenceDiagram.Package __DEC_model_packagedElement_911962 = null;
+		ModalSequenceDiagram.Package __DEC_model_packagedElement_542312 = null;
 		Match match = null;
 
 		// story node 'prepare return value'
@@ -1253,18 +1254,18 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_model_packagedElement_911962 = model.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) model
+					__DEC_model_packagedElement_542312 = model.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) model
 							.eContainer() : null;
 
-					// check object __DEC_model_packagedElement_911962 is really bound
-					JavaSDM.ensure(__DEC_model_packagedElement_911962 != null);
+					// check object __DEC_model_packagedElement_542312 is really bound
+					JavaSDM.ensure(__DEC_model_packagedElement_542312 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_model_packagedElement_911962
+					JavaSDM.ensure(__DEC_model_packagedElement_542312
 							.getPackagedElement().contains(model));
 
-					// check isomorphic binding between objects __DEC_model_packagedElement_911962 and model 
-					JavaSDM.ensure(!__DEC_model_packagedElement_911962
+					// check isomorphic binding between objects __DEC_model_packagedElement_542312 and model 
+					JavaSDM.ensure(!__DEC_model_packagedElement_542312
 							.equals(model));
 
 					fujaba__Success = true;
@@ -1437,11 +1438,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_0__USECASESMODEL:
-			return isAppropriate_FWD_UseCasesModel_0((UseCasesModel) arguments
+		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_2__USECASESMODEL:
+			return isAppropriate_FWD_UseCasesModel_2((UseCasesModel) arguments
 					.get(0));
-		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_0__MODEL:
-			return isAppropriate_BWD_Model_0((Model) arguments.get(0));
+		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_2__MODEL:
+			return isAppropriate_BWD_Model_2((Model) arguments.get(0));
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:

@@ -53,6 +53,7 @@ import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 
 import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
@@ -207,10 +208,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				__step_invokedFlows_parFlow.setSrc(step);
 
 				// create link
-				__step_invokedFlows_parFlow.setTrg(parFlow);
+				__useCase_flows_parFlow.setTrg(parFlow);
 
 				// create link
-				__useCase_flows_parFlow.setTrg(parFlow);
+				__step_invokedFlows_parFlow.setTrg(parFlow);
 
 				// create link
 				__useCase_flows_parFlow.setSrc(useCase);
@@ -252,11 +253,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
+						__flow_steps_step, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_step, "contextEdges");
+						__useCase_flows_flow, "contextEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -268,7 +269,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_flow, "contextEdges");
+						useCase, "contextNodes");
 
 				// create link
 				__flow_steps_step.setTrg(step);
@@ -277,10 +278,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				__useCase_flows_flow.setSrc(useCase);
 
 				// create link
-				__useCase_flows_flow.setTrg(flow);
+				__flow_steps_step.setSrc(flow);
 
 				// create link
-				__flow_steps_step.setSrc(flow);
+				__useCase_flows_flow.setTrg(flow);
 
 				fujaba__Success = true;
 			} catch (JavaSDMException fujaba__InternalException) {
@@ -319,12 +320,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		LiteralString spec = null;
 		PerformRuleResult ruleresult = null;
 		EMoflonEdge combo__operand__operand = null;
-		EMoflonEdge parFlowToOperand__source__parFlow = null;
-		EMoflonEdge __step_invokedFlows_parFlow = null;
+		EMoflonEdge guard__specification__spec = null;
 		EMoflonEdge operand__guard__guard = null;
 		EMoflonEdge parFlowToOperand__target__operand = null;
 		EMoflonEdge __useCase_flows_parFlow = null;
-		EMoflonEdge guard__specification__spec = null;
+		EMoflonEdge __step_invokedFlows_parFlow = null;
+		EMoflonEdge parFlowToOperand__source__parFlow = null;
 
 		// story node 'perform transformation'
 		try {
@@ -443,7 +444,15 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					parFlow, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					operand, "createdElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					parFlowToOperand, "createdLinkElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -451,15 +460,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					parFlow, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					guard, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					parFlowToOperand, "createdLinkElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -630,12 +631,8 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			combo__operand__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object parFlowToOperand__source__parFlow
-			parFlowToOperand__source__parFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __step_invokedFlows_parFlow
-			__step_invokedFlows_parFlow = TGGRuntimeFactory.eINSTANCE
+			// create object guard__specification__spec
+			guard__specification__spec = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object operand__guard__guard
@@ -650,8 +647,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			__useCase_flows_parFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object guard__specification__spec
-			guard__specification__spec = TGGRuntimeFactory.eINSTANCE
+			// create object __step_invokedFlows_parFlow
+			__step_invokedFlows_parFlow = TGGRuntimeFactory.eINSTANCE
+					.createEMoflonEdge();
+
+			// create object parFlowToOperand__source__parFlow
+			parFlowToOperand__source__parFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -677,11 +678,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					parFlowToOperand__source__parFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__step_invokedFlows_parFlow, "translatedEdges");
+					guard__specification__spec, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -697,7 +694,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					guard__specification__spec, "createdEdges");
+					__step_invokedFlows_parFlow, "translatedEdges");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					parFlowToOperand__source__parFlow, "createdEdges");
 
 			// create link
 			combo__operand__operand.setSrc(combo);
@@ -706,10 +707,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			__step_invokedFlows_parFlow.setSrc(step);
 
 			// create link
-			__step_invokedFlows_parFlow.setTrg(parFlow);
+			__useCase_flows_parFlow.setTrg(parFlow);
 
 			// create link
-			__useCase_flows_parFlow.setTrg(parFlow);
+			__step_invokedFlows_parFlow.setTrg(parFlow);
 
 			// create link
 			parFlowToOperand__source__parFlow.setTrg(parFlow);
@@ -721,10 +722,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			combo__operand__operand.setTrg(operand);
 
 			// create link
-			parFlowToOperand__target__operand.setTrg(operand);
+			operand__guard__guard.setSrc(operand);
 
 			// create link
-			operand__guard__guard.setSrc(operand);
+			parFlowToOperand__target__operand.setTrg(operand);
 
 			// create link
 			parFlowToOperand__source__parFlow.setSrc(parFlowToOperand);
@@ -733,10 +734,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			parFlowToOperand__target__operand.setSrc(parFlowToOperand);
 
 			// create link
-			operand__guard__guard.setTrg(guard);
+			guard__specification__spec.setSrc(guard);
 
 			// create link
-			guard__specification__spec.setSrc(guard);
+			operand__guard__guard.setTrg(guard);
 
 			// create link
 			guard__specification__spec.setTrg(spec);
@@ -770,11 +771,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		ParallelFlow parFlow = null;
 		ParallelStep step = null;
 		UseCase useCase = null;
-		EMoflonEdge __stepToCombo_target_combo = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __stepToCombo_target_combo = null;
+		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __step_invokedFlows_parFlow = null;
 		EMoflonEdge __stepToCombo_source_step = null;
-		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __useCase_flows_parFlow = null;
 		EMoflonEdge __useCase_flows_flow = null;
 		CSP csp = null;
@@ -922,13 +923,17 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 										ParallelStep.class, "invokedFlows")
 								.contains(step));
 
+						// create object isApplicableMatch
+						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+								.createIsApplicableMatch();
+
 						// create object __stepToCombo_target_combo
 						__stepToCombo_target_combo = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
+						// create object __flow_steps_step
+						__flow_steps_step = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
 
 						// create object __step_invokedFlows_parFlow
 						__step_invokedFlows_parFlow = TGGRuntimeFactory.eINSTANCE
@@ -936,10 +941,6 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 						// create object __stepToCombo_source_step
 						__stepToCombo_source_step = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __flow_steps_step
-						__flow_steps_step = TGGRuntimeFactory.eINSTANCE
 								.createEMoflonEdge();
 
 						// create object __useCase_flows_parFlow
@@ -964,10 +965,13 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						__flow_steps_step.setName("steps");
 
 						// create link
+						isApplicableMatch.getAllContextElements().add(combo);
+
+						// create link
 						__stepToCombo_target_combo.setTrg(combo);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(combo);
+						__flow_steps_step.setTrg(step);
 
 						// create link
 						__step_invokedFlows_parFlow.setSrc(step);
@@ -979,17 +983,14 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						__stepToCombo_source_step.setTrg(step);
 
 						// create link
-						__flow_steps_step.setTrg(step);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								stepToCombo);
 
 						// create link
-						__stepToCombo_source_step.setSrc(stepToCombo);
+						__stepToCombo_target_combo.setSrc(stepToCombo);
 
 						// create link
-						__stepToCombo_target_combo.setSrc(stepToCombo);
+						__stepToCombo_source_step.setSrc(stepToCombo);
 
 						// create link
 						__step_invokedFlows_parFlow.setTrg(parFlow);
@@ -1001,13 +1002,13 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch.getAllContextElements().add(parFlow);
 
 						// create link
+						__useCase_flows_parFlow.setSrc(useCase);
+
+						// create link
 						__useCase_flows_flow.setSrc(useCase);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(useCase);
-
-						// create link
-						__useCase_flows_parFlow.setSrc(useCase);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(flow);
@@ -1020,12 +1021,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __useCase_flows_flow,
+								isApplicableMatch, __stepToCombo_target_combo,
 								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __step_invokedFlows_parFlow,
+								isApplicableMatch, __useCase_flows_flow,
 								"allContextElements");
 
 						// create link
@@ -1040,7 +1041,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __stepToCombo_target_combo,
+								isApplicableMatch, __step_invokedFlows_parFlow,
 								"allContextElements");
 
 						// create link
@@ -1260,9 +1261,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
 		CSP csp = null;
-		EMoflonEdge __guard_specification_spec = null;
-		EMoflonEdge __operand_guard_guard = null;
 		EMoflonEdge __combo_operand_operand = null;
+		EMoflonEdge __operand_guard_guard = null;
+		EMoflonEdge __guard_specification_spec = null;
 
 		// story node 'initial bindings'
 		try {
@@ -1315,16 +1316,16 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				JavaSDM.ensure(operand != null);
 				// check object spec is really bound
 				JavaSDM.ensure(spec != null);
-				// create object __guard_specification_spec
-				__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
+				// create object __combo_operand_operand
+				__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// create object __operand_guard_guard
 				__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
-				// create object __combo_operand_operand
-				__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
+				// create object __guard_specification_spec
+				__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
 						.createEMoflonEdge();
 
 				// assign attribute __combo_operand_operand
@@ -1336,7 +1337,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						spec, "toBeTranslatedNodes");
+						guard, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1344,11 +1345,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						guard, "toBeTranslatedNodes");
+						__combo_operand_operand, "toBeTranslatedEdges");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__guard_specification_spec, "toBeTranslatedEdges");
+						spec, "toBeTranslatedNodes");
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
@@ -1356,7 +1357,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 				// create link
 				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__combo_operand_operand, "toBeTranslatedEdges");
+						__guard_specification_spec, "toBeTranslatedEdges");
 
 				// create link
 				__combo_operand_operand.setSrc(combo);
@@ -1435,13 +1436,13 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		ParallelFlow parFlow = null;
 		FlowToInteractionFragment parFlowToOperand = null;
 		PerformRuleResult ruleresult = null;
-		EMoflonEdge useCase__flows__parFlow = null;
-		EMoflonEdge parFlowToOperand__target__operand = null;
-		EMoflonEdge parFlowToOperand__source__parFlow = null;
-		EMoflonEdge __guard_specification_spec = null;
-		EMoflonEdge step__invokedFlows__parFlow = null;
-		EMoflonEdge __operand_guard_guard = null;
 		EMoflonEdge __combo_operand_operand = null;
+		EMoflonEdge useCase__flows__parFlow = null;
+		EMoflonEdge parFlowToOperand__source__parFlow = null;
+		EMoflonEdge parFlowToOperand__target__operand = null;
+		EMoflonEdge __guard_specification_spec = null;
+		EMoflonEdge __operand_guard_guard = null;
+		EMoflonEdge step__invokedFlows__parFlow = null;
 
 		// story node 'perform transformation'
 		try {
@@ -1561,19 +1562,19 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					parFlowToOperand, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					guard, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					parFlow, "createdElements");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					parFlowToOperand, "createdLinkElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
 					spec, "translatedElements");
+
+			// create link
+			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
+					guard, "translatedElements");
 			fujaba__Success = true;
 		} catch (JavaSDMException fujaba__InternalException) {
 			fujaba__Success = false;
@@ -1740,32 +1741,32 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			// check isomorphic binding between objects useCase and stepToCombo 
 			JavaSDM.ensure(!useCase.equals(stepToCombo));
 
-			// create object useCase__flows__parFlow
-			useCase__flows__parFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __combo_operand_operand
+			__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object parFlowToOperand__target__operand
-			parFlowToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
+			// create object useCase__flows__parFlow
+			useCase__flows__parFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object parFlowToOperand__source__parFlow
 			parFlowToOperand__source__parFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __guard_specification_spec
-			__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
+			// create object parFlowToOperand__target__operand
+			parFlowToOperand__target__operand = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object step__invokedFlows__parFlow
-			step__invokedFlows__parFlow = TGGRuntimeFactory.eINSTANCE
+			// create object __guard_specification_spec
+			__guard_specification_spec = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// create object __operand_guard_guard
 			__operand_guard_guard = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
-			// create object __combo_operand_operand
-			__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
+			// create object step__invokedFlows__parFlow
+			step__invokedFlows__parFlow = TGGRuntimeFactory.eINSTANCE
 					.createEMoflonEdge();
 
 			// assign attribute ruleresult
@@ -1787,11 +1788,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase__flows__parFlow, "createdEdges");
+					__combo_operand_operand, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					parFlowToOperand__target__operand, "createdEdges");
+					useCase__flows__parFlow, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1799,11 +1800,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__guard_specification_spec, "translatedEdges");
+					parFlowToOperand__target__operand, "createdEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					step__invokedFlows__parFlow, "createdEdges");
+					__guard_specification_spec, "translatedEdges");
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
@@ -1811,7 +1812,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 			// create link
 			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__combo_operand_operand, "translatedEdges");
+					step__invokedFlows__parFlow, "createdEdges");
 
 			// create link
 			__combo_operand_operand.setSrc(combo);
@@ -1835,16 +1836,16 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			parFlowToOperand__target__operand.setTrg(operand);
 
 			// create link
-			__operand_guard_guard.setSrc(operand);
-
-			// create link
 			__combo_operand_operand.setTrg(operand);
 
 			// create link
-			parFlowToOperand__source__parFlow.setSrc(parFlowToOperand);
+			__operand_guard_guard.setSrc(operand);
 
 			// create link
 			parFlowToOperand__target__operand.setSrc(parFlowToOperand);
+
+			// create link
+			parFlowToOperand__source__parFlow.setSrc(parFlowToOperand);
 
 			// create link
 			__guard_specification_spec.setSrc(guard);
@@ -1884,8 +1885,8 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		InteractionConstraint guard = null;
 		InteractionOperand operand = null;
 		LiteralString spec = null;
-		EMoflonEdge __stepToCombo_target_combo = null;
 		IsApplicableMatch isApplicableMatch = null;
+		EMoflonEdge __stepToCombo_target_combo = null;
 		EMoflonEdge __combo_operand_operand = null;
 		EMoflonEdge __flow_steps_step = null;
 		EMoflonEdge __stepToCombo_source_step = null;
@@ -2047,13 +2048,13 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						// check link target from stepToCombo to combo
 						JavaSDM.ensure(combo.equals(stepToCombo.getTarget()));
 
-						// create object __stepToCombo_target_combo
-						__stepToCombo_target_combo = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
 						// create object isApplicableMatch
 						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 								.createIsApplicableMatch();
+
+						// create object __stepToCombo_target_combo
+						__stepToCombo_target_combo = TGGRuntimeFactory.eINSTANCE
+								.createEMoflonEdge();
 
 						// create object __combo_operand_operand
 						__combo_operand_operand = TGGRuntimeFactory.eINSTANCE
@@ -2095,13 +2096,16 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						__guard_specification_spec.setName("specification");
 
 						// create link
-						__stepToCombo_target_combo.setTrg(combo);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(combo);
 
 						// create link
+						__stepToCombo_target_combo.setTrg(combo);
+
+						// create link
 						__combo_operand_operand.setSrc(combo);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(step);
 
 						// create link
 						__flow_steps_step.setTrg(step);
@@ -2110,23 +2114,20 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						__stepToCombo_source_step.setTrg(step);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(step);
-
-						// create link
 						isApplicableMatch.getAllContextElements().add(
 								stepToCombo);
-
-						// create link
-						__stepToCombo_source_step.setSrc(stepToCombo);
 
 						// create link
 						__stepToCombo_target_combo.setSrc(stepToCombo);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(useCase);
+						__stepToCombo_source_step.setSrc(stepToCombo);
 
 						// create link
 						__useCase_flows_flow.setSrc(useCase);
+
+						// create link
+						isApplicableMatch.getAllContextElements().add(useCase);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(flow);
@@ -2138,28 +2139,43 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						__useCase_flows_flow.setTrg(flow);
 
 						// create link
+						__operand_guard_guard.setSrc(operand);
+
+						// create link
 						isApplicableMatch.getAllContextElements().add(operand);
 
 						// create link
 						__combo_operand_operand.setTrg(operand);
 
 						// create link
-						__operand_guard_guard.setSrc(operand);
-
-						// create link
 						__guard_specification_spec.setSrc(guard);
 
 						// create link
-						isApplicableMatch.getAllContextElements().add(guard);
+						__operand_guard_guard.setTrg(guard);
 
 						// create link
-						__operand_guard_guard.setTrg(guard);
+						isApplicableMatch.getAllContextElements().add(guard);
 
 						// create link
 						__guard_specification_spec.setTrg(spec);
 
 						// create link
 						isApplicableMatch.getAllContextElements().add(spec);
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __useCase_flows_flow,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __flow_steps_step,
+								"allContextElements");
+
+						// create link
+						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
+								isApplicableMatch, __stepToCombo_target_combo,
+								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
@@ -2173,27 +2189,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __useCase_flows_flow,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch, __guard_specification_spec,
 								"allContextElements");
 
 						// create link
 						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __stepToCombo_target_combo,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
 								isApplicableMatch, __operand_guard_guard,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __flow_steps_step,
 								"allContextElements");
 						// story node 'solve CSP'
 						try {
@@ -2417,7 +2418,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_76(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_328(
 			EMoflonEdge _edge_operand) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -2425,10 +2426,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		InteractionOperand __DEC_operand_fragment_678635 = null;
-		InteractionOperand __DEC_guard_guard_620025 = null;
-		CombinedFragment __DEC_operand_operand_429925 = null;
-		Constraint __DEC_spec_specification_514016 = null;
+		InteractionOperand __DEC_operand_fragment_243996 = null;
+		InteractionOperand __DEC_guard_guard_719073 = null;
+		CombinedFragment __DEC_operand_operand_543727 = null;
+		Constraint __DEC_spec_specification_351695 = null;
 		Match match = null;
 		LiteralString spec = null;
 		InteractionConstraint guard = null;
@@ -2523,14 +2524,14 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_operand_fragment_678635 = operand
+					__DEC_operand_fragment_243996 = operand
 							.getEnclosingOperand();
 
-					// check object __DEC_operand_fragment_678635 is really bound
-					JavaSDM.ensure(__DEC_operand_fragment_678635 != null);
+					// check object __DEC_operand_fragment_243996 is really bound
+					JavaSDM.ensure(__DEC_operand_fragment_243996 != null);
 
-					// check isomorphic binding between objects __DEC_operand_fragment_678635 and operand 
-					JavaSDM.ensure(!__DEC_operand_fragment_678635
+					// check isomorphic binding between objects __DEC_operand_fragment_243996 and operand 
+					JavaSDM.ensure(!__DEC_operand_fragment_243996
 							.equals(operand));
 
 					fujaba__Success = true;
@@ -2557,18 +2558,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_guard_guard_620025 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+					__DEC_guard_guard_719073 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 							.eContainer() : null;
 
-					// check object __DEC_guard_guard_620025 is really bound
-					JavaSDM.ensure(__DEC_guard_guard_620025 != null);
+					// check object __DEC_guard_guard_719073 is really bound
+					JavaSDM.ensure(__DEC_guard_guard_719073 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(guard.equals(__DEC_guard_guard_620025
+					JavaSDM.ensure(guard.equals(__DEC_guard_guard_719073
 							.getGuard()));
 
-					// check isomorphic binding between objects __DEC_guard_guard_620025 and operand 
-					JavaSDM.ensure(!__DEC_guard_guard_620025.equals(operand));
+					// check isomorphic binding between objects __DEC_guard_guard_719073 and operand 
+					JavaSDM.ensure(!__DEC_guard_guard_719073.equals(operand));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -2584,18 +2585,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_operand_operand_429925 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+					__DEC_operand_operand_543727 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 							.eContainer() : null;
 
-					// check object __DEC_operand_operand_429925 is really bound
-					JavaSDM.ensure(__DEC_operand_operand_429925 != null);
+					// check object __DEC_operand_operand_543727 is really bound
+					JavaSDM.ensure(__DEC_operand_operand_543727 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_operand_operand_429925.getOperand()
+					JavaSDM.ensure(__DEC_operand_operand_543727.getOperand()
 							.contains(operand));
 
-					// check isomorphic binding between objects __DEC_operand_operand_429925 and combo 
-					JavaSDM.ensure(!__DEC_operand_operand_429925.equals(combo));
+					// check isomorphic binding between objects __DEC_operand_operand_543727 and combo 
+					JavaSDM.ensure(!__DEC_operand_operand_543727.equals(combo));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -2611,18 +2612,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_spec_specification_514016 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+					__DEC_spec_specification_351695 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 							.eContainer() : null;
 
-					// check object __DEC_spec_specification_514016 is really bound
-					JavaSDM.ensure(__DEC_spec_specification_514016 != null);
+					// check object __DEC_spec_specification_351695 is really bound
+					JavaSDM.ensure(__DEC_spec_specification_351695 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(spec.equals(__DEC_spec_specification_514016
+					JavaSDM.ensure(spec.equals(__DEC_spec_specification_351695
 							.getSpecification()));
 
-					// check isomorphic binding between objects __DEC_spec_specification_514016 and guard 
-					JavaSDM.ensure(!__DEC_spec_specification_514016
+					// check isomorphic binding between objects __DEC_spec_specification_351695 and guard 
+					JavaSDM.ensure(!__DEC_spec_specification_351695
 							.equals(guard));
 
 					fujaba__Success = true;
@@ -2727,7 +2728,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_19(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_79(
 			EMoflonEdge _edge_invokedFlows) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -2735,9 +2736,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_parFlow_flows_188222 = null;
-		Iterator fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_79296 = null;
-		ParallelStep __DEC_parFlow_invokedFlows_79296 = null;
+		UseCase __DEC_parFlow_flows_457967 = null;
+		Iterator fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_744287 = null;
+		ParallelStep __DEC_parFlow_invokedFlows_744287 = null;
 		Match match = null;
 		UseCase useCase = null;
 		ParallelFlow parFlow = null;
@@ -2844,18 +2845,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_parFlow_flows_188222 = parFlow.eContainer() instanceof UseCase ? (UseCase) parFlow
+					__DEC_parFlow_flows_457967 = parFlow.eContainer() instanceof UseCase ? (UseCase) parFlow
 							.eContainer() : null;
 
-					// check object __DEC_parFlow_flows_188222 is really bound
-					JavaSDM.ensure(__DEC_parFlow_flows_188222 != null);
+					// check object __DEC_parFlow_flows_457967 is really bound
+					JavaSDM.ensure(__DEC_parFlow_flows_457967 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_parFlow_flows_188222.getFlows()
+					JavaSDM.ensure(__DEC_parFlow_flows_457967.getFlows()
 							.contains(parFlow));
 
-					// check isomorphic binding between objects __DEC_parFlow_flows_188222 and useCase 
-					JavaSDM.ensure(!__DEC_parFlow_flows_188222.equals(useCase));
+					// check isomorphic binding between objects __DEC_parFlow_flows_457967 and useCase 
+					JavaSDM.ensure(!__DEC_parFlow_flows_457967.equals(useCase));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -2874,26 +2875,26 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				try {
 					fujaba__Success = false;
 
-					// iterate to-many link invokedFlows from parFlow to __DEC_parFlow_invokedFlows_79296
+					// iterate to-many link invokedFlows from parFlow to __DEC_parFlow_invokedFlows_744287
 					fujaba__Success = false;
 
-					fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_79296 = new ArrayList(
+					fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_744287 = new ArrayList(
 							org.moflon.util.eMoflonEMFUtil
 									.getOppositeReference(parFlow,
 											ParallelStep.class, "invokedFlows"))
 							.iterator();
 
 					while (!(fujaba__Success)
-							&& fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_79296
+							&& fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_744287
 									.hasNext()) {
 						try {
-							__DEC_parFlow_invokedFlows_79296 = (ParallelStep) fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_79296
+							__DEC_parFlow_invokedFlows_744287 = (ParallelStep) fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_744287
 									.next();
 
-							// check object __DEC_parFlow_invokedFlows_79296 is really bound
-							JavaSDM.ensure(__DEC_parFlow_invokedFlows_79296 != null);
-							// check isomorphic binding between objects __DEC_parFlow_invokedFlows_79296 and step 
-							JavaSDM.ensure(!__DEC_parFlow_invokedFlows_79296
+							// check object __DEC_parFlow_invokedFlows_744287 is really bound
+							JavaSDM.ensure(__DEC_parFlow_invokedFlows_744287 != null);
+							// check isomorphic binding between objects __DEC_parFlow_invokedFlows_744287 and step 
+							JavaSDM.ensure(!__DEC_parFlow_invokedFlows_744287
 									.equals(step));
 
 							fujaba__Success = true;
@@ -3007,7 +3008,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_20(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_80(
 			EMoflonEdge _edge_flows) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3015,9 +3016,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		UseCase __DEC_parFlow_flows_421403 = null;
-		Iterator fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_69925 = null;
-		ParallelStep __DEC_parFlow_invokedFlows_69925 = null;
+		UseCase __DEC_parFlow_flows_86926 = null;
+		Iterator fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_516624 = null;
+		ParallelStep __DEC_parFlow_invokedFlows_516624 = null;
 		Match match = null;
 		Flow flow = null;
 		Iterator fujaba__IterParFlowToStep = null;
@@ -3128,18 +3129,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 							fujaba__Success = false;
 
 							// bind object
-							__DEC_parFlow_flows_421403 = parFlow.eContainer() instanceof UseCase ? (UseCase) parFlow
+							__DEC_parFlow_flows_86926 = parFlow.eContainer() instanceof UseCase ? (UseCase) parFlow
 									.eContainer() : null;
 
-							// check object __DEC_parFlow_flows_421403 is really bound
-							JavaSDM.ensure(__DEC_parFlow_flows_421403 != null);
+							// check object __DEC_parFlow_flows_86926 is really bound
+							JavaSDM.ensure(__DEC_parFlow_flows_86926 != null);
 
 							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_parFlow_flows_421403
-									.getFlows().contains(parFlow));
+							JavaSDM.ensure(__DEC_parFlow_flows_86926.getFlows()
+									.contains(parFlow));
 
-							// check isomorphic binding between objects __DEC_parFlow_flows_421403 and useCase 
-							JavaSDM.ensure(!__DEC_parFlow_flows_421403
+							// check isomorphic binding between objects __DEC_parFlow_flows_86926 and useCase 
+							JavaSDM.ensure(!__DEC_parFlow_flows_86926
 									.equals(useCase));
 
 							fujaba__Success = true;
@@ -3160,26 +3161,26 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						try {
 							fujaba__Success = false;
 
-							// iterate to-many link invokedFlows from parFlow to __DEC_parFlow_invokedFlows_69925
+							// iterate to-many link invokedFlows from parFlow to __DEC_parFlow_invokedFlows_516624
 							fujaba__Success = false;
 
-							fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_69925 = new ArrayList(
+							fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_516624 = new ArrayList(
 									org.moflon.util.eMoflonEMFUtil
 											.getOppositeReference(parFlow,
 													ParallelStep.class,
 													"invokedFlows")).iterator();
 
 							while (!(fujaba__Success)
-									&& fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_69925
+									&& fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_516624
 											.hasNext()) {
 								try {
-									__DEC_parFlow_invokedFlows_69925 = (ParallelStep) fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_69925
+									__DEC_parFlow_invokedFlows_516624 = (ParallelStep) fujaba__IterParFlowTo__DEC_parFlow_invokedFlows_516624
 											.next();
 
-									// check object __DEC_parFlow_invokedFlows_69925 is really bound
-									JavaSDM.ensure(__DEC_parFlow_invokedFlows_69925 != null);
-									// check isomorphic binding between objects __DEC_parFlow_invokedFlows_69925 and step 
-									JavaSDM.ensure(!__DEC_parFlow_invokedFlows_69925
+									// check object __DEC_parFlow_invokedFlows_516624 is really bound
+									JavaSDM.ensure(__DEC_parFlow_invokedFlows_516624 != null);
+									// check isomorphic binding between objects __DEC_parFlow_invokedFlows_516624 and step 
+									JavaSDM.ensure(!__DEC_parFlow_invokedFlows_516624
 											.equals(step));
 
 									fujaba__Success = true;
@@ -3301,7 +3302,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_77(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_329(
 			EMoflonEdge _edge_guard) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3309,10 +3310,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		InteractionOperand __DEC_operand_fragment_898335 = null;
-		InteractionOperand __DEC_guard_guard_790769 = null;
-		CombinedFragment __DEC_operand_operand_504530 = null;
-		Constraint __DEC_spec_specification_915226 = null;
+		InteractionOperand __DEC_operand_fragment_566143 = null;
+		InteractionOperand __DEC_guard_guard_835542 = null;
+		CombinedFragment __DEC_operand_operand_525062 = null;
+		Constraint __DEC_spec_specification_129906 = null;
 		Match match = null;
 		LiteralString spec = null;
 		CombinedFragment combo = null;
@@ -3410,14 +3411,14 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_operand_fragment_898335 = operand
+					__DEC_operand_fragment_566143 = operand
 							.getEnclosingOperand();
 
-					// check object __DEC_operand_fragment_898335 is really bound
-					JavaSDM.ensure(__DEC_operand_fragment_898335 != null);
+					// check object __DEC_operand_fragment_566143 is really bound
+					JavaSDM.ensure(__DEC_operand_fragment_566143 != null);
 
-					// check isomorphic binding between objects __DEC_operand_fragment_898335 and operand 
-					JavaSDM.ensure(!__DEC_operand_fragment_898335
+					// check isomorphic binding between objects __DEC_operand_fragment_566143 and operand 
+					JavaSDM.ensure(!__DEC_operand_fragment_566143
 							.equals(operand));
 
 					fujaba__Success = true;
@@ -3444,18 +3445,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_guard_guard_790769 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+					__DEC_guard_guard_835542 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 							.eContainer() : null;
 
-					// check object __DEC_guard_guard_790769 is really bound
-					JavaSDM.ensure(__DEC_guard_guard_790769 != null);
+					// check object __DEC_guard_guard_835542 is really bound
+					JavaSDM.ensure(__DEC_guard_guard_835542 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(guard.equals(__DEC_guard_guard_790769
+					JavaSDM.ensure(guard.equals(__DEC_guard_guard_835542
 							.getGuard()));
 
-					// check isomorphic binding between objects __DEC_guard_guard_790769 and operand 
-					JavaSDM.ensure(!__DEC_guard_guard_790769.equals(operand));
+					// check isomorphic binding between objects __DEC_guard_guard_835542 and operand 
+					JavaSDM.ensure(!__DEC_guard_guard_835542.equals(operand));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -3471,18 +3472,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_operand_operand_504530 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+					__DEC_operand_operand_525062 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 							.eContainer() : null;
 
-					// check object __DEC_operand_operand_504530 is really bound
-					JavaSDM.ensure(__DEC_operand_operand_504530 != null);
+					// check object __DEC_operand_operand_525062 is really bound
+					JavaSDM.ensure(__DEC_operand_operand_525062 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_operand_operand_504530.getOperand()
+					JavaSDM.ensure(__DEC_operand_operand_525062.getOperand()
 							.contains(operand));
 
-					// check isomorphic binding between objects __DEC_operand_operand_504530 and combo 
-					JavaSDM.ensure(!__DEC_operand_operand_504530.equals(combo));
+					// check isomorphic binding between objects __DEC_operand_operand_525062 and combo 
+					JavaSDM.ensure(!__DEC_operand_operand_525062.equals(combo));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -3498,18 +3499,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_spec_specification_915226 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+					__DEC_spec_specification_129906 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 							.eContainer() : null;
 
-					// check object __DEC_spec_specification_915226 is really bound
-					JavaSDM.ensure(__DEC_spec_specification_915226 != null);
+					// check object __DEC_spec_specification_129906 is really bound
+					JavaSDM.ensure(__DEC_spec_specification_129906 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(spec.equals(__DEC_spec_specification_915226
+					JavaSDM.ensure(spec.equals(__DEC_spec_specification_129906
 							.getSpecification()));
 
-					// check isomorphic binding between objects __DEC_spec_specification_915226 and guard 
-					JavaSDM.ensure(!__DEC_spec_specification_915226
+					// check isomorphic binding between objects __DEC_spec_specification_129906 and guard 
+					JavaSDM.ensure(!__DEC_spec_specification_129906
 							.equals(guard));
 
 					fujaba__Success = true;
@@ -3614,7 +3615,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_78(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_330(
 			EMoflonEdge _edge_specification) {
 		boolean fujaba__Success = false;
 		Object _TmpObject = null;
@@ -3622,10 +3623,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		Iterator fujaba__Iter__eClassTo__performOperation = null;
 		EOperation __performOperation = null;
 		EObjectContainer __result = null;
-		InteractionOperand __DEC_operand_fragment_839548 = null;
-		InteractionOperand __DEC_guard_guard_381504 = null;
-		CombinedFragment __DEC_operand_operand_844245 = null;
-		Constraint __DEC_spec_specification_365032 = null;
+		InteractionOperand __DEC_operand_fragment_635666 = null;
+		InteractionOperand __DEC_guard_guard_685231 = null;
+		CombinedFragment __DEC_operand_operand_68040 = null;
+		Constraint __DEC_spec_specification_185936 = null;
 		Match match = null;
 		LiteralString spec = null;
 		CombinedFragment combo = null;
@@ -3727,14 +3728,14 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_operand_fragment_839548 = operand
+					__DEC_operand_fragment_635666 = operand
 							.getEnclosingOperand();
 
-					// check object __DEC_operand_fragment_839548 is really bound
-					JavaSDM.ensure(__DEC_operand_fragment_839548 != null);
+					// check object __DEC_operand_fragment_635666 is really bound
+					JavaSDM.ensure(__DEC_operand_fragment_635666 != null);
 
-					// check isomorphic binding between objects __DEC_operand_fragment_839548 and operand 
-					JavaSDM.ensure(!__DEC_operand_fragment_839548
+					// check isomorphic binding between objects __DEC_operand_fragment_635666 and operand 
+					JavaSDM.ensure(!__DEC_operand_fragment_635666
 							.equals(operand));
 
 					fujaba__Success = true;
@@ -3761,18 +3762,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_guard_guard_381504 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
+					__DEC_guard_guard_685231 = guard.eContainer() instanceof InteractionOperand ? (InteractionOperand) guard
 							.eContainer() : null;
 
-					// check object __DEC_guard_guard_381504 is really bound
-					JavaSDM.ensure(__DEC_guard_guard_381504 != null);
+					// check object __DEC_guard_guard_685231 is really bound
+					JavaSDM.ensure(__DEC_guard_guard_685231 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(guard.equals(__DEC_guard_guard_381504
+					JavaSDM.ensure(guard.equals(__DEC_guard_guard_685231
 							.getGuard()));
 
-					// check isomorphic binding between objects __DEC_guard_guard_381504 and operand 
-					JavaSDM.ensure(!__DEC_guard_guard_381504.equals(operand));
+					// check isomorphic binding between objects __DEC_guard_guard_685231 and operand 
+					JavaSDM.ensure(!__DEC_guard_guard_685231.equals(operand));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -3788,18 +3789,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_operand_operand_844245 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
+					__DEC_operand_operand_68040 = operand.eContainer() instanceof CombinedFragment ? (CombinedFragment) operand
 							.eContainer() : null;
 
-					// check object __DEC_operand_operand_844245 is really bound
-					JavaSDM.ensure(__DEC_operand_operand_844245 != null);
+					// check object __DEC_operand_operand_68040 is really bound
+					JavaSDM.ensure(__DEC_operand_operand_68040 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_operand_operand_844245.getOperand()
+					JavaSDM.ensure(__DEC_operand_operand_68040.getOperand()
 							.contains(operand));
 
-					// check isomorphic binding between objects __DEC_operand_operand_844245 and combo 
-					JavaSDM.ensure(!__DEC_operand_operand_844245.equals(combo));
+					// check isomorphic binding between objects __DEC_operand_operand_68040 and combo 
+					JavaSDM.ensure(!__DEC_operand_operand_68040.equals(combo));
 
 					fujaba__Success = true;
 				} catch (JavaSDMException fujaba__InternalException) {
@@ -3815,18 +3816,18 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 					fujaba__Success = false;
 
 					// bind object
-					__DEC_spec_specification_365032 = spec.eContainer() instanceof Constraint ? (Constraint) spec
+					__DEC_spec_specification_185936 = spec.eContainer() instanceof Constraint ? (Constraint) spec
 							.eContainer() : null;
 
-					// check object __DEC_spec_specification_365032 is really bound
-					JavaSDM.ensure(__DEC_spec_specification_365032 != null);
+					// check object __DEC_spec_specification_185936 is really bound
+					JavaSDM.ensure(__DEC_spec_specification_185936 != null);
 
 					// check if contained via correct reference
-					JavaSDM.ensure(spec.equals(__DEC_spec_specification_365032
+					JavaSDM.ensure(spec.equals(__DEC_spec_specification_185936
 							.getSpecification()));
 
-					// check isomorphic binding between objects __DEC_spec_specification_365032 and guard 
-					JavaSDM.ensure(!__DEC_spec_specification_365032
+					// check isomorphic binding between objects __DEC_spec_specification_185936 and guard 
+					JavaSDM.ensure(!__DEC_spec_specification_185936
 							.equals(guard));
 
 					fujaba__Success = true;
@@ -4050,20 +4051,20 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_76__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_76((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_328__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_328((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_19__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_19((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_79__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_79((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_20__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_20((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_80__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_80((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_77__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_77((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_329__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_329((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_78__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_78((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_330__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_330((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

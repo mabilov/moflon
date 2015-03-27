@@ -336,6 +336,52 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	int FLOW_TO_INTERACTION_FRAGMENT_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToMessageImpl <em>Use Case To Message</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToMessageImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getUseCaseToMessage()
+	 * @generated
+	 */
+	int USE_CASE_TO_MESSAGE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USE_CASE_TO_MESSAGE__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USE_CASE_TO_MESSAGE__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Use Case To Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USE_CASE_TO_MESSAGE_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Use Case To Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USE_CASE_TO_MESSAGE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.StepAlternativeToInteractionOperandImpl <em>Step Alternative To Interaction Operand</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -343,7 +389,7 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getStepAlternativeToInteractionOperand()
 	 * @generated
 	 */
-	int STEP_ALTERNATIVE_TO_INTERACTION_OPERAND = 6;
+	int STEP_ALTERNATIVE_TO_INTERACTION_OPERAND = 7;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -389,7 +435,7 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getParallelStepToCombinedFragment()
 	 * @generated
 	 */
-	int PARALLEL_STEP_TO_COMBINED_FRAGMENT = 7;
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -435,7 +481,7 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getNormalStepToCombinedFragment()
 	 * @generated
 	 */
-	int NORMAL_STEP_TO_COMBINED_FRAGMENT = 8;
+	int NORMAL_STEP_TO_COMBINED_FRAGMENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -664,6 +710,38 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	 * @generated
 	 */
 	EReference getFlowToInteractionFragment_Target();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage <em>Use Case To Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Use Case To Message</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage
+	 * @generated
+	 */
+	EClass getUseCaseToMessage();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage#getSource()
+	 * @see #getUseCaseToMessage()
+	 * @generated
+	 */
+	EReference getUseCaseToMessage_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage#getTarget()
+	 * @see #getUseCaseToMessage()
+	 * @generated
+	 */
+	EReference getUseCaseToMessage_Target();
 
 	/**
 	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand <em>Step Alternative To Interaction Operand</em>}'.
@@ -953,6 +1031,34 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 		 */
 		EReference FLOW_TO_INTERACTION_FRAGMENT__TARGET = eINSTANCE
 				.getFlowToInteractionFragment_Target();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToMessageImpl <em>Use Case To Message</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToMessageImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getUseCaseToMessage()
+		 * @generated
+		 */
+		EClass USE_CASE_TO_MESSAGE = eINSTANCE.getUseCaseToMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USE_CASE_TO_MESSAGE__SOURCE = eINSTANCE
+				.getUseCaseToMessage_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USE_CASE_TO_MESSAGE__TARGET = eINSTANCE
+				.getUseCaseToMessage_Target();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.StepAlternativeToInteractionOperandImpl <em>Step Alternative To Interaction Operand</em>}' class.
