@@ -2321,10 +2321,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_DefinitionsToPackageRule_20_2_black_nac_0BB(
 			Definitions definitions, DocumentRoot documentRoot) {
-		for (DocumentRoot __DEC_definitions_definitions_587647 : org.moflon.util.eMoflonEMFUtil
+		for (DocumentRoot __DEC_definitions_definitions_122473 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(definitions, DocumentRoot.class,
 						"definitions")) {
-			if (!documentRoot.equals(__DEC_definitions_definitions_587647)) {
+			if (!documentRoot.equals(__DEC_definitions_definitions_122473)) {
 				return new Object[] { definitions, documentRoot };
 			}
 		}
@@ -2447,10 +2447,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_DefinitionsToPackageRule_21_2_black_nac_0BB(
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		for (UseCasesModel __DEC_packageDeclaration_packages_415230 : org.moflon.util.eMoflonEMFUtil
+		for (UseCasesModel __DEC_packageDeclaration_packages_832145 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						UseCasesModel.class, "packages")) {
-			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_415230)) {
+			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_832145)) {
 				return new Object[] { packageDeclaration, useCasesModel };
 			}
 		}

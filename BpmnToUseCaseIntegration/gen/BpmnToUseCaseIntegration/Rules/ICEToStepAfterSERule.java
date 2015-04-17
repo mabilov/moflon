@@ -44,7 +44,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ICEToStepAfterSERule extends AbstractRule, FirstICEToStepRule {
+public interface ICEToStepAfterSERule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

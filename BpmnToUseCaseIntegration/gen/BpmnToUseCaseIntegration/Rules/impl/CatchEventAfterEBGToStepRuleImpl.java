@@ -5937,7 +5937,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_20_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_501963 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_75141 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5947,7 +5947,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_20_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_922467 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_919498 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -6164,7 +6164,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_21_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_340914 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_300704 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6174,7 +6174,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_21_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_760003 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_743151 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -6390,7 +6390,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_22_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_796390 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_982657 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6400,7 +6400,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_22_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_846799 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_60044 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -6616,7 +6616,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_23_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_99509 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_467251 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6626,7 +6626,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_23_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_129393 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_680606 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -6842,7 +6842,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_24_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_250692 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_611857 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6852,7 +6852,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_24_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_609005 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_602979 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -7068,7 +7068,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_25_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_51175 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_253400 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -7078,7 +7078,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_25_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_602530 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_391309 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -7294,7 +7294,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_26_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_94430 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_501833 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -7304,7 +7304,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_26_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_872814 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_6563 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -7520,7 +7520,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_27_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_220773 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_912767 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -7530,7 +7530,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_27_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_237795 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_577949 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -7747,7 +7747,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_28_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_928849 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_122855 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -7757,7 +7757,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_28_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_202383 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_55936 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -8366,7 +8366,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_32_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_400516 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_75389 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -8376,7 +8376,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_32_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_729906 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_260564 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };

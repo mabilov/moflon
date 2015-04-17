@@ -5045,10 +5045,10 @@ public class ICEToStepAfterExConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExConvGwRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_899205 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_876377 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_899205)) {
+			if (!flowNode.equals(__DEC_outFlow_default_876377)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5237,10 +5237,10 @@ public class ICEToStepAfterExConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExConvGwRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_815651 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_31214 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_815651)) {
+			if (!flowNode.equals(__DEC_outFlow_default_31214)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5430,10 +5430,10 @@ public class ICEToStepAfterExConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExConvGwRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_196231 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_859873 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_196231)) {
+			if (!flowNode.equals(__DEC_outFlow_default_859873)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5623,10 +5623,10 @@ public class ICEToStepAfterExConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExConvGwRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_382604 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_34996 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_382604)) {
+			if (!flowNode.equals(__DEC_outFlow_default_34996)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5817,10 +5817,10 @@ public class ICEToStepAfterExConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExConvGwRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_664855 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_28061 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_664855)) {
+			if (!flowNode.equals(__DEC_outFlow_default_28061)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -6010,10 +6010,10 @@ public class ICEToStepAfterExConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExConvGwRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_501111 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_861759 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_501111)) {
+			if (!flowNode.equals(__DEC_outFlow_default_861759)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -6446,10 +6446,10 @@ public class ICEToStepAfterExConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExConvGwRule_29_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_597417 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_21431 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_597417)) {
+			if (!flowNode.equals(__DEC_outFlow_default_21431)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}

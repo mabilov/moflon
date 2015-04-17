@@ -78,7 +78,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActorDescRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ActorRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UseCaseExtendsRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
@@ -91,18 +90,15 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UseCaseDescRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UseCaseDescPreCondRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseDescRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParallelStepRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UseCasePreCondRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/UseCaseRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BasicFlowRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
@@ -115,29 +111,24 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BasicFlowFinalStateRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/BasicFlowRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActorExtendsRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AltFlowFinalStateRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/AlternativeFlowRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParallelFlowFinalStateRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelFlowRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StepRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StepDescRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/StepRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParallelStepDescRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//Rules/ParallelStepRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StepAlternativesRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>

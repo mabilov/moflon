@@ -46,7 +46,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ITEToStepRule extends AbstractRule, InterEventToStepRule {
+public interface ITEToStepRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

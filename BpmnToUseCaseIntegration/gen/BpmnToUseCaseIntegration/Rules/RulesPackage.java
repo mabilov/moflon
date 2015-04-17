@@ -5312,205 +5312,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOWTOUCFLOW_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Register Objects FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_NORMALSTEP_SEQUENCEFLOWTOUCFLOW_PROCESS_SEQUENCEFLOW_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
-
-	/**
-	 * The operation id for the '<em>Register Objects BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 14</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_14__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 31</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_31__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 32</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_32__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 33</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_33__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 34</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_34__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 35</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_35__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 36</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_36__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 37</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_37__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 15</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_15__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 38</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_38__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
-
-	/**
-	 * The operation id for the '<em>Generate Model</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
-
-	/**
-	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOWTOUCFLOW_PROCESS_SEQUENCEFLOW_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Perform FWD</em>' operation.
@@ -5519,7 +5321,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Applicable FWD</em>' operation.
@@ -5528,7 +5330,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
@@ -5537,7 +5339,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 38;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
@@ -5546,7 +5348,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 39;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp FWD</em>' operation.
@@ -5555,7 +5357,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 40;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
@@ -5564,7 +5366,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_SEQUENCEFLOWTOUCFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 41;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_SEQUENCEFLOWTOUCFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp FWD</em>' operation.
@@ -5573,7 +5375,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 42;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Register Objects FWD</em>' operation.
@@ -5582,7 +5384,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 43;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -5591,7 +5393,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 44;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD</em>' operation.
@@ -5600,7 +5402,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 45;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -5609,7 +5411,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___PERFORM_BWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 46;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___PERFORM_BWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Is Applicable BWD</em>' operation.
@@ -5618,7 +5420,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 47;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match BWD</em>' operation.
@@ -5627,7 +5429,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 48;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -5636,7 +5438,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 49;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_FLOW_ACTOR = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -5645,7 +5447,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 50;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp BWD</em>' operation.
@@ -5654,7 +5456,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_SEQUENCEFLOWTOUCFLOW_PROCESS_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 51;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_SEQUENCEFLOWTOUCFLOW_PROCESS_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -5663,7 +5465,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 52;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Register Objects BWD</em>' operation.
@@ -5672,7 +5474,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 53;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -5681,7 +5483,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 54;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 29</em>' operation.
@@ -5690,7 +5492,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_29__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 55;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_29__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 30</em>' operation.
@@ -5699,7 +5501,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_30__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 56;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_30__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 77</em>' operation.
@@ -5708,7 +5510,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_77__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 57;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_77__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 78</em>' operation.
@@ -5717,7 +5519,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_78__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 58;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_78__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 79</em>' operation.
@@ -5726,7 +5528,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_79__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 59;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_79__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 80</em>' operation.
@@ -5735,7 +5537,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_80__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 60;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_80__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 81</em>' operation.
@@ -5744,7 +5546,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_81__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 61;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_81__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 82</em>' operation.
@@ -5753,7 +5555,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_82__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 62;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_82__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 83</em>' operation.
@@ -5762,7 +5564,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_83__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 63;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_83__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 31</em>' operation.
@@ -5771,7 +5573,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_31__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 64;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_31__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 84</em>' operation.
@@ -5780,7 +5582,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_84__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 65;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_84__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -5789,7 +5591,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 66;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
 
 	/**
 	 * The operation id for the '<em>Check Attributes BWD</em>' operation.
@@ -5798,7 +5600,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 67;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
 
 	/**
 	 * The operation id for the '<em>Generate Model</em>' operation.
@@ -5807,7 +5609,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 68;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
 
 	/**
 	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
@@ -5816,7 +5618,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_SEQUENCEFLOWTOUCFLOW_PROCESS_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 69;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_SEQUENCEFLOWTOUCFLOW_PROCESS_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
 
 	/**
 	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
@@ -5825,7 +5627,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 70;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
 
 	/**
 	 * The number of operations of the '<em>Exclusive Gateway To Step Rule</em>' class.
@@ -5834,7 +5636,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 71;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
 
 	/**
 	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.ParallelGatewayToParallelStepRuleImpl <em>Parallel Gateway To Parallel Step Rule</em>}' class.
@@ -5862,160 +5664,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Register Objects FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELSTEP_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
-
-	/**
-	 * The operation id for the '<em>Register Objects BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 46</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_46__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 47</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_47__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 48</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_48__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 18</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_18__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 49</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_49__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
-
-	/**
-	 * The operation id for the '<em>Generate Model</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
-
-	/**
-	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Perform FWD</em>' operation.
@@ -6024,7 +5673,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Applicable FWD</em>' operation.
@@ -6033,7 +5682,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
@@ -6042,7 +5691,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
@@ -6051,7 +5700,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp FWD</em>' operation.
@@ -6060,7 +5709,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
@@ -6069,7 +5718,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_PARALLELGATEWAY_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_PARALLELGATEWAY_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp FWD</em>' operation.
@@ -6078,7 +5727,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Register Objects FWD</em>' operation.
@@ -6087,7 +5736,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 38;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -6096,7 +5745,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 39;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD</em>' operation.
@@ -6105,7 +5754,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 40;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -6114,7 +5763,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___PERFORM_BWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 41;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___PERFORM_BWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Is Applicable BWD</em>' operation.
@@ -6123,7 +5772,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 42;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match BWD</em>' operation.
@@ -6132,7 +5781,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 43;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -6141,7 +5790,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 44;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_PARALLELSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -6150,7 +5799,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 45;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp BWD</em>' operation.
@@ -6159,7 +5808,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_PROCESS_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 46;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_PROCESS_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -6168,7 +5817,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 47;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Register Objects BWD</em>' operation.
@@ -6177,7 +5826,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 48;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -6186,7 +5835,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 49;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 32</em>' operation.
@@ -6195,7 +5844,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_32__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 50;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_32__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 85</em>' operation.
@@ -6204,7 +5853,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_85__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 51;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_85__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 86</em>' operation.
@@ -6213,7 +5862,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_86__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 52;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_86__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 87</em>' operation.
@@ -6222,7 +5871,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_87__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 53;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_87__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 33</em>' operation.
@@ -6231,7 +5880,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_33__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 54;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_33__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 88</em>' operation.
@@ -6240,7 +5889,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_88__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 55;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_88__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -6249,7 +5898,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 56;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
 	 * The operation id for the '<em>Check Attributes BWD</em>' operation.
@@ -6258,7 +5907,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 57;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Generate Model</em>' operation.
@@ -6267,7 +5916,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 58;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
@@ -6276,7 +5925,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 59;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
 	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
@@ -6285,7 +5934,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 60;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
 	 * The number of operations of the '<em>Parallel Gateway To Parallel Step Rule</em>' class.
@@ -6294,7 +5943,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 61;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
 
 	/**
 	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.EventBasedGatewayToStepRuleImpl <em>Event Based Gateway To Step Rule</em>}' class.
@@ -6322,169 +5971,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_SEQUENCEFLOW_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_SEQUENCEFLOW_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_SEQUENCEFLOW_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_EVENTBASEDGATEWAY_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Register Objects FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_NORMALSTEP_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
-
-	/**
-	 * The operation id for the '<em>Register Objects BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 50</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_50__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 51</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_51__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 52</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_52__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 19</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_19__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 20</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_20__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 53</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_53__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
-
-	/**
-	 * The operation id for the '<em>Generate Model</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
-
-	/**
-	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Perform FWD</em>' operation.
@@ -6493,7 +5980,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Applicable FWD</em>' operation.
@@ -6502,7 +5989,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
@@ -6511,7 +5998,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
@@ -6520,7 +6007,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp FWD</em>' operation.
@@ -6529,7 +6016,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
@@ -6538,7 +6025,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_EVENTBASEDGATEWAY_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_EVENTBASEDGATEWAY_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp FWD</em>' operation.
@@ -6547,7 +6034,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 38;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Register Objects FWD</em>' operation.
@@ -6556,7 +6043,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 39;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -6565,7 +6052,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 40;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD</em>' operation.
@@ -6574,7 +6061,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 41;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -6583,7 +6070,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___PERFORM_BWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 42;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___PERFORM_BWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Is Applicable BWD</em>' operation.
@@ -6592,7 +6079,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 43;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match BWD</em>' operation.
@@ -6601,7 +6088,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 44;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -6610,7 +6097,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 45;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -6619,7 +6106,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 46;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp BWD</em>' operation.
@@ -6628,7 +6115,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 47;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -6637,7 +6124,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 48;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Register Objects BWD</em>' operation.
@@ -6646,7 +6133,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 49;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -6655,7 +6142,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 50;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 34</em>' operation.
@@ -6664,7 +6151,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_34__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 51;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_34__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 89</em>' operation.
@@ -6673,7 +6160,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_89__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 52;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_89__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 90</em>' operation.
@@ -6682,7 +6169,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_90__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 53;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_90__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 91</em>' operation.
@@ -6691,7 +6178,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_91__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 54;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_91__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 35</em>' operation.
@@ -6700,7 +6187,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_35__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 55;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_35__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 36</em>' operation.
@@ -6709,7 +6196,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_36__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 56;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_36__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 92</em>' operation.
@@ -6718,7 +6205,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_92__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 57;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_92__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -6727,7 +6214,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 58;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Check Attributes BWD</em>' operation.
@@ -6736,7 +6223,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 59;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Generate Model</em>' operation.
@@ -6745,7 +6232,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 60;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
 	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
@@ -6754,7 +6241,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 61;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
 	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
@@ -6763,7 +6250,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 62;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
 
 	/**
 	 * The number of operations of the '<em>Event Based Gateway To Step Rule</em>' class.
@@ -6772,7 +6259,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 63;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
 
 	/**
 	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.LaneStartEventRuleImpl <em>Lane Start Event Rule</em>}' class.
@@ -7180,124 +6667,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODETOSTEP_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 118</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_118__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 119</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_119__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 120</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_120__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 121</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_121__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 122</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_122__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 123</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_123__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 124</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_124__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
-
-	/**
-	 * The operation id for the '<em>Generate Model</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
-
-	/**
-	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODETOSTEP_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Perform FWD</em>' operation.
@@ -7306,7 +6676,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Applicable FWD</em>' operation.
@@ -7315,7 +6685,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
@@ -7324,7 +6694,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
@@ -7333,7 +6703,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp FWD</em>' operation.
@@ -7342,7 +6712,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
@@ -7351,7 +6721,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODETOSTEP_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODETOSTEP_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp FWD</em>' operation.
@@ -7360,7 +6730,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Register Objects FWD</em>' operation.
@@ -7369,7 +6739,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -7378,7 +6748,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 101</em>' operation.
@@ -7387,7 +6757,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_101__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_101__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 102</em>' operation.
@@ -7396,7 +6766,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_102__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_102__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 103</em>' operation.
@@ -7405,7 +6775,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_103__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_103__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 104</em>' operation.
@@ -7414,7 +6784,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_104__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_104__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 105</em>' operation.
@@ -7423,7 +6793,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_105__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_105__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 106</em>' operation.
@@ -7432,7 +6802,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_106__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_106__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 107</em>' operation.
@@ -7441,7 +6811,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_107__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_107__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 108</em>' operation.
@@ -7450,7 +6820,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_108__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 38;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_108__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 109</em>' operation.
@@ -7459,7 +6829,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_109__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 39;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_109__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -7468,7 +6838,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 40;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Generate Model</em>' operation.
@@ -7477,7 +6847,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 41;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
@@ -7486,7 +6856,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODETOSTEP_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 42;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_EXCLUSIVEGATEWAY_SEQUENCEFLOW_NORMALSTEP_ALTERNATIVEFLOWALTERNATIVE_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODETOSTEP_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
@@ -7495,7 +6865,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 43;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The number of operations of the '<em>Exc Conv Gw Default Seq Flow Rule</em>' class.
@@ -7504,7 +6874,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 44;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
 	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.ParallelConvergingGatewayTwoInputsRuleImpl <em>Parallel Converging Gateway Two Inputs Rule</em>}' class.
@@ -7532,124 +6902,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_LANE_LANESET_PARALLELGATEWAY_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_LANE_LANESET_PARALLELGATEWAY_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_LANE_LANESET_PARALLELGATEWAY_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_PARALLELSTEP_LANE_LANESET_PARALLELGATEWAY_FLOWNODETOSTEP_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Register Objects FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 54</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_54__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 55</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_55__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 56</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_56__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 57</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_57__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 58</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_58__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 59</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_59__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 60</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_60__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
-
-	/**
-	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_PARALLELSTEP_LANE_LANESET_PARALLELGATEWAY_FLOWNODETOSTEP_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_PARALLELGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_PARALLELGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Perform FWD</em>' operation.
@@ -7658,7 +6911,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Applicable FWD</em>' operation.
@@ -7667,7 +6920,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
@@ -7676,7 +6929,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_PARALLELGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_PARALLELGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
@@ -7685,7 +6938,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_PARALLELGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_PARALLELGATEWAY_SEQUENCEFLOW_SEQUENCEFLOW_SEQUENCEFLOW_LANE_LANESET_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp FWD</em>' operation.
@@ -7694,7 +6947,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
@@ -7703,7 +6956,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_PARALLELGATEWAY_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOW_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_LANE_LANESET_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_PARALLELGATEWAY_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOW_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_LANE_LANESET_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp FWD</em>' operation.
@@ -7712,7 +6965,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Register Objects FWD</em>' operation.
@@ -7721,7 +6974,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -7730,7 +6983,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 110</em>' operation.
@@ -7739,7 +6992,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_110__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_110__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 111</em>' operation.
@@ -7748,7 +7001,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_111__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_111__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 112</em>' operation.
@@ -7757,7 +7010,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_112__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_112__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 113</em>' operation.
@@ -7766,7 +7019,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_113__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_113__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 114</em>' operation.
@@ -7775,7 +7028,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_114__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_114__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 115</em>' operation.
@@ -7784,7 +7037,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_115__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_115__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 116</em>' operation.
@@ -7793,7 +7046,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_116__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_116__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 117</em>' operation.
@@ -7802,7 +7055,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_117__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 38;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_117__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -7811,7 +7064,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 39;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Generate Model</em>' operation.
@@ -7820,7 +7073,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 40;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
@@ -7829,7 +7082,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_LANE_LANESET_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 41;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_LANE_LANESET_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
@@ -7838,7 +7091,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 42;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The number of operations of the '<em>Parallel Converging Gateway Two Inputs Rule</em>' class.
@@ -7847,7 +7100,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 43;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.ExcConvGwAfterExDivGwRuleImpl <em>Exc Conv Gw After Ex Div Gw Rule</em>}' class.
@@ -8092,115 +7345,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 94</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_94__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 95</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_95__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 96</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_96__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 97</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_97__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 98</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_98__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 99</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_99__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 100</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_100__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
-
-	/**
-	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD__MATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD__MATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Perform FWD</em>' operation.
@@ -8209,7 +7354,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Applicable FWD</em>' operation.
@@ -8218,7 +7363,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
@@ -8227,7 +7372,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
@@ -8236,7 +7381,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp FWD</em>' operation.
@@ -8245,7 +7390,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
@@ -8254,7 +7399,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp FWD</em>' operation.
@@ -8263,7 +7408,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Register Objects FWD</em>' operation.
@@ -8272,7 +7417,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -8281,7 +7426,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 125</em>' operation.
@@ -8290,7 +7435,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_125__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_125__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 126</em>' operation.
@@ -8299,7 +7444,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_126__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_126__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 127</em>' operation.
@@ -8308,7 +7453,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_127__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_127__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 128</em>' operation.
@@ -8317,7 +7462,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_128__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_128__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 129</em>' operation.
@@ -8326,7 +7471,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_129__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_129__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 130</em>' operation.
@@ -8335,7 +7480,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_130__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_130__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 131</em>' operation.
@@ -8344,7 +7489,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_131__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_131__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -8353,7 +7498,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 38;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Generate Model</em>' operation.
@@ -8362,7 +7507,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 39;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
@@ -8371,7 +7516,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 40;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
@@ -8380,7 +7525,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 41;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The number of operations of the '<em>Ex Conv Gw After Event Gw Ice Seq Flow Rule</em>' class.
@@ -8389,7 +7534,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 42;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.ContinuationRuleImpl <em>Continuation Rule</em>}' class.

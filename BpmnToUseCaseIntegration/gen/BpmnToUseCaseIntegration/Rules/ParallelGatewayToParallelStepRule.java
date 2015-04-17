@@ -43,8 +43,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ParallelGatewayToParallelStepRule extends AbstractRule,
-		ParallelGatewayToParallelStepCoreRule {
+public interface ParallelGatewayToParallelStepRule extends EObject,
+		AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

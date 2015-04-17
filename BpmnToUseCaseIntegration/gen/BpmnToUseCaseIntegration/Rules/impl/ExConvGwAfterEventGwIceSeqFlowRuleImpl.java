@@ -7,8 +7,6 @@ import BpmnToUseCaseIntegration.FlowNodeToStep;
 import BpmnToUseCaseIntegration.ICEToAltFlow;
 
 import BpmnToUseCaseIntegration.Rules.ExConvGwAfterEventGwIceSeqFlowRule;
-import BpmnToUseCaseIntegration.Rules.ExcConvGwAfterEventGwRule;
-import BpmnToUseCaseIntegration.Rules.ExclusiveConvergingGatewayRule;
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
 
 import BpmnToUseCaseIntegration.SeqFlowToAltFlowAlt;
@@ -1266,815 +1264,6 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, bpmn2.Process process,
-			EventBasedGateway eventGw, SequenceFlow divergeFlow,
-			IntermediateCatchEvent ice, SequenceFlow inFlow,
-			ExclusiveGateway exConvGateway, SequenceFlow outFlow, Lane lane,
-			LaneSet laneSet) {
-		// initial bindings
-		Object[] result1_black = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_0_1_blackBBBBBBBBBBB(this,
-						match, process, eventGw, divergeFlow, ice, inFlow,
-						exConvGateway, outFlow, lane, laneSet);
-		if (result1_black == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
-		}
-
-		// Solve CSP
-		Object[] result2_bindingAndBlack = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_0_2_bindingAndBlackFBBBBBBBBBBB(
-						this, match, process, eventGw, divergeFlow, ice,
-						inFlow, exConvGateway, outFlow, lane, laneSet);
-		if (result2_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
-		}
-		CSP csp = (CSP) result2_bindingAndBlack[0];
-		// Check CSP
-		if (ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_0_3_expressionFBB(this, csp)) {
-
-			// collect elements to be translated
-			Object[] result4_black = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_0_4_blackBBBBBBBBBB(
-							match, process, eventGw, divergeFlow, ice, inFlow,
-							exConvGateway, outFlow, lane, laneSet);
-			if (result4_black == null) {
-				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
-			}
-			ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_0_4_greenBBBBBBFFFFFFF(
-							match, process, inFlow, exConvGateway, outFlow,
-							lane);
-			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[6];
-			// EMoflonEdge process__exConvGateway____flowElements = (EMoflonEdge) result4_green[7];
-			// EMoflonEdge inFlow__exConvGateway____targetRef = (EMoflonEdge) result4_green[8];
-			// EMoflonEdge exConvGateway__inFlow____incoming = (EMoflonEdge) result4_green[9];
-			// EMoflonEdge outFlow__exConvGateway____sourceRef = (EMoflonEdge) result4_green[10];
-			// EMoflonEdge exConvGateway__outFlow____outgoing = (EMoflonEdge) result4_green[11];
-			// EMoflonEdge lane__exConvGateway____flowNodeRefs = (EMoflonEdge) result4_green[12];
-
-			// collect context elements
-			Object[] result5_black = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_0_5_blackBBBBBBBBBB(
-							match, process, eventGw, divergeFlow, ice, inFlow,
-							exConvGateway, outFlow, lane, laneSet);
-			if (result5_black == null) {
-				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
-			}
-			ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_0_5_greenBBBBBBBBFFFFFFFFFF(
-							match, process, eventGw, divergeFlow, ice, inFlow,
-							lane, laneSet);
-			// EMoflonEdge process__eventGw____flowElements = (EMoflonEdge) result5_green[8];
-			// EMoflonEdge process__divergeFlow____flowElements = (EMoflonEdge) result5_green[9];
-			// EMoflonEdge process__ice____flowElements = (EMoflonEdge) result5_green[10];
-			// EMoflonEdge divergeFlow__eventGw____sourceRef = (EMoflonEdge) result5_green[11];
-			// EMoflonEdge eventGw__divergeFlow____outgoing = (EMoflonEdge) result5_green[12];
-			// EMoflonEdge divergeFlow__ice____targetRef = (EMoflonEdge) result5_green[13];
-			// EMoflonEdge ice__divergeFlow____incoming = (EMoflonEdge) result5_green[14];
-			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[15];
-			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[16];
-			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[17];
-
-			// register objects to match
-			ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_0_6_expressionBBBBBBBBBBB(
-							this, match, process, eventGw, divergeFlow, ice,
-							inFlow, exConvGateway, outFlow, lane, laneSet);
-			return ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_0_7_expressionF();
-		} else {
-			return ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_0_8_expressionF();
-		}
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void registerObjectsToMatch_FWD(Match match, bpmn2.Process process,
-			EventBasedGateway eventGw, SequenceFlow divergeFlow,
-			IntermediateCatchEvent ice, SequenceFlow inFlow,
-			ExclusiveGateway exConvGateway, SequenceFlow outFlow, Lane lane,
-			LaneSet laneSet) {
-		match.registerObject("process", process);
-		match.registerObject("eventGw", eventGw);
-		match.registerObject("divergeFlow", divergeFlow);
-		match.registerObject("ice", ice);
-		match.registerObject("inFlow", inFlow);
-		match.registerObject("exConvGateway", exConvGateway);
-		match.registerObject("outFlow", outFlow);
-		match.registerObject("lane", lane);
-		match.registerObject("laneSet", laneSet);
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, bpmn2.Process process,
-			EventBasedGateway eventGw, SequenceFlow divergeFlow,
-			IntermediateCatchEvent ice, SequenceFlow inFlow,
-			ExclusiveGateway exConvGateway, SequenceFlow outFlow, Lane lane,
-			LaneSet laneSet) {// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-
-		// Create literals
-		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal0", true, csp);
-		literal0.setValue("Converging");
-		literal0.setType("");
-
-		// Create attribute variables
-		Variable var_exConvGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
-				.createVariable("exConvGateway.gatewayDirection", true, csp);
-		var_exConvGateway_gatewayDirection.setValue(exConvGateway
-				.getGatewayDirection());
-		var_exConvGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
-
-		// Create unbound variables
-
-		// Create constraints
-		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
-
-		csp.getConstraints().add(eqGatewayDirection);
-
-		// Solve CSP
-		eqGatewayDirection.setRuleName("");
-		eqGatewayDirection.solve(var_exConvGateway_gatewayDirection, literal0);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
-			bpmn2.Process process, EventBasedGateway eventGw,
-			SequenceFlow divergeFlow, IntermediateCatchEvent ice,
-			NormalStep normalStep, FlowNodeToStep eventGwToNormalStep,
-			AlternativeFlowAlternative alt,
-			SeqFlowToAltFlowAlt divergeFlowToAlt, AlternativeFlow flow,
-			ICEToAltFlow iceToFlow, SequenceFlow inFlow,
-			ExclusiveGateway exConvGateway, SequenceFlow outFlow,
-			SequenceFlowToUCFlow inFlowToFlow, Flow initFlow, Lane lane,
-			LaneSet laneSet) {// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-
-		// Create attribute variables
-
-		// Create unbound variables
-
-		// Create constraints
-
-		// Solve CSP
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("process", process);
-		isApplicableMatch.registerObject("eventGw", eventGw);
-		isApplicableMatch.registerObject("divergeFlow", divergeFlow);
-		isApplicableMatch.registerObject("ice", ice);
-		isApplicableMatch.registerObject("normalStep", normalStep);
-		isApplicableMatch.registerObject("eventGwToNormalStep",
-				eventGwToNormalStep);
-		isApplicableMatch.registerObject("alt", alt);
-		isApplicableMatch.registerObject("divergeFlowToAlt", divergeFlowToAlt);
-		isApplicableMatch.registerObject("flow", flow);
-		isApplicableMatch.registerObject("iceToFlow", iceToFlow);
-		isApplicableMatch.registerObject("inFlow", inFlow);
-		isApplicableMatch.registerObject("exConvGateway", exConvGateway);
-		isApplicableMatch.registerObject("outFlow", outFlow);
-		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
-		isApplicableMatch.registerObject("initFlow", initFlow);
-		isApplicableMatch.registerObject("lane", lane);
-		isApplicableMatch.registerObject("laneSet", laneSet);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_94(
-			EMoflonEdge _edge_flowElements) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_10_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_10_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_10_2_blackFFFFFFFFFB(_edge_flowElements)) {
-			bpmn2.Process process = (bpmn2.Process) result2_black[0];
-			EventBasedGateway eventGw = (EventBasedGateway) result2_black[1];
-			SequenceFlow divergeFlow = (SequenceFlow) result2_black[2];
-			IntermediateCatchEvent ice = (IntermediateCatchEvent) result2_black[3];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[4];
-			ExclusiveGateway exConvGateway = (ExclusiveGateway) result2_black[5];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
-			Lane lane = (Lane) result2_black[7];
-			LaneSet laneSet = (LaneSet) result2_black[8];
-			Object[] result2_green = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_10_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_10_3_expressionFBBBBBBBBBBB(
-							this, match, process, eventGw, divergeFlow, ice,
-							inFlow, exConvGateway, outFlow, lane, laneSet)) {
-				// Ensure that the correct types of elements are matched
-				if (ExcConvGwAfterEventGwRuleImpl
-						.pattern_ExcConvGwAfterEventGwRule_10_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_10_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_10_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_10_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_95(
-			EMoflonEdge _edge_flowElements) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_11_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_11_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_11_2_blackFFFFFFFFFB(_edge_flowElements)) {
-			bpmn2.Process process = (bpmn2.Process) result2_black[0];
-			EventBasedGateway eventGw = (EventBasedGateway) result2_black[1];
-			SequenceFlow divergeFlow = (SequenceFlow) result2_black[2];
-			IntermediateCatchEvent ice = (IntermediateCatchEvent) result2_black[3];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[4];
-			ExclusiveGateway exConvGateway = (ExclusiveGateway) result2_black[5];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
-			Lane lane = (Lane) result2_black[7];
-			LaneSet laneSet = (LaneSet) result2_black[8];
-			Object[] result2_green = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_11_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_11_3_expressionFBBBBBBBBBBB(
-							this, match, process, eventGw, divergeFlow, ice,
-							inFlow, exConvGateway, outFlow, lane, laneSet)) {
-				// Ensure that the correct types of elements are matched
-				if (ExcConvGwAfterEventGwRuleImpl
-						.pattern_ExcConvGwAfterEventGwRule_11_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_11_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_11_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_11_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_96(
-			EMoflonEdge _edge_targetRef) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_12_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_12_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_12_2_blackFFFFFFFFFB(_edge_targetRef)) {
-			bpmn2.Process process = (bpmn2.Process) result2_black[0];
-			EventBasedGateway eventGw = (EventBasedGateway) result2_black[1];
-			SequenceFlow divergeFlow = (SequenceFlow) result2_black[2];
-			IntermediateCatchEvent ice = (IntermediateCatchEvent) result2_black[3];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[4];
-			ExclusiveGateway exConvGateway = (ExclusiveGateway) result2_black[5];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
-			Lane lane = (Lane) result2_black[7];
-			LaneSet laneSet = (LaneSet) result2_black[8];
-			Object[] result2_green = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_12_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_12_3_expressionFBBBBBBBBBBB(
-							this, match, process, eventGw, divergeFlow, ice,
-							inFlow, exConvGateway, outFlow, lane, laneSet)) {
-				// Ensure that the correct types of elements are matched
-				if (ExcConvGwAfterEventGwRuleImpl
-						.pattern_ExcConvGwAfterEventGwRule_12_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_12_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_12_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_12_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_97(
-			EMoflonEdge _edge_incoming) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_13_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_13_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_13_2_blackFFFFFFFFFB(_edge_incoming)) {
-			bpmn2.Process process = (bpmn2.Process) result2_black[0];
-			EventBasedGateway eventGw = (EventBasedGateway) result2_black[1];
-			SequenceFlow divergeFlow = (SequenceFlow) result2_black[2];
-			IntermediateCatchEvent ice = (IntermediateCatchEvent) result2_black[3];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[4];
-			ExclusiveGateway exConvGateway = (ExclusiveGateway) result2_black[5];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
-			Lane lane = (Lane) result2_black[7];
-			LaneSet laneSet = (LaneSet) result2_black[8];
-			Object[] result2_green = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_13_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_13_3_expressionFBBBBBBBBBBB(
-							this, match, process, eventGw, divergeFlow, ice,
-							inFlow, exConvGateway, outFlow, lane, laneSet)) {
-				// Ensure that the correct types of elements are matched
-				if (ExcConvGwAfterEventGwRuleImpl
-						.pattern_ExcConvGwAfterEventGwRule_13_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_13_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_13_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_13_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_98(
-			EMoflonEdge _edge_sourceRef) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_14_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_14_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_14_2_blackFFFFFFFFFB(_edge_sourceRef)) {
-			bpmn2.Process process = (bpmn2.Process) result2_black[0];
-			EventBasedGateway eventGw = (EventBasedGateway) result2_black[1];
-			SequenceFlow divergeFlow = (SequenceFlow) result2_black[2];
-			IntermediateCatchEvent ice = (IntermediateCatchEvent) result2_black[3];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[4];
-			ExclusiveGateway exConvGateway = (ExclusiveGateway) result2_black[5];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
-			Lane lane = (Lane) result2_black[7];
-			LaneSet laneSet = (LaneSet) result2_black[8];
-			Object[] result2_green = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_14_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_14_3_expressionFBBBBBBBBBBB(
-							this, match, process, eventGw, divergeFlow, ice,
-							inFlow, exConvGateway, outFlow, lane, laneSet)) {
-				// Ensure that the correct types of elements are matched
-				if (ExcConvGwAfterEventGwRuleImpl
-						.pattern_ExcConvGwAfterEventGwRule_14_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_14_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_14_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_14_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_99(
-			EMoflonEdge _edge_outgoing) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_15_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_15_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_15_2_blackFFFFFFFFFB(_edge_outgoing)) {
-			bpmn2.Process process = (bpmn2.Process) result2_black[0];
-			EventBasedGateway eventGw = (EventBasedGateway) result2_black[1];
-			SequenceFlow divergeFlow = (SequenceFlow) result2_black[2];
-			IntermediateCatchEvent ice = (IntermediateCatchEvent) result2_black[3];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[4];
-			ExclusiveGateway exConvGateway = (ExclusiveGateway) result2_black[5];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
-			Lane lane = (Lane) result2_black[7];
-			LaneSet laneSet = (LaneSet) result2_black[8];
-			Object[] result2_green = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_15_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_15_3_expressionFBBBBBBBBBBB(
-							this, match, process, eventGw, divergeFlow, ice,
-							inFlow, exConvGateway, outFlow, lane, laneSet)) {
-				// Ensure that the correct types of elements are matched
-				if (ExcConvGwAfterEventGwRuleImpl
-						.pattern_ExcConvGwAfterEventGwRule_15_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_15_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_15_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_15_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_100(
-			EMoflonEdge _edge_flowNodeRefs) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_16_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_16_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_16_2_blackFFFFFFFFFB(_edge_flowNodeRefs)) {
-			bpmn2.Process process = (bpmn2.Process) result2_black[0];
-			EventBasedGateway eventGw = (EventBasedGateway) result2_black[1];
-			SequenceFlow divergeFlow = (SequenceFlow) result2_black[2];
-			IntermediateCatchEvent ice = (IntermediateCatchEvent) result2_black[3];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[4];
-			ExclusiveGateway exConvGateway = (ExclusiveGateway) result2_black[5];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
-			Lane lane = (Lane) result2_black[7];
-			LaneSet laneSet = (LaneSet) result2_black[8];
-			Object[] result2_green = ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_16_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (ExcConvGwAfterEventGwRuleImpl
-					.pattern_ExcConvGwAfterEventGwRule_16_3_expressionFBBBBBBBBBBB(
-							this, match, process, eventGw, divergeFlow, ice,
-							inFlow, exConvGateway, outFlow, lane, laneSet)) {
-				// Ensure that the correct types of elements are matched
-				if (ExcConvGwAfterEventGwRuleImpl
-						.pattern_ExcConvGwAfterEventGwRule_16_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_16_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					ExcConvGwAfterEventGwRuleImpl
-							.pattern_ExcConvGwAfterEventGwRule_16_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return ExcConvGwAfterEventGwRuleImpl
-				.pattern_ExcConvGwAfterEventGwRule_16_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			bpmn2.Process process, EventBasedGateway eventGw,
-			SequenceFlow divergeFlow, IntermediateCatchEvent ice,
-			NormalStep normalStep, FlowNodeToStep eventGwToNormalStep,
-			AlternativeFlowAlternative alt,
-			SeqFlowToAltFlowAlt divergeFlowToAlt, AlternativeFlow flow,
-			ICEToAltFlow iceToFlow, SequenceFlow inFlow,
-			SequenceFlowToUCFlow inFlowToFlow, Flow initFlow, Lane lane,
-			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {// Create CSP
-		CSP csp = CspFactory.eINSTANCE.createCSP();
-		isApplicableMatch.getAttributeInfo().add(csp);
-
-		// Create literals
-		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
-				"literal0", true, csp);
-		literal0.setValue("Converging");
-		literal0.setType("");
-
-		// Create attribute variables
-
-		// Create unbound variables
-		Variable var_exConvGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
-				.createVariable("exConvGateway.gatewayDirection", csp);
-		var_exConvGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
-
-		// Create constraints
-		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
-
-		csp.getConstraints().add(eqGatewayDirection);
-
-		// Solve CSP
-		eqGatewayDirection.setRuleName("");
-		eqGatewayDirection.solve(var_exConvGateway_gatewayDirection, literal0);
-
-		// Snapshot pattern match on which CSP is solved
-		isApplicableMatch.registerObject("process", process);
-		isApplicableMatch.registerObject("eventGw", eventGw);
-		isApplicableMatch.registerObject("divergeFlow", divergeFlow);
-		isApplicableMatch.registerObject("ice", ice);
-		isApplicableMatch.registerObject("normalStep", normalStep);
-		isApplicableMatch.registerObject("eventGwToNormalStep",
-				eventGwToNormalStep);
-		isApplicableMatch.registerObject("alt", alt);
-		isApplicableMatch.registerObject("divergeFlowToAlt", divergeFlowToAlt);
-		isApplicableMatch.registerObject("flow", flow);
-		isApplicableMatch.registerObject("iceToFlow", iceToFlow);
-		isApplicableMatch.registerObject("inFlow", inFlow);
-		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
-		isApplicableMatch.registerObject("initFlow", initFlow);
-		isApplicableMatch.registerObject("lane", lane);
-		isApplicableMatch.registerObject("laneSet", laneSet);
-		return csp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == ExclusiveConvergingGatewayRule.class) {
-			switch (baseOperationID) {
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == ExcConvGwAfterEventGwRule.class) {
-			switch (baseOperationID) {
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___PERFORM_FWD__ISAPPLICABLEMATCH;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPLICABLE_FWD__MATCH:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_FWD__MATCH;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___CHECK_TYPES_FWD__MATCH:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___CHECK_TYPES_FWD__MATCH;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_94__EMOFLONEDGE:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_94__EMOFLONEDGE;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_95__EMOFLONEDGE:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_95__EMOFLONEDGE;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_96__EMOFLONEDGE:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_96__EMOFLONEDGE;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_97__EMOFLONEDGE:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_97__EMOFLONEDGE;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_98__EMOFLONEDGE:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_98__EMOFLONEDGE;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_99__EMOFLONEDGE:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_99__EMOFLONEDGE;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_100__EMOFLONEDGE:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_100__EMOFLONEDGE;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET_MODELGENERATORRULERESULT:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET_MODELGENERATORRULERESULT;
-			case RulesPackage.EXC_CONV_GW_AFTER_EVENT_GW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
-				return RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP;
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
@@ -2198,95 +1387,6 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 					(ModelgeneratorRuleResult) arguments.get(16));
 		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
 			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET:
-			return isAppropriate_FWD((Match) arguments.get(0),
-					(bpmn2.Process) arguments.get(1),
-					(EventBasedGateway) arguments.get(2),
-					(SequenceFlow) arguments.get(3),
-					(IntermediateCatchEvent) arguments.get(4),
-					(SequenceFlow) arguments.get(5),
-					(ExclusiveGateway) arguments.get(6),
-					(SequenceFlow) arguments.get(7), (Lane) arguments.get(8),
-					(LaneSet) arguments.get(9));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET:
-			registerObjectsToMatch_FWD((Match) arguments.get(0),
-					(bpmn2.Process) arguments.get(1),
-					(EventBasedGateway) arguments.get(2),
-					(SequenceFlow) arguments.get(3),
-					(IntermediateCatchEvent) arguments.get(4),
-					(SequenceFlow) arguments.get(5),
-					(ExclusiveGateway) arguments.get(6),
-					(SequenceFlow) arguments.get(7), (Lane) arguments.get(8),
-					(LaneSet) arguments.get(9));
-			return null;
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET:
-			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
-					(bpmn2.Process) arguments.get(1),
-					(EventBasedGateway) arguments.get(2),
-					(SequenceFlow) arguments.get(3),
-					(IntermediateCatchEvent) arguments.get(4),
-					(SequenceFlow) arguments.get(5),
-					(ExclusiveGateway) arguments.get(6),
-					(SequenceFlow) arguments.get(7), (Lane) arguments.get(8),
-					(LaneSet) arguments.get(9));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET:
-			return isApplicable_solveCsp_FWD(
-					(IsApplicableMatch) arguments.get(0),
-					(bpmn2.Process) arguments.get(1),
-					(EventBasedGateway) arguments.get(2),
-					(SequenceFlow) arguments.get(3),
-					(IntermediateCatchEvent) arguments.get(4),
-					(NormalStep) arguments.get(5),
-					(FlowNodeToStep) arguments.get(6),
-					(AlternativeFlowAlternative) arguments.get(7),
-					(SeqFlowToAltFlowAlt) arguments.get(8),
-					(AlternativeFlow) arguments.get(9),
-					(ICEToAltFlow) arguments.get(10),
-					(SequenceFlow) arguments.get(11),
-					(ExclusiveGateway) arguments.get(12),
-					(SequenceFlow) arguments.get(13),
-					(SequenceFlowToUCFlow) arguments.get(14),
-					(Flow) arguments.get(15), (Lane) arguments.get(16),
-					(LaneSet) arguments.get(17));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_94__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_94((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_95__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_95((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_96__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_96((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_97__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_97((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_98__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_98((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_99__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_99((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_100__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_100((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_EVENTBASEDGATEWAY_SEQUENCEFLOW_INTERMEDIATECATCHEVENT_NORMALSTEP_FLOWNODETOSTEP_ALTERNATIVEFLOWALTERNATIVE_SEQFLOWTOALTFLOWALT_ALTERNATIVEFLOW_ICETOALTFLOW_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_FLOW_LANE_LANESET_MODELGENERATORRULERESULT:
-			return generateModel_solveCsp_BWD(
-					(IsApplicableMatch) arguments.get(0),
-					(bpmn2.Process) arguments.get(1),
-					(EventBasedGateway) arguments.get(2),
-					(SequenceFlow) arguments.get(3),
-					(IntermediateCatchEvent) arguments.get(4),
-					(NormalStep) arguments.get(5),
-					(FlowNodeToStep) arguments.get(6),
-					(AlternativeFlowAlternative) arguments.get(7),
-					(SeqFlowToAltFlowAlt) arguments.get(8),
-					(AlternativeFlow) arguments.get(9),
-					(ICEToAltFlow) arguments.get(10),
-					(SequenceFlow) arguments.get(11),
-					(SequenceFlowToUCFlow) arguments.get(12),
-					(Flow) arguments.get(13), (Lane) arguments.get(14),
-					(LaneSet) arguments.get(15),
-					(ModelgeneratorRuleResult) arguments.get(16));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -4301,14 +3401,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_370684 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_779647 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_370684 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_370684)) {
+					if (__DEC_exConvGateway_default_779647 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_779647)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_370684)) {
+									.equals(__DEC_exConvGateway_default_779647)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_370684)) {
+										.equals(__DEC_exConvGateway_default_779647)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -4324,10 +3424,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_10_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_982844 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_164405 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_982844)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_164405)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -4597,14 +3697,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_253241 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_381560 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_253241 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_253241)) {
+					if (__DEC_exConvGateway_default_381560 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_381560)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_253241)) {
+									.equals(__DEC_exConvGateway_default_381560)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_253241)) {
+										.equals(__DEC_exConvGateway_default_381560)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -4620,10 +3720,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_11_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_158155 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_594121 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_158155)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_594121)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -4895,14 +3995,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_772557 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_248683 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_772557 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_772557)) {
+					if (__DEC_exConvGateway_default_248683 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_248683)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_772557)) {
+									.equals(__DEC_exConvGateway_default_248683)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_772557)) {
+										.equals(__DEC_exConvGateway_default_248683)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -4918,10 +4018,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_12_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_908776 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_541832 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_908776)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_541832)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -5193,14 +4293,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_493972 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_927600 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_493972 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_493972)) {
+					if (__DEC_exConvGateway_default_927600 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_927600)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_493972)) {
+									.equals(__DEC_exConvGateway_default_927600)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_493972)) {
+										.equals(__DEC_exConvGateway_default_927600)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -5216,10 +4316,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_13_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_53445 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_598752 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_53445)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_598752)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -5491,14 +4591,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_677902 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_14727 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_677902 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_677902)) {
+					if (__DEC_exConvGateway_default_14727 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_14727)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_677902)) {
+									.equals(__DEC_exConvGateway_default_14727)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_677902)) {
+										.equals(__DEC_exConvGateway_default_14727)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -5514,10 +4614,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_14_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_449881 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_108101 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_449881)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_108101)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -5789,14 +4889,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_122516 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_514514 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_122516 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_122516)) {
+					if (__DEC_exConvGateway_default_514514 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_514514)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_122516)) {
+									.equals(__DEC_exConvGateway_default_514514)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_122516)) {
+										.equals(__DEC_exConvGateway_default_514514)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -5812,10 +4912,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_15_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_875469 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_113462 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_875469)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_113462)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -6087,14 +5187,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_466096 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_218417 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_466096 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_466096)) {
+					if (__DEC_exConvGateway_default_218417 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_218417)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_466096)) {
+									.equals(__DEC_exConvGateway_default_218417)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_466096)) {
+										.equals(__DEC_exConvGateway_default_218417)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -6110,10 +5210,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_16_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_635435 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_104659 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_635435)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_104659)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}

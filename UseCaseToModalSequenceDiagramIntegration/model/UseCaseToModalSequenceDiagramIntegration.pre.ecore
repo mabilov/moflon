@@ -108,26 +108,21 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UseCaseNoPrecondRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UserActorToLifelineRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NormalStepBFToMessageRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepToMessageRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NormalStepNFToMessageRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepToMessageRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AltStepToComboRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AltStepNFToComboRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParallelStepToCombinedFragmentRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
@@ -137,46 +132,36 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UseCasePrecondToFoundMessageRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SystemStepBFToMessageRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepBFToMessageRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StepAltToOperandRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AltStepBFToComboRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UserStepBFMessageRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepBFToMessageRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SystemStepNFToMessageRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepNFToMessageRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UserStepNfToMessageRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepNFToMessageRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AltSysStepBFToComboRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepBFToComboRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AltUserStepBFToComboRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepBFToComboRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AltSysStepNFToComboRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepNFToComboRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AltUserStepNFToComboRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-      <eSuperTypes href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepNFToComboRule"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

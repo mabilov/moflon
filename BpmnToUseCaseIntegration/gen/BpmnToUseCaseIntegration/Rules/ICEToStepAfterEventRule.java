@@ -46,7 +46,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ICEToStepAfterEventRule extends AbstractRule, ICEToStepRule {
+public interface ICEToStepAfterEventRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

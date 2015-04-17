@@ -48,8 +48,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ExcConvGwAfterEventGwRule extends AbstractRule,
-		ExclusiveConvergingGatewayRule {
+public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -2871,9 +2871,9 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_20_2_black_nac_0BB(
 			Lane lane, LaneSet laneSet) {
-		for (LaneSet __DEC_lane_lanes_952038 : org.moflon.util.eMoflonEMFUtil
+		for (LaneSet __DEC_lane_lanes_697727 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(lane, LaneSet.class, "lanes")) {
-			if (!laneSet.equals(__DEC_lane_lanes_952038)) {
+			if (!laneSet.equals(__DEC_lane_lanes_697727)) {
 				return new Object[] { lane, laneSet };
 			}
 		}
@@ -3009,10 +3009,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_21_2_black_nac_0BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_751637 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_944936 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_751637)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_944936)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}

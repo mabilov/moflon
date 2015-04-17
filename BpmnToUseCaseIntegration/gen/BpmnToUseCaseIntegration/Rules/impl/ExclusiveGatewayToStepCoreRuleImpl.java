@@ -4486,10 +4486,10 @@ public class ExclusiveGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExclusiveGatewayToStepCoreRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_402590 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_641493 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_402590)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_641493)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -4661,10 +4661,10 @@ public class ExclusiveGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExclusiveGatewayToStepCoreRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_118618 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_981433 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_118618)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_981433)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -4838,10 +4838,10 @@ public class ExclusiveGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExclusiveGatewayToStepCoreRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_252173 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_194863 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_252173)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_194863)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5019,10 +5019,10 @@ public class ExclusiveGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExclusiveGatewayToStepCoreRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_375120 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_515163 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_375120)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_515163)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5198,10 +5198,10 @@ public class ExclusiveGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExclusiveGatewayToStepCoreRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_94050 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_85854 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_94050)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_85854)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5377,10 +5377,10 @@ public class ExclusiveGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExclusiveGatewayToStepCoreRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_893961 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_353242 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_893961)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_353242)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5555,10 +5555,10 @@ public class ExclusiveGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExclusiveGatewayToStepCoreRule_27_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_437351 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_740140 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_437351)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_740140)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5848,10 +5848,10 @@ public class ExclusiveGatewayToStepCoreRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExclusiveGatewayToStepCoreRule_29_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_73535 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_394150 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_73535)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_394150)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}

@@ -44,8 +44,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UserTaskToStepAfterPGRule extends AbstractRule,
-		FirstUserTaskToStepRule {
+public interface UserTaskToStepAfterPGRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

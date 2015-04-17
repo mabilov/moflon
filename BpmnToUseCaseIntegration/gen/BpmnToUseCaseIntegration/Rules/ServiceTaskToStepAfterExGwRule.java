@@ -44,8 +44,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ServiceTaskToStepAfterExGwRule extends AbstractRule,
-		FirstServiceTaskToStepRule {
+public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

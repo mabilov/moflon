@@ -3,6 +3,8 @@
 package BpmnToUseCaseIntegration.Rules;
 
 import TGGRuntime.AbstractRule;
+
+import org.eclipse.emf.ecore.EObject;
 // <-- [user defined imports]
 // [user defined imports] -->
 
@@ -16,8 +18,7 @@ import TGGRuntime.AbstractRule;
  * @model abstract="true"
  * @generated
  */
-public interface FirstUserTaskToStepRule extends AbstractRule,
-		TaskToStepCoreRule { // <-- [user code injected with eMoflon]
+public interface FirstUserTaskToStepRule extends EObject, AbstractRule { // <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
 } // FirstUserTaskToStepRule

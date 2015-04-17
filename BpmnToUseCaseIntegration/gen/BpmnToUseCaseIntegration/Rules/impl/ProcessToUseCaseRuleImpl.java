@@ -3931,7 +3931,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_20_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_187158 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_326377 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4083,10 +4083,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_21_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_164132 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_150552 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_164132)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_150552)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -4095,10 +4095,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_21_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_608005 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_280829 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_608005)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_280829)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -4234,10 +4234,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_22_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_663036 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_329092 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_663036)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_329092)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -4246,10 +4246,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_22_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_742378 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_368875 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_742378)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_368875)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -4384,7 +4384,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_23_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_743026 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_354491 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4535,7 +4535,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_24_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_976022 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_931710 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4684,10 +4684,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_25_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_334856 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_49777 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_334856)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_49777)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -4696,10 +4696,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_25_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_826125 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_582439 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_826125)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_582439)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -4833,7 +4833,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_26_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_279794 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_738631 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4987,7 +4987,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_27_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_850870 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_429166 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };

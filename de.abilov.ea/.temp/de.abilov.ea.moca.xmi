@@ -12621,7 +12621,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{A5FC745F-8F47-41a5-85F7-E8ED681D77CE} " index="6" />
-              <attribute name="baseClasses" value="{A5FC745F-8F47-41a5-85F7-E8ED681D77CE} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="5" xsi:type="MocaTree:Node">
@@ -12724,7 +12724,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{A5FC745F-8F47-41a5-85F7-E8ED681D77CE} " index="6" />
-              <attribute name="baseClasses" value="{A5FC745F-8F47-41a5-85F7-E8ED681D77CE} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="6" xsi:type="MocaTree:Node">
@@ -13295,7 +13295,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{A5FC745F-8F47-41a5-85F7-E8ED681D77CE} " index="6" />
-              <attribute name="baseClasses" value="{A5FC745F-8F47-41a5-85F7-E8ED681D77CE} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="9" xsi:type="MocaTree:Node">
@@ -13398,7 +13398,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{3797A1BC-6291-4592-A40A-40E8F5B66A53} " index="6" />
-              <attribute name="baseClasses" value="{3797A1BC-6291-4592-A40A-40E8F5B66A53} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="10" xsi:type="MocaTree:Node">
@@ -13501,7 +13501,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{3797A1BC-6291-4592-A40A-40E8F5B66A53} " index="6" />
-              <attribute name="baseClasses" value="{3797A1BC-6291-4592-A40A-40E8F5B66A53} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="11" xsi:type="MocaTree:Node">
@@ -14131,7 +14131,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{DE292F5B-E79D-48e4-8E21-D355092F964D} " index="6" />
-              <attribute name="baseClasses" value="{DE292F5B-E79D-48e4-8E21-D355092F964D} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="13" xsi:type="MocaTree:Node">
@@ -14161,7 +14161,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{DE292F5B-E79D-48e4-8E21-D355092F964D} " index="6" />
-              <attribute name="baseClasses" value="{DE292F5B-E79D-48e4-8E21-D355092F964D} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="14" xsi:type="MocaTree:Node">
@@ -15268,7 +15268,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{7156BD47-5952-4b36-85D6-FF8774CB140B} " index="6" />
-              <attribute name="baseClasses" value="{7156BD47-5952-4b36-85D6-FF8774CB140B} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="17" xsi:type="MocaTree:Node">
@@ -15298,7 +15298,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{7156BD47-5952-4b36-85D6-FF8774CB140B} " index="6" />
-              <attribute name="baseClasses" value="{7156BD47-5952-4b36-85D6-FF8774CB140B} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="18" xsi:type="MocaTree:Node">
@@ -15328,7 +15328,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{7156BD47-5952-4b36-85D6-FF8774CB140B} " index="6" />
-              <attribute name="baseClasses" value="{7156BD47-5952-4b36-85D6-FF8774CB140B} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="19" xsi:type="MocaTree:Node">
@@ -19488,7 +19488,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{3C183A9A-F7CF-4a12-BFE6-5CA0AF85E5AE} " index="6" />
-              <attribute name="baseClasses" value="{3C183A9A-F7CF-4a12-BFE6-5CA0AF85E5AE} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="27" xsi:type="MocaTree:Node">
@@ -19607,7 +19607,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{3DC4F1BF-E0DE-439d-B292-760F38D6BF8F} " index="6" />
-              <attribute name="baseClasses" value="{3DC4F1BF-E0DE-439d-B292-760F38D6BF8F} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="28" xsi:type="MocaTree:Node">
@@ -19726,7 +19726,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{81C2953E-EF23-4e6d-A8C3-4D3AABEF932C} " index="6" />
-              <attribute name="baseClasses" value="{81C2953E-EF23-4e6d-A8C3-4D3AABEF932C} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="29" xsi:type="MocaTree:Node">
@@ -20188,7 +20188,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{3FE25E84-B28F-4a63-B26E-9FAB1E752CCF} " index="6" />
-              <attribute name="baseClasses" value="{3FE25E84-B28F-4a63-B26E-9FAB1E752CCF} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="31" xsi:type="MocaTree:Node">
@@ -20248,7 +20248,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{412AF3E3-9CCE-4498-9CAF-460742A7ABE7} " index="6" />
-              <attribute name="baseClasses" value="{412AF3E3-9CCE-4498-9CAF-460742A7ABE7} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="32" xsi:type="MocaTree:Node">
@@ -20591,7 +20591,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{B9B80A2F-CF93-40ac-9D54-053169FCBD84} " index="6" />
-              <attribute name="baseClasses" value="{B9B80A2F-CF93-40ac-9D54-053169FCBD84} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="33" xsi:type="MocaTree:Node">
@@ -21119,7 +21119,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(exclusiveGateway.gatewayDirection, &quot;Diverging&quot;)" index="5" />
               <attribute name="refines" value="{3FE25E84-B28F-4a63-B26E-9FAB1E752CCF} " index="6" />
-              <attribute name="baseClasses" value="{3FE25E84-B28F-4a63-B26E-9FAB1E752CCF} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="34" xsi:type="MocaTree:Node">
@@ -21179,7 +21179,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{D59F30BF-3833-4421-A5DF-2FE09ECDA024} " index="6" />
-              <attribute name="baseClasses" value="{D59F30BF-3833-4421-A5DF-2FE09ECDA024} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="35" xsi:type="MocaTree:Node">
@@ -21606,7 +21606,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{FB8A7660-21F1-4d7e-AC66-A347F53873A2} " index="6" />
-              <attribute name="baseClasses" value="{FB8A7660-21F1-4d7e-AC66-A347F53873A2} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="37" xsi:type="MocaTree:Node">
@@ -21659,7 +21659,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(flowNode.gatewayDirection, &quot;Diverging&quot;)" index="5" />
               <attribute name="refines" value="{FB8A7660-21F1-4d7e-AC66-A347F53873A2} " index="6" />
-              <attribute name="baseClasses" value="{FB8A7660-21F1-4d7e-AC66-A347F53873A2} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="38" xsi:type="MocaTree:Node">
@@ -21712,7 +21712,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(flowNode.gatewayDirection, &quot;Diverging&quot;)" index="5" />
               <attribute name="refines" value="{FB8A7660-21F1-4d7e-AC66-A347F53873A2} " index="6" />
-              <attribute name="baseClasses" value="{FB8A7660-21F1-4d7e-AC66-A347F53873A2} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="39" xsi:type="MocaTree:Node">
@@ -21742,7 +21742,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3} " index="6" />
-              <attribute name="baseClasses" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="40" xsi:type="MocaTree:Node">
@@ -21772,7 +21772,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3} " index="6" />
-              <attribute name="baseClasses" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="41" xsi:type="MocaTree:Node">
@@ -21825,7 +21825,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(flowNode.gatewayDirection, &quot;Converging&quot;)" index="5" />
               <attribute name="refines" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3} " index="6" />
-              <attribute name="baseClasses" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="42" xsi:type="MocaTree:Node">
@@ -21878,7 +21878,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(flowNode.gatewayDirection, &quot;Converging&quot;)" index="5" />
               <attribute name="refines" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3} " index="6" />
-              <attribute name="baseClasses" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="43" xsi:type="MocaTree:Node">
@@ -21908,7 +21908,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{E7C7FB63-A9AA-42f5-ADC1-250AF492F33D} " index="6" />
-              <attribute name="baseClasses" value="{E7C7FB63-A9AA-42f5-ADC1-250AF492F33D} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="44" xsi:type="MocaTree:Node">
@@ -21961,7 +21961,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(flowNode.gatewayDirection, &quot;Diverging&quot;)" index="5" />
               <attribute name="refines" value="{E7C7FB63-A9AA-42f5-ADC1-250AF492F33D} " index="6" />
-              <attribute name="baseClasses" value="{E7C7FB63-A9AA-42f5-ADC1-250AF492F33D} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="45" xsi:type="MocaTree:Node">
@@ -22014,7 +22014,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(flowNode.gatewayDirection, &quot;Diverging&quot;)" index="5" />
               <attribute name="refines" value="{E7C7FB63-A9AA-42f5-ADC1-250AF492F33D} " index="6" />
-              <attribute name="baseClasses" value="{E7C7FB63-A9AA-42f5-ADC1-250AF492F33D} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="46" xsi:type="MocaTree:Node">
@@ -22104,7 +22104,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{E7C7FB63-A9AA-42f5-ADC1-250AF492F33D} " index="6" />
-              <attribute name="baseClasses" value="{E7C7FB63-A9AA-42f5-ADC1-250AF492F33D} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="47" xsi:type="MocaTree:Node">
@@ -22134,7 +22134,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{63843810-29F8-45c3-9DE0-F0BCAB46F27F} " index="6" />
-              <attribute name="baseClasses" value="{63843810-29F8-45c3-9DE0-F0BCAB46F27F} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="48" xsi:type="MocaTree:Node">
@@ -22187,7 +22187,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(flowNode.gatewayDirection, &quot;Diverging&quot;)" index="5" />
               <attribute name="refines" value="{63843810-29F8-45c3-9DE0-F0BCAB46F27F} " index="6" />
-              <attribute name="baseClasses" value="{63843810-29F8-45c3-9DE0-F0BCAB46F27F} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="49" xsi:type="MocaTree:Node">
@@ -22240,7 +22240,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqGatewayDirection(flowNode.gatewayDirection, &quot;Diverging&quot;)" index="5" />
               <attribute name="refines" value="{63843810-29F8-45c3-9DE0-F0BCAB46F27F} " index="6" />
-              <attribute name="baseClasses" value="{63843810-29F8-45c3-9DE0-F0BCAB46F27F} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="50" xsi:type="MocaTree:Node">
@@ -22330,7 +22330,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{63843810-29F8-45c3-9DE0-F0BCAB46F27F} " index="6" />
-              <attribute name="baseClasses" value="{63843810-29F8-45c3-9DE0-F0BCAB46F27F} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
           </children>
@@ -23974,7 +23974,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(descValueNode.name, actor.description)" index="5" />
               <attribute name="refines" value="{7C36A084-2174-4538-9906-A66268AE7602} " index="6" />
-              <attribute name="baseClasses" value="{7C36A084-2174-4538-9906-A66268AE7602} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="5" xsi:type="MocaTree:Node">
@@ -24892,7 +24892,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(descValueNode.name, useCase.description)" index="5" />
               <attribute name="refines" value="{44D5B4A6-1AD8-422d-A3B4-A9DD03A553A7} " index="6" />
-              <attribute name="baseClasses" value="{44D5B4A6-1AD8-422d-A3B4-A9DD03A553A7} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="9" xsi:type="MocaTree:Node">
@@ -25031,7 +25031,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(preCondValNode.name, useCase.preConditions)" index="5" />
               <attribute name="refines" value="{F73EEF45-44E2-4608-B0E0-E2350CD08D55} " index="6" />
-              <attribute name="baseClasses" value="{F73EEF45-44E2-4608-B0E0-E2350CD08D55} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="10" xsi:type="MocaTree:Node">
@@ -25469,7 +25469,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(preCondValNode.name, useCase.preConditions)" index="5" />
               <attribute name="refines" value="{44D5B4A6-1AD8-422d-A3B4-A9DD03A553A7} " index="6" />
-              <attribute name="baseClasses" value="{44D5B4A6-1AD8-422d-A3B4-A9DD03A553A7} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="12" xsi:type="MocaTree:Node">
@@ -26410,7 +26410,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(finalStateValNode.name, basicFlow.finalState)" index="5" />
               <attribute name="refines" value="{62B6A799-0E7C-4696-AF34-FF4712176102} " index="6" />
-              <attribute name="baseClasses" value="{62B6A799-0E7C-4696-AF34-FF4712176102} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="16" xsi:type="MocaTree:Node">
@@ -26897,7 +26897,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(finalStateValNode.name, altFlow.finalState)eq(finalStateNode.name, &quot;with postcondition&quot;)" index="5" />
               <attribute name="refines" value="{844E6B3B-5744-4529-B622-D26512CC2E28} " index="6" />
-              <attribute name="baseClasses" value="{844E6B3B-5744-4529-B622-D26512CC2E28} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="18" xsi:type="MocaTree:Node">
@@ -27036,7 +27036,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(finalStateValNode.name, parallelFlow.finalState)" index="5" />
               <attribute name="refines" value="{DEA023F7-DCD3-4fbd-8704-0F91B471677B} " index="6" />
-              <attribute name="baseClasses" value="{DEA023F7-DCD3-4fbd-8704-0F91B471677B} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="19" xsi:type="MocaTree:Node">
@@ -27671,7 +27671,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(descValueNode.name, step.label)" index="5" />
               <attribute name="refines" value="{9ABD5666-B16B-4448-A675-6A5C18927F5E} " index="6" />
-              <attribute name="baseClasses" value="{9ABD5666-B16B-4448-A675-6A5C18927F5E} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="21" xsi:type="MocaTree:Node">
@@ -27810,7 +27810,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(descValueNode.name, step.label)" index="5" />
               <attribute name="refines" value="{99CDDAA9-F490-4783-AFDA-CF6993A137FD} " index="6" />
-              <attribute name="baseClasses" value="{99CDDAA9-F490-4783-AFDA-CF6993A137FD} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="22" xsi:type="MocaTree:Node">
@@ -32088,6 +32088,21 @@
                       <attribute name="guid" value="{44121967-52BE-40a2-A5AA-2FC448D63DA6}" index="11" />
                       <attribute name="domain" value="source" index="12" />
                     </children>
+                    <children name="TGGLinkVariable" index="1" xsi:type="MocaTree:Node">
+                      <attribute name="name" value="useCases" index="0" />
+                      <attribute name="sourceGuid" value="{6525FAC3-231F-49bc-9686-141019647369}" index="1" />
+                      <attribute name="targetGuid" value="{64C3F6A0-CBB7-4a19-BD84-30ACA16F2F8E}" index="2" />
+                      <attribute name="bindingOperator" value="check_only" index="3" />
+                      <attribute name="bindingSemantics" value="mandatory" index="4" />
+                      <attribute name="sourceName" value="" index="5" />
+                      <attribute name="nacIndex" value="-1" index="6" />
+                      <attribute name="textOfReference" value="" index="7" />
+                      <attribute name="textOfReferenceOpposite" value="" index="8" />
+                      <attribute name="idOfReference" value="{B93EB244-8ACC-4eca-8EA3-CAA0455AD412}" index="9" />
+                      <attribute name="direction" value="right" index="10" />
+                      <attribute name="guid" value="{9B3900BE-6CCC-42bd-A4A6-DDA0902917E5}" index="11" />
+                      <attribute name="domain" value="source" index="12" />
+                    </children>
                   </children>
                   <attribute name="guid" value="{6525FAC3-231F-49bc-9686-141019647369}" index="0" />
                   <attribute name="typeGuid" value="{FB5B2679-E048-4bb2-A470-F934CF8E8829}" index="1" />
@@ -32248,6 +32263,65 @@
                   <attribute name="domain" value="correspondence" index="8" />
                 </children>
                 <children name="TGGObjectVariable" index="6" xsi:type="MocaTree:Node">
+                  <children name="constraints" index="0" xsi:type="MocaTree:Node" />
+                  <children name="attributeAssignments" index="1" xsi:type="MocaTree:Node" />
+                  <children name="outgoingLinks" index="2" xsi:type="MocaTree:Node" />
+                  <attribute name="guid" value="{64C3F6A0-CBB7-4a19-BD84-30ACA16F2F8E}" index="0" />
+                  <attribute name="typeGuid" value="{E130DB2E-FBB8-4275-8DFE-E1192930319F}" index="1" />
+                  <attribute name="bindingState" value="unbound" index="2" />
+                  <attribute name="bindingOperator" value="check_only" index="3" />
+                  <attribute name="name" value="useCase" index="4" />
+                  <attribute name="bindingSemantics" value="mandatory" index="5" />
+                  <attribute name="nacIndex" value="-1" index="6" />
+                  <attribute name="metamodelGuid" value="{C24E31AF-7205-4a57-9770-0F73AC933F12}" index="7" />
+                  <attribute name="domain" value="source" index="8" />
+                </children>
+                <children name="TGGCorrespondence" index="7" xsi:type="MocaTree:Node">
+                  <children name="constraints" index="0" xsi:type="MocaTree:Node" />
+                  <children name="attributeAssignments" index="1" xsi:type="MocaTree:Node" />
+                  <children name="outgoingLinks" index="2" xsi:type="MocaTree:Node">
+                    <children name="TGGLinkVariable" index="0" xsi:type="MocaTree:Node">
+                      <attribute name="name" value="source" index="0" />
+                      <attribute name="sourceGuid" value="{E8D9010A-A59A-4441-9505-C85D61C1CA2A}" index="1" />
+                      <attribute name="targetGuid" value="{64C3F6A0-CBB7-4a19-BD84-30ACA16F2F8E}" index="2" />
+                      <attribute name="bindingOperator" value="check_only" index="3" />
+                      <attribute name="bindingSemantics" value="mandatory" index="4" />
+                      <attribute name="sourceName" value="" index="5" />
+                      <attribute name="nacIndex" value="-1" index="6" />
+                      <attribute name="textOfReference" value="" index="7" />
+                      <attribute name="textOfReferenceOpposite" value="" index="8" />
+                      <attribute name="idOfReference" value="{1D5A7F3F-2180-46c6-A199-0B0318666B92}" index="9" />
+                      <attribute name="direction" value="right" index="10" />
+                      <attribute name="guid" value="{D724ACF5-7208-4089-A302-B9C6D2D37E65}" index="11" />
+                      <attribute name="domain" value="correspondence" index="12" />
+                    </children>
+                    <children name="TGGLinkVariable" index="1" xsi:type="MocaTree:Node">
+                      <attribute name="name" value="target" index="0" />
+                      <attribute name="sourceGuid" value="{E8D9010A-A59A-4441-9505-C85D61C1CA2A}" index="1" />
+                      <attribute name="targetGuid" value="{CF9FA763-6DB2-4548-9988-0D678732F0F4}" index="2" />
+                      <attribute name="bindingOperator" value="check_only" index="3" />
+                      <attribute name="bindingSemantics" value="mandatory" index="4" />
+                      <attribute name="sourceName" value="" index="5" />
+                      <attribute name="nacIndex" value="-1" index="6" />
+                      <attribute name="textOfReference" value="" index="7" />
+                      <attribute name="textOfReferenceOpposite" value="" index="8" />
+                      <attribute name="idOfReference" value="{057BDE5F-3801-4f91-91BB-71D86E3780CA}" index="9" />
+                      <attribute name="direction" value="right" index="10" />
+                      <attribute name="guid" value="{E7C1791B-C42F-416f-B011-CF432413DD7F}" index="11" />
+                      <attribute name="domain" value="correspondence" index="12" />
+                    </children>
+                  </children>
+                  <attribute name="guid" value="{E8D9010A-A59A-4441-9505-C85D61C1CA2A}" index="0" />
+                  <attribute name="typeGuid" value="{7C59925C-A47C-4b75-AEB7-0093E8381C63}" index="1" />
+                  <attribute name="bindingState" value="unbound" index="2" />
+                  <attribute name="bindingOperator" value="check_only" index="3" />
+                  <attribute name="name" value="useCaseToInteraction" index="4" />
+                  <attribute name="bindingSemantics" value="mandatory" index="5" />
+                  <attribute name="nacIndex" value="-1" index="6" />
+                  <attribute name="metamodelGuid" value="{C24E31AF-7205-4a57-9770-0F73AC933F12}" index="7" />
+                  <attribute name="domain" value="correspondence" index="8" />
+                </children>
+                <children name="TGGObjectVariable" index="8" xsi:type="MocaTree:Node">
                   <children name="constraints" index="0" xsi:type="MocaTree:Node" />
                   <children name="attributeAssignments" index="1" xsi:type="MocaTree:Node" />
                   <children name="outgoingLinks" index="2" xsi:type="MocaTree:Node">
@@ -32900,7 +32974,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="isEmpty(useCase.preConditions)" index="5" />
               <attribute name="refines" value="{688DA1BD-6B52-490c-8BF7-8A066A8679D0} " index="6" />
-              <attribute name="baseClasses" value="{688DA1BD-6B52-490c-8BF7-8A066A8679D0} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="6" xsi:type="MocaTree:Node">
@@ -32953,7 +33027,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;PERSON&quot;)" index="5" />
               <attribute name="refines" value="{95F87FF3-9523-4696-A8DD-3FD9EB9E10B2} " index="6" />
-              <attribute name="baseClasses" value="{95F87FF3-9523-4696-A8DD-3FD9EB9E10B2} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="7" xsi:type="MocaTree:Node">
@@ -33101,7 +33175,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{C861F5DE-E761-4322-91BD-0423CE354334} " index="6" />
-              <attribute name="baseClasses" value="{C861F5DE-E761-4322-91BD-0423CE354334} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="8" xsi:type="MocaTree:Node">
@@ -33324,7 +33398,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{C861F5DE-E761-4322-91BD-0423CE354334} " index="6" />
-              <attribute name="baseClasses" value="{C861F5DE-E761-4322-91BD-0423CE354334} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="9" xsi:type="MocaTree:Node">
@@ -34289,7 +34363,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{6D7CB553-5D69-46b3-826C-6B201BEAC930} " index="6" />
-              <attribute name="baseClasses" value="{6D7CB553-5D69-46b3-826C-6B201BEAC930} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="11" xsi:type="MocaTree:Node">
@@ -35330,7 +35404,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eq(useCase.preConditions, message.name)eqMessageKind(message.messageKind, &quot;found&quot;)eqActorType(actor.type, &quot;system&quot;)eq(actor.name, line.name)eqMessageSort(message.messageSort, &quot;ASYNCH_SIGNAL&quot;)" index="5" />
               <attribute name="refines" value="{688DA1BD-6B52-490c-8BF7-8A066A8679D0} " index="6" />
-              <attribute name="baseClasses" value="{688DA1BD-6B52-490c-8BF7-8A066A8679D0} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="14" xsi:type="MocaTree:Node">
@@ -35427,7 +35501,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;system&quot;)" index="5" />
               <attribute name="refines" value="{B1B70349-2216-4eac-B5B5-F3C65990F867} " index="6" />
-              <attribute name="baseClasses" value="{B1B70349-2216-4eac-B5B5-F3C65990F867} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="15" xsi:type="MocaTree:Node">
@@ -36219,7 +36293,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="" index="5" />
               <attribute name="refines" value="{6D7CB553-5D69-46b3-826C-6B201BEAC930} " index="6" />
-              <attribute name="baseClasses" value="{6D7CB553-5D69-46b3-826C-6B201BEAC930} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="17" xsi:type="MocaTree:Node">
@@ -36441,7 +36515,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;person&quot;)eqActorType(sysActor.type, &quot;system&quot;)" index="5" />
               <attribute name="refines" value="{B1B70349-2216-4eac-B5B5-F3C65990F867} " index="6" />
-              <attribute name="baseClasses" value="{B1B70349-2216-4eac-B5B5-F3C65990F867} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="18" xsi:type="MocaTree:Node">
@@ -36538,7 +36612,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;system&quot;)" index="5" />
               <attribute name="refines" value="{426E791E-507A-4325-AC48-25DC397A5448} " index="6" />
-              <attribute name="baseClasses" value="{426E791E-507A-4325-AC48-25DC397A5448} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="19" xsi:type="MocaTree:Node">
@@ -36834,7 +36908,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;person&quot;)eqActorType(sysActor.type, &quot;system&quot;)" index="5" />
               <attribute name="refines" value="{426E791E-507A-4325-AC48-25DC397A5448} " index="6" />
-              <attribute name="baseClasses" value="{426E791E-507A-4325-AC48-25DC397A5448} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="20" xsi:type="MocaTree:Node">
@@ -36931,7 +37005,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;system&quot;)" index="5" />
               <attribute name="refines" value="{87F00BF2-B65C-422e-91CE-75898FE9CF00} " index="6" />
-              <attribute name="baseClasses" value="{87F00BF2-B65C-422e-91CE-75898FE9CF00} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="21" xsi:type="MocaTree:Node">
@@ -37211,7 +37285,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;person&quot;)eqActorType(sysActor.type, &quot;system&quot;)" index="5" />
               <attribute name="refines" value="{87F00BF2-B65C-422e-91CE-75898FE9CF00} " index="6" />
-              <attribute name="baseClasses" value="{87F00BF2-B65C-422e-91CE-75898FE9CF00} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="22" xsi:type="MocaTree:Node">
@@ -37308,7 +37382,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;system&quot;)" index="5" />
               <attribute name="refines" value="{E82386F2-F5E5-49e4-9147-52828F9E9910} " index="6" />
-              <attribute name="baseClasses" value="{E82386F2-F5E5-49e4-9147-52828F9E9910} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="23" xsi:type="MocaTree:Node">
@@ -37662,7 +37736,7 @@
               <attribute name="alias" value="" index="4" />
               <attribute name="cspSpec" value="eqActorType(actor.type, &quot;person&quot;)eqActorType(sysActor.type, &quot;system&quot;)" index="5" />
               <attribute name="refines" value="{E82386F2-F5E5-49e4-9147-52828F9E9910} " index="6" />
-              <attribute name="baseClasses" value="{E82386F2-F5E5-49e4-9147-52828F9E9910} " index="7" />
+              <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
           </children>

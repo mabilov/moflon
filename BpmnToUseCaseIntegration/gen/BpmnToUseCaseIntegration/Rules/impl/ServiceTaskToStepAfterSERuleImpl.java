@@ -4278,7 +4278,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_20_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_885194 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_820869 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4467,7 +4467,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_21_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_227467 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_476425 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4662,7 +4662,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_22_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_186084 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_403432 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4853,7 +4853,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_23_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_20000 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_480024 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5043,7 +5043,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_24_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_643509 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_130022 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5469,7 +5469,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_27_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_599806 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_65787 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };

@@ -4793,7 +4793,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_20_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_290063 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_72007 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5002,7 +5002,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_21_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_262274 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_585069 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5211,7 +5211,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_22_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_851966 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_564213 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5418,7 +5418,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_23_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_131400 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_205736 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5626,7 +5626,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_24_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_572364 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_6223 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5836,7 +5836,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_25_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_835656 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_599420 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };

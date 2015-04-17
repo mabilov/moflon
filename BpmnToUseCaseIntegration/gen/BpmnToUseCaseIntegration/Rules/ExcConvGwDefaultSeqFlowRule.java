@@ -47,8 +47,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ExcConvGwDefaultSeqFlowRule extends AbstractRule,
-		ExcConvGwAfterExDivGwRule {
+public interface ExcConvGwDefaultSeqFlowRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

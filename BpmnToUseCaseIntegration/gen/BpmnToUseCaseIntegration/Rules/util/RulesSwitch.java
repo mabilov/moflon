@@ -108,8 +108,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			FirstServiceTaskToStepRule firstServiceTaskToStepRule = (FirstServiceTaskToStepRule) theEObject;
 			T result = caseFirstServiceTaskToStepRule(firstServiceTaskToStepRule);
 			if (result == null)
-				result = caseTaskToStepCoreRule(firstServiceTaskToStepRule);
-			if (result == null)
 				result = caseAbstractRule(firstServiceTaskToStepRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -118,8 +116,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.FIRST_USER_TASK_TO_STEP_RULE: {
 			FirstUserTaskToStepRule firstUserTaskToStepRule = (FirstUserTaskToStepRule) theEObject;
 			T result = caseFirstUserTaskToStepRule(firstUserTaskToStepRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(firstUserTaskToStepRule);
 			if (result == null)
 				result = caseAbstractRule(firstUserTaskToStepRule);
 			if (result == null)
@@ -148,8 +144,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			TaskToStepRule taskToStepRule = (TaskToStepRule) theEObject;
 			T result = caseTaskToStepRule(taskToStepRule);
 			if (result == null)
-				result = caseTaskToStepCoreRule(taskToStepRule);
-			if (result == null)
 				result = caseAbstractRule(taskToStepRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -159,10 +153,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ServiceTaskToStepRule serviceTaskToStepRule = (ServiceTaskToStepRule) theEObject;
 			T result = caseServiceTaskToStepRule(serviceTaskToStepRule);
 			if (result == null)
-				result = caseTaskToStepRule(serviceTaskToStepRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(serviceTaskToStepRule);
-			if (result == null)
 				result = caseAbstractRule(serviceTaskToStepRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -171,10 +161,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.USER_TASK_TO_STEP_RULE: {
 			UserTaskToStepRule userTaskToStepRule = (UserTaskToStepRule) theEObject;
 			T result = caseUserTaskToStepRule(userTaskToStepRule);
-			if (result == null)
-				result = caseTaskToStepRule(userTaskToStepRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(userTaskToStepRule);
 			if (result == null)
 				result = caseAbstractRule(userTaskToStepRule);
 			if (result == null)
@@ -194,10 +180,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ITEToStepRule iteToStepRule = (ITEToStepRule) theEObject;
 			T result = caseITEToStepRule(iteToStepRule);
 			if (result == null)
-				result = caseInterEventToStepRule(iteToStepRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iteToStepRule);
-			if (result == null)
 				result = caseAbstractRule(iteToStepRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -206,10 +188,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.ICE_TO_STEP_RULE: {
 			ICEToStepRule iceToStepRule = (ICEToStepRule) theEObject;
 			T result = caseICEToStepRule(iceToStepRule);
-			if (result == null)
-				result = caseInterEventToStepRule(iceToStepRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iceToStepRule);
 			if (result == null)
 				result = caseAbstractRule(iceToStepRule);
 			if (result == null)
@@ -238,8 +216,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			InterEventToStepRule interEventToStepRule = (InterEventToStepRule) theEObject;
 			T result = caseInterEventToStepRule(interEventToStepRule);
 			if (result == null)
-				result = caseInterEventToStepCoreRule(interEventToStepRule);
-			if (result == null)
 				result = caseAbstractRule(interEventToStepRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -249,8 +225,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			FirstInterThrowEventToStepRule firstInterThrowEventToStepRule = (FirstInterThrowEventToStepRule) theEObject;
 			T result = caseFirstInterThrowEventToStepRule(firstInterThrowEventToStepRule);
 			if (result == null)
-				result = caseInterEventToStepCoreRule(firstInterThrowEventToStepRule);
-			if (result == null)
 				result = caseAbstractRule(firstInterThrowEventToStepRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -259,8 +233,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.FIRST_ICE_TO_STEP_RULE: {
 			FirstICEToStepRule firstICEToStepRule = (FirstICEToStepRule) theEObject;
 			T result = caseFirstICEToStepRule(firstICEToStepRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(firstICEToStepRule);
 			if (result == null)
 				result = caseAbstractRule(firstICEToStepRule);
 			if (result == null)
@@ -334,8 +306,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ExclusiveGatewayToStepRule exclusiveGatewayToStepRule = (ExclusiveGatewayToStepRule) theEObject;
 			T result = caseExclusiveGatewayToStepRule(exclusiveGatewayToStepRule);
 			if (result == null)
-				result = caseExclusiveGatewayToStepCoreRule(exclusiveGatewayToStepRule);
-			if (result == null)
 				result = caseAbstractRule(exclusiveGatewayToStepRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -345,8 +315,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ParallelGatewayToParallelStepRule parallelGatewayToParallelStepRule = (ParallelGatewayToParallelStepRule) theEObject;
 			T result = caseParallelGatewayToParallelStepRule(parallelGatewayToParallelStepRule);
 			if (result == null)
-				result = caseParallelGatewayToParallelStepCoreRule(parallelGatewayToParallelStepRule);
-			if (result == null)
 				result = caseAbstractRule(parallelGatewayToParallelStepRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -355,8 +323,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE: {
 			EventBasedGatewayToStepRule eventBasedGatewayToStepRule = (EventBasedGatewayToStepRule) theEObject;
 			T result = caseEventBasedGatewayToStepRule(eventBasedGatewayToStepRule);
-			if (result == null)
-				result = caseEventBasedGatewayToStepCoreRule(eventBasedGatewayToStepRule);
 			if (result == null)
 				result = caseAbstractRule(eventBasedGatewayToStepRule);
 			if (result == null)
@@ -376,8 +342,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ExcConvGwAfterEventGwRule excConvGwAfterEventGwRule = (ExcConvGwAfterEventGwRule) theEObject;
 			T result = caseExcConvGwAfterEventGwRule(excConvGwAfterEventGwRule);
 			if (result == null)
-				result = caseExclusiveConvergingGatewayRule(excConvGwAfterEventGwRule);
-			if (result == null)
 				result = caseAbstractRule(excConvGwAfterEventGwRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -386,10 +350,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE: {
 			ExcConvGwDefaultSeqFlowRule excConvGwDefaultSeqFlowRule = (ExcConvGwDefaultSeqFlowRule) theEObject;
 			T result = caseExcConvGwDefaultSeqFlowRule(excConvGwDefaultSeqFlowRule);
-			if (result == null)
-				result = caseExcConvGwAfterExDivGwRule(excConvGwDefaultSeqFlowRule);
-			if (result == null)
-				result = caseExclusiveConvergingGatewayRule(excConvGwDefaultSeqFlowRule);
 			if (result == null)
 				result = caseAbstractRule(excConvGwDefaultSeqFlowRule);
 			if (result == null)
@@ -400,8 +360,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ParallelConvergingGatewayTwoInputsRule parallelConvergingGatewayTwoInputsRule = (ParallelConvergingGatewayTwoInputsRule) theEObject;
 			T result = caseParallelConvergingGatewayTwoInputsRule(parallelConvergingGatewayTwoInputsRule);
 			if (result == null)
-				result = caseParallelConvergingGatewayRule(parallelConvergingGatewayTwoInputsRule);
-			if (result == null)
 				result = caseAbstractRule(parallelConvergingGatewayTwoInputsRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -411,8 +369,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ExcConvGwAfterExDivGwRule excConvGwAfterExDivGwRule = (ExcConvGwAfterExDivGwRule) theEObject;
 			T result = caseExcConvGwAfterExDivGwRule(excConvGwAfterExDivGwRule);
 			if (result == null)
-				result = caseExclusiveConvergingGatewayRule(excConvGwAfterExDivGwRule);
-			if (result == null)
 				result = caseAbstractRule(excConvGwAfterExDivGwRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -421,10 +377,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE: {
 			ExConvGwAfterEventGwIceSeqFlowRule exConvGwAfterEventGwIceSeqFlowRule = (ExConvGwAfterEventGwIceSeqFlowRule) theEObject;
 			T result = caseExConvGwAfterEventGwIceSeqFlowRule(exConvGwAfterEventGwIceSeqFlowRule);
-			if (result == null)
-				result = caseExcConvGwAfterEventGwRule(exConvGwAfterEventGwIceSeqFlowRule);
-			if (result == null)
-				result = caseExclusiveConvergingGatewayRule(exConvGwAfterEventGwIceSeqFlowRule);
 			if (result == null)
 				result = caseAbstractRule(exConvGwAfterEventGwIceSeqFlowRule);
 			if (result == null)
@@ -444,10 +396,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ICEToStepAfterSERule iceToStepAfterSERule = (ICEToStepAfterSERule) theEObject;
 			T result = caseICEToStepAfterSERule(iceToStepAfterSERule);
 			if (result == null)
-				result = caseFirstICEToStepRule(iceToStepAfterSERule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iceToStepAfterSERule);
-			if (result == null)
 				result = caseAbstractRule(iceToStepAfterSERule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -456,10 +404,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE: {
 			ICEToStepAfterExGwRule iceToStepAfterExGwRule = (ICEToStepAfterExGwRule) theEObject;
 			T result = caseICEToStepAfterExGwRule(iceToStepAfterExGwRule);
-			if (result == null)
-				result = caseFirstICEToStepRule(iceToStepAfterExGwRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iceToStepAfterExGwRule);
 			if (result == null)
 				result = caseAbstractRule(iceToStepAfterExGwRule);
 			if (result == null)
@@ -470,10 +414,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ICEToStepAfterPGRule iceToStepAfterPGRule = (ICEToStepAfterPGRule) theEObject;
 			T result = caseICEToStepAfterPGRule(iceToStepAfterPGRule);
 			if (result == null)
-				result = caseFirstICEToStepRule(iceToStepAfterPGRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iceToStepAfterPGRule);
-			if (result == null)
 				result = caseAbstractRule(iceToStepAfterPGRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -482,12 +422,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.ICE_TO_STEP_AFTER_TASK_RULE: {
 			ICEToStepAfterTaskRule iceToStepAfterTaskRule = (ICEToStepAfterTaskRule) theEObject;
 			T result = caseICEToStepAfterTaskRule(iceToStepAfterTaskRule);
-			if (result == null)
-				result = caseICEToStepRule(iceToStepAfterTaskRule);
-			if (result == null)
-				result = caseInterEventToStepRule(iceToStepAfterTaskRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iceToStepAfterTaskRule);
 			if (result == null)
 				result = caseAbstractRule(iceToStepAfterTaskRule);
 			if (result == null)
@@ -498,12 +432,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ICEToStepAfterEventRule iceToStepAfterEventRule = (ICEToStepAfterEventRule) theEObject;
 			T result = caseICEToStepAfterEventRule(iceToStepAfterEventRule);
 			if (result == null)
-				result = caseICEToStepRule(iceToStepAfterEventRule);
-			if (result == null)
-				result = caseInterEventToStepRule(iceToStepAfterEventRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iceToStepAfterEventRule);
-			if (result == null)
 				result = caseAbstractRule(iceToStepAfterEventRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -512,12 +440,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.ICE_TO_STEP_AFTER_EX_CONV_GW_RULE: {
 			ICEToStepAfterExConvGwRule iceToStepAfterExConvGwRule = (ICEToStepAfterExConvGwRule) theEObject;
 			T result = caseICEToStepAfterExConvGwRule(iceToStepAfterExConvGwRule);
-			if (result == null)
-				result = caseICEToStepRule(iceToStepAfterExConvGwRule);
-			if (result == null)
-				result = caseInterEventToStepRule(iceToStepAfterExConvGwRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iceToStepAfterExConvGwRule);
 			if (result == null)
 				result = caseAbstractRule(iceToStepAfterExConvGwRule);
 			if (result == null)
@@ -528,12 +450,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ICEToStepAfterPConvGwRule iceToStepAfterPConvGwRule = (ICEToStepAfterPConvGwRule) theEObject;
 			T result = caseICEToStepAfterPConvGwRule(iceToStepAfterPConvGwRule);
 			if (result == null)
-				result = caseICEToStepRule(iceToStepAfterPConvGwRule);
-			if (result == null)
-				result = caseInterEventToStepRule(iceToStepAfterPConvGwRule);
-			if (result == null)
-				result = caseInterEventToStepCoreRule(iceToStepAfterPConvGwRule);
-			if (result == null)
 				result = caseAbstractRule(iceToStepAfterPConvGwRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -542,10 +458,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE: {
 			ServiceTaskToStepAfterSERule serviceTaskToStepAfterSERule = (ServiceTaskToStepAfterSERule) theEObject;
 			T result = caseServiceTaskToStepAfterSERule(serviceTaskToStepAfterSERule);
-			if (result == null)
-				result = caseFirstServiceTaskToStepRule(serviceTaskToStepAfterSERule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(serviceTaskToStepAfterSERule);
 			if (result == null)
 				result = caseAbstractRule(serviceTaskToStepAfterSERule);
 			if (result == null)
@@ -556,10 +468,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ServiceTaskToStepAfterExGwRule serviceTaskToStepAfterExGwRule = (ServiceTaskToStepAfterExGwRule) theEObject;
 			T result = caseServiceTaskToStepAfterExGwRule(serviceTaskToStepAfterExGwRule);
 			if (result == null)
-				result = caseFirstServiceTaskToStepRule(serviceTaskToStepAfterExGwRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(serviceTaskToStepAfterExGwRule);
-			if (result == null)
 				result = caseAbstractRule(serviceTaskToStepAfterExGwRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -568,10 +476,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_PG_RULE: {
 			ServiceTaskToStepAfterPGRule serviceTaskToStepAfterPGRule = (ServiceTaskToStepAfterPGRule) theEObject;
 			T result = caseServiceTaskToStepAfterPGRule(serviceTaskToStepAfterPGRule);
-			if (result == null)
-				result = caseFirstServiceTaskToStepRule(serviceTaskToStepAfterPGRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(serviceTaskToStepAfterPGRule);
 			if (result == null)
 				result = caseAbstractRule(serviceTaskToStepAfterPGRule);
 			if (result == null)
@@ -582,10 +486,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			ServiceTaskToStepAfterEvGwRule serviceTaskToStepAfterEvGwRule = (ServiceTaskToStepAfterEvGwRule) theEObject;
 			T result = caseServiceTaskToStepAfterEvGwRule(serviceTaskToStepAfterEvGwRule);
 			if (result == null)
-				result = caseFirstServiceTaskToStepRule(serviceTaskToStepAfterEvGwRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(serviceTaskToStepAfterEvGwRule);
-			if (result == null)
 				result = caseAbstractRule(serviceTaskToStepAfterEvGwRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -594,10 +494,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.USER_TASK_TO_STEP_AFTER_SE_RULE: {
 			UserTaskToStepAfterSERule userTaskToStepAfterSERule = (UserTaskToStepAfterSERule) theEObject;
 			T result = caseUserTaskToStepAfterSERule(userTaskToStepAfterSERule);
-			if (result == null)
-				result = caseFirstUserTaskToStepRule(userTaskToStepAfterSERule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(userTaskToStepAfterSERule);
 			if (result == null)
 				result = caseAbstractRule(userTaskToStepAfterSERule);
 			if (result == null)
@@ -608,10 +504,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			UserTaskToStepAfterExGwRule userTaskToStepAfterExGwRule = (UserTaskToStepAfterExGwRule) theEObject;
 			T result = caseUserTaskToStepAfterExGwRule(userTaskToStepAfterExGwRule);
 			if (result == null)
-				result = caseFirstUserTaskToStepRule(userTaskToStepAfterExGwRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(userTaskToStepAfterExGwRule);
-			if (result == null)
 				result = caseAbstractRule(userTaskToStepAfterExGwRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -621,10 +513,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			UserTaskToStepAfterPGRule userTaskToStepAfterPGRule = (UserTaskToStepAfterPGRule) theEObject;
 			T result = caseUserTaskToStepAfterPGRule(userTaskToStepAfterPGRule);
 			if (result == null)
-				result = caseFirstUserTaskToStepRule(userTaskToStepAfterPGRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(userTaskToStepAfterPGRule);
-			if (result == null)
 				result = caseAbstractRule(userTaskToStepAfterPGRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -633,10 +521,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.USER_TASK_TO_STEP_AFTER_EV_GW_RULE: {
 			UserTaskToStepAfterEvGwRule userTaskToStepAfterEvGwRule = (UserTaskToStepAfterEvGwRule) theEObject;
 			T result = caseUserTaskToStepAfterEvGwRule(userTaskToStepAfterEvGwRule);
-			if (result == null)
-				result = caseFirstUserTaskToStepRule(userTaskToStepAfterEvGwRule);
-			if (result == null)
-				result = caseTaskToStepCoreRule(userTaskToStepAfterEvGwRule);
 			if (result == null)
 				result = caseAbstractRule(userTaskToStepAfterEvGwRule);
 			if (result == null)

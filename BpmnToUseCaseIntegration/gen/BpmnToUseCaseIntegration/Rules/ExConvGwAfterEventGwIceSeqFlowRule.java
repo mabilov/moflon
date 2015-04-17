@@ -48,8 +48,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ExConvGwAfterEventGwIceSeqFlowRule extends AbstractRule,
-		ExcConvGwAfterEventGwRule {
+public interface ExConvGwAfterEventGwIceSeqFlowRule extends EObject,
+		AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

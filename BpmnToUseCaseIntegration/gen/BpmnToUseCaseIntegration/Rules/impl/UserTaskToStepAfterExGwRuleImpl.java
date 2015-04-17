@@ -4311,10 +4311,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_20_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_760645 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_307638 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_760645)) {
+			if (!flowNode.equals(__DEC_outFlow_default_307638)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4505,10 +4505,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_861800 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_493957 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_861800)) {
+			if (!flowNode.equals(__DEC_outFlow_default_493957)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4700,10 +4700,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_103015 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_718613 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_103015)) {
+			if (!flowNode.equals(__DEC_outFlow_default_718613)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4893,10 +4893,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_384347 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_808994 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_384347)) {
+			if (!flowNode.equals(__DEC_outFlow_default_808994)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5085,10 +5085,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_943471 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_559562 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_943471)) {
+			if (!flowNode.equals(__DEC_outFlow_default_559562)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5280,10 +5280,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_13561 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_830242 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_13561)) {
+			if (!flowNode.equals(__DEC_outFlow_default_830242)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}

@@ -4316,10 +4316,10 @@ public class ServiceTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterExGwRule_20_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_987024 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_625826 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_987024)) {
+			if (!flowNode.equals(__DEC_outFlow_default_625826)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4522,10 +4522,10 @@ public class ServiceTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterExGwRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_595615 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_44117 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_595615)) {
+			if (!flowNode.equals(__DEC_outFlow_default_44117)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4732,10 +4732,10 @@ public class ServiceTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterExGwRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_448346 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_873483 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_448346)) {
+			if (!flowNode.equals(__DEC_outFlow_default_873483)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4937,10 +4937,10 @@ public class ServiceTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterExGwRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_660090 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_707721 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_660090)) {
+			if (!flowNode.equals(__DEC_outFlow_default_707721)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5143,10 +5143,10 @@ public class ServiceTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterExGwRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_382206 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_622878 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_382206)) {
+			if (!flowNode.equals(__DEC_outFlow_default_622878)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5583,10 +5583,10 @@ public class ServiceTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterExGwRule_27_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_153820 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_966784 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_153820)) {
+			if (!flowNode.equals(__DEC_outFlow_default_966784)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}

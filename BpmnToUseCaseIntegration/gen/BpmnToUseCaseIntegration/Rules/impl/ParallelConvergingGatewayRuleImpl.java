@@ -3367,7 +3367,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_10_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_293500 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_196186 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -3581,7 +3581,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_11_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_814587 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_940569 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -3795,7 +3795,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_12_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_759901 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_457070 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4011,7 +4011,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_13_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_127879 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_8139 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4225,7 +4225,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_14_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_439550 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_785166 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4441,7 +4441,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_15_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_277548 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_118904 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4655,7 +4655,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_16_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_449411 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_335651 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };

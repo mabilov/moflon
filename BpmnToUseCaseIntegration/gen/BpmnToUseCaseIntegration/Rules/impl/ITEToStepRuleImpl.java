@@ -4958,10 +4958,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_587425 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_173125 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_587425)) {
+			if (!flowNode.equals(__DEC_outFlow_default_173125)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5139,10 +5139,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_812399 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_69995 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_812399)) {
+			if (!flowNode.equals(__DEC_outFlow_default_69995)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5320,10 +5320,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_801409 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_644251 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_801409)) {
+			if (!flowNode.equals(__DEC_outFlow_default_644251)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5502,10 +5502,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_415180 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_60576 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_415180)) {
+			if (!flowNode.equals(__DEC_outFlow_default_60576)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5685,10 +5685,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_914038 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_410098 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_914038)) {
+			if (!flowNode.equals(__DEC_outFlow_default_410098)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5866,10 +5866,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_159366 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_794260 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_159366)) {
+			if (!flowNode.equals(__DEC_outFlow_default_794260)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -6290,10 +6290,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_29_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_32270 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_23269 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_32270)) {
+			if (!flowNode.equals(__DEC_outFlow_default_23269)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}

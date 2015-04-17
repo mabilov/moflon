@@ -45,8 +45,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ExclusiveGatewayToStepRule extends AbstractRule,
-		ExclusiveGatewayToStepCoreRule {
+public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

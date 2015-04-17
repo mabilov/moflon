@@ -44,8 +44,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface FirstInterThrowEventToStepRule extends AbstractRule,
-		InterEventToStepCoreRule {
+public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

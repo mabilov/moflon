@@ -3780,7 +3780,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_20_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_981619 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_706977 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -3925,7 +3925,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_21_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_962341 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_90323 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4072,7 +4072,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_22_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_366374 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_721843 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4219,10 +4219,10 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_23_2_black_nac_0BB(
 			ParallelFlow parallelFlow, ParallelStep parallelStep) {
-		for (ParallelStep __DEC_parallelFlow_invokedFlows_76424 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parallelFlow_invokedFlows_477725 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parallelFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_76424)) {
+			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_477725)) {
 				return new Object[] { parallelFlow, parallelStep };
 			}
 		}
@@ -4359,10 +4359,10 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_24_2_black_nac_0BB(
 			ParallelFlow parallelFlow, ParallelStep parallelStep) {
-		for (ParallelStep __DEC_parallelFlow_invokedFlows_462133 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parallelFlow_invokedFlows_922565 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parallelFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_462133)) {
+			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_922565)) {
 				return new Object[] { parallelFlow, parallelStep };
 			}
 		}

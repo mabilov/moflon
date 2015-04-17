@@ -4911,10 +4911,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_369920 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_719373 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_369920)) {
+			if (!flowNode.equals(__DEC_outFlow_default_719373)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5094,10 +5094,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_482488 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_659517 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_482488)) {
+			if (!flowNode.equals(__DEC_outFlow_default_659517)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5278,10 +5278,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_393704 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_384471 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_393704)) {
+			if (!flowNode.equals(__DEC_outFlow_default_384471)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5461,10 +5461,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_817144 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_947556 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_817144)) {
+			if (!flowNode.equals(__DEC_outFlow_default_947556)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5643,10 +5643,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_89771 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_612027 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_89771)) {
+			if (!flowNode.equals(__DEC_outFlow_default_612027)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5827,10 +5827,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_77808 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_14860 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_77808)) {
+			if (!flowNode.equals(__DEC_outFlow_default_14860)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}

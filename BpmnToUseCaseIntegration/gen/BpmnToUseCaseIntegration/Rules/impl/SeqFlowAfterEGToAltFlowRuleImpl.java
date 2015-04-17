@@ -4590,10 +4590,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_369234 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_961319 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_369234)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_961319)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -4758,10 +4758,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_318605 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_75816 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_318605)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_75816)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -4925,10 +4925,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_247235 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_8977 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_247235)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_8977)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}

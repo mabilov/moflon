@@ -44,8 +44,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ParallelConvergingGatewayTwoInputsRule extends AbstractRule,
-		ParallelConvergingGatewayRule {
+public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
+		AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
