@@ -8,7 +8,7 @@
   <injectionErrorHandling/>
   <listShuffling/>
   <genTracingInstrumentation/>
-  <sdmCodegeneratorHandlerId/>
+  <sdmCodegeneratorHandlerId value="DEMOCLES_REVERSE_NAVI"/>
   <core/>
   <tGGBuildMode/>
   <debugMode/>

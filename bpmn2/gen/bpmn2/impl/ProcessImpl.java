@@ -10,11 +10,9 @@ import bpmn2.FlowNode;
 import bpmn2.LaneSet;
 import bpmn2.SequenceFlow;
 
-import de.upb.tools.sdm.*;
-
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -27,6 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 // <-- [user defined imports]
 // [user defined imports] -->
@@ -161,115 +160,28 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 	 * @generated
 	 */
 	public FlowNode removeNode(FlowNode node) {
-		boolean fujaba__Success = false;
-		FlowNode nextNode = null;
-		Iterator fujaba__IterThisToOutFlow = null;
-		Object _TmpObject = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterThisToInFlow = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'removeNodeFromProcess'
-		try {
-			fujaba__Success = false;
-
-			// check object node is really bound
-			JavaSDM.ensure(node != null);
-			// check link flowElements from node to this
-			JavaSDM.ensure(this.equals(node.eContainer()));
-
-			// iterate to-many link flowElements from this to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterThisToInFlow = this.getFlowElements().iterator();
-
-			while (!(fujaba__Success) && fujaba__IterThisToInFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterThisToInFlow.next();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-					// check link incoming from inFlow to node
-					JavaSDM.ensure(node.equals(inFlow.getTargetRef()));
-
-					// iterate to-many link flowElements from this to outFlow
-					fujaba__Success = false;
-
-					fujaba__IterThisToOutFlow = this.getFlowElements()
-							.iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterThisToOutFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterThisToOutFlow.next();
-
-							// ensure correct type and really bound of object outFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							outFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link outgoing from outFlow to node
-							JavaSDM.ensure(node.equals(outFlow.getSourceRef()));
-
-							// bind object
-							nextNode = outFlow.getTargetRef();
-
-							// check object nextNode is really bound
-							JavaSDM.ensure(nextNode != null);
-
-							// check isomorphic binding between objects node and nextNode 
-							JavaSDM.ensure(!node.equals(nextNode));
-
-							// check link flowElements from nextNode to this
-							JavaSDM.ensure(this.equals(nextNode.eContainer()));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// destroy link
-			this.getFlowElements().remove(outFlow); // delete link
-
-			// destroy link
-			this.getFlowElements().remove(node); // delete link
-
-			// destroy link
-			outFlow.setSourceRef(null);
-			// destroy link
-			inFlow.setTargetRef(null);
-			// destroy link
-			nextNode.getIncoming().remove(outFlow);
-			// delete object outFlow
-			org.moflon.util.eMoflonEMFUtil.remove(outFlow);
-			// delete object node
-			org.moflon.util.eMoflonEMFUtil.remove(node);
-
-			// create link
-			nextNode.getIncoming().add(inFlow);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// removeNodeFromProcess
+		Object[] result1_black = ProcessImpl.pattern_Process_0_1_blackBBFFF(
+				this, node);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [removeNodeFromProcess] failed");
 		}
+		SequenceFlow inFlow = (SequenceFlow) result1_black[2];
+		SequenceFlow outFlow = (SequenceFlow) result1_black[3];
+		FlowNode nextNode = (FlowNode) result1_black[4];
+		ProcessImpl.pattern_Process_0_1_redBBBBB(this, node, inFlow, outFlow,
+				nextNode);
 
-		if (fujaba__Success) {
-			return nextNode;
+		ProcessImpl.pattern_Process_0_1_greenBB(inFlow, nextNode);
 
-		} else {
-			throw new IllegalStateException();
+		EcoreUtil.delete(node);
+		node = null;
+		EcoreUtil.delete(outFlow);
+		outFlow = null;
+		;
 
-		}
+		return ProcessImpl.pattern_Process_0_2_expressionFB(nextNode);
 	}
 
 	/**
@@ -460,6 +372,67 @@ public class ProcessImpl extends CallableElementImpl implements bpmn2.Process {
 		result.append(')');
 		return result.toString();
 	}
+
+	public static final Object[] pattern_Process_0_1_blackBBFFF(
+			bpmn2.Process _this, FlowNode node) {
+		if (_this.getFlowElements().contains(node)) {
+			for (FlowElement tmpInFlow : _this.getFlowElements()) {
+				if (tmpInFlow instanceof SequenceFlow) {
+					SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+					if (node.equals(inFlow.getTargetRef())) {
+						for (FlowElement tmpOutFlow : _this.getFlowElements()) {
+							if (tmpOutFlow instanceof SequenceFlow) {
+								SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+								if (!inFlow.equals(outFlow)) {
+									if (node.equals(outFlow.getSourceRef())) {
+										FlowNode nextNode = outFlow
+												.getTargetRef();
+										if (nextNode != null) {
+											if (!nextNode.equals(node)) {
+												if (_this.getFlowElements()
+														.contains(nextNode)) {
+													return new Object[] {
+															_this, node,
+															inFlow, outFlow,
+															nextNode };
+												}
+											}
+										}
+
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_Process_0_1_redBBBBB(
+			bpmn2.Process _this, FlowNode node, SequenceFlow inFlow,
+			SequenceFlow outFlow, FlowNode nextNode) {
+		_this.getFlowElements().remove(outFlow);
+		_this.getFlowElements().remove(node);
+		inFlow.setTargetRef(null);
+		outFlow.setSourceRef(null);
+		outFlow.setTargetRef(null);
+		return new Object[] { _this, node, inFlow, outFlow, nextNode };
+	}
+
+	public static final Object[] pattern_Process_0_1_greenBB(
+			SequenceFlow inFlow, FlowNode nextNode) {
+		inFlow.setTargetRef(nextNode);
+		return new Object[] { inFlow, nextNode };
+	}
+
+	public static final FlowNode pattern_Process_0_2_expressionFB(
+			FlowNode nextNode) {
+		FlowNode _result = nextNode;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

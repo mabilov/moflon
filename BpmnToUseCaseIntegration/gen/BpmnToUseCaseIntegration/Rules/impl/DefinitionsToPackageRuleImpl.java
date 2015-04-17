@@ -5,26 +5,21 @@ package BpmnToUseCaseIntegration.Rules.impl;
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
 import BpmnToUseCaseIntegration.DefinitionsToPackage;
 import BpmnToUseCaseIntegration.DocRootToUCModel;
-import BpmnToUseCaseIntegration.EndEventToFlow;
-import BpmnToUseCaseIntegration.FlowNodeToStep;
-import BpmnToUseCaseIntegration.ICEToAltFlow;
-import BpmnToUseCaseIntegration.LaneToActor;
-import BpmnToUseCaseIntegration.ProcessToActor;
-import BpmnToUseCaseIntegration.ProcessToUseCase;
 
 import BpmnToUseCaseIntegration.Rules.DefinitionsToPackageRule;
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
 
-import BpmnToUseCaseIntegration.SeqFlowToAltFlowAlt;
-import BpmnToUseCaseIntegration.SequenceFlowToStep;
-import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
-import BpmnToUseCaseIntegration.StartEventToBasicFlow;
+import TGGLanguage.csp.CSP;
+
+import TGGLanguage.modelgenerator.RuleEntryContainer;
+import TGGLanguage.modelgenerator.RuleEntryList;
 
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
+import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -32,53 +27,25 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
-import UseCaseDSL.Actor;
-import UseCaseDSL.AlternativeFlow;
-import UseCaseDSL.AlternativeFlowAlternative;
-import UseCaseDSL.BasicFlow;
-import UseCaseDSL.Flow;
-import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
-import UseCaseDSL.ParallelFlow;
-import UseCaseDSL.ParallelStep;
-import UseCaseDSL.Step;
-import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCasesModel;
 
 import bpmn2.Bpmn2Factory;
 import bpmn2.Definitions;
 import bpmn2.DocumentRoot;
-import bpmn2.EndEvent;
-import bpmn2.Event;
-import bpmn2.EventBasedGateway;
-import bpmn2.ExclusiveGateway;
-import bpmn2.FlowElementsContainer;
-import bpmn2.FlowNode;
-import bpmn2.IntermediateCatchEvent;
-import bpmn2.IntermediateThrowEvent;
-import bpmn2.Lane;
-import bpmn2.LaneSet;
-import bpmn2.ParallelGateway;
-import bpmn2.SequenceFlow;
-import bpmn2.ServiceTask;
-import bpmn2.StartEvent;
-import bpmn2.Task;
-import bpmn2.UserTask;
 
-import de.upb.tools.sdm.*;
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
 import org.moflon.csp.*;
 import csp.constraints.*;
@@ -123,108 +90,64 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isAppropriate_FWD(Match match, Definitions definitions,
 			DocumentRoot documentRoot) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __documentRoot_definitions_definitions = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object definitions is really bound
-			JavaSDM.ensure(definitions != null);
-			// check object documentRoot is really bound
-			JavaSDM.ensure(documentRoot != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_0_1_blackBBBB(this, match,
+						definitions, documentRoot);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, definitions,
-					documentRoot));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_0_2_bindingAndBlackFBBBB(
+						this, match, definitions, documentRoot);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_0_3_expressionFBB(this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object definitions is really bound
-				JavaSDM.ensure(definitions != null);
-				// check object documentRoot is really bound
-				JavaSDM.ensure(documentRoot != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// create object __documentRoot_definitions_definitions
-				__documentRoot_definitions_definitions = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __documentRoot_definitions_definitions
-				__documentRoot_definitions_definitions.setName("definitions");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						definitions, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__documentRoot_definitions_definitions,
-						"toBeTranslatedEdges");
-
-				// create link
-				__documentRoot_definitions_definitions.setTrg(definitions);
-
-				// create link
-				__documentRoot_definitions_definitions.setSrc(documentRoot);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_0_4_blackBBB(match,
+							definitions, documentRoot);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_0_4_greenBBBF(match,
+							definitions, documentRoot);
+			// EMoflonEdge documentRoot__definitions____definitions = (EMoflonEdge) result4_green[3];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object definitions is really bound
-				JavaSDM.ensure(definitions != null);
-				// check object documentRoot is really bound
-				JavaSDM.ensure(documentRoot != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						documentRoot, "contextNodes");
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_0_5_blackBBB(match,
+							definitions, documentRoot);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_0_5_greenBB(match,
+							documentRoot);
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, definitions, documentRoot);
-			return true;
-
+			// register objects to match
+			DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_0_6_expressionBBBB(this,
+							match, definitions, documentRoot);
+			return DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -233,276 +156,66 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		Definitions definitions = null;
-		DocumentRoot documentRoot = null;
-		DocRootToUCModel documentRootToUseCasesModel = null;
-		UseCasesModel useCasesModel = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		DefinitionsToPackage definitionsToPackage = null;
-		PackageDeclaration packageDeclaration = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge definitionsToPackage__target__packageDeclaration = null;
-		EMoflonEdge useCasesModel__packages__packageDeclaration = null;
-		EMoflonEdge __documentRoot_definitions_definitions = null;
-		EMoflonEdge definitionsToPackage__source__definitions = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("definitions"));
-
-			// ensure correct type and really bound of object definitions
-			JavaSDM.ensure(_TmpObject instanceof Definitions);
-			definitions = (Definitions) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("documentRoot"));
-
-			// ensure correct type and really bound of object documentRoot
-			JavaSDM.ensure(_TmpObject instanceof DocumentRoot);
-			documentRoot = (DocumentRoot) _TmpObject;
-			_TmpObject = (isApplicableMatch
-					.getObject("documentRootToUseCasesModel"));
-
-			// ensure correct type and really bound of object documentRootToUseCasesModel
-			JavaSDM.ensure(_TmpObject instanceof DocRootToUCModel);
-			documentRootToUseCasesModel = (DocRootToUCModel) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCasesModel"));
-
-			// ensure correct type and really bound of object useCasesModel
-			JavaSDM.ensure(_TmpObject instanceof UseCasesModel);
-			useCasesModel = (UseCasesModel) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object definitionsToPackage
-			definitionsToPackage = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createDefinitionsToPackage();
-
-			// create object packageDeclaration
-			packageDeclaration = UseCaseDSLFactory.eINSTANCE
-					.createPackageDeclaration();
-
-			// assign attribute packageDeclaration
-			packageDeclaration.setName((java.lang.String) csp.getValue(
-					"packageDeclaration", "name"));
-
-			// create link
-			definitionsToPackage.setSource(definitions);
-
-			// create link
-			definitionsToPackage.setTarget(packageDeclaration);
-
-			// create link
-			useCasesModel.getPackages().add(packageDeclaration);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_1_1_bindingAndBlackFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		Definitions definitions = (Definitions) result1_bindingAndBlack[0];
+		DocumentRoot documentRoot = (DocumentRoot) result1_bindingAndBlack[1];
+		UseCasesModel useCasesModel = (UseCasesModel) result1_bindingAndBlack[2];
+		DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) result1_bindingAndBlack[3];
+		CSP csp = (CSP) result1_bindingAndBlack[4];
+		Object[] result1_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_1_1_greenBFFBB(definitions,
+						useCasesModel, csp);
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_green[1];
+		DefinitionsToPackage definitionsToPackage = (DefinitionsToPackage) result1_green[2];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object definitions is really bound
-			JavaSDM.ensure(definitions != null);
-			// check object definitionsToPackage is really bound
-			JavaSDM.ensure(definitionsToPackage != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitions, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage, "createdLinkElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_1_2_blackBBB(definitions,
+						packageDeclaration, definitionsToPackage);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
+		Object[] result2_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_1_2_greenFBBB(definitions,
+						packageDeclaration, definitionsToPackage);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object definitions is really bound
-			JavaSDM.ensure(definitions != null);
-			// check object definitionsToPackage is really bound
-			JavaSDM.ensure(definitionsToPackage != null);
-			// check object documentRoot is really bound
-			JavaSDM.ensure(documentRoot != null);
-			// check object documentRootToUseCasesModel is really bound
-			JavaSDM.ensure(documentRootToUseCasesModel != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCasesModel is really bound
-			JavaSDM.ensure(useCasesModel != null);
-			// check isomorphic binding between objects definitionsToPackage and definitions 
-			JavaSDM.ensure(!definitionsToPackage.equals(definitions));
-
-			// check isomorphic binding between objects documentRoot and definitions 
-			JavaSDM.ensure(!documentRoot.equals(definitions));
-
-			// check isomorphic binding between objects documentRootToUseCasesModel and definitions 
-			JavaSDM.ensure(!documentRootToUseCasesModel.equals(definitions));
-
-			// check isomorphic binding between objects packageDeclaration and definitions 
-			JavaSDM.ensure(!packageDeclaration.equals(definitions));
-
-			// check isomorphic binding between objects useCasesModel and definitions 
-			JavaSDM.ensure(!useCasesModel.equals(definitions));
-
-			// check isomorphic binding between objects documentRoot and definitionsToPackage 
-			JavaSDM.ensure(!documentRoot.equals(definitionsToPackage));
-
-			// check isomorphic binding between objects documentRootToUseCasesModel and definitionsToPackage 
-			JavaSDM.ensure(!documentRootToUseCasesModel
-					.equals(definitionsToPackage));
-
-			// check isomorphic binding between objects packageDeclaration and definitionsToPackage 
-			JavaSDM.ensure(!packageDeclaration.equals(definitionsToPackage));
-
-			// check isomorphic binding between objects useCasesModel and definitionsToPackage 
-			JavaSDM.ensure(!useCasesModel.equals(definitionsToPackage));
-
-			// check isomorphic binding between objects documentRootToUseCasesModel and documentRoot 
-			JavaSDM.ensure(!documentRootToUseCasesModel.equals(documentRoot));
-
-			// check isomorphic binding between objects packageDeclaration and documentRoot 
-			JavaSDM.ensure(!packageDeclaration.equals(documentRoot));
-
-			// check isomorphic binding between objects useCasesModel and documentRoot 
-			JavaSDM.ensure(!useCasesModel.equals(documentRoot));
-
-			// check isomorphic binding between objects packageDeclaration and documentRootToUseCasesModel 
-			JavaSDM.ensure(!packageDeclaration
-					.equals(documentRootToUseCasesModel));
-
-			// check isomorphic binding between objects useCasesModel and documentRootToUseCasesModel 
-			JavaSDM.ensure(!useCasesModel.equals(documentRootToUseCasesModel));
-
-			// check isomorphic binding between objects useCasesModel and packageDeclaration 
-			JavaSDM.ensure(!useCasesModel.equals(packageDeclaration));
-
-			// create object definitionsToPackage__target__packageDeclaration
-			definitionsToPackage__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCasesModel__packages__packageDeclaration
-			useCasesModel__packages__packageDeclaration = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __documentRoot_definitions_definitions
-			__documentRoot_definitions_definitions = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object definitionsToPackage__source__definitions
-			definitionsToPackage__source__definitions = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("DefinitionsToPackageRule");
-			// assign attribute definitionsToPackage__source__definitions
-			definitionsToPackage__source__definitions.setName("source");
-			// assign attribute definitionsToPackage__target__packageDeclaration
-			definitionsToPackage__target__packageDeclaration.setName("target");
-			// assign attribute __documentRoot_definitions_definitions
-			__documentRoot_definitions_definitions.setName("definitions");
-			// assign attribute useCasesModel__packages__packageDeclaration
-			useCasesModel__packages__packageDeclaration.setName("packages");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage__target__packageDeclaration,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							useCasesModel__packages__packageDeclaration,
-							"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__documentRoot_definitions_definitions, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage__source__definitions, "createdEdges");
-
-			// create link
-			__documentRoot_definitions_definitions.setTrg(definitions);
-
-			// create link
-			definitionsToPackage__source__definitions.setTrg(definitions);
-
-			// create link
-			definitionsToPackage__target__packageDeclaration
-					.setTrg(packageDeclaration);
-
-			// create link
-			useCasesModel__packages__packageDeclaration
-					.setTrg(packageDeclaration);
-
-			// create link
-			definitionsToPackage__target__packageDeclaration
-					.setSrc(definitionsToPackage);
-
-			// create link
-			definitionsToPackage__source__definitions
-					.setSrc(definitionsToPackage);
-
-			// create link
-			__documentRoot_definitions_definitions.setSrc(documentRoot);
-
-			// create link
-			useCasesModel__packages__packageDeclaration.setSrc(useCasesModel);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// bookkeeping for edges
+		Object[] result3_black = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_1_3_blackBBBBBBB(ruleresult,
+						definitions, packageDeclaration, definitionsToPackage,
+						documentRoot, useCasesModel,
+						documentRootToUseCasesModel);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_1_3_greenBBBBBBFFFF(
+						ruleresult, definitions, packageDeclaration,
+						definitionsToPackage, documentRoot, useCasesModel);
+		// EMoflonEdge definitionsToPackage__definitions____source = (EMoflonEdge) result3_green[6];
+		// EMoflonEdge definitionsToPackage__packageDeclaration____target = (EMoflonEdge) result3_green[7];
+		// EMoflonEdge documentRoot__definitions____definitions = (EMoflonEdge) result3_green[8];
+		// EMoflonEdge useCasesModel__packageDeclaration____packages = (EMoflonEdge) result3_green[9];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, definitions, packageDeclaration,
-				definitionsToPackage, documentRoot, useCasesModel,
-				documentRootToUseCasesModel);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_1_5_expressionBBBBBBBB(this,
+						ruleresult, definitions, packageDeclaration,
+						definitionsToPackage, documentRoot, useCasesModel,
+						documentRootToUseCasesModel);
+		return DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_1_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -511,283 +224,82 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		Definitions definitions = null;
-		DocumentRoot documentRoot = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __documentRoot_definitions_definitions = null;
-		EMoflonEdge __documentRootToUseCasesModel_source_documentRoot = null;
-		EMoflonEdge __documentRootToUseCasesModel_target_useCasesModel = null;
-		CSP csp = null;
-		UseCasesModel useCasesModel = null;
-		Iterator fujaba__IterDocumentRootToDocumentRootToUseCasesModel = null;
-		DocRootToUCModel documentRootToUseCasesModel = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("DefinitionsToPackageRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_2_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_2_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
 
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (match.getObject("definitions"));
-
-			// ensure correct type and really bound of object definitions
-			JavaSDM.ensure(_TmpObject instanceof Definitions);
-			definitions = (Definitions) _TmpObject;
-			_TmpObject = (match.getObject("documentRoot"));
-
-			// ensure correct type and really bound of object documentRoot
-			JavaSDM.ensure(_TmpObject instanceof DocumentRoot);
-			documentRoot = (DocumentRoot) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// iterate to-many link source from documentRoot to documentRootToUseCasesModel
-			fujaba__Success = false;
-
-			fujaba__IterDocumentRootToDocumentRootToUseCasesModel = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							documentRoot, DocRootToUCModel.class, "source"))
-					.iterator();
-
-			while (fujaba__IterDocumentRootToDocumentRootToUseCasesModel
-					.hasNext()) {
-				try {
-					documentRootToUseCasesModel = (DocRootToUCModel) fujaba__IterDocumentRootToDocumentRootToUseCasesModel
-							.next();
-
-					// check object documentRootToUseCasesModel is really bound
-					JavaSDM.ensure(documentRootToUseCasesModel != null);
-					// bind object
-					useCasesModel = documentRootToUseCasesModel.getTarget();
-
-					// check object useCasesModel is really bound
-					JavaSDM.ensure(useCasesModel != null);
-
-					// story node 'find context'
-					try {
-						fujaba__Success = false;
-
-						// check object definitions is really bound
-						JavaSDM.ensure(definitions != null);
-						// check object documentRoot is really bound
-						JavaSDM.ensure(documentRoot != null);
-						// check object documentRootToUseCasesModel is really bound
-						JavaSDM.ensure(documentRootToUseCasesModel != null);
-						// check object useCasesModel is really bound
-						JavaSDM.ensure(useCasesModel != null);
-						// check link definitions from definitions to documentRoot
-						JavaSDM.ensure(documentRoot.equals(definitions
-								.eContainer()));
-
-						// check link source from documentRootToUseCasesModel to documentRoot
-						JavaSDM.ensure(documentRoot
-								.equals(documentRootToUseCasesModel.getSource()));
-
-						// check link target from documentRootToUseCasesModel to useCasesModel
-						JavaSDM.ensure(useCasesModel
-								.equals(documentRootToUseCasesModel.getTarget()));
-
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
-						// create object __documentRoot_definitions_definitions
-						__documentRoot_definitions_definitions = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __documentRootToUseCasesModel_source_documentRoot
-						__documentRootToUseCasesModel_source_documentRoot = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __documentRootToUseCasesModel_target_useCasesModel
-						__documentRootToUseCasesModel_target_useCasesModel = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// assign attribute __documentRoot_definitions_definitions
-						__documentRoot_definitions_definitions
-								.setName("definitions");
-						// assign attribute __documentRootToUseCasesModel_source_documentRoot
-						__documentRootToUseCasesModel_source_documentRoot
-								.setName("source");
-						// assign attribute __documentRootToUseCasesModel_target_useCasesModel
-						__documentRootToUseCasesModel_target_useCasesModel
-								.setName("target");
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								definitions);
-
-						// create link
-						__documentRoot_definitions_definitions
-								.setTrg(definitions);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								documentRoot);
-
-						// create link
-						__documentRoot_definitions_definitions
-								.setSrc(documentRoot);
-
-						// create link
-						__documentRootToUseCasesModel_source_documentRoot
-								.setTrg(documentRoot);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCasesModel);
-
-						// create link
-						__documentRootToUseCasesModel_target_useCasesModel
-								.setTrg(useCasesModel);
-
-						// create link
-						__documentRootToUseCasesModel_source_documentRoot
-								.setSrc(documentRootToUseCasesModel);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
+		// ForEach core match
+		Object[] result2_binding = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_2_2_bindingFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		Definitions definitions = (Definitions) result2_binding[0];
+		DocumentRoot documentRoot = (DocumentRoot) result2_binding[1];
+		for (Object[] result2_black : DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_2_2_blackBBFFB(definitions,
+						documentRoot, match)) {
+			UseCasesModel useCasesModel = (UseCasesModel) result2_black[2];
+			DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) result2_black[3];
+			// ForEach find context
+			for (Object[] result3_black : DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_2_3_blackBBBB(
+							definitions, documentRoot, useCasesModel,
+							documentRootToUseCasesModel)) {
+				Object[] result3_green = DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_2_3_greenBBBBFFFF(
+								definitions, documentRoot, useCasesModel,
 								documentRootToUseCasesModel);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[4];
+				// EMoflonEdge documentRoot__definitions____definitions = (EMoflonEdge) result3_green[5];
+				// EMoflonEdge documentRootToUseCasesModel__documentRoot____source = (EMoflonEdge) result3_green[6];
+				// EMoflonEdge documentRootToUseCasesModel__useCasesModel____target = (EMoflonEdge) result3_green[7];
 
-						// create link
-						__documentRootToUseCasesModel_target_useCasesModel
-								.setSrc(documentRootToUseCasesModel);
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__documentRootToUseCasesModel_source_documentRoot,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__documentRootToUseCasesModel_target_useCasesModel,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__documentRoot_definitions_definitions,
-								"allContextElements");
-						// story node 'solve CSP'
-						try {
-							fujaba__Success = false;
-
-							_TmpObject = (this.isApplicable_solveCsp_FWD(
-									isApplicableMatch, definitions,
-									documentRoot, useCasesModel,
-									documentRootToUseCasesModel));
-
-							// ensure correct type and really bound of object csp
-							JavaSDM.ensure(_TmpObject instanceof CSP);
-							csp = (CSP) _TmpObject;
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						// statement node 'check CSP'
-						fujaba__Success = this.isApplicable_checkCsp_FWD(csp);
-						if (fujaba__Success) {
-							// story node 'add match to rule result'
-							try {
-								fujaba__Success = false;
-
-								// check object isApplicableMatch is really bound
-								JavaSDM.ensure(isApplicableMatch != null);
-								// check object ruleresult is really bound
-								JavaSDM.ensure(ruleresult != null);
-								// assign attribute isApplicableMatch
-								isApplicableMatch
-										.setRuleName("DefinitionsToPackageRule");
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
-
-								// create link
-								ruleresult.getIsApplicableMatch().add(
-										isApplicableMatch);
-
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
-					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				// solve CSP
+				Object[] result4_bindingAndBlack = DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_2_4_bindingAndBlackFBBBBBB(
+								this, isApplicableMatch, definitions,
+								documentRoot, useCasesModel,
+								documentRootToUseCasesModel);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_2_5_expressionFBB(
+								this, csp)) {
 
-		return ruleresult;
+					// add match to rule result
+					Object[] result6_black = DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_2_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
+					}
+					DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_2_6_greenBB(
+									ruleresult, isApplicableMatch);
+
+				} else {
+				}
+
+			}
+
+		}
+		return DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_2_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -808,15 +320,12 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, Definitions definitions,
-			DocumentRoot documentRoot) {
-		// Create CSP
+			DocumentRoot documentRoot) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -843,8 +352,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			Definitions definitions, DocumentRoot documentRoot,
 			UseCasesModel useCasesModel,
-			DocRootToUCModel documentRootToUseCasesModel) {
-		// Create CSP
+			DocRootToUCModel documentRootToUseCasesModel) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -852,7 +360,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("http://");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_definitions_targetNamespace = CSPFactoryHelper.eINSTANCE
@@ -860,8 +368,6 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		var_definitions_targetNamespace.setValue(definitions
 				.getTargetNamespace());
 		var_definitions_targetNamespace.setType("String");
-
-		// Create explicit parameters
 
 		// Create unbound variables
 		Variable var_packageDeclaration_name = CSPFactoryHelper.eINSTANCE
@@ -932,111 +438,64 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isAppropriate_BWD(Match match,
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object useCasesModel is really bound
-			JavaSDM.ensure(useCasesModel != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_10_1_blackBBBB(this, match,
+						packageDeclaration, useCasesModel);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_BWD(match,
-					packageDeclaration, useCasesModel));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_10_2_bindingAndBlackFBBBB(
+						this, match, packageDeclaration, useCasesModel);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_10_3_expressionFBB(this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_BWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object packageDeclaration is really bound
-				JavaSDM.ensure(packageDeclaration != null);
-				// check object useCasesModel is really bound
-				JavaSDM.ensure(useCasesModel != null);
-				// create object __useCasesModel_packages_packageDeclaration
-				__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __useCasesModel_packages_packageDeclaration
-				__useCasesModel_packages_packageDeclaration.setName("packages");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCasesModel_packages_packageDeclaration,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						packageDeclaration, "toBeTranslatedNodes");
-
-				// create link
-				__useCasesModel_packages_packageDeclaration
-						.setTrg(packageDeclaration);
-
-				// create link
-				__useCasesModel_packages_packageDeclaration
-						.setSrc(useCasesModel);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_10_4_blackBBB(match,
+							packageDeclaration, useCasesModel);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_10_4_greenBBBF(match,
+							packageDeclaration, useCasesModel);
+			// EMoflonEdge useCasesModel__packageDeclaration____packages = (EMoflonEdge) result4_green[3];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object packageDeclaration is really bound
-				JavaSDM.ensure(packageDeclaration != null);
-				// check object useCasesModel is really bound
-				JavaSDM.ensure(useCasesModel != null);
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCasesModel, "contextNodes");
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_10_5_blackBBB(match,
+							packageDeclaration, useCasesModel);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_10_5_greenBB(match,
+							useCasesModel);
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_BWD(match, packageDeclaration,
-					useCasesModel);
-			return true;
-
+			// register objects to match
+			DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_10_6_expressionBBBB(this,
+							match, packageDeclaration, useCasesModel);
+			return DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_10_7_expressionF();
 		} else {
-			return false;
-
+			return DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_10_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -1045,274 +504,66 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		DocumentRoot documentRoot = null;
-		DocRootToUCModel documentRootToUseCasesModel = null;
-		PackageDeclaration packageDeclaration = null;
-		UseCasesModel useCasesModel = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		Definitions definitions = null;
-		DefinitionsToPackage definitionsToPackage = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge definitionsToPackage__source__definitions = null;
-		EMoflonEdge documentRoot__definitions__definitions = null;
-		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
-		EMoflonEdge definitionsToPackage__target__packageDeclaration = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("documentRoot"));
-
-			// ensure correct type and really bound of object documentRoot
-			JavaSDM.ensure(_TmpObject instanceof DocumentRoot);
-			documentRoot = (DocumentRoot) _TmpObject;
-			_TmpObject = (isApplicableMatch
-					.getObject("documentRootToUseCasesModel"));
-
-			// ensure correct type and really bound of object documentRootToUseCasesModel
-			JavaSDM.ensure(_TmpObject instanceof DocRootToUCModel);
-			documentRootToUseCasesModel = (DocRootToUCModel) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCasesModel"));
-
-			// ensure correct type and really bound of object useCasesModel
-			JavaSDM.ensure(_TmpObject instanceof UseCasesModel);
-			useCasesModel = (UseCasesModel) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object definitions
-			definitions = Bpmn2Factory.eINSTANCE.createDefinitions();
-
-			// create object definitionsToPackage
-			definitionsToPackage = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createDefinitionsToPackage();
-
-			// assign attribute definitions
-			definitions.setTargetNamespace((java.lang.String) csp.getValue(
-					"definitions", "targetNamespace"));
-
-			// create link
-			definitionsToPackage.setTarget(packageDeclaration);
-
-			// create link
-			definitionsToPackage.setSource(definitions);
-
-			// create link
-			documentRoot.getDefinitions().add(definitions);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_11_1_bindingAndBlackFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[0];
+		DocumentRoot documentRoot = (DocumentRoot) result1_bindingAndBlack[1];
+		UseCasesModel useCasesModel = (UseCasesModel) result1_bindingAndBlack[2];
+		DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) result1_bindingAndBlack[3];
+		CSP csp = (CSP) result1_bindingAndBlack[4];
+		Object[] result1_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_11_1_greenFBFBB(
+						packageDeclaration, documentRoot, csp);
+		Definitions definitions = (Definitions) result1_green[0];
+		DefinitionsToPackage definitionsToPackage = (DefinitionsToPackage) result1_green[2];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object definitions is really bound
-			JavaSDM.ensure(definitions != null);
-			// check object definitionsToPackage is really bound
-			JavaSDM.ensure(definitionsToPackage != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitions, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration, "translatedElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_11_2_blackBBB(definitions,
+						packageDeclaration, definitionsToPackage);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
+		Object[] result2_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_11_2_greenFBBB(definitions,
+						packageDeclaration, definitionsToPackage);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object definitions is really bound
-			JavaSDM.ensure(definitions != null);
-			// check object definitionsToPackage is really bound
-			JavaSDM.ensure(definitionsToPackage != null);
-			// check object documentRoot is really bound
-			JavaSDM.ensure(documentRoot != null);
-			// check object documentRootToUseCasesModel is really bound
-			JavaSDM.ensure(documentRootToUseCasesModel != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCasesModel is really bound
-			JavaSDM.ensure(useCasesModel != null);
-			// check isomorphic binding between objects definitionsToPackage and definitions 
-			JavaSDM.ensure(!definitionsToPackage.equals(definitions));
-
-			// check isomorphic binding between objects documentRoot and definitions 
-			JavaSDM.ensure(!documentRoot.equals(definitions));
-
-			// check isomorphic binding between objects documentRootToUseCasesModel and definitions 
-			JavaSDM.ensure(!documentRootToUseCasesModel.equals(definitions));
-
-			// check isomorphic binding between objects packageDeclaration and definitions 
-			JavaSDM.ensure(!packageDeclaration.equals(definitions));
-
-			// check isomorphic binding between objects useCasesModel and definitions 
-			JavaSDM.ensure(!useCasesModel.equals(definitions));
-
-			// check isomorphic binding between objects documentRoot and definitionsToPackage 
-			JavaSDM.ensure(!documentRoot.equals(definitionsToPackage));
-
-			// check isomorphic binding between objects documentRootToUseCasesModel and definitionsToPackage 
-			JavaSDM.ensure(!documentRootToUseCasesModel
-					.equals(definitionsToPackage));
-
-			// check isomorphic binding between objects packageDeclaration and definitionsToPackage 
-			JavaSDM.ensure(!packageDeclaration.equals(definitionsToPackage));
-
-			// check isomorphic binding between objects useCasesModel and definitionsToPackage 
-			JavaSDM.ensure(!useCasesModel.equals(definitionsToPackage));
-
-			// check isomorphic binding between objects documentRootToUseCasesModel and documentRoot 
-			JavaSDM.ensure(!documentRootToUseCasesModel.equals(documentRoot));
-
-			// check isomorphic binding between objects packageDeclaration and documentRoot 
-			JavaSDM.ensure(!packageDeclaration.equals(documentRoot));
-
-			// check isomorphic binding between objects useCasesModel and documentRoot 
-			JavaSDM.ensure(!useCasesModel.equals(documentRoot));
-
-			// check isomorphic binding between objects packageDeclaration and documentRootToUseCasesModel 
-			JavaSDM.ensure(!packageDeclaration
-					.equals(documentRootToUseCasesModel));
-
-			// check isomorphic binding between objects useCasesModel and documentRootToUseCasesModel 
-			JavaSDM.ensure(!useCasesModel.equals(documentRootToUseCasesModel));
-
-			// check isomorphic binding between objects useCasesModel and packageDeclaration 
-			JavaSDM.ensure(!useCasesModel.equals(packageDeclaration));
-
-			// create object definitionsToPackage__source__definitions
-			definitionsToPackage__source__definitions = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object documentRoot__definitions__definitions
-			documentRoot__definitions__definitions = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __useCasesModel_packages_packageDeclaration
-			__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object definitionsToPackage__target__packageDeclaration
-			definitionsToPackage__target__packageDeclaration = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("DefinitionsToPackageRule");
-			// assign attribute definitionsToPackage__source__definitions
-			definitionsToPackage__source__definitions.setName("source");
-			// assign attribute definitionsToPackage__target__packageDeclaration
-			definitionsToPackage__target__packageDeclaration.setName("target");
-			// assign attribute documentRoot__definitions__definitions
-			documentRoot__definitions__definitions.setName("definitions");
-			// assign attribute __useCasesModel_packages_packageDeclaration
-			__useCasesModel_packages_packageDeclaration.setName("packages");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage__source__definitions, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					documentRoot__definitions__definitions, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCasesModel_packages_packageDeclaration,
-					"translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					definitionsToPackage__target__packageDeclaration,
-					"createdEdges");
-
-			// create link
-			documentRoot__definitions__definitions.setTrg(definitions);
-
-			// create link
-			definitionsToPackage__source__definitions.setTrg(definitions);
-
-			// create link
-			__useCasesModel_packages_packageDeclaration
-					.setTrg(packageDeclaration);
-
-			// create link
-			definitionsToPackage__target__packageDeclaration
-					.setTrg(packageDeclaration);
-
-			// create link
-			definitionsToPackage__source__definitions
-					.setSrc(definitionsToPackage);
-
-			// create link
-			definitionsToPackage__target__packageDeclaration
-					.setSrc(definitionsToPackage);
-
-			// create link
-			documentRoot__definitions__definitions.setSrc(documentRoot);
-
-			// create link
-			__useCasesModel_packages_packageDeclaration.setSrc(useCasesModel);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// bookkeeping for edges
+		Object[] result3_black = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_11_3_blackBBBBBBB(ruleresult,
+						definitions, packageDeclaration, definitionsToPackage,
+						documentRoot, useCasesModel,
+						documentRootToUseCasesModel);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_11_3_greenBBBBBBFFFF(
+						ruleresult, definitions, packageDeclaration,
+						definitionsToPackage, documentRoot, useCasesModel);
+		// EMoflonEdge definitionsToPackage__definitions____source = (EMoflonEdge) result3_green[6];
+		// EMoflonEdge definitionsToPackage__packageDeclaration____target = (EMoflonEdge) result3_green[7];
+		// EMoflonEdge documentRoot__definitions____definitions = (EMoflonEdge) result3_green[8];
+		// EMoflonEdge useCasesModel__packageDeclaration____packages = (EMoflonEdge) result3_green[9];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_BWD(ruleresult, definitions, packageDeclaration,
-				definitionsToPackage, documentRoot, useCasesModel,
-				documentRootToUseCasesModel);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_11_5_expressionBBBBBBBB(this,
+						ruleresult, definitions, packageDeclaration,
+						definitionsToPackage, documentRoot, useCasesModel,
+						documentRootToUseCasesModel);
+		return DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_11_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1321,283 +572,82 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_BWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		PackageDeclaration packageDeclaration = null;
-		UseCasesModel useCasesModel = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __useCasesModel_packages_packageDeclaration = null;
-		EMoflonEdge __documentRootToUseCasesModel_source_documentRoot = null;
-		EMoflonEdge __documentRootToUseCasesModel_target_useCasesModel = null;
-		CSP csp = null;
-		DocumentRoot documentRoot = null;
-		Iterator fujaba__IterUseCasesModelToDocumentRootToUseCasesModel = null;
-		DocRootToUCModel documentRootToUseCasesModel = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("DefinitionsToPackageRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_12_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_12_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
 
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
+		// ForEach core match
+		Object[] result2_binding = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_12_2_bindingFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[0];
+		UseCasesModel useCasesModel = (UseCasesModel) result2_binding[1];
+		for (Object[] result2_black : DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_12_2_blackBFBFB(
+						packageDeclaration, useCasesModel, match)) {
+			DocumentRoot documentRoot = (DocumentRoot) result2_black[1];
+			DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) result2_black[3];
+			// ForEach find context
+			for (Object[] result3_black : DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_12_3_blackBBBB(
+							packageDeclaration, documentRoot, useCasesModel,
+							documentRootToUseCasesModel)) {
+				Object[] result3_green = DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_12_3_greenBBBBFFFF(
+								packageDeclaration, documentRoot,
+								useCasesModel, documentRootToUseCasesModel);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[4];
+				// EMoflonEdge useCasesModel__packageDeclaration____packages = (EMoflonEdge) result3_green[5];
+				// EMoflonEdge documentRootToUseCasesModel__documentRoot____source = (EMoflonEdge) result3_green[6];
+				// EMoflonEdge documentRootToUseCasesModel__useCasesModel____target = (EMoflonEdge) result3_green[7];
 
-			_TmpObject = (match.getObject("packageDeclaration"));
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-			_TmpObject = (match.getObject("useCasesModel"));
-
-			// ensure correct type and really bound of object useCasesModel
-			JavaSDM.ensure(_TmpObject instanceof UseCasesModel);
-			useCasesModel = (UseCasesModel) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// iterate to-many link target from useCasesModel to documentRootToUseCasesModel
-			fujaba__Success = false;
-
-			fujaba__IterUseCasesModelToDocumentRootToUseCasesModel = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							useCasesModel, DocRootToUCModel.class, "target"))
-					.iterator();
-
-			while (fujaba__IterUseCasesModelToDocumentRootToUseCasesModel
-					.hasNext()) {
-				try {
-					documentRootToUseCasesModel = (DocRootToUCModel) fujaba__IterUseCasesModelToDocumentRootToUseCasesModel
-							.next();
-
-					// check object documentRootToUseCasesModel is really bound
-					JavaSDM.ensure(documentRootToUseCasesModel != null);
-					// bind object
-					documentRoot = documentRootToUseCasesModel.getSource();
-
-					// check object documentRoot is really bound
-					JavaSDM.ensure(documentRoot != null);
-
-					// story node 'find context'
-					try {
-						fujaba__Success = false;
-
-						// check object documentRoot is really bound
-						JavaSDM.ensure(documentRoot != null);
-						// check object documentRootToUseCasesModel is really bound
-						JavaSDM.ensure(documentRootToUseCasesModel != null);
-						// check object packageDeclaration is really bound
-						JavaSDM.ensure(packageDeclaration != null);
-						// check object useCasesModel is really bound
-						JavaSDM.ensure(useCasesModel != null);
-						// check link packages from packageDeclaration to useCasesModel
-						JavaSDM.ensure(useCasesModel.equals(packageDeclaration
-								.eContainer()));
-
-						// check link source from documentRootToUseCasesModel to documentRoot
-						JavaSDM.ensure(documentRoot
-								.equals(documentRootToUseCasesModel.getSource()));
-
-						// check link target from documentRootToUseCasesModel to useCasesModel
-						JavaSDM.ensure(useCasesModel
-								.equals(documentRootToUseCasesModel.getTarget()));
-
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
-						// create object __useCasesModel_packages_packageDeclaration
-						__useCasesModel_packages_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __documentRootToUseCasesModel_source_documentRoot
-						__documentRootToUseCasesModel_source_documentRoot = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __documentRootToUseCasesModel_target_useCasesModel
-						__documentRootToUseCasesModel_target_useCasesModel = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// assign attribute __useCasesModel_packages_packageDeclaration
-						__useCasesModel_packages_packageDeclaration
-								.setName("packages");
-						// assign attribute __documentRootToUseCasesModel_source_documentRoot
-						__documentRootToUseCasesModel_source_documentRoot
-								.setName("source");
-						// assign attribute __documentRootToUseCasesModel_target_useCasesModel
-						__documentRootToUseCasesModel_target_useCasesModel
-								.setName("target");
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
-
-						// create link
-						__useCasesModel_packages_packageDeclaration
-								.setTrg(packageDeclaration);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								documentRoot);
-
-						// create link
-						__documentRootToUseCasesModel_source_documentRoot
-								.setTrg(documentRoot);
-
-						// create link
-						__documentRootToUseCasesModel_target_useCasesModel
-								.setTrg(useCasesModel);
-
-						// create link
-						__useCasesModel_packages_packageDeclaration
-								.setSrc(useCasesModel);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCasesModel);
-
-						// create link
-						__documentRootToUseCasesModel_target_useCasesModel
-								.setSrc(documentRootToUseCasesModel);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
+				// solve CSP
+				Object[] result4_bindingAndBlack = DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_12_4_bindingAndBlackFBBBBBB(
+								this, isApplicableMatch, packageDeclaration,
+								documentRoot, useCasesModel,
 								documentRootToUseCasesModel);
-
-						// create link
-						__documentRootToUseCasesModel_source_documentRoot
-								.setSrc(documentRootToUseCasesModel);
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__documentRootToUseCasesModel_source_documentRoot,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__documentRootToUseCasesModel_target_useCasesModel,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__useCasesModel_packages_packageDeclaration,
-								"allContextElements");
-						// story node 'solve CSP'
-						try {
-							fujaba__Success = false;
-
-							_TmpObject = (this.isApplicable_solveCsp_BWD(
-									isApplicableMatch, packageDeclaration,
-									documentRoot, useCasesModel,
-									documentRootToUseCasesModel));
-
-							// ensure correct type and really bound of object csp
-							JavaSDM.ensure(_TmpObject instanceof CSP);
-							csp = (CSP) _TmpObject;
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						// statement node 'check CSP'
-						fujaba__Success = this.isApplicable_checkCsp_BWD(csp);
-						if (fujaba__Success) {
-							// story node 'add match to rule result'
-							try {
-								fujaba__Success = false;
-
-								// check object isApplicableMatch is really bound
-								JavaSDM.ensure(isApplicableMatch != null);
-								// check object ruleresult is really bound
-								JavaSDM.ensure(ruleresult != null);
-								// assign attribute isApplicableMatch
-								isApplicableMatch
-										.setRuleName("DefinitionsToPackageRule");
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
-
-								// create link
-								ruleresult.getIsApplicableMatch().add(
-										isApplicableMatch);
-
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
-					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_12_5_expressionFBB(
+								this, csp)) {
 
-		return ruleresult;
+					// add match to rule result
+					Object[] result6_black = DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_12_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
+					}
+					DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_12_6_greenBB(
+									ruleresult, isApplicableMatch);
+
+				} else {
+				}
+
+			}
+
+		}
+		return DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_12_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1618,15 +668,12 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_BWD(Match match,
-			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		// Create CSP
+			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -1653,8 +700,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	public CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
 			PackageDeclaration packageDeclaration, DocumentRoot documentRoot,
 			UseCasesModel useCasesModel,
-			DocRootToUCModel documentRootToUseCasesModel) {
-		// Create CSP
+			DocRootToUCModel documentRootToUseCasesModel) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -1662,15 +708,13 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("http://");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_packageDeclaration_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("packageDeclaration.name", true, csp);
 		var_packageDeclaration_name.setValue(packageDeclaration.getName());
 		var_packageDeclaration_name.setType("String");
-
-		// Create explicit parameters
 
 		// Create unbound variables
 		Variable var_definitions_targetNamespace = CSPFactoryHelper.eINSTANCE
@@ -1745,184 +789,58 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_0(
 			EMoflonEdge _edge_definitions) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		DocumentRoot __DEC_definitions_definitions_475461 = null;
-		Match match = null;
-		Definitions definitions = null;
-		DocumentRoot documentRoot = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_20_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_20_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_20_2_blackFFB(_edge_definitions)) {
+			Definitions definitions = (Definitions) result2_black[0];
+			DocumentRoot documentRoot = (DocumentRoot) result2_black[1];
+			Object[] result2_green = DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_20_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_definitions is really bound
-			JavaSDM.ensure(_edge_definitions != null);
-			// bind object
-			_TmpObject = _edge_definitions.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_20_3_expressionFBBBB(
+							this, match, definitions, documentRoot)) {
+				// Ensure that the correct types of elements are matched
+				if (DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_20_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object documentRoot
-			JavaSDM.ensure(_TmpObject instanceof DocumentRoot);
-			documentRoot = (DocumentRoot) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_definitions.getTrg();
-
-			// ensure correct type and really bound of object definitions
-			JavaSDM.ensure(_TmpObject instanceof Definitions);
-			definitions = (Definitions) _TmpObject;
-
-			// check link definitions from definitions to documentRoot
-			JavaSDM.ensure(documentRoot.equals(definitions.eContainer()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_definitions_definitions_475461 = definitions
-							.eContainer() instanceof DocumentRoot ? (DocumentRoot) definitions
-							.eContainer() : null;
-
-					// check object __DEC_definitions_definitions_475461 is really bound
-					JavaSDM.ensure(__DEC_definitions_definitions_475461 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_definitions_definitions_475461
-							.getDefinitions().contains(definitions));
-
-					// check isomorphic binding between objects __DEC_definitions_definitions_475461 and documentRoot 
-					JavaSDM.ensure(!__DEC_definitions_definitions_475461
-							.equals(documentRoot));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_definitions is really bound
-				JavaSDM.ensure(_edge_definitions != null);
-				// check object definitions is really bound
-				JavaSDM.ensure(definitions != null);
-				// check object documentRoot is really bound
-				JavaSDM.ensure(documentRoot != null);
-				// check link definitions from definitions to documentRoot
-				JavaSDM.ensure(documentRoot.equals(definitions.eContainer()));
-
-				// check link src from _edge_definitions to documentRoot
-				JavaSDM.ensure(documentRoot.equals(_edge_definitions.getSrc()));
-
-				// check link trg from _edge_definitions to definitions
-				JavaSDM.ensure(definitions.equals(_edge_definitions.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, definitions,
-						documentRoot);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
+					// Add match to rule result
+					Object[] result5_black = DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_20_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_20_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_20_6_expressionFB(__result);
 	}
 
 	/**
@@ -1932,186 +850,58 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_0(
 			EMoflonEdge _edge_packages) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		UseCasesModel __DEC_packageDeclaration_packages_897050 = null;
-		Match match = null;
-		PackageDeclaration packageDeclaration = null;
-		UseCasesModel useCasesModel = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_21_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_21_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_21_2_blackFFB(_edge_packages)) {
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[0];
+			UseCasesModel useCasesModel = (UseCasesModel) result2_black[1];
+			Object[] result2_green = DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_21_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_packages is really bound
-			JavaSDM.ensure(_edge_packages != null);
-			// bind object
-			_TmpObject = _edge_packages.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_21_3_expressionFBBBB(
+							this, match, packageDeclaration, useCasesModel)) {
+				// Ensure that the correct types of elements are matched
+				if (DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_21_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object useCasesModel
-			JavaSDM.ensure(_TmpObject instanceof UseCasesModel);
-			useCasesModel = (UseCasesModel) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_packages.getTrg();
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-
-			// check link packages from packageDeclaration to useCasesModel
-			JavaSDM.ensure(useCasesModel.equals(packageDeclaration.eContainer()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_packageDeclaration_packages_897050 = packageDeclaration
-							.eContainer() instanceof UseCasesModel ? (UseCasesModel) packageDeclaration
-							.eContainer() : null;
-
-					// check object __DEC_packageDeclaration_packages_897050 is really bound
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_897050 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_packageDeclaration_packages_897050
-							.getPackages().contains(packageDeclaration));
-
-					// check isomorphic binding between objects __DEC_packageDeclaration_packages_897050 and useCasesModel 
-					JavaSDM.ensure(!__DEC_packageDeclaration_packages_897050
-							.equals(useCasesModel));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_packages is really bound
-				JavaSDM.ensure(_edge_packages != null);
-				// check object packageDeclaration is really bound
-				JavaSDM.ensure(packageDeclaration != null);
-				// check object useCasesModel is really bound
-				JavaSDM.ensure(useCasesModel != null);
-				// check link packages from packageDeclaration to useCasesModel
-				JavaSDM.ensure(useCasesModel.equals(packageDeclaration
-						.eContainer()));
-
-				// check link src from _edge_packages to useCasesModel
-				JavaSDM.ensure(useCasesModel.equals(_edge_packages.getSrc()));
-
-				// check link trg from _edge_packages to packageDeclaration
-				JavaSDM.ensure(packageDeclaration.equals(_edge_packages
-						.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_BWD(match,
-						packageDeclaration, useCasesModel);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_BWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
+					// Add match to rule result
+					Object[] result5_black = DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_21_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_21_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_21_6_expressionFB(__result);
 	}
 
 	/**
@@ -2119,12 +909,8 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
-
-		// [user code injected with eMoflon]
-
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
 	}
 
 	/**
@@ -2132,12 +918,142 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// [user code injected with eMoflon]
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer,
+			DocRootToUCModel documentRootToUseCasesModelParameter) {
+		// create result
+		Object[] result1_black = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_24_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_24_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+		// ForEach is applicable core
+		for (Object[] result2_black : DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_24_2_blackFFFFBB(
+						ruleEntryContainer, ruleResult)) {
+			// RuleEntryList documentRootToUseCasesModelList = (RuleEntryList) result2_black[0];
+			DocumentRoot documentRoot = (DocumentRoot) result2_black[1];
+			DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) result2_black[2];
+			UseCasesModel useCasesModel = (UseCasesModel) result2_black[3];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_24_3_bindingAndBlackFBBBBBB(
+							this, isApplicableMatch, documentRoot,
+							useCasesModel, documentRootToUseCasesModel,
+							ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (DefinitionsToPackageRuleImpl
+					.pattern_DefinitionsToPackageRule_24_4_expressionFBB(this,
+							csp)) {
+				// check nacs
+				Object[] result5_black = DefinitionsToPackageRuleImpl
+						.pattern_DefinitionsToPackageRule_24_5_blackBBB(
+								documentRoot, useCasesModel,
+								documentRootToUseCasesModel);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_24_6_blackBBBB(
+									documentRoot, useCasesModel,
+									documentRootToUseCasesModel, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					DefinitionsToPackageRuleImpl
+							.pattern_DefinitionsToPackageRule_24_6_greenFFFBBBB(
+									documentRoot, useCasesModel, ruleResult,
+									csp);
+					// Definitions definitions = (Definitions) result6_green[0];
+					// PackageDeclaration packageDeclaration = (PackageDeclaration) result6_green[1];
+					// DefinitionsToPackage definitionsToPackage = (DefinitionsToPackage) result6_green[2];
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return DefinitionsToPackageRuleImpl
+				.pattern_DefinitionsToPackageRule_24_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			DocumentRoot documentRoot, UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("http://");
+		literal0.setType("");
+
+		// Create attribute variables
+
+		// Create unbound variables
+		Variable var_packageDeclaration_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("packageDeclaration.name", csp);
+		var_packageDeclaration_name.setType("String");
+		Variable var_definitions_targetNamespace = CSPFactoryHelper.eINSTANCE
+				.createVariable("definitions.targetNamespace", csp);
+		var_definitions_targetNamespace.setType("String");
+
+		// Create constraints
+		AddPrefix addPrefix = new AddPrefix();
+
+		csp.getConstraints().add(addPrefix);
+
+		// Solve CSP
+		addPrefix.setRuleName("");
+		addPrefix.solve(literal0, var_packageDeclaration_name,
+				var_definitions_targetNamespace);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("documentRoot", documentRoot);
+		isApplicableMatch.registerObject("useCasesModel", useCasesModel);
+		isApplicableMatch.registerObject("documentRootToUseCasesModel",
+				documentRootToUseCasesModel);
+		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean generateModel_checkCsp_BWD(CSP csp) {
+		return csp.check();
 	}
 
 	/**
@@ -2231,9 +1147,1572 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_DOCROOTTOUCMODEL:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(DocRootToUCModel) arguments.get(1));
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_DOCUMENTROOT_USECASESMODEL_DOCROOTTOUCMODEL_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(DocumentRoot) arguments.get(1),
+					(UseCasesModel) arguments.get(2),
+					(DocRootToUCModel) arguments.get(3),
+					(ModelgeneratorRuleResult) arguments.get(4));
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_0_1_blackBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			Definitions definitions, DocumentRoot documentRoot) {
+		return new Object[] { _this, match, definitions, documentRoot };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_0_2_bindingFBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			Definitions definitions, DocumentRoot documentRoot) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match,
+				definitions, documentRoot);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, definitions, documentRoot };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_0_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_0_2_bindingAndBlackFBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			Definitions definitions, DocumentRoot documentRoot) {
+		Object[] result_pattern_DefinitionsToPackageRule_0_2_binding = pattern_DefinitionsToPackageRule_0_2_bindingFBBBB(
+				_this, match, definitions, documentRoot);
+		if (result_pattern_DefinitionsToPackageRule_0_2_binding != null) {
+			CSP csp = (CSP) result_pattern_DefinitionsToPackageRule_0_2_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_0_2_black = pattern_DefinitionsToPackageRule_0_2_blackB(csp);
+			if (result_pattern_DefinitionsToPackageRule_0_2_black != null) {
+
+				return new Object[] { csp, _this, match, definitions,
+						documentRoot };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_0_3_expressionFBB(
+			DefinitionsToPackageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_0_4_blackBBB(
+			Match match, Definitions definitions, DocumentRoot documentRoot) {
+		return new Object[] { match, definitions, documentRoot };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_0_4_greenBBBF(
+			Match match, Definitions definitions, DocumentRoot documentRoot) {
+		EMoflonEdge documentRoot__definitions____definitions = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(definitions);
+		String documentRoot__definitions____definitions_name_prime = "definitions";
+		documentRoot__definitions____definitions.setSrc(documentRoot);
+		documentRoot__definitions____definitions.setTrg(definitions);
+		match.getToBeTranslatedEdges().add(
+				documentRoot__definitions____definitions);
+		documentRoot__definitions____definitions
+				.setName(documentRoot__definitions____definitions_name_prime);
+		return new Object[] { match, definitions, documentRoot,
+				documentRoot__definitions____definitions };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_0_5_blackBBB(
+			Match match, Definitions definitions, DocumentRoot documentRoot) {
+		return new Object[] { match, definitions, documentRoot };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_0_5_greenBB(
+			Match match, DocumentRoot documentRoot) {
+		match.getContextNodes().add(documentRoot);
+		return new Object[] { match, documentRoot };
+	}
+
+	public static final void pattern_DefinitionsToPackageRule_0_6_expressionBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			Definitions definitions, DocumentRoot documentRoot) {
+		_this.registerObjectsToMatch_FWD(match, definitions, documentRoot);
+
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_0_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_0_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_1_1_bindingFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("definitions");
+		EObject _localVariable_1 = isApplicableMatch.getObject("documentRoot");
+		EObject _localVariable_2 = isApplicableMatch.getObject("useCasesModel");
+		EObject _localVariable_3 = isApplicableMatch
+				.getObject("documentRootToUseCasesModel");
+		EObject tmpDefinitions = _localVariable_0;
+		EObject tmpDocumentRoot = _localVariable_1;
+		EObject tmpUseCasesModel = _localVariable_2;
+		EObject tmpDocumentRootToUseCasesModel = _localVariable_3;
+		if (tmpDefinitions instanceof Definitions) {
+			Definitions definitions = (Definitions) tmpDefinitions;
+			if (tmpDocumentRoot instanceof DocumentRoot) {
+				DocumentRoot documentRoot = (DocumentRoot) tmpDocumentRoot;
+				if (tmpUseCasesModel instanceof UseCasesModel) {
+					UseCasesModel useCasesModel = (UseCasesModel) tmpUseCasesModel;
+					if (tmpDocumentRootToUseCasesModel instanceof DocRootToUCModel) {
+						DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) tmpDocumentRootToUseCasesModel;
+						return new Object[] { definitions, documentRoot,
+								useCasesModel, documentRootToUseCasesModel,
+								isApplicableMatch };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_1_1_blackBBBBFBB(
+			Definitions definitions, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel,
+			DefinitionsToPackageRule _this, IsApplicableMatch isApplicableMatch) {
+		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+			if (tmpCsp instanceof CSP) {
+				CSP csp = (CSP) tmpCsp;
+				return new Object[] { definitions, documentRoot, useCasesModel,
+						documentRootToUseCasesModel, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_1_1_bindingAndBlackFFFFFBB(
+			DefinitionsToPackageRule _this, IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_DefinitionsToPackageRule_1_1_binding = pattern_DefinitionsToPackageRule_1_1_bindingFFFFB(isApplicableMatch);
+		if (result_pattern_DefinitionsToPackageRule_1_1_binding != null) {
+			Definitions definitions = (Definitions) result_pattern_DefinitionsToPackageRule_1_1_binding[0];
+			DocumentRoot documentRoot = (DocumentRoot) result_pattern_DefinitionsToPackageRule_1_1_binding[1];
+			UseCasesModel useCasesModel = (UseCasesModel) result_pattern_DefinitionsToPackageRule_1_1_binding[2];
+			DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) result_pattern_DefinitionsToPackageRule_1_1_binding[3];
+
+			Object[] result_pattern_DefinitionsToPackageRule_1_1_black = pattern_DefinitionsToPackageRule_1_1_blackBBBBFBB(
+					definitions, documentRoot, useCasesModel,
+					documentRootToUseCasesModel, _this, isApplicableMatch);
+			if (result_pattern_DefinitionsToPackageRule_1_1_black != null) {
+				CSP csp = (CSP) result_pattern_DefinitionsToPackageRule_1_1_black[4];
+
+				return new Object[] { definitions, documentRoot, useCasesModel,
+						documentRootToUseCasesModel, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_1_1_greenBFFBB(
+			Definitions definitions, UseCasesModel useCasesModel, CSP csp) {
+		PackageDeclaration packageDeclaration = UseCaseDSLFactory.eINSTANCE
+				.createPackageDeclaration();
+		DefinitionsToPackage definitionsToPackage = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createDefinitionsToPackage();
+		Object _localVariable_0 = csp.getValue("packageDeclaration", "name");
+		useCasesModel.getPackages().add(packageDeclaration);
+		definitionsToPackage.setSource(definitions);
+		definitionsToPackage.setTarget(packageDeclaration);
+		String packageDeclaration_name_prime = (String) _localVariable_0;
+		packageDeclaration.setName(packageDeclaration_name_prime);
+		return new Object[] { definitions, packageDeclaration,
+				definitionsToPackage, useCasesModel, csp };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_1_2_blackBBB(
+			Definitions definitions, PackageDeclaration packageDeclaration,
+			DefinitionsToPackage definitionsToPackage) {
+		return new Object[] { definitions, packageDeclaration,
+				definitionsToPackage };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_1_2_greenFBBB(
+			Definitions definitions, PackageDeclaration packageDeclaration,
+			DefinitionsToPackage definitionsToPackage) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getTranslatedElements().add(definitions);
+		ruleresult.getCreatedElements().add(packageDeclaration);
+		ruleresult.getCreatedLinkElements().add(definitionsToPackage);
+		return new Object[] { ruleresult, definitions, packageDeclaration,
+				definitionsToPackage };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_1_3_blackBBBBBBB(
+			PerformRuleResult ruleresult, EObject definitions,
+			EObject packageDeclaration, EObject definitionsToPackage,
+			EObject documentRoot, EObject useCasesModel,
+			EObject documentRootToUseCasesModel) {
+		if (!definitions.equals(packageDeclaration)) {
+			if (!definitions.equals(definitionsToPackage)) {
+				if (!definitions.equals(documentRoot)) {
+					if (!definitions.equals(useCasesModel)) {
+						if (!definitions.equals(documentRootToUseCasesModel)) {
+							if (!packageDeclaration.equals(useCasesModel)) {
+								if (!definitionsToPackage
+										.equals(packageDeclaration)) {
+									if (!definitionsToPackage
+											.equals(documentRoot)) {
+										if (!definitionsToPackage
+												.equals(useCasesModel)) {
+											if (!definitionsToPackage
+													.equals(documentRootToUseCasesModel)) {
+												if (!documentRoot
+														.equals(packageDeclaration)) {
+													if (!documentRoot
+															.equals(useCasesModel)) {
+														if (!documentRoot
+																.equals(documentRootToUseCasesModel)) {
+															if (!documentRootToUseCasesModel
+																	.equals(packageDeclaration)) {
+																if (!documentRootToUseCasesModel
+																		.equals(useCasesModel)) {
+																	return new Object[] {
+																			ruleresult,
+																			definitions,
+																			packageDeclaration,
+																			definitionsToPackage,
+																			documentRoot,
+																			useCasesModel,
+																			documentRootToUseCasesModel };
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_1_3_greenBBBBBBFFFF(
+			PerformRuleResult ruleresult, EObject definitions,
+			EObject packageDeclaration, EObject definitionsToPackage,
+			EObject documentRoot, EObject useCasesModel) {
+		EMoflonEdge definitionsToPackage__definitions____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge definitionsToPackage__packageDeclaration____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge documentRoot__definitions____definitions = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCasesModel__packageDeclaration____packages = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "DefinitionsToPackageRule";
+		String definitionsToPackage__definitions____source_name_prime = "source";
+		String definitionsToPackage__packageDeclaration____target_name_prime = "target";
+		String documentRoot__definitions____definitions_name_prime = "definitions";
+		String useCasesModel__packageDeclaration____packages_name_prime = "packages";
+		definitionsToPackage__definitions____source
+				.setSrc(definitionsToPackage);
+		definitionsToPackage__definitions____source.setTrg(definitions);
+		ruleresult.getCreatedEdges().add(
+				definitionsToPackage__definitions____source);
+		definitionsToPackage__packageDeclaration____target
+				.setSrc(definitionsToPackage);
+		definitionsToPackage__packageDeclaration____target
+				.setTrg(packageDeclaration);
+		ruleresult.getCreatedEdges().add(
+				definitionsToPackage__packageDeclaration____target);
+		documentRoot__definitions____definitions.setSrc(documentRoot);
+		documentRoot__definitions____definitions.setTrg(definitions);
+		ruleresult.getTranslatedEdges().add(
+				documentRoot__definitions____definitions);
+		useCasesModel__packageDeclaration____packages.setSrc(useCasesModel);
+		useCasesModel__packageDeclaration____packages
+				.setTrg(packageDeclaration);
+		ruleresult.getCreatedEdges().add(
+				useCasesModel__packageDeclaration____packages);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		definitionsToPackage__definitions____source
+				.setName(definitionsToPackage__definitions____source_name_prime);
+		definitionsToPackage__packageDeclaration____target
+				.setName(definitionsToPackage__packageDeclaration____target_name_prime);
+		documentRoot__definitions____definitions
+				.setName(documentRoot__definitions____definitions_name_prime);
+		useCasesModel__packageDeclaration____packages
+				.setName(useCasesModel__packageDeclaration____packages_name_prime);
+		return new Object[] { ruleresult, definitions, packageDeclaration,
+				definitionsToPackage, documentRoot, useCasesModel,
+				definitionsToPackage__definitions____source,
+				definitionsToPackage__packageDeclaration____target,
+				documentRoot__definitions____definitions,
+				useCasesModel__packageDeclaration____packages };
+	}
+
+	public static final void pattern_DefinitionsToPackageRule_1_5_expressionBBBBBBBB(
+			DefinitionsToPackageRule _this, PerformRuleResult ruleresult,
+			EObject definitions, EObject packageDeclaration,
+			EObject definitionsToPackage, EObject documentRoot,
+			EObject useCasesModel, EObject documentRootToUseCasesModel) {
+		_this.registerObjects_FWD(ruleresult, definitions, packageDeclaration,
+				definitionsToPackage, documentRoot, useCasesModel,
+				documentRootToUseCasesModel);
+
+	}
+
+	public static final PerformRuleResult pattern_DefinitionsToPackageRule_1_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_1_bindingFB(
+			DefinitionsToPackageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_1_blackFBB(
+			EClass eClass, DefinitionsToPackageRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_FWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_1_bindingAndBlackFFB(
+			DefinitionsToPackageRule _this) {
+		Object[] result_pattern_DefinitionsToPackageRule_2_1_binding = pattern_DefinitionsToPackageRule_2_1_bindingFB(_this);
+		if (result_pattern_DefinitionsToPackageRule_2_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_DefinitionsToPackageRule_2_1_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_2_1_black = pattern_DefinitionsToPackageRule_2_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_DefinitionsToPackageRule_2_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_DefinitionsToPackageRule_2_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "DefinitionsToPackageRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_2_bindingFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("definitions");
+		EObject _localVariable_1 = match.getObject("documentRoot");
+		EObject tmpDefinitions = _localVariable_0;
+		EObject tmpDocumentRoot = _localVariable_1;
+		if (tmpDefinitions instanceof Definitions) {
+			Definitions definitions = (Definitions) tmpDefinitions;
+			if (tmpDocumentRoot instanceof DocumentRoot) {
+				DocumentRoot documentRoot = (DocumentRoot) tmpDocumentRoot;
+				return new Object[] { definitions, documentRoot, match };
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_DefinitionsToPackageRule_2_2_blackBBFFB(
+			Definitions definitions, DocumentRoot documentRoot, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (DocRootToUCModel documentRootToUseCasesModel : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(documentRoot,
+						DocRootToUCModel.class, "source")) {
+			UseCasesModel useCasesModel = documentRootToUseCasesModel
+					.getTarget();
+			if (useCasesModel != null) {
+				_result.add(new Object[] { definitions, documentRoot,
+						useCasesModel, documentRootToUseCasesModel, match });
+			}
+
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_DefinitionsToPackageRule_2_3_blackBBBB(
+			Definitions definitions, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (documentRoot.getDefinitions().contains(definitions)) {
+			if (documentRoot.equals(documentRootToUseCasesModel.getSource())) {
+				if (useCasesModel.equals(documentRootToUseCasesModel
+						.getTarget())) {
+					_result.add(new Object[] { definitions, documentRoot,
+							useCasesModel, documentRootToUseCasesModel });
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_3_greenBBBBFFFF(
+			Definitions definitions, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge documentRoot__definitions____definitions = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge documentRootToUseCasesModel__documentRoot____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge documentRootToUseCasesModel__useCasesModel____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String documentRoot__definitions____definitions_name_prime = "definitions";
+		String documentRootToUseCasesModel__documentRoot____source_name_prime = "source";
+		String documentRootToUseCasesModel__useCasesModel____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(definitions);
+		isApplicableMatch.getAllContextElements().add(documentRoot);
+		isApplicableMatch.getAllContextElements().add(useCasesModel);
+		isApplicableMatch.getAllContextElements().add(
+				documentRootToUseCasesModel);
+		documentRoot__definitions____definitions.setSrc(documentRoot);
+		documentRoot__definitions____definitions.setTrg(definitions);
+		isApplicableMatch.getAllContextElements().add(
+				documentRoot__definitions____definitions);
+		documentRootToUseCasesModel__documentRoot____source
+				.setSrc(documentRootToUseCasesModel);
+		documentRootToUseCasesModel__documentRoot____source
+				.setTrg(documentRoot);
+		isApplicableMatch.getAllContextElements().add(
+				documentRootToUseCasesModel__documentRoot____source);
+		documentRootToUseCasesModel__useCasesModel____target
+				.setSrc(documentRootToUseCasesModel);
+		documentRootToUseCasesModel__useCasesModel____target
+				.setTrg(useCasesModel);
+		isApplicableMatch.getAllContextElements().add(
+				documentRootToUseCasesModel__useCasesModel____target);
+		documentRoot__definitions____definitions
+				.setName(documentRoot__definitions____definitions_name_prime);
+		documentRootToUseCasesModel__documentRoot____source
+				.setName(documentRootToUseCasesModel__documentRoot____source_name_prime);
+		documentRootToUseCasesModel__useCasesModel____target
+				.setName(documentRootToUseCasesModel__useCasesModel____target_name_prime);
+		return new Object[] { definitions, documentRoot, useCasesModel,
+				documentRootToUseCasesModel, isApplicableMatch,
+				documentRoot__definitions____definitions,
+				documentRootToUseCasesModel__documentRoot____source,
+				documentRootToUseCasesModel__useCasesModel____target };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_4_bindingFBBBBBB(
+			DefinitionsToPackageRule _this,
+			IsApplicableMatch isApplicableMatch, Definitions definitions,
+			DocumentRoot documentRoot, UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
+				isApplicableMatch, definitions, documentRoot, useCasesModel,
+				documentRootToUseCasesModel);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, definitions,
+					documentRoot, useCasesModel, documentRootToUseCasesModel };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_4_bindingAndBlackFBBBBBB(
+			DefinitionsToPackageRule _this,
+			IsApplicableMatch isApplicableMatch, Definitions definitions,
+			DocumentRoot documentRoot, UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		Object[] result_pattern_DefinitionsToPackageRule_2_4_binding = pattern_DefinitionsToPackageRule_2_4_bindingFBBBBBB(
+				_this, isApplicableMatch, definitions, documentRoot,
+				useCasesModel, documentRootToUseCasesModel);
+		if (result_pattern_DefinitionsToPackageRule_2_4_binding != null) {
+			CSP csp = (CSP) result_pattern_DefinitionsToPackageRule_2_4_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_2_4_black = pattern_DefinitionsToPackageRule_2_4_blackB(csp);
+			if (result_pattern_DefinitionsToPackageRule_2_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch,
+						definitions, documentRoot, useCasesModel,
+						documentRootToUseCasesModel };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_2_5_expressionFBB(
+			DefinitionsToPackageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_2_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "DefinitionsToPackageRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_DefinitionsToPackageRule_2_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_10_1_blackBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
+		return new Object[] { _this, match, packageDeclaration, useCasesModel };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_10_2_bindingFBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_BWD(match,
+				packageDeclaration, useCasesModel);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, packageDeclaration,
+					useCasesModel };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_10_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_10_2_bindingAndBlackFBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
+		Object[] result_pattern_DefinitionsToPackageRule_10_2_binding = pattern_DefinitionsToPackageRule_10_2_bindingFBBBB(
+				_this, match, packageDeclaration, useCasesModel);
+		if (result_pattern_DefinitionsToPackageRule_10_2_binding != null) {
+			CSP csp = (CSP) result_pattern_DefinitionsToPackageRule_10_2_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_10_2_black = pattern_DefinitionsToPackageRule_10_2_blackB(csp);
+			if (result_pattern_DefinitionsToPackageRule_10_2_black != null) {
+
+				return new Object[] { csp, _this, match, packageDeclaration,
+						useCasesModel };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_10_3_expressionFBB(
+			DefinitionsToPackageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_10_4_blackBBB(
+			Match match, PackageDeclaration packageDeclaration,
+			UseCasesModel useCasesModel) {
+		return new Object[] { match, packageDeclaration, useCasesModel };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_10_4_greenBBBF(
+			Match match, PackageDeclaration packageDeclaration,
+			UseCasesModel useCasesModel) {
+		EMoflonEdge useCasesModel__packageDeclaration____packages = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(packageDeclaration);
+		String useCasesModel__packageDeclaration____packages_name_prime = "packages";
+		useCasesModel__packageDeclaration____packages.setSrc(useCasesModel);
+		useCasesModel__packageDeclaration____packages
+				.setTrg(packageDeclaration);
+		match.getToBeTranslatedEdges().add(
+				useCasesModel__packageDeclaration____packages);
+		useCasesModel__packageDeclaration____packages
+				.setName(useCasesModel__packageDeclaration____packages_name_prime);
+		return new Object[] { match, packageDeclaration, useCasesModel,
+				useCasesModel__packageDeclaration____packages };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_10_5_blackBBB(
+			Match match, PackageDeclaration packageDeclaration,
+			UseCasesModel useCasesModel) {
+		return new Object[] { match, packageDeclaration, useCasesModel };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_10_5_greenBB(
+			Match match, UseCasesModel useCasesModel) {
+		match.getContextNodes().add(useCasesModel);
+		return new Object[] { match, useCasesModel };
+	}
+
+	public static final void pattern_DefinitionsToPackageRule_10_6_expressionBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
+		_this.registerObjectsToMatch_BWD(match, packageDeclaration,
+				useCasesModel);
+
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_10_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_10_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_11_1_bindingFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch
+				.getObject("packageDeclaration");
+		EObject _localVariable_1 = isApplicableMatch.getObject("documentRoot");
+		EObject _localVariable_2 = isApplicableMatch.getObject("useCasesModel");
+		EObject _localVariable_3 = isApplicableMatch
+				.getObject("documentRootToUseCasesModel");
+		EObject tmpPackageDeclaration = _localVariable_0;
+		EObject tmpDocumentRoot = _localVariable_1;
+		EObject tmpUseCasesModel = _localVariable_2;
+		EObject tmpDocumentRootToUseCasesModel = _localVariable_3;
+		if (tmpPackageDeclaration instanceof PackageDeclaration) {
+			PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+			if (tmpDocumentRoot instanceof DocumentRoot) {
+				DocumentRoot documentRoot = (DocumentRoot) tmpDocumentRoot;
+				if (tmpUseCasesModel instanceof UseCasesModel) {
+					UseCasesModel useCasesModel = (UseCasesModel) tmpUseCasesModel;
+					if (tmpDocumentRootToUseCasesModel instanceof DocRootToUCModel) {
+						DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) tmpDocumentRootToUseCasesModel;
+						return new Object[] { packageDeclaration, documentRoot,
+								useCasesModel, documentRootToUseCasesModel,
+								isApplicableMatch };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_11_1_blackBBBBFBB(
+			PackageDeclaration packageDeclaration, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel,
+			DefinitionsToPackageRule _this, IsApplicableMatch isApplicableMatch) {
+		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+			if (tmpCsp instanceof CSP) {
+				CSP csp = (CSP) tmpCsp;
+				return new Object[] { packageDeclaration, documentRoot,
+						useCasesModel, documentRootToUseCasesModel, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_11_1_bindingAndBlackFFFFFBB(
+			DefinitionsToPackageRule _this, IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_DefinitionsToPackageRule_11_1_binding = pattern_DefinitionsToPackageRule_11_1_bindingFFFFB(isApplicableMatch);
+		if (result_pattern_DefinitionsToPackageRule_11_1_binding != null) {
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_DefinitionsToPackageRule_11_1_binding[0];
+			DocumentRoot documentRoot = (DocumentRoot) result_pattern_DefinitionsToPackageRule_11_1_binding[1];
+			UseCasesModel useCasesModel = (UseCasesModel) result_pattern_DefinitionsToPackageRule_11_1_binding[2];
+			DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) result_pattern_DefinitionsToPackageRule_11_1_binding[3];
+
+			Object[] result_pattern_DefinitionsToPackageRule_11_1_black = pattern_DefinitionsToPackageRule_11_1_blackBBBBFBB(
+					packageDeclaration, documentRoot, useCasesModel,
+					documentRootToUseCasesModel, _this, isApplicableMatch);
+			if (result_pattern_DefinitionsToPackageRule_11_1_black != null) {
+				CSP csp = (CSP) result_pattern_DefinitionsToPackageRule_11_1_black[4];
+
+				return new Object[] { packageDeclaration, documentRoot,
+						useCasesModel, documentRootToUseCasesModel, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_11_1_greenFBFBB(
+			PackageDeclaration packageDeclaration, DocumentRoot documentRoot,
+			CSP csp) {
+		Definitions definitions = Bpmn2Factory.eINSTANCE.createDefinitions();
+		DefinitionsToPackage definitionsToPackage = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createDefinitionsToPackage();
+		Object _localVariable_0 = csp
+				.getValue("definitions", "targetNamespace");
+		documentRoot.getDefinitions().add(definitions);
+		definitionsToPackage.setSource(definitions);
+		definitionsToPackage.setTarget(packageDeclaration);
+		String definitions_targetNamespace_prime = (String) _localVariable_0;
+		definitions.setTargetNamespace(definitions_targetNamespace_prime);
+		return new Object[] { definitions, packageDeclaration,
+				definitionsToPackage, documentRoot, csp };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_11_2_blackBBB(
+			Definitions definitions, PackageDeclaration packageDeclaration,
+			DefinitionsToPackage definitionsToPackage) {
+		return new Object[] { definitions, packageDeclaration,
+				definitionsToPackage };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_11_2_greenFBBB(
+			Definitions definitions, PackageDeclaration packageDeclaration,
+			DefinitionsToPackage definitionsToPackage) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getCreatedElements().add(definitions);
+		ruleresult.getTranslatedElements().add(packageDeclaration);
+		ruleresult.getCreatedLinkElements().add(definitionsToPackage);
+		return new Object[] { ruleresult, definitions, packageDeclaration,
+				definitionsToPackage };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_11_3_blackBBBBBBB(
+			PerformRuleResult ruleresult, EObject definitions,
+			EObject packageDeclaration, EObject definitionsToPackage,
+			EObject documentRoot, EObject useCasesModel,
+			EObject documentRootToUseCasesModel) {
+		if (!definitions.equals(packageDeclaration)) {
+			if (!definitions.equals(definitionsToPackage)) {
+				if (!definitions.equals(documentRoot)) {
+					if (!definitions.equals(useCasesModel)) {
+						if (!definitions.equals(documentRootToUseCasesModel)) {
+							if (!packageDeclaration.equals(useCasesModel)) {
+								if (!definitionsToPackage
+										.equals(packageDeclaration)) {
+									if (!definitionsToPackage
+											.equals(documentRoot)) {
+										if (!definitionsToPackage
+												.equals(useCasesModel)) {
+											if (!definitionsToPackage
+													.equals(documentRootToUseCasesModel)) {
+												if (!documentRoot
+														.equals(packageDeclaration)) {
+													if (!documentRoot
+															.equals(useCasesModel)) {
+														if (!documentRoot
+																.equals(documentRootToUseCasesModel)) {
+															if (!documentRootToUseCasesModel
+																	.equals(packageDeclaration)) {
+																if (!documentRootToUseCasesModel
+																		.equals(useCasesModel)) {
+																	return new Object[] {
+																			ruleresult,
+																			definitions,
+																			packageDeclaration,
+																			definitionsToPackage,
+																			documentRoot,
+																			useCasesModel,
+																			documentRootToUseCasesModel };
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_11_3_greenBBBBBBFFFF(
+			PerformRuleResult ruleresult, EObject definitions,
+			EObject packageDeclaration, EObject definitionsToPackage,
+			EObject documentRoot, EObject useCasesModel) {
+		EMoflonEdge definitionsToPackage__definitions____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge definitionsToPackage__packageDeclaration____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge documentRoot__definitions____definitions = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCasesModel__packageDeclaration____packages = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "DefinitionsToPackageRule";
+		String definitionsToPackage__definitions____source_name_prime = "source";
+		String definitionsToPackage__packageDeclaration____target_name_prime = "target";
+		String documentRoot__definitions____definitions_name_prime = "definitions";
+		String useCasesModel__packageDeclaration____packages_name_prime = "packages";
+		definitionsToPackage__definitions____source
+				.setSrc(definitionsToPackage);
+		definitionsToPackage__definitions____source.setTrg(definitions);
+		ruleresult.getCreatedEdges().add(
+				definitionsToPackage__definitions____source);
+		definitionsToPackage__packageDeclaration____target
+				.setSrc(definitionsToPackage);
+		definitionsToPackage__packageDeclaration____target
+				.setTrg(packageDeclaration);
+		ruleresult.getCreatedEdges().add(
+				definitionsToPackage__packageDeclaration____target);
+		documentRoot__definitions____definitions.setSrc(documentRoot);
+		documentRoot__definitions____definitions.setTrg(definitions);
+		ruleresult.getCreatedEdges().add(
+				documentRoot__definitions____definitions);
+		useCasesModel__packageDeclaration____packages.setSrc(useCasesModel);
+		useCasesModel__packageDeclaration____packages
+				.setTrg(packageDeclaration);
+		ruleresult.getTranslatedEdges().add(
+				useCasesModel__packageDeclaration____packages);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		definitionsToPackage__definitions____source
+				.setName(definitionsToPackage__definitions____source_name_prime);
+		definitionsToPackage__packageDeclaration____target
+				.setName(definitionsToPackage__packageDeclaration____target_name_prime);
+		documentRoot__definitions____definitions
+				.setName(documentRoot__definitions____definitions_name_prime);
+		useCasesModel__packageDeclaration____packages
+				.setName(useCasesModel__packageDeclaration____packages_name_prime);
+		return new Object[] { ruleresult, definitions, packageDeclaration,
+				definitionsToPackage, documentRoot, useCasesModel,
+				definitionsToPackage__definitions____source,
+				definitionsToPackage__packageDeclaration____target,
+				documentRoot__definitions____definitions,
+				useCasesModel__packageDeclaration____packages };
+	}
+
+	public static final void pattern_DefinitionsToPackageRule_11_5_expressionBBBBBBBB(
+			DefinitionsToPackageRule _this, PerformRuleResult ruleresult,
+			EObject definitions, EObject packageDeclaration,
+			EObject definitionsToPackage, EObject documentRoot,
+			EObject useCasesModel, EObject documentRootToUseCasesModel) {
+		_this.registerObjects_BWD(ruleresult, definitions, packageDeclaration,
+				definitionsToPackage, documentRoot, useCasesModel,
+				documentRootToUseCasesModel);
+
+	}
+
+	public static final PerformRuleResult pattern_DefinitionsToPackageRule_11_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_1_bindingFB(
+			DefinitionsToPackageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_1_blackFBB(
+			EClass eClass, DefinitionsToPackageRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_BWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_1_bindingAndBlackFFB(
+			DefinitionsToPackageRule _this) {
+		Object[] result_pattern_DefinitionsToPackageRule_12_1_binding = pattern_DefinitionsToPackageRule_12_1_bindingFB(_this);
+		if (result_pattern_DefinitionsToPackageRule_12_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_DefinitionsToPackageRule_12_1_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_12_1_black = pattern_DefinitionsToPackageRule_12_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_DefinitionsToPackageRule_12_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_DefinitionsToPackageRule_12_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "DefinitionsToPackageRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_2_bindingFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("packageDeclaration");
+		EObject _localVariable_1 = match.getObject("useCasesModel");
+		EObject tmpPackageDeclaration = _localVariable_0;
+		EObject tmpUseCasesModel = _localVariable_1;
+		if (tmpPackageDeclaration instanceof PackageDeclaration) {
+			PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+			if (tmpUseCasesModel instanceof UseCasesModel) {
+				UseCasesModel useCasesModel = (UseCasesModel) tmpUseCasesModel;
+				return new Object[] { packageDeclaration, useCasesModel, match };
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_DefinitionsToPackageRule_12_2_blackBFBFB(
+			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel,
+			Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (DocRootToUCModel documentRootToUseCasesModel : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(useCasesModel,
+						DocRootToUCModel.class, "target")) {
+			DocumentRoot documentRoot = documentRootToUseCasesModel.getSource();
+			if (documentRoot != null) {
+				_result.add(new Object[] { packageDeclaration, documentRoot,
+						useCasesModel, documentRootToUseCasesModel, match });
+			}
+
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_DefinitionsToPackageRule_12_3_blackBBBB(
+			PackageDeclaration packageDeclaration, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (useCasesModel.getPackages().contains(packageDeclaration)) {
+			if (documentRoot.equals(documentRootToUseCasesModel.getSource())) {
+				if (useCasesModel.equals(documentRootToUseCasesModel
+						.getTarget())) {
+					_result.add(new Object[] { packageDeclaration,
+							documentRoot, useCasesModel,
+							documentRootToUseCasesModel });
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_3_greenBBBBFFFF(
+			PackageDeclaration packageDeclaration, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge useCasesModel__packageDeclaration____packages = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge documentRootToUseCasesModel__documentRoot____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge documentRootToUseCasesModel__useCasesModel____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String useCasesModel__packageDeclaration____packages_name_prime = "packages";
+		String documentRootToUseCasesModel__documentRoot____source_name_prime = "source";
+		String documentRootToUseCasesModel__useCasesModel____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(packageDeclaration);
+		isApplicableMatch.getAllContextElements().add(documentRoot);
+		isApplicableMatch.getAllContextElements().add(useCasesModel);
+		isApplicableMatch.getAllContextElements().add(
+				documentRootToUseCasesModel);
+		useCasesModel__packageDeclaration____packages.setSrc(useCasesModel);
+		useCasesModel__packageDeclaration____packages
+				.setTrg(packageDeclaration);
+		isApplicableMatch.getAllContextElements().add(
+				useCasesModel__packageDeclaration____packages);
+		documentRootToUseCasesModel__documentRoot____source
+				.setSrc(documentRootToUseCasesModel);
+		documentRootToUseCasesModel__documentRoot____source
+				.setTrg(documentRoot);
+		isApplicableMatch.getAllContextElements().add(
+				documentRootToUseCasesModel__documentRoot____source);
+		documentRootToUseCasesModel__useCasesModel____target
+				.setSrc(documentRootToUseCasesModel);
+		documentRootToUseCasesModel__useCasesModel____target
+				.setTrg(useCasesModel);
+		isApplicableMatch.getAllContextElements().add(
+				documentRootToUseCasesModel__useCasesModel____target);
+		useCasesModel__packageDeclaration____packages
+				.setName(useCasesModel__packageDeclaration____packages_name_prime);
+		documentRootToUseCasesModel__documentRoot____source
+				.setName(documentRootToUseCasesModel__documentRoot____source_name_prime);
+		documentRootToUseCasesModel__useCasesModel____target
+				.setName(documentRootToUseCasesModel__useCasesModel____target_name_prime);
+		return new Object[] { packageDeclaration, documentRoot, useCasesModel,
+				documentRootToUseCasesModel, isApplicableMatch,
+				useCasesModel__packageDeclaration____packages,
+				documentRootToUseCasesModel__documentRoot____source,
+				documentRootToUseCasesModel__useCasesModel____target };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_4_bindingFBBBBBB(
+			DefinitionsToPackageRule _this,
+			IsApplicableMatch isApplicableMatch,
+			PackageDeclaration packageDeclaration, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
+				isApplicableMatch, packageDeclaration, documentRoot,
+				useCasesModel, documentRootToUseCasesModel);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch,
+					packageDeclaration, documentRoot, useCasesModel,
+					documentRootToUseCasesModel };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_4_bindingAndBlackFBBBBBB(
+			DefinitionsToPackageRule _this,
+			IsApplicableMatch isApplicableMatch,
+			PackageDeclaration packageDeclaration, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		Object[] result_pattern_DefinitionsToPackageRule_12_4_binding = pattern_DefinitionsToPackageRule_12_4_bindingFBBBBBB(
+				_this, isApplicableMatch, packageDeclaration, documentRoot,
+				useCasesModel, documentRootToUseCasesModel);
+		if (result_pattern_DefinitionsToPackageRule_12_4_binding != null) {
+			CSP csp = (CSP) result_pattern_DefinitionsToPackageRule_12_4_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_12_4_black = pattern_DefinitionsToPackageRule_12_4_blackB(csp);
+			if (result_pattern_DefinitionsToPackageRule_12_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch,
+						packageDeclaration, documentRoot, useCasesModel,
+						documentRootToUseCasesModel };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_12_5_expressionFBB(
+			DefinitionsToPackageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_12_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "DefinitionsToPackageRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_DefinitionsToPackageRule_12_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_20_1_bindingFB(
+			DefinitionsToPackageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_20_1_blackFBB(
+			EClass __eClass, DefinitionsToPackageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_20_1_bindingAndBlackFFB(
+			DefinitionsToPackageRule _this) {
+		Object[] result_pattern_DefinitionsToPackageRule_20_1_binding = pattern_DefinitionsToPackageRule_20_1_bindingFB(_this);
+		if (result_pattern_DefinitionsToPackageRule_20_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_DefinitionsToPackageRule_20_1_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_20_1_black = pattern_DefinitionsToPackageRule_20_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_DefinitionsToPackageRule_20_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_DefinitionsToPackageRule_20_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_20_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_20_2_black_nac_0BB(
+			Definitions definitions, DocumentRoot documentRoot) {
+		for (DocumentRoot __DEC_definitions_definitions_587647 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(definitions, DocumentRoot.class,
+						"definitions")) {
+			if (!documentRoot.equals(__DEC_definitions_definitions_587647)) {
+				return new Object[] { definitions, documentRoot };
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_DefinitionsToPackageRule_20_2_blackFFB(
+			EMoflonEdge _edge_definitions) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpDocumentRoot = _edge_definitions.getSrc();
+		if (tmpDocumentRoot instanceof DocumentRoot) {
+			DocumentRoot documentRoot = (DocumentRoot) tmpDocumentRoot;
+			EObject tmpDefinitions = _edge_definitions.getTrg();
+			if (tmpDefinitions instanceof Definitions) {
+				Definitions definitions = (Definitions) tmpDefinitions;
+				if (documentRoot.getDefinitions().contains(definitions)) {
+					if (pattern_DefinitionsToPackageRule_20_2_black_nac_0BB(
+							definitions, documentRoot) == null) {
+						_result.add(new Object[] { definitions, documentRoot,
+								_edge_definitions });
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_20_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_20_3_expressionFBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			Definitions definitions, DocumentRoot documentRoot) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, definitions,
+				documentRoot);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_20_4_expressionFBB(
+			DefinitionsToPackageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_20_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_20_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_DefinitionsToPackageRule_20_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_21_1_bindingFB(
+			DefinitionsToPackageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_21_1_blackFBB(
+			EClass __eClass, DefinitionsToPackageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_21_1_bindingAndBlackFFB(
+			DefinitionsToPackageRule _this) {
+		Object[] result_pattern_DefinitionsToPackageRule_21_1_binding = pattern_DefinitionsToPackageRule_21_1_bindingFB(_this);
+		if (result_pattern_DefinitionsToPackageRule_21_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_DefinitionsToPackageRule_21_1_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_21_1_black = pattern_DefinitionsToPackageRule_21_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_DefinitionsToPackageRule_21_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_DefinitionsToPackageRule_21_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_21_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_21_2_black_nac_0BB(
+			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
+		for (UseCasesModel __DEC_packageDeclaration_packages_415230 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(packageDeclaration,
+						UseCasesModel.class, "packages")) {
+			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_415230)) {
+				return new Object[] { packageDeclaration, useCasesModel };
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_DefinitionsToPackageRule_21_2_blackFFB(
+			EMoflonEdge _edge_packages) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpUseCasesModel = _edge_packages.getSrc();
+		if (tmpUseCasesModel instanceof UseCasesModel) {
+			UseCasesModel useCasesModel = (UseCasesModel) tmpUseCasesModel;
+			EObject tmpPackageDeclaration = _edge_packages.getTrg();
+			if (tmpPackageDeclaration instanceof PackageDeclaration) {
+				PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+				if (useCasesModel.getPackages().contains(packageDeclaration)) {
+					if (pattern_DefinitionsToPackageRule_21_2_black_nac_0BB(
+							packageDeclaration, useCasesModel) == null) {
+						_result.add(new Object[] { packageDeclaration,
+								useCasesModel, _edge_packages });
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_21_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_21_3_expressionFBBBB(
+			DefinitionsToPackageRule _this, Match match,
+			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match,
+				packageDeclaration, useCasesModel);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_21_4_expressionFBB(
+			DefinitionsToPackageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_21_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_21_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_DefinitionsToPackageRule_21_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_1_blackB(
+			DefinitionsToPackageRule _this) {
+		return new Object[] { _this };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_1_greenFF() {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
+				.createModelgeneratorRuleResult();
+		boolean ruleResult_success_prime = false;
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		return new Object[] { isApplicableMatch, ruleResult };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult, DocumentRoot documentRoot) {
+		if (ruleResult.getSourceObjects().contains(documentRoot)) {
+			return new Object[] { ruleResult, documentRoot };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		if (ruleResult.getCorrObjects().contains(documentRootToUseCasesModel)) {
+			return new Object[] { ruleResult, documentRootToUseCasesModel };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_2_black_nac_2BB(
+			ModelgeneratorRuleResult ruleResult, UseCasesModel useCasesModel) {
+		if (ruleResult.getTargetObjects().contains(useCasesModel)) {
+			return new Object[] { ruleResult, useCasesModel };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_DefinitionsToPackageRule_24_2_blackFFFFBB(
+			RuleEntryContainer ruleEntryContainer,
+			ModelgeneratorRuleResult ruleResult) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (RuleEntryList documentRootToUseCasesModelList : ruleEntryContainer
+				.getRuleEntryList()) {
+			for (EObject tmpDocumentRootToUseCasesModel : documentRootToUseCasesModelList
+					.getEntryObjects()) {
+				if (tmpDocumentRootToUseCasesModel instanceof DocRootToUCModel) {
+					DocRootToUCModel documentRootToUseCasesModel = (DocRootToUCModel) tmpDocumentRootToUseCasesModel;
+					DocumentRoot documentRoot = documentRootToUseCasesModel
+							.getSource();
+					if (documentRoot != null) {
+						UseCasesModel useCasesModel = documentRootToUseCasesModel
+								.getTarget();
+						if (useCasesModel != null) {
+							if (pattern_DefinitionsToPackageRule_24_2_black_nac_1BB(
+									ruleResult, documentRootToUseCasesModel) == null) {
+								if (pattern_DefinitionsToPackageRule_24_2_black_nac_0BB(
+										ruleResult, documentRoot) == null) {
+									if (pattern_DefinitionsToPackageRule_24_2_black_nac_2BB(
+											ruleResult, useCasesModel) == null) {
+										_result.add(new Object[] {
+												documentRootToUseCasesModelList,
+												documentRoot,
+												documentRootToUseCasesModel,
+												useCasesModel,
+												ruleEntryContainer, ruleResult });
+									}
+								}
+							}
+						}
+
+					}
+
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_3_bindingFBBBBBB(
+			DefinitionsToPackageRule _this,
+			IsApplicableMatch isApplicableMatch, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel,
+			ModelgeneratorRuleResult ruleResult) {
+		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
+				isApplicableMatch, documentRoot, useCasesModel,
+				documentRootToUseCasesModel, ruleResult);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, documentRoot,
+					useCasesModel, documentRootToUseCasesModel, ruleResult };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_3_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_3_bindingAndBlackFBBBBBB(
+			DefinitionsToPackageRule _this,
+			IsApplicableMatch isApplicableMatch, DocumentRoot documentRoot,
+			UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel,
+			ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_DefinitionsToPackageRule_24_3_binding = pattern_DefinitionsToPackageRule_24_3_bindingFBBBBBB(
+				_this, isApplicableMatch, documentRoot, useCasesModel,
+				documentRootToUseCasesModel, ruleResult);
+		if (result_pattern_DefinitionsToPackageRule_24_3_binding != null) {
+			CSP csp = (CSP) result_pattern_DefinitionsToPackageRule_24_3_binding[0];
+
+			Object[] result_pattern_DefinitionsToPackageRule_24_3_black = pattern_DefinitionsToPackageRule_24_3_blackB(csp);
+			if (result_pattern_DefinitionsToPackageRule_24_3_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch,
+						documentRoot, useCasesModel,
+						documentRootToUseCasesModel, ruleResult };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_DefinitionsToPackageRule_24_4_expressionFBB(
+			DefinitionsToPackageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_5_blackBBB(
+			DocumentRoot documentRoot, UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel) {
+		return new Object[] { documentRoot, useCasesModel,
+				documentRootToUseCasesModel };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_6_blackBBBB(
+			DocumentRoot documentRoot, UseCasesModel useCasesModel,
+			DocRootToUCModel documentRootToUseCasesModel,
+			ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { documentRoot, useCasesModel,
+				documentRootToUseCasesModel, ruleResult };
+	}
+
+	public static final Object[] pattern_DefinitionsToPackageRule_24_6_greenFFFBBBB(
+			DocumentRoot documentRoot, UseCasesModel useCasesModel,
+			ModelgeneratorRuleResult ruleResult, CSP csp) {
+		Definitions definitions = Bpmn2Factory.eINSTANCE.createDefinitions();
+		PackageDeclaration packageDeclaration = UseCaseDSLFactory.eINSTANCE
+				.createPackageDeclaration();
+		DefinitionsToPackage definitionsToPackage = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createDefinitionsToPackage();
+		Object _localVariable_0 = csp
+				.getValue("definitions", "targetNamespace");
+		Object _localVariable_1 = csp.getValue("packageDeclaration", "name");
+		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
+		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		documentRoot.getDefinitions().add(definitions);
+		ruleResult.getSourceObjects().add(definitions);
+		useCasesModel.getPackages().add(packageDeclaration);
+		ruleResult.getTargetObjects().add(packageDeclaration);
+		definitionsToPackage.setSource(definitions);
+		definitionsToPackage.setTarget(packageDeclaration);
+		ruleResult.getCorrObjects().add(definitionsToPackage);
+		String definitions_targetNamespace_prime = (String) _localVariable_0;
+		String packageDeclaration_name_prime = (String) _localVariable_1;
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		definitions.setTargetNamespace(definitions_targetNamespace_prime);
+		packageDeclaration.setName(packageDeclaration_name_prime);
+		ruleResult.setPerformCount(Integer
+				.valueOf(ruleResult_performCount_prime));
+		return new Object[] { definitions, packageDeclaration,
+				definitionsToPackage, documentRoot, useCasesModel, ruleResult,
+				csp };
+	}
+
+	public static final ModelgeneratorRuleResult pattern_DefinitionsToPackageRule_24_7_expressionFB(
+			ModelgeneratorRuleResult ruleResult) {
+		ModelgeneratorRuleResult _result = ruleResult;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

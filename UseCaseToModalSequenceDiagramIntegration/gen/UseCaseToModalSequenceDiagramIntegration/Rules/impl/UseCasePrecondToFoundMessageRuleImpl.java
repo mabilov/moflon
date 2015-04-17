@@ -2,24 +2,27 @@
  */
 package UseCaseToModalSequenceDiagramIntegration.Rules.impl;
 
-import ModalSequenceDiagram.CombinedFragment;
-import ModalSequenceDiagram.Constraint;
 import ModalSequenceDiagram.Interaction;
-import ModalSequenceDiagram.InteractionConstraint;
-import ModalSequenceDiagram.InteractionOperand;
+import ModalSequenceDiagram.InteractionFragment;
 import ModalSequenceDiagram.Lifeline;
-import ModalSequenceDiagram.LiteralString;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
+import ModalSequenceDiagram.MessageKind;
 import ModalSequenceDiagram.MessageOccurrenceSpecification;
+import ModalSequenceDiagram.MessageSort;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
-import ModalSequenceDiagram.Model;
+
+import TGGLanguage.csp.CSP;
+
+import TGGLanguage.modelgenerator.RuleEntryContainer;
+import TGGLanguage.modelgenerator.RuleEntryList;
 
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
+import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -28,49 +31,34 @@ import TGGRuntime.TripleMatch;
 import TGGRuntime.impl.AbstractRuleImpl;
 
 import UseCaseDSL.Actor;
-import UseCaseDSL.AlternativeFlow;
-import UseCaseDSL.AlternativeFlowAlternative;
+import UseCaseDSL.ActorType;
 import UseCaseDSL.BasicFlow;
 import UseCaseDSL.Flow;
-import UseCaseDSL.NamedFlow;
-import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
-import UseCaseDSL.ParallelFlow;
-import UseCaseDSL.ParallelStep;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
-import UseCaseDSL.UseCasesModel;
 
 import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
 import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
-import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
-import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
-import UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule;
-import UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule;
 
-import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
-import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
-import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
-import de.upb.tools.sdm.*;
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
 import org.moflon.csp.*;
 import csp.constraints.*;
@@ -115,165 +103,72 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 */
 	public boolean isAppropriate_FWD(Match match, UseCase useCase, Actor actor,
 			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_0_1_blackBBBBBB(this,
+						match, useCase, actor, packageDeclaration, basicFlow);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, useCase,
-					actor, packageDeclaration, basicFlow));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_0_2_bindingAndBlackFBBBBBB(
+						this, match, useCase, actor, packageDeclaration,
+						basicFlow);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_0_3_expressionFBB(
+						this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object basicFlow is really bound
-				JavaSDM.ensure(basicFlow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object packageDeclaration is really bound
-				JavaSDM.ensure(packageDeclaration != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// create object __useCase_flows_basicFlow
-				__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __packageDeclaration_useCases_useCase
-				__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __packageDeclaration_actors_actor
-				__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __packageDeclaration_useCases_useCase
-				__packageDeclaration_useCases_useCase.setName("useCases");
-				// assign attribute __packageDeclaration_actors_actor
-				__packageDeclaration_actors_actor.setName("actors");
-				// assign attribute __useCase_flows_basicFlow
-				__useCase_flows_basicFlow.setName("flows");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_basicFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						basicFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__packageDeclaration_useCases_useCase,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__packageDeclaration_actors_actor,
-						"toBeTranslatedEdges");
-
-				// create link
-				__useCase_flows_basicFlow.setSrc(useCase);
-
-				// create link
-				__packageDeclaration_useCases_useCase.setTrg(useCase);
-
-				// create link
-				__packageDeclaration_actors_actor.setTrg(actor);
-
-				// create link
-				__packageDeclaration_useCases_useCase
-						.setSrc(packageDeclaration);
-
-				// create link
-				__packageDeclaration_actors_actor.setSrc(packageDeclaration);
-
-				// create link
-				__useCase_flows_basicFlow.setTrg(basicFlow);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_0_4_blackBBBBB(
+							match, useCase, actor, packageDeclaration,
+							basicFlow);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_0_4_greenBBBBBFFF(
+							match, useCase, actor, packageDeclaration,
+							basicFlow);
+			// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result4_green[5];
+			// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result4_green[7];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object basicFlow is really bound
-				JavaSDM.ensure(basicFlow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object packageDeclaration is really bound
-				JavaSDM.ensure(packageDeclaration != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						packageDeclaration, "contextNodes");
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_0_5_blackBBBBB(
+							match, useCase, actor, packageDeclaration,
+							basicFlow);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_0_5_greenBB(
+							match, packageDeclaration);
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, useCase, actor,
-					packageDeclaration, basicFlow);
-			return true;
-
+			// register objects to match
+			UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_0_6_expressionBBBBBB(
+							this, match, useCase, actor, packageDeclaration,
+							basicFlow);
+			return UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -282,874 +177,99 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		ModalSequenceDiagram.Package _package = null;
-		Actor actor = null;
-		BasicFlow basicFlow = null;
-		PackageDeclaration packageDeclaration = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		UseCaseToMessage useCaseToMessage = null;
-		Message message = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Interaction interaction = null;
-		Lifeline line = null;
-		FlowToInteractionFragment basicFlowToInteraction = null;
-		ActorToLifeline actorToLine = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge messageReceive__message__message = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
-		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
-		EMoflonEdge useCaseToMessage__source__useCase = null;
-		EMoflonEdge useCaseToMessage__target__message = null;
-		EMoflonEdge interaction__fragment__messageReceive = null;
-		EMoflonEdge _package__packagedElement__interaction = null;
-		EMoflonEdge actorToLine__target__line = null;
-		EMoflonEdge messageReceive__enclosingInteraction__interaction = null;
-		EMoflonEdge actorToLine__source__actor = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
-		EMoflonEdge basicFlowToInteraction__target__interaction = null;
-		EMoflonEdge message__interaction__interaction = null;
-		EMoflonEdge message__receiveEvent__messageReceive = null;
-		EMoflonEdge line__coveredBy__messageReceive = null;
-		EMoflonEdge interaction__lifeline__line = null;
-		EMoflonEdge interaction__message__message = null;
-		EMoflonEdge line__interaction__interaction = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
-		EMoflonEdge messageReceive__covered__line = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("_package"));
-
-			// ensure correct type and really bound of object _package
-			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
-			_package = (ModalSequenceDiagram.Package) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("actor"));
-
-			// ensure correct type and really bound of object actor
-			JavaSDM.ensure(_TmpObject instanceof Actor);
-			actor = (Actor) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("basicFlow"));
-
-			// ensure correct type and really bound of object basicFlow
-			JavaSDM.ensure(_TmpObject instanceof BasicFlow);
-			basicFlow = (BasicFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-			_TmpObject = (isApplicableMatch
-					.getObject("packageDeclarationToPackage"));
-
-			// ensure correct type and really bound of object packageDeclarationToPackage
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclarationToPackage);
-			packageDeclarationToPackage = (PackageDeclarationToPackage) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object useCaseToMessage
-			useCaseToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createUseCaseToMessage();
-
-			// create object message
-			message = ModalSequenceDiagramFactory.eINSTANCE.createMessage();
-
-			// create object messageReceive
-			messageReceive = ModalSequenceDiagramFactory.eINSTANCE
-					.createMessageOccurrenceSpecification();
-
-			// create object interaction
-			interaction = ModalSequenceDiagramFactory.eINSTANCE
-					.createInteraction();
-
-			// create object line
-			line = ModalSequenceDiagramFactory.eINSTANCE.createLifeline();
-
-			// create object basicFlowToInteraction
-			basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createFlowToInteractionFragment();
-
-			// create object actorToLine
-			actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createActorToLifeline();
-
-			// assign attribute message
-			message.setName((java.lang.String) csp.getValue("message", "name"));
-			// assign attribute message
-			message.setMessageKind((ModalSequenceDiagram.MessageKind) csp
-					.getValue("message", "messageKind"));
-			// assign attribute message
-			message.setMessageSort((ModalSequenceDiagram.MessageSort) csp
-					.getValue("message", "messageSort"));
-			// assign attribute interaction
-			interaction.setName((java.lang.String) csp.getValue("interaction",
-					"name"));
-			// assign attribute line
-			line.setName((java.lang.String) csp.getValue("line", "name"));
-
-			// create link
-			basicFlowToInteraction.setSource(basicFlow);
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-					useCaseToMessage, message, "target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-					useCaseToMessage, useCase, "source");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(message,
-					messageReceive, "receiveEvent");
-
-			// create link
-			messageReceive.setMessage(message);
-
-			// create link
-			interaction.getMessage().add(message);
-
-			// create link
-			line.setInteraction(interaction);
-
-			// create link
-			messageReceive.setEnclosingInteraction(interaction);
-
-			// create link
-			basicFlowToInteraction.setTarget(interaction);
-
-			// create link
-			_package.getPackagedElement().add(interaction);
-
-			// create link
-			line.getCoveredBy().add(messageReceive);
-
-			// create link
-			actorToLine.setSource(actor);
-
-			// create link
-			actorToLine.setTarget(line);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_1_1_bindingAndBlackFFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
+		Actor actor = (Actor) result1_bindingAndBlack[1];
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[2];
+		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result1_bindingAndBlack[3];
+		PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result1_bindingAndBlack[4];
+		BasicFlow basicFlow = (BasicFlow) result1_bindingAndBlack[5];
+		CSP csp = (CSP) result1_bindingAndBlack[6];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_1_1_greenFBFFFBFFBBFB(
+						useCase, actor, _package, basicFlow, csp);
+		UseCaseToMessage useCaseToMessage = (UseCaseToMessage) result1_green[0];
+		Message message = (Message) result1_green[2];
+		Interaction interaction = (Interaction) result1_green[3];
+		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_green[4];
+		Lifeline line = (Lifeline) result1_green[6];
+		ActorToLifeline actorToLine = (ActorToLifeline) result1_green[7];
+		FlowToInteractionFragment basicFlowToInteraction = (FlowToInteractionFragment) result1_green[10];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object actorToLine is really bound
-			JavaSDM.ensure(actorToLine != null);
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object basicFlowToInteraction is really bound
-			JavaSDM.ensure(basicFlowToInteraction != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object line is really bound
-			JavaSDM.ensure(line != null);
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-			// check object messageReceive is really bound
-			JavaSDM.ensure(messageReceive != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToMessage is really bound
-			JavaSDM.ensure(useCaseToMessage != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToMessage, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actor, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlow, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive, "createdElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_1_2_blackBBBBBBBBBB(
+						useCaseToMessage, useCase, message, interaction,
+						messageReceive, actor, line, actorToLine, basicFlow,
+						basicFlowToInteraction);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object actorToLine is really bound
-			JavaSDM.ensure(actorToLine != null);
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object basicFlowToInteraction is really bound
-			JavaSDM.ensure(basicFlowToInteraction != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object line is really bound
-			JavaSDM.ensure(line != null);
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-			// check object messageReceive is really bound
-			JavaSDM.ensure(messageReceive != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object packageDeclarationToPackage is really bound
-			JavaSDM.ensure(packageDeclarationToPackage != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToMessage is really bound
-			JavaSDM.ensure(useCaseToMessage != null);
-			// check isomorphic binding between objects actor and _package 
-			JavaSDM.ensure(!actor.equals(_package));
-
-			// check isomorphic binding between objects actorToLine and _package 
-			JavaSDM.ensure(!actorToLine.equals(_package));
-
-			// check isomorphic binding between objects basicFlow and _package 
-			JavaSDM.ensure(!basicFlow.equals(_package));
-
-			// check isomorphic binding between objects basicFlowToInteraction and _package 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(_package));
-
-			// check isomorphic binding between objects interaction and _package 
-			JavaSDM.ensure(!interaction.equals(_package));
-
-			// check isomorphic binding between objects line and _package 
-			JavaSDM.ensure(!line.equals(_package));
-
-			// check isomorphic binding between objects message and _package 
-			JavaSDM.ensure(!message.equals(_package));
-
-			// check isomorphic binding between objects messageReceive and _package 
-			JavaSDM.ensure(!messageReceive.equals(_package));
-
-			// check isomorphic binding between objects packageDeclaration and _package 
-			JavaSDM.ensure(!packageDeclaration.equals(_package));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and _package 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(_package));
-
-			// check isomorphic binding between objects useCase and _package 
-			JavaSDM.ensure(!useCase.equals(_package));
-
-			// check isomorphic binding between objects useCaseToMessage and _package 
-			JavaSDM.ensure(!useCaseToMessage.equals(_package));
-
-			// check isomorphic binding between objects actorToLine and actor 
-			JavaSDM.ensure(!actorToLine.equals(actor));
-
-			// check isomorphic binding between objects basicFlow and actor 
-			JavaSDM.ensure(!basicFlow.equals(actor));
-
-			// check isomorphic binding between objects basicFlowToInteraction and actor 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(actor));
-
-			// check isomorphic binding between objects interaction and actor 
-			JavaSDM.ensure(!interaction.equals(actor));
-
-			// check isomorphic binding between objects line and actor 
-			JavaSDM.ensure(!line.equals(actor));
-
-			// check isomorphic binding between objects message and actor 
-			JavaSDM.ensure(!message.equals(actor));
-
-			// check isomorphic binding between objects messageReceive and actor 
-			JavaSDM.ensure(!messageReceive.equals(actor));
-
-			// check isomorphic binding between objects packageDeclaration and actor 
-			JavaSDM.ensure(!packageDeclaration.equals(actor));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and actor 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(actor));
-
-			// check isomorphic binding between objects useCase and actor 
-			JavaSDM.ensure(!useCase.equals(actor));
-
-			// check isomorphic binding between objects useCaseToMessage and actor 
-			JavaSDM.ensure(!useCaseToMessage.equals(actor));
-
-			// check isomorphic binding between objects basicFlow and actorToLine 
-			JavaSDM.ensure(!basicFlow.equals(actorToLine));
-
-			// check isomorphic binding between objects basicFlowToInteraction and actorToLine 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(actorToLine));
-
-			// check isomorphic binding between objects interaction and actorToLine 
-			JavaSDM.ensure(!interaction.equals(actorToLine));
-
-			// check isomorphic binding between objects line and actorToLine 
-			JavaSDM.ensure(!line.equals(actorToLine));
-
-			// check isomorphic binding between objects message and actorToLine 
-			JavaSDM.ensure(!message.equals(actorToLine));
-
-			// check isomorphic binding between objects messageReceive and actorToLine 
-			JavaSDM.ensure(!messageReceive.equals(actorToLine));
-
-			// check isomorphic binding between objects packageDeclaration and actorToLine 
-			JavaSDM.ensure(!packageDeclaration.equals(actorToLine));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and actorToLine 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(actorToLine));
-
-			// check isomorphic binding between objects useCase and actorToLine 
-			JavaSDM.ensure(!useCase.equals(actorToLine));
-
-			// check isomorphic binding between objects useCaseToMessage and actorToLine 
-			JavaSDM.ensure(!useCaseToMessage.equals(actorToLine));
-
-			// check isomorphic binding between objects basicFlowToInteraction and basicFlow 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(basicFlow));
-
-			// check isomorphic binding between objects interaction and basicFlow 
-			JavaSDM.ensure(!interaction.equals(basicFlow));
-
-			// check isomorphic binding between objects line and basicFlow 
-			JavaSDM.ensure(!line.equals(basicFlow));
-
-			// check isomorphic binding between objects message and basicFlow 
-			JavaSDM.ensure(!message.equals(basicFlow));
-
-			// check isomorphic binding between objects messageReceive and basicFlow 
-			JavaSDM.ensure(!messageReceive.equals(basicFlow));
-
-			// check isomorphic binding between objects packageDeclaration and basicFlow 
-			JavaSDM.ensure(!packageDeclaration.equals(basicFlow));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and basicFlow 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(basicFlow));
-
-			// check isomorphic binding between objects useCase and basicFlow 
-			JavaSDM.ensure(!useCase.equals(basicFlow));
-
-			// check isomorphic binding between objects useCaseToMessage and basicFlow 
-			JavaSDM.ensure(!useCaseToMessage.equals(basicFlow));
-
-			// check isomorphic binding between objects interaction and basicFlowToInteraction 
-			JavaSDM.ensure(!interaction.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects line and basicFlowToInteraction 
-			JavaSDM.ensure(!line.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects message and basicFlowToInteraction 
-			JavaSDM.ensure(!message.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects messageReceive and basicFlowToInteraction 
-			JavaSDM.ensure(!messageReceive.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclaration and basicFlowToInteraction 
-			JavaSDM.ensure(!packageDeclaration.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and basicFlowToInteraction 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects useCase and basicFlowToInteraction 
-			JavaSDM.ensure(!useCase.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects useCaseToMessage and basicFlowToInteraction 
-			JavaSDM.ensure(!useCaseToMessage.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects line and interaction 
-			JavaSDM.ensure(!line.equals(interaction));
-
-			// check isomorphic binding between objects message and interaction 
-			JavaSDM.ensure(!message.equals(interaction));
-
-			// check isomorphic binding between objects messageReceive and interaction 
-			JavaSDM.ensure(!messageReceive.equals(interaction));
-
-			// check isomorphic binding between objects packageDeclaration and interaction 
-			JavaSDM.ensure(!packageDeclaration.equals(interaction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and interaction 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(interaction));
-
-			// check isomorphic binding between objects useCase and interaction 
-			JavaSDM.ensure(!useCase.equals(interaction));
-
-			// check isomorphic binding between objects useCaseToMessage and interaction 
-			JavaSDM.ensure(!useCaseToMessage.equals(interaction));
-
-			// check isomorphic binding between objects message and line 
-			JavaSDM.ensure(!message.equals(line));
-
-			// check isomorphic binding between objects messageReceive and line 
-			JavaSDM.ensure(!messageReceive.equals(line));
-
-			// check isomorphic binding between objects packageDeclaration and line 
-			JavaSDM.ensure(!packageDeclaration.equals(line));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and line 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(line));
-
-			// check isomorphic binding between objects useCase and line 
-			JavaSDM.ensure(!useCase.equals(line));
-
-			// check isomorphic binding between objects useCaseToMessage and line 
-			JavaSDM.ensure(!useCaseToMessage.equals(line));
-
-			// check isomorphic binding between objects messageReceive and message 
-			JavaSDM.ensure(!messageReceive.equals(message));
-
-			// check isomorphic binding between objects packageDeclaration and message 
-			JavaSDM.ensure(!packageDeclaration.equals(message));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and message 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(message));
-
-			// check isomorphic binding between objects useCase and message 
-			JavaSDM.ensure(!useCase.equals(message));
-
-			// check isomorphic binding between objects useCaseToMessage and message 
-			JavaSDM.ensure(!useCaseToMessage.equals(message));
-
-			// check isomorphic binding between objects packageDeclaration and messageReceive 
-			JavaSDM.ensure(!packageDeclaration.equals(messageReceive));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and messageReceive 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(messageReceive));
-
-			// check isomorphic binding between objects useCase and messageReceive 
-			JavaSDM.ensure(!useCase.equals(messageReceive));
-
-			// check isomorphic binding between objects useCaseToMessage and messageReceive 
-			JavaSDM.ensure(!useCaseToMessage.equals(messageReceive));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCase and packageDeclaration 
-			JavaSDM.ensure(!useCase.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCaseToMessage and packageDeclaration 
-			JavaSDM.ensure(!useCaseToMessage.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCase and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCase.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCaseToMessage and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCaseToMessage
-					.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCaseToMessage and useCase 
-			JavaSDM.ensure(!useCaseToMessage.equals(useCase));
-
-			// create object messageReceive__message__message
-			messageReceive__message__message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __useCase_flows_basicFlow
-			__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCaseToMessage__source__useCase
-			useCaseToMessage__source__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCaseToMessage__target__message
-			useCaseToMessage__target__message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object interaction__fragment__messageReceive
-			interaction__fragment__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object _package__packagedElement__interaction
-			_package__packagedElement__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object actorToLine__target__line
-			actorToLine__target__line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object messageReceive__enclosingInteraction__interaction
-			messageReceive__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object actorToLine__source__actor
-			actorToLine__source__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __packageDeclaration_useCases_useCase
-			__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object message__interaction__interaction
-			message__interaction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object message__receiveEvent__messageReceive
-			message__receiveEvent__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object line__coveredBy__messageReceive
-			line__coveredBy__messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object interaction__lifeline__line
-			interaction__lifeline__line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object interaction__message__message
-			interaction__message__message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object line__interaction__interaction
-			line__interaction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __packageDeclaration_actors_actor
-			__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object messageReceive__covered__line
-			messageReceive__covered__line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("UseCasePrecondToFoundMessageRule");
-			// assign attribute useCaseToMessage__source__useCase
-			useCaseToMessage__source__useCase.setName("source");
-			// assign attribute useCaseToMessage__target__message
-			useCaseToMessage__target__message.setName("target");
-			// assign attribute message__receiveEvent__messageReceive
-			message__receiveEvent__messageReceive.setName("receiveEvent");
-			// assign attribute message__interaction__interaction
-			message__interaction__interaction.setName("interaction");
-			// assign attribute interaction__message__message
-			interaction__message__message.setName("message");
-			// assign attribute line__interaction__interaction
-			line__interaction__interaction.setName("interaction");
-			// assign attribute interaction__lifeline__line
-			interaction__lifeline__line.setName("lifeline");
-			// assign attribute messageReceive__enclosingInteraction__interaction
-			messageReceive__enclosingInteraction__interaction
-					.setName("enclosingInteraction");
-			// assign attribute interaction__fragment__messageReceive
-			interaction__fragment__messageReceive.setName("fragment");
-			// assign attribute messageReceive__message__message
-			messageReceive__message__message.setName("message");
-			// assign attribute __packageDeclaration_useCases_useCase
-			__packageDeclaration_useCases_useCase.setName("useCases");
-			// assign attribute __packageDeclaration_actors_actor
-			__packageDeclaration_actors_actor.setName("actors");
-			// assign attribute line__coveredBy__messageReceive
-			line__coveredBy__messageReceive.setName("coveredBy");
-			// assign attribute messageReceive__covered__line
-			messageReceive__covered__line.setName("covered");
-			// assign attribute actorToLine__source__actor
-			actorToLine__source__actor.setName("source");
-			// assign attribute actorToLine__target__line
-			actorToLine__target__line.setName("target");
-			// assign attribute _package__packagedElement__interaction
-			_package__packagedElement__interaction.setName("packagedElement");
-			// assign attribute __useCase_flows_basicFlow
-			__useCase_flows_basicFlow.setName("flows");
-			// assign attribute basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow.setName("source");
-			// assign attribute basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction.setName("target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive__message__message, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCase_flows_basicFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction__source__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToMessage__source__useCase, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToMessage__target__message, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__fragment__messageReceive, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					_package__packagedElement__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine__target__line, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive__enclosingInteraction__interaction,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine__source__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__packageDeclaration_useCases_useCase, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							basicFlowToInteraction__target__interaction,
-							"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__interaction__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message__receiveEvent__messageReceive, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line__coveredBy__messageReceive, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__lifeline__line, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__message__message, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line__interaction__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__packageDeclaration_actors_actor, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive__covered__line, "createdEdges");
-
-			// create link
-			useCaseToMessage__source__useCase.setSrc(useCaseToMessage);
-
-			// create link
-			useCaseToMessage__target__message.setSrc(useCaseToMessage);
-
-			// create link
-			useCaseToMessage__source__useCase.setTrg(useCase);
-
-			// create link
-			__useCase_flows_basicFlow.setSrc(useCase);
-
-			// create link
-			__packageDeclaration_useCases_useCase.setTrg(useCase);
-
-			// create link
-			interaction__message__message.setTrg(message);
-
-			// create link
-			useCaseToMessage__target__message.setTrg(message);
-
-			// create link
-			message__receiveEvent__messageReceive.setSrc(message);
-
-			// create link
-			message__interaction__interaction.setSrc(message);
-
-			// create link
-			messageReceive__message__message.setTrg(message);
-
-			// create link
-			interaction__message__message.setSrc(interaction);
-
-			// create link
-			line__interaction__interaction.setTrg(interaction);
-
-			// create link
-			interaction__lifeline__line.setSrc(interaction);
-
-			// create link
-			interaction__fragment__messageReceive.setSrc(interaction);
-
-			// create link
-			_package__packagedElement__interaction.setTrg(interaction);
-
-			// create link
-			basicFlowToInteraction__target__interaction.setTrg(interaction);
-
-			// create link
-			messageReceive__enclosingInteraction__interaction
-					.setTrg(interaction);
-
-			// create link
-			message__interaction__interaction.setTrg(interaction);
-
-			// create link
-			interaction__fragment__messageReceive.setTrg(messageReceive);
-
-			// create link
-			messageReceive__enclosingInteraction__interaction
-					.setSrc(messageReceive);
-
-			// create link
-			line__coveredBy__messageReceive.setTrg(messageReceive);
-
-			// create link
-			message__receiveEvent__messageReceive.setTrg(messageReceive);
-
-			// create link
-			messageReceive__covered__line.setSrc(messageReceive);
-
-			// create link
-			messageReceive__message__message.setSrc(messageReceive);
-
-			// create link
-			actorToLine__source__actor.setTrg(actor);
-
-			// create link
-			__packageDeclaration_actors_actor.setTrg(actor);
-
-			// create link
-			__packageDeclaration_useCases_useCase.setSrc(packageDeclaration);
-
-			// create link
-			__packageDeclaration_actors_actor.setSrc(packageDeclaration);
-
-			// create link
-			messageReceive__covered__line.setTrg(line);
-
-			// create link
-			interaction__lifeline__line.setTrg(line);
-
-			// create link
-			actorToLine__target__line.setTrg(line);
-
-			// create link
-			line__interaction__interaction.setSrc(line);
-
-			// create link
-			line__coveredBy__messageReceive.setSrc(line);
-
-			// create link
-			actorToLine__target__line.setSrc(actorToLine);
-
-			// create link
-			actorToLine__source__actor.setSrc(actorToLine);
-
-			// create link
-			_package__packagedElement__interaction.setSrc(_package);
-
-			// create link
-			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
-
-			// create link
-			__useCase_flows_basicFlow.setTrg(basicFlow);
-
-			// create link
-			basicFlowToInteraction__target__interaction
-					.setSrc(basicFlowToInteraction);
-
-			// create link
-			basicFlowToInteraction__source__basicFlow
-					.setSrc(basicFlowToInteraction);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_1_2_greenFBBBBBBBBBB(
+						useCaseToMessage, useCase, message, interaction,
+						messageReceive, actor, line, actorToLine, basicFlow,
+						basicFlowToInteraction);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
+
+		// bookkeeping for edges
+		Object[] result3_black = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_1_3_blackBBBBBBBBBBBBBB(
+						ruleresult, useCaseToMessage, useCase, message,
+						interaction, messageReceive, actor, packageDeclaration,
+						line, actorToLine, _package,
+						packageDeclarationToPackage, basicFlow,
+						basicFlowToInteraction);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
+						ruleresult, useCaseToMessage, useCase, message,
+						interaction, messageReceive, actor, packageDeclaration,
+						line, actorToLine, _package, basicFlow,
+						basicFlowToInteraction);
+		// EMoflonEdge useCaseToMessage__useCase____source = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge useCaseToMessage__message____target = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[25];
+		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[26];
+		// EMoflonEdge actorToLine__actor____source = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge actorToLine__line____target = (EMoflonEdge) result3_green[28];
+		// EMoflonEdge _package__interaction____packagedElement = (EMoflonEdge) result3_green[29];
+		// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result3_green[30];
+		// EMoflonEdge basicFlowToInteraction__basicFlow____source = (EMoflonEdge) result3_green[31];
+		// EMoflonEdge basicFlowToInteraction__interaction____target = (EMoflonEdge) result3_green[32];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, useCaseToMessage, useCase,
-				message, interaction, messageReceive, actor,
-				packageDeclaration, line, actorToLine, _package,
-				packageDeclarationToPackage, basicFlow, basicFlowToInteraction);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_1_5_expressionBBBBBBBBBBBBBBB(
+						this, ruleresult, useCaseToMessage, useCase, message,
+						interaction, messageReceive, actor, packageDeclaration,
+						line, actorToLine, _package,
+						packageDeclarationToPackage, basicFlow,
+						basicFlowToInteraction);
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_1_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1158,348 +278,86 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		Actor actor = null;
-		BasicFlow basicFlow = null;
-		PackageDeclaration packageDeclaration = null;
-		UseCase useCase = null;
-		EMoflonEdge __useCase_flows_basicFlow = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __packageDeclaration_useCases_useCase = null;
-		EMoflonEdge __packageDeclaration_actors_actor = null;
-		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
-		EMoflonEdge __packageDeclarationToPackage_target__package = null;
-		CSP csp = null;
-		ModalSequenceDiagram.Package _package = null;
-		Iterator fujaba__IterPackageDeclarationToPackageDeclarationToPackage = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("UseCasePrecondToFoundMessageRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_2_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_2_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
 
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
+		// ForEach core match
+		Object[] result2_binding = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_2_2_bindingFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		UseCase useCase = (UseCase) result2_binding[0];
+		Actor actor = (Actor) result2_binding[1];
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[2];
+		BasicFlow basicFlow = (BasicFlow) result2_binding[3];
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_2_2_blackBBBFFBB(
+						useCase, actor, packageDeclaration, basicFlow, match)) {
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[3];
+			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result2_black[4];
+			// ForEach find context
+			for (Object[] result3_black : UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_2_3_blackBBBBBB(
+							useCase, actor, packageDeclaration, _package,
+							packageDeclarationToPackage, basicFlow)) {
+				Object[] result3_green = UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_2_3_greenBBBBBBFFFFFF(
+								useCase, actor, packageDeclaration, _package,
+								packageDeclarationToPackage, basicFlow);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[6];
+				// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[7];
+				// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[8];
+				// EMoflonEdge packageDeclarationToPackage__packageDeclaration____source = (EMoflonEdge) result3_green[9];
+				// EMoflonEdge packageDeclarationToPackage___package____target = (EMoflonEdge) result3_green[10];
+				// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result3_green[11];
 
-			_TmpObject = (match.getObject("actor"));
+				// solve CSP
+				Object[] result4_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_2_4_bindingAndBlackFBBBBBBBB(
+								this, isApplicableMatch, useCase, actor,
+								packageDeclaration, _package,
+								packageDeclarationToPackage, basicFlow);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_2_5_expressionFBB(
+								this, csp)) {
 
-			// ensure correct type and really bound of object actor
-			JavaSDM.ensure(_TmpObject instanceof Actor);
-			actor = (Actor) _TmpObject;
-			_TmpObject = (match.getObject("basicFlow"));
-
-			// ensure correct type and really bound of object basicFlow
-			JavaSDM.ensure(_TmpObject instanceof BasicFlow);
-			basicFlow = (BasicFlow) _TmpObject;
-			_TmpObject = (match.getObject("packageDeclaration"));
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-			_TmpObject = (match.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// iterate to-many link source from packageDeclaration to packageDeclarationToPackage
-			fujaba__Success = false;
-
-			fujaba__IterPackageDeclarationToPackageDeclarationToPackage = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							packageDeclaration,
-							PackageDeclarationToPackage.class, "source"))
-					.iterator();
-
-			while (fujaba__IterPackageDeclarationToPackageDeclarationToPackage
-					.hasNext()) {
-				try {
-					packageDeclarationToPackage = (PackageDeclarationToPackage) fujaba__IterPackageDeclarationToPackageDeclarationToPackage
-							.next();
-
-					// check object packageDeclarationToPackage is really bound
-					JavaSDM.ensure(packageDeclarationToPackage != null);
-					// bind object
-					_package = packageDeclarationToPackage.getTarget();
-
-					// check object _package is really bound
-					JavaSDM.ensure(_package != null);
-
-					// story node 'find context'
-					try {
-						fujaba__Success = false;
-
-						// check object _package is really bound
-						JavaSDM.ensure(_package != null);
-						// check object actor is really bound
-						JavaSDM.ensure(actor != null);
-						// check object basicFlow is really bound
-						JavaSDM.ensure(basicFlow != null);
-						// check object packageDeclaration is really bound
-						JavaSDM.ensure(packageDeclaration != null);
-						// check object packageDeclarationToPackage is really bound
-						JavaSDM.ensure(packageDeclarationToPackage != null);
-						// check object useCase is really bound
-						JavaSDM.ensure(useCase != null);
-						// check link actors from actor to packageDeclaration
-						JavaSDM.ensure(packageDeclaration.equals(actor
-								.eContainer()));
-
-						// check link flows from basicFlow to useCase
-						JavaSDM.ensure(useCase.equals(basicFlow.eContainer()));
-
-						// check link source from packageDeclarationToPackage to packageDeclaration
-						JavaSDM.ensure(packageDeclaration
-								.equals(packageDeclarationToPackage.getSource()));
-
-						// check link target from packageDeclarationToPackage to _package
-						JavaSDM.ensure(_package
-								.equals(packageDeclarationToPackage.getTarget()));
-
-						// check link useCases from useCase to packageDeclaration
-						JavaSDM.ensure(packageDeclaration.equals(useCase
-								.eContainer()));
-
-						// create object __useCase_flows_basicFlow
-						__useCase_flows_basicFlow = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
-						// create object __packageDeclaration_useCases_useCase
-						__packageDeclaration_useCases_useCase = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __packageDeclaration_actors_actor
-						__packageDeclaration_actors_actor = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __packageDeclarationToPackage_source_packageDeclaration
-						__packageDeclarationToPackage_source_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __packageDeclarationToPackage_target__package
-						__packageDeclarationToPackage_target__package = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// assign attribute __packageDeclaration_useCases_useCase
-						__packageDeclaration_useCases_useCase
-								.setName("useCases");
-						// assign attribute __packageDeclaration_actors_actor
-						__packageDeclaration_actors_actor.setName("actors");
-						// assign attribute __packageDeclarationToPackage_source_packageDeclaration
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setName("source");
-						// assign attribute __packageDeclarationToPackage_target__package
-						__packageDeclarationToPackage_target__package
-								.setName("target");
-						// assign attribute __useCase_flows_basicFlow
-						__useCase_flows_basicFlow.setName("flows");
-
-						// create link
-						__useCase_flows_basicFlow.setSrc(useCase);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(useCase);
-
-						// create link
-						__packageDeclaration_useCases_useCase.setTrg(useCase);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(actor);
-
-						// create link
-						__packageDeclaration_actors_actor.setTrg(actor);
-
-						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setTrg(packageDeclaration);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
-
-						// create link
-						__packageDeclaration_useCases_useCase
-								.setSrc(packageDeclaration);
-
-						// create link
-						__packageDeclaration_actors_actor
-								.setSrc(packageDeclaration);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(_package);
-
-						// create link
-						__packageDeclarationToPackage_target__package
-								.setTrg(_package);
-
-						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setSrc(packageDeclarationToPackage);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclarationToPackage);
-
-						// create link
-						__packageDeclarationToPackage_target__package
-								.setSrc(packageDeclarationToPackage);
-
-						// create link
-						isApplicableMatch.getAllContextElements()
-								.add(basicFlow);
-
-						// create link
-						__useCase_flows_basicFlow.setTrg(basicFlow);
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__packageDeclaration_useCases_useCase,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__packageDeclaration_actors_actor,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__packageDeclarationToPackage_source_packageDeclaration,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __useCase_flows_basicFlow,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__packageDeclarationToPackage_target__package,
-								"allContextElements");
-						// story node 'solve CSP'
-						try {
-							fujaba__Success = false;
-
-							_TmpObject = (this.isApplicable_solveCsp_FWD(
-									isApplicableMatch, useCase, actor,
-									packageDeclaration, _package,
-									packageDeclarationToPackage, basicFlow));
-
-							// ensure correct type and really bound of object csp
-							JavaSDM.ensure(_TmpObject instanceof CSP);
-							csp = (CSP) _TmpObject;
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						// statement node 'check CSP'
-						fujaba__Success = this.isApplicable_checkCsp_FWD(csp);
-						if (fujaba__Success) {
-							// story node 'add match to rule result'
-							try {
-								fujaba__Success = false;
-
-								// check object isApplicableMatch is really bound
-								JavaSDM.ensure(isApplicableMatch != null);
-								// check object ruleresult is really bound
-								JavaSDM.ensure(ruleresult != null);
-								// assign attribute isApplicableMatch
-								isApplicableMatch
-										.setRuleName("UseCasePrecondToFoundMessageRule");
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
-
-								// create link
-								ruleresult.getIsApplicableMatch().add(
-										isApplicableMatch);
-
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// add match to rule result
+					Object[] result6_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_2_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_2_6_greenBB(
+									ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_2_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1524,23 +382,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, UseCase useCase,
 			Actor actor, PackageDeclaration packageDeclaration,
-			BasicFlow basicFlow) {
-		// Create CSP
+			BasicFlow basicFlow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("system");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
 				"actor.type", true, csp);
 		var_actor_type.setValue(actor.getType());
-		var_actor_type.setType("EObject");
-
-		// Create explicit parameters
+		var_actor_type.setType("UseCaseDSL.ActorType");
 
 		// Create unbound variables
 
@@ -1574,8 +429,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package _package,
 			PackageDeclarationToPackage packageDeclarationToPackage,
-			BasicFlow basicFlow) {
-		// Create CSP
+			BasicFlow basicFlow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -1583,44 +437,42 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("found");
-		literal0.setType("String");
+		literal0.setType("");
 		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal1", true, csp);
 		literal1.setValue("ASYNCH_SIGNAL");
-		literal1.setType("String");
+		literal1.setType("");
 
 		// Create attribute variables
 		Variable var_useCase_preConditions = CSPFactoryHelper.eINSTANCE
 				.createVariable("useCase.preConditions", true, csp);
 		var_useCase_preConditions.setValue(useCase.getPreConditions());
-		var_useCase_preConditions.setType("");
+		var_useCase_preConditions.setType("String");
 		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"actor.name", true, csp);
 		var_actor_name.setValue(actor.getName());
-		var_actor_name.setType("");
+		var_actor_name.setType("String");
 		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"useCase.name", true, csp);
 		var_useCase_name.setValue(useCase.getName());
-		var_useCase_name.setType("");
-
-		// Create explicit parameters
+		var_useCase_name.setType("String");
 
 		// Create unbound variables
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
-		var_message_name.setType("");
+		var_message_name.setType("String");
 		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageKind", csp);
-		var_message_messageKind.setType("EObject");
+		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
 		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"line.name", csp);
-		var_line_name.setType("");
+		var_line_name.setType("String");
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageSort", csp);
-		var_message_messageSort.setType("EObject");
+		var_message_messageSort.setType("ModalSequenceDiagram.MessageSort");
 		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("interaction.name", csp);
-		var_interaction_name.setType("");
+		var_interaction_name.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
@@ -1727,319 +579,81 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, Lifeline line,
 			ModalSequenceDiagram.Package _package) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge __line_interaction_interaction = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge ___package_packagedElement_interaction = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
-		EMoflonEdge __interaction_lifeline_line = null;
-		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object line is really bound
-			JavaSDM.ensure(line != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-			// check object messageReceive is really bound
-			JavaSDM.ensure(messageReceive != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_10_1_blackBBBBBBB(
+						this, match, message, interaction, messageReceive,
+						line, _package);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_BWD(match, message,
-					interaction, messageReceive, line, _package));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_10_2_bindingAndBlackFBBBBBBB(
+						this, match, message, interaction, messageReceive,
+						line, _package);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_10_3_expressionFBB(
+						this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_BWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object _package is really bound
-				JavaSDM.ensure(_package != null);
-				// check object interaction is really bound
-				JavaSDM.ensure(interaction != null);
-				// check object line is really bound
-				JavaSDM.ensure(line != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object message is really bound
-				JavaSDM.ensure(message != null);
-				// check object messageReceive is really bound
-				JavaSDM.ensure(messageReceive != null);
-				// create object __message_interaction_interaction
-				__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __line_interaction_interaction
-				__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageReceive_covered_line
-				__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageReceive_message_message
-				__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __interaction_message_message
-				__interaction_message_message = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object ___package_packagedElement_interaction
-				___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __interaction_fragment_messageReceive
-				__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __interaction_lifeline_line
-				__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __message_receiveEvent_messageReceive
-				__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __messageReceive_enclosingInteraction_interaction
-				__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __line_coveredBy_messageReceive
-				__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __message_receiveEvent_messageReceive
-				__message_receiveEvent_messageReceive.setName("receiveEvent");
-				// assign attribute __message_interaction_interaction
-				__message_interaction_interaction.setName("interaction");
-				// assign attribute __interaction_message_message
-				__interaction_message_message.setName("message");
-				// assign attribute __line_interaction_interaction
-				__line_interaction_interaction.setName("interaction");
-				// assign attribute __interaction_lifeline_line
-				__interaction_lifeline_line.setName("lifeline");
-				// assign attribute __messageReceive_enclosingInteraction_interaction
-				__messageReceive_enclosingInteraction_interaction
-						.setName("enclosingInteraction");
-				// assign attribute __interaction_fragment_messageReceive
-				__interaction_fragment_messageReceive.setName("fragment");
-				// assign attribute __messageReceive_message_message
-				__messageReceive_message_message.setName("message");
-				// assign attribute __line_coveredBy_messageReceive
-				__line_coveredBy_messageReceive.setName("coveredBy");
-				// assign attribute __messageReceive_covered_line
-				__messageReceive_covered_line.setName("covered");
-				// assign attribute ___package_packagedElement_interaction
-				___package_packagedElement_interaction
-						.setName("packagedElement");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_interaction_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_interaction_interaction, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageReceive_covered_line, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						line, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__messageReceive_message_message,
-								"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_message_message, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						___package_packagedElement_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						messageReceive, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_fragment_messageReceive,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_lifeline_line, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__message_receiveEvent_messageReceive,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__messageReceive_enclosingInteraction_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__line_coveredBy_messageReceive, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						message, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "toBeTranslatedNodes");
-
-				// create link
-				__message_receiveEvent_messageReceive.setSrc(message);
-
-				// create link
-				__message_interaction_interaction.setSrc(message);
-
-				// create link
-				__interaction_message_message.setTrg(message);
-
-				// create link
-				__messageReceive_message_message.setTrg(message);
-
-				// create link
-				__message_interaction_interaction.setTrg(interaction);
-
-				// create link
-				___package_packagedElement_interaction.setTrg(interaction);
-
-				// create link
-				__line_interaction_interaction.setTrg(interaction);
-
-				// create link
-				__interaction_lifeline_line.setSrc(interaction);
-
-				// create link
-				__interaction_fragment_messageReceive.setSrc(interaction);
-
-				// create link
-				__messageReceive_enclosingInteraction_interaction
-						.setTrg(interaction);
-
-				// create link
-				__interaction_message_message.setSrc(interaction);
-
-				// create link
-				__messageReceive_covered_line.setSrc(messageReceive);
-
-				// create link
-				__messageReceive_enclosingInteraction_interaction
-						.setSrc(messageReceive);
-
-				// create link
-				__interaction_fragment_messageReceive.setTrg(messageReceive);
-
-				// create link
-				__messageReceive_message_message.setSrc(messageReceive);
-
-				// create link
-				__line_coveredBy_messageReceive.setTrg(messageReceive);
-
-				// create link
-				__message_receiveEvent_messageReceive.setTrg(messageReceive);
-
-				// create link
-				__line_interaction_interaction.setSrc(line);
-
-				// create link
-				__messageReceive_covered_line.setTrg(line);
-
-				// create link
-				__interaction_lifeline_line.setTrg(line);
-
-				// create link
-				__line_coveredBy_messageReceive.setSrc(line);
-
-				// create link
-				___package_packagedElement_interaction.setSrc(_package);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_10_4_blackBBBBBB(
+							match, message, interaction, messageReceive, line,
+							_package);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_10_4_greenBBBBBBFFFFFFFFFFF(
+							match, message, interaction, messageReceive, line,
+							_package);
+			// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge interaction__message____message = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result4_green[12];
+			// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result4_green[13];
+			// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result4_green[14];
+			// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result4_green[15];
+			// EMoflonEdge _package__interaction____packagedElement = (EMoflonEdge) result4_green[16];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object _package is really bound
-				JavaSDM.ensure(_package != null);
-				// check object interaction is really bound
-				JavaSDM.ensure(interaction != null);
-				// check object line is really bound
-				JavaSDM.ensure(line != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object message is really bound
-				JavaSDM.ensure(message != null);
-				// check object messageReceive is really bound
-				JavaSDM.ensure(messageReceive != null);
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						_package, "contextNodes");
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_10_5_blackBBBBBB(
+							match, message, interaction, messageReceive, line,
+							_package);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_10_5_greenBB(
+							match, _package);
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_BWD(match, message, interaction,
-					messageReceive, line, _package);
-			return true;
-
+			// register objects to match
+			UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_10_6_expressionBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package);
+			return UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_10_7_expressionF();
 		} else {
-			return false;
-
+			return UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_10_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -2048,857 +662,99 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		ModalSequenceDiagram.Package _package = null;
-		Interaction interaction = null;
-		Lifeline line = null;
-		Message message = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		PackageDeclaration packageDeclaration = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		UseCaseToMessage useCaseToMessage = null;
-		UseCase useCase = null;
-		BasicFlow basicFlow = null;
-		FlowToInteractionFragment basicFlowToInteraction = null;
-		Actor actor = null;
-		ActorToLifeline actorToLine = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge actorToLine__source__actor = null;
-		EMoflonEdge ___package_packagedElement_interaction = null;
-		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge __interaction_lifeline_line = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge useCaseToMessage__source__useCase = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
-		EMoflonEdge packageDeclaration__actors__actor = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge basicFlowToInteraction__source__basicFlow = null;
-		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge packageDeclaration__useCases__useCase = null;
-		EMoflonEdge __line_interaction_interaction = null;
-		EMoflonEdge useCase__flows__basicFlow = null;
-		EMoflonEdge useCaseToMessage__target__message = null;
-		EMoflonEdge basicFlowToInteraction__target__interaction = null;
-		EMoflonEdge actorToLine__target__line = null;
-		EMoflonEdge __message_receiveEvent_messageReceive = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("_package"));
-
-			// ensure correct type and really bound of object _package
-			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
-			_package = (ModalSequenceDiagram.Package) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("interaction"));
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("line"));
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("message"));
-
-			// ensure correct type and really bound of object message
-			JavaSDM.ensure(_TmpObject instanceof Message);
-			message = (Message) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("messageReceive"));
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("packageDeclaration"));
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-			_TmpObject = (isApplicableMatch
-					.getObject("packageDeclarationToPackage"));
-
-			// ensure correct type and really bound of object packageDeclarationToPackage
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclarationToPackage);
-			packageDeclarationToPackage = (PackageDeclarationToPackage) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object useCaseToMessage
-			useCaseToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createUseCaseToMessage();
-
-			// create object useCase
-			useCase = UseCaseDSLFactory.eINSTANCE.createUseCase();
-
-			// create object basicFlow
-			basicFlow = UseCaseDSLFactory.eINSTANCE.createBasicFlow();
-
-			// create object basicFlowToInteraction
-			basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createFlowToInteractionFragment();
-
-			// create object actor
-			actor = UseCaseDSLFactory.eINSTANCE.createActor();
-
-			// create object actorToLine
-			actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createActorToLifeline();
-
-			// assign attribute useCase
-			useCase.setPreConditions((java.lang.String) csp.getValue("useCase",
-					"preConditions"));
-			// assign attribute useCase
-			useCase.setName((java.lang.String) csp.getValue("useCase", "name"));
-			// assign attribute actor
-			actor.setType((UseCaseDSL.ActorType) csp.getValue("actor", "type"));
-			// assign attribute actor
-			actor.setName((java.lang.String) csp.getValue("actor", "name"));
-
-			// create link
-			actorToLine.setTarget(line);
-
-			// create link
-			basicFlowToInteraction.setSource(basicFlow);
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-					useCaseToMessage, message, "target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-					useCaseToMessage, useCase, "source");
-
-			// create link
-			useCase.getFlows().add(basicFlow); // add link
-
-			// create link
-			packageDeclaration.getUseCases().add(useCase);
-
-			// create link
-			basicFlowToInteraction.setTarget(interaction);
-
-			// create link
-			packageDeclaration.getActors().add(actor);
-
-			// create link
-			actorToLine.setSource(actor);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_11_1_bindingAndBlackFFFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		Message message = (Message) result1_bindingAndBlack[0];
+		Interaction interaction = (Interaction) result1_bindingAndBlack[1];
+		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_bindingAndBlack[2];
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[3];
+		Lifeline line = (Lifeline) result1_bindingAndBlack[4];
+		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result1_bindingAndBlack[5];
+		PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result1_bindingAndBlack[6];
+		CSP csp = (CSP) result1_bindingAndBlack[7];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_11_1_greenFFBBFBBFFFB(
+						message, interaction, packageDeclaration, line, csp);
+		UseCaseToMessage useCaseToMessage = (UseCaseToMessage) result1_green[0];
+		UseCase useCase = (UseCase) result1_green[1];
+		Actor actor = (Actor) result1_green[4];
+		ActorToLifeline actorToLine = (ActorToLifeline) result1_green[7];
+		BasicFlow basicFlow = (BasicFlow) result1_green[8];
+		FlowToInteractionFragment basicFlowToInteraction = (FlowToInteractionFragment) result1_green[9];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object actorToLine is really bound
-			JavaSDM.ensure(actorToLine != null);
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object basicFlowToInteraction is really bound
-			JavaSDM.ensure(basicFlowToInteraction != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object line is really bound
-			JavaSDM.ensure(line != null);
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-			// check object messageReceive is really bound
-			JavaSDM.ensure(messageReceive != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToMessage is really bound
-			JavaSDM.ensure(useCaseToMessage != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actor, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToMessage, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					messageReceive, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlow, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					line, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					message, "translatedElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_11_2_blackBBBBBBBBBB(
+						useCaseToMessage, useCase, message, interaction,
+						messageReceive, actor, line, actorToLine, basicFlow,
+						basicFlowToInteraction);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object actorToLine is really bound
-			JavaSDM.ensure(actorToLine != null);
-			// check object basicFlow is really bound
-			JavaSDM.ensure(basicFlow != null);
-			// check object basicFlowToInteraction is really bound
-			JavaSDM.ensure(basicFlowToInteraction != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object line is really bound
-			JavaSDM.ensure(line != null);
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-			// check object messageReceive is really bound
-			JavaSDM.ensure(messageReceive != null);
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-			// check object packageDeclarationToPackage is really bound
-			JavaSDM.ensure(packageDeclarationToPackage != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToMessage is really bound
-			JavaSDM.ensure(useCaseToMessage != null);
-			// check isomorphic binding between objects actor and _package 
-			JavaSDM.ensure(!actor.equals(_package));
-
-			// check isomorphic binding between objects actorToLine and _package 
-			JavaSDM.ensure(!actorToLine.equals(_package));
-
-			// check isomorphic binding between objects basicFlow and _package 
-			JavaSDM.ensure(!basicFlow.equals(_package));
-
-			// check isomorphic binding between objects basicFlowToInteraction and _package 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(_package));
-
-			// check isomorphic binding between objects interaction and _package 
-			JavaSDM.ensure(!interaction.equals(_package));
-
-			// check isomorphic binding between objects line and _package 
-			JavaSDM.ensure(!line.equals(_package));
-
-			// check isomorphic binding between objects message and _package 
-			JavaSDM.ensure(!message.equals(_package));
-
-			// check isomorphic binding between objects messageReceive and _package 
-			JavaSDM.ensure(!messageReceive.equals(_package));
-
-			// check isomorphic binding between objects packageDeclaration and _package 
-			JavaSDM.ensure(!packageDeclaration.equals(_package));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and _package 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(_package));
-
-			// check isomorphic binding between objects useCase and _package 
-			JavaSDM.ensure(!useCase.equals(_package));
-
-			// check isomorphic binding between objects useCaseToMessage and _package 
-			JavaSDM.ensure(!useCaseToMessage.equals(_package));
-
-			// check isomorphic binding between objects actorToLine and actor 
-			JavaSDM.ensure(!actorToLine.equals(actor));
-
-			// check isomorphic binding between objects basicFlow and actor 
-			JavaSDM.ensure(!basicFlow.equals(actor));
-
-			// check isomorphic binding between objects basicFlowToInteraction and actor 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(actor));
-
-			// check isomorphic binding between objects interaction and actor 
-			JavaSDM.ensure(!interaction.equals(actor));
-
-			// check isomorphic binding between objects line and actor 
-			JavaSDM.ensure(!line.equals(actor));
-
-			// check isomorphic binding between objects message and actor 
-			JavaSDM.ensure(!message.equals(actor));
-
-			// check isomorphic binding between objects messageReceive and actor 
-			JavaSDM.ensure(!messageReceive.equals(actor));
-
-			// check isomorphic binding between objects packageDeclaration and actor 
-			JavaSDM.ensure(!packageDeclaration.equals(actor));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and actor 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(actor));
-
-			// check isomorphic binding between objects useCase and actor 
-			JavaSDM.ensure(!useCase.equals(actor));
-
-			// check isomorphic binding between objects useCaseToMessage and actor 
-			JavaSDM.ensure(!useCaseToMessage.equals(actor));
-
-			// check isomorphic binding between objects basicFlow and actorToLine 
-			JavaSDM.ensure(!basicFlow.equals(actorToLine));
-
-			// check isomorphic binding between objects basicFlowToInteraction and actorToLine 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(actorToLine));
-
-			// check isomorphic binding between objects interaction and actorToLine 
-			JavaSDM.ensure(!interaction.equals(actorToLine));
-
-			// check isomorphic binding between objects line and actorToLine 
-			JavaSDM.ensure(!line.equals(actorToLine));
-
-			// check isomorphic binding between objects message and actorToLine 
-			JavaSDM.ensure(!message.equals(actorToLine));
-
-			// check isomorphic binding between objects messageReceive and actorToLine 
-			JavaSDM.ensure(!messageReceive.equals(actorToLine));
-
-			// check isomorphic binding between objects packageDeclaration and actorToLine 
-			JavaSDM.ensure(!packageDeclaration.equals(actorToLine));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and actorToLine 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(actorToLine));
-
-			// check isomorphic binding between objects useCase and actorToLine 
-			JavaSDM.ensure(!useCase.equals(actorToLine));
-
-			// check isomorphic binding between objects useCaseToMessage and actorToLine 
-			JavaSDM.ensure(!useCaseToMessage.equals(actorToLine));
-
-			// check isomorphic binding between objects basicFlowToInteraction and basicFlow 
-			JavaSDM.ensure(!basicFlowToInteraction.equals(basicFlow));
-
-			// check isomorphic binding between objects interaction and basicFlow 
-			JavaSDM.ensure(!interaction.equals(basicFlow));
-
-			// check isomorphic binding between objects line and basicFlow 
-			JavaSDM.ensure(!line.equals(basicFlow));
-
-			// check isomorphic binding between objects message and basicFlow 
-			JavaSDM.ensure(!message.equals(basicFlow));
-
-			// check isomorphic binding between objects messageReceive and basicFlow 
-			JavaSDM.ensure(!messageReceive.equals(basicFlow));
-
-			// check isomorphic binding between objects packageDeclaration and basicFlow 
-			JavaSDM.ensure(!packageDeclaration.equals(basicFlow));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and basicFlow 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(basicFlow));
-
-			// check isomorphic binding between objects useCase and basicFlow 
-			JavaSDM.ensure(!useCase.equals(basicFlow));
-
-			// check isomorphic binding between objects useCaseToMessage and basicFlow 
-			JavaSDM.ensure(!useCaseToMessage.equals(basicFlow));
-
-			// check isomorphic binding between objects interaction and basicFlowToInteraction 
-			JavaSDM.ensure(!interaction.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects line and basicFlowToInteraction 
-			JavaSDM.ensure(!line.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects message and basicFlowToInteraction 
-			JavaSDM.ensure(!message.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects messageReceive and basicFlowToInteraction 
-			JavaSDM.ensure(!messageReceive.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclaration and basicFlowToInteraction 
-			JavaSDM.ensure(!packageDeclaration.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and basicFlowToInteraction 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects useCase and basicFlowToInteraction 
-			JavaSDM.ensure(!useCase.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects useCaseToMessage and basicFlowToInteraction 
-			JavaSDM.ensure(!useCaseToMessage.equals(basicFlowToInteraction));
-
-			// check isomorphic binding between objects line and interaction 
-			JavaSDM.ensure(!line.equals(interaction));
-
-			// check isomorphic binding between objects message and interaction 
-			JavaSDM.ensure(!message.equals(interaction));
-
-			// check isomorphic binding between objects messageReceive and interaction 
-			JavaSDM.ensure(!messageReceive.equals(interaction));
-
-			// check isomorphic binding between objects packageDeclaration and interaction 
-			JavaSDM.ensure(!packageDeclaration.equals(interaction));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and interaction 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(interaction));
-
-			// check isomorphic binding between objects useCase and interaction 
-			JavaSDM.ensure(!useCase.equals(interaction));
-
-			// check isomorphic binding between objects useCaseToMessage and interaction 
-			JavaSDM.ensure(!useCaseToMessage.equals(interaction));
-
-			// check isomorphic binding between objects message and line 
-			JavaSDM.ensure(!message.equals(line));
-
-			// check isomorphic binding between objects messageReceive and line 
-			JavaSDM.ensure(!messageReceive.equals(line));
-
-			// check isomorphic binding between objects packageDeclaration and line 
-			JavaSDM.ensure(!packageDeclaration.equals(line));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and line 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(line));
-
-			// check isomorphic binding between objects useCase and line 
-			JavaSDM.ensure(!useCase.equals(line));
-
-			// check isomorphic binding between objects useCaseToMessage and line 
-			JavaSDM.ensure(!useCaseToMessage.equals(line));
-
-			// check isomorphic binding between objects messageReceive and message 
-			JavaSDM.ensure(!messageReceive.equals(message));
-
-			// check isomorphic binding between objects packageDeclaration and message 
-			JavaSDM.ensure(!packageDeclaration.equals(message));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and message 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(message));
-
-			// check isomorphic binding between objects useCase and message 
-			JavaSDM.ensure(!useCase.equals(message));
-
-			// check isomorphic binding between objects useCaseToMessage and message 
-			JavaSDM.ensure(!useCaseToMessage.equals(message));
-
-			// check isomorphic binding between objects packageDeclaration and messageReceive 
-			JavaSDM.ensure(!packageDeclaration.equals(messageReceive));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and messageReceive 
-			JavaSDM.ensure(!packageDeclarationToPackage.equals(messageReceive));
-
-			// check isomorphic binding between objects useCase and messageReceive 
-			JavaSDM.ensure(!useCase.equals(messageReceive));
-
-			// check isomorphic binding between objects useCaseToMessage and messageReceive 
-			JavaSDM.ensure(!useCaseToMessage.equals(messageReceive));
-
-			// check isomorphic binding between objects packageDeclarationToPackage and packageDeclaration 
-			JavaSDM.ensure(!packageDeclarationToPackage
-					.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCase and packageDeclaration 
-			JavaSDM.ensure(!useCase.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCaseToMessage and packageDeclaration 
-			JavaSDM.ensure(!useCaseToMessage.equals(packageDeclaration));
-
-			// check isomorphic binding between objects useCase and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCase.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCaseToMessage and packageDeclarationToPackage 
-			JavaSDM.ensure(!useCaseToMessage
-					.equals(packageDeclarationToPackage));
-
-			// check isomorphic binding between objects useCaseToMessage and useCase 
-			JavaSDM.ensure(!useCaseToMessage.equals(useCase));
-
-			// create object actorToLine__source__actor
-			actorToLine__source__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object ___package_packagedElement_interaction
-			___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __messageReceive_message_message
-			__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_lifeline_line
-			__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __line_coveredBy_messageReceive
-			__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_message_message
-			__interaction_message_message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCaseToMessage__source__useCase
-			useCaseToMessage__source__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_fragment_messageReceive
-			__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclaration__actors__actor
-			packageDeclaration__actors__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __messageReceive_covered_line
-			__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __messageReceive_enclosingInteraction_interaction
-			__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __message_interaction_interaction
-			__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object packageDeclaration__useCases__useCase
-			packageDeclaration__useCases__useCase = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __line_interaction_interaction
-			__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCase__flows__basicFlow
-			useCase__flows__basicFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCaseToMessage__target__message
-			useCaseToMessage__target__message = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object actorToLine__target__line
-			actorToLine__target__line = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __message_receiveEvent_messageReceive
-			__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("UseCasePrecondToFoundMessageRule");
-			// assign attribute useCaseToMessage__source__useCase
-			useCaseToMessage__source__useCase.setName("source");
-			// assign attribute useCaseToMessage__target__message
-			useCaseToMessage__target__message.setName("target");
-			// assign attribute __message_receiveEvent_messageReceive
-			__message_receiveEvent_messageReceive.setName("receiveEvent");
-			// assign attribute __message_interaction_interaction
-			__message_interaction_interaction.setName("interaction");
-			// assign attribute __interaction_message_message
-			__interaction_message_message.setName("message");
-			// assign attribute __line_interaction_interaction
-			__line_interaction_interaction.setName("interaction");
-			// assign attribute __interaction_lifeline_line
-			__interaction_lifeline_line.setName("lifeline");
-			// assign attribute __messageReceive_enclosingInteraction_interaction
-			__messageReceive_enclosingInteraction_interaction
-					.setName("enclosingInteraction");
-			// assign attribute __interaction_fragment_messageReceive
-			__interaction_fragment_messageReceive.setName("fragment");
-			// assign attribute __messageReceive_message_message
-			__messageReceive_message_message.setName("message");
-			// assign attribute packageDeclaration__useCases__useCase
-			packageDeclaration__useCases__useCase.setName("useCases");
-			// assign attribute packageDeclaration__actors__actor
-			packageDeclaration__actors__actor.setName("actors");
-			// assign attribute __line_coveredBy_messageReceive
-			__line_coveredBy_messageReceive.setName("coveredBy");
-			// assign attribute __messageReceive_covered_line
-			__messageReceive_covered_line.setName("covered");
-			// assign attribute actorToLine__source__actor
-			actorToLine__source__actor.setName("source");
-			// assign attribute actorToLine__target__line
-			actorToLine__target__line.setName("target");
-			// assign attribute ___package_packagedElement_interaction
-			___package_packagedElement_interaction.setName("packagedElement");
-			// assign attribute useCase__flows__basicFlow
-			useCase__flows__basicFlow.setName("flows");
-			// assign attribute basicFlowToInteraction__source__basicFlow
-			basicFlowToInteraction__source__basicFlow.setName("source");
-			// assign attribute basicFlowToInteraction__target__interaction
-			basicFlowToInteraction__target__interaction.setName("target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine__source__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					___package_packagedElement_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageReceive_message_message, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_lifeline_line, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_coveredBy_messageReceive, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_message_message, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToMessage__source__useCase, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_fragment_messageReceive, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration__actors__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageReceive_covered_line, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					basicFlowToInteraction__source__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__messageReceive_enclosingInteraction_interaction,
-					"translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__message_interaction_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					packageDeclaration__useCases__useCase, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__line_interaction_interaction, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase__flows__basicFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCaseToMessage__target__message, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							basicFlowToInteraction__target__interaction,
-							"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					actorToLine__target__line, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__message_receiveEvent_messageReceive, "translatedEdges");
-
-			// create link
-			useCaseToMessage__target__message.setSrc(useCaseToMessage);
-
-			// create link
-			useCaseToMessage__source__useCase.setSrc(useCaseToMessage);
-
-			// create link
-			packageDeclaration__useCases__useCase.setTrg(useCase);
-
-			// create link
-			useCaseToMessage__source__useCase.setTrg(useCase);
-
-			// create link
-			useCase__flows__basicFlow.setSrc(useCase);
-
-			// create link
-			__interaction_message_message.setTrg(message);
-
-			// create link
-			useCaseToMessage__target__message.setTrg(message);
-
-			// create link
-			__messageReceive_message_message.setTrg(message);
-
-			// create link
-			__message_interaction_interaction.setSrc(message);
-
-			// create link
-			__message_receiveEvent_messageReceive.setSrc(message);
-
-			// create link
-			___package_packagedElement_interaction.setTrg(interaction);
-
-			// create link
-			__interaction_lifeline_line.setSrc(interaction);
-
-			// create link
-			__message_interaction_interaction.setTrg(interaction);
-
-			// create link
-			__messageReceive_enclosingInteraction_interaction
-					.setTrg(interaction);
-
-			// create link
-			basicFlowToInteraction__target__interaction.setTrg(interaction);
-
-			// create link
-			__interaction_message_message.setSrc(interaction);
-
-			// create link
-			__line_interaction_interaction.setTrg(interaction);
-
-			// create link
-			__interaction_fragment_messageReceive.setSrc(interaction);
-
-			// create link
-			__messageReceive_message_message.setSrc(messageReceive);
-
-			// create link
-			__line_coveredBy_messageReceive.setTrg(messageReceive);
-
-			// create link
-			__messageReceive_enclosingInteraction_interaction
-					.setSrc(messageReceive);
-
-			// create link
-			__messageReceive_covered_line.setSrc(messageReceive);
-
-			// create link
-			__interaction_fragment_messageReceive.setTrg(messageReceive);
-
-			// create link
-			__message_receiveEvent_messageReceive.setTrg(messageReceive);
-
-			// create link
-			packageDeclaration__actors__actor.setTrg(actor);
-
-			// create link
-			actorToLine__source__actor.setTrg(actor);
-
-			// create link
-			packageDeclaration__actors__actor.setSrc(packageDeclaration);
-
-			// create link
-			packageDeclaration__useCases__useCase.setSrc(packageDeclaration);
-
-			// create link
-			__line_interaction_interaction.setSrc(line);
-
-			// create link
-			__line_coveredBy_messageReceive.setSrc(line);
-
-			// create link
-			__interaction_lifeline_line.setTrg(line);
-
-			// create link
-			__messageReceive_covered_line.setTrg(line);
-
-			// create link
-			actorToLine__target__line.setTrg(line);
-
-			// create link
-			actorToLine__source__actor.setSrc(actorToLine);
-
-			// create link
-			actorToLine__target__line.setSrc(actorToLine);
-
-			// create link
-			___package_packagedElement_interaction.setSrc(_package);
-
-			// create link
-			basicFlowToInteraction__source__basicFlow.setTrg(basicFlow);
-
-			// create link
-			useCase__flows__basicFlow.setTrg(basicFlow);
-
-			// create link
-			basicFlowToInteraction__source__basicFlow
-					.setSrc(basicFlowToInteraction);
-
-			// create link
-			basicFlowToInteraction__target__interaction
-					.setSrc(basicFlowToInteraction);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_11_2_greenFBBBBBBBBBB(
+						useCaseToMessage, useCase, message, interaction,
+						messageReceive, actor, line, actorToLine, basicFlow,
+						basicFlowToInteraction);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
+
+		// bookkeeping for edges
+		Object[] result3_black = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_11_3_blackBBBBBBBBBBBBBB(
+						ruleresult, useCaseToMessage, useCase, message,
+						interaction, messageReceive, actor, packageDeclaration,
+						line, actorToLine, _package,
+						packageDeclarationToPackage, basicFlow,
+						basicFlowToInteraction);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
+						ruleresult, useCaseToMessage, useCase, message,
+						interaction, messageReceive, actor, packageDeclaration,
+						line, actorToLine, _package, basicFlow,
+						basicFlowToInteraction);
+		// EMoflonEdge useCaseToMessage__useCase____source = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge useCaseToMessage__message____target = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[25];
+		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[26];
+		// EMoflonEdge actorToLine__actor____source = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge actorToLine__line____target = (EMoflonEdge) result3_green[28];
+		// EMoflonEdge _package__interaction____packagedElement = (EMoflonEdge) result3_green[29];
+		// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result3_green[30];
+		// EMoflonEdge basicFlowToInteraction__basicFlow____source = (EMoflonEdge) result3_green[31];
+		// EMoflonEdge basicFlowToInteraction__interaction____target = (EMoflonEdge) result3_green[32];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_BWD(ruleresult, useCaseToMessage, useCase,
-				message, interaction, messageReceive, actor,
-				packageDeclaration, line, actorToLine, _package,
-				packageDeclarationToPackage, basicFlow, basicFlowToInteraction);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_11_5_expressionBBBBBBBBBBBBBBB(
+						this, ruleresult, useCaseToMessage, useCase, message,
+						interaction, messageReceive, actor, packageDeclaration,
+						line, actorToLine, _package,
+						packageDeclarationToPackage, basicFlow,
+						basicFlowToInteraction);
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_11_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -2907,535 +763,98 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_BWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		ModalSequenceDiagram.Package _package = null;
-		Interaction interaction = null;
-		Lifeline line = null;
-		Message message = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		EMoflonEdge __messageReceive_message_message = null;
-		EMoflonEdge __message_interaction_interaction = null;
-		EMoflonEdge __interaction_message_message = null;
-		EMoflonEdge __message_receiveEvent_messageReceive = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __interaction_lifeline_line = null;
-		EMoflonEdge __messageReceive_enclosingInteraction_interaction = null;
-		EMoflonEdge __interaction_fragment_messageReceive = null;
-		EMoflonEdge __line_interaction_interaction = null;
-		EMoflonEdge ___package_packagedElement_interaction = null;
-		EMoflonEdge __messageReceive_covered_line = null;
-		EMoflonEdge __line_coveredBy_messageReceive = null;
-		EMoflonEdge __packageDeclarationToPackage_source_packageDeclaration = null;
-		EMoflonEdge __packageDeclarationToPackage_target__package = null;
-		CSP csp = null;
-		PackageDeclaration packageDeclaration = null;
-		Iterator fujaba__Iter_packageToPackageDeclarationToPackage = null;
-		PackageDeclarationToPackage packageDeclarationToPackage = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("UseCasePrecondToFoundMessageRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_12_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (match.getObject("_package"));
-
-			// ensure correct type and really bound of object _package
-			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
-			_package = (ModalSequenceDiagram.Package) _TmpObject;
-			_TmpObject = (match.getObject("interaction"));
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-			_TmpObject = (match.getObject("line"));
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-			_TmpObject = (match.getObject("message"));
-
-			// ensure correct type and really bound of object message
-			JavaSDM.ensure(_TmpObject instanceof Message);
-			message = (Message) _TmpObject;
-			_TmpObject = (match.getObject("messageReceive"));
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// iterate to-many link target from _package to packageDeclarationToPackage
-			fujaba__Success = false;
-
-			fujaba__Iter_packageToPackageDeclarationToPackage = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							_package, PackageDeclarationToPackage.class,
-							"target")).iterator();
-
-			while (fujaba__Iter_packageToPackageDeclarationToPackage.hasNext()) {
-				try {
-					packageDeclarationToPackage = (PackageDeclarationToPackage) fujaba__Iter_packageToPackageDeclarationToPackage
-							.next();
-
-					// check object packageDeclarationToPackage is really bound
-					JavaSDM.ensure(packageDeclarationToPackage != null);
-					// bind object
-					packageDeclaration = packageDeclarationToPackage
-							.getSource();
-
-					// check object packageDeclaration is really bound
-					JavaSDM.ensure(packageDeclaration != null);
-
-					// story node 'find context'
-					try {
-						fujaba__Success = false;
-
-						// check object _package is really bound
-						JavaSDM.ensure(_package != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check object packageDeclaration is really bound
-						JavaSDM.ensure(packageDeclaration != null);
-						// check object packageDeclarationToPackage is really bound
-						JavaSDM.ensure(packageDeclarationToPackage != null);
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link packagedElement from interaction to _package
-						JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-						// check link source from packageDeclarationToPackage to packageDeclaration
-						JavaSDM.ensure(packageDeclaration
-								.equals(packageDeclarationToPackage.getSource()));
-
-						// check link target from packageDeclarationToPackage to _package
-						JavaSDM.ensure(_package
-								.equals(packageDeclarationToPackage.getTarget()));
-
-						// check link coveredBy from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object __messageReceive_message_message
-						__messageReceive_message_message = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __message_interaction_interaction
-						__message_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __interaction_message_message
-						__interaction_message_message = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __message_receiveEvent_messageReceive
-						__message_receiveEvent_messageReceive = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
-						// create object __interaction_lifeline_line
-						__interaction_lifeline_line = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __messageReceive_enclosingInteraction_interaction
-						__messageReceive_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __interaction_fragment_messageReceive
-						__interaction_fragment_messageReceive = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __line_interaction_interaction
-						__line_interaction_interaction = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object ___package_packagedElement_interaction
-						___package_packagedElement_interaction = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __messageReceive_covered_line
-						__messageReceive_covered_line = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __line_coveredBy_messageReceive
-						__line_coveredBy_messageReceive = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __packageDeclarationToPackage_source_packageDeclaration
-						__packageDeclarationToPackage_source_packageDeclaration = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __packageDeclarationToPackage_target__package
-						__packageDeclarationToPackage_target__package = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// assign attribute __message_receiveEvent_messageReceive
-						__message_receiveEvent_messageReceive
-								.setName("receiveEvent");
-						// assign attribute __message_interaction_interaction
-						__message_interaction_interaction
-								.setName("interaction");
-						// assign attribute __interaction_message_message
-						__interaction_message_message.setName("message");
-						// assign attribute __line_interaction_interaction
-						__line_interaction_interaction.setName("interaction");
-						// assign attribute __interaction_lifeline_line
-						__interaction_lifeline_line.setName("lifeline");
-						// assign attribute __messageReceive_enclosingInteraction_interaction
-						__messageReceive_enclosingInteraction_interaction
-								.setName("enclosingInteraction");
-						// assign attribute __interaction_fragment_messageReceive
-						__interaction_fragment_messageReceive
-								.setName("fragment");
-						// assign attribute __messageReceive_message_message
-						__messageReceive_message_message.setName("message");
-						// assign attribute __line_coveredBy_messageReceive
-						__line_coveredBy_messageReceive.setName("coveredBy");
-						// assign attribute __messageReceive_covered_line
-						__messageReceive_covered_line.setName("covered");
-						// assign attribute ___package_packagedElement_interaction
-						___package_packagedElement_interaction
-								.setName("packagedElement");
-						// assign attribute __packageDeclarationToPackage_source_packageDeclaration
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setName("source");
-						// assign attribute __packageDeclarationToPackage_target__package
-						__packageDeclarationToPackage_target__package
-								.setName("target");
-
-						// create link
-						__messageReceive_message_message.setTrg(message);
-
-						// create link
-						__message_interaction_interaction.setSrc(message);
-
-						// create link
-						__interaction_message_message.setTrg(message);
-
-						// create link
-						__message_receiveEvent_messageReceive.setSrc(message);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(message);
-
-						// create link
-						__interaction_lifeline_line.setSrc(interaction);
-
-						// create link
-						__messageReceive_enclosingInteraction_interaction
-								.setTrg(interaction);
-
-						// create link
-						__message_interaction_interaction.setTrg(interaction);
-
-						// create link
-						__interaction_fragment_messageReceive
-								.setSrc(interaction);
-
-						// create link
-						__interaction_message_message.setSrc(interaction);
-
-						// create link
-						__line_interaction_interaction.setTrg(interaction);
-
-						// create link
-						___package_packagedElement_interaction
-								.setTrg(interaction);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								interaction);
-
-						// create link
-						__messageReceive_covered_line.setSrc(messageReceive);
-
-						// create link
-						__messageReceive_message_message.setSrc(messageReceive);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								messageReceive);
-
-						// create link
-						__messageReceive_enclosingInteraction_interaction
-								.setSrc(messageReceive);
-
-						// create link
-						__message_receiveEvent_messageReceive
-								.setTrg(messageReceive);
-
-						// create link
-						__line_coveredBy_messageReceive.setTrg(messageReceive);
-
-						// create link
-						__interaction_fragment_messageReceive
-								.setTrg(messageReceive);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								packageDeclaration);
-
-						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setTrg(packageDeclaration);
-
-						// create link
-						__messageReceive_covered_line.setTrg(line);
-
-						// create link
-						__line_coveredBy_messageReceive.setSrc(line);
-
-						// create link
-						__line_interaction_interaction.setSrc(line);
-
-						// create link
-						__interaction_lifeline_line.setTrg(line);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(line);
-
-						// create link
-						___package_packagedElement_interaction.setSrc(_package);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(_package);
-
-						// create link
-						__packageDeclarationToPackage_target__package
-								.setTrg(_package);
-
-						// create link
-						__packageDeclarationToPackage_target__package
-								.setSrc(packageDeclarationToPackage);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_12_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
+
+		// ForEach core match
+		Object[] result2_binding = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_12_2_bindingFFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		Message message = (Message) result2_binding[0];
+		Interaction interaction = (Interaction) result2_binding[1];
+		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_binding[2];
+		Lifeline line = (Lifeline) result2_binding[3];
+		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_binding[4];
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_12_2_blackBBBFBBFB(
+						message, interaction, messageReceive, line, _package,
+						match)) {
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[3];
+			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result2_black[6];
+			// ForEach find context
+			for (Object[] result3_black : UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_12_3_blackBBBBBBB(
+							message, interaction, messageReceive,
+							packageDeclaration, line, _package,
+							packageDeclarationToPackage)) {
+				Object[] result3_green = UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_12_3_greenBBBBBBBFFFFFFFFFFFFFF(
+								message, interaction, messageReceive,
+								packageDeclaration, line, _package,
 								packageDeclarationToPackage);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[7];
+				// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[8];
+				// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[9];
+				// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[10];
+				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge _package__interaction____packagedElement = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge packageDeclarationToPackage__packageDeclaration____source = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge packageDeclarationToPackage___package____target = (EMoflonEdge) result3_green[20];
 
-						// create link
-						__packageDeclarationToPackage_source_packageDeclaration
-								.setSrc(packageDeclarationToPackage);
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__line_interaction_interaction,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__message_interaction_interaction,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __interaction_lifeline_line,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__line_coveredBy_messageReceive,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__interaction_fragment_messageReceive,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__messageReceive_enclosingInteraction_interaction,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__packageDeclarationToPackage_target__package,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__messageReceive_covered_line,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil
-								.addOppositeReference(
-										isApplicableMatch,
-										__packageDeclarationToPackage_source_packageDeclaration,
-										"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__interaction_message_message,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								___package_packagedElement_interaction,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__message_receiveEvent_messageReceive,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__messageReceive_message_message,
-								"allContextElements");
-						// story node 'solve CSP'
-						try {
-							fujaba__Success = false;
-
-							_TmpObject = (this.isApplicable_solveCsp_BWD(
-									isApplicableMatch, message, interaction,
-									messageReceive, packageDeclaration, line,
-									_package, packageDeclarationToPackage));
-
-							// ensure correct type and really bound of object csp
-							JavaSDM.ensure(_TmpObject instanceof CSP);
-							csp = (CSP) _TmpObject;
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						// statement node 'check CSP'
-						fujaba__Success = this.isApplicable_checkCsp_BWD(csp);
-						if (fujaba__Success) {
-							// story node 'add match to rule result'
-							try {
-								fujaba__Success = false;
-
-								// check object isApplicableMatch is really bound
-								JavaSDM.ensure(isApplicableMatch != null);
-								// check object ruleresult is really bound
-								JavaSDM.ensure(ruleresult != null);
-								// assign attribute isApplicableMatch
-								isApplicableMatch
-										.setRuleName("UseCasePrecondToFoundMessageRule");
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
-
-								// create link
-								ruleresult.getIsApplicableMatch().add(
-										isApplicableMatch);
-
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
-					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				// solve CSP
+				Object[] result4_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_12_4_bindingAndBlackFBBBBBBBBB(
+								this, isApplicableMatch, message, interaction,
+								messageReceive, packageDeclaration, line,
+								_package, packageDeclarationToPackage);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_12_5_expressionFBB(
+								this, csp)) {
 
-		return ruleresult;
+					// add match to rule result
+					Object[] result6_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_12_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_12_6_greenBB(
+									ruleresult, isApplicableMatch);
+
+				} else {
+				}
+
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_12_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -3463,31 +882,28 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	public CSP isAppropriate_solveCsp_BWD(Match match, Message message,
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
-		// Create CSP
+			ModalSequenceDiagram.Package _package) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("found");
-		literal0.setType("String");
+		literal0.setType("");
 		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal1", true, csp);
 		literal1.setValue("ASYNCH_SIGNAL");
-		literal1.setType("String");
+		literal1.setType("");
 
 		// Create attribute variables
 		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageKind", true, csp);
 		var_message_messageKind.setValue(message.getMessageKind());
-		var_message_messageKind.setType("EObject");
+		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageSort", true, csp);
 		var_message_messageSort.setValue(message.getMessageSort());
-		var_message_messageSort.setType("EObject");
-
-		// Create explicit parameters
+		var_message_messageSort.setType("ModalSequenceDiagram.MessageSort");
 
 		// Create unbound variables
 
@@ -3525,8 +941,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			MessageOccurrenceSpecification messageReceive,
 			PackageDeclaration packageDeclaration, Lifeline line,
 			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage) {
-		// Create CSP
+			PackageDeclarationToPackage packageDeclarationToPackage) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -3534,37 +949,35 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("system");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", true, csp);
 		var_message_name.setValue(message.getName());
-		var_message_name.setType("");
+		var_message_name.setType("String");
 		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"line.name", true, csp);
 		var_line_name.setValue(line.getName());
-		var_line_name.setType("");
+		var_line_name.setType("String");
 		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("interaction.name", true, csp);
 		var_interaction_name.setValue(interaction.getName());
-		var_interaction_name.setType("");
-
-		// Create explicit parameters
+		var_interaction_name.setType("String");
 
 		// Create unbound variables
 		Variable var_useCase_preConditions = CSPFactoryHelper.eINSTANCE
 				.createVariable("useCase.preConditions", csp);
-		var_useCase_preConditions.setType("");
+		var_useCase_preConditions.setType("String");
 		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
 				"actor.type", csp);
-		var_actor_type.setType("EObject");
+		var_actor_type.setType("UseCaseDSL.ActorType");
 		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"actor.name", csp);
-		var_actor_name.setType("");
+		var_actor_name.setType("String");
 		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"useCase.name", csp);
-		var_useCase_name.setType("");
+		var_useCase_name.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
@@ -3668,4985 +1081,64 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_331(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_81(
 			EMoflonEdge _edge_receiveEvent) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_527742 = null;
-		MessageEnd __DEC_message_sendEvent_124804 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_768602 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_116037 = null;
-		MessageEnd __DEC_message_message_116037 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_965015 = null;
-		Message __DEC_messageReceive_receiveEvent_965015 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_103865 = null;
-		Message __DEC_messageReceive_sendEvent_103865 = null;
-		Match match = null;
-		Iterator fujaba__IterMessageReceiveToLine = null;
-		Lifeline line = null;
-		ModalSequenceDiagram.Package _package = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Interaction interaction = null;
-		Message message = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_20_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_receiveEvent is really bound
-			JavaSDM.ensure(_edge_receiveEvent != null);
-			// bind object
-			_TmpObject = _edge_receiveEvent.getSrc();
-
-			// ensure correct type and really bound of object message
-			JavaSDM.ensure(_TmpObject instanceof Message);
-			message = (Message) _TmpObject;
-
-			// bind object
-			interaction = message.getInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			_TmpObject = message.getReceiveEvent();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// check link fragment from messageReceive to interaction
-			JavaSDM.ensure(interaction.equals(messageReceive
-					.getEnclosingInteraction()));
-
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// check link trg from _edge_receiveEvent to messageReceive
-			JavaSDM.ensure(messageReceive.equals(_edge_receiveEvent.getTrg()));
-
-			// iterate to-many link coveredBy from messageReceive to line
-			fujaba__Success = false;
-
-			fujaba__IterMessageReceiveToLine = new ArrayList(
-					messageReceive.getCovered()).iterator();
-
-			while (fujaba__IterMessageReceiveToLine.hasNext()) {
-				try {
-					line = (Lifeline) fujaba__IterMessageReceiveToLine.next();
-
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// check link lifeline from line to interaction
-					JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// negative check for link fragment from interaction
-						JavaSDM.ensure(interaction.getEnclosingOperand() == null);
-						// negative check for link fragment from messageReceive
-						JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_enclosingInteraction_527742 = interaction
-									.getEnclosingInteraction();
-
-							// check object __DEC_interaction_enclosingInteraction_527742 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_527742 != null);
-
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_527742 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_527742
-									.equals(interaction));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_message_sendEvent_124804 = message
-									.getSendEvent();
-
-							// check object __DEC_message_sendEvent_124804 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_124804 != null);
-
-							// check isomorphic binding between objects __DEC_message_sendEvent_124804 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_124804
-									.equals(messageReceive));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_packagedElement_768602 = interaction
-									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-									.eContainer() : null;
-
-							// check object __DEC_interaction_packagedElement_768602 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_768602 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_768602
-									.getPackagedElement().contains(interaction));
-
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_768602 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_768602
-									.equals(_package));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link message from message to __DEC_message_message_116037
-							fujaba__Success = false;
-
-							fujaba__IterMessageTo__DEC_message_message_116037 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(message,
-													MessageEnd.class, "message"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_116037
-											.hasNext()) {
-								try {
-									__DEC_message_message_116037 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_116037
-											.next();
-
-									// check object __DEC_message_message_116037 is really bound
-									JavaSDM.ensure(__DEC_message_message_116037 != null);
-									// check isomorphic binding between objects __DEC_message_message_116037 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_116037
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_965015
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_965015 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class,
-													"receiveEvent")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_965015
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_receiveEvent_965015 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_965015
-											.next();
-
-									// check object __DEC_messageReceive_receiveEvent_965015 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_965015 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_965015 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_965015
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_103865
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_103865 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_103865
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_sendEvent_103865 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_103865
-											.next();
-
-									// check object __DEC_messageReceive_sendEvent_103865 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_103865 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_103865 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_103865
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check object _edge_receiveEvent is really bound
-						JavaSDM.ensure(_edge_receiveEvent != null);
-						// check object _package is really bound
-						JavaSDM.ensure(_package != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link sendEvent from message to messageReceive
-						JavaSDM.ensure(!(messageReceive.equals(message
-								.getSendEvent())));
-
-						// check link packagedElement from interaction to _package
-						JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-						// check link src from _edge_receiveEvent to message
-						JavaSDM.ensure(message.equals(_edge_receiveEvent
-								.getSrc()));
-
-						// check link trg from _edge_receiveEvent to messageReceive
-						JavaSDM.ensure(messageReceive.equals(_edge_receiveEvent
-								.getTrg()));
-
-						// check link coveredBy from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								message, interaction, messageReceive, line,
-								_package);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_20_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_20_2_blackFFFFFB(_edge_receiveEvent)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_20_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_20_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_20_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_20_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_332(
-			EMoflonEdge _edge_interaction) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_562861 = null;
-		MessageEnd __DEC_message_sendEvent_728485 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_515609 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_711657 = null;
-		MessageEnd __DEC_message_message_711657 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_146209 = null;
-		Message __DEC_messageReceive_receiveEvent_146209 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_276390 = null;
-		Message __DEC_messageReceive_sendEvent_276390 = null;
-		Match match = null;
-		Iterator fujaba__IterMessageReceiveToLine = null;
-		Lifeline line = null;
-		ModalSequenceDiagram.Package _package = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Interaction interaction = null;
-		Message message = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_interaction is really bound
-			JavaSDM.ensure(_edge_interaction != null);
-			// bind object
-			_TmpObject = _edge_interaction.getSrc();
-
-			// ensure correct type and really bound of object message
-			JavaSDM.ensure(_TmpObject instanceof Message);
-			message = (Message) _TmpObject;
-
-			// bind object
-			interaction = message.getInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			_TmpObject = message.getReceiveEvent();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// check link fragment from messageReceive to interaction
-			JavaSDM.ensure(interaction.equals(messageReceive
-					.getEnclosingInteraction()));
-
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// check link trg from _edge_interaction to interaction
-			JavaSDM.ensure(interaction.equals(_edge_interaction.getTrg()));
-
-			// iterate to-many link coveredBy from messageReceive to line
-			fujaba__Success = false;
-
-			fujaba__IterMessageReceiveToLine = new ArrayList(
-					messageReceive.getCovered()).iterator();
-
-			while (fujaba__IterMessageReceiveToLine.hasNext()) {
-				try {
-					line = (Lifeline) fujaba__IterMessageReceiveToLine.next();
-
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// check link lifeline from line to interaction
-					JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// negative check for link fragment from interaction
-						JavaSDM.ensure(interaction.getEnclosingOperand() == null);
-						// negative check for link fragment from messageReceive
-						JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_enclosingInteraction_562861 = interaction
-									.getEnclosingInteraction();
-
-							// check object __DEC_interaction_enclosingInteraction_562861 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_562861 != null);
-
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_562861 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_562861
-									.equals(interaction));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_message_sendEvent_728485 = message
-									.getSendEvent();
-
-							// check object __DEC_message_sendEvent_728485 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_728485 != null);
-
-							// check isomorphic binding between objects __DEC_message_sendEvent_728485 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_728485
-									.equals(messageReceive));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_packagedElement_515609 = interaction
-									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-									.eContainer() : null;
-
-							// check object __DEC_interaction_packagedElement_515609 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_515609 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_515609
-									.getPackagedElement().contains(interaction));
-
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_515609 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_515609
-									.equals(_package));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link message from message to __DEC_message_message_711657
-							fujaba__Success = false;
-
-							fujaba__IterMessageTo__DEC_message_message_711657 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(message,
-													MessageEnd.class, "message"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_711657
-											.hasNext()) {
-								try {
-									__DEC_message_message_711657 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_711657
-											.next();
-
-									// check object __DEC_message_message_711657 is really bound
-									JavaSDM.ensure(__DEC_message_message_711657 != null);
-									// check isomorphic binding between objects __DEC_message_message_711657 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_711657
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_146209
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_146209 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class,
-													"receiveEvent")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_146209
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_receiveEvent_146209 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_146209
-											.next();
-
-									// check object __DEC_messageReceive_receiveEvent_146209 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_146209 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_146209 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_146209
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_276390
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_276390 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_276390
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_sendEvent_276390 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_276390
-											.next();
-
-									// check object __DEC_messageReceive_sendEvent_276390 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_276390 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_276390 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_276390
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check object _edge_interaction is really bound
-						JavaSDM.ensure(_edge_interaction != null);
-						// check object _package is really bound
-						JavaSDM.ensure(_package != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link sendEvent from message to messageReceive
-						JavaSDM.ensure(!(messageReceive.equals(message
-								.getSendEvent())));
-
-						// check link packagedElement from interaction to _package
-						JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-						// check link src from _edge_interaction to message
-						JavaSDM.ensure(message.equals(_edge_interaction
-								.getSrc()));
-
-						// check link trg from _edge_interaction to interaction
-						JavaSDM.ensure(interaction.equals(_edge_interaction
-								.getTrg()));
-
-						// check link coveredBy from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								message, interaction, messageReceive, line,
-								_package);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
-					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_333(
-			EMoflonEdge _edge_message) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_914263 = null;
-		MessageEnd __DEC_message_sendEvent_699802 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_197044 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_62000 = null;
-		MessageEnd __DEC_message_message_62000 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_834835 = null;
-		Message __DEC_messageReceive_receiveEvent_834835 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_711585 = null;
-		Message __DEC_messageReceive_sendEvent_711585 = null;
-		Match match = null;
-		Iterator fujaba__IterMessageTo_edge_interaction = null;
-		EMoflonEdge _edge_interaction = null;
-		Iterator fujaba__IterMessageReceiveToLine = null;
-		Lifeline line = null;
-		ModalSequenceDiagram.Package _package = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Interaction interaction = null;
-		Message message = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_message is really bound
-			JavaSDM.ensure(_edge_message != null);
-			// bind object
-			_TmpObject = _edge_message.getTrg();
-
-			// ensure correct type and really bound of object message
-			JavaSDM.ensure(_TmpObject instanceof Message);
-			message = (Message) _TmpObject;
-
-			// bind object
-			interaction = message.getInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			_TmpObject = message.getReceiveEvent();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// check link fragment from messageReceive to interaction
-			JavaSDM.ensure(interaction.equals(messageReceive
-					.getEnclosingInteraction()));
-
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// check link src from _edge_message to interaction
-			JavaSDM.ensure(interaction.equals(_edge_message.getSrc()));
-
-			// iterate to-many link coveredBy from messageReceive to line
-			fujaba__Success = false;
-
-			fujaba__IterMessageReceiveToLine = new ArrayList(
-					messageReceive.getCovered()).iterator();
-
-			while (fujaba__IterMessageReceiveToLine.hasNext()) {
-				try {
-					line = (Lifeline) fujaba__IterMessageReceiveToLine.next();
-
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// check link lifeline from line to interaction
-					JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-					// iterate to-many link src from message to _edge_interaction
-					fujaba__Success = false;
-
-					fujaba__IterMessageTo_edge_interaction = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(message,
-											EMoflonEdge.class, "src"))
-							.iterator();
-
-					while (fujaba__IterMessageTo_edge_interaction.hasNext()) {
-						try {
-							_edge_interaction = (EMoflonEdge) fujaba__IterMessageTo_edge_interaction
-									.next();
-
-							// check object _edge_interaction is really bound
-							JavaSDM.ensure(_edge_interaction != null);
-							// check isomorphic binding between objects _edge_message and _edge_interaction 
-							JavaSDM.ensure(!_edge_message
-									.equals(_edge_interaction));
-
-							// check link trg from _edge_interaction to interaction
-							JavaSDM.ensure(interaction.equals(_edge_interaction
-									.getTrg()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// negative check for link fragment from interaction
-								JavaSDM.ensure(interaction
-										.getEnclosingOperand() == null);
-								// negative check for link fragment from messageReceive
-								JavaSDM.ensure(messageReceive
-										.getEnclosingOperand() == null);
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_interaction_enclosingInteraction_914263 = interaction
-											.getEnclosingInteraction();
-
-									// check object __DEC_interaction_enclosingInteraction_914263 is really bound
-									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_914263 != null);
-
-									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_914263 and interaction 
-									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_914263
-											.equals(interaction));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_message_sendEvent_699802 = message
-											.getSendEvent();
-
-									// check object __DEC_message_sendEvent_699802 is really bound
-									JavaSDM.ensure(__DEC_message_sendEvent_699802 != null);
-
-									// check isomorphic binding between objects __DEC_message_sendEvent_699802 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_sendEvent_699802
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_interaction_packagedElement_197044 = interaction
-											.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-											.eContainer() : null;
-
-									// check object __DEC_interaction_packagedElement_197044 is really bound
-									JavaSDM.ensure(__DEC_interaction_packagedElement_197044 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_interaction_packagedElement_197044
-											.getPackagedElement().contains(
-													interaction));
-
-									// check isomorphic binding between objects __DEC_interaction_packagedElement_197044 and _package 
-									JavaSDM.ensure(!__DEC_interaction_packagedElement_197044
-											.equals(_package));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link message from message to __DEC_message_message_62000
-									fujaba__Success = false;
-
-									fujaba__IterMessageTo__DEC_message_message_62000 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															message,
-															MessageEnd.class,
-															"message"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_62000
-													.hasNext()) {
-										try {
-											__DEC_message_message_62000 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_62000
-													.next();
-
-											// check object __DEC_message_message_62000 is really bound
-											JavaSDM.ensure(__DEC_message_message_62000 != null);
-											// check isomorphic binding between objects __DEC_message_message_62000 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_62000
-													.equals(messageReceive));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_834835
-									fujaba__Success = false;
-
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_834835 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															messageReceive,
-															Message.class,
-															"receiveEvent"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_834835
-													.hasNext()) {
-										try {
-											__DEC_messageReceive_receiveEvent_834835 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_834835
-													.next();
-
-											// check object __DEC_messageReceive_receiveEvent_834835 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_834835 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_834835 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_834835
-													.equals(message));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_711585
-									fujaba__Success = false;
-
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_711585 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															messageReceive,
-															Message.class,
-															"sendEvent"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_711585
-													.hasNext()) {
-										try {
-											__DEC_messageReceive_sendEvent_711585 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_711585
-													.next();
-
-											// check object __DEC_messageReceive_sendEvent_711585 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_711585 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_711585 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_711585
-													.equals(message));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check link fragment from interaction to interaction
-								JavaSDM.ensure(!(interaction.equals(interaction
-										.getEnclosingInteraction())));
-
-								// check link fragment from interaction to interaction
-								JavaSDM.ensure(!(interaction.equals(interaction
-										.getEnclosingInteraction())));
-
-								// check object _edge_interaction is really bound
-								JavaSDM.ensure(_edge_interaction != null);
-								// check object _edge_message is really bound
-								JavaSDM.ensure(_edge_message != null);
-								// check object _package is really bound
-								JavaSDM.ensure(_package != null);
-								// check object interaction is really bound
-								JavaSDM.ensure(interaction != null);
-								// check object line is really bound
-								JavaSDM.ensure(line != null);
-								// check object message is really bound
-								JavaSDM.ensure(message != null);
-								// check object messageReceive is really bound
-								JavaSDM.ensure(messageReceive != null);
-								// check isomorphic binding between objects _edge_message and _edge_interaction 
-								JavaSDM.ensure(!_edge_message
-										.equals(_edge_interaction));
-
-								// check link fragment from messageReceive to interaction
-								JavaSDM.ensure(interaction
-										.equals(messageReceive
-												.getEnclosingInteraction()));
-
-								// check link lifeline from line to interaction
-								JavaSDM.ensure(interaction.equals(line
-										.getInteraction()));
-
-								// check link message from message to interaction
-								JavaSDM.ensure(interaction.equals(message
-										.getInteraction()));
-
-								// check link message from messageReceive to message
-								JavaSDM.ensure(message.equals(messageReceive
-										.getMessage()));
-
-								// check link receiveEvent from message to messageReceive
-								JavaSDM.ensure(messageReceive.equals(message
-										.getReceiveEvent()));
-
-								// check link sendEvent from message to messageReceive
-								JavaSDM.ensure(!(messageReceive.equals(message
-										.getSendEvent())));
-
-								// check link packagedElement from interaction to _package
-								JavaSDM.ensure(_package.equals(interaction
-										.eContainer()));
-
-								// check link src from _edge_interaction to message
-								JavaSDM.ensure(message.equals(_edge_interaction
-										.getSrc()));
-
-								// check link src from _edge_message to interaction
-								JavaSDM.ensure(interaction.equals(_edge_message
-										.getSrc()));
-
-								// check link trg from _edge_interaction to interaction
-								JavaSDM.ensure(interaction
-										.equals(_edge_interaction.getTrg()));
-
-								// check link trg from _edge_message to message
-								JavaSDM.ensure(message.equals(_edge_message
-										.getTrg()));
-
-								// check link coveredBy from line to messageReceive
-								JavaSDM.ensure(line.getCoveredBy().contains(
-										messageReceive));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_BWD(match,
-										message, interaction, messageReceive,
-										line, _package);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_BWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_334(
-			EMoflonEdge _edge_interaction) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_568954 = null;
-		MessageEnd __DEC_message_sendEvent_695792 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_188888 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_842844 = null;
-		MessageEnd __DEC_message_message_842844 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_627229 = null;
-		Message __DEC_messageReceive_receiveEvent_627229 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_608056 = null;
-		Message __DEC_messageReceive_sendEvent_608056 = null;
-		Match match = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Iterator fujaba__IterInteractionToMessage = null;
-		Message message = null;
-		ModalSequenceDiagram.Package _package = null;
-		Interaction interaction = null;
-		Lifeline line = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_interaction is really bound
-			JavaSDM.ensure(_edge_interaction != null);
-			// bind object
-			_TmpObject = _edge_interaction.getSrc();
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_interaction.getTrg();
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-
-			// check link lifeline from line to interaction
-			JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// iterate to-many link message from interaction to message
-			fujaba__Success = false;
-
-			fujaba__IterInteractionToMessage = new ArrayList(
-					interaction.getMessage()).iterator();
-
-			while (fujaba__IterInteractionToMessage.hasNext()) {
-				try {
-					message = (Message) fujaba__IterInteractionToMessage.next();
-
-					// check object message is really bound
-					JavaSDM.ensure(message != null);
-					// bind object
-					_TmpObject = message.getReceiveEvent();
-
-					// ensure correct type and really bound of object messageReceive
-					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-					messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-					// check link fragment from messageReceive to interaction
-					JavaSDM.ensure(interaction.equals(messageReceive
-							.getEnclosingInteraction()));
-
-					// check link message from messageReceive to message
-					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-					// check link coveredBy from line to messageReceive
-					JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// negative check for link fragment from interaction
-						JavaSDM.ensure(interaction.getEnclosingOperand() == null);
-						// negative check for link fragment from messageReceive
-						JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_enclosingInteraction_568954 = interaction
-									.getEnclosingInteraction();
-
-							// check object __DEC_interaction_enclosingInteraction_568954 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_568954 != null);
-
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_568954 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_568954
-									.equals(interaction));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_message_sendEvent_695792 = message
-									.getSendEvent();
-
-							// check object __DEC_message_sendEvent_695792 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_695792 != null);
-
-							// check isomorphic binding between objects __DEC_message_sendEvent_695792 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_695792
-									.equals(messageReceive));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_packagedElement_188888 = interaction
-									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-									.eContainer() : null;
-
-							// check object __DEC_interaction_packagedElement_188888 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_188888 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_188888
-									.getPackagedElement().contains(interaction));
-
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_188888 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_188888
-									.equals(_package));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link message from message to __DEC_message_message_842844
-							fujaba__Success = false;
-
-							fujaba__IterMessageTo__DEC_message_message_842844 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(message,
-													MessageEnd.class, "message"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_842844
-											.hasNext()) {
-								try {
-									__DEC_message_message_842844 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_842844
-											.next();
-
-									// check object __DEC_message_message_842844 is really bound
-									JavaSDM.ensure(__DEC_message_message_842844 != null);
-									// check isomorphic binding between objects __DEC_message_message_842844 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_842844
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_627229
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_627229 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class,
-													"receiveEvent")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_627229
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_receiveEvent_627229 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_627229
-											.next();
-
-									// check object __DEC_messageReceive_receiveEvent_627229 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_627229 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_627229 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_627229
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_608056
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_608056 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_608056
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_sendEvent_608056 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_608056
-											.next();
-
-									// check object __DEC_messageReceive_sendEvent_608056 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_608056 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_608056 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_608056
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check object _edge_interaction is really bound
-						JavaSDM.ensure(_edge_interaction != null);
-						// check object _package is really bound
-						JavaSDM.ensure(_package != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link sendEvent from message to messageReceive
-						JavaSDM.ensure(!(messageReceive.equals(message
-								.getSendEvent())));
-
-						// check link packagedElement from interaction to _package
-						JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-						// check link src from _edge_interaction to line
-						JavaSDM.ensure(line.equals(_edge_interaction.getSrc()));
-
-						// check link trg from _edge_interaction to interaction
-						JavaSDM.ensure(interaction.equals(_edge_interaction
-								.getTrg()));
-
-						// check link coveredBy from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								message, interaction, messageReceive, line,
-								_package);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
-					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_335(
-			EMoflonEdge _edge_lifeline) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_649736 = null;
-		MessageEnd __DEC_message_sendEvent_927313 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_858711 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_249964 = null;
-		MessageEnd __DEC_message_message_249964 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_391474 = null;
-		Message __DEC_messageReceive_receiveEvent_391474 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_707582 = null;
-		Message __DEC_messageReceive_sendEvent_707582 = null;
-		Match match = null;
-		Iterator fujaba__IterInteractionTo_edge_interaction = null;
-		EMoflonEdge _edge_interaction = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Iterator fujaba__IterInteractionToMessage = null;
-		Message message = null;
-		Lifeline line = null;
-		ModalSequenceDiagram.Package _package = null;
-		Interaction interaction = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_lifeline is really bound
-			JavaSDM.ensure(_edge_lifeline != null);
-			// bind object
-			_TmpObject = _edge_lifeline.getSrc();
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// bind object
-			_TmpObject = _edge_lifeline.getTrg();
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-
-			// check link lifeline from line to interaction
-			JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-			// iterate to-many link message from interaction to message
-			fujaba__Success = false;
-
-			fujaba__IterInteractionToMessage = new ArrayList(
-					interaction.getMessage()).iterator();
-
-			while (fujaba__IterInteractionToMessage.hasNext()) {
-				try {
-					message = (Message) fujaba__IterInteractionToMessage.next();
-
-					// check object message is really bound
-					JavaSDM.ensure(message != null);
-					// bind object
-					_TmpObject = message.getReceiveEvent();
-
-					// ensure correct type and really bound of object messageReceive
-					JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-					messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-					// check link fragment from messageReceive to interaction
-					JavaSDM.ensure(interaction.equals(messageReceive
-							.getEnclosingInteraction()));
-
-					// check link message from messageReceive to message
-					JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-					// check link coveredBy from line to messageReceive
-					JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
-
-					// iterate to-many link trg from interaction to _edge_interaction
-					fujaba__Success = false;
-
-					fujaba__IterInteractionTo_edge_interaction = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(interaction,
-											EMoflonEdge.class, "trg"))
-							.iterator();
-
-					while (fujaba__IterInteractionTo_edge_interaction.hasNext()) {
-						try {
-							_edge_interaction = (EMoflonEdge) fujaba__IterInteractionTo_edge_interaction
-									.next();
-
-							// check object _edge_interaction is really bound
-							JavaSDM.ensure(_edge_interaction != null);
-							// check isomorphic binding between objects _edge_lifeline and _edge_interaction 
-							JavaSDM.ensure(!_edge_lifeline
-									.equals(_edge_interaction));
-
-							// check link src from _edge_interaction to line
-							JavaSDM.ensure(line.equals(_edge_interaction
-									.getSrc()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// negative check for link fragment from interaction
-								JavaSDM.ensure(interaction
-										.getEnclosingOperand() == null);
-								// negative check for link fragment from messageReceive
-								JavaSDM.ensure(messageReceive
-										.getEnclosingOperand() == null);
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_interaction_enclosingInteraction_649736 = interaction
-											.getEnclosingInteraction();
-
-									// check object __DEC_interaction_enclosingInteraction_649736 is really bound
-									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_649736 != null);
-
-									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_649736 and interaction 
-									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_649736
-											.equals(interaction));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_message_sendEvent_927313 = message
-											.getSendEvent();
-
-									// check object __DEC_message_sendEvent_927313 is really bound
-									JavaSDM.ensure(__DEC_message_sendEvent_927313 != null);
-
-									// check isomorphic binding between objects __DEC_message_sendEvent_927313 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_sendEvent_927313
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_interaction_packagedElement_858711 = interaction
-											.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-											.eContainer() : null;
-
-									// check object __DEC_interaction_packagedElement_858711 is really bound
-									JavaSDM.ensure(__DEC_interaction_packagedElement_858711 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_interaction_packagedElement_858711
-											.getPackagedElement().contains(
-													interaction));
-
-									// check isomorphic binding between objects __DEC_interaction_packagedElement_858711 and _package 
-									JavaSDM.ensure(!__DEC_interaction_packagedElement_858711
-											.equals(_package));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link message from message to __DEC_message_message_249964
-									fujaba__Success = false;
-
-									fujaba__IterMessageTo__DEC_message_message_249964 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															message,
-															MessageEnd.class,
-															"message"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_249964
-													.hasNext()) {
-										try {
-											__DEC_message_message_249964 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_249964
-													.next();
-
-											// check object __DEC_message_message_249964 is really bound
-											JavaSDM.ensure(__DEC_message_message_249964 != null);
-											// check isomorphic binding between objects __DEC_message_message_249964 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_249964
-													.equals(messageReceive));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_391474
-									fujaba__Success = false;
-
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_391474 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															messageReceive,
-															Message.class,
-															"receiveEvent"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_391474
-													.hasNext()) {
-										try {
-											__DEC_messageReceive_receiveEvent_391474 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_391474
-													.next();
-
-											// check object __DEC_messageReceive_receiveEvent_391474 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_391474 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_391474 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_391474
-													.equals(message));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_707582
-									fujaba__Success = false;
-
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_707582 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															messageReceive,
-															Message.class,
-															"sendEvent"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_707582
-													.hasNext()) {
-										try {
-											__DEC_messageReceive_sendEvent_707582 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_707582
-													.next();
-
-											// check object __DEC_messageReceive_sendEvent_707582 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_707582 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_707582 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_707582
-													.equals(message));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check link fragment from interaction to interaction
-								JavaSDM.ensure(!(interaction.equals(interaction
-										.getEnclosingInteraction())));
-
-								// check link fragment from interaction to interaction
-								JavaSDM.ensure(!(interaction.equals(interaction
-										.getEnclosingInteraction())));
-
-								// check object _edge_interaction is really bound
-								JavaSDM.ensure(_edge_interaction != null);
-								// check object _edge_lifeline is really bound
-								JavaSDM.ensure(_edge_lifeline != null);
-								// check object _package is really bound
-								JavaSDM.ensure(_package != null);
-								// check object interaction is really bound
-								JavaSDM.ensure(interaction != null);
-								// check object line is really bound
-								JavaSDM.ensure(line != null);
-								// check object message is really bound
-								JavaSDM.ensure(message != null);
-								// check object messageReceive is really bound
-								JavaSDM.ensure(messageReceive != null);
-								// check isomorphic binding between objects _edge_lifeline and _edge_interaction 
-								JavaSDM.ensure(!_edge_lifeline
-										.equals(_edge_interaction));
-
-								// check link fragment from messageReceive to interaction
-								JavaSDM.ensure(interaction
-										.equals(messageReceive
-												.getEnclosingInteraction()));
-
-								// check link lifeline from line to interaction
-								JavaSDM.ensure(interaction.equals(line
-										.getInteraction()));
-
-								// check link message from message to interaction
-								JavaSDM.ensure(interaction.equals(message
-										.getInteraction()));
-
-								// check link message from messageReceive to message
-								JavaSDM.ensure(message.equals(messageReceive
-										.getMessage()));
-
-								// check link receiveEvent from message to messageReceive
-								JavaSDM.ensure(messageReceive.equals(message
-										.getReceiveEvent()));
-
-								// check link sendEvent from message to messageReceive
-								JavaSDM.ensure(!(messageReceive.equals(message
-										.getSendEvent())));
-
-								// check link packagedElement from interaction to _package
-								JavaSDM.ensure(_package.equals(interaction
-										.eContainer()));
-
-								// check link src from _edge_interaction to line
-								JavaSDM.ensure(line.equals(_edge_interaction
-										.getSrc()));
-
-								// check link src from _edge_lifeline to interaction
-								JavaSDM.ensure(interaction
-										.equals(_edge_lifeline.getSrc()));
-
-								// check link trg from _edge_interaction to interaction
-								JavaSDM.ensure(interaction
-										.equals(_edge_interaction.getTrg()));
-
-								// check link trg from _edge_lifeline to line
-								JavaSDM.ensure(line.equals(_edge_lifeline
-										.getTrg()));
-
-								// check link coveredBy from line to messageReceive
-								JavaSDM.ensure(line.getCoveredBy().contains(
-										messageReceive));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_BWD(match,
-										message, interaction, messageReceive,
-										line, _package);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_BWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_336(
-			EMoflonEdge _edge_enclosingInteraction) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_997310 = null;
-		MessageEnd __DEC_message_sendEvent_709263 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_864484 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_349443 = null;
-		MessageEnd __DEC_message_message_349443 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_249329 = null;
-		Message __DEC_messageReceive_receiveEvent_249329 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_150684 = null;
-		Message __DEC_messageReceive_sendEvent_150684 = null;
-		Match match = null;
-		Iterator fujaba__IterMessageReceiveToLine = null;
-		Lifeline line = null;
-		ModalSequenceDiagram.Package _package = null;
-		Message message = null;
-		Interaction interaction = null;
-		MessageOccurrenceSpecification messageReceive = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_enclosingInteraction is really bound
-			JavaSDM.ensure(_edge_enclosingInteraction != null);
-			// bind object
-			_TmpObject = _edge_enclosingInteraction.getSrc();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
-			interaction = messageReceive.getEnclosingInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			message = messageReceive.getMessage();
-
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-
-			// check link message from message to interaction
-			JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-			// check link receiveEvent from message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// check link trg from _edge_enclosingInteraction to interaction
-			JavaSDM.ensure(interaction.equals(_edge_enclosingInteraction
-					.getTrg()));
-
-			// iterate to-many link coveredBy from messageReceive to line
-			fujaba__Success = false;
-
-			fujaba__IterMessageReceiveToLine = new ArrayList(
-					messageReceive.getCovered()).iterator();
-
-			while (fujaba__IterMessageReceiveToLine.hasNext()) {
-				try {
-					line = (Lifeline) fujaba__IterMessageReceiveToLine.next();
-
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// check link lifeline from line to interaction
-					JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// negative check for link fragment from interaction
-						JavaSDM.ensure(interaction.getEnclosingOperand() == null);
-						// negative check for link fragment from messageReceive
-						JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_enclosingInteraction_997310 = interaction
-									.getEnclosingInteraction();
-
-							// check object __DEC_interaction_enclosingInteraction_997310 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_997310 != null);
-
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_997310 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_997310
-									.equals(interaction));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_message_sendEvent_709263 = message
-									.getSendEvent();
-
-							// check object __DEC_message_sendEvent_709263 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_709263 != null);
-
-							// check isomorphic binding between objects __DEC_message_sendEvent_709263 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_709263
-									.equals(messageReceive));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_packagedElement_864484 = interaction
-									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-									.eContainer() : null;
-
-							// check object __DEC_interaction_packagedElement_864484 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_864484 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_864484
-									.getPackagedElement().contains(interaction));
-
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_864484 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_864484
-									.equals(_package));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link message from message to __DEC_message_message_349443
-							fujaba__Success = false;
-
-							fujaba__IterMessageTo__DEC_message_message_349443 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(message,
-													MessageEnd.class, "message"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_349443
-											.hasNext()) {
-								try {
-									__DEC_message_message_349443 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_349443
-											.next();
-
-									// check object __DEC_message_message_349443 is really bound
-									JavaSDM.ensure(__DEC_message_message_349443 != null);
-									// check isomorphic binding between objects __DEC_message_message_349443 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_349443
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_249329
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_249329 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class,
-													"receiveEvent")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_249329
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_receiveEvent_249329 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_249329
-											.next();
-
-									// check object __DEC_messageReceive_receiveEvent_249329 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_249329 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_249329 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_249329
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_150684
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_150684 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_150684
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_sendEvent_150684 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_150684
-											.next();
-
-									// check object __DEC_messageReceive_sendEvent_150684 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_150684 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_150684 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_150684
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check object _edge_enclosingInteraction is really bound
-						JavaSDM.ensure(_edge_enclosingInteraction != null);
-						// check object _package is really bound
-						JavaSDM.ensure(_package != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link sendEvent from message to messageReceive
-						JavaSDM.ensure(!(messageReceive.equals(message
-								.getSendEvent())));
-
-						// check link packagedElement from interaction to _package
-						JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-						// check link src from _edge_enclosingInteraction to messageReceive
-						JavaSDM.ensure(messageReceive
-								.equals(_edge_enclosingInteraction.getSrc()));
-
-						// check link trg from _edge_enclosingInteraction to interaction
-						JavaSDM.ensure(interaction
-								.equals(_edge_enclosingInteraction.getTrg()));
-
-						// check link coveredBy from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								message, interaction, messageReceive, line,
-								_package);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
-					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_337(
-			EMoflonEdge _edge_fragment) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_292472 = null;
-		MessageEnd __DEC_message_sendEvent_190561 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_820154 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_457832 = null;
-		MessageEnd __DEC_message_message_457832 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_402466 = null;
-		Message __DEC_messageReceive_receiveEvent_402466 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_389869 = null;
-		Message __DEC_messageReceive_sendEvent_389869 = null;
-		Match match = null;
-		Iterator fujaba__IterMessageReceiveTo_edge_enclosingInteraction = null;
-		EMoflonEdge _edge_enclosingInteraction = null;
-		Iterator fujaba__IterMessageReceiveToLine = null;
-		Lifeline line = null;
-		ModalSequenceDiagram.Package _package = null;
-		Message message = null;
-		Interaction interaction = null;
-		MessageOccurrenceSpecification messageReceive = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_fragment is really bound
-			JavaSDM.ensure(_edge_fragment != null);
-			// bind object
-			_TmpObject = _edge_fragment.getTrg();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
-			interaction = messageReceive.getEnclosingInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			message = messageReceive.getMessage();
-
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-
-			// check link message from message to interaction
-			JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-			// check link receiveEvent from message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// check link src from _edge_fragment to interaction
-			JavaSDM.ensure(interaction.equals(_edge_fragment.getSrc()));
-
-			// iterate to-many link coveredBy from messageReceive to line
-			fujaba__Success = false;
-
-			fujaba__IterMessageReceiveToLine = new ArrayList(
-					messageReceive.getCovered()).iterator();
-
-			while (fujaba__IterMessageReceiveToLine.hasNext()) {
-				try {
-					line = (Lifeline) fujaba__IterMessageReceiveToLine.next();
-
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// check link lifeline from line to interaction
-					JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-					// iterate to-many link src from messageReceive to _edge_enclosingInteraction
-					fujaba__Success = false;
-
-					fujaba__IterMessageReceiveTo_edge_enclosingInteraction = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(messageReceive,
-											EMoflonEdge.class, "src"))
-							.iterator();
-
-					while (fujaba__IterMessageReceiveTo_edge_enclosingInteraction
-							.hasNext()) {
-						try {
-							_edge_enclosingInteraction = (EMoflonEdge) fujaba__IterMessageReceiveTo_edge_enclosingInteraction
-									.next();
-
-							// check object _edge_enclosingInteraction is really bound
-							JavaSDM.ensure(_edge_enclosingInteraction != null);
-							// check isomorphic binding between objects _edge_fragment and _edge_enclosingInteraction 
-							JavaSDM.ensure(!_edge_fragment
-									.equals(_edge_enclosingInteraction));
-
-							// check link trg from _edge_enclosingInteraction to interaction
-							JavaSDM.ensure(interaction
-									.equals(_edge_enclosingInteraction.getTrg()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// negative check for link fragment from interaction
-								JavaSDM.ensure(interaction
-										.getEnclosingOperand() == null);
-								// negative check for link fragment from messageReceive
-								JavaSDM.ensure(messageReceive
-										.getEnclosingOperand() == null);
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_interaction_enclosingInteraction_292472 = interaction
-											.getEnclosingInteraction();
-
-									// check object __DEC_interaction_enclosingInteraction_292472 is really bound
-									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_292472 != null);
-
-									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_292472 and interaction 
-									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_292472
-											.equals(interaction));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_message_sendEvent_190561 = message
-											.getSendEvent();
-
-									// check object __DEC_message_sendEvent_190561 is really bound
-									JavaSDM.ensure(__DEC_message_sendEvent_190561 != null);
-
-									// check isomorphic binding between objects __DEC_message_sendEvent_190561 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_sendEvent_190561
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_interaction_packagedElement_820154 = interaction
-											.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-											.eContainer() : null;
-
-									// check object __DEC_interaction_packagedElement_820154 is really bound
-									JavaSDM.ensure(__DEC_interaction_packagedElement_820154 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_interaction_packagedElement_820154
-											.getPackagedElement().contains(
-													interaction));
-
-									// check isomorphic binding between objects __DEC_interaction_packagedElement_820154 and _package 
-									JavaSDM.ensure(!__DEC_interaction_packagedElement_820154
-											.equals(_package));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link message from message to __DEC_message_message_457832
-									fujaba__Success = false;
-
-									fujaba__IterMessageTo__DEC_message_message_457832 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															message,
-															MessageEnd.class,
-															"message"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_457832
-													.hasNext()) {
-										try {
-											__DEC_message_message_457832 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_457832
-													.next();
-
-											// check object __DEC_message_message_457832 is really bound
-											JavaSDM.ensure(__DEC_message_message_457832 != null);
-											// check isomorphic binding between objects __DEC_message_message_457832 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_457832
-													.equals(messageReceive));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_402466
-									fujaba__Success = false;
-
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_402466 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															messageReceive,
-															Message.class,
-															"receiveEvent"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_402466
-													.hasNext()) {
-										try {
-											__DEC_messageReceive_receiveEvent_402466 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_402466
-													.next();
-
-											// check object __DEC_messageReceive_receiveEvent_402466 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_402466 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_402466 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_402466
-													.equals(message));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_389869
-									fujaba__Success = false;
-
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_389869 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															messageReceive,
-															Message.class,
-															"sendEvent"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_389869
-													.hasNext()) {
-										try {
-											__DEC_messageReceive_sendEvent_389869 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_389869
-													.next();
-
-											// check object __DEC_messageReceive_sendEvent_389869 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_389869 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_389869 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_389869
-													.equals(message));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check link fragment from interaction to interaction
-								JavaSDM.ensure(!(interaction.equals(interaction
-										.getEnclosingInteraction())));
-
-								// check link fragment from interaction to interaction
-								JavaSDM.ensure(!(interaction.equals(interaction
-										.getEnclosingInteraction())));
-
-								// check object _edge_enclosingInteraction is really bound
-								JavaSDM.ensure(_edge_enclosingInteraction != null);
-								// check object _edge_fragment is really bound
-								JavaSDM.ensure(_edge_fragment != null);
-								// check object _package is really bound
-								JavaSDM.ensure(_package != null);
-								// check object interaction is really bound
-								JavaSDM.ensure(interaction != null);
-								// check object line is really bound
-								JavaSDM.ensure(line != null);
-								// check object message is really bound
-								JavaSDM.ensure(message != null);
-								// check object messageReceive is really bound
-								JavaSDM.ensure(messageReceive != null);
-								// check isomorphic binding between objects _edge_fragment and _edge_enclosingInteraction 
-								JavaSDM.ensure(!_edge_fragment
-										.equals(_edge_enclosingInteraction));
-
-								// check link fragment from messageReceive to interaction
-								JavaSDM.ensure(interaction
-										.equals(messageReceive
-												.getEnclosingInteraction()));
-
-								// check link lifeline from line to interaction
-								JavaSDM.ensure(interaction.equals(line
-										.getInteraction()));
-
-								// check link message from message to interaction
-								JavaSDM.ensure(interaction.equals(message
-										.getInteraction()));
-
-								// check link message from messageReceive to message
-								JavaSDM.ensure(message.equals(messageReceive
-										.getMessage()));
-
-								// check link receiveEvent from message to messageReceive
-								JavaSDM.ensure(messageReceive.equals(message
-										.getReceiveEvent()));
-
-								// check link sendEvent from message to messageReceive
-								JavaSDM.ensure(!(messageReceive.equals(message
-										.getSendEvent())));
-
-								// check link packagedElement from interaction to _package
-								JavaSDM.ensure(_package.equals(interaction
-										.eContainer()));
-
-								// check link src from _edge_enclosingInteraction to messageReceive
-								JavaSDM.ensure(messageReceive
-										.equals(_edge_enclosingInteraction
-												.getSrc()));
-
-								// check link src from _edge_fragment to interaction
-								JavaSDM.ensure(interaction
-										.equals(_edge_fragment.getSrc()));
-
-								// check link trg from _edge_enclosingInteraction to interaction
-								JavaSDM.ensure(interaction
-										.equals(_edge_enclosingInteraction
-												.getTrg()));
-
-								// check link trg from _edge_fragment to messageReceive
-								JavaSDM.ensure(messageReceive
-										.equals(_edge_fragment.getTrg()));
-
-								// check link coveredBy from line to messageReceive
-								JavaSDM.ensure(line.getCoveredBy().contains(
-										messageReceive));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_BWD(match,
-										message, interaction, messageReceive,
-										line, _package);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_BWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_338(
-			EMoflonEdge _edge_message) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_816079 = null;
-		MessageEnd __DEC_message_sendEvent_799021 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_581883 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_743560 = null;
-		MessageEnd __DEC_message_message_743560 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_119412 = null;
-		Message __DEC_messageReceive_receiveEvent_119412 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_383217 = null;
-		Message __DEC_messageReceive_sendEvent_383217 = null;
-		Match match = null;
-		Iterator fujaba__IterMessageReceiveToLine = null;
-		Lifeline line = null;
-		ModalSequenceDiagram.Package _package = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Interaction interaction = null;
-		Message message = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_message is really bound
-			JavaSDM.ensure(_edge_message != null);
-			// bind object
-			_TmpObject = _edge_message.getTrg();
-
-			// ensure correct type and really bound of object message
-			JavaSDM.ensure(_TmpObject instanceof Message);
-			message = (Message) _TmpObject;
-
-			// bind object
-			interaction = message.getInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			_TmpObject = message.getReceiveEvent();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// check link fragment from messageReceive to interaction
-			JavaSDM.ensure(interaction.equals(messageReceive
-					.getEnclosingInteraction()));
-
-			// check link message from messageReceive to message
-			JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// check link src from _edge_message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(_edge_message.getSrc()));
-
-			// iterate to-many link coveredBy from messageReceive to line
-			fujaba__Success = false;
-
-			fujaba__IterMessageReceiveToLine = new ArrayList(
-					messageReceive.getCovered()).iterator();
-
-			while (fujaba__IterMessageReceiveToLine.hasNext()) {
-				try {
-					line = (Lifeline) fujaba__IterMessageReceiveToLine.next();
-
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// check link lifeline from line to interaction
-					JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// negative check for link fragment from interaction
-						JavaSDM.ensure(interaction.getEnclosingOperand() == null);
-						// negative check for link fragment from messageReceive
-						JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_enclosingInteraction_816079 = interaction
-									.getEnclosingInteraction();
-
-							// check object __DEC_interaction_enclosingInteraction_816079 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_816079 != null);
-
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_816079 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_816079
-									.equals(interaction));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_message_sendEvent_799021 = message
-									.getSendEvent();
-
-							// check object __DEC_message_sendEvent_799021 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_799021 != null);
-
-							// check isomorphic binding between objects __DEC_message_sendEvent_799021 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_799021
-									.equals(messageReceive));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_packagedElement_581883 = interaction
-									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-									.eContainer() : null;
-
-							// check object __DEC_interaction_packagedElement_581883 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_581883 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_581883
-									.getPackagedElement().contains(interaction));
-
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_581883 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_581883
-									.equals(_package));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link message from message to __DEC_message_message_743560
-							fujaba__Success = false;
-
-							fujaba__IterMessageTo__DEC_message_message_743560 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(message,
-													MessageEnd.class, "message"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_743560
-											.hasNext()) {
-								try {
-									__DEC_message_message_743560 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_743560
-											.next();
-
-									// check object __DEC_message_message_743560 is really bound
-									JavaSDM.ensure(__DEC_message_message_743560 != null);
-									// check isomorphic binding between objects __DEC_message_message_743560 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_743560
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_119412
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_119412 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class,
-													"receiveEvent")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_119412
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_receiveEvent_119412 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_119412
-											.next();
-
-									// check object __DEC_messageReceive_receiveEvent_119412 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_119412 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_119412 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_119412
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_383217
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_383217 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_383217
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_sendEvent_383217 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_383217
-											.next();
-
-									// check object __DEC_messageReceive_sendEvent_383217 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_383217 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_383217 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_383217
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check object _edge_message is really bound
-						JavaSDM.ensure(_edge_message != null);
-						// check object _package is really bound
-						JavaSDM.ensure(_package != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link sendEvent from message to messageReceive
-						JavaSDM.ensure(!(messageReceive.equals(message
-								.getSendEvent())));
-
-						// check link packagedElement from interaction to _package
-						JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-						// check link src from _edge_message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(_edge_message
-								.getSrc()));
-
-						// check link trg from _edge_message to message
-						JavaSDM.ensure(message.equals(_edge_message.getTrg()));
-
-						// check link coveredBy from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								message, interaction, messageReceive, line,
-								_package);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
-					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_81(
-			EMoflonEdge _edge_useCases) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_491007 = null;
-		UseCase __DEC_basicFlow_flows_194408 = null;
-		PackageDeclaration __DEC_useCase_useCases_186293 = null;
-		Match match = null;
-		Iterator fujaba__IterUseCaseToBasicFlow = null;
-		BasicFlow basicFlow = null;
-		Iterator fujaba__IterPackageDeclarationToActor = null;
-		Actor actor = null;
-		UseCase useCase = null;
-		PackageDeclaration packageDeclaration = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_useCases is really bound
-			JavaSDM.ensure(_edge_useCases != null);
-			// bind object
-			_TmpObject = _edge_useCases.getSrc();
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_useCases.getTrg();
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-
-			// check link useCases from useCase to packageDeclaration
-			JavaSDM.ensure(packageDeclaration.equals(useCase.eContainer()));
-
-			// iterate to-many link actors from packageDeclaration to actor
-			fujaba__Success = false;
-
-			fujaba__IterPackageDeclarationToActor = new ArrayList(
-					packageDeclaration.getActors()).iterator();
-
-			while (fujaba__IterPackageDeclarationToActor.hasNext()) {
-				try {
-					actor = (Actor) fujaba__IterPackageDeclarationToActor
-							.next();
-
-					// check object actor is really bound
-					JavaSDM.ensure(actor != null);
-					// iterate to-many link flows from useCase to basicFlow
-					fujaba__Success = false;
-
-					fujaba__IterUseCaseToBasicFlow = new ArrayList(
-							useCase.getFlows()).iterator();
-
-					while (fujaba__IterUseCaseToBasicFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterUseCaseToBasicFlow.next();
-
-							// ensure correct type and really bound of object basicFlow
-							JavaSDM.ensure(_TmpObject instanceof BasicFlow);
-							basicFlow = (BasicFlow) _TmpObject;
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_actor_actors_491007 = actor
-											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
-											.eContainer() : null;
-
-									// check object __DEC_actor_actors_491007 is really bound
-									JavaSDM.ensure(__DEC_actor_actors_491007 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_actor_actors_491007
-											.getActors().contains(actor));
-
-									// check isomorphic binding between objects __DEC_actor_actors_491007 and packageDeclaration 
-									JavaSDM.ensure(!__DEC_actor_actors_491007
-											.equals(packageDeclaration));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_basicFlow_flows_194408 = basicFlow
-											.eContainer() instanceof UseCase ? (UseCase) basicFlow
-											.eContainer() : null;
-
-									// check object __DEC_basicFlow_flows_194408 is really bound
-									JavaSDM.ensure(__DEC_basicFlow_flows_194408 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_basicFlow_flows_194408
-											.getFlows().contains(basicFlow));
-
-									// check isomorphic binding between objects __DEC_basicFlow_flows_194408 and useCase 
-									JavaSDM.ensure(!__DEC_basicFlow_flows_194408
-											.equals(useCase));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_useCase_useCases_186293 = useCase
-											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
-											.eContainer() : null;
-
-									// check object __DEC_useCase_useCases_186293 is really bound
-									JavaSDM.ensure(__DEC_useCase_useCases_186293 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_useCase_useCases_186293
-											.getUseCases().contains(useCase));
-
-									// check isomorphic binding between objects __DEC_useCase_useCases_186293 and packageDeclaration 
-									JavaSDM.ensure(!__DEC_useCase_useCases_186293
-											.equals(packageDeclaration));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_useCases is really bound
-								JavaSDM.ensure(_edge_useCases != null);
-								// check object actor is really bound
-								JavaSDM.ensure(actor != null);
-								// check object basicFlow is really bound
-								JavaSDM.ensure(basicFlow != null);
-								// check object packageDeclaration is really bound
-								JavaSDM.ensure(packageDeclaration != null);
-								// check object useCase is really bound
-								JavaSDM.ensure(useCase != null);
-								// check link actors from actor to packageDeclaration
-								JavaSDM.ensure(packageDeclaration.equals(actor
-										.eContainer()));
-
-								// check link flows from basicFlow to useCase
-								JavaSDM.ensure(useCase.equals(basicFlow
-										.eContainer()));
-
-								// check link src from _edge_useCases to packageDeclaration
-								JavaSDM.ensure(packageDeclaration
-										.equals(_edge_useCases.getSrc()));
-
-								// check link trg from _edge_useCases to useCase
-								JavaSDM.ensure(useCase.equals(_edge_useCases
-										.getTrg()));
-
-								// check link useCases from useCase to packageDeclaration
-								JavaSDM.ensure(packageDeclaration
-										.equals(useCase.eContainer()));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_FWD(match,
-										useCase, actor, packageDeclaration,
-										basicFlow);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_FWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_82(
-			EMoflonEdge _edge_actors) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_540787 = null;
-		UseCase __DEC_basicFlow_flows_449596 = null;
-		PackageDeclaration __DEC_useCase_useCases_658862 = null;
-		Match match = null;
-		Iterator fujaba__IterUseCaseToBasicFlow = null;
-		BasicFlow basicFlow = null;
-		Iterator fujaba__IterPackageDeclarationToUseCase = null;
-		UseCase useCase = null;
-		Actor actor = null;
-		PackageDeclaration packageDeclaration = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_actors is really bound
-			JavaSDM.ensure(_edge_actors != null);
-			// bind object
-			_TmpObject = _edge_actors.getSrc();
-
-			// ensure correct type and really bound of object packageDeclaration
-			JavaSDM.ensure(_TmpObject instanceof PackageDeclaration);
-			packageDeclaration = (PackageDeclaration) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_actors.getTrg();
-
-			// ensure correct type and really bound of object actor
-			JavaSDM.ensure(_TmpObject instanceof Actor);
-			actor = (Actor) _TmpObject;
-
-			// check link actors from actor to packageDeclaration
-			JavaSDM.ensure(packageDeclaration.equals(actor.eContainer()));
-
-			// iterate to-many link useCases from packageDeclaration to useCase
-			fujaba__Success = false;
-
-			fujaba__IterPackageDeclarationToUseCase = new ArrayList(
-					packageDeclaration.getUseCases()).iterator();
-
-			while (fujaba__IterPackageDeclarationToUseCase.hasNext()) {
-				try {
-					useCase = (UseCase) fujaba__IterPackageDeclarationToUseCase
-							.next();
-
-					// check object useCase is really bound
-					JavaSDM.ensure(useCase != null);
-					// iterate to-many link flows from useCase to basicFlow
-					fujaba__Success = false;
-
-					fujaba__IterUseCaseToBasicFlow = new ArrayList(
-							useCase.getFlows()).iterator();
-
-					while (fujaba__IterUseCaseToBasicFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterUseCaseToBasicFlow.next();
-
-							// ensure correct type and really bound of object basicFlow
-							JavaSDM.ensure(_TmpObject instanceof BasicFlow);
-							basicFlow = (BasicFlow) _TmpObject;
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_actor_actors_540787 = actor
-											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
-											.eContainer() : null;
-
-									// check object __DEC_actor_actors_540787 is really bound
-									JavaSDM.ensure(__DEC_actor_actors_540787 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_actor_actors_540787
-											.getActors().contains(actor));
-
-									// check isomorphic binding between objects __DEC_actor_actors_540787 and packageDeclaration 
-									JavaSDM.ensure(!__DEC_actor_actors_540787
-											.equals(packageDeclaration));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_basicFlow_flows_449596 = basicFlow
-											.eContainer() instanceof UseCase ? (UseCase) basicFlow
-											.eContainer() : null;
-
-									// check object __DEC_basicFlow_flows_449596 is really bound
-									JavaSDM.ensure(__DEC_basicFlow_flows_449596 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_basicFlow_flows_449596
-											.getFlows().contains(basicFlow));
-
-									// check isomorphic binding between objects __DEC_basicFlow_flows_449596 and useCase 
-									JavaSDM.ensure(!__DEC_basicFlow_flows_449596
-											.equals(useCase));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_useCase_useCases_658862 = useCase
-											.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
-											.eContainer() : null;
-
-									// check object __DEC_useCase_useCases_658862 is really bound
-									JavaSDM.ensure(__DEC_useCase_useCases_658862 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_useCase_useCases_658862
-											.getUseCases().contains(useCase));
-
-									// check isomorphic binding between objects __DEC_useCase_useCases_658862 and packageDeclaration 
-									JavaSDM.ensure(!__DEC_useCase_useCases_658862
-											.equals(packageDeclaration));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_actors is really bound
-								JavaSDM.ensure(_edge_actors != null);
-								// check object actor is really bound
-								JavaSDM.ensure(actor != null);
-								// check object basicFlow is really bound
-								JavaSDM.ensure(basicFlow != null);
-								// check object packageDeclaration is really bound
-								JavaSDM.ensure(packageDeclaration != null);
-								// check object useCase is really bound
-								JavaSDM.ensure(useCase != null);
-								// check link actors from actor to packageDeclaration
-								JavaSDM.ensure(packageDeclaration.equals(actor
-										.eContainer()));
-
-								// check link flows from basicFlow to useCase
-								JavaSDM.ensure(useCase.equals(basicFlow
-										.eContainer()));
-
-								// check link src from _edge_actors to packageDeclaration
-								JavaSDM.ensure(packageDeclaration
-										.equals(_edge_actors.getSrc()));
-
-								// check link trg from _edge_actors to actor
-								JavaSDM.ensure(actor.equals(_edge_actors
-										.getTrg()));
-
-								// check link useCases from useCase to packageDeclaration
-								JavaSDM.ensure(packageDeclaration
-										.equals(useCase.eContainer()));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_FWD(match,
-										useCase, actor, packageDeclaration,
-										basicFlow);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_FWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_339(
-			EMoflonEdge _edge_coveredBy) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_708018 = null;
-		MessageEnd __DEC_message_sendEvent_540947 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_718631 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_250520 = null;
-		MessageEnd __DEC_message_message_250520 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_502602 = null;
-		Message __DEC_messageReceive_receiveEvent_502602 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_341076 = null;
-		Message __DEC_messageReceive_sendEvent_341076 = null;
-		Match match = null;
-		ModalSequenceDiagram.Package _package = null;
-		Message message = null;
-		Interaction interaction = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Lifeline line = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_coveredBy is really bound
-			JavaSDM.ensure(_edge_coveredBy != null);
-			// bind object
-			_TmpObject = _edge_coveredBy.getSrc();
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_coveredBy.getTrg();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
-			interaction = messageReceive.getEnclosingInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// check link lifeline from line to interaction
-			JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-			// bind object
-			message = messageReceive.getMessage();
-
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-
-			// check link message from message to interaction
-			JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-			// check link receiveEvent from message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// check link coveredBy from line to messageReceive
-			JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// negative check for link fragment from interaction
-				JavaSDM.ensure(interaction.getEnclosingOperand() == null);
-				// negative check for link fragment from messageReceive
-				JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_interaction_enclosingInteraction_708018 = interaction
-							.getEnclosingInteraction();
-
-					// check object __DEC_interaction_enclosingInteraction_708018 is really bound
-					JavaSDM.ensure(__DEC_interaction_enclosingInteraction_708018 != null);
-
-					// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_708018 and interaction 
-					JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_708018
-							.equals(interaction));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_message_sendEvent_540947 = message.getSendEvent();
-
-					// check object __DEC_message_sendEvent_540947 is really bound
-					JavaSDM.ensure(__DEC_message_sendEvent_540947 != null);
-
-					// check isomorphic binding between objects __DEC_message_sendEvent_540947 and messageReceive 
-					JavaSDM.ensure(!__DEC_message_sendEvent_540947
-							.equals(messageReceive));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_interaction_packagedElement_718631 = interaction
-							.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-							.eContainer() : null;
-
-					// check object __DEC_interaction_packagedElement_718631 is really bound
-					JavaSDM.ensure(__DEC_interaction_packagedElement_718631 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_interaction_packagedElement_718631
-							.getPackagedElement().contains(interaction));
-
-					// check isomorphic binding between objects __DEC_interaction_packagedElement_718631 and _package 
-					JavaSDM.ensure(!__DEC_interaction_packagedElement_718631
-							.equals(_package));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link message from message to __DEC_message_message_250520
-					fujaba__Success = false;
-
-					fujaba__IterMessageTo__DEC_message_message_250520 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(message,
-											MessageEnd.class, "message"))
-							.iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterMessageTo__DEC_message_message_250520
-									.hasNext()) {
-						try {
-							__DEC_message_message_250520 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_250520
-									.next();
-
-							// check object __DEC_message_message_250520 is really bound
-							JavaSDM.ensure(__DEC_message_message_250520 != null);
-							// check isomorphic binding between objects __DEC_message_message_250520 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_message_250520
-									.equals(messageReceive));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_502602
-					fujaba__Success = false;
-
-					fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_502602 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(messageReceive,
-											Message.class, "receiveEvent"))
-							.iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_502602
-									.hasNext()) {
-						try {
-							__DEC_messageReceive_receiveEvent_502602 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_502602
-									.next();
-
-							// check object __DEC_messageReceive_receiveEvent_502602 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_receiveEvent_502602 != null);
-							// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_502602 and message 
-							JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_502602
-									.equals(message));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_341076
-					fujaba__Success = false;
-
-					fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_341076 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(messageReceive,
-											Message.class, "sendEvent"))
-							.iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_341076
-									.hasNext()) {
-						try {
-							__DEC_messageReceive_sendEvent_341076 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_341076
-									.next();
-
-							// check object __DEC_messageReceive_sendEvent_341076 is really bound
-							JavaSDM.ensure(__DEC_messageReceive_sendEvent_341076 != null);
-							// check isomorphic binding between objects __DEC_messageReceive_sendEvent_341076 and message 
-							JavaSDM.ensure(!__DEC_messageReceive_sendEvent_341076
-									.equals(message));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check link fragment from interaction to interaction
-				JavaSDM.ensure(!(interaction.equals(interaction
-						.getEnclosingInteraction())));
-
-				// check link fragment from interaction to interaction
-				JavaSDM.ensure(!(interaction.equals(interaction
-						.getEnclosingInteraction())));
-
-				// check object _edge_coveredBy is really bound
-				JavaSDM.ensure(_edge_coveredBy != null);
-				// check object _package is really bound
-				JavaSDM.ensure(_package != null);
-				// check object interaction is really bound
-				JavaSDM.ensure(interaction != null);
-				// check object line is really bound
-				JavaSDM.ensure(line != null);
-				// check object message is really bound
-				JavaSDM.ensure(message != null);
-				// check object messageReceive is really bound
-				JavaSDM.ensure(messageReceive != null);
-				// check link fragment from messageReceive to interaction
-				JavaSDM.ensure(interaction.equals(messageReceive
-						.getEnclosingInteraction()));
-
-				// check link lifeline from line to interaction
-				JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-				// check link message from message to interaction
-				JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-				// check link message from messageReceive to message
-				JavaSDM.ensure(message.equals(messageReceive.getMessage()));
-
-				// check link receiveEvent from message to messageReceive
-				JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
-
-				// check link sendEvent from message to messageReceive
-				JavaSDM.ensure(!(messageReceive.equals(message.getSendEvent())));
-
-				// check link packagedElement from interaction to _package
-				JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-				// check link src from _edge_coveredBy to line
-				JavaSDM.ensure(line.equals(_edge_coveredBy.getSrc()));
-
-				// check link trg from _edge_coveredBy to messageReceive
-				JavaSDM.ensure(messageReceive.equals(_edge_coveredBy.getTrg()));
-
-				// check link coveredBy from line to messageReceive
-				JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_BWD(match, message,
-						interaction, messageReceive, line, _package);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_BWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
-					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_20_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_20_6_expressionFB(__result);
 	}
 
 	/**
@@ -8654,493 +1146,712 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_340(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_82(
+			EMoflonEdge _edge_interaction) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_21_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_21_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_21_2_blackFFFFFB(_edge_interaction)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_21_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_21_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_21_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_21_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_21_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_21_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_83(
+			EMoflonEdge _edge_message) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_22_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_22_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_22_2_blackFFFFFB(_edge_message)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_22_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_22_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_22_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_22_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_22_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_22_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_84(
+			EMoflonEdge _edge_interaction) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_23_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_23_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_23_2_blackFFFFFB(_edge_interaction)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_23_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_23_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_23_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_23_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_23_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_23_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_85(
+			EMoflonEdge _edge_lifeline) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_24_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_24_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_24_2_blackFFFFFB(_edge_lifeline)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_24_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_24_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_24_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_24_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_24_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_24_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_86(
+			EMoflonEdge _edge_enclosingInteraction) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_25_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_25_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_25_2_blackFFFFFB(_edge_enclosingInteraction)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_25_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_25_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_25_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_25_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_25_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_25_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_87(
+			EMoflonEdge _edge_fragment) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_26_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_26_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_26_2_blackFFFFFB(_edge_fragment)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_26_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_26_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_26_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_26_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_26_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_26_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_88(
+			EMoflonEdge _edge_message) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_27_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_27_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_27_2_blackFFFFFB(_edge_message)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_27_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_27_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_27_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_27_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_27_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_27_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_236(
+			EMoflonEdge _edge_useCases) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_28_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_28_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_28_2_blackFFFFB(_edge_useCases)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			Actor actor = (Actor) result2_black[1];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
+			BasicFlow basicFlow = (BasicFlow) result2_black[3];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_28_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_28_3_expressionFBBBBBB(
+							this, match, useCase, actor, packageDeclaration,
+							basicFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_28_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_28_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_28_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_28_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_237(
+			EMoflonEdge _edge_actors) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_29_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_29_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_29_2_blackFFFFB(_edge_actors)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			Actor actor = (Actor) result2_black[1];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
+			BasicFlow basicFlow = (BasicFlow) result2_black[3];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_29_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_29_3_expressionFBBBBBB(
+							this, match, useCase, actor, packageDeclaration,
+							basicFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_29_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_29_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_29_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_29_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_89(
+			EMoflonEdge _edge_coveredBy) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_30_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_30_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_30_2_blackFFFFFB(_edge_coveredBy)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_30_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_30_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_30_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_30_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_30_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_30_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_90(
 			EMoflonEdge _edge_covered) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_724362 = null;
-		MessageEnd __DEC_message_sendEvent_147643 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_92583 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_689145 = null;
-		MessageEnd __DEC_message_message_689145 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678617 = null;
-		Message __DEC_messageReceive_receiveEvent_678617 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_227415 = null;
-		Message __DEC_messageReceive_sendEvent_227415 = null;
-		Match match = null;
-		Iterator fujaba__IterMessageReceiveTo_edge_coveredBy = null;
-		EMoflonEdge _edge_coveredBy = null;
-		Lifeline line = null;
-		ModalSequenceDiagram.Package _package = null;
-		Message message = null;
-		Interaction interaction = null;
-		MessageOccurrenceSpecification messageReceive = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_31_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_covered is really bound
-			JavaSDM.ensure(_edge_covered != null);
-			// bind object
-			_TmpObject = _edge_covered.getSrc();
-
-			// ensure correct type and really bound of object messageReceive
-			JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-			messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-			// bind object
-			interaction = messageReceive.getEnclosingInteraction();
-
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-
-			// bind object
-			message = messageReceive.getMessage();
-
-			// check object message is really bound
-			JavaSDM.ensure(message != null);
-
-			// check link message from message to interaction
-			JavaSDM.ensure(interaction.equals(message.getInteraction()));
-
-			// check link receiveEvent from message to messageReceive
-			JavaSDM.ensure(messageReceive.equals(message.getReceiveEvent()));
-
-			// bind object
-			_package = interaction.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-					.eContainer() : null;
-
-			// check object _package is really bound
-			JavaSDM.ensure(_package != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(_package.getPackagedElement().contains(interaction));
-
-			// bind object
-			_TmpObject = _edge_covered.getTrg();
-
-			// ensure correct type and really bound of object line
-			JavaSDM.ensure(_TmpObject instanceof Lifeline);
-			line = (Lifeline) _TmpObject;
-
-			// check link lifeline from line to interaction
-			JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-			// check link coveredBy from line to messageReceive
-			JavaSDM.ensure(line.getCoveredBy().contains(messageReceive));
-
-			// iterate to-many link trg from messageReceive to _edge_coveredBy
-			fujaba__Success = false;
-
-			fujaba__IterMessageReceiveTo_edge_coveredBy = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							messageReceive, EMoflonEdge.class, "trg"))
-					.iterator();
-
-			while (fujaba__IterMessageReceiveTo_edge_coveredBy.hasNext()) {
-				try {
-					_edge_coveredBy = (EMoflonEdge) fujaba__IterMessageReceiveTo_edge_coveredBy
-							.next();
-
-					// check object _edge_coveredBy is really bound
-					JavaSDM.ensure(_edge_coveredBy != null);
-					// check isomorphic binding between objects _edge_coveredBy and _edge_covered 
-					JavaSDM.ensure(!_edge_coveredBy.equals(_edge_covered));
-
-					// check link src from _edge_coveredBy to line
-					JavaSDM.ensure(line.equals(_edge_coveredBy.getSrc()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// negative check for link fragment from interaction
-						JavaSDM.ensure(interaction.getEnclosingOperand() == null);
-						// negative check for link fragment from messageReceive
-						JavaSDM.ensure(messageReceive.getEnclosingOperand() == null);
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_enclosingInteraction_724362 = interaction
-									.getEnclosingInteraction();
-
-							// check object __DEC_interaction_enclosingInteraction_724362 is really bound
-							JavaSDM.ensure(__DEC_interaction_enclosingInteraction_724362 != null);
-
-							// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_724362 and interaction 
-							JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_724362
-									.equals(interaction));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_message_sendEvent_147643 = message
-									.getSendEvent();
-
-							// check object __DEC_message_sendEvent_147643 is really bound
-							JavaSDM.ensure(__DEC_message_sendEvent_147643 != null);
-
-							// check isomorphic binding between objects __DEC_message_sendEvent_147643 and messageReceive 
-							JavaSDM.ensure(!__DEC_message_sendEvent_147643
-									.equals(messageReceive));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_interaction_packagedElement_92583 = interaction
-									.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-									.eContainer() : null;
-
-							// check object __DEC_interaction_packagedElement_92583 is really bound
-							JavaSDM.ensure(__DEC_interaction_packagedElement_92583 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_interaction_packagedElement_92583
-									.getPackagedElement().contains(interaction));
-
-							// check isomorphic binding between objects __DEC_interaction_packagedElement_92583 and _package 
-							JavaSDM.ensure(!__DEC_interaction_packagedElement_92583
-									.equals(_package));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link message from message to __DEC_message_message_689145
-							fujaba__Success = false;
-
-							fujaba__IterMessageTo__DEC_message_message_689145 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(message,
-													MessageEnd.class, "message"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageTo__DEC_message_message_689145
-											.hasNext()) {
-								try {
-									__DEC_message_message_689145 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_689145
-											.next();
-
-									// check object __DEC_message_message_689145 is really bound
-									JavaSDM.ensure(__DEC_message_message_689145 != null);
-									// check isomorphic binding between objects __DEC_message_message_689145 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_message_689145
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_678617
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678617 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class,
-													"receiveEvent")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678617
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_receiveEvent_678617 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_678617
-											.next();
-
-									// check object __DEC_messageReceive_receiveEvent_678617 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_receiveEvent_678617 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_678617 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_678617
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_227415
-							fujaba__Success = false;
-
-							fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_227415 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													messageReceive,
-													Message.class, "sendEvent"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_227415
-											.hasNext()) {
-								try {
-									__DEC_messageReceive_sendEvent_227415 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_227415
-											.next();
-
-									// check object __DEC_messageReceive_sendEvent_227415 is really bound
-									JavaSDM.ensure(__DEC_messageReceive_sendEvent_227415 != null);
-									// check isomorphic binding between objects __DEC_messageReceive_sendEvent_227415 and message 
-									JavaSDM.ensure(!__DEC_messageReceive_sendEvent_227415
-											.equals(message));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check link fragment from interaction to interaction
-						JavaSDM.ensure(!(interaction.equals(interaction
-								.getEnclosingInteraction())));
-
-						// check object _edge_covered is really bound
-						JavaSDM.ensure(_edge_covered != null);
-						// check object _edge_coveredBy is really bound
-						JavaSDM.ensure(_edge_coveredBy != null);
-						// check object _package is really bound
-						JavaSDM.ensure(_package != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object line is really bound
-						JavaSDM.ensure(line != null);
-						// check object message is really bound
-						JavaSDM.ensure(message != null);
-						// check object messageReceive is really bound
-						JavaSDM.ensure(messageReceive != null);
-						// check isomorphic binding between objects _edge_coveredBy and _edge_covered 
-						JavaSDM.ensure(!_edge_coveredBy.equals(_edge_covered));
-
-						// check link fragment from messageReceive to interaction
-						JavaSDM.ensure(interaction.equals(messageReceive
-								.getEnclosingInteraction()));
-
-						// check link lifeline from line to interaction
-						JavaSDM.ensure(interaction.equals(line.getInteraction()));
-
-						// check link message from message to interaction
-						JavaSDM.ensure(interaction.equals(message
-								.getInteraction()));
-
-						// check link message from messageReceive to message
-						JavaSDM.ensure(message.equals(messageReceive
-								.getMessage()));
-
-						// check link receiveEvent from message to messageReceive
-						JavaSDM.ensure(messageReceive.equals(message
-								.getReceiveEvent()));
-
-						// check link sendEvent from message to messageReceive
-						JavaSDM.ensure(!(messageReceive.equals(message
-								.getSendEvent())));
-
-						// check link packagedElement from interaction to _package
-						JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-						// check link src from _edge_covered to messageReceive
-						JavaSDM.ensure(messageReceive.equals(_edge_covered
-								.getSrc()));
-
-						// check link src from _edge_coveredBy to line
-						JavaSDM.ensure(line.equals(_edge_coveredBy.getSrc()));
-
-						// check link trg from _edge_covered to line
-						JavaSDM.ensure(line.equals(_edge_covered.getTrg()));
-
-						// check link trg from _edge_coveredBy to messageReceive
-						JavaSDM.ensure(messageReceive.equals(_edge_coveredBy
-								.getTrg()));
-
-						// check link coveredBy from line to messageReceive
-						JavaSDM.ensure(line.getCoveredBy().contains(
-								messageReceive));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								message, interaction, messageReceive, line,
-								_package);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_31_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_31_2_blackFFFFFB(_edge_covered)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_31_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_31_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_31_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_31_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_31_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_31_6_expressionFB(__result);
 	}
 
 	/**
@@ -9148,494 +1859,64 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_341(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_91(
 			EMoflonEdge _edge_packagedElement) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Interaction __DEC_interaction_enclosingInteraction_256074 = null;
-		MessageEnd __DEC_message_sendEvent_232771 = null;
-		ModalSequenceDiagram.Package __DEC_interaction_packagedElement_327182 = null;
-		Iterator fujaba__IterMessageTo__DEC_message_message_721818 = null;
-		MessageEnd __DEC_message_message_721818 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_174384 = null;
-		Message __DEC_messageReceive_receiveEvent_174384 = null;
-		Iterator fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_897074 = null;
-		Message __DEC_messageReceive_sendEvent_897074 = null;
-		Match match = null;
-		MessageOccurrenceSpecification messageReceive = null;
-		Iterator fujaba__IterInteractionToMessage = null;
-		Message message = null;
-		Iterator fujaba__IterInteractionToLine = null;
-		Lifeline line = null;
-		Interaction interaction = null;
-		ModalSequenceDiagram.Package _package = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_32_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_packagedElement is really bound
-			JavaSDM.ensure(_edge_packagedElement != null);
-			// bind object
-			_TmpObject = _edge_packagedElement.getSrc();
-
-			// ensure correct type and really bound of object _package
-			JavaSDM.ensure(_TmpObject instanceof ModalSequenceDiagram.Package);
-			_package = (ModalSequenceDiagram.Package) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_packagedElement.getTrg();
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-
-			// check link packagedElement from interaction to _package
-			JavaSDM.ensure(_package.equals(interaction.eContainer()));
-
-			// iterate to-many link lifeline from interaction to line
-			fujaba__Success = false;
-
-			fujaba__IterInteractionToLine = new ArrayList(
-					interaction.getLifeline()).iterator();
-
-			while (fujaba__IterInteractionToLine.hasNext()) {
-				try {
-					line = (Lifeline) fujaba__IterInteractionToLine.next();
-
-					// check object line is really bound
-					JavaSDM.ensure(line != null);
-					// iterate to-many link message from interaction to message
-					fujaba__Success = false;
-
-					fujaba__IterInteractionToMessage = new ArrayList(
-							interaction.getMessage()).iterator();
-
-					while (fujaba__IterInteractionToMessage.hasNext()) {
-						try {
-							message = (Message) fujaba__IterInteractionToMessage
-									.next();
-
-							// check object message is really bound
-							JavaSDM.ensure(message != null);
-							// bind object
-							_TmpObject = message.getReceiveEvent();
-
-							// ensure correct type and really bound of object messageReceive
-							JavaSDM.ensure(_TmpObject instanceof MessageOccurrenceSpecification);
-							messageReceive = (MessageOccurrenceSpecification) _TmpObject;
-
-							// check link fragment from messageReceive to interaction
-							JavaSDM.ensure(interaction.equals(messageReceive
-									.getEnclosingInteraction()));
-
-							// check link message from messageReceive to message
-							JavaSDM.ensure(message.equals(messageReceive
-									.getMessage()));
-
-							// check link coveredBy from line to messageReceive
-							JavaSDM.ensure(line.getCoveredBy().contains(
-									messageReceive));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// negative check for link fragment from interaction
-								JavaSDM.ensure(interaction
-										.getEnclosingOperand() == null);
-								// negative check for link fragment from messageReceive
-								JavaSDM.ensure(messageReceive
-										.getEnclosingOperand() == null);
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_interaction_enclosingInteraction_256074 = interaction
-											.getEnclosingInteraction();
-
-									// check object __DEC_interaction_enclosingInteraction_256074 is really bound
-									JavaSDM.ensure(__DEC_interaction_enclosingInteraction_256074 != null);
-
-									// check isomorphic binding between objects __DEC_interaction_enclosingInteraction_256074 and interaction 
-									JavaSDM.ensure(!__DEC_interaction_enclosingInteraction_256074
-											.equals(interaction));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_message_sendEvent_232771 = message
-											.getSendEvent();
-
-									// check object __DEC_message_sendEvent_232771 is really bound
-									JavaSDM.ensure(__DEC_message_sendEvent_232771 != null);
-
-									// check isomorphic binding between objects __DEC_message_sendEvent_232771 and messageReceive 
-									JavaSDM.ensure(!__DEC_message_sendEvent_232771
-											.equals(messageReceive));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_interaction_packagedElement_327182 = interaction
-											.eContainer() instanceof ModalSequenceDiagram.Package ? (ModalSequenceDiagram.Package) interaction
-											.eContainer() : null;
-
-									// check object __DEC_interaction_packagedElement_327182 is really bound
-									JavaSDM.ensure(__DEC_interaction_packagedElement_327182 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_interaction_packagedElement_327182
-											.getPackagedElement().contains(
-													interaction));
-
-									// check isomorphic binding between objects __DEC_interaction_packagedElement_327182 and _package 
-									JavaSDM.ensure(!__DEC_interaction_packagedElement_327182
-											.equals(_package));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link message from message to __DEC_message_message_721818
-									fujaba__Success = false;
-
-									fujaba__IterMessageTo__DEC_message_message_721818 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															message,
-															MessageEnd.class,
-															"message"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageTo__DEC_message_message_721818
-													.hasNext()) {
-										try {
-											__DEC_message_message_721818 = (MessageEnd) fujaba__IterMessageTo__DEC_message_message_721818
-													.next();
-
-											// check object __DEC_message_message_721818 is really bound
-											JavaSDM.ensure(__DEC_message_message_721818 != null);
-											// check isomorphic binding between objects __DEC_message_message_721818 and messageReceive 
-											JavaSDM.ensure(!__DEC_message_message_721818
-													.equals(messageReceive));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link receiveEvent from messageReceive to __DEC_messageReceive_receiveEvent_174384
-									fujaba__Success = false;
-
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_174384 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															messageReceive,
-															Message.class,
-															"receiveEvent"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_174384
-													.hasNext()) {
-										try {
-											__DEC_messageReceive_receiveEvent_174384 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_receiveEvent_174384
-													.next();
-
-											// check object __DEC_messageReceive_receiveEvent_174384 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_receiveEvent_174384 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_receiveEvent_174384 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_receiveEvent_174384
-													.equals(message));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link sendEvent from messageReceive to __DEC_messageReceive_sendEvent_897074
-									fujaba__Success = false;
-
-									fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_897074 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															messageReceive,
-															Message.class,
-															"sendEvent"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_897074
-													.hasNext()) {
-										try {
-											__DEC_messageReceive_sendEvent_897074 = (Message) fujaba__IterMessageReceiveTo__DEC_messageReceive_sendEvent_897074
-													.next();
-
-											// check object __DEC_messageReceive_sendEvent_897074 is really bound
-											JavaSDM.ensure(__DEC_messageReceive_sendEvent_897074 != null);
-											// check isomorphic binding between objects __DEC_messageReceive_sendEvent_897074 and message 
-											JavaSDM.ensure(!__DEC_messageReceive_sendEvent_897074
-													.equals(message));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check link fragment from interaction to interaction
-								JavaSDM.ensure(!(interaction.equals(interaction
-										.getEnclosingInteraction())));
-
-								// check link fragment from interaction to interaction
-								JavaSDM.ensure(!(interaction.equals(interaction
-										.getEnclosingInteraction())));
-
-								// check object _edge_packagedElement is really bound
-								JavaSDM.ensure(_edge_packagedElement != null);
-								// check object _package is really bound
-								JavaSDM.ensure(_package != null);
-								// check object interaction is really bound
-								JavaSDM.ensure(interaction != null);
-								// check object line is really bound
-								JavaSDM.ensure(line != null);
-								// check object message is really bound
-								JavaSDM.ensure(message != null);
-								// check object messageReceive is really bound
-								JavaSDM.ensure(messageReceive != null);
-								// check link fragment from messageReceive to interaction
-								JavaSDM.ensure(interaction
-										.equals(messageReceive
-												.getEnclosingInteraction()));
-
-								// check link lifeline from line to interaction
-								JavaSDM.ensure(interaction.equals(line
-										.getInteraction()));
-
-								// check link message from message to interaction
-								JavaSDM.ensure(interaction.equals(message
-										.getInteraction()));
-
-								// check link message from messageReceive to message
-								JavaSDM.ensure(message.equals(messageReceive
-										.getMessage()));
-
-								// check link receiveEvent from message to messageReceive
-								JavaSDM.ensure(messageReceive.equals(message
-										.getReceiveEvent()));
-
-								// check link sendEvent from message to messageReceive
-								JavaSDM.ensure(!(messageReceive.equals(message
-										.getSendEvent())));
-
-								// check link packagedElement from interaction to _package
-								JavaSDM.ensure(_package.equals(interaction
-										.eContainer()));
-
-								// check link src from _edge_packagedElement to _package
-								JavaSDM.ensure(_package
-										.equals(_edge_packagedElement.getSrc()));
-
-								// check link trg from _edge_packagedElement to interaction
-								JavaSDM.ensure(interaction
-										.equals(_edge_packagedElement.getTrg()));
-
-								// check link coveredBy from line to messageReceive
-								JavaSDM.ensure(line.getCoveredBy().contains(
-										messageReceive));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_BWD(match,
-										message, interaction, messageReceive,
-										line, _package);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_BWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_32_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_32_2_blackFFFFFB(_edge_packagedElement)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_32_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_32_3_expressionFBBBBBBB(
+							this, match, message, interaction, messageReceive,
+							line, _package)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_32_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_32_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_32_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_32_6_expressionFB(__result);
 	}
 
 	/**
@@ -9643,290 +1924,63 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_83(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_238(
 			EMoflonEdge _edge_flows) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		PackageDeclaration __DEC_actor_actors_593846 = null;
-		UseCase __DEC_basicFlow_flows_781231 = null;
-		PackageDeclaration __DEC_useCase_useCases_112162 = null;
-		Match match = null;
-		Iterator fujaba__IterPackageDeclarationToActor = null;
-		Actor actor = null;
-		PackageDeclaration packageDeclaration = null;
-		BasicFlow basicFlow = null;
-		UseCase useCase = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_33_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_33_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_33_2_blackFFFFB(_edge_flows)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			Actor actor = (Actor) result2_black[1];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
+			BasicFlow basicFlow = (BasicFlow) result2_black[3];
+			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_33_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_flows is really bound
-			JavaSDM.ensure(_edge_flows != null);
-			// bind object
-			_TmpObject = _edge_flows.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_33_3_expressionFBBBBBB(
+							this, match, useCase, actor, packageDeclaration,
+							basicFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_33_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flows.getTrg();
-
-			// ensure correct type and really bound of object basicFlow
-			JavaSDM.ensure(_TmpObject instanceof BasicFlow);
-			basicFlow = (BasicFlow) _TmpObject;
-
-			// check link flows from basicFlow to useCase
-			JavaSDM.ensure(useCase.equals(basicFlow.eContainer()));
-
-			// bind object
-			packageDeclaration = useCase.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
-					.eContainer() : null;
-
-			// check object packageDeclaration is really bound
-			JavaSDM.ensure(packageDeclaration != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(packageDeclaration.getUseCases().contains(useCase));
-
-			// iterate to-many link actors from packageDeclaration to actor
-			fujaba__Success = false;
-
-			fujaba__IterPackageDeclarationToActor = new ArrayList(
-					packageDeclaration.getActors()).iterator();
-
-			while (fujaba__IterPackageDeclarationToActor.hasNext()) {
-				try {
-					actor = (Actor) fujaba__IterPackageDeclarationToActor
-							.next();
-
-					// check object actor is really bound
-					JavaSDM.ensure(actor != null);
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_actor_actors_593846 = actor.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) actor
-									.eContainer() : null;
-
-							// check object __DEC_actor_actors_593846 is really bound
-							JavaSDM.ensure(__DEC_actor_actors_593846 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_actor_actors_593846
-									.getActors().contains(actor));
-
-							// check isomorphic binding between objects __DEC_actor_actors_593846 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_actor_actors_593846
-									.equals(packageDeclaration));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_basicFlow_flows_781231 = basicFlow
-									.eContainer() instanceof UseCase ? (UseCase) basicFlow
-									.eContainer() : null;
-
-							// check object __DEC_basicFlow_flows_781231 is really bound
-							JavaSDM.ensure(__DEC_basicFlow_flows_781231 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_basicFlow_flows_781231
-									.getFlows().contains(basicFlow));
-
-							// check isomorphic binding between objects __DEC_basicFlow_flows_781231 and useCase 
-							JavaSDM.ensure(!__DEC_basicFlow_flows_781231
-									.equals(useCase));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_useCase_useCases_112162 = useCase
-									.eContainer() instanceof PackageDeclaration ? (PackageDeclaration) useCase
-									.eContainer() : null;
-
-							// check object __DEC_useCase_useCases_112162 is really bound
-							JavaSDM.ensure(__DEC_useCase_useCases_112162 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_useCase_useCases_112162
-									.getUseCases().contains(useCase));
-
-							// check isomorphic binding between objects __DEC_useCase_useCases_112162 and packageDeclaration 
-							JavaSDM.ensure(!__DEC_useCase_useCases_112162
-									.equals(packageDeclaration));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check object _edge_flows is really bound
-						JavaSDM.ensure(_edge_flows != null);
-						// check object actor is really bound
-						JavaSDM.ensure(actor != null);
-						// check object basicFlow is really bound
-						JavaSDM.ensure(basicFlow != null);
-						// check object packageDeclaration is really bound
-						JavaSDM.ensure(packageDeclaration != null);
-						// check object useCase is really bound
-						JavaSDM.ensure(useCase != null);
-						// check link actors from actor to packageDeclaration
-						JavaSDM.ensure(packageDeclaration.equals(actor
-								.eContainer()));
-
-						// check link flows from basicFlow to useCase
-						JavaSDM.ensure(useCase.equals(basicFlow.eContainer()));
-
-						// check link src from _edge_flows to useCase
-						JavaSDM.ensure(useCase.equals(_edge_flows.getSrc()));
-
-						// check link trg from _edge_flows to basicFlow
-						JavaSDM.ensure(basicFlow.equals(_edge_flows.getTrg()));
-
-						// check link useCases from useCase to packageDeclaration
-						JavaSDM.ensure(packageDeclaration.equals(useCase
-								.eContainer()));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_FWD(match,
-								useCase, actor, packageDeclaration, basicFlow);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_FWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// Add match to rule result
+					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_33_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_33_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_33_6_expressionFB(__result);
 	}
 
 	/**
@@ -9934,12 +1988,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
-
-		// [user code injected with eMoflon]
-
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
 	}
 
 	/**
@@ -9947,12 +1997,198 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// [user code injected with eMoflon]
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer,
+			PackageDeclarationToPackage packageDeclarationToPackageParameter) {
+		// create result
+		Object[] result1_black = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_36_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_36_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+		// ForEach is applicable core
+		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_36_2_blackFFFFBB(
+						ruleEntryContainer, ruleResult)) {
+			// RuleEntryList packageDeclarationToPackageList = (RuleEntryList) result2_black[0];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[1];
+			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result2_black[2];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[3];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_36_3_bindingAndBlackFBBBBBB(
+							this, isApplicableMatch, packageDeclaration,
+							_package, packageDeclarationToPackage, ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (UseCasePrecondToFoundMessageRuleImpl
+					.pattern_UseCasePrecondToFoundMessageRule_36_4_expressionFBB(
+							this, csp)) {
+				// check nacs
+				Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
+						.pattern_UseCasePrecondToFoundMessageRule_36_5_blackBBB(
+								packageDeclaration, _package,
+								packageDeclarationToPackage);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_36_6_blackBBBB(
+									packageDeclaration, _package,
+									packageDeclarationToPackage, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					UseCasePrecondToFoundMessageRuleImpl
+							.pattern_UseCasePrecondToFoundMessageRule_36_6_greenFFFFFFBFFBFFBB(
+									packageDeclaration, _package, ruleResult,
+									csp);
+					// UseCaseToMessage useCaseToMessage = (UseCaseToMessage) result6_green[0];
+					// UseCase useCase = (UseCase) result6_green[1];
+					// Message message = (Message) result6_green[2];
+					// Interaction interaction = (Interaction) result6_green[3];
+					// MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result6_green[4];
+					// Actor actor = (Actor) result6_green[5];
+					// Lifeline line = (Lifeline) result6_green[7];
+					// ActorToLifeline actorToLine = (ActorToLifeline) result6_green[8];
+					// BasicFlow basicFlow = (BasicFlow) result6_green[10];
+					// FlowToInteractionFragment basicFlowToInteraction = (FlowToInteractionFragment) result6_green[11];
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UseCasePrecondToFoundMessageRuleImpl
+				.pattern_UseCasePrecondToFoundMessageRule_36_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("found");
+		literal0.setType("");
+		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal1", true, csp);
+		literal1.setValue("system");
+		literal1.setType("");
+		Variable literal2 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal2", true, csp);
+		literal2.setValue("ASYNCH_SIGNAL");
+		literal2.setType("");
+
+		// Create attribute variables
+
+		// Create unbound variables
+		Variable var_useCase_preConditions = CSPFactoryHelper.eINSTANCE
+				.createVariable("useCase.preConditions", csp);
+		var_useCase_preConditions.setType("String");
+		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message.name", csp);
+		var_message_name.setType("String");
+		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
+				.createVariable("message.messageKind", csp);
+		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
+		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
+				"actor.type", csp);
+		var_actor_type.setType("UseCaseDSL.ActorType");
+		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"actor.name", csp);
+		var_actor_name.setType("String");
+		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"line.name", csp);
+		var_line_name.setType("String");
+		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
+				.createVariable("message.messageSort", csp);
+		var_message_messageSort.setType("ModalSequenceDiagram.MessageSort");
+		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"useCase.name", csp);
+		var_useCase_name.setType("String");
+		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("interaction.name", csp);
+		var_interaction_name.setType("String");
+
+		// Create constraints
+		EqMessageKind eqMessageKind = new EqMessageKind();
+		EqActorType eqActorType = new EqActorType();
+		EqMessageSort eqMessageSort = new EqMessageSort();
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
+		Eq eq_1 = new Eq();
+
+		csp.getConstraints().add(eqMessageKind);
+		csp.getConstraints().add(eqActorType);
+		csp.getConstraints().add(eqMessageSort);
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
+		csp.getConstraints().add(eq_1);
+
+		// Solve CSP
+		eqMessageKind.setRuleName("");
+		eqMessageKind.solve(var_message_messageKind, literal0);
+		eqActorType.setRuleName("");
+		eqActorType.solve(var_actor_type, literal1);
+		eqMessageSort.setRuleName("");
+		eqMessageSort.solve(var_message_messageSort, literal2);
+		eq.setRuleName("");
+		eq.solve(var_useCase_preConditions, var_message_name);
+		eq_0.setRuleName("");
+		eq_0.solve(var_actor_name, var_line_name);
+		eq_1.setRuleName("");
+		eq_1.solve(var_useCase_name, var_interaction_name);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("packageDeclaration",
+				packageDeclaration);
+		isApplicableMatch.registerObject("_package", _package);
+		isApplicableMatch.registerObject("packageDeclarationToPackage",
+				packageDeclarationToPackage);
+		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean generateModel_checkCsp_BWD(CSP csp) {
+		return csp.check();
 	}
 
 	/**
@@ -10056,55 +2292,5206 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_331__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_331((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_81__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_81((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_332__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_332((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_82__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_82((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_333__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_333((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_83__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_83((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_334__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_334((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_84__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_84((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_335__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_335((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_85__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_85((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_336__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_336((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_86__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_86((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_337__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_337((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_87__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_87((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_338__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_338((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_88__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_88((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_81__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_81((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_236__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_236((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_82__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_82((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_237__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_237((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_339__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_339((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_89__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_89((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_340__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_340((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_90__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_90((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_341__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_341((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_91__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_91((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_83__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_83((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_238__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_238((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_PACKAGEDECLARATIONTOPACKAGE:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(PackageDeclarationToPackage) arguments.get(1));
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(PackageDeclaration) arguments.get(1),
+					(ModalSequenceDiagram.Package) arguments.get(2),
+					(PackageDeclarationToPackage) arguments.get(3),
+					(ModelgeneratorRuleResult) arguments.get(4));
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_1_blackBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		return new Object[] { _this, match, useCase, actor, packageDeclaration,
+				basicFlow };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_2_bindingFBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, useCase,
+				actor, packageDeclaration, basicFlow);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, useCase, actor,
+					packageDeclaration, basicFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_2_bindingAndBlackFBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_0_2_binding = pattern_UseCasePrecondToFoundMessageRule_0_2_bindingFBBBBBB(
+				_this, match, useCase, actor, packageDeclaration, basicFlow);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_0_2_binding != null) {
+			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_0_2_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_0_2_black = pattern_UseCasePrecondToFoundMessageRule_0_2_blackB(csp);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_0_2_black != null) {
+
+				return new Object[] { csp, _this, match, useCase, actor,
+						packageDeclaration, basicFlow };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_0_3_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_4_blackBBBBB(
+			Match match, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		return new Object[] { match, useCase, actor, packageDeclaration,
+				basicFlow };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_4_greenBBBBBFFF(
+			Match match, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCase__basicFlow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(useCase);
+		match.getToBeTranslatedNodes().add(actor);
+		match.getToBeTranslatedNodes().add(basicFlow);
+		String packageDeclaration__useCase____useCases_name_prime = "useCases";
+		String packageDeclaration__actor____actors_name_prime = "actors";
+		String useCase__basicFlow____flows_name_prime = "flows";
+		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
+		packageDeclaration__useCase____useCases.setTrg(useCase);
+		match.getToBeTranslatedEdges().add(
+				packageDeclaration__useCase____useCases);
+		packageDeclaration__actor____actors.setSrc(packageDeclaration);
+		packageDeclaration__actor____actors.setTrg(actor);
+		match.getToBeTranslatedEdges().add(packageDeclaration__actor____actors);
+		useCase__basicFlow____flows.setSrc(useCase);
+		useCase__basicFlow____flows.setTrg(basicFlow);
+		match.getToBeTranslatedEdges().add(useCase__basicFlow____flows);
+		packageDeclaration__useCase____useCases
+				.setName(packageDeclaration__useCase____useCases_name_prime);
+		packageDeclaration__actor____actors
+				.setName(packageDeclaration__actor____actors_name_prime);
+		useCase__basicFlow____flows
+				.setName(useCase__basicFlow____flows_name_prime);
+		return new Object[] { match, useCase, actor, packageDeclaration,
+				basicFlow, packageDeclaration__useCase____useCases,
+				packageDeclaration__actor____actors,
+				useCase__basicFlow____flows };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_5_blackBBBBB(
+			Match match, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		return new Object[] { match, useCase, actor, packageDeclaration,
+				basicFlow };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_5_greenBB(
+			Match match, PackageDeclaration packageDeclaration) {
+		match.getContextNodes().add(packageDeclaration);
+		return new Object[] { match, packageDeclaration };
+	}
+
+	public static final void pattern_UseCasePrecondToFoundMessageRule_0_6_expressionBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		_this.registerObjectsToMatch_FWD(match, useCase, actor,
+				packageDeclaration, basicFlow);
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_0_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_0_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_bindingFFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_1 = isApplicableMatch.getObject("actor");
+		EObject _localVariable_2 = isApplicableMatch
+				.getObject("packageDeclaration");
+		EObject _localVariable_3 = isApplicableMatch.getObject("_package");
+		EObject _localVariable_4 = isApplicableMatch
+				.getObject("packageDeclarationToPackage");
+		EObject _localVariable_5 = isApplicableMatch.getObject("basicFlow");
+		EObject tmpUseCase = _localVariable_0;
+		EObject tmpActor = _localVariable_1;
+		EObject tmpPackageDeclaration = _localVariable_2;
+		EObject tmp_package = _localVariable_3;
+		EObject tmpPackageDeclarationToPackage = _localVariable_4;
+		EObject tmpBasicFlow = _localVariable_5;
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			if (tmpActor instanceof Actor) {
+				Actor actor = (Actor) tmpActor;
+				if (tmpPackageDeclaration instanceof PackageDeclaration) {
+					PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+					if (tmp_package instanceof ModalSequenceDiagram.Package) {
+						ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) tmp_package;
+						if (tmpPackageDeclarationToPackage instanceof PackageDeclarationToPackage) {
+							PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) tmpPackageDeclarationToPackage;
+							if (tmpBasicFlow instanceof BasicFlow) {
+								BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
+								return new Object[] { useCase, actor,
+										packageDeclaration, _package,
+										packageDeclarationToPackage, basicFlow,
+										isApplicableMatch };
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_blackBBBBBBFBB(
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			BasicFlow basicFlow, UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+			if (tmpCsp instanceof CSP) {
+				CSP csp = (CSP) tmpCsp;
+				return new Object[] { useCase, actor, packageDeclaration,
+						_package, packageDeclarationToPackage, basicFlow, csp,
+						_this, isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_bindingAndBlackFFFFFFFBB(
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding = pattern_UseCasePrecondToFoundMessageRule_1_1_bindingFFFFFFB(isApplicableMatch);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding != null) {
+			UseCase useCase = (UseCase) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[0];
+			Actor actor = (Actor) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[1];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[2];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[3];
+			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[4];
+			BasicFlow basicFlow = (BasicFlow) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[5];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_1_1_black = pattern_UseCasePrecondToFoundMessageRule_1_1_blackBBBBBBFBB(
+					useCase, actor, packageDeclaration, _package,
+					packageDeclarationToPackage, basicFlow, _this,
+					isApplicableMatch);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_1_1_black != null) {
+				CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_1_1_black[6];
+
+				return new Object[] { useCase, actor, packageDeclaration,
+						_package, packageDeclarationToPackage, basicFlow, csp,
+						_this, isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_greenFBFFFBFFBBFB(
+			UseCase useCase, Actor actor,
+			ModalSequenceDiagram.Package _package, BasicFlow basicFlow, CSP csp) {
+		UseCaseToMessage useCaseToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createUseCaseToMessage();
+		Message message = ModalSequenceDiagramFactory.eINSTANCE.createMessage();
+		Interaction interaction = ModalSequenceDiagramFactory.eINSTANCE
+				.createInteraction();
+		MessageOccurrenceSpecification messageReceive = ModalSequenceDiagramFactory.eINSTANCE
+				.createMessageOccurrenceSpecification();
+		Lifeline line = ModalSequenceDiagramFactory.eINSTANCE.createLifeline();
+		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createActorToLifeline();
+		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createFlowToInteractionFragment();
+		Object _localVariable_0 = csp.getValue("message", "name");
+		Object _localVariable_1 = csp.getValue("message", "messageKind");
+		Object _localVariable_2 = csp.getValue("message", "messageSort");
+		Object _localVariable_3 = csp.getValue("interaction", "name");
+		Object _localVariable_4 = csp.getValue("line", "name");
+		useCaseToMessage.setSource(useCase);
+		useCaseToMessage.setTarget(message);
+		message.setInteraction(interaction);
+		_package.getPackagedElement().add(interaction);
+		message.setReceiveEvent(messageReceive);
+		messageReceive.setEnclosingInteraction(interaction);
+		messageReceive.setMessage(message);
+		line.setInteraction(interaction);
+		line.getCoveredBy().add(messageReceive);
+		actorToLine.setSource(actor);
+		actorToLine.setTarget(line);
+		basicFlowToInteraction.setSource(basicFlow);
+		basicFlowToInteraction.setTarget(interaction);
+		String message_name_prime = (String) _localVariable_0;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_1;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_2;
+		String interaction_name_prime = (String) _localVariable_3;
+		String line_name_prime = (String) _localVariable_4;
+		message.setName(message_name_prime);
+		message.setMessageKind(message_messageKind_prime);
+		message.setMessageSort(message_messageSort_prime);
+		interaction.setName(interaction_name_prime);
+		line.setName(line_name_prime);
+		return new Object[] { useCaseToMessage, useCase, message, interaction,
+				messageReceive, actor, line, actorToLine, _package, basicFlow,
+				basicFlowToInteraction, csp };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_2_blackBBBBBBBBBB(
+			UseCaseToMessage useCaseToMessage, UseCase useCase,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
+			Lifeline line, ActorToLifeline actorToLine, BasicFlow basicFlow,
+			FlowToInteractionFragment basicFlowToInteraction) {
+		return new Object[] { useCaseToMessage, useCase, message, interaction,
+				messageReceive, actor, line, actorToLine, basicFlow,
+				basicFlowToInteraction };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_2_greenFBBBBBBBBBB(
+			UseCaseToMessage useCaseToMessage, UseCase useCase,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
+			Lifeline line, ActorToLifeline actorToLine, BasicFlow basicFlow,
+			FlowToInteractionFragment basicFlowToInteraction) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getCreatedLinkElements().add(useCaseToMessage);
+		ruleresult.getTranslatedElements().add(useCase);
+		ruleresult.getCreatedElements().add(message);
+		ruleresult.getCreatedElements().add(interaction);
+		ruleresult.getCreatedElements().add(messageReceive);
+		ruleresult.getTranslatedElements().add(actor);
+		ruleresult.getCreatedElements().add(line);
+		ruleresult.getCreatedLinkElements().add(actorToLine);
+		ruleresult.getTranslatedElements().add(basicFlow);
+		ruleresult.getCreatedLinkElements().add(basicFlowToInteraction);
+		return new Object[] { ruleresult, useCaseToMessage, useCase, message,
+				interaction, messageReceive, actor, line, actorToLine,
+				basicFlow, basicFlowToInteraction };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_3_blackBBBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject useCaseToMessage,
+			EObject useCase, EObject message, EObject interaction,
+			EObject messageReceive, EObject actor, EObject packageDeclaration,
+			EObject line, EObject actorToLine, EObject _package,
+			EObject packageDeclarationToPackage, EObject basicFlow,
+			EObject basicFlowToInteraction) {
+		if (!useCase.equals(useCaseToMessage)) {
+			if (!message.equals(useCaseToMessage)) {
+				if (!message.equals(useCase)) {
+					if (!message.equals(messageReceive)) {
+						if (!message.equals(packageDeclaration)) {
+							if (!message.equals(packageDeclarationToPackage)) {
+								if (!interaction.equals(useCaseToMessage)) {
+									if (!interaction.equals(useCase)) {
+										if (!interaction.equals(message)) {
+											if (!interaction
+													.equals(messageReceive)) {
+												if (!interaction
+														.equals(packageDeclaration)) {
+													if (!interaction
+															.equals(line)) {
+														if (!interaction
+																.equals(packageDeclarationToPackage)) {
+															if (!messageReceive
+																	.equals(useCaseToMessage)) {
+																if (!messageReceive
+																		.equals(useCase)) {
+																	if (!messageReceive
+																			.equals(packageDeclaration)) {
+																		if (!messageReceive
+																				.equals(packageDeclarationToPackage)) {
+																			if (!actor
+																					.equals(useCaseToMessage)) {
+																				if (!actor
+																						.equals(useCase)) {
+																					if (!actor
+																							.equals(message)) {
+																						if (!actor
+																								.equals(interaction)) {
+																							if (!actor
+																									.equals(messageReceive)) {
+																								if (!actor
+																										.equals(packageDeclaration)) {
+																									if (!actor
+																											.equals(line)) {
+																										if (!actor
+																												.equals(actorToLine)) {
+																											if (!actor
+																													.equals(packageDeclarationToPackage)) {
+																												if (!actor
+																														.equals(basicFlow)) {
+																													if (!actor
+																															.equals(basicFlowToInteraction)) {
+																														if (!packageDeclaration
+																																.equals(useCaseToMessage)) {
+																															if (!packageDeclaration
+																																	.equals(useCase)) {
+																																if (!packageDeclaration
+																																		.equals(packageDeclarationToPackage)) {
+																																	if (!line
+																																			.equals(useCaseToMessage)) {
+																																		if (!line
+																																				.equals(useCase)) {
+																																			if (!line
+																																					.equals(message)) {
+																																				if (!line
+																																						.equals(messageReceive)) {
+																																					if (!line
+																																							.equals(packageDeclaration)) {
+																																						if (!line
+																																								.equals(packageDeclarationToPackage)) {
+																																							if (!actorToLine
+																																									.equals(useCaseToMessage)) {
+																																								if (!actorToLine
+																																										.equals(useCase)) {
+																																									if (!actorToLine
+																																											.equals(message)) {
+																																										if (!actorToLine
+																																												.equals(interaction)) {
+																																											if (!actorToLine
+																																													.equals(messageReceive)) {
+																																												if (!actorToLine
+																																														.equals(packageDeclaration)) {
+																																													if (!actorToLine
+																																															.equals(line)) {
+																																														if (!actorToLine
+																																																.equals(packageDeclarationToPackage)) {
+																																															if (!actorToLine
+																																																	.equals(basicFlow)) {
+																																																if (!actorToLine
+																																																		.equals(basicFlowToInteraction)) {
+																																																	if (!_package
+																																																			.equals(useCaseToMessage)) {
+																																																		if (!_package
+																																																				.equals(useCase)) {
+																																																			if (!_package
+																																																					.equals(message)) {
+																																																				if (!_package
+																																																						.equals(interaction)) {
+																																																					if (!_package
+																																																							.equals(messageReceive)) {
+																																																						if (!_package
+																																																								.equals(actor)) {
+																																																							if (!_package
+																																																									.equals(packageDeclaration)) {
+																																																								if (!_package
+																																																										.equals(line)) {
+																																																									if (!_package
+																																																											.equals(actorToLine)) {
+																																																										if (!_package
+																																																												.equals(packageDeclarationToPackage)) {
+																																																											if (!_package
+																																																													.equals(basicFlow)) {
+																																																												if (!_package
+																																																														.equals(basicFlowToInteraction)) {
+																																																													if (!packageDeclarationToPackage
+																																																															.equals(useCaseToMessage)) {
+																																																														if (!packageDeclarationToPackage
+																																																																.equals(useCase)) {
+																																																															if (!basicFlow
+																																																																	.equals(useCaseToMessage)) {
+																																																																if (!basicFlow
+																																																																		.equals(useCase)) {
+																																																																	if (!basicFlow
+																																																																			.equals(message)) {
+																																																																		if (!basicFlow
+																																																																				.equals(interaction)) {
+																																																																			if (!basicFlow
+																																																																					.equals(messageReceive)) {
+																																																																				if (!basicFlow
+																																																																						.equals(packageDeclaration)) {
+																																																																					if (!basicFlow
+																																																																							.equals(line)) {
+																																																																						if (!basicFlow
+																																																																								.equals(packageDeclarationToPackage)) {
+																																																																							if (!basicFlow
+																																																																									.equals(basicFlowToInteraction)) {
+																																																																								if (!basicFlowToInteraction
+																																																																										.equals(useCaseToMessage)) {
+																																																																									if (!basicFlowToInteraction
+																																																																											.equals(useCase)) {
+																																																																										if (!basicFlowToInteraction
+																																																																												.equals(message)) {
+																																																																											if (!basicFlowToInteraction
+																																																																													.equals(interaction)) {
+																																																																												if (!basicFlowToInteraction
+																																																																														.equals(messageReceive)) {
+																																																																													if (!basicFlowToInteraction
+																																																																															.equals(packageDeclaration)) {
+																																																																														if (!basicFlowToInteraction
+																																																																																.equals(line)) {
+																																																																															if (!basicFlowToInteraction
+																																																																																	.equals(packageDeclarationToPackage)) {
+																																																																																return new Object[] {
+																																																																																		ruleresult,
+																																																																																		useCaseToMessage,
+																																																																																		useCase,
+																																																																																		message,
+																																																																																		interaction,
+																																																																																		messageReceive,
+																																																																																		actor,
+																																																																																		packageDeclaration,
+																																																																																		line,
+																																																																																		actorToLine,
+																																																																																		_package,
+																																																																																		packageDeclarationToPackage,
+																																																																																		basicFlow,
+																																																																																		basicFlowToInteraction };
+																																																																															}
+																																																																														}
+																																																																													}
+																																																																												}
+																																																																											}
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject useCaseToMessage,
+			EObject useCase, EObject message, EObject interaction,
+			EObject messageReceive, EObject actor, EObject packageDeclaration,
+			EObject line, EObject actorToLine, EObject _package,
+			EObject basicFlow, EObject basicFlowToInteraction) {
+		EMoflonEdge useCaseToMessage__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToMessage__message____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__messageReceive____fragment = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge actorToLine__actor____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge actorToLine__line____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge _package__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCase__basicFlow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge basicFlowToInteraction__basicFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge basicFlowToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "UseCasePrecondToFoundMessageRule";
+		String useCaseToMessage__useCase____source_name_prime = "source";
+		String useCaseToMessage__message____target_name_prime = "target";
+		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
+		String message__interaction____interaction_name_prime = "interaction";
+		String interaction__message____message_name_prime = "message";
+		String line__interaction____interaction_name_prime = "interaction";
+		String interaction__line____lifeline_name_prime = "lifeline";
+		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
+		String interaction__messageReceive____fragment_name_prime = "fragment";
+		String messageReceive__message____message_name_prime = "message";
+		String packageDeclaration__useCase____useCases_name_prime = "useCases";
+		String packageDeclaration__actor____actors_name_prime = "actors";
+		String line__messageReceive____coveredBy_name_prime = "coveredBy";
+		String messageReceive__line____covered_name_prime = "covered";
+		String actorToLine__actor____source_name_prime = "source";
+		String actorToLine__line____target_name_prime = "target";
+		String _package__interaction____packagedElement_name_prime = "packagedElement";
+		String useCase__basicFlow____flows_name_prime = "flows";
+		String basicFlowToInteraction__basicFlow____source_name_prime = "source";
+		String basicFlowToInteraction__interaction____target_name_prime = "target";
+		useCaseToMessage__useCase____source.setSrc(useCaseToMessage);
+		useCaseToMessage__useCase____source.setTrg(useCase);
+		ruleresult.getCreatedEdges().add(useCaseToMessage__useCase____source);
+		useCaseToMessage__message____target.setSrc(useCaseToMessage);
+		useCaseToMessage__message____target.setTrg(message);
+		ruleresult.getCreatedEdges().add(useCaseToMessage__message____target);
+		message__messageReceive____receiveEvent.setSrc(message);
+		message__messageReceive____receiveEvent.setTrg(messageReceive);
+		ruleresult.getCreatedEdges().add(
+				message__messageReceive____receiveEvent);
+		message__interaction____interaction.setSrc(message);
+		message__interaction____interaction.setTrg(interaction);
+		ruleresult.getCreatedEdges().add(message__interaction____interaction);
+		interaction__message____message.setSrc(interaction);
+		interaction__message____message.setTrg(message);
+		ruleresult.getCreatedEdges().add(interaction__message____message);
+		line__interaction____interaction.setSrc(line);
+		line__interaction____interaction.setTrg(interaction);
+		ruleresult.getCreatedEdges().add(line__interaction____interaction);
+		interaction__line____lifeline.setSrc(interaction);
+		interaction__line____lifeline.setTrg(line);
+		ruleresult.getCreatedEdges().add(interaction__line____lifeline);
+		messageReceive__interaction____enclosingInteraction
+				.setSrc(messageReceive);
+		messageReceive__interaction____enclosingInteraction.setTrg(interaction);
+		ruleresult.getCreatedEdges().add(
+				messageReceive__interaction____enclosingInteraction);
+		interaction__messageReceive____fragment.setSrc(interaction);
+		interaction__messageReceive____fragment.setTrg(messageReceive);
+		ruleresult.getCreatedEdges().add(
+				interaction__messageReceive____fragment);
+		messageReceive__message____message.setSrc(messageReceive);
+		messageReceive__message____message.setTrg(message);
+		ruleresult.getCreatedEdges().add(messageReceive__message____message);
+		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
+		packageDeclaration__useCase____useCases.setTrg(useCase);
+		ruleresult.getTranslatedEdges().add(
+				packageDeclaration__useCase____useCases);
+		packageDeclaration__actor____actors.setSrc(packageDeclaration);
+		packageDeclaration__actor____actors.setTrg(actor);
+		ruleresult.getTranslatedEdges()
+				.add(packageDeclaration__actor____actors);
+		line__messageReceive____coveredBy.setSrc(line);
+		line__messageReceive____coveredBy.setTrg(messageReceive);
+		ruleresult.getCreatedEdges().add(line__messageReceive____coveredBy);
+		messageReceive__line____covered.setSrc(messageReceive);
+		messageReceive__line____covered.setTrg(line);
+		ruleresult.getCreatedEdges().add(messageReceive__line____covered);
+		actorToLine__actor____source.setSrc(actorToLine);
+		actorToLine__actor____source.setTrg(actor);
+		ruleresult.getCreatedEdges().add(actorToLine__actor____source);
+		actorToLine__line____target.setSrc(actorToLine);
+		actorToLine__line____target.setTrg(line);
+		ruleresult.getCreatedEdges().add(actorToLine__line____target);
+		_package__interaction____packagedElement.setSrc(_package);
+		_package__interaction____packagedElement.setTrg(interaction);
+		ruleresult.getCreatedEdges().add(
+				_package__interaction____packagedElement);
+		useCase__basicFlow____flows.setSrc(useCase);
+		useCase__basicFlow____flows.setTrg(basicFlow);
+		ruleresult.getTranslatedEdges().add(useCase__basicFlow____flows);
+		basicFlowToInteraction__basicFlow____source
+				.setSrc(basicFlowToInteraction);
+		basicFlowToInteraction__basicFlow____source.setTrg(basicFlow);
+		ruleresult.getCreatedEdges().add(
+				basicFlowToInteraction__basicFlow____source);
+		basicFlowToInteraction__interaction____target
+				.setSrc(basicFlowToInteraction);
+		basicFlowToInteraction__interaction____target.setTrg(interaction);
+		ruleresult.getCreatedEdges().add(
+				basicFlowToInteraction__interaction____target);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		useCaseToMessage__useCase____source
+				.setName(useCaseToMessage__useCase____source_name_prime);
+		useCaseToMessage__message____target
+				.setName(useCaseToMessage__message____target_name_prime);
+		message__messageReceive____receiveEvent
+				.setName(message__messageReceive____receiveEvent_name_prime);
+		message__interaction____interaction
+				.setName(message__interaction____interaction_name_prime);
+		interaction__message____message
+				.setName(interaction__message____message_name_prime);
+		line__interaction____interaction
+				.setName(line__interaction____interaction_name_prime);
+		interaction__line____lifeline
+				.setName(interaction__line____lifeline_name_prime);
+		messageReceive__interaction____enclosingInteraction
+				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
+		interaction__messageReceive____fragment
+				.setName(interaction__messageReceive____fragment_name_prime);
+		messageReceive__message____message
+				.setName(messageReceive__message____message_name_prime);
+		packageDeclaration__useCase____useCases
+				.setName(packageDeclaration__useCase____useCases_name_prime);
+		packageDeclaration__actor____actors
+				.setName(packageDeclaration__actor____actors_name_prime);
+		line__messageReceive____coveredBy
+				.setName(line__messageReceive____coveredBy_name_prime);
+		messageReceive__line____covered
+				.setName(messageReceive__line____covered_name_prime);
+		actorToLine__actor____source
+				.setName(actorToLine__actor____source_name_prime);
+		actorToLine__line____target
+				.setName(actorToLine__line____target_name_prime);
+		_package__interaction____packagedElement
+				.setName(_package__interaction____packagedElement_name_prime);
+		useCase__basicFlow____flows
+				.setName(useCase__basicFlow____flows_name_prime);
+		basicFlowToInteraction__basicFlow____source
+				.setName(basicFlowToInteraction__basicFlow____source_name_prime);
+		basicFlowToInteraction__interaction____target
+				.setName(basicFlowToInteraction__interaction____target_name_prime);
+		return new Object[] { ruleresult, useCaseToMessage, useCase, message,
+				interaction, messageReceive, actor, packageDeclaration, line,
+				actorToLine, _package, basicFlow, basicFlowToInteraction,
+				useCaseToMessage__useCase____source,
+				useCaseToMessage__message____target,
+				message__messageReceive____receiveEvent,
+				message__interaction____interaction,
+				interaction__message____message,
+				line__interaction____interaction,
+				interaction__line____lifeline,
+				messageReceive__interaction____enclosingInteraction,
+				interaction__messageReceive____fragment,
+				messageReceive__message____message,
+				packageDeclaration__useCase____useCases,
+				packageDeclaration__actor____actors,
+				line__messageReceive____coveredBy,
+				messageReceive__line____covered, actorToLine__actor____source,
+				actorToLine__line____target,
+				_package__interaction____packagedElement,
+				useCase__basicFlow____flows,
+				basicFlowToInteraction__basicFlow____source,
+				basicFlowToInteraction__interaction____target };
+	}
+
+	public static final void pattern_UseCasePrecondToFoundMessageRule_1_5_expressionBBBBBBBBBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this,
+			PerformRuleResult ruleresult, EObject useCaseToMessage,
+			EObject useCase, EObject message, EObject interaction,
+			EObject messageReceive, EObject actor, EObject packageDeclaration,
+			EObject line, EObject actorToLine, EObject _package,
+			EObject packageDeclarationToPackage, EObject basicFlow,
+			EObject basicFlowToInteraction) {
+		_this.registerObjects_FWD(ruleresult, useCaseToMessage, useCase,
+				message, interaction, messageReceive, actor,
+				packageDeclaration, line, actorToLine, _package,
+				packageDeclarationToPackage, basicFlow, basicFlowToInteraction);
+
+	}
+
+	public static final PerformRuleResult pattern_UseCasePrecondToFoundMessageRule_1_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_1_blackFBB(
+			EClass eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_FWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_2_1_binding = pattern_UseCasePrecondToFoundMessageRule_2_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_2_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_2_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_2_1_black = pattern_UseCasePrecondToFoundMessageRule_2_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_2_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_2_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "UseCasePrecondToFoundMessageRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_2_bindingFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("useCase");
+		EObject _localVariable_1 = match.getObject("actor");
+		EObject _localVariable_2 = match.getObject("packageDeclaration");
+		EObject _localVariable_3 = match.getObject("basicFlow");
+		EObject tmpUseCase = _localVariable_0;
+		EObject tmpActor = _localVariable_1;
+		EObject tmpPackageDeclaration = _localVariable_2;
+		EObject tmpBasicFlow = _localVariable_3;
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			if (tmpActor instanceof Actor) {
+				Actor actor = (Actor) tmpActor;
+				if (tmpPackageDeclaration instanceof PackageDeclaration) {
+					PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+					if (tmpBasicFlow instanceof BasicFlow) {
+						BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
+						return new Object[] { useCase, actor,
+								packageDeclaration, basicFlow, match };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_2_2_blackBBBFFBB(
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow,
+			Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (PackageDeclarationToPackage packageDeclarationToPackage : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(packageDeclaration,
+						PackageDeclarationToPackage.class, "source")) {
+			ModalSequenceDiagram.Package _package = packageDeclarationToPackage
+					.getTarget();
+			if (_package != null) {
+				_result.add(new Object[] { useCase, actor, packageDeclaration,
+						_package, packageDeclarationToPackage, basicFlow, match });
+			}
+
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_2_3_blackBBBBBB(
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			BasicFlow basicFlow) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (packageDeclaration.getUseCases().contains(useCase)) {
+			if (packageDeclaration.getActors().contains(actor)) {
+				if (packageDeclaration.equals(packageDeclarationToPackage
+						.getSource())) {
+					if (_package
+							.equals(packageDeclarationToPackage.getTarget())) {
+						if (useCase.getFlows().contains(basicFlow)) {
+							_result.add(new Object[] { useCase, actor,
+									packageDeclaration, _package,
+									packageDeclarationToPackage, basicFlow });
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_3_greenBBBBBBFFFFFF(
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			BasicFlow basicFlow) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclarationToPackage__packageDeclaration____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclarationToPackage___package____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCase__basicFlow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String packageDeclaration__useCase____useCases_name_prime = "useCases";
+		String packageDeclaration__actor____actors_name_prime = "actors";
+		String packageDeclarationToPackage__packageDeclaration____source_name_prime = "source";
+		String packageDeclarationToPackage___package____target_name_prime = "target";
+		String useCase__basicFlow____flows_name_prime = "flows";
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(actor);
+		isApplicableMatch.getAllContextElements().add(packageDeclaration);
+		isApplicableMatch.getAllContextElements().add(_package);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclarationToPackage);
+		isApplicableMatch.getAllContextElements().add(basicFlow);
+		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
+		packageDeclaration__useCase____useCases.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclaration__useCase____useCases);
+		packageDeclaration__actor____actors.setSrc(packageDeclaration);
+		packageDeclaration__actor____actors.setTrg(actor);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclaration__actor____actors);
+		packageDeclarationToPackage__packageDeclaration____source
+				.setSrc(packageDeclarationToPackage);
+		packageDeclarationToPackage__packageDeclaration____source
+				.setTrg(packageDeclaration);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclarationToPackage__packageDeclaration____source);
+		packageDeclarationToPackage___package____target
+				.setSrc(packageDeclarationToPackage);
+		packageDeclarationToPackage___package____target.setTrg(_package);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclarationToPackage___package____target);
+		useCase__basicFlow____flows.setSrc(useCase);
+		useCase__basicFlow____flows.setTrg(basicFlow);
+		isApplicableMatch.getAllContextElements().add(
+				useCase__basicFlow____flows);
+		packageDeclaration__useCase____useCases
+				.setName(packageDeclaration__useCase____useCases_name_prime);
+		packageDeclaration__actor____actors
+				.setName(packageDeclaration__actor____actors_name_prime);
+		packageDeclarationToPackage__packageDeclaration____source
+				.setName(packageDeclarationToPackage__packageDeclaration____source_name_prime);
+		packageDeclarationToPackage___package____target
+				.setName(packageDeclarationToPackage___package____target_name_prime);
+		useCase__basicFlow____flows
+				.setName(useCase__basicFlow____flows_name_prime);
+		return new Object[] { useCase, actor, packageDeclaration, _package,
+				packageDeclarationToPackage, basicFlow, isApplicableMatch,
+				packageDeclaration__useCase____useCases,
+				packageDeclaration__actor____actors,
+				packageDeclarationToPackage__packageDeclaration____source,
+				packageDeclarationToPackage___package____target,
+				useCase__basicFlow____flows };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_4_bindingFBBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			BasicFlow basicFlow) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
+				isApplicableMatch, useCase, actor, packageDeclaration,
+				_package, packageDeclarationToPackage, basicFlow);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, useCase,
+					actor, packageDeclaration, _package,
+					packageDeclarationToPackage, basicFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_4_bindingAndBlackFBBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			BasicFlow basicFlow) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_2_4_binding = pattern_UseCasePrecondToFoundMessageRule_2_4_bindingFBBBBBBBB(
+				_this, isApplicableMatch, useCase, actor, packageDeclaration,
+				_package, packageDeclarationToPackage, basicFlow);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_2_4_binding != null) {
+			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_2_4_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_2_4_black = pattern_UseCasePrecondToFoundMessageRule_2_4_blackB(csp);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_2_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, useCase,
+						actor, packageDeclaration, _package,
+						packageDeclarationToPackage, basicFlow };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_2_5_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "UseCasePrecondToFoundMessageRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_UseCasePrecondToFoundMessageRule_2_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_1_blackBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		return new Object[] { _this, match, message, interaction,
+				messageReceive, line, _package };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_2_bindingFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, message, interaction,
+					messageReceive, line, _package };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_2_bindingAndBlackFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_10_2_binding = pattern_UseCasePrecondToFoundMessageRule_10_2_bindingFBBBBBBB(
+				_this, match, message, interaction, messageReceive, line,
+				_package);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_10_2_binding != null) {
+			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_10_2_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_10_2_black = pattern_UseCasePrecondToFoundMessageRule_10_2_blackB(csp);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_10_2_black != null) {
+
+				return new Object[] { csp, _this, match, message, interaction,
+						messageReceive, line, _package };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_10_3_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_4_blackBBBBBB(
+			Match match, Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		return new Object[] { match, message, interaction, messageReceive,
+				line, _package };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_4_greenBBBBBBFFFFFFFFFFF(
+			Match match, Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__messageReceive____fragment = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge _package__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(message);
+		match.getToBeTranslatedNodes().add(interaction);
+		match.getToBeTranslatedNodes().add(messageReceive);
+		match.getToBeTranslatedNodes().add(line);
+		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
+		String message__interaction____interaction_name_prime = "interaction";
+		String interaction__message____message_name_prime = "message";
+		String line__interaction____interaction_name_prime = "interaction";
+		String interaction__line____lifeline_name_prime = "lifeline";
+		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
+		String interaction__messageReceive____fragment_name_prime = "fragment";
+		String messageReceive__message____message_name_prime = "message";
+		String line__messageReceive____coveredBy_name_prime = "coveredBy";
+		String messageReceive__line____covered_name_prime = "covered";
+		String _package__interaction____packagedElement_name_prime = "packagedElement";
+		message__messageReceive____receiveEvent.setSrc(message);
+		message__messageReceive____receiveEvent.setTrg(messageReceive);
+		match.getToBeTranslatedEdges().add(
+				message__messageReceive____receiveEvent);
+		message__interaction____interaction.setSrc(message);
+		message__interaction____interaction.setTrg(interaction);
+		match.getToBeTranslatedEdges().add(message__interaction____interaction);
+		interaction__message____message.setSrc(interaction);
+		interaction__message____message.setTrg(message);
+		match.getToBeTranslatedEdges().add(interaction__message____message);
+		line__interaction____interaction.setSrc(line);
+		line__interaction____interaction.setTrg(interaction);
+		match.getToBeTranslatedEdges().add(line__interaction____interaction);
+		interaction__line____lifeline.setSrc(interaction);
+		interaction__line____lifeline.setTrg(line);
+		match.getToBeTranslatedEdges().add(interaction__line____lifeline);
+		messageReceive__interaction____enclosingInteraction
+				.setSrc(messageReceive);
+		messageReceive__interaction____enclosingInteraction.setTrg(interaction);
+		match.getToBeTranslatedEdges().add(
+				messageReceive__interaction____enclosingInteraction);
+		interaction__messageReceive____fragment.setSrc(interaction);
+		interaction__messageReceive____fragment.setTrg(messageReceive);
+		match.getToBeTranslatedEdges().add(
+				interaction__messageReceive____fragment);
+		messageReceive__message____message.setSrc(messageReceive);
+		messageReceive__message____message.setTrg(message);
+		match.getToBeTranslatedEdges().add(messageReceive__message____message);
+		line__messageReceive____coveredBy.setSrc(line);
+		line__messageReceive____coveredBy.setTrg(messageReceive);
+		match.getToBeTranslatedEdges().add(line__messageReceive____coveredBy);
+		messageReceive__line____covered.setSrc(messageReceive);
+		messageReceive__line____covered.setTrg(line);
+		match.getToBeTranslatedEdges().add(messageReceive__line____covered);
+		_package__interaction____packagedElement.setSrc(_package);
+		_package__interaction____packagedElement.setTrg(interaction);
+		match.getToBeTranslatedEdges().add(
+				_package__interaction____packagedElement);
+		message__messageReceive____receiveEvent
+				.setName(message__messageReceive____receiveEvent_name_prime);
+		message__interaction____interaction
+				.setName(message__interaction____interaction_name_prime);
+		interaction__message____message
+				.setName(interaction__message____message_name_prime);
+		line__interaction____interaction
+				.setName(line__interaction____interaction_name_prime);
+		interaction__line____lifeline
+				.setName(interaction__line____lifeline_name_prime);
+		messageReceive__interaction____enclosingInteraction
+				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
+		interaction__messageReceive____fragment
+				.setName(interaction__messageReceive____fragment_name_prime);
+		messageReceive__message____message
+				.setName(messageReceive__message____message_name_prime);
+		line__messageReceive____coveredBy
+				.setName(line__messageReceive____coveredBy_name_prime);
+		messageReceive__line____covered
+				.setName(messageReceive__line____covered_name_prime);
+		_package__interaction____packagedElement
+				.setName(_package__interaction____packagedElement_name_prime);
+		return new Object[] { match, message, interaction, messageReceive,
+				line, _package, message__messageReceive____receiveEvent,
+				message__interaction____interaction,
+				interaction__message____message,
+				line__interaction____interaction,
+				interaction__line____lifeline,
+				messageReceive__interaction____enclosingInteraction,
+				interaction__messageReceive____fragment,
+				messageReceive__message____message,
+				line__messageReceive____coveredBy,
+				messageReceive__line____covered,
+				_package__interaction____packagedElement };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_5_blackBBBBBB(
+			Match match, Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		return new Object[] { match, message, interaction, messageReceive,
+				line, _package };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_5_greenBB(
+			Match match, ModalSequenceDiagram.Package _package) {
+		match.getContextNodes().add(_package);
+		return new Object[] { match, _package };
+	}
+
+	public static final void pattern_UseCasePrecondToFoundMessageRule_10_6_expressionBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		_this.registerObjectsToMatch_BWD(match, message, interaction,
+				messageReceive, line, _package);
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_10_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_10_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_bindingFFFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("message");
+		EObject _localVariable_1 = isApplicableMatch.getObject("interaction");
+		EObject _localVariable_2 = isApplicableMatch
+				.getObject("messageReceive");
+		EObject _localVariable_3 = isApplicableMatch
+				.getObject("packageDeclaration");
+		EObject _localVariable_4 = isApplicableMatch.getObject("line");
+		EObject _localVariable_5 = isApplicableMatch.getObject("_package");
+		EObject _localVariable_6 = isApplicableMatch
+				.getObject("packageDeclarationToPackage");
+		EObject tmpMessage = _localVariable_0;
+		EObject tmpInteraction = _localVariable_1;
+		EObject tmpMessageReceive = _localVariable_2;
+		EObject tmpPackageDeclaration = _localVariable_3;
+		EObject tmpLine = _localVariable_4;
+		EObject tmp_package = _localVariable_5;
+		EObject tmpPackageDeclarationToPackage = _localVariable_6;
+		if (tmpMessage instanceof Message) {
+			Message message = (Message) tmpMessage;
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+					MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+					if (tmpPackageDeclaration instanceof PackageDeclaration) {
+						PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+						if (tmpLine instanceof Lifeline) {
+							Lifeline line = (Lifeline) tmpLine;
+							if (tmp_package instanceof ModalSequenceDiagram.Package) {
+								ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) tmp_package;
+								if (tmpPackageDeclarationToPackage instanceof PackageDeclarationToPackage) {
+									PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) tmpPackageDeclarationToPackage;
+									return new Object[] { message, interaction,
+											messageReceive, packageDeclaration,
+											line, _package,
+											packageDeclarationToPackage,
+											isApplicableMatch };
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_blackBBBBBBBFBB(
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+			if (tmpCsp instanceof CSP) {
+				CSP csp = (CSP) tmpCsp;
+				return new Object[] { message, interaction, messageReceive,
+						packageDeclaration, line, _package,
+						packageDeclarationToPackage, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_bindingAndBlackFFFFFFFFBB(
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding = pattern_UseCasePrecondToFoundMessageRule_11_1_bindingFFFFFFFB(isApplicableMatch);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding != null) {
+			Message message = (Message) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[0];
+			Interaction interaction = (Interaction) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[2];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[3];
+			Lifeline line = (Lifeline) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[4];
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[5];
+			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[6];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_11_1_black = pattern_UseCasePrecondToFoundMessageRule_11_1_blackBBBBBBBFBB(
+					message, interaction, messageReceive, packageDeclaration,
+					line, _package, packageDeclarationToPackage, _this,
+					isApplicableMatch);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_11_1_black != null) {
+				CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_11_1_black[7];
+
+				return new Object[] { message, interaction, messageReceive,
+						packageDeclaration, line, _package,
+						packageDeclarationToPackage, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_greenFFBBFBBFFFB(
+			Message message, Interaction interaction,
+			PackageDeclaration packageDeclaration, Lifeline line, CSP csp) {
+		UseCaseToMessage useCaseToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createUseCaseToMessage();
+		UseCase useCase = UseCaseDSLFactory.eINSTANCE.createUseCase();
+		Actor actor = UseCaseDSLFactory.eINSTANCE.createActor();
+		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createActorToLifeline();
+		BasicFlow basicFlow = UseCaseDSLFactory.eINSTANCE.createBasicFlow();
+		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createFlowToInteractionFragment();
+		Object _localVariable_0 = csp.getValue("useCase", "preConditions");
+		Object _localVariable_1 = csp.getValue("useCase", "name");
+		Object _localVariable_2 = csp.getValue("actor", "type");
+		Object _localVariable_3 = csp.getValue("actor", "name");
+		useCaseToMessage.setTarget(message);
+		useCaseToMessage.setSource(useCase);
+		packageDeclaration.getUseCases().add(useCase);
+		packageDeclaration.getActors().add(actor);
+		actorToLine.setSource(actor);
+		actorToLine.setTarget(line);
+		useCase.getFlows().add(basicFlow);
+		basicFlowToInteraction.setSource(basicFlow);
+		basicFlowToInteraction.setTarget(interaction);
+		String useCase_preConditions_prime = (String) _localVariable_0;
+		String useCase_name_prime = (String) _localVariable_1;
+		ActorType actor_type_prime = (ActorType) _localVariable_2;
+		String actor_name_prime = (String) _localVariable_3;
+		useCase.setPreConditions(useCase_preConditions_prime);
+		useCase.setName(useCase_name_prime);
+		actor.setType(actor_type_prime);
+		actor.setName(actor_name_prime);
+		return new Object[] { useCaseToMessage, useCase, message, interaction,
+				actor, packageDeclaration, line, actorToLine, basicFlow,
+				basicFlowToInteraction, csp };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_2_blackBBBBBBBBBB(
+			UseCaseToMessage useCaseToMessage, UseCase useCase,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
+			Lifeline line, ActorToLifeline actorToLine, BasicFlow basicFlow,
+			FlowToInteractionFragment basicFlowToInteraction) {
+		return new Object[] { useCaseToMessage, useCase, message, interaction,
+				messageReceive, actor, line, actorToLine, basicFlow,
+				basicFlowToInteraction };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_2_greenFBBBBBBBBBB(
+			UseCaseToMessage useCaseToMessage, UseCase useCase,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
+			Lifeline line, ActorToLifeline actorToLine, BasicFlow basicFlow,
+			FlowToInteractionFragment basicFlowToInteraction) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getCreatedLinkElements().add(useCaseToMessage);
+		ruleresult.getCreatedElements().add(useCase);
+		ruleresult.getTranslatedElements().add(message);
+		ruleresult.getTranslatedElements().add(interaction);
+		ruleresult.getTranslatedElements().add(messageReceive);
+		ruleresult.getCreatedElements().add(actor);
+		ruleresult.getTranslatedElements().add(line);
+		ruleresult.getCreatedLinkElements().add(actorToLine);
+		ruleresult.getCreatedElements().add(basicFlow);
+		ruleresult.getCreatedLinkElements().add(basicFlowToInteraction);
+		return new Object[] { ruleresult, useCaseToMessage, useCase, message,
+				interaction, messageReceive, actor, line, actorToLine,
+				basicFlow, basicFlowToInteraction };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_3_blackBBBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject useCaseToMessage,
+			EObject useCase, EObject message, EObject interaction,
+			EObject messageReceive, EObject actor, EObject packageDeclaration,
+			EObject line, EObject actorToLine, EObject _package,
+			EObject packageDeclarationToPackage, EObject basicFlow,
+			EObject basicFlowToInteraction) {
+		if (!useCase.equals(useCaseToMessage)) {
+			if (!message.equals(useCaseToMessage)) {
+				if (!message.equals(useCase)) {
+					if (!message.equals(messageReceive)) {
+						if (!message.equals(packageDeclaration)) {
+							if (!message.equals(packageDeclarationToPackage)) {
+								if (!interaction.equals(useCaseToMessage)) {
+									if (!interaction.equals(useCase)) {
+										if (!interaction.equals(message)) {
+											if (!interaction
+													.equals(messageReceive)) {
+												if (!interaction
+														.equals(packageDeclaration)) {
+													if (!interaction
+															.equals(line)) {
+														if (!interaction
+																.equals(packageDeclarationToPackage)) {
+															if (!messageReceive
+																	.equals(useCaseToMessage)) {
+																if (!messageReceive
+																		.equals(useCase)) {
+																	if (!messageReceive
+																			.equals(packageDeclaration)) {
+																		if (!messageReceive
+																				.equals(packageDeclarationToPackage)) {
+																			if (!actor
+																					.equals(useCaseToMessage)) {
+																				if (!actor
+																						.equals(useCase)) {
+																					if (!actor
+																							.equals(message)) {
+																						if (!actor
+																								.equals(interaction)) {
+																							if (!actor
+																									.equals(messageReceive)) {
+																								if (!actor
+																										.equals(packageDeclaration)) {
+																									if (!actor
+																											.equals(line)) {
+																										if (!actor
+																												.equals(actorToLine)) {
+																											if (!actor
+																													.equals(packageDeclarationToPackage)) {
+																												if (!actor
+																														.equals(basicFlow)) {
+																													if (!actor
+																															.equals(basicFlowToInteraction)) {
+																														if (!packageDeclaration
+																																.equals(useCaseToMessage)) {
+																															if (!packageDeclaration
+																																	.equals(useCase)) {
+																																if (!packageDeclaration
+																																		.equals(packageDeclarationToPackage)) {
+																																	if (!line
+																																			.equals(useCaseToMessage)) {
+																																		if (!line
+																																				.equals(useCase)) {
+																																			if (!line
+																																					.equals(message)) {
+																																				if (!line
+																																						.equals(messageReceive)) {
+																																					if (!line
+																																							.equals(packageDeclaration)) {
+																																						if (!line
+																																								.equals(packageDeclarationToPackage)) {
+																																							if (!actorToLine
+																																									.equals(useCaseToMessage)) {
+																																								if (!actorToLine
+																																										.equals(useCase)) {
+																																									if (!actorToLine
+																																											.equals(message)) {
+																																										if (!actorToLine
+																																												.equals(interaction)) {
+																																											if (!actorToLine
+																																													.equals(messageReceive)) {
+																																												if (!actorToLine
+																																														.equals(packageDeclaration)) {
+																																													if (!actorToLine
+																																															.equals(line)) {
+																																														if (!actorToLine
+																																																.equals(packageDeclarationToPackage)) {
+																																															if (!actorToLine
+																																																	.equals(basicFlow)) {
+																																																if (!actorToLine
+																																																		.equals(basicFlowToInteraction)) {
+																																																	if (!_package
+																																																			.equals(useCaseToMessage)) {
+																																																		if (!_package
+																																																				.equals(useCase)) {
+																																																			if (!_package
+																																																					.equals(message)) {
+																																																				if (!_package
+																																																						.equals(interaction)) {
+																																																					if (!_package
+																																																							.equals(messageReceive)) {
+																																																						if (!_package
+																																																								.equals(actor)) {
+																																																							if (!_package
+																																																									.equals(packageDeclaration)) {
+																																																								if (!_package
+																																																										.equals(line)) {
+																																																									if (!_package
+																																																											.equals(actorToLine)) {
+																																																										if (!_package
+																																																												.equals(packageDeclarationToPackage)) {
+																																																											if (!_package
+																																																													.equals(basicFlow)) {
+																																																												if (!_package
+																																																														.equals(basicFlowToInteraction)) {
+																																																													if (!packageDeclarationToPackage
+																																																															.equals(useCaseToMessage)) {
+																																																														if (!packageDeclarationToPackage
+																																																																.equals(useCase)) {
+																																																															if (!basicFlow
+																																																																	.equals(useCaseToMessage)) {
+																																																																if (!basicFlow
+																																																																		.equals(useCase)) {
+																																																																	if (!basicFlow
+																																																																			.equals(message)) {
+																																																																		if (!basicFlow
+																																																																				.equals(interaction)) {
+																																																																			if (!basicFlow
+																																																																					.equals(messageReceive)) {
+																																																																				if (!basicFlow
+																																																																						.equals(packageDeclaration)) {
+																																																																					if (!basicFlow
+																																																																							.equals(line)) {
+																																																																						if (!basicFlow
+																																																																								.equals(packageDeclarationToPackage)) {
+																																																																							if (!basicFlow
+																																																																									.equals(basicFlowToInteraction)) {
+																																																																								if (!basicFlowToInteraction
+																																																																										.equals(useCaseToMessage)) {
+																																																																									if (!basicFlowToInteraction
+																																																																											.equals(useCase)) {
+																																																																										if (!basicFlowToInteraction
+																																																																												.equals(message)) {
+																																																																											if (!basicFlowToInteraction
+																																																																													.equals(interaction)) {
+																																																																												if (!basicFlowToInteraction
+																																																																														.equals(messageReceive)) {
+																																																																													if (!basicFlowToInteraction
+																																																																															.equals(packageDeclaration)) {
+																																																																														if (!basicFlowToInteraction
+																																																																																.equals(line)) {
+																																																																															if (!basicFlowToInteraction
+																																																																																	.equals(packageDeclarationToPackage)) {
+																																																																																return new Object[] {
+																																																																																		ruleresult,
+																																																																																		useCaseToMessage,
+																																																																																		useCase,
+																																																																																		message,
+																																																																																		interaction,
+																																																																																		messageReceive,
+																																																																																		actor,
+																																																																																		packageDeclaration,
+																																																																																		line,
+																																																																																		actorToLine,
+																																																																																		_package,
+																																																																																		packageDeclarationToPackage,
+																																																																																		basicFlow,
+																																																																																		basicFlowToInteraction };
+																																																																															}
+																																																																														}
+																																																																													}
+																																																																												}
+																																																																											}
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject useCaseToMessage,
+			EObject useCase, EObject message, EObject interaction,
+			EObject messageReceive, EObject actor, EObject packageDeclaration,
+			EObject line, EObject actorToLine, EObject _package,
+			EObject basicFlow, EObject basicFlowToInteraction) {
+		EMoflonEdge useCaseToMessage__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToMessage__message____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__messageReceive____fragment = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge actorToLine__actor____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge actorToLine__line____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge _package__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCase__basicFlow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge basicFlowToInteraction__basicFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge basicFlowToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "UseCasePrecondToFoundMessageRule";
+		String useCaseToMessage__useCase____source_name_prime = "source";
+		String useCaseToMessage__message____target_name_prime = "target";
+		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
+		String message__interaction____interaction_name_prime = "interaction";
+		String interaction__message____message_name_prime = "message";
+		String line__interaction____interaction_name_prime = "interaction";
+		String interaction__line____lifeline_name_prime = "lifeline";
+		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
+		String interaction__messageReceive____fragment_name_prime = "fragment";
+		String messageReceive__message____message_name_prime = "message";
+		String packageDeclaration__useCase____useCases_name_prime = "useCases";
+		String packageDeclaration__actor____actors_name_prime = "actors";
+		String line__messageReceive____coveredBy_name_prime = "coveredBy";
+		String messageReceive__line____covered_name_prime = "covered";
+		String actorToLine__actor____source_name_prime = "source";
+		String actorToLine__line____target_name_prime = "target";
+		String _package__interaction____packagedElement_name_prime = "packagedElement";
+		String useCase__basicFlow____flows_name_prime = "flows";
+		String basicFlowToInteraction__basicFlow____source_name_prime = "source";
+		String basicFlowToInteraction__interaction____target_name_prime = "target";
+		useCaseToMessage__useCase____source.setSrc(useCaseToMessage);
+		useCaseToMessage__useCase____source.setTrg(useCase);
+		ruleresult.getCreatedEdges().add(useCaseToMessage__useCase____source);
+		useCaseToMessage__message____target.setSrc(useCaseToMessage);
+		useCaseToMessage__message____target.setTrg(message);
+		ruleresult.getCreatedEdges().add(useCaseToMessage__message____target);
+		message__messageReceive____receiveEvent.setSrc(message);
+		message__messageReceive____receiveEvent.setTrg(messageReceive);
+		ruleresult.getTranslatedEdges().add(
+				message__messageReceive____receiveEvent);
+		message__interaction____interaction.setSrc(message);
+		message__interaction____interaction.setTrg(interaction);
+		ruleresult.getTranslatedEdges()
+				.add(message__interaction____interaction);
+		interaction__message____message.setSrc(interaction);
+		interaction__message____message.setTrg(message);
+		ruleresult.getTranslatedEdges().add(interaction__message____message);
+		line__interaction____interaction.setSrc(line);
+		line__interaction____interaction.setTrg(interaction);
+		ruleresult.getTranslatedEdges().add(line__interaction____interaction);
+		interaction__line____lifeline.setSrc(interaction);
+		interaction__line____lifeline.setTrg(line);
+		ruleresult.getTranslatedEdges().add(interaction__line____lifeline);
+		messageReceive__interaction____enclosingInteraction
+				.setSrc(messageReceive);
+		messageReceive__interaction____enclosingInteraction.setTrg(interaction);
+		ruleresult.getTranslatedEdges().add(
+				messageReceive__interaction____enclosingInteraction);
+		interaction__messageReceive____fragment.setSrc(interaction);
+		interaction__messageReceive____fragment.setTrg(messageReceive);
+		ruleresult.getTranslatedEdges().add(
+				interaction__messageReceive____fragment);
+		messageReceive__message____message.setSrc(messageReceive);
+		messageReceive__message____message.setTrg(message);
+		ruleresult.getTranslatedEdges().add(messageReceive__message____message);
+		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
+		packageDeclaration__useCase____useCases.setTrg(useCase);
+		ruleresult.getCreatedEdges().add(
+				packageDeclaration__useCase____useCases);
+		packageDeclaration__actor____actors.setSrc(packageDeclaration);
+		packageDeclaration__actor____actors.setTrg(actor);
+		ruleresult.getCreatedEdges().add(packageDeclaration__actor____actors);
+		line__messageReceive____coveredBy.setSrc(line);
+		line__messageReceive____coveredBy.setTrg(messageReceive);
+		ruleresult.getTranslatedEdges().add(line__messageReceive____coveredBy);
+		messageReceive__line____covered.setSrc(messageReceive);
+		messageReceive__line____covered.setTrg(line);
+		ruleresult.getTranslatedEdges().add(messageReceive__line____covered);
+		actorToLine__actor____source.setSrc(actorToLine);
+		actorToLine__actor____source.setTrg(actor);
+		ruleresult.getCreatedEdges().add(actorToLine__actor____source);
+		actorToLine__line____target.setSrc(actorToLine);
+		actorToLine__line____target.setTrg(line);
+		ruleresult.getCreatedEdges().add(actorToLine__line____target);
+		_package__interaction____packagedElement.setSrc(_package);
+		_package__interaction____packagedElement.setTrg(interaction);
+		ruleresult.getTranslatedEdges().add(
+				_package__interaction____packagedElement);
+		useCase__basicFlow____flows.setSrc(useCase);
+		useCase__basicFlow____flows.setTrg(basicFlow);
+		ruleresult.getCreatedEdges().add(useCase__basicFlow____flows);
+		basicFlowToInteraction__basicFlow____source
+				.setSrc(basicFlowToInteraction);
+		basicFlowToInteraction__basicFlow____source.setTrg(basicFlow);
+		ruleresult.getCreatedEdges().add(
+				basicFlowToInteraction__basicFlow____source);
+		basicFlowToInteraction__interaction____target
+				.setSrc(basicFlowToInteraction);
+		basicFlowToInteraction__interaction____target.setTrg(interaction);
+		ruleresult.getCreatedEdges().add(
+				basicFlowToInteraction__interaction____target);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		useCaseToMessage__useCase____source
+				.setName(useCaseToMessage__useCase____source_name_prime);
+		useCaseToMessage__message____target
+				.setName(useCaseToMessage__message____target_name_prime);
+		message__messageReceive____receiveEvent
+				.setName(message__messageReceive____receiveEvent_name_prime);
+		message__interaction____interaction
+				.setName(message__interaction____interaction_name_prime);
+		interaction__message____message
+				.setName(interaction__message____message_name_prime);
+		line__interaction____interaction
+				.setName(line__interaction____interaction_name_prime);
+		interaction__line____lifeline
+				.setName(interaction__line____lifeline_name_prime);
+		messageReceive__interaction____enclosingInteraction
+				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
+		interaction__messageReceive____fragment
+				.setName(interaction__messageReceive____fragment_name_prime);
+		messageReceive__message____message
+				.setName(messageReceive__message____message_name_prime);
+		packageDeclaration__useCase____useCases
+				.setName(packageDeclaration__useCase____useCases_name_prime);
+		packageDeclaration__actor____actors
+				.setName(packageDeclaration__actor____actors_name_prime);
+		line__messageReceive____coveredBy
+				.setName(line__messageReceive____coveredBy_name_prime);
+		messageReceive__line____covered
+				.setName(messageReceive__line____covered_name_prime);
+		actorToLine__actor____source
+				.setName(actorToLine__actor____source_name_prime);
+		actorToLine__line____target
+				.setName(actorToLine__line____target_name_prime);
+		_package__interaction____packagedElement
+				.setName(_package__interaction____packagedElement_name_prime);
+		useCase__basicFlow____flows
+				.setName(useCase__basicFlow____flows_name_prime);
+		basicFlowToInteraction__basicFlow____source
+				.setName(basicFlowToInteraction__basicFlow____source_name_prime);
+		basicFlowToInteraction__interaction____target
+				.setName(basicFlowToInteraction__interaction____target_name_prime);
+		return new Object[] { ruleresult, useCaseToMessage, useCase, message,
+				interaction, messageReceive, actor, packageDeclaration, line,
+				actorToLine, _package, basicFlow, basicFlowToInteraction,
+				useCaseToMessage__useCase____source,
+				useCaseToMessage__message____target,
+				message__messageReceive____receiveEvent,
+				message__interaction____interaction,
+				interaction__message____message,
+				line__interaction____interaction,
+				interaction__line____lifeline,
+				messageReceive__interaction____enclosingInteraction,
+				interaction__messageReceive____fragment,
+				messageReceive__message____message,
+				packageDeclaration__useCase____useCases,
+				packageDeclaration__actor____actors,
+				line__messageReceive____coveredBy,
+				messageReceive__line____covered, actorToLine__actor____source,
+				actorToLine__line____target,
+				_package__interaction____packagedElement,
+				useCase__basicFlow____flows,
+				basicFlowToInteraction__basicFlow____source,
+				basicFlowToInteraction__interaction____target };
+	}
+
+	public static final void pattern_UseCasePrecondToFoundMessageRule_11_5_expressionBBBBBBBBBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this,
+			PerformRuleResult ruleresult, EObject useCaseToMessage,
+			EObject useCase, EObject message, EObject interaction,
+			EObject messageReceive, EObject actor, EObject packageDeclaration,
+			EObject line, EObject actorToLine, EObject _package,
+			EObject packageDeclarationToPackage, EObject basicFlow,
+			EObject basicFlowToInteraction) {
+		_this.registerObjects_BWD(ruleresult, useCaseToMessage, useCase,
+				message, interaction, messageReceive, actor,
+				packageDeclaration, line, actorToLine, _package,
+				packageDeclarationToPackage, basicFlow, basicFlowToInteraction);
+
+	}
+
+	public static final PerformRuleResult pattern_UseCasePrecondToFoundMessageRule_11_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_1_blackFBB(
+			EClass eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_BWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_12_1_binding = pattern_UseCasePrecondToFoundMessageRule_12_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_12_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_12_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_12_1_black = pattern_UseCasePrecondToFoundMessageRule_12_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_12_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_12_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "UseCasePrecondToFoundMessageRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_2_bindingFFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("message");
+		EObject _localVariable_1 = match.getObject("interaction");
+		EObject _localVariable_2 = match.getObject("messageReceive");
+		EObject _localVariable_3 = match.getObject("line");
+		EObject _localVariable_4 = match.getObject("_package");
+		EObject tmpMessage = _localVariable_0;
+		EObject tmpInteraction = _localVariable_1;
+		EObject tmpMessageReceive = _localVariable_2;
+		EObject tmpLine = _localVariable_3;
+		EObject tmp_package = _localVariable_4;
+		if (tmpMessage instanceof Message) {
+			Message message = (Message) tmpMessage;
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+					MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+					if (tmpLine instanceof Lifeline) {
+						Lifeline line = (Lifeline) tmpLine;
+						if (tmp_package instanceof ModalSequenceDiagram.Package) {
+							ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) tmp_package;
+							return new Object[] { message, interaction,
+									messageReceive, line, _package, match };
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_12_2_blackBBBFBBFB(
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (PackageDeclarationToPackage packageDeclarationToPackage : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(_package,
+						PackageDeclarationToPackage.class, "target")) {
+			PackageDeclaration packageDeclaration = packageDeclarationToPackage
+					.getSource();
+			if (packageDeclaration != null) {
+				_result.add(new Object[] { message, interaction,
+						messageReceive, packageDeclaration, line, _package,
+						packageDeclarationToPackage, match });
+			}
+
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_12_3_blackBBBBBBB(
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (messageReceive.equals(message.getReceiveEvent())) {
+			if (interaction.equals(message.getInteraction())) {
+				if (interaction.equals(line.getInteraction())) {
+					if (interaction.equals(messageReceive
+							.getEnclosingInteraction())) {
+						if (message.equals(messageReceive.getMessage())) {
+							if (line.getCoveredBy().contains(messageReceive)) {
+								if (_package.getPackagedElement().contains(
+										interaction)) {
+									if (packageDeclaration
+											.equals(packageDeclarationToPackage
+													.getSource())) {
+										if (_package
+												.equals(packageDeclarationToPackage
+														.getTarget())) {
+											_result.add(new Object[] { message,
+													interaction,
+													messageReceive,
+													packageDeclaration, line,
+													_package,
+													packageDeclarationToPackage });
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_3_greenBBBBBBBFFFFFFFFFFFFFF(
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__messageReceive____fragment = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge _package__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclarationToPackage__packageDeclaration____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclarationToPackage___package____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
+		String message__interaction____interaction_name_prime = "interaction";
+		String interaction__message____message_name_prime = "message";
+		String line__interaction____interaction_name_prime = "interaction";
+		String interaction__line____lifeline_name_prime = "lifeline";
+		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
+		String interaction__messageReceive____fragment_name_prime = "fragment";
+		String messageReceive__message____message_name_prime = "message";
+		String line__messageReceive____coveredBy_name_prime = "coveredBy";
+		String messageReceive__line____covered_name_prime = "covered";
+		String _package__interaction____packagedElement_name_prime = "packagedElement";
+		String packageDeclarationToPackage__packageDeclaration____source_name_prime = "source";
+		String packageDeclarationToPackage___package____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(message);
+		isApplicableMatch.getAllContextElements().add(interaction);
+		isApplicableMatch.getAllContextElements().add(messageReceive);
+		isApplicableMatch.getAllContextElements().add(packageDeclaration);
+		isApplicableMatch.getAllContextElements().add(line);
+		isApplicableMatch.getAllContextElements().add(_package);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclarationToPackage);
+		message__messageReceive____receiveEvent.setSrc(message);
+		message__messageReceive____receiveEvent.setTrg(messageReceive);
+		isApplicableMatch.getAllContextElements().add(
+				message__messageReceive____receiveEvent);
+		message__interaction____interaction.setSrc(message);
+		message__interaction____interaction.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				message__interaction____interaction);
+		interaction__message____message.setSrc(interaction);
+		interaction__message____message.setTrg(message);
+		isApplicableMatch.getAllContextElements().add(
+				interaction__message____message);
+		line__interaction____interaction.setSrc(line);
+		line__interaction____interaction.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				line__interaction____interaction);
+		interaction__line____lifeline.setSrc(interaction);
+		interaction__line____lifeline.setTrg(line);
+		isApplicableMatch.getAllContextElements().add(
+				interaction__line____lifeline);
+		messageReceive__interaction____enclosingInteraction
+				.setSrc(messageReceive);
+		messageReceive__interaction____enclosingInteraction.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				messageReceive__interaction____enclosingInteraction);
+		interaction__messageReceive____fragment.setSrc(interaction);
+		interaction__messageReceive____fragment.setTrg(messageReceive);
+		isApplicableMatch.getAllContextElements().add(
+				interaction__messageReceive____fragment);
+		messageReceive__message____message.setSrc(messageReceive);
+		messageReceive__message____message.setTrg(message);
+		isApplicableMatch.getAllContextElements().add(
+				messageReceive__message____message);
+		line__messageReceive____coveredBy.setSrc(line);
+		line__messageReceive____coveredBy.setTrg(messageReceive);
+		isApplicableMatch.getAllContextElements().add(
+				line__messageReceive____coveredBy);
+		messageReceive__line____covered.setSrc(messageReceive);
+		messageReceive__line____covered.setTrg(line);
+		isApplicableMatch.getAllContextElements().add(
+				messageReceive__line____covered);
+		_package__interaction____packagedElement.setSrc(_package);
+		_package__interaction____packagedElement.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				_package__interaction____packagedElement);
+		packageDeclarationToPackage__packageDeclaration____source
+				.setSrc(packageDeclarationToPackage);
+		packageDeclarationToPackage__packageDeclaration____source
+				.setTrg(packageDeclaration);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclarationToPackage__packageDeclaration____source);
+		packageDeclarationToPackage___package____target
+				.setSrc(packageDeclarationToPackage);
+		packageDeclarationToPackage___package____target.setTrg(_package);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclarationToPackage___package____target);
+		message__messageReceive____receiveEvent
+				.setName(message__messageReceive____receiveEvent_name_prime);
+		message__interaction____interaction
+				.setName(message__interaction____interaction_name_prime);
+		interaction__message____message
+				.setName(interaction__message____message_name_prime);
+		line__interaction____interaction
+				.setName(line__interaction____interaction_name_prime);
+		interaction__line____lifeline
+				.setName(interaction__line____lifeline_name_prime);
+		messageReceive__interaction____enclosingInteraction
+				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
+		interaction__messageReceive____fragment
+				.setName(interaction__messageReceive____fragment_name_prime);
+		messageReceive__message____message
+				.setName(messageReceive__message____message_name_prime);
+		line__messageReceive____coveredBy
+				.setName(line__messageReceive____coveredBy_name_prime);
+		messageReceive__line____covered
+				.setName(messageReceive__line____covered_name_prime);
+		_package__interaction____packagedElement
+				.setName(_package__interaction____packagedElement_name_prime);
+		packageDeclarationToPackage__packageDeclaration____source
+				.setName(packageDeclarationToPackage__packageDeclaration____source_name_prime);
+		packageDeclarationToPackage___package____target
+				.setName(packageDeclarationToPackage___package____target_name_prime);
+		return new Object[] { message, interaction, messageReceive,
+				packageDeclaration, line, _package,
+				packageDeclarationToPackage, isApplicableMatch,
+				message__messageReceive____receiveEvent,
+				message__interaction____interaction,
+				interaction__message____message,
+				line__interaction____interaction,
+				interaction__line____lifeline,
+				messageReceive__interaction____enclosingInteraction,
+				interaction__messageReceive____fragment,
+				messageReceive__message____message,
+				line__messageReceive____coveredBy,
+				messageReceive__line____covered,
+				_package__interaction____packagedElement,
+				packageDeclarationToPackage__packageDeclaration____source,
+				packageDeclarationToPackage___package____target };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_4_bindingFBBBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch, Message message,
+			Interaction interaction,
+			MessageOccurrenceSpecification messageReceive,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage) {
+		CSP _localVariable_0 = _this
+				.isApplicable_solveCsp_BWD(isApplicableMatch, message,
+						interaction, messageReceive, packageDeclaration, line,
+						_package, packageDeclarationToPackage);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, message,
+					interaction, messageReceive, packageDeclaration, line,
+					_package, packageDeclarationToPackage };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_4_bindingAndBlackFBBBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch, Message message,
+			Interaction interaction,
+			MessageOccurrenceSpecification messageReceive,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_12_4_binding = pattern_UseCasePrecondToFoundMessageRule_12_4_bindingFBBBBBBBBB(
+				_this, isApplicableMatch, message, interaction, messageReceive,
+				packageDeclaration, line, _package, packageDeclarationToPackage);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_12_4_binding != null) {
+			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_12_4_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_12_4_black = pattern_UseCasePrecondToFoundMessageRule_12_4_blackB(csp);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_12_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, message,
+						interaction, messageReceive, packageDeclaration, line,
+						_package, packageDeclarationToPackage };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_12_5_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "UseCasePrecondToFoundMessageRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_UseCasePrecondToFoundMessageRule_12_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_20_1_binding = pattern_UseCasePrecondToFoundMessageRule_20_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_20_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_20_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_20_1_black = pattern_UseCasePrecondToFoundMessageRule_20_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_20_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_20_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_558914 = message.getSendEvent();
+		if (__DEC_message_sendEvent_558914 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_558914)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_821554 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_821554)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_621839 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_621839 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_621839)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_20_2_blackFFFFFB(
+			EMoflonEdge _edge_receiveEvent) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpMessage = _edge_receiveEvent.getSrc();
+		if (tmpMessage instanceof Message) {
+			Message message = (Message) tmpMessage;
+			EObject tmpMessageReceive = _edge_receiveEvent.getTrg();
+			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+				if (messageReceive.equals(message.getReceiveEvent())) {
+					if (message.equals(messageReceive.getMessage())) {
+						Interaction interaction = message.getInteraction();
+						if (interaction != null) {
+							if (interaction.equals(messageReceive
+									.getEnclosingInteraction())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_0BB(
+										message, messageReceive) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_1BB(
+											message, messageReceive) == null) {
+										if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_3BB(
+												message, messageReceive) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_2B(interaction) == null) {
+												for (Lifeline line : messageReceive
+														.getCovered()) {
+													if (interaction.equals(line
+															.getInteraction())) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_receiveEvent });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_20_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_20_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_20_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_21_1_binding = pattern_UseCasePrecondToFoundMessageRule_21_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_21_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_21_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_21_1_black = pattern_UseCasePrecondToFoundMessageRule_21_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_21_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_21_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_714903 = message.getSendEvent();
+		if (__DEC_message_sendEvent_714903 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_714903)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_784936 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_784936)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_307335 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_307335 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_307335)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_21_2_blackFFFFFB(
+			EMoflonEdge _edge_interaction) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpMessage = _edge_interaction.getSrc();
+		if (tmpMessage instanceof Message) {
+			Message message = (Message) tmpMessage;
+			EObject tmpInteraction = _edge_interaction.getTrg();
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (interaction.equals(message.getInteraction())) {
+					MessageEnd tmpMessageReceive = message.getReceiveEvent();
+					if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+						MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+						if (interaction.equals(messageReceive
+								.getEnclosingInteraction())) {
+							if (message.equals(messageReceive.getMessage())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_2B(interaction) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_0BB(
+											message, messageReceive) == null) {
+										if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_1BB(
+												message, messageReceive) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_3BB(
+													message, messageReceive) == null) {
+												for (Lifeline line : interaction
+														.getLifeline()) {
+													if (line.getCoveredBy()
+															.contains(
+																	messageReceive)) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_interaction });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_21_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_21_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_21_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_22_1_binding = pattern_UseCasePrecondToFoundMessageRule_22_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_22_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_22_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_22_1_black = pattern_UseCasePrecondToFoundMessageRule_22_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_22_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_22_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_239187 = message.getSendEvent();
+		if (__DEC_message_sendEvent_239187 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_239187)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_177886 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_177886)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_76134 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_76134 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_76134)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_22_2_blackFFFFFB(
+			EMoflonEdge _edge_message) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpInteraction = _edge_message.getSrc();
+		if (tmpInteraction instanceof Interaction) {
+			Interaction interaction = (Interaction) tmpInteraction;
+			EObject tmpMessage = _edge_message.getTrg();
+			if (tmpMessage instanceof Message) {
+				Message message = (Message) tmpMessage;
+				if (interaction.equals(message.getInteraction())) {
+					MessageEnd tmpMessageReceive = message.getReceiveEvent();
+					if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+						MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+						if (interaction.equals(messageReceive
+								.getEnclosingInteraction())) {
+							if (message.equals(messageReceive.getMessage())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_2B(interaction) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_0BB(
+											message, messageReceive) == null) {
+										if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_1BB(
+												message, messageReceive) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_3BB(
+													message, messageReceive) == null) {
+												for (Lifeline line : interaction
+														.getLifeline()) {
+													if (line.getCoveredBy()
+															.contains(
+																	messageReceive)) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_message });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_22_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_22_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_22_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_23_1_binding = pattern_UseCasePrecondToFoundMessageRule_23_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_23_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_23_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_23_1_black = pattern_UseCasePrecondToFoundMessageRule_23_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_23_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_23_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_344970 = message.getSendEvent();
+		if (__DEC_message_sendEvent_344970 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_344970)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_76461 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_76461)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_842782 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_842782 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_842782)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_23_2_blackFFFFFB(
+			EMoflonEdge _edge_interaction) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpLine = _edge_interaction.getSrc();
+		if (tmpLine instanceof Lifeline) {
+			Lifeline line = (Lifeline) tmpLine;
+			EObject tmpInteraction = _edge_interaction.getTrg();
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (interaction.equals(line.getInteraction())) {
+					if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_2B(interaction) == null) {
+						for (InteractionFragment tmpMessageReceive : line
+								.getCoveredBy()) {
+							if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+								MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+								if (interaction.equals(messageReceive
+										.getEnclosingInteraction())) {
+									Message message = messageReceive
+											.getMessage();
+									if (message != null) {
+										if (messageReceive.equals(message
+												.getReceiveEvent())) {
+											if (interaction.equals(message
+													.getInteraction())) {
+												if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_0BB(
+														message, messageReceive) == null) {
+													if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_1BB(
+															message,
+															messageReceive) == null) {
+														if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_3BB(
+																message,
+																messageReceive) == null) {
+															for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																	.getOppositeReferenceTyped(
+																			interaction,
+																			ModalSequenceDiagram.Package.class,
+																			"packagedElement")) {
+																_result.add(new Object[] {
+																		message,
+																		interaction,
+																		messageReceive,
+																		line,
+																		_package,
+																		_edge_interaction });
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_23_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_23_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_23_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_24_1_binding = pattern_UseCasePrecondToFoundMessageRule_24_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_24_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_24_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_24_1_black = pattern_UseCasePrecondToFoundMessageRule_24_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_24_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_24_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_450818 = message.getSendEvent();
+		if (__DEC_message_sendEvent_450818 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_450818)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_571020 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_571020)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_91026 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_91026 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_91026)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_24_2_blackFFFFFB(
+			EMoflonEdge _edge_lifeline) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpInteraction = _edge_lifeline.getSrc();
+		if (tmpInteraction instanceof Interaction) {
+			Interaction interaction = (Interaction) tmpInteraction;
+			EObject tmpLine = _edge_lifeline.getTrg();
+			if (tmpLine instanceof Lifeline) {
+				Lifeline line = (Lifeline) tmpLine;
+				if (interaction.equals(line.getInteraction())) {
+					if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_2B(interaction) == null) {
+						for (Message message : interaction.getMessage()) {
+							MessageEnd tmpMessageReceive = message
+									.getReceiveEvent();
+							if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+								MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+								if (interaction.equals(messageReceive
+										.getEnclosingInteraction())) {
+									if (message.equals(messageReceive
+											.getMessage())) {
+										if (line.getCoveredBy().contains(
+												messageReceive)) {
+											if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_0BB(
+													message, messageReceive) == null) {
+												if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_1BB(
+														message, messageReceive) == null) {
+													if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_3BB(
+															message,
+															messageReceive) == null) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_lifeline });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_24_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_24_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_24_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_25_1_binding = pattern_UseCasePrecondToFoundMessageRule_25_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_25_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_25_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_25_1_black = pattern_UseCasePrecondToFoundMessageRule_25_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_25_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_25_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_130589 = message.getSendEvent();
+		if (__DEC_message_sendEvent_130589 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_130589)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_317468 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_317468)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_958832 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_958832 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_958832)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_25_2_blackFFFFFB(
+			EMoflonEdge _edge_enclosingInteraction) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpMessageReceive = _edge_enclosingInteraction.getSrc();
+		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+			EObject tmpInteraction = _edge_enclosingInteraction.getTrg();
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (interaction
+						.equals(messageReceive.getEnclosingInteraction())) {
+					Message message = messageReceive.getMessage();
+					if (message != null) {
+						if (messageReceive.equals(message.getReceiveEvent())) {
+							if (interaction.equals(message.getInteraction())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_2B(interaction) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_0BB(
+											message, messageReceive) == null) {
+										if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_1BB(
+												message, messageReceive) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_3BB(
+													message, messageReceive) == null) {
+												for (Lifeline line : messageReceive
+														.getCovered()) {
+													if (interaction.equals(line
+															.getInteraction())) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_enclosingInteraction });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_25_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_25_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_25_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_26_1_binding = pattern_UseCasePrecondToFoundMessageRule_26_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_26_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_26_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_26_1_black = pattern_UseCasePrecondToFoundMessageRule_26_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_26_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_26_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_470398 = message.getSendEvent();
+		if (__DEC_message_sendEvent_470398 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_470398)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_859320 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_859320)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_540010 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_540010 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_540010)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_26_2_blackFFFFFB(
+			EMoflonEdge _edge_fragment) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpInteraction = _edge_fragment.getSrc();
+		if (tmpInteraction instanceof Interaction) {
+			Interaction interaction = (Interaction) tmpInteraction;
+			EObject tmpMessageReceive = _edge_fragment.getTrg();
+			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+				if (interaction
+						.equals(messageReceive.getEnclosingInteraction())) {
+					Message message = messageReceive.getMessage();
+					if (message != null) {
+						if (messageReceive.equals(message.getReceiveEvent())) {
+							if (interaction.equals(message.getInteraction())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_2B(interaction) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_0BB(
+											message, messageReceive) == null) {
+										if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_1BB(
+												message, messageReceive) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_3BB(
+													message, messageReceive) == null) {
+												for (Lifeline line : interaction
+														.getLifeline()) {
+													if (line.getCoveredBy()
+															.contains(
+																	messageReceive)) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_fragment });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_26_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_26_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_26_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_27_1_binding = pattern_UseCasePrecondToFoundMessageRule_27_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_27_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_27_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_27_1_black = pattern_UseCasePrecondToFoundMessageRule_27_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_27_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_27_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_289662 = message.getSendEvent();
+		if (__DEC_message_sendEvent_289662 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_289662)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_708866 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_708866)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_171980 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_171980 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_171980)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_27_2_blackFFFFFB(
+			EMoflonEdge _edge_message) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpMessageReceive = _edge_message.getSrc();
+		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+			EObject tmpMessage = _edge_message.getTrg();
+			if (tmpMessage instanceof Message) {
+				Message message = (Message) tmpMessage;
+				if (messageReceive.equals(message.getReceiveEvent())) {
+					if (message.equals(messageReceive.getMessage())) {
+						Interaction interaction = messageReceive
+								.getEnclosingInteraction();
+						if (interaction != null) {
+							if (interaction.equals(message.getInteraction())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_0BB(
+										message, messageReceive) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_1BB(
+											message, messageReceive) == null) {
+										if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_3BB(
+												message, messageReceive) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_2B(interaction) == null) {
+												for (Lifeline line : messageReceive
+														.getCovered()) {
+													if (interaction.equals(line
+															.getInteraction())) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_message });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_27_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_27_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_27_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_28_1_binding = pattern_UseCasePrecondToFoundMessageRule_28_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_28_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_28_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_28_1_black = pattern_UseCasePrecondToFoundMessageRule_28_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_28_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_28_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_0BB(
+			UseCase useCase, PackageDeclaration packageDeclaration) {
+		for (PackageDeclaration __DEC_useCase_useCases_933250 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
+						"useCases")) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_933250)) {
+				return new Object[] { useCase, packageDeclaration };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_1BB(
+			Actor actor, PackageDeclaration packageDeclaration) {
+		for (PackageDeclaration __DEC_actor_actors_425698 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
+						"actors")) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_425698)) {
+				return new Object[] { actor, packageDeclaration };
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_28_2_blackFFFFB(
+			EMoflonEdge _edge_useCases) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpPackageDeclaration = _edge_useCases.getSrc();
+		if (tmpPackageDeclaration instanceof PackageDeclaration) {
+			PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+			EObject tmpUseCase = _edge_useCases.getTrg();
+			if (tmpUseCase instanceof UseCase) {
+				UseCase useCase = (UseCase) tmpUseCase;
+				if (packageDeclaration.getUseCases().contains(useCase)) {
+					if (pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_0BB(
+							useCase, packageDeclaration) == null) {
+						for (Actor actor : packageDeclaration.getActors()) {
+							if (pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_1BB(
+									actor, packageDeclaration) == null) {
+								for (Flow tmpBasicFlow : useCase.getFlows()) {
+									if (tmpBasicFlow instanceof BasicFlow) {
+										BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
+										_result.add(new Object[] { useCase,
+												actor, packageDeclaration,
+												basicFlow, _edge_useCases });
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_28_3_expressionFBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, useCase,
+				actor, packageDeclaration, basicFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_28_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_28_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_29_1_binding = pattern_UseCasePrecondToFoundMessageRule_29_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_29_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_29_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_29_1_black = pattern_UseCasePrecondToFoundMessageRule_29_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_29_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_29_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_2_black_nac_0BB(
+			UseCase useCase, PackageDeclaration packageDeclaration) {
+		for (PackageDeclaration __DEC_useCase_useCases_953791 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
+						"useCases")) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_953791)) {
+				return new Object[] { useCase, packageDeclaration };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_2_black_nac_1BB(
+			Actor actor, PackageDeclaration packageDeclaration) {
+		for (PackageDeclaration __DEC_actor_actors_696850 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
+						"actors")) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_696850)) {
+				return new Object[] { actor, packageDeclaration };
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_29_2_blackFFFFB(
+			EMoflonEdge _edge_actors) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpPackageDeclaration = _edge_actors.getSrc();
+		if (tmpPackageDeclaration instanceof PackageDeclaration) {
+			PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+			EObject tmpActor = _edge_actors.getTrg();
+			if (tmpActor instanceof Actor) {
+				Actor actor = (Actor) tmpActor;
+				if (packageDeclaration.getActors().contains(actor)) {
+					if (pattern_UseCasePrecondToFoundMessageRule_29_2_black_nac_1BB(
+							actor, packageDeclaration) == null) {
+						for (UseCase useCase : packageDeclaration.getUseCases()) {
+							if (pattern_UseCasePrecondToFoundMessageRule_29_2_black_nac_0BB(
+									useCase, packageDeclaration) == null) {
+								for (Flow tmpBasicFlow : useCase.getFlows()) {
+									if (tmpBasicFlow instanceof BasicFlow) {
+										BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
+										_result.add(new Object[] { useCase,
+												actor, packageDeclaration,
+												basicFlow, _edge_actors });
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_29_3_expressionFBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, useCase,
+				actor, packageDeclaration, basicFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_29_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_29_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_30_1_binding = pattern_UseCasePrecondToFoundMessageRule_30_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_30_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_30_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_30_1_black = pattern_UseCasePrecondToFoundMessageRule_30_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_30_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_30_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_65966 = message.getSendEvent();
+		if (__DEC_message_sendEvent_65966 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_65966)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_173858 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_173858)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_591769 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_591769 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_591769)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_30_2_blackFFFFFB(
+			EMoflonEdge _edge_coveredBy) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpLine = _edge_coveredBy.getSrc();
+		if (tmpLine instanceof Lifeline) {
+			Lifeline line = (Lifeline) tmpLine;
+			EObject tmpMessageReceive = _edge_coveredBy.getTrg();
+			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+				if (line.getCoveredBy().contains(messageReceive)) {
+					Interaction interaction = line.getInteraction();
+					if (interaction != null) {
+						if (interaction.equals(messageReceive
+								.getEnclosingInteraction())) {
+							Message message = messageReceive.getMessage();
+							if (message != null) {
+								if (messageReceive.equals(message
+										.getReceiveEvent())) {
+									if (interaction.equals(message
+											.getInteraction())) {
+										if (pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_2B(interaction) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_0BB(
+													message, messageReceive) == null) {
+												if (pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_1BB(
+														message, messageReceive) == null) {
+													if (pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_3BB(
+															message,
+															messageReceive) == null) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_coveredBy });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_30_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_30_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_30_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_31_1_binding = pattern_UseCasePrecondToFoundMessageRule_31_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_31_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_31_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_31_1_black = pattern_UseCasePrecondToFoundMessageRule_31_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_31_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_31_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_288713 = message.getSendEvent();
+		if (__DEC_message_sendEvent_288713 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_288713)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_579108 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_579108)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_357021 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_357021 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_357021)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_31_2_blackFFFFFB(
+			EMoflonEdge _edge_covered) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpMessageReceive = _edge_covered.getSrc();
+		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+			EObject tmpLine = _edge_covered.getTrg();
+			if (tmpLine instanceof Lifeline) {
+				Lifeline line = (Lifeline) tmpLine;
+				if (line.getCoveredBy().contains(messageReceive)) {
+					Interaction interaction = messageReceive
+							.getEnclosingInteraction();
+					if (interaction != null) {
+						if (interaction.equals(line.getInteraction())) {
+							Message message = messageReceive.getMessage();
+							if (message != null) {
+								if (messageReceive.equals(message
+										.getReceiveEvent())) {
+									if (interaction.equals(message
+											.getInteraction())) {
+										if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_2B(interaction) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_0BB(
+													message, messageReceive) == null) {
+												if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_1BB(
+														message, messageReceive) == null) {
+													if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_3BB(
+															message,
+															messageReceive) == null) {
+														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		interaction,
+																		ModalSequenceDiagram.Package.class,
+																		"packagedElement")) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_covered });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_31_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_31_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_31_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_32_1_binding = pattern_UseCasePrecondToFoundMessageRule_32_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_32_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_32_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_32_1_black = pattern_UseCasePrecondToFoundMessageRule_32_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_32_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_32_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_0BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_146168 = message.getSendEvent();
+		if (__DEC_message_sendEvent_146168 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_146168)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_543255 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_543255)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_2B(
+			Interaction interaction) {
+		Interaction __DEC_interaction_enclosingInteraction_469654 = interaction
+				.getEnclosingInteraction();
+		if (__DEC_interaction_enclosingInteraction_469654 != null) {
+			if (!interaction
+					.equals(__DEC_interaction_enclosingInteraction_469654)) {
+				return new Object[] { interaction };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_3BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_32_2_blackFFFFFB(
+			EMoflonEdge _edge_packagedElement) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmp_package = _edge_packagedElement.getSrc();
+		if (tmp_package instanceof ModalSequenceDiagram.Package) {
+			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) tmp_package;
+			EObject tmpInteraction = _edge_packagedElement.getTrg();
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (_package.getPackagedElement().contains(interaction)) {
+					if (pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_2B(interaction) == null) {
+						for (Message message : interaction.getMessage()) {
+							MessageEnd tmpMessageReceive = message
+									.getReceiveEvent();
+							if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+								MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+								if (interaction.equals(messageReceive
+										.getEnclosingInteraction())) {
+									if (message.equals(messageReceive
+											.getMessage())) {
+										if (pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_0BB(
+												message, messageReceive) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_1BB(
+													message, messageReceive) == null) {
+												if (pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_3BB(
+														message, messageReceive) == null) {
+													for (Lifeline line : interaction
+															.getLifeline()) {
+														if (line.getCoveredBy()
+																.contains(
+																		messageReceive)) {
+															_result.add(new Object[] {
+																	message,
+																	interaction,
+																	messageReceive,
+																	line,
+																	_package,
+																	_edge_packagedElement });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_32_3_expressionFBBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line,
+			ModalSequenceDiagram.Package _package) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line, _package);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_32_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_32_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_1_bindingFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_1_blackFBB(
+			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_1_bindingAndBlackFFB(
+			UseCasePrecondToFoundMessageRule _this) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_33_1_binding = pattern_UseCasePrecondToFoundMessageRule_33_1_bindingFB(_this);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_33_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_33_1_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_33_1_black = pattern_UseCasePrecondToFoundMessageRule_33_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_33_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_33_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_2_black_nac_0BB(
+			UseCase useCase, PackageDeclaration packageDeclaration) {
+		for (PackageDeclaration __DEC_useCase_useCases_131275 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
+						"useCases")) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_131275)) {
+				return new Object[] { useCase, packageDeclaration };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_2_black_nac_1BB(
+			Actor actor, PackageDeclaration packageDeclaration) {
+		for (PackageDeclaration __DEC_actor_actors_133573 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
+						"actors")) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_133573)) {
+				return new Object[] { actor, packageDeclaration };
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_33_2_blackFFFFB(
+			EMoflonEdge _edge_flows) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpUseCase = _edge_flows.getSrc();
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			EObject tmpBasicFlow = _edge_flows.getTrg();
+			if (tmpBasicFlow instanceof BasicFlow) {
+				BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
+				if (useCase.getFlows().contains(basicFlow)) {
+					for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(useCase,
+									PackageDeclaration.class, "useCases")) {
+						if (pattern_UseCasePrecondToFoundMessageRule_33_2_black_nac_0BB(
+								useCase, packageDeclaration) == null) {
+							for (Actor actor : packageDeclaration.getActors()) {
+								if (pattern_UseCasePrecondToFoundMessageRule_33_2_black_nac_1BB(
+										actor, packageDeclaration) == null) {
+									_result.add(new Object[] { useCase, actor,
+											packageDeclaration, basicFlow,
+											_edge_flows });
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_33_3_expressionFBBBBBB(
+			UseCasePrecondToFoundMessageRule _this, Match match,
+			UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, useCase,
+				actor, packageDeclaration, basicFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_33_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_33_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_1_blackB(
+			UseCasePrecondToFoundMessageRule _this) {
+		return new Object[] { _this };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_1_greenFF() {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
+				.createModelgeneratorRuleResult();
+		boolean ruleResult_success_prime = false;
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		return new Object[] { isApplicableMatch, ruleResult };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult,
+			PackageDeclaration packageDeclaration) {
+		if (ruleResult.getSourceObjects().contains(packageDeclaration)) {
+			return new Object[] { ruleResult, packageDeclaration };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult,
+			PackageDeclarationToPackage packageDeclarationToPackage) {
+		if (ruleResult.getCorrObjects().contains(packageDeclarationToPackage)) {
+			return new Object[] { ruleResult, packageDeclarationToPackage };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_2BB(
+			ModelgeneratorRuleResult ruleResult,
+			ModalSequenceDiagram.Package _package) {
+		if (ruleResult.getTargetObjects().contains(_package)) {
+			return new Object[] { ruleResult, _package };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_36_2_blackFFFFBB(
+			RuleEntryContainer ruleEntryContainer,
+			ModelgeneratorRuleResult ruleResult) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (RuleEntryList packageDeclarationToPackageList : ruleEntryContainer
+				.getRuleEntryList()) {
+			for (EObject tmpPackageDeclarationToPackage : packageDeclarationToPackageList
+					.getEntryObjects()) {
+				if (tmpPackageDeclarationToPackage instanceof PackageDeclarationToPackage) {
+					PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) tmpPackageDeclarationToPackage;
+					PackageDeclaration packageDeclaration = packageDeclarationToPackage
+							.getSource();
+					if (packageDeclaration != null) {
+						ModalSequenceDiagram.Package _package = packageDeclarationToPackage
+								.getTarget();
+						if (_package != null) {
+							if (pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_1BB(
+									ruleResult, packageDeclarationToPackage) == null) {
+								if (pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_0BB(
+										ruleResult, packageDeclaration) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_2BB(
+											ruleResult, _package) == null) {
+										_result.add(new Object[] {
+												packageDeclarationToPackageList,
+												packageDeclaration,
+												packageDeclarationToPackage,
+												_package, ruleEntryContainer,
+												ruleResult });
+									}
+								}
+							}
+						}
+
+					}
+
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_3_bindingFBBBBBB(
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch,
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			ModelgeneratorRuleResult ruleResult) {
+		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
+				isApplicableMatch, packageDeclaration, _package,
+				packageDeclarationToPackage, ruleResult);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch,
+					packageDeclaration, _package, packageDeclarationToPackage,
+					ruleResult };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_3_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_3_bindingAndBlackFBBBBBB(
+			UseCasePrecondToFoundMessageRule _this,
+			IsApplicableMatch isApplicableMatch,
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_36_3_binding = pattern_UseCasePrecondToFoundMessageRule_36_3_bindingFBBBBBB(
+				_this, isApplicableMatch, packageDeclaration, _package,
+				packageDeclarationToPackage, ruleResult);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_36_3_binding != null) {
+			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_36_3_binding[0];
+
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_36_3_black = pattern_UseCasePrecondToFoundMessageRule_36_3_blackB(csp);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_36_3_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch,
+						packageDeclaration, _package,
+						packageDeclarationToPackage, ruleResult };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_36_4_expressionFBB(
+			UseCasePrecondToFoundMessageRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_5_blackBBB(
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage) {
+		return new Object[] { packageDeclaration, _package,
+				packageDeclarationToPackage };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_6_blackBBBB(
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			PackageDeclarationToPackage packageDeclarationToPackage,
+			ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { packageDeclaration, _package,
+				packageDeclarationToPackage, ruleResult };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_6_greenFFFFFFBFFBFFBB(
+			PackageDeclaration packageDeclaration,
+			ModalSequenceDiagram.Package _package,
+			ModelgeneratorRuleResult ruleResult, CSP csp) {
+		UseCaseToMessage useCaseToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createUseCaseToMessage();
+		UseCase useCase = UseCaseDSLFactory.eINSTANCE.createUseCase();
+		Message message = ModalSequenceDiagramFactory.eINSTANCE.createMessage();
+		Interaction interaction = ModalSequenceDiagramFactory.eINSTANCE
+				.createInteraction();
+		MessageOccurrenceSpecification messageReceive = ModalSequenceDiagramFactory.eINSTANCE
+				.createMessageOccurrenceSpecification();
+		Actor actor = UseCaseDSLFactory.eINSTANCE.createActor();
+		Lifeline line = ModalSequenceDiagramFactory.eINSTANCE.createLifeline();
+		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createActorToLifeline();
+		BasicFlow basicFlow = UseCaseDSLFactory.eINSTANCE.createBasicFlow();
+		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createFlowToInteractionFragment();
+		Object _localVariable_0 = csp.getValue("useCase", "preConditions");
+		Object _localVariable_1 = csp.getValue("useCase", "name");
+		Object _localVariable_2 = csp.getValue("message", "name");
+		Object _localVariable_3 = csp.getValue("message", "messageKind");
+		Object _localVariable_4 = csp.getValue("message", "messageSort");
+		Object _localVariable_5 = csp.getValue("interaction", "name");
+		Object _localVariable_6 = csp.getValue("actor", "type");
+		Object _localVariable_7 = csp.getValue("actor", "name");
+		Object _localVariable_8 = csp.getValue("line", "name");
+		int _localVariable_9 = ruleResult.getIncrementedPerformCount();
+		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		ruleResult.getCorrObjects().add(useCaseToMessage);
+		useCaseToMessage.setSource(useCase);
+		packageDeclaration.getUseCases().add(useCase);
+		ruleResult.getSourceObjects().add(useCase);
+		useCaseToMessage.setTarget(message);
+		ruleResult.getTargetObjects().add(message);
+		message.setInteraction(interaction);
+		_package.getPackagedElement().add(interaction);
+		ruleResult.getTargetObjects().add(interaction);
+		message.setReceiveEvent(messageReceive);
+		messageReceive.setEnclosingInteraction(interaction);
+		messageReceive.setMessage(message);
+		ruleResult.getTargetObjects().add(messageReceive);
+		packageDeclaration.getActors().add(actor);
+		ruleResult.getSourceObjects().add(actor);
+		line.setInteraction(interaction);
+		line.getCoveredBy().add(messageReceive);
+		ruleResult.getTargetObjects().add(line);
+		actorToLine.setSource(actor);
+		actorToLine.setTarget(line);
+		ruleResult.getCorrObjects().add(actorToLine);
+		useCase.getFlows().add(basicFlow);
+		ruleResult.getSourceObjects().add(basicFlow);
+		basicFlowToInteraction.setSource(basicFlow);
+		basicFlowToInteraction.setTarget(interaction);
+		ruleResult.getCorrObjects().add(basicFlowToInteraction);
+		String useCase_preConditions_prime = (String) _localVariable_0;
+		String useCase_name_prime = (String) _localVariable_1;
+		String message_name_prime = (String) _localVariable_2;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_3;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_4;
+		String interaction_name_prime = (String) _localVariable_5;
+		ActorType actor_type_prime = (ActorType) _localVariable_6;
+		String actor_name_prime = (String) _localVariable_7;
+		String line_name_prime = (String) _localVariable_8;
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_9);
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		useCase.setPreConditions(useCase_preConditions_prime);
+		useCase.setName(useCase_name_prime);
+		message.setName(message_name_prime);
+		message.setMessageKind(message_messageKind_prime);
+		message.setMessageSort(message_messageSort_prime);
+		interaction.setName(interaction_name_prime);
+		actor.setType(actor_type_prime);
+		actor.setName(actor_name_prime);
+		line.setName(line_name_prime);
+		ruleResult.setPerformCount(Integer
+				.valueOf(ruleResult_performCount_prime));
+		return new Object[] { useCaseToMessage, useCase, message, interaction,
+				messageReceive, actor, packageDeclaration, line, actorToLine,
+				_package, basicFlow, basicFlowToInteraction, ruleResult, csp };
+	}
+
+	public static final ModelgeneratorRuleResult pattern_UseCasePrecondToFoundMessageRule_36_7_expressionFB(
+			ModelgeneratorRuleResult ruleResult) {
+		ModelgeneratorRuleResult _result = ruleResult;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

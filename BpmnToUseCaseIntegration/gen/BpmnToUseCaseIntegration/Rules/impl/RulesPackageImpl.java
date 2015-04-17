@@ -694,6 +694,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getBpModelToUseCaseModelRule__GenerateModel__RuleEntryContainer() {
+		return getBpModelToUseCaseModelRule().getEOperations().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBpModelToUseCaseModelRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ModelgeneratorRuleResult() {
+		return getBpModelToUseCaseModelRule().getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBpModelToUseCaseModelRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getBpModelToUseCaseModelRule().getEOperations().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDefinitionsToPackageRule() {
 		if (definitionsToPackageRuleEClass == null) {
 			definitionsToPackageRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -916,6 +943,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getDefinitionsToPackageRule__CheckAttributes_BWD__TripleMatch() {
 		return getDefinitionsToPackageRule().getEOperations().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDefinitionsToPackageRule__GenerateModel__RuleEntryContainer_DocRootToUCModel() {
+		return getDefinitionsToPackageRule().getEOperations().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDefinitionsToPackageRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_DocumentRoot_UseCasesModel_DocRootToUCModel_ModelgeneratorRuleResult() {
+		return getDefinitionsToPackageRule().getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDefinitionsToPackageRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getDefinitionsToPackageRule().getEOperations().get(26);
 	}
 
 	/**
@@ -1206,6 +1260,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getProcessToUseCaseRule__GenerateModel__RuleEntryContainer_DefinitionsToPackage() {
+		return getProcessToUseCaseRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProcessToUseCaseRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Definitions_PackageDeclaration_DefinitionsToPackage_ModelgeneratorRuleResult() {
+		return getProcessToUseCaseRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProcessToUseCaseRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getProcessToUseCaseRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTaskToStepCoreRule() {
 		if (taskToStepCoreRuleEClass == null) {
 			taskToStepCoreRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -1359,6 +1440,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getLaneSetRule__CheckAttributes_FWD__TripleMatch() {
 		return getLaneSetRule().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneSetRule__GenerateModel__RuleEntryContainer_Process() {
+		return getLaneSetRule().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneSetRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_ModelgeneratorRuleResult() {
+		return getLaneSetRule().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneSetRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getLaneSetRule().getEOperations().get(14);
 	}
 
 	/**
@@ -1588,6 +1696,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getLaneToActorRule__CheckAttributes_BWD__TripleMatch() {
 		return getLaneToActorRule().getEOperations().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneToActorRule__GenerateModel__RuleEntryContainer_DefinitionsToPackage() {
+		return getLaneToActorRule().getEOperations().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneToActorRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_LaneSet_Process_Definitions_PackageDeclaration_DefinitionsToPackage_UseCase_ProcessToUseCase_ModelgeneratorRuleResult() {
+		return getLaneToActorRule().getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneToActorRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getLaneToActorRule().getEOperations().get(26);
 	}
 
 	/**
@@ -1900,6 +2035,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getServiceTaskToStepRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getServiceTaskToStepRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_Actor_ProcessToActor_SequenceFlow_SequenceFlowToStep_Step_SequenceFlowToUCFlow_Flow_LaneSet_Lane_FlowNode_ModelgeneratorRuleResult() {
+		return getServiceTaskToStepRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getServiceTaskToStepRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUserTaskToStepRule() {
 		if (userTaskToStepRuleEClass == null) {
 			userTaskToStepRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -2186,6 +2348,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getUserTaskToStepRule__CheckAttributes_BWD__TripleMatch() {
 		return getUserTaskToStepRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepRule__GenerateModel__RuleEntryContainer_LaneToActor() {
+		return getUserTaskToStepRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Lane_Actor_LaneToActor_SequenceFlow_SequenceFlowToStep_Step_Process_SequenceFlowToUCFlow_Flow_LaneSet_FlowNode_ModelgeneratorRuleResult() {
+		return getUserTaskToStepRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getUserTaskToStepRule().getEOperations().get(33);
 	}
 
 	/**
@@ -2509,6 +2698,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getITEToStepRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getITEToStepRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getITEToStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getITEToStepRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getITEToStepRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getITEToStepRule().getEOperations().get(34);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getICEToStepRule() {
 		if (iceToStepRuleEClass == null) {
 			iceToStepRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -2665,6 +2881,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getEndEventRule__CheckAttributes_FWD__TripleMatch() {
 		return getEndEventRule().getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEndEventRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getEndEventRule().getEOperations().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEndEventRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_Flow_SequenceFlowToUCFlow_UseCase_ProcessToUseCase_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getEndEventRule().getEOperations().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEndEventRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getEndEventRule().getEOperations().get(17);
 	}
 
 	/**
@@ -2967,6 +3210,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getExclusiveGatewayToStepCoreRule__CheckAttributes_BWD__TripleMatch() {
 		return getExclusiveGatewayToStepCoreRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExclusiveGatewayToStepCoreRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getExclusiveGatewayToStepCoreRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExclusiveGatewayToStepCoreRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlowToUCFlow_Process_SequenceFlow_Flow_Actor_ProcessToActor_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getExclusiveGatewayToStepCoreRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExclusiveGatewayToStepCoreRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getExclusiveGatewayToStepCoreRule().getEOperations().get(34);
 	}
 
 	/**
@@ -3281,6 +3551,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getFirstInterThrowEventToStepRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getFirstInterThrowEventToStepRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getFirstInterThrowEventToStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getFirstInterThrowEventToStepRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getFirstInterThrowEventToStepRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getFirstInterThrowEventToStepRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFirstICEToStepRule() {
 		if (firstICEToStepRuleEClass == null) {
 			firstICEToStepRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -3579,6 +3876,36 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getParallelGatewayToParallelStepCoreRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
+				27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelGatewayToParallelStepCoreRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_Flow_SequenceFlowToUCFlow_LaneSet_Lane_ModelgeneratorRuleResult() {
+		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
+				28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelGatewayToParallelStepCoreRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
+				29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEventBasedGatewayToStepCoreRule() {
 		if (eventBasedGatewayToStepCoreRuleEClass == null) {
 			eventBasedGatewayToStepCoreRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -3845,6 +4172,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getEventBasedGatewayToStepCoreRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getEventBasedGatewayToStepCoreRule().getEOperations().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEventBasedGatewayToStepCoreRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getEventBasedGatewayToStepCoreRule().getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEventBasedGatewayToStepCoreRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getEventBasedGatewayToStepCoreRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExclusiveConvergingGatewayRule() {
 		if (exclusiveConvergingGatewayRuleEClass == null) {
 			exclusiveConvergingGatewayRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -4028,6 +4382,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getParallelConvergingGatewayRule__CheckAttributes_FWD__TripleMatch() {
 		return getParallelConvergingGatewayRule().getEOperations().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelConvergingGatewayRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getParallelConvergingGatewayRule().getEOperations().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelConvergingGatewayRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_ParallelFlow_SequenceFlowToUCFlow_Step_SequenceFlowToStep_Flow_ParallelStep_Lane_LaneSet_ParallelGateway_FlowNodeToStep_SequenceFlow_SequenceFlowToUCFlow_ModelgeneratorRuleResult() {
+		return getParallelConvergingGatewayRule().getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelConvergingGatewayRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getParallelConvergingGatewayRule().getEOperations().get(20);
 	}
 
 	/**
@@ -4301,6 +4682,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getSeqFlowAfterEGToAltFlowRule__GenerateModel__RuleEntryContainer_FlowNodeToStep() {
+		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSeqFlowAfterEGToAltFlowRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_UseCase_ProcessToUseCase_SequenceFlow_Flow_SequenceFlowToUCFlow_NormalStep_FlowNodeToStep_ExclusiveGateway_Process_ModelgeneratorRuleResult() {
+		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSeqFlowAfterEGToAltFlowRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSeqFlowAfterPGToParallelFlowRule() {
 		if (seqFlowAfterPGToParallelFlowRuleEClass == null) {
 			seqFlowAfterPGToParallelFlowRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -4551,6 +4959,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getSeqFlowAfterPGToParallelFlowRule__CheckAttributes_BWD__TripleMatch() {
 		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSeqFlowAfterPGToParallelFlowRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSeqFlowAfterPGToParallelFlowRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_ParallelGateway_SequenceFlow_Flow_SequenceFlowToUCFlow_UseCase_ProcessToUseCase_ParallelStep_FlowNodeToStep_ModelgeneratorRuleResult() {
+		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSeqFlowAfterPGToParallelFlowRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(29);
 	}
 
 	/**
@@ -4887,6 +5322,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getCatchEventAfterEBGToStepRule__GenerateModel__RuleEntryContainer_FlowNodeToStep() {
+		return getCatchEventAfterEBGToStepRule().getEOperations().get(35);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCatchEventAfterEBGToStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_EventBasedGateway_UseCase_ProcessToUseCase_Flow_SequenceFlowToUCFlow_NormalStep_FlowNodeToStep_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getCatchEventAfterEBGToStepRule().getEOperations().get(36);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCatchEventAfterEBGToStepRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getCatchEventAfterEBGToStepRule().getEOperations().get(37);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExclusiveGatewayToStepRule() {
 		if (exclusiveGatewayToStepRuleEClass == null) {
 			exclusiveGatewayToStepRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -5198,6 +5660,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getExclusiveGatewayToStepRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getExclusiveGatewayToStepRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExclusiveGatewayToStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_SequenceFlowToUCFlow_Process_Flow_Actor_ProcessToActor_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getExclusiveGatewayToStepRule().getEOperations().get(34);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExclusiveGatewayToStepRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getExclusiveGatewayToStepRule().getEOperations().get(35);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParallelGatewayToParallelStepRule() {
 		if (parallelGatewayToParallelStepRuleEClass == null) {
 			parallelGatewayToParallelStepRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -5457,6 +5946,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getParallelGatewayToParallelStepRule__CheckAttributes_BWD__TripleMatch() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelGatewayToParallelStepRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getParallelGatewayToParallelStepRule().getEOperations().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelGatewayToParallelStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_Process_Flow_SequenceFlowToUCFlow_LaneSet_Lane_ModelgeneratorRuleResult() {
+		return getParallelGatewayToParallelStepRule().getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelGatewayToParallelStepRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getParallelGatewayToParallelStepRule().getEOperations().get(30);
 	}
 
 	/**
@@ -5739,6 +6255,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getEventBasedGatewayToStepRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getEventBasedGatewayToStepRule().getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEventBasedGatewayToStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getEventBasedGatewayToStepRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEventBasedGatewayToStepRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getEventBasedGatewayToStepRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLaneStartEventRule() {
 		if (laneStartEventRuleEClass == null) {
 			laneStartEventRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -5854,6 +6397,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getLaneStartEventRule__CheckAttributes_FWD__TripleMatch() {
 		return getLaneStartEventRule().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneStartEventRule__GenerateModel__RuleEntryContainer_Lane() {
+		return getLaneStartEventRule().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneStartEventRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Lane_StartEvent_Process_LaneSet_ModelgeneratorRuleResult() {
+		return getLaneStartEventRule().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaneStartEventRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getLaneStartEventRule().getEOperations().get(14);
 	}
 
 	/**
@@ -6030,6 +6600,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getExcConvGwAfterEventGwRule__CheckAttributes_FWD__TripleMatch() {
 		return getExcConvGwAfterEventGwRule().getEOperations().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwAfterEventGwRule__GenerateModel__RuleEntryContainer_FlowNodeToStep() {
+		return getExcConvGwAfterEventGwRule().getEOperations().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwAfterEventGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_EventBasedGateway_SequenceFlow_IntermediateCatchEvent_NormalStep_FlowNodeToStep_AlternativeFlowAlternative_SeqFlowToAltFlowAlt_AlternativeFlow_ICEToAltFlow_SequenceFlow_SequenceFlowToUCFlow_Flow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getExcConvGwAfterEventGwRule().getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwAfterEventGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getExcConvGwAfterEventGwRule().getEOperations().get(20);
 	}
 
 	/**
@@ -6224,6 +6821,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getExcConvGwDefaultSeqFlowRule__CheckAttributes_FWD__TripleMatch() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwDefaultSeqFlowRule__GenerateModel__RuleEntryContainer_FlowNodeToStep() {
+		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwDefaultSeqFlowRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_SequenceFlow_Step_SequenceFlowToStep_Process_ExclusiveGateway_SequenceFlow_NormalStep_AlternativeFlowAlternative_Flow_SequenceFlowToUCFlow_FlowNodeToStep_SeqFlowToAltFlowAlt_AlternativeFlow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwDefaultSeqFlowRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(22);
 	}
 
 	/**
@@ -6435,6 +7059,36 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getParallelConvergingGatewayTwoInputsRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
+				.get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelConvergingGatewayTwoInputsRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_ParallelGateway_SequenceFlow_ParallelFlow_SequenceFlowToUCFlow_Step_SequenceFlowToStep_ParallelStep_SequenceFlowToUCFlow_SequenceFlow_ParallelFlow_SequenceFlowToUCFlow_Step_SequenceFlowToStep_Flow_Lane_LaneSet_SequenceFlow_SequenceFlowToUCFlow_ModelgeneratorRuleResult() {
+		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
+				.get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getParallelConvergingGatewayTwoInputsRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
+				.get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExcConvGwAfterExDivGwRule() {
 		if (excConvGwAfterExDivGwRuleEClass == null) {
 			excConvGwAfterExDivGwRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -6604,6 +7258,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getExcConvGwAfterExDivGwRule__CheckAttributes_FWD__TripleMatch() {
 		return getExcConvGwAfterExDivGwRule().getEOperations().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwAfterExDivGwRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getExcConvGwAfterExDivGwRule().getEOperations().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwAfterExDivGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_Process_SequenceFlow_ExclusiveGateway_SequenceFlow_NormalStep_AlternativeFlowAlternative_Flow_SequenceFlowToUCFlow_FlowNodeToStep_SeqFlowToAltFlowAlt_AlternativeFlow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getExcConvGwAfterExDivGwRule().getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExcConvGwAfterExDivGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getExcConvGwAfterExDivGwRule().getEOperations().get(20);
 	}
 
 	/**
@@ -6787,6 +7468,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__GenerateModel__RuleEntryContainer_FlowNodeToStep() {
+		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_IntermediateCatchEvent_SequenceFlow_Process_EventBasedGateway_SequenceFlow_NormalStep_FlowNodeToStep_AlternativeFlowAlternative_SeqFlowToAltFlowAlt_AlternativeFlow_ICEToAltFlow_SequenceFlowToUCFlow_Flow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getContinuationRule() {
 		if (continuationRuleEClass == null) {
 			continuationRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -6902,6 +7610,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getContinuationRule__CheckAttributes_BWD__TripleMatch() {
 		return getContinuationRule().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getContinuationRule__GenerateModel__RuleEntryContainer_FlowNodeToStep() {
+		return getContinuationRule().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getContinuationRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_ExclusiveGateway_SequenceFlow_FlowNode_AlternativeFlowAlternative_AlternativeFlow_SequenceFlowToUCFlow_NormalStep_FlowNodeToStep_Step_FlowNodeToStep_ModelgeneratorRuleResult() {
+		return getContinuationRule().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getContinuationRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getContinuationRule().getEOperations().get(14);
 	}
 
 	/**
@@ -7202,6 +7937,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getICEToStepAfterSERule__GenerateModel__RuleEntryContainer_ProcessToActor() {
+		return getICEToStepAfterSERule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterSERule__GenerateModel_solveCsp_BWD__IsApplicableMatch_StartEvent_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getICEToStepAfterSERule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterSERule__GenerateModel_checkCsp_BWD__CSP() {
+		return getICEToStepAfterSERule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getICEToStepAfterExGwRule() {
 		if (iceToStepAfterExGwRuleEClass == null) {
 			iceToStepAfterExGwRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -7495,6 +8257,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getICEToStepAfterExGwRule__GenerateModel__RuleEntryContainer_ProcessToActor() {
+		return getICEToStepAfterExGwRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterExGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getICEToStepAfterExGwRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterExGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getICEToStepAfterExGwRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getICEToStepAfterPGRule() {
 		if (iceToStepAfterPGRuleEClass == null) {
 			iceToStepAfterPGRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -7781,6 +8570,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getICEToStepAfterPGRule__CheckAttributes_BWD__TripleMatch() {
 		return getICEToStepAfterPGRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterPGRule__GenerateModel__RuleEntryContainer_ProcessToActor() {
+		return getICEToStepAfterPGRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterPGRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ParallelGateway_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getICEToStepAfterPGRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterPGRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getICEToStepAfterPGRule().getEOperations().get(33);
 	}
 
 	/**
@@ -8090,6 +8906,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getICEToStepAfterTaskRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getICEToStepAfterTaskRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterTaskRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Task_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getICEToStepAfterTaskRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterTaskRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getICEToStepAfterTaskRule().getEOperations().get(34);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getICEToStepAfterEventRule() {
 		if (iceToStepAfterEventRuleEClass == null) {
 			iceToStepAfterEventRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -8385,6 +9228,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getICEToStepAfterEventRule__CheckAttributes_BWD__TripleMatch() {
 		return getICEToStepAfterEventRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterEventRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getICEToStepAfterEventRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterEventRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Event_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getICEToStepAfterEventRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterEventRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getICEToStepAfterEventRule().getEOperations().get(34);
 	}
 
 	/**
@@ -8694,6 +9564,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getICEToStepAfterExConvGwRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getICEToStepAfterExConvGwRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterExConvGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getICEToStepAfterExConvGwRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterExConvGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getICEToStepAfterExConvGwRule().getEOperations().get(34);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getICEToStepAfterPConvGwRule() {
 		if (iceToStepAfterPConvGwRuleEClass == null) {
 			iceToStepAfterPConvGwRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -8996,6 +9893,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getICEToStepAfterPConvGwRule__GenerateModel__RuleEntryContainer_SequenceFlowToStep() {
+		return getICEToStepAfterPConvGwRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterPConvGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ParallelGateway_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet_ModelgeneratorRuleResult() {
+		return getICEToStepAfterPConvGwRule().getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getICEToStepAfterPConvGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getICEToStepAfterPConvGwRule().getEOperations().get(34);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getServiceTaskToStepAfterSERule() {
 		if (serviceTaskToStepAfterSERuleEClass == null) {
 			serviceTaskToStepAfterSERuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -9273,6 +10197,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getServiceTaskToStepAfterSERule__CheckAttributes_BWD__TripleMatch() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterSERule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getServiceTaskToStepAfterSERule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterSERule__GenerateModel_solveCsp_BWD__IsApplicableMatch_StartEvent_Process_Actor_ProcessToActor_SequenceFlow_SequenceFlowToUCFlow_Flow_LaneSet_Lane_ModelgeneratorRuleResult() {
+		return getServiceTaskToStepAfterSERule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterSERule__GenerateModel_checkCsp_BWD__CSP() {
+		return getServiceTaskToStepAfterSERule().getEOperations().get(32);
 	}
 
 	/**
@@ -9564,6 +10515,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getServiceTaskToStepAfterExGwRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getServiceTaskToStepAfterExGwRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterExGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_Process_Actor_ProcessToActor_SequenceFlow_SequenceFlowToUCFlow_Flow_LaneSet_Lane_ModelgeneratorRuleResult() {
+		return getServiceTaskToStepAfterExGwRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterExGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getServiceTaskToStepAfterExGwRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getServiceTaskToStepAfterPGRule() {
 		if (serviceTaskToStepAfterPGRuleEClass == null) {
 			serviceTaskToStepAfterPGRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -9841,6 +10819,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getServiceTaskToStepAfterPGRule__CheckAttributes_BWD__TripleMatch() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterPGRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getServiceTaskToStepAfterPGRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterPGRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ParallelGateway_Process_Actor_ProcessToActor_SequenceFlow_SequenceFlowToUCFlow_Flow_LaneSet_Lane_ModelgeneratorRuleResult() {
+		return getServiceTaskToStepAfterPGRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterPGRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getServiceTaskToStepAfterPGRule().getEOperations().get(32);
 	}
 
 	/**
@@ -10132,6 +11137,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getServiceTaskToStepAfterEvGwRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
+		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterEvGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_IntermediateCatchEvent_SequenceFlow_EventBasedGateway_Process_Actor_ProcessToActor_SequenceFlow_SequenceFlowToUCFlow_Flow_LaneSet_Lane_ModelgeneratorRuleResult() {
+		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceTaskToStepAfterEvGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUserTaskToStepAfterSERule() {
 		if (userTaskToStepAfterSERuleEClass == null) {
 			userTaskToStepAfterSERuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -10409,6 +11441,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getUserTaskToStepAfterSERule__CheckAttributes_BWD__TripleMatch() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterSERule__GenerateModel__RuleEntryContainer_LaneToActor() {
+		return getUserTaskToStepAfterSERule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterSERule__GenerateModel_solveCsp_BWD__IsApplicableMatch_StartEvent_Lane_Actor_LaneToActor_SequenceFlow_Process_SequenceFlowToUCFlow_Flow_LaneSet_ModelgeneratorRuleResult() {
+		return getUserTaskToStepAfterSERule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterSERule__GenerateModel_checkCsp_BWD__CSP() {
+		return getUserTaskToStepAfterSERule().getEOperations().get(32);
 	}
 
 	/**
@@ -10700,6 +11759,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getUserTaskToStepAfterExGwRule__GenerateModel__RuleEntryContainer_LaneToActor() {
+		return getUserTaskToStepAfterExGwRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterExGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_Lane_Actor_LaneToActor_SequenceFlow_Process_SequenceFlowToUCFlow_Flow_LaneSet_ModelgeneratorRuleResult() {
+		return getUserTaskToStepAfterExGwRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterExGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getUserTaskToStepAfterExGwRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUserTaskToStepAfterPGRule() {
 		if (userTaskToStepAfterPGRuleEClass == null) {
 			userTaskToStepAfterPGRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -10984,6 +12070,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getUserTaskToStepAfterPGRule__GenerateModel__RuleEntryContainer_LaneToActor() {
+		return getUserTaskToStepAfterPGRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterPGRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_ParallelGateway_Lane_Actor_LaneToActor_SequenceFlow_Process_SequenceFlowToUCFlow_Flow_LaneSet_ModelgeneratorRuleResult() {
+		return getUserTaskToStepAfterPGRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterPGRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getUserTaskToStepAfterPGRule().getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUserTaskToStepAfterEvGwRule() {
 		if (userTaskToStepAfterEvGwRuleEClass == null) {
 			userTaskToStepAfterEvGwRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -11261,6 +12374,33 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 */
 	public EOperation getUserTaskToStepAfterEvGwRule__CheckAttributes_BWD__TripleMatch() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterEvGwRule__GenerateModel__RuleEntryContainer_LaneToActor() {
+		return getUserTaskToStepAfterEvGwRule().getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterEvGwRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_IntermediateCatchEvent_SequenceFlow_EventBasedGateway_Lane_Actor_LaneToActor_SequenceFlow_Process_SequenceFlowToUCFlow_Flow_LaneSet_ModelgeneratorRuleResult() {
+		return getUserTaskToStepAfterEvGwRule().getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getUserTaskToStepAfterEvGwRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getUserTaskToStepAfterEvGwRule().getEOperations().get(32);
 	}
 
 	/**

@@ -5,13 +5,9 @@ package bpmn2.impl;
 import bpmn2.Bpmn2Package;
 import bpmn2.FlowElement;
 import bpmn2.FlowElementsContainer;
-import bpmn2.FlowNode;
 import bpmn2.LaneSet;
-import bpmn2.SequenceFlow;
 
-import de.upb.tools.sdm.*;
-
-import java.util.*;
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 

@@ -2,29 +2,20 @@
  */
 package BpmnToUseCaseIntegration.Rules.impl;
 
-import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
-import BpmnToUseCaseIntegration.DefinitionsToPackage;
-import BpmnToUseCaseIntegration.DocRootToUCModel;
-import BpmnToUseCaseIntegration.EndEventToFlow;
-import BpmnToUseCaseIntegration.FlowNodeToStep;
-import BpmnToUseCaseIntegration.ICEToAltFlow;
-import BpmnToUseCaseIntegration.LaneToActor;
-import BpmnToUseCaseIntegration.ProcessToActor;
-import BpmnToUseCaseIntegration.ProcessToUseCase;
-
 import BpmnToUseCaseIntegration.Rules.LaneStartEventRule;
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
 
-import BpmnToUseCaseIntegration.SeqFlowToAltFlowAlt;
-import BpmnToUseCaseIntegration.SequenceFlowToStep;
-import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
-import BpmnToUseCaseIntegration.StartEventToBasicFlow;
+import TGGLanguage.csp.CSP;
+
+import TGGLanguage.modelgenerator.RuleEntryContainer;
+import TGGLanguage.modelgenerator.RuleEntryList;
 
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
+import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -32,53 +23,23 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
-import UseCaseDSL.Actor;
-import UseCaseDSL.AlternativeFlow;
-import UseCaseDSL.AlternativeFlowAlternative;
-import UseCaseDSL.BasicFlow;
-import UseCaseDSL.Flow;
-import UseCaseDSL.NormalStep;
-import UseCaseDSL.PackageDeclaration;
-import UseCaseDSL.ParallelFlow;
-import UseCaseDSL.ParallelStep;
-import UseCaseDSL.Step;
-import UseCaseDSL.UseCase;
-import UseCaseDSL.UseCaseDSLFactory;
-import UseCaseDSL.UseCasesModel;
-
-import bpmn2.Bpmn2Factory;
-import bpmn2.Definitions;
-import bpmn2.DocumentRoot;
-import bpmn2.EndEvent;
-import bpmn2.Event;
-import bpmn2.EventBasedGateway;
-import bpmn2.ExclusiveGateway;
+import bpmn2.FlowElement;
 import bpmn2.FlowElementsContainer;
-import bpmn2.FlowNode;
-import bpmn2.IntermediateCatchEvent;
-import bpmn2.IntermediateThrowEvent;
 import bpmn2.Lane;
 import bpmn2.LaneSet;
-import bpmn2.ParallelGateway;
-import bpmn2.SequenceFlow;
-import bpmn2.ServiceTask;
 import bpmn2.StartEvent;
-import bpmn2.Task;
-import bpmn2.UserTask;
 
-import de.upb.tools.sdm.*;
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
 import org.moflon.csp.*;
 import csp.constraints.*;
@@ -123,180 +84,66 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isAppropriate_FWD(Match match, Lane lane,
 			StartEvent flowNode, bpmn2.Process process, LaneSet laneSet) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __lane_flowNodeRefs_flowNode = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge __process_flowElements_flowNode = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object flowNode is really bound
-			JavaSDM.ensure(flowNode != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_0_1_blackBBBBBB(this, match, lane,
+						flowNode, process, laneSet);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, lane,
-					flowNode, process, laneSet));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_0_2_bindingAndBlackFBBBBBB(this,
+						match, lane, flowNode, process, laneSet);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_0_3_expressionFBB(this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object flowNode is really bound
-				JavaSDM.ensure(flowNode != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// create object __lane_flowNodeRefs_flowNode
-				__lane_flowNodeRefs_flowNode = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __lane_flowNodeRefs_flowNode
-				__lane_flowNodeRefs_flowNode.setName("flowNodeRefs");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__lane_flowNodeRefs_flowNode, "toBeTranslatedEdges");
-
-				// create link
-				__lane_flowNodeRefs_flowNode.setSrc(lane);
-
-				// create link
-				__lane_flowNodeRefs_flowNode.setTrg(flowNode);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_0_4_blackBBBBB(match, lane,
+							flowNode, process, laneSet);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			LaneStartEventRuleImpl.pattern_LaneStartEventRule_0_4_greenBBBF(
+					match, lane, flowNode);
+			// EMoflonEdge lane__flowNode____flowNodeRefs = (EMoflonEdge) result4_green[3];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object flowNode is really bound
-				JavaSDM.ensure(flowNode != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_flowNode
-				__process_flowElements_flowNode = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_laneSets_laneSet
-				__process_laneSets_laneSet.setName("laneSets");
-				// assign attribute __process_flowElements_flowNode
-				__process_flowElements_flowNode.setName("flowElements");
-				// assign attribute __laneSet_lanes_lane
-				__laneSet_lanes_lane.setName("lanes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flowNode, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__laneSet_lanes_lane, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_flowNode, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
-
-				// create link
-				__laneSet_lanes_lane.setTrg(lane);
-
-				// create link
-				__process_flowElements_flowNode.setTrg(flowNode);
-
-				// create link
-				__process_flowElements_flowNode.setSrc(process);
-
-				// create link
-				__process_laneSets_laneSet.setSrc(process);
-
-				// create link
-				__process_laneSets_laneSet.setTrg(laneSet);
-
-				// create link
-				__laneSet_lanes_lane.setSrc(laneSet);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_0_5_blackBBBBB(match, lane,
+							flowNode, process, laneSet);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_0_5_greenBBBBBFFF(match, lane,
+							flowNode, process, laneSet);
+			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[5];
+			// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result5_green[6];
+			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[7];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, lane, flowNode, process,
-					laneSet);
-			return true;
-
+			// register objects to match
+			LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_0_6_expressionBBBBBB(this,
+							match, lane, flowNode, process, laneSet);
+			return LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -305,142 +152,47 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		StartEvent flowNode = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge __lane_flowNodeRefs_flowNode = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("flowNode"));
-
-			// ensure correct type and really bound of object flowNode
-			JavaSDM.ensure(_TmpObject instanceof StartEvent);
-			flowNode = (StartEvent) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_1_1_bindingAndBlackFFFFFBB(this,
+						isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		Lane lane = (Lane) result1_bindingAndBlack[0];
+		StartEvent flowNode = (StartEvent) result1_bindingAndBlack[1];
+		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[2];
+		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[3];
+		// CSP csp = (CSP) result1_bindingAndBlack[4];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_green = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_1_2_greenF();
+		if (result2_green == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object flowNode is really bound
-			JavaSDM.ensure(flowNode != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check isomorphic binding between objects lane and flowNode 
-			JavaSDM.ensure(!lane.equals(flowNode));
-
-			// check isomorphic binding between objects laneSet and flowNode 
-			JavaSDM.ensure(!laneSet.equals(flowNode));
-
-			// check isomorphic binding between objects process and flowNode 
-			JavaSDM.ensure(!process.equals(flowNode));
-
-			// check isomorphic binding between objects laneSet and lane 
-			JavaSDM.ensure(!laneSet.equals(lane));
-
-			// check isomorphic binding between objects process and lane 
-			JavaSDM.ensure(!process.equals(lane));
-
-			// check isomorphic binding between objects process and laneSet 
-			JavaSDM.ensure(!process.equals(laneSet));
-
-			// create object __lane_flowNodeRefs_flowNode
-			__lane_flowNodeRefs_flowNode = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("LaneStartEventRule");
-			// assign attribute __lane_flowNodeRefs_flowNode
-			__lane_flowNodeRefs_flowNode.setName("flowNodeRefs");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__lane_flowNodeRefs_flowNode, "translatedEdges");
-
-			// create link
-			__lane_flowNodeRefs_flowNode.setSrc(lane);
-
-			// create link
-			__lane_flowNodeRefs_flowNode.setTrg(flowNode);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// bookkeeping for edges
+		Object[] result3_black = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_1_3_blackBBBBB(ruleresult, lane,
+						flowNode, process, laneSet);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		LaneStartEventRuleImpl.pattern_LaneStartEventRule_1_3_greenBBBF(
+				ruleresult, lane, flowNode);
+		// EMoflonEdge lane__flowNode____flowNodeRefs = (EMoflonEdge) result3_green[3];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, lane, flowNode, process, laneSet);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		LaneStartEventRuleImpl.pattern_LaneStartEventRule_1_5_expressionBBBBBB(
+				this, ruleresult, lane, flowNode, process, laneSet);
+		return LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_1_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -449,264 +201,79 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		StartEvent flowNode = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __lane_flowNodeRefs_flowNode = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge __process_flowElements_flowNode = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		CSP csp = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("LaneStartEventRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_2_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_2_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
 
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
+		// ForEach core match
+		Object[] result2_binding = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_2_2_bindingFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		Lane lane = (Lane) result2_binding[0];
+		StartEvent flowNode = (StartEvent) result2_binding[1];
+		bpmn2.Process process = (bpmn2.Process) result2_binding[2];
+		LaneSet laneSet = (LaneSet) result2_binding[3];
+		for (Object[] result2_black : LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_2_2_blackBBBBB(lane, flowNode,
+						process, laneSet, match)) {
+			// ForEach find context
+			for (Object[] result3_black : LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_2_3_blackBBBB(lane, flowNode,
+							process, laneSet)) {
+				Object[] result3_green = LaneStartEventRuleImpl
+						.pattern_LaneStartEventRule_2_3_greenBBBBFFFFF(lane,
+								flowNode, process, laneSet);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[4];
+				// EMoflonEdge lane__flowNode____flowNodeRefs = (EMoflonEdge) result3_green[5];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[6];
+				// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result3_green[7];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[8];
 
-			_TmpObject = (match.getObject("flowNode"));
-
-			// ensure correct type and really bound of object flowNode
-			JavaSDM.ensure(_TmpObject instanceof StartEvent);
-			flowNode = (StartEvent) _TmpObject;
-			_TmpObject = (match.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (match.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (match.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// story node 'find context'
-			try {
-				fujaba__Success = false;
-
-				// check object flowNode is really bound
-				JavaSDM.ensure(flowNode != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check link flowElements from flowNode to process
-				JavaSDM.ensure(process.equals(flowNode.eContainer()));
-
-				// check link laneSets from laneSet to process
-				JavaSDM.ensure(process.equals(laneSet.eContainer()));
-
-				// check link lanes from lane to laneSet
-				JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-				// check link flowNodeRefs from flowNode to lane
-				JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(flowNode, Lane.class,
-								"flowNodeRefs").contains(lane));
-
-				// create object isApplicableMatch
-				isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-						.createIsApplicableMatch();
-
-				// create object __lane_flowNodeRefs_flowNode
-				__lane_flowNodeRefs_flowNode = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_flowNode
-				__process_flowElements_flowNode = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __lane_flowNodeRefs_flowNode
-				__lane_flowNodeRefs_flowNode.setName("flowNodeRefs");
-				// assign attribute __process_laneSets_laneSet
-				__process_laneSets_laneSet.setName("laneSets");
-				// assign attribute __process_flowElements_flowNode
-				__process_flowElements_flowNode.setName("flowElements");
-				// assign attribute __laneSet_lanes_lane
-				__laneSet_lanes_lane.setName("lanes");
-
-				// create link
-				isApplicableMatch.getAllContextElements().add(lane);
-
-				// create link
-				__lane_flowNodeRefs_flowNode.setSrc(lane);
-
-				// create link
-				__laneSet_lanes_lane.setTrg(lane);
-
-				// create link
-				__lane_flowNodeRefs_flowNode.setTrg(flowNode);
-
-				// create link
-				isApplicableMatch.getAllContextElements().add(flowNode);
-
-				// create link
-				__process_flowElements_flowNode.setTrg(flowNode);
-
-				// create link
-				__process_flowElements_flowNode.setSrc(process);
-
-				// create link
-				__process_laneSets_laneSet.setSrc(process);
-
-				// create link
-				isApplicableMatch.getAllContextElements().add(process);
-
-				// create link
-				__process_laneSets_laneSet.setTrg(laneSet);
-
-				// create link
-				isApplicableMatch.getAllContextElements().add(laneSet);
-
-				// create link
-				__laneSet_lanes_lane.setSrc(laneSet);
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-						isApplicableMatch, __laneSet_lanes_lane,
-						"allContextElements");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-						isApplicableMatch, __lane_flowNodeRefs_flowNode,
-						"allContextElements");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-						isApplicableMatch, __process_flowElements_flowNode,
-						"allContextElements");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-						isApplicableMatch, __process_laneSets_laneSet,
-						"allContextElements");
-				// story node 'solve CSP'
-				try {
-					fujaba__Success = false;
-
-					_TmpObject = (this
-							.isApplicable_solveCsp_FWD(isApplicableMatch, lane,
-									flowNode, process, laneSet));
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				// solve CSP
+				Object[] result4_bindingAndBlack = LaneStartEventRuleImpl
+						.pattern_LaneStartEventRule_2_4_bindingAndBlackFBBBBBB(
+								this, isApplicableMatch, lane, flowNode,
+								process, laneSet);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
 				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (LaneStartEventRuleImpl
+						.pattern_LaneStartEventRule_2_5_expressionFBB(this, csp)) {
 
-				// statement node 'check CSP'
-				fujaba__Success = this.isApplicable_checkCsp_FWD(csp);
-				if (fujaba__Success) {
-					// story node 'add match to rule result'
-					try {
-						fujaba__Success = false;
-
-						// check object isApplicableMatch is really bound
-						JavaSDM.ensure(isApplicableMatch != null);
-						// check object ruleresult is really bound
-						JavaSDM.ensure(ruleresult != null);
-						// assign attribute isApplicableMatch
-						isApplicableMatch.setRuleName("LaneStartEventRule");
-						// assign attribute ruleresult
-						ruleresult.setSuccess(true);
-
-						// create link
-						ruleresult.getIsApplicableMatch()
-								.add(isApplicableMatch);
-
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// add match to rule result
+					Object[] result6_black = LaneStartEventRuleImpl
+							.pattern_LaneStartEventRule_2_6_blackBB(ruleresult,
+									isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
+					LaneStartEventRuleImpl
+							.pattern_LaneStartEventRule_2_6_greenBB(ruleresult,
+									isApplicableMatch);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return ruleresult;
+		return LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_2_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -729,9 +296,18 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, Lane lane,
-			StartEvent flowNode, bpmn2.Process process, LaneSet laneSet) {
-		// Create CSP
+			StartEvent flowNode, bpmn2.Process process, LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
+
+		// Create literals
+
+		// Create attribute variables
+
+		// Create unbound variables
+
+		// Create constraints
+
+		// Solve CSP
 		return csp;
 	}
 
@@ -741,7 +317,7 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isAppropriate_checkCsp_FWD(CSP csp) {
-		return true;
+		return csp.check();
 	}
 
 	/**
@@ -751,10 +327,19 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 */
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			Lane lane, StartEvent flowNode, bpmn2.Process process,
-			LaneSet laneSet) {
-		// Create CSP
+			LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+
+		// Create attribute variables
+
+		// Create unbound variables
+
+		// Create constraints
+
+		// Solve CSP
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("lane", lane);
@@ -770,7 +355,7 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isApplicable_checkCsp_FWD(CSP csp) {
-		return true;
+		return csp.check();
 	}
 
 	/**
@@ -803,196 +388,60 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_93(
 			EMoflonEdge _edge_flowNodeRefs) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Match match = null;
-		bpmn2.Process process = null;
-		StartEvent flowNode = null;
-		LaneSet laneSet = null;
-		Lane lane = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_10_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_10_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_10_2_blackFFFFB(_edge_flowNodeRefs)) {
+			Lane lane = (Lane) result2_black[0];
+			StartEvent flowNode = (StartEvent) result2_black[1];
+			bpmn2.Process process = (bpmn2.Process) result2_black[2];
+			LaneSet laneSet = (LaneSet) result2_black[3];
+			Object[] result2_green = LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_10_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_flowNodeRefs is really bound
-			JavaSDM.ensure(_edge_flowNodeRefs != null);
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_10_3_expressionFBBBBBB(this,
+							match, lane, flowNode, process, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (LaneStartEventRuleImpl
+						.pattern_LaneStartEventRule_10_4_expressionFBB(this,
+								match)) {
 
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-
-			// bind object
-			laneSet = lane.eContainer() instanceof LaneSet ? (LaneSet) lane
-					.eContainer() : null;
-
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(laneSet.getLanes().contains(lane));
-
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getTrg();
-
-			// ensure correct type and really bound of object flowNode
-			JavaSDM.ensure(_TmpObject instanceof StartEvent);
-			flowNode = (StartEvent) _TmpObject;
-
-			// bind object
-			_TmpObject = flowNode.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) flowNode
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(flowNode));
-
-			// check link laneSets from laneSet to process
-			JavaSDM.ensure(process.equals(laneSet.eContainer()));
-
-			// check link flowNodeRefs from flowNode to lane
-			JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-					flowNode, Lane.class, "flowNodeRefs").contains(lane));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check object _edge_flowNodeRefs is really bound
-				JavaSDM.ensure(_edge_flowNodeRefs != null);
-				// check object flowNode is really bound
-				JavaSDM.ensure(flowNode != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check link flowElements from flowNode to process
-				JavaSDM.ensure(process.equals(flowNode.eContainer()));
-
-				// check link laneSets from laneSet to process
-				JavaSDM.ensure(process.equals(laneSet.eContainer()));
-
-				// check link lanes from lane to laneSet
-				JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-				// check link src from _edge_flowNodeRefs to lane
-				JavaSDM.ensure(lane.equals(_edge_flowNodeRefs.getSrc()));
-
-				// check link trg from _edge_flowNodeRefs to flowNode
-				JavaSDM.ensure(flowNode.equals(_edge_flowNodeRefs.getTrg()));
-
-				// check link flowNodeRefs from flowNode to lane
-				JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(flowNode, Lane.class,
-								"flowNodeRefs").contains(lane));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, lane, flowNode,
-						process, laneSet);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
+					// Add match to rule result
+					Object[] result5_black = LaneStartEventRuleImpl
+							.pattern_LaneStartEventRule_10_5_blackBBB(match,
+									__performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					LaneStartEventRuleImpl
+							.pattern_LaneStartEventRule_10_5_greenBBB(match,
+									__performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_10_6_expressionFB(__result);
 	}
 
 	/**
@@ -1000,12 +449,117 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// [user code injected with eMoflon]
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer, Lane laneParameter) {
+		// create result
+		Object[] result1_black = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_12_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_12_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+		// ForEach is applicable core
+		for (Object[] result2_black : LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_12_2_blackFFFFFBB(
+						ruleEntryContainer, ruleResult)) {
+			// RuleEntryList laneList = (RuleEntryList) result2_black[0];
+			Lane lane = (Lane) result2_black[1];
+			LaneSet laneSet = (LaneSet) result2_black[2];
+			bpmn2.Process process = (bpmn2.Process) result2_black[3];
+			StartEvent flowNode = (StartEvent) result2_black[4];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_12_3_bindingAndBlackFBBBBBBB(
+							this, isApplicableMatch, lane, flowNode, process,
+							laneSet, ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (LaneStartEventRuleImpl
+					.pattern_LaneStartEventRule_12_4_expressionFBB(this, csp)) {
+				// check nacs
+				Object[] result5_black = LaneStartEventRuleImpl
+						.pattern_LaneStartEventRule_12_5_blackBBBB(lane,
+								flowNode, process, laneSet);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = LaneStartEventRuleImpl
+							.pattern_LaneStartEventRule_12_6_blackBBBBB(lane,
+									flowNode, process, laneSet, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					LaneStartEventRuleImpl
+							.pattern_LaneStartEventRule_12_6_greenBBB(lane,
+									flowNode, ruleResult);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return LaneStartEventRuleImpl
+				.pattern_LaneStartEventRule_12_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+
+		// Create attribute variables
+
+		// Create unbound variables
+
+		// Create constraints
+
+		// Solve CSP
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("flowNode", flowNode);
+		isApplicableMatch.registerObject("process", process);
+		isApplicableMatch.registerObject("laneSet", laneSet);
+		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean generateModel_checkCsp_BWD(CSP csp) {
+		return csp.check();
 	}
 
 	/**
@@ -1059,9 +613,787 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 					.get(0));
 		case RulesPackage.LANE_START_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
+		case RulesPackage.LANE_START_EVENT_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_LANE:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(Lane) arguments.get(1));
+		case RulesPackage.LANE_START_EVENT_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_LANE_STARTEVENT_PROCESS_LANESET_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(Lane) arguments.get(1), (StartEvent) arguments.get(2),
+					(bpmn2.Process) arguments.get(3),
+					(LaneSet) arguments.get(4),
+					(ModelgeneratorRuleResult) arguments.get(5));
+		case RulesPackage.LANE_START_EVENT_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	public static final Object[] pattern_LaneStartEventRule_0_1_blackBBBBBB(
+			LaneStartEventRule _this, Match match, Lane lane,
+			StartEvent flowNode, bpmn2.Process process, LaneSet laneSet) {
+		return new Object[] { _this, match, lane, flowNode, process, laneSet };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_0_2_bindingFBBBBBB(
+			LaneStartEventRule _this, Match match, Lane lane,
+			StartEvent flowNode, bpmn2.Process process, LaneSet laneSet) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, lane,
+				flowNode, process, laneSet);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, lane, flowNode, process,
+					laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_0_2_blackB(CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_0_2_bindingAndBlackFBBBBBB(
+			LaneStartEventRule _this, Match match, Lane lane,
+			StartEvent flowNode, bpmn2.Process process, LaneSet laneSet) {
+		Object[] result_pattern_LaneStartEventRule_0_2_binding = pattern_LaneStartEventRule_0_2_bindingFBBBBBB(
+				_this, match, lane, flowNode, process, laneSet);
+		if (result_pattern_LaneStartEventRule_0_2_binding != null) {
+			CSP csp = (CSP) result_pattern_LaneStartEventRule_0_2_binding[0];
+
+			Object[] result_pattern_LaneStartEventRule_0_2_black = pattern_LaneStartEventRule_0_2_blackB(csp);
+			if (result_pattern_LaneStartEventRule_0_2_black != null) {
+
+				return new Object[] { csp, _this, match, lane, flowNode,
+						process, laneSet };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_LaneStartEventRule_0_3_expressionFBB(
+			LaneStartEventRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_0_4_blackBBBBB(
+			Match match, Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet) {
+		return new Object[] { match, lane, flowNode, process, laneSet };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_0_4_greenBBBF(
+			Match match, Lane lane, StartEvent flowNode) {
+		EMoflonEdge lane__flowNode____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String lane__flowNode____flowNodeRefs_name_prime = "flowNodeRefs";
+		lane__flowNode____flowNodeRefs.setSrc(lane);
+		lane__flowNode____flowNodeRefs.setTrg(flowNode);
+		match.getToBeTranslatedEdges().add(lane__flowNode____flowNodeRefs);
+		lane__flowNode____flowNodeRefs
+				.setName(lane__flowNode____flowNodeRefs_name_prime);
+		return new Object[] { match, lane, flowNode,
+				lane__flowNode____flowNodeRefs };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_0_5_blackBBBBB(
+			Match match, Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet) {
+		return new Object[] { match, lane, flowNode, process, laneSet };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_0_5_greenBBBBBFFF(
+			Match match, Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet) {
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__flowNode____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getContextNodes().add(lane);
+		match.getContextNodes().add(flowNode);
+		match.getContextNodes().add(process);
+		match.getContextNodes().add(laneSet);
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__flowNode____flowElements_name_prime = "flowElements";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		match.getContextEdges().add(process__laneSet____laneSets);
+		process__flowNode____flowElements.setSrc(process);
+		process__flowNode____flowElements.setTrg(flowNode);
+		match.getContextEdges().add(process__flowNode____flowElements);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		match.getContextEdges().add(laneSet__lane____lanes);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__flowNode____flowElements
+				.setName(process__flowNode____flowElements_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		return new Object[] { match, lane, flowNode, process, laneSet,
+				process__laneSet____laneSets,
+				process__flowNode____flowElements, laneSet__lane____lanes };
+	}
+
+	public static final void pattern_LaneStartEventRule_0_6_expressionBBBBBB(
+			LaneStartEventRule _this, Match match, Lane lane,
+			StartEvent flowNode, bpmn2.Process process, LaneSet laneSet) {
+		_this.registerObjectsToMatch_FWD(match, lane, flowNode, process,
+				laneSet);
+
+	}
+
+	public static final boolean pattern_LaneStartEventRule_0_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_LaneStartEventRule_0_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_1_1_bindingFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("lane");
+		EObject _localVariable_1 = isApplicableMatch.getObject("flowNode");
+		EObject _localVariable_2 = isApplicableMatch.getObject("process");
+		EObject _localVariable_3 = isApplicableMatch.getObject("laneSet");
+		EObject tmpLane = _localVariable_0;
+		EObject tmpFlowNode = _localVariable_1;
+		EObject tmpProcess = _localVariable_2;
+		EObject tmpLaneSet = _localVariable_3;
+		if (tmpLane instanceof Lane) {
+			Lane lane = (Lane) tmpLane;
+			if (tmpFlowNode instanceof StartEvent) {
+				StartEvent flowNode = (StartEvent) tmpFlowNode;
+				if (tmpProcess instanceof bpmn2.Process) {
+					bpmn2.Process process = (bpmn2.Process) tmpProcess;
+					if (tmpLaneSet instanceof LaneSet) {
+						LaneSet laneSet = (LaneSet) tmpLaneSet;
+						return new Object[] { lane, flowNode, process, laneSet,
+								isApplicableMatch };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_1_1_blackBBBBFBB(
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet, LaneStartEventRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+			if (tmpCsp instanceof CSP) {
+				CSP csp = (CSP) tmpCsp;
+				return new Object[] { lane, flowNode, process, laneSet, csp,
+						_this, isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_1_1_bindingAndBlackFFFFFBB(
+			LaneStartEventRule _this, IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_LaneStartEventRule_1_1_binding = pattern_LaneStartEventRule_1_1_bindingFFFFB(isApplicableMatch);
+		if (result_pattern_LaneStartEventRule_1_1_binding != null) {
+			Lane lane = (Lane) result_pattern_LaneStartEventRule_1_1_binding[0];
+			StartEvent flowNode = (StartEvent) result_pattern_LaneStartEventRule_1_1_binding[1];
+			bpmn2.Process process = (bpmn2.Process) result_pattern_LaneStartEventRule_1_1_binding[2];
+			LaneSet laneSet = (LaneSet) result_pattern_LaneStartEventRule_1_1_binding[3];
+
+			Object[] result_pattern_LaneStartEventRule_1_1_black = pattern_LaneStartEventRule_1_1_blackBBBBFBB(
+					lane, flowNode, process, laneSet, _this, isApplicableMatch);
+			if (result_pattern_LaneStartEventRule_1_1_black != null) {
+				CSP csp = (CSP) result_pattern_LaneStartEventRule_1_1_black[4];
+
+				return new Object[] { lane, flowNode, process, laneSet, csp,
+						_this, isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_1_2_greenF() {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		return new Object[] { ruleresult };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_1_3_blackBBBBB(
+			PerformRuleResult ruleresult, EObject lane, EObject flowNode,
+			EObject process, EObject laneSet) {
+		if (!lane.equals(process)) {
+			if (!lane.equals(laneSet)) {
+				if (!flowNode.equals(lane)) {
+					if (!flowNode.equals(process)) {
+						if (!flowNode.equals(laneSet)) {
+							if (!laneSet.equals(process)) {
+								return new Object[] { ruleresult, lane,
+										flowNode, process, laneSet };
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_1_3_greenBBBF(
+			PerformRuleResult ruleresult, EObject lane, EObject flowNode) {
+		EMoflonEdge lane__flowNode____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "LaneStartEventRule";
+		String lane__flowNode____flowNodeRefs_name_prime = "flowNodeRefs";
+		lane__flowNode____flowNodeRefs.setSrc(lane);
+		lane__flowNode____flowNodeRefs.setTrg(flowNode);
+		ruleresult.getTranslatedEdges().add(lane__flowNode____flowNodeRefs);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		lane__flowNode____flowNodeRefs
+				.setName(lane__flowNode____flowNodeRefs_name_prime);
+		return new Object[] { ruleresult, lane, flowNode,
+				lane__flowNode____flowNodeRefs };
+	}
+
+	public static final void pattern_LaneStartEventRule_1_5_expressionBBBBBB(
+			LaneStartEventRule _this, PerformRuleResult ruleresult,
+			EObject lane, EObject flowNode, EObject process, EObject laneSet) {
+		_this.registerObjects_FWD(ruleresult, lane, flowNode, process, laneSet);
+
+	}
+
+	public static final PerformRuleResult pattern_LaneStartEventRule_1_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_1_bindingFB(
+			LaneStartEventRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_1_blackFBB(
+			EClass eClass, LaneStartEventRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_FWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_1_bindingAndBlackFFB(
+			LaneStartEventRule _this) {
+		Object[] result_pattern_LaneStartEventRule_2_1_binding = pattern_LaneStartEventRule_2_1_bindingFB(_this);
+		if (result_pattern_LaneStartEventRule_2_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_LaneStartEventRule_2_1_binding[0];
+
+			Object[] result_pattern_LaneStartEventRule_2_1_black = pattern_LaneStartEventRule_2_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_LaneStartEventRule_2_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_LaneStartEventRule_2_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "LaneStartEventRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_2_bindingFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("lane");
+		EObject _localVariable_1 = match.getObject("flowNode");
+		EObject _localVariable_2 = match.getObject("process");
+		EObject _localVariable_3 = match.getObject("laneSet");
+		EObject tmpLane = _localVariable_0;
+		EObject tmpFlowNode = _localVariable_1;
+		EObject tmpProcess = _localVariable_2;
+		EObject tmpLaneSet = _localVariable_3;
+		if (tmpLane instanceof Lane) {
+			Lane lane = (Lane) tmpLane;
+			if (tmpFlowNode instanceof StartEvent) {
+				StartEvent flowNode = (StartEvent) tmpFlowNode;
+				if (tmpProcess instanceof bpmn2.Process) {
+					bpmn2.Process process = (bpmn2.Process) tmpProcess;
+					if (tmpLaneSet instanceof LaneSet) {
+						LaneSet laneSet = (LaneSet) tmpLaneSet;
+						return new Object[] { lane, flowNode, process, laneSet,
+								match };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_LaneStartEventRule_2_2_blackBBBBB(
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		_result.add(new Object[] { lane, flowNode, process, laneSet, match });
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_LaneStartEventRule_2_3_blackBBBB(
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (lane.getFlowNodeRefs().contains(flowNode)) {
+			if (process.getLaneSets().contains(laneSet)) {
+				if (process.getFlowElements().contains(flowNode)) {
+					if (laneSet.getLanes().contains(lane)) {
+						_result.add(new Object[] { lane, flowNode, process,
+								laneSet });
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_3_greenBBBBFFFFF(
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge lane__flowNode____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__flowNode____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String lane__flowNode____flowNodeRefs_name_prime = "flowNodeRefs";
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__flowNode____flowElements_name_prime = "flowElements";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		isApplicableMatch.getAllContextElements().add(lane);
+		isApplicableMatch.getAllContextElements().add(flowNode);
+		isApplicableMatch.getAllContextElements().add(process);
+		isApplicableMatch.getAllContextElements().add(laneSet);
+		lane__flowNode____flowNodeRefs.setSrc(lane);
+		lane__flowNode____flowNodeRefs.setTrg(flowNode);
+		isApplicableMatch.getAllContextElements().add(
+				lane__flowNode____flowNodeRefs);
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		isApplicableMatch.getAllContextElements().add(
+				process__laneSet____laneSets);
+		process__flowNode____flowElements.setSrc(process);
+		process__flowNode____flowElements.setTrg(flowNode);
+		isApplicableMatch.getAllContextElements().add(
+				process__flowNode____flowElements);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet__lane____lanes);
+		lane__flowNode____flowNodeRefs
+				.setName(lane__flowNode____flowNodeRefs_name_prime);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__flowNode____flowElements
+				.setName(process__flowNode____flowElements_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		return new Object[] { lane, flowNode, process, laneSet,
+				isApplicableMatch, lane__flowNode____flowNodeRefs,
+				process__laneSet____laneSets,
+				process__flowNode____flowElements, laneSet__lane____lanes };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_4_bindingFBBBBBB(
+			LaneStartEventRule _this, IsApplicableMatch isApplicableMatch,
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
+				isApplicableMatch, lane, flowNode, process, laneSet);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, lane,
+					flowNode, process, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_4_blackB(CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_4_bindingAndBlackFBBBBBB(
+			LaneStartEventRule _this, IsApplicableMatch isApplicableMatch,
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet) {
+		Object[] result_pattern_LaneStartEventRule_2_4_binding = pattern_LaneStartEventRule_2_4_bindingFBBBBBB(
+				_this, isApplicableMatch, lane, flowNode, process, laneSet);
+		if (result_pattern_LaneStartEventRule_2_4_binding != null) {
+			CSP csp = (CSP) result_pattern_LaneStartEventRule_2_4_binding[0];
+
+			Object[] result_pattern_LaneStartEventRule_2_4_black = pattern_LaneStartEventRule_2_4_blackB(csp);
+			if (result_pattern_LaneStartEventRule_2_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, lane,
+						flowNode, process, laneSet };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_LaneStartEventRule_2_5_expressionFBB(
+			LaneStartEventRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_2_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "LaneStartEventRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_LaneStartEventRule_2_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_10_1_bindingFB(
+			LaneStartEventRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_10_1_blackFBB(
+			EClass __eClass, LaneStartEventRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_10_1_bindingAndBlackFFB(
+			LaneStartEventRule _this) {
+		Object[] result_pattern_LaneStartEventRule_10_1_binding = pattern_LaneStartEventRule_10_1_bindingFB(_this);
+		if (result_pattern_LaneStartEventRule_10_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_LaneStartEventRule_10_1_binding[0];
+
+			Object[] result_pattern_LaneStartEventRule_10_1_black = pattern_LaneStartEventRule_10_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_LaneStartEventRule_10_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_LaneStartEventRule_10_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_10_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_LaneStartEventRule_10_2_blackFFFFB(
+			EMoflonEdge _edge_flowNodeRefs) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpLane = _edge_flowNodeRefs.getSrc();
+		if (tmpLane instanceof Lane) {
+			Lane lane = (Lane) tmpLane;
+			EObject tmpFlowNode = _edge_flowNodeRefs.getTrg();
+			if (tmpFlowNode instanceof StartEvent) {
+				StartEvent flowNode = (StartEvent) tmpFlowNode;
+				if (lane.getFlowNodeRefs().contains(flowNode)) {
+					for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(lane, LaneSet.class,
+									"lanes")) {
+						for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(flowNode,
+										FlowElementsContainer.class,
+										"flowElements")) {
+							if (tmpProcess instanceof bpmn2.Process) {
+								bpmn2.Process process = (bpmn2.Process) tmpProcess;
+								if (process.getLaneSets().contains(laneSet)) {
+									_result.add(new Object[] { lane, flowNode,
+											process, laneSet,
+											_edge_flowNodeRefs });
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_10_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_LaneStartEventRule_10_3_expressionFBBBBBB(
+			LaneStartEventRule _this, Match match, Lane lane,
+			StartEvent flowNode, bpmn2.Process process, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, lane,
+				flowNode, process, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_LaneStartEventRule_10_4_expressionFBB(
+			LaneStartEventRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_10_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_10_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_LaneStartEventRule_10_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_1_blackB(
+			LaneStartEventRule _this) {
+		return new Object[] { _this };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_1_greenFF() {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
+				.createModelgeneratorRuleResult();
+		boolean ruleResult_success_prime = false;
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		return new Object[] { isApplicableMatch, ruleResult };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult, Lane lane) {
+		if (ruleResult.getSourceObjects().contains(lane)) {
+			return new Object[] { ruleResult, lane };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
+		if (ruleResult.getSourceObjects().contains(laneSet)) {
+			return new Object[] { ruleResult, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_2_black_nac_2BB(
+			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
+		if (ruleResult.getSourceObjects().contains(process)) {
+			return new Object[] { ruleResult, process };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_2_black_nac_3BB(
+			ModelgeneratorRuleResult ruleResult, StartEvent flowNode) {
+		if (ruleResult.getSourceObjects().contains(flowNode)) {
+			return new Object[] { ruleResult, flowNode };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_LaneStartEventRule_12_2_blackFFFFFBB(
+			RuleEntryContainer ruleEntryContainer,
+			ModelgeneratorRuleResult ruleResult) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (RuleEntryList laneList : ruleEntryContainer.getRuleEntryList()) {
+			for (EObject tmpLane : laneList.getEntryObjects()) {
+				if (tmpLane instanceof Lane) {
+					Lane lane = (Lane) tmpLane;
+					if (pattern_LaneStartEventRule_12_2_black_nac_0BB(
+							ruleResult, lane) == null) {
+						for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(lane, LaneSet.class,
+										"lanes")) {
+							if (pattern_LaneStartEventRule_12_2_black_nac_1BB(
+									ruleResult, laneSet) == null) {
+								for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										.getOppositeReferenceTyped(laneSet,
+												FlowElementsContainer.class,
+												"laneSets")) {
+									if (tmpProcess instanceof bpmn2.Process) {
+										bpmn2.Process process = (bpmn2.Process) tmpProcess;
+										if (pattern_LaneStartEventRule_12_2_black_nac_2BB(
+												ruleResult, process) == null) {
+											for (FlowElement tmpFlowNode : process
+													.getFlowElements()) {
+												if (tmpFlowNode instanceof StartEvent) {
+													StartEvent flowNode = (StartEvent) tmpFlowNode;
+													if (pattern_LaneStartEventRule_12_2_black_nac_3BB(
+															ruleResult,
+															flowNode) == null) {
+														_result.add(new Object[] {
+																laneList,
+																lane,
+																laneSet,
+																process,
+																flowNode,
+																ruleEntryContainer,
+																ruleResult });
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_3_bindingFBBBBBBB(
+			LaneStartEventRule _this, IsApplicableMatch isApplicableMatch,
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {
+		CSP _localVariable_0 = _this
+				.generateModel_solveCsp_BWD(isApplicableMatch, lane, flowNode,
+						process, laneSet, ruleResult);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, lane,
+					flowNode, process, laneSet, ruleResult };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_3_blackB(CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_3_bindingAndBlackFBBBBBBB(
+			LaneStartEventRule _this, IsApplicableMatch isApplicableMatch,
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_LaneStartEventRule_12_3_binding = pattern_LaneStartEventRule_12_3_bindingFBBBBBBB(
+				_this, isApplicableMatch, lane, flowNode, process, laneSet,
+				ruleResult);
+		if (result_pattern_LaneStartEventRule_12_3_binding != null) {
+			CSP csp = (CSP) result_pattern_LaneStartEventRule_12_3_binding[0];
+
+			Object[] result_pattern_LaneStartEventRule_12_3_black = pattern_LaneStartEventRule_12_3_blackB(csp);
+			if (result_pattern_LaneStartEventRule_12_3_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, lane,
+						flowNode, process, laneSet, ruleResult };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_LaneStartEventRule_12_4_expressionFBB(
+			LaneStartEventRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_5_blackBBBB(
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet) {
+		return new Object[] { lane, flowNode, process, laneSet };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_6_blackBBBBB(
+			Lane lane, StartEvent flowNode, bpmn2.Process process,
+			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { lane, flowNode, process, laneSet, ruleResult };
+	}
+
+	public static final Object[] pattern_LaneStartEventRule_12_6_greenBBB(
+			Lane lane, StartEvent flowNode, ModelgeneratorRuleResult ruleResult) {
+		lane.getFlowNodeRefs().add(flowNode);
+		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
+		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		ruleResult.setPerformCount(Integer
+				.valueOf(ruleResult_performCount_prime));
+		return new Object[] { lane, flowNode, ruleResult };
+	}
+
+	public static final ModelgeneratorRuleResult pattern_LaneStartEventRule_12_7_expressionFB(
+			ModelgeneratorRuleResult ruleResult) {
+		ModelgeneratorRuleResult _result = ruleResult;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

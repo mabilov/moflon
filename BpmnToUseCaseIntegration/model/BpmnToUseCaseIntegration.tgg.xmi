@@ -19,6 +19,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.0/@objectVariable.1" source="//@tggRule.0/@objectVariable.2" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//DocRootToUCModel/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="DefinitionsToPackageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="definitions" incomingLink="//@tggRule.1/@linkVariable.0 //@tggRule.1/@linkVariable.2" bindingOperator="CREATE" domain="//@domain.0">
@@ -73,7 +74,7 @@
         <modelgenAdornments value="BFF"/>
         <modelgenAdornments value="FBF"/>
       </constraints>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000922687474703A2F2F22" type="String"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000922687474703A2F2F22"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="packageDeclaration"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="targetNamespace" objectVariable="definitions"/>
     </csp>
@@ -221,16 +222,16 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="process"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="process"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="description" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="startEvent"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="preConditions" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400052273797322" type=""/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082253595354454D22" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="process"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="process"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="description" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="startEvent"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="preConditions" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400052273797322" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082253595354454D22"/>
     </csp>
   </tggRule>
   <tggRule name="LaneSetRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -243,6 +244,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="laneSets" target="//@tggRule.3/@objectVariable.1" source="//@tggRule.3/@objectVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/laneSets"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="LaneToActorRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="laneSet" incomingLink="//@tggRule.4/@linkVariable.1" outgoingLink="//@tggRule.4/@linkVariable.0" domain="//@domain.0">
@@ -338,12 +340,12 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="lane"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actor"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="lane"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="description" objectVariable="actor"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822504552534F4E22" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="lane"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="lane"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="description" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822504552534F4E22"/>
     </csp>
   </tggRule>
   <tggRule name="ServiceTaskToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -493,10 +495,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="UserTaskToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -646,10 +648,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ITEToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -799,10 +801,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="EndEventRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1023,12 +1025,12 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="exclusiveGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="exclusiveGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="FirstInterThrowEventToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1163,10 +1165,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelGatewayToParallelStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1260,12 +1262,12 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="parallelStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="parallelStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="parallelStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="parallelStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="EventBasedGatewayToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1374,12 +1376,12 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="eventBasedGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="eventBasedGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelConvergingGatewayRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1545,10 +1547,10 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="parallelConvGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="parallelConvGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="SeqFlowAfterEGToAltFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1680,10 +1682,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="outFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="alternativeFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="outFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="condition" objectVariable="alt"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="outFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="alternativeFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="outFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="condition" objectVariable="alt"/>
     </csp>
   </tggRule>
   <tggRule name="SeqFlowAfterPGToParallelFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1793,10 +1795,10 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="sequenceFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="parallelFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="sequenceFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="parallelFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="CatchEventAfterEBGToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1974,12 +1976,12 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="intermediateCatchEvent"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="alternativeFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="intermediateCatchEvent"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="condition" objectVariable="alt"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="intermediateCatchEvent"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="alternativeFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="intermediateCatchEvent"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="condition" objectVariable="alt"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ExclusiveGatewayToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2133,12 +2135,12 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="exclusiveGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="exclusiveGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelGatewayToParallelStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2247,12 +2249,12 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="parallelStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="parallelStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="parallelStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="parallelStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="EventBasedGatewayToStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2376,12 +2378,12 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="eventBasedGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="eventBasedGateway"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="LaneStartEventRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2409,6 +2411,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="lanes" target="//@tggRule.20/@objectVariable.0" source="//@tggRule.20/@objectVariable.3" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//LaneSet/lanes"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="ExcConvGwAfterEventGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.21/@linkVariable.0 //@tggRule.21/@linkVariable.1 //@tggRule.21/@linkVariable.2 //@tggRule.21/@linkVariable.11 //@tggRule.21/@linkVariable.12 //@tggRule.21/@linkVariable.13 //@tggRule.21/@linkVariable.14" domain="//@domain.0">
@@ -2563,8 +2566,8 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="exConvGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="exConvGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ExcConvGwDefaultSeqFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2745,10 +2748,10 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="exConvGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="exConvGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelConvergingGatewayTwoInputsRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2944,10 +2947,10 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="parallelConvGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="parallelGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="parallelConvGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="parallelGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ExcConvGwAfterExDivGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -3125,10 +3128,10 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="exConvGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="exConvGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ExConvGwAfterEventGwIceSeqFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -3287,8 +3290,8 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="exConvGateway"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="exConvGateway"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ContinuationRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -3372,8 +3375,8 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="excConvGw"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="excConvGw"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
     </csp>
   </tggRule>
   <tggRule name="ICEToStepAfterSERule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -3508,10 +3511,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ICEToStepAfterExGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -3653,12 +3656,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="flowNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ICEToStepAfterPGRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -3800,12 +3803,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="flowNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ICEToStepAfterTaskRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -3955,10 +3958,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ICEToStepAfterEventRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -4108,10 +4111,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ICEToStepAfterExConvGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -4268,12 +4271,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="flowNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ICEToStepAfterPConvGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -4430,12 +4433,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="flowNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="event"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000C22436F6E76657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="event"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ServiceTaskToStepAfterSERule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -4570,10 +4573,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ServiceTaskToStepAfterExGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -4715,12 +4718,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="flowNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ServiceTaskToStepAfterPGRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -4862,12 +4865,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="flowNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="ServiceTaskToStepAfterEvGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -5014,10 +5017,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="UserTaskToStepAfterSERule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -5152,10 +5155,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="UserTaskToStepAfterExGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -5297,12 +5300,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="flowNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="UserTaskToStepAfterPGRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -5444,12 +5447,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="gatewayDirection" objectVariable="flowNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="bpmn2.GatewayDirection" attribute="gatewayDirection" objectVariable="flowNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <tggRule name="UserTaskToStepAfterEvGwRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -5596,10 +5599,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="id" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="normalStep"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="task"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="id" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="task"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="normalStep"/>
     </csp>
   </tggRule>
   <metamodel name="bpmn2">

@@ -3,28 +3,26 @@
 package BpmnToUseCaseIntegration.Rules.impl;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
-import BpmnToUseCaseIntegration.DefinitionsToPackage;
-import BpmnToUseCaseIntegration.DocRootToUCModel;
-import BpmnToUseCaseIntegration.EndEventToFlow;
 import BpmnToUseCaseIntegration.FlowNodeToStep;
-import BpmnToUseCaseIntegration.ICEToAltFlow;
-import BpmnToUseCaseIntegration.LaneToActor;
-import BpmnToUseCaseIntegration.ProcessToActor;
 import BpmnToUseCaseIntegration.ProcessToUseCase;
 
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
 import BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule;
 
 import BpmnToUseCaseIntegration.SeqFlowToAltFlowAlt;
-import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
-import BpmnToUseCaseIntegration.StartEventToBasicFlow;
+
+import TGGLanguage.csp.CSP;
+
+import TGGLanguage.modelgenerator.RuleEntryContainer;
+import TGGLanguage.modelgenerator.RuleEntryList;
 
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
+import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -32,53 +30,33 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
-import UseCaseDSL.Actor;
 import UseCaseDSL.AlternativeFlow;
 import UseCaseDSL.AlternativeFlowAlternative;
-import UseCaseDSL.BasicFlow;
 import UseCaseDSL.Flow;
+import UseCaseDSL.NamedFlow;
 import UseCaseDSL.NormalStep;
-import UseCaseDSL.PackageDeclaration;
-import UseCaseDSL.ParallelFlow;
-import UseCaseDSL.ParallelStep;
 import UseCaseDSL.Step;
+import UseCaseDSL.StepAlternative;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
-import UseCaseDSL.UseCasesModel;
 
 import bpmn2.Bpmn2Factory;
-import bpmn2.Definitions;
-import bpmn2.DocumentRoot;
-import bpmn2.EndEvent;
-import bpmn2.Event;
-import bpmn2.EventBasedGateway;
 import bpmn2.ExclusiveGateway;
 import bpmn2.FlowElementsContainer;
 import bpmn2.FlowNode;
-import bpmn2.IntermediateCatchEvent;
-import bpmn2.IntermediateThrowEvent;
-import bpmn2.Lane;
-import bpmn2.LaneSet;
-import bpmn2.ParallelGateway;
 import bpmn2.SequenceFlow;
-import bpmn2.ServiceTask;
-import bpmn2.StartEvent;
-import bpmn2.Task;
-import bpmn2.UserTask;
 
-import de.upb.tools.sdm.*;
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
 import org.moflon.csp.*;
 import csp.constraints.*;
@@ -124,267 +102,74 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	public boolean isAppropriate_FWD(Match match, SequenceFlow defaultFlow,
 			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
 			SequenceFlow outFlow) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
-		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
-		EMoflonEdge __process_flowElements_exclusiveGateway = null;
-		EMoflonEdge __process_flowElements_defaultFlow = null;
-		EMoflonEdge __exclusiveGateway_outgoing_defaultFlow = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object defaultFlow is really bound
-			JavaSDM.ensure(defaultFlow != null);
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check isomorphic binding between objects outFlow and defaultFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_0_1_blackBBBBBB(this,
+						match, defaultFlow, exclusiveGateway, process, outFlow);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, defaultFlow,
-					exclusiveGateway, process, outFlow));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_0_2_bindingAndBlackFBBBBBB(
+						this, match, defaultFlow, exclusiveGateway, process,
+						outFlow);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_0_3_expressionFBB(this,
+						csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object defaultFlow is really bound
-				JavaSDM.ensure(defaultFlow != null);
-				// check object exclusiveGateway is really bound
-				JavaSDM.ensure(exclusiveGateway != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects outFlow and defaultFlow 
-				JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-				// create object __process_flowElements_outFlow
-				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __outFlow_sourceRef_exclusiveGateway
-				__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_outgoing_outFlow
-				__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __outFlow_sourceRef_exclusiveGateway
-				__outFlow_sourceRef_exclusiveGateway.setName("sourceRef");
-				// assign attribute __exclusiveGateway_outgoing_outFlow
-				__exclusiveGateway_outgoing_outFlow.setName("outgoing");
-				// assign attribute __process_flowElements_outFlow
-				__process_flowElements_outFlow.setName("flowElements");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_outFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__outFlow_sourceRef_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_outgoing_outFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				__outFlow_sourceRef_exclusiveGateway.setTrg(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_outgoing_outFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__process_flowElements_outFlow.setSrc(process);
-
-				// create link
-				__process_flowElements_outFlow.setTrg(outFlow);
-
-				// create link
-				__outFlow_sourceRef_exclusiveGateway.setSrc(outFlow);
-
-				// create link
-				__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_0_4_blackBBBBB(match,
+							defaultFlow, exclusiveGateway, process, outFlow);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_0_4_greenBBBBFFF(
+							match, exclusiveGateway, process, outFlow);
+			// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result4_green[4];
+			// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result4_green[5];
+			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[6];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object defaultFlow is really bound
-				JavaSDM.ensure(defaultFlow != null);
-				// check object exclusiveGateway is really bound
-				JavaSDM.ensure(exclusiveGateway != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects outFlow and defaultFlow 
-				JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-				// create object __defaultFlow_sourceRef_exclusiveGateway
-				__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_default_defaultFlow
-				__exclusiveGateway_default_defaultFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_exclusiveGateway
-				__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_defaultFlow
-				__process_flowElements_defaultFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_outgoing_defaultFlow
-				__exclusiveGateway_outgoing_defaultFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __exclusiveGateway_default_defaultFlow
-				__exclusiveGateway_default_defaultFlow.setName("default");
-				// assign attribute __defaultFlow_sourceRef_exclusiveGateway
-				__defaultFlow_sourceRef_exclusiveGateway.setName("sourceRef");
-				// assign attribute __exclusiveGateway_outgoing_defaultFlow
-				__exclusiveGateway_outgoing_defaultFlow.setName("outgoing");
-				// assign attribute __process_flowElements_defaultFlow
-				__process_flowElements_defaultFlow.setName("flowElements");
-				// assign attribute __process_flowElements_exclusiveGateway
-				__process_flowElements_exclusiveGateway.setName("flowElements");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__defaultFlow_sourceRef_exclusiveGateway,
-						"contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						defaultFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_default_defaultFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						exclusiveGateway, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__process_flowElements_exclusiveGateway,
-								"contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_defaultFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__exclusiveGateway_outgoing_defaultFlow,
-								"contextEdges");
-
-				// create link
-				__exclusiveGateway_outgoing_defaultFlow.setTrg(defaultFlow);
-
-				// create link
-				__defaultFlow_sourceRef_exclusiveGateway.setSrc(defaultFlow);
-
-				// create link
-				__exclusiveGateway_default_defaultFlow.setTrg(defaultFlow);
-
-				// create link
-				__process_flowElements_defaultFlow.setTrg(defaultFlow);
-
-				// create link
-				__exclusiveGateway_outgoing_defaultFlow
-						.setSrc(exclusiveGateway);
-
-				// create link
-				__defaultFlow_sourceRef_exclusiveGateway
-						.setTrg(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_default_defaultFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__process_flowElements_exclusiveGateway
-						.setTrg(exclusiveGateway);
-
-				// create link
-				__process_flowElements_exclusiveGateway.setSrc(process);
-
-				// create link
-				__process_flowElements_defaultFlow.setSrc(process);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_0_5_blackBBBBB(match,
+							defaultFlow, exclusiveGateway, process, outFlow);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_0_5_greenBBBBFFFFF(
+							match, defaultFlow, exclusiveGateway, process);
+			// EMoflonEdge exclusiveGateway__defaultFlow____default = (EMoflonEdge) result5_green[4];
+			// EMoflonEdge defaultFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result5_green[5];
+			// EMoflonEdge exclusiveGateway__defaultFlow____outgoing = (EMoflonEdge) result5_green[6];
+			// EMoflonEdge process__defaultFlow____flowElements = (EMoflonEdge) result5_green[7];
+			// EMoflonEdge process__exclusiveGateway____flowElements = (EMoflonEdge) result5_green[8];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, defaultFlow,
-					exclusiveGateway, process, outFlow);
-			return true;
-
+			// register objects to match
+			SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_0_6_expressionBBBBBB(
+							this, match, defaultFlow, exclusiveGateway,
+							process, outFlow);
+			return SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -393,702 +178,87 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		SequenceFlow defaultFlow = null;
-		SequenceFlowToUCFlow defaultFlowToFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		FlowNodeToStep exclusiveGatewayToNormalStep = null;
-		Flow flow = null;
-		NormalStep normalStep = null;
-		SequenceFlow outFlow = null;
-		bpmn2.Process process = null;
-		ProcessToUseCase processToUseCase = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		AlternativeFlow alternativeFlow = null;
-		AlternativeFlowAlternative alt = null;
-		SequenceFlowToUCFlow outFlowToAlternativeFlow = null;
-		SeqFlowToAltFlowAlt outFlowToAlt = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge outFlowToAlternativeFlow__source__outFlow = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
-		EMoflonEdge outFlowToAlt__source__outFlow = null;
-		EMoflonEdge alt__ref__alternativeFlow = null;
-		EMoflonEdge useCase__flows__alternativeFlow = null;
-		EMoflonEdge outFlowToAlternativeFlow__target__alternativeFlow = null;
-		EMoflonEdge normalStep__stepAlternative__alt = null;
-		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge outFlowToAlt__target__alt = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("defaultFlow"));
-
-			// ensure correct type and really bound of object defaultFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			defaultFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("defaultFlowToFlow"));
-
-			// ensure correct type and really bound of object defaultFlowToFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			defaultFlowToFlow = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("exclusiveGateway"));
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-			_TmpObject = (isApplicableMatch
-					.getObject("exclusiveGatewayToNormalStep"));
-
-			// ensure correct type and really bound of object exclusiveGatewayToNormalStep
-			JavaSDM.ensure(_TmpObject instanceof FlowNodeToStep);
-			exclusiveGatewayToNormalStep = (FlowNodeToStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("normalStep"));
-
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("outFlow"));
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("processToUseCase"));
-
-			// ensure correct type and really bound of object processToUseCase
-			JavaSDM.ensure(_TmpObject instanceof ProcessToUseCase);
-			processToUseCase = (ProcessToUseCase) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// check isomorphic binding between objects outFlow and defaultFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object alternativeFlow
-			alternativeFlow = UseCaseDSLFactory.eINSTANCE
-					.createAlternativeFlow();
-
-			// create object alt
-			alt = UseCaseDSLFactory.eINSTANCE
-					.createAlternativeFlowAlternative();
-
-			// create object outFlowToAlternativeFlow
-			outFlowToAlternativeFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSequenceFlowToUCFlow();
-
-			// create object outFlowToAlt
-			outFlowToAlt = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSeqFlowToAltFlowAlt();
-
-			// assign attribute alternativeFlow
-			alternativeFlow.setName((java.lang.String) csp.getValue(
-					"alternativeFlow", "name"));
-			// assign attribute alt
-			alt.setCondition((java.lang.String) csp
-					.getValue("alt", "condition"));
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToAlt,
-					outFlow, "source");
-
-			// create link
-			useCase.getFlows().add(alternativeFlow); // add link
-
-			// create link
-			normalStep.getStepAlternative().add(alt); // add link
-
-			// create link
-			outFlowToAlternativeFlow.setTarget(alternativeFlow);
-
-			// create link
-			alt.setRef(alternativeFlow);
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-					outFlowToAlternativeFlow, outFlow, "source");
-
-			// create link
-			outFlowToAlt.setTarget(alt);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_1_1_bindingAndBlackFFFFFFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
+		ProcessToUseCase processToUseCase = (ProcessToUseCase) result1_bindingAndBlack[1];
+		SequenceFlow defaultFlow = (SequenceFlow) result1_bindingAndBlack[2];
+		Flow flow = (Flow) result1_bindingAndBlack[3];
+		SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[4];
+		NormalStep normalStep = (NormalStep) result1_bindingAndBlack[5];
+		FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result1_bindingAndBlack[6];
+		ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result1_bindingAndBlack[7];
+		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[8];
+		SequenceFlow outFlow = (SequenceFlow) result1_bindingAndBlack[9];
+		CSP csp = (CSP) result1_bindingAndBlack[10];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_1_1_greenBBFFFFBB(useCase,
+						normalStep, outFlow, csp);
+		AlternativeFlow alternativeFlow = (AlternativeFlow) result1_green[2];
+		SequenceFlowToUCFlow outFlowToAlternativeFlow = (SequenceFlowToUCFlow) result1_green[3];
+		AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result1_green[4];
+		SeqFlowToAltFlowAlt outFlowToAlt = (SeqFlowToAltFlowAlt) result1_green[5];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object alt is really bound
-			JavaSDM.ensure(alt != null);
-			// check object alternativeFlow is really bound
-			JavaSDM.ensure(alternativeFlow != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToAlt is really bound
-			JavaSDM.ensure(outFlowToAlt != null);
-			// check object outFlowToAlternativeFlow is really bound
-			JavaSDM.ensure(outFlowToAlternativeFlow != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alt, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alternativeFlow, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlternativeFlow, "createdLinkElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_1_2_blackBBBBB(
+						alternativeFlow, outFlowToAlternativeFlow, alt,
+						outFlowToAlt, outFlow);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object alt is really bound
-			JavaSDM.ensure(alt != null);
-			// check object alternativeFlow is really bound
-			JavaSDM.ensure(alternativeFlow != null);
-			// check object defaultFlow is really bound
-			JavaSDM.ensure(defaultFlow != null);
-			// check object defaultFlowToFlow is really bound
-			JavaSDM.ensure(defaultFlowToFlow != null);
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object exclusiveGatewayToNormalStep is really bound
-			JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToAlt is really bound
-			JavaSDM.ensure(outFlowToAlt != null);
-			// check object outFlowToAlternativeFlow is really bound
-			JavaSDM.ensure(outFlowToAlternativeFlow != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check object processToUseCase is really bound
-			JavaSDM.ensure(processToUseCase != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check isomorphic binding between objects alternativeFlow and alt 
-			JavaSDM.ensure(!alternativeFlow.equals(alt));
-
-			// check isomorphic binding between objects defaultFlow and alt 
-			JavaSDM.ensure(!defaultFlow.equals(alt));
-
-			// check isomorphic binding between objects defaultFlowToFlow and alt 
-			JavaSDM.ensure(!defaultFlowToFlow.equals(alt));
-
-			// check isomorphic binding between objects exclusiveGateway and alt 
-			JavaSDM.ensure(!exclusiveGateway.equals(alt));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and alt 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep.equals(alt));
-
-			// check isomorphic binding between objects flow and alt 
-			JavaSDM.ensure(!flow.equals(alt));
-
-			// check isomorphic binding between objects normalStep and alt 
-			JavaSDM.ensure(!normalStep.equals(alt));
-
-			// check isomorphic binding between objects outFlow and alt 
-			JavaSDM.ensure(!outFlow.equals(alt));
-
-			// check isomorphic binding between objects outFlowToAlt and alt 
-			JavaSDM.ensure(!outFlowToAlt.equals(alt));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and alt 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(alt));
-
-			// check isomorphic binding between objects process and alt 
-			JavaSDM.ensure(!process.equals(alt));
-
-			// check isomorphic binding between objects processToUseCase and alt 
-			JavaSDM.ensure(!processToUseCase.equals(alt));
-
-			// check isomorphic binding between objects useCase and alt 
-			JavaSDM.ensure(!useCase.equals(alt));
-
-			// check isomorphic binding between objects defaultFlow and alternativeFlow 
-			JavaSDM.ensure(!defaultFlow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects defaultFlowToFlow and alternativeFlow 
-			JavaSDM.ensure(!defaultFlowToFlow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects exclusiveGateway and alternativeFlow 
-			JavaSDM.ensure(!exclusiveGateway.equals(alternativeFlow));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and alternativeFlow 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep
-					.equals(alternativeFlow));
-
-			// check isomorphic binding between objects flow and alternativeFlow 
-			JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects normalStep and alternativeFlow 
-			JavaSDM.ensure(!normalStep.equals(alternativeFlow));
-
-			// check isomorphic binding between objects outFlow and alternativeFlow 
-			JavaSDM.ensure(!outFlow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects outFlowToAlt and alternativeFlow 
-			JavaSDM.ensure(!outFlowToAlt.equals(alternativeFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and alternativeFlow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects process and alternativeFlow 
-			JavaSDM.ensure(!process.equals(alternativeFlow));
-
-			// check isomorphic binding between objects processToUseCase and alternativeFlow 
-			JavaSDM.ensure(!processToUseCase.equals(alternativeFlow));
-
-			// check isomorphic binding between objects useCase and alternativeFlow 
-			JavaSDM.ensure(!useCase.equals(alternativeFlow));
-
-			// check isomorphic binding between objects defaultFlowToFlow and defaultFlow 
-			JavaSDM.ensure(!defaultFlowToFlow.equals(defaultFlow));
-
-			// check isomorphic binding between objects exclusiveGateway and defaultFlow 
-			JavaSDM.ensure(!exclusiveGateway.equals(defaultFlow));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and defaultFlow 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep.equals(defaultFlow));
-
-			// check isomorphic binding between objects flow and defaultFlow 
-			JavaSDM.ensure(!flow.equals(defaultFlow));
-
-			// check isomorphic binding between objects normalStep and defaultFlow 
-			JavaSDM.ensure(!normalStep.equals(defaultFlow));
-
-			// check isomorphic binding between objects outFlow and defaultFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-			// check isomorphic binding between objects outFlowToAlt and defaultFlow 
-			JavaSDM.ensure(!outFlowToAlt.equals(defaultFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and defaultFlow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(defaultFlow));
-
-			// check isomorphic binding between objects process and defaultFlow 
-			JavaSDM.ensure(!process.equals(defaultFlow));
-
-			// check isomorphic binding between objects processToUseCase and defaultFlow 
-			JavaSDM.ensure(!processToUseCase.equals(defaultFlow));
-
-			// check isomorphic binding between objects useCase and defaultFlow 
-			JavaSDM.ensure(!useCase.equals(defaultFlow));
-
-			// check isomorphic binding between objects exclusiveGateway and defaultFlowToFlow 
-			JavaSDM.ensure(!exclusiveGateway.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and defaultFlowToFlow 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep
-					.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects flow and defaultFlowToFlow 
-			JavaSDM.ensure(!flow.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects normalStep and defaultFlowToFlow 
-			JavaSDM.ensure(!normalStep.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects outFlow and defaultFlowToFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToAlt and defaultFlowToFlow 
-			JavaSDM.ensure(!outFlowToAlt.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and defaultFlowToFlow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects process and defaultFlowToFlow 
-			JavaSDM.ensure(!process.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects processToUseCase and defaultFlowToFlow 
-			JavaSDM.ensure(!processToUseCase.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects useCase and defaultFlowToFlow 
-			JavaSDM.ensure(!useCase.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and exclusiveGateway 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep
-					.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects flow and exclusiveGateway 
-			JavaSDM.ensure(!flow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects normalStep and exclusiveGateway 
-			JavaSDM.ensure(!normalStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlow and exclusiveGateway 
-			JavaSDM.ensure(!outFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlowToAlt and exclusiveGateway 
-			JavaSDM.ensure(!outFlowToAlt.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and exclusiveGateway 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects process and exclusiveGateway 
-			JavaSDM.ensure(!process.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects processToUseCase and exclusiveGateway 
-			JavaSDM.ensure(!processToUseCase.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects useCase and exclusiveGateway 
-			JavaSDM.ensure(!useCase.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects flow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!flow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects normalStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!normalStep.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlowToAlt and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlowToAlt.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlowToAlternativeFlow
-					.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects process and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!process.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects processToUseCase and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!processToUseCase
-					.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects useCase and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!useCase.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects normalStep and flow 
-			JavaSDM.ensure(!normalStep.equals(flow));
-
-			// check isomorphic binding between objects outFlow and flow 
-			JavaSDM.ensure(!outFlow.equals(flow));
-
-			// check isomorphic binding between objects outFlowToAlt and flow 
-			JavaSDM.ensure(!outFlowToAlt.equals(flow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and flow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(flow));
-
-			// check isomorphic binding between objects process and flow 
-			JavaSDM.ensure(!process.equals(flow));
-
-			// check isomorphic binding between objects processToUseCase and flow 
-			JavaSDM.ensure(!processToUseCase.equals(flow));
-
-			// check isomorphic binding between objects useCase and flow 
-			JavaSDM.ensure(!useCase.equals(flow));
-
-			// check isomorphic binding between objects outFlow and normalStep 
-			JavaSDM.ensure(!outFlow.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToAlt and normalStep 
-			JavaSDM.ensure(!outFlowToAlt.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and normalStep 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(normalStep));
-
-			// check isomorphic binding between objects process and normalStep 
-			JavaSDM.ensure(!process.equals(normalStep));
-
-			// check isomorphic binding between objects processToUseCase and normalStep 
-			JavaSDM.ensure(!processToUseCase.equals(normalStep));
-
-			// check isomorphic binding between objects useCase and normalStep 
-			JavaSDM.ensure(!useCase.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToAlt and outFlow 
-			JavaSDM.ensure(!outFlowToAlt.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and outFlow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(outFlow));
-
-			// check isomorphic binding between objects process and outFlow 
-			JavaSDM.ensure(!process.equals(outFlow));
-
-			// check isomorphic binding between objects processToUseCase and outFlow 
-			JavaSDM.ensure(!processToUseCase.equals(outFlow));
-
-			// check isomorphic binding between objects useCase and outFlow 
-			JavaSDM.ensure(!useCase.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and outFlowToAlt 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(outFlowToAlt));
-
-			// check isomorphic binding between objects process and outFlowToAlt 
-			JavaSDM.ensure(!process.equals(outFlowToAlt));
-
-			// check isomorphic binding between objects processToUseCase and outFlowToAlt 
-			JavaSDM.ensure(!processToUseCase.equals(outFlowToAlt));
-
-			// check isomorphic binding between objects useCase and outFlowToAlt 
-			JavaSDM.ensure(!useCase.equals(outFlowToAlt));
-
-			// check isomorphic binding between objects process and outFlowToAlternativeFlow 
-			JavaSDM.ensure(!process.equals(outFlowToAlternativeFlow));
-
-			// check isomorphic binding between objects processToUseCase and outFlowToAlternativeFlow 
-			JavaSDM.ensure(!processToUseCase.equals(outFlowToAlternativeFlow));
-
-			// check isomorphic binding between objects useCase and outFlowToAlternativeFlow 
-			JavaSDM.ensure(!useCase.equals(outFlowToAlternativeFlow));
-
-			// check isomorphic binding between objects processToUseCase and process 
-			JavaSDM.ensure(!processToUseCase.equals(process));
-
-			// check isomorphic binding between objects useCase and process 
-			JavaSDM.ensure(!useCase.equals(process));
-
-			// check isomorphic binding between objects useCase and processToUseCase 
-			JavaSDM.ensure(!useCase.equals(processToUseCase));
-
-			// create object __process_flowElements_outFlow
-			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlternativeFlow__source__outFlow
-			outFlowToAlternativeFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __exclusiveGateway_outgoing_outFlow
-			__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlt__source__outFlow
-			outFlowToAlt__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object alt__ref__alternativeFlow
-			alt__ref__alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object useCase__flows__alternativeFlow
-			useCase__flows__alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlternativeFlow__target__alternativeFlow
-			outFlowToAlternativeFlow__target__alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object normalStep__stepAlternative__alt
-			normalStep__stepAlternative__alt = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __outFlow_sourceRef_exclusiveGateway
-			__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlt__target__alt
-			outFlowToAlt__target__alt = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("SeqFlowAfterEGToAltFlowRule");
-			// assign attribute useCase__flows__alternativeFlow
-			useCase__flows__alternativeFlow.setName("flows");
-			// assign attribute normalStep__stepAlternative__alt
-			normalStep__stepAlternative__alt.setName("stepAlternative");
-			// assign attribute outFlowToAlternativeFlow__source__outFlow
-			outFlowToAlternativeFlow__source__outFlow.setName("source");
-			// assign attribute outFlowToAlternativeFlow__target__alternativeFlow
-			outFlowToAlternativeFlow__target__alternativeFlow.setName("target");
-			// assign attribute alt__ref__alternativeFlow
-			alt__ref__alternativeFlow.setName("ref");
-			// assign attribute outFlowToAlt__source__outFlow
-			outFlowToAlt__source__outFlow.setName("source");
-			// assign attribute outFlowToAlt__target__alt
-			outFlowToAlt__target__alt.setName("target");
-			// assign attribute __outFlow_sourceRef_exclusiveGateway
-			__outFlow_sourceRef_exclusiveGateway.setName("sourceRef");
-			// assign attribute __exclusiveGateway_outgoing_outFlow
-			__exclusiveGateway_outgoing_outFlow.setName("outgoing");
-			// assign attribute __process_flowElements_outFlow
-			__process_flowElements_outFlow.setName("flowElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlternativeFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__exclusiveGateway_outgoing_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alt__ref__alternativeFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					useCase__flows__alternativeFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlternativeFlow__target__alternativeFlow,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep__stepAlternative__alt, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__outFlow_sourceRef_exclusiveGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt__target__alt, "createdEdges");
-
-			// create link
-			useCase__flows__alternativeFlow.setSrc(useCase);
-
-			// create link
-			normalStep__stepAlternative__alt.setSrc(normalStep);
-
-			// create link
-			alt__ref__alternativeFlow.setTrg(alternativeFlow);
-
-			// create link
-			outFlowToAlternativeFlow__target__alternativeFlow
-					.setTrg(alternativeFlow);
-
-			// create link
-			useCase__flows__alternativeFlow.setTrg(alternativeFlow);
-
-			// create link
-			outFlowToAlternativeFlow__source__outFlow
-					.setSrc(outFlowToAlternativeFlow);
-
-			// create link
-			outFlowToAlternativeFlow__target__alternativeFlow
-					.setSrc(outFlowToAlternativeFlow);
-
-			// create link
-			alt__ref__alternativeFlow.setSrc(alt);
-
-			// create link
-			normalStep__stepAlternative__alt.setTrg(alt);
-
-			// create link
-			outFlowToAlt__target__alt.setTrg(alt);
-
-			// create link
-			outFlowToAlt__target__alt.setSrc(outFlowToAlt);
-
-			// create link
-			outFlowToAlt__source__outFlow.setSrc(outFlowToAlt);
-
-			// create link
-			__outFlow_sourceRef_exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			__exclusiveGateway_outgoing_outFlow.setSrc(exclusiveGateway);
-
-			// create link
-			__process_flowElements_outFlow.setSrc(process);
-
-			// create link
-			outFlowToAlternativeFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
-			__process_flowElements_outFlow.setTrg(outFlow);
-
-			// create link
-			__outFlow_sourceRef_exclusiveGateway.setSrc(outFlow);
-
-			// create link
-			__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToAlt__source__outFlow.setTrg(outFlow);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_1_2_greenFBBBBB(
+						alternativeFlow, outFlowToAlternativeFlow, alt,
+						outFlowToAlt, outFlow);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
+
+		// bookkeeping for edges
+		Object[] result3_black = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_1_3_blackBBBBBBBBBBBBBBB(
+						ruleresult, useCase, processToUseCase, defaultFlow,
+						flow, defaultFlowToFlow, normalStep,
+						exclusiveGatewayToNormalStep, alternativeFlow,
+						outFlowToAlternativeFlow, alt, outFlowToAlt,
+						exclusiveGateway, process, outFlow);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_1_3_greenBBBBBBBBBBFFFFFFFFFF(
+						ruleresult, useCase, normalStep, alternativeFlow,
+						outFlowToAlternativeFlow, alt, outFlowToAlt,
+						exclusiveGateway, process, outFlow);
+		// EMoflonEdge useCase__alternativeFlow____flows = (EMoflonEdge) result3_green[10];
+		// EMoflonEdge normalStep__alt____stepAlternative = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge outFlowToAlternativeFlow__outFlow____source = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge outFlowToAlternativeFlow__alternativeFlow____target = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge alt__alternativeFlow____ref = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge outFlowToAlt__outFlow____source = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge outFlowToAlt__alt____target = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[19];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, useCase, processToUseCase,
-				defaultFlow, flow, defaultFlowToFlow, normalStep,
-				exclusiveGatewayToNormalStep, alternativeFlow,
-				outFlowToAlternativeFlow, alt, outFlowToAlt, exclusiveGateway,
-				process, outFlow);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_1_5_expressionBBBBBBBBBBBBBBBB(
+						this, ruleresult, useCase, processToUseCase,
+						defaultFlow, flow, defaultFlowToFlow, normalStep,
+						exclusiveGatewayToNormalStep, alternativeFlow,
+						outFlowToAlternativeFlow, alt, outFlowToAlt,
+						exclusiveGateway, process, outFlow);
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_1_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1097,775 +267,107 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		SequenceFlow defaultFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		SequenceFlow outFlow = null;
-		bpmn2.Process process = null;
-		EMoflonEdge __processToUseCase_target_useCase = null;
-		EMoflonEdge __useCase_flows_flow = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __processToUseCase_source_process = null;
-		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __defaultFlowToFlow_source_defaultFlow = null;
-		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
-		EMoflonEdge __process_flowElements_defaultFlow = null;
-		EMoflonEdge __exclusiveGateway_outgoing_defaultFlow = null;
-		EMoflonEdge __defaultFlowToFlow_target_flow = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge __exclusiveGatewayToNormalStep_target_normalStep = null;
-		EMoflonEdge __exclusiveGatewayToNormalStep_source_exclusiveGateway = null;
-		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __process_flowElements_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		CSP csp = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterProcessToProcessToUseCase = null;
-		ProcessToUseCase processToUseCase = null;
-		NormalStep normalStep = null;
-		Iterator fujaba__IterExclusiveGatewayToExclusiveGatewayToNormalStep = null;
-		FlowNodeToStep exclusiveGatewayToNormalStep = null;
-		Flow flow = null;
-		Iterator fujaba__IterDefaultFlowToDefaultFlowToFlow = null;
-		SequenceFlowToUCFlow defaultFlowToFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("SeqFlowAfterEGToAltFlowRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_2_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (match.getObject("defaultFlow"));
-
-			// ensure correct type and really bound of object defaultFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			defaultFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("exclusiveGateway"));
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-			_TmpObject = (match.getObject("outFlow"));
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check isomorphic binding between objects outFlow and defaultFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-			// iterate to-many link source from defaultFlow to defaultFlowToFlow
-			fujaba__Success = false;
-
-			fujaba__IterDefaultFlowToDefaultFlowToFlow = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							defaultFlow, SequenceFlowToUCFlow.class, "source"))
-					.iterator();
-
-			while (fujaba__IterDefaultFlowToDefaultFlowToFlow.hasNext()) {
-				try {
-					defaultFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterDefaultFlowToDefaultFlowToFlow
-							.next();
-
-					// check object defaultFlowToFlow is really bound
-					JavaSDM.ensure(defaultFlowToFlow != null);
-					// bind object
-					flow = defaultFlowToFlow.getTarget();
-
-					// check object flow is really bound
-					JavaSDM.ensure(flow != null);
-
-					// iterate to-many link source from exclusiveGateway to exclusiveGatewayToNormalStep
-					fujaba__Success = false;
-
-					fujaba__IterExclusiveGatewayToExclusiveGatewayToNormalStep = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(exclusiveGateway,
-											FlowNodeToStep.class, "source"))
-							.iterator();
-
-					while (fujaba__IterExclusiveGatewayToExclusiveGatewayToNormalStep
-							.hasNext()) {
-						try {
-							exclusiveGatewayToNormalStep = (FlowNodeToStep) fujaba__IterExclusiveGatewayToExclusiveGatewayToNormalStep
-									.next();
-
-							// check object exclusiveGatewayToNormalStep is really bound
-							JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-							// bind object
-							_TmpObject = exclusiveGatewayToNormalStep
-									.getTarget();
-
-							// ensure correct type and really bound of object normalStep
-							JavaSDM.ensure(_TmpObject instanceof NormalStep);
-							normalStep = (NormalStep) _TmpObject;
-
-							// iterate to-many link source from process to processToUseCase
-							fujaba__Success = false;
-
-							fujaba__IterProcessToProcessToUseCase = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(process,
-													ProcessToUseCase.class,
-													"source")).iterator();
-
-							while (fujaba__IterProcessToProcessToUseCase
-									.hasNext()) {
-								try {
-									processToUseCase = (ProcessToUseCase) fujaba__IterProcessToProcessToUseCase
-											.next();
-
-									// check object processToUseCase is really bound
-									JavaSDM.ensure(processToUseCase != null);
-									// bind object
-									useCase = processToUseCase.getTarget();
-
-									// check object useCase is really bound
-									JavaSDM.ensure(useCase != null);
-
-									// story node 'find context'
-									try {
-										fujaba__Success = false;
-
-										// check object defaultFlow is really bound
-										JavaSDM.ensure(defaultFlow != null);
-										// check object defaultFlowToFlow is really bound
-										JavaSDM.ensure(defaultFlowToFlow != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object exclusiveGatewayToNormalStep is really bound
-										JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-										// check object flow is really bound
-										JavaSDM.ensure(flow != null);
-										// check object normalStep is really bound
-										JavaSDM.ensure(normalStep != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check object processToUseCase is really bound
-										JavaSDM.ensure(processToUseCase != null);
-										// check object useCase is really bound
-										JavaSDM.ensure(useCase != null);
-										// check isomorphic binding between objects outFlow and defaultFlow 
-										JavaSDM.ensure(!outFlow
-												.equals(defaultFlow));
-
-										// check link default from exclusiveGateway to defaultFlow
-										JavaSDM.ensure(defaultFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from defaultFlow to process
-										JavaSDM.ensure(process
-												.equals(defaultFlow
-														.eContainer()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link flows from flow to useCase
-										JavaSDM.ensure(useCase.equals(flow
-												.eContainer()));
-
-										// check link source from defaultFlowToFlow to defaultFlow
-										JavaSDM.ensure(defaultFlow
-												.equals(defaultFlowToFlow
-														.getSource()));
-
-										// check link source from exclusiveGatewayToNormalStep to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(exclusiveGatewayToNormalStep
-														.getSource()));
-
-										// check link source from processToUseCase to process
-										JavaSDM.ensure(process
-												.equals(processToUseCase
-														.getSource()));
-
-										// check link sourceRef from defaultFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(defaultFlow
-														.getSourceRef()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link steps from normalStep to flow
-										JavaSDM.ensure(flow.equals(normalStep
-												.eContainer()));
-
-										// check link target from defaultFlowToFlow to flow
-										JavaSDM.ensure(flow
-												.equals(defaultFlowToFlow
-														.getTarget()));
-
-										// check link target from exclusiveGatewayToNormalStep to normalStep
-										JavaSDM.ensure(normalStep
-												.equals(exclusiveGatewayToNormalStep
-														.getTarget()));
-
-										// check link target from processToUseCase to useCase
-										JavaSDM.ensure(useCase
-												.equals(processToUseCase
-														.getTarget()));
-
-										// create object __processToUseCase_target_useCase
-										__processToUseCase_target_useCase = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __useCase_flows_flow
-										__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object isApplicableMatch
-										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-												.createIsApplicableMatch();
-
-										// create object __processToUseCase_source_process
-										__processToUseCase_source_process = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __defaultFlow_sourceRef_exclusiveGateway
-										__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __defaultFlowToFlow_source_defaultFlow
-										__defaultFlowToFlow_source_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGateway_default_defaultFlow
-										__exclusiveGateway_default_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_defaultFlow
-										__process_flowElements_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGateway_outgoing_defaultFlow
-										__exclusiveGateway_outgoing_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __defaultFlowToFlow_target_flow
-										__defaultFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __flow_steps_normalStep
-										__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGatewayToNormalStep_target_normalStep
-										__exclusiveGatewayToNormalStep_target_normalStep = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGatewayToNormalStep_source_exclusiveGateway
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __outFlow_sourceRef_exclusiveGateway
-										__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_exclusiveGateway
-										__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGateway_outgoing_outFlow
-										__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_outFlow
-										__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// assign attribute __useCase_flows_flow
-										__useCase_flows_flow.setName("flows");
-										// assign attribute __processToUseCase_source_process
-										__processToUseCase_source_process
-												.setName("source");
-										// assign attribute __processToUseCase_target_useCase
-										__processToUseCase_target_useCase
-												.setName("target");
-										// assign attribute __flow_steps_normalStep
-										__flow_steps_normalStep
-												.setName("steps");
-										// assign attribute __defaultFlowToFlow_source_defaultFlow
-										__defaultFlowToFlow_source_defaultFlow
-												.setName("source");
-										// assign attribute __defaultFlowToFlow_target_flow
-										__defaultFlowToFlow_target_flow
-												.setName("target");
-										// assign attribute __exclusiveGatewayToNormalStep_source_exclusiveGateway
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway
-												.setName("source");
-										// assign attribute __exclusiveGatewayToNormalStep_target_normalStep
-										__exclusiveGatewayToNormalStep_target_normalStep
-												.setName("target");
-										// assign attribute __exclusiveGateway_default_defaultFlow
-										__exclusiveGateway_default_defaultFlow
-												.setName("default");
-										// assign attribute __defaultFlow_sourceRef_exclusiveGateway
-										__defaultFlow_sourceRef_exclusiveGateway
-												.setName("sourceRef");
-										// assign attribute __exclusiveGateway_outgoing_defaultFlow
-										__exclusiveGateway_outgoing_defaultFlow
-												.setName("outgoing");
-										// assign attribute __outFlow_sourceRef_exclusiveGateway
-										__outFlow_sourceRef_exclusiveGateway
-												.setName("sourceRef");
-										// assign attribute __exclusiveGateway_outgoing_outFlow
-										__exclusiveGateway_outgoing_outFlow
-												.setName("outgoing");
-										// assign attribute __process_flowElements_defaultFlow
-										__process_flowElements_defaultFlow
-												.setName("flowElements");
-										// assign attribute __process_flowElements_exclusiveGateway
-										__process_flowElements_exclusiveGateway
-												.setName("flowElements");
-										// assign attribute __process_flowElements_outFlow
-										__process_flowElements_outFlow
-												.setName("flowElements");
-
-										// create link
-										__processToUseCase_target_useCase
-												.setTrg(useCase);
-
-										// create link
-										__useCase_flows_flow.setSrc(useCase);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														useCase);
-
-										// create link
-										__processToUseCase_target_useCase
-												.setSrc(processToUseCase);
-
-										// create link
-										__processToUseCase_source_process
-												.setSrc(processToUseCase);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														processToUseCase);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														defaultFlow);
-
-										// create link
-										__defaultFlow_sourceRef_exclusiveGateway
-												.setSrc(defaultFlow);
-
-										// create link
-										__defaultFlowToFlow_source_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__exclusiveGateway_default_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__process_flowElements_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__exclusiveGateway_outgoing_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__defaultFlowToFlow_target_flow
-												.setTrg(flow);
-
-										// create link
-										__flow_steps_normalStep.setSrc(flow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														flow);
-
-										// create link
-										__useCase_flows_flow.setTrg(flow);
-
-										// create link
-										__defaultFlowToFlow_source_defaultFlow
-												.setSrc(defaultFlowToFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														defaultFlowToFlow);
-
-										// create link
-										__defaultFlowToFlow_target_flow
-												.setSrc(defaultFlowToFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														normalStep);
-
-										// create link
-										__flow_steps_normalStep
-												.setTrg(normalStep);
-
-										// create link
-										__exclusiveGatewayToNormalStep_target_normalStep
-												.setTrg(normalStep);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements()
-												.add(exclusiveGatewayToNormalStep);
-
-										// create link
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway
-												.setSrc(exclusiveGatewayToNormalStep);
-
-										// create link
-										__exclusiveGatewayToNormalStep_target_normalStep
-												.setSrc(exclusiveGatewayToNormalStep);
-
-										// create link
-										__outFlow_sourceRef_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__process_flowElements_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__exclusiveGateway_outgoing_outFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__defaultFlow_sourceRef_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__exclusiveGateway_default_defaultFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
-										__exclusiveGateway_outgoing_defaultFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														exclusiveGateway);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														process);
-
-										// create link
-										__process_flowElements_defaultFlow
-												.setSrc(process);
-
-										// create link
-										__process_flowElements_outFlow
-												.setSrc(process);
-
-										// create link
-										__processToUseCase_source_process
-												.setTrg(process);
-
-										// create link
-										__process_flowElements_exclusiveGateway
-												.setSrc(process);
-
-										// create link
-										__exclusiveGateway_outgoing_outFlow
-												.setTrg(outFlow);
-
-										// create link
-										__process_flowElements_outFlow
-												.setTrg(outFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														outFlow);
-
-										// create link
-										__outFlow_sourceRef_exclusiveGateway
-												.setSrc(outFlow);
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToUseCase_source_process,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGatewayToNormalStep_target_normalStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_outgoing_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToUseCase_target_useCase,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__useCase_flows_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__outFlow_sourceRef_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_outgoing_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__flow_steps_normalStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlowToFlow_source_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_default_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlowToFlow_target_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlow_sourceRef_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGatewayToNormalStep_source_exclusiveGateway,
-														"allContextElements");
-										// story node 'solve CSP'
-										try {
-											fujaba__Success = false;
-
-											_TmpObject = (this
-													.isApplicable_solveCsp_FWD(
-															isApplicableMatch,
-															useCase,
-															processToUseCase,
-															defaultFlow,
-															flow,
-															defaultFlowToFlow,
-															normalStep,
-															exclusiveGatewayToNormalStep,
-															exclusiveGateway,
-															process, outFlow));
-
-											// ensure correct type and really bound of object csp
-											JavaSDM.ensure(_TmpObject instanceof CSP);
-											csp = (CSP) _TmpObject;
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										// statement node 'check CSP'
-										fujaba__Success = this
-												.isApplicable_checkCsp_FWD(csp);
-										if (fujaba__Success) {
-											// story node 'add match to rule result'
-											try {
-												fujaba__Success = false;
-
-												// check object isApplicableMatch is really bound
-												JavaSDM.ensure(isApplicableMatch != null);
-												// check object ruleresult is really bound
-												JavaSDM.ensure(ruleresult != null);
-												// assign attribute isApplicableMatch
-												isApplicableMatch
-														.setRuleName("SeqFlowAfterEGToAltFlowRule");
-												// assign attribute ruleresult
-												ruleresult.setSuccess(true);
-
-												// create link
-												ruleresult
-														.getIsApplicableMatch()
-														.add(isApplicableMatch);
-
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_2_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
+
+		// ForEach core match
+		Object[] result2_binding = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_2_2_bindingFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		SequenceFlow defaultFlow = (SequenceFlow) result2_binding[0];
+		ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_binding[1];
+		bpmn2.Process process = (bpmn2.Process) result2_binding[2];
+		SequenceFlow outFlow = (SequenceFlow) result2_binding[3];
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_2_2_blackFFBFFFFBBBB(
+						defaultFlow, exclusiveGateway, process, outFlow, match)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) result2_black[1];
+			Flow flow = (Flow) result2_black[3];
+			SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) result2_black[4];
+			NormalStep normalStep = (NormalStep) result2_black[5];
+			FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result2_black[6];
+			// ForEach find context
+			for (Object[] result3_black : SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_2_3_blackBBBBBBBBBB(
+							useCase, processToUseCase, defaultFlow, flow,
+							defaultFlowToFlow, normalStep,
+							exclusiveGatewayToNormalStep, exclusiveGateway,
+							process, outFlow)) {
+				Object[] result3_green = SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_2_3_greenBBBBBBBBBBFFFFFFFFFFFFFFFFF(
+								useCase, processToUseCase, defaultFlow, flow,
+								defaultFlowToFlow, normalStep,
+								exclusiveGatewayToNormalStep, exclusiveGateway,
+								process, outFlow);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[10];
+				// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge processToUseCase__process____source = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge processToUseCase__useCase____target = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge defaultFlowToFlow__defaultFlow____source = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge defaultFlowToFlow__flow____target = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge exclusiveGatewayToNormalStep__exclusiveGateway____source = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge exclusiveGatewayToNormalStep__normalStep____target = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge exclusiveGateway__defaultFlow____default = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge defaultFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge exclusiveGateway__defaultFlow____outgoing = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge process__defaultFlow____flowElements = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge process__exclusiveGateway____flowElements = (EMoflonEdge) result3_green[25];
+				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[26];
+
+				// solve CSP
+				Object[] result4_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_2_4_bindingAndBlackFBBBBBBBBBBBB(
+								this, isApplicableMatch, useCase,
+								processToUseCase, defaultFlow, flow,
+								defaultFlowToFlow, normalStep,
+								exclusiveGatewayToNormalStep, exclusiveGateway,
+								process, outFlow);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_2_5_expressionFBB(
+								this, csp)) {
+
+					// add match to rule result
+					Object[] result6_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_2_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_2_6_greenBB(
+									ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_2_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1890,15 +392,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match,
 			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
-			bpmn2.Process process, SequenceFlow outFlow) {
-		// Create CSP
+			bpmn2.Process process, SequenceFlow outFlow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -1928,8 +427,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
 			FlowNodeToStep exclusiveGatewayToNormalStep,
 			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
-			SequenceFlow outFlow) {
-		// Create CSP
+			SequenceFlow outFlow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -1939,21 +437,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Variable var_outFlow_id = CSPFactoryHelper.eINSTANCE.createVariable(
 				"outFlow.id", true, csp);
 		var_outFlow_id.setValue(outFlow.getId());
-		var_outFlow_id.setType("");
+		var_outFlow_id.setType("String");
 		Variable var_outFlow_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"outFlow.name", true, csp);
 		var_outFlow_name.setValue(outFlow.getName());
-		var_outFlow_name.setType("");
-
-		// Create explicit parameters
+		var_outFlow_name.setType("String");
 
 		// Create unbound variables
 		Variable var_alternativeFlow_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("alternativeFlow.name", csp);
-		var_alternativeFlow_name.setType("");
+		var_alternativeFlow_name.setType("String");
 		Variable var_alt_condition = CSPFactoryHelper.eINSTANCE.createVariable(
 				"alt.condition", csp);
-		var_alt_condition.setType("");
+		var_alt_condition.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
@@ -2042,218 +538,73 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	public boolean isAppropriate_BWD(Match match, UseCase useCase, Flow flow,
 			NormalStep normalStep, AlternativeFlow alternativeFlow,
 			AlternativeFlowAlternative alt) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __useCase_flows_alternativeFlow = null;
-		EMoflonEdge __alt_ref_alternativeFlow = null;
-		EMoflonEdge __normalStep_stepAlternative_alt = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge __useCase_flows_flow = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object alt is really bound
-			JavaSDM.ensure(alt != null);
-			// check object alternativeFlow is really bound
-			JavaSDM.ensure(alternativeFlow != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check isomorphic binding between objects flow and alternativeFlow 
-			JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_10_1_blackBBBBBBB(this,
+						match, useCase, flow, normalStep, alternativeFlow, alt);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_BWD(match, useCase, flow,
-					normalStep, alternativeFlow, alt));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_10_2_bindingAndBlackFBBBBBBB(
+						this, match, useCase, flow, normalStep,
+						alternativeFlow, alt);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_10_3_expressionFBB(this,
+						csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_BWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object alt is really bound
-				JavaSDM.ensure(alt != null);
-				// check object alternativeFlow is really bound
-				JavaSDM.ensure(alternativeFlow != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// check isomorphic binding between objects flow and alternativeFlow 
-				JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-				// create object __useCase_flows_alternativeFlow
-				__useCase_flows_alternativeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __alt_ref_alternativeFlow
-				__alt_ref_alternativeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __normalStep_stepAlternative_alt
-				__normalStep_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __useCase_flows_alternativeFlow
-				__useCase_flows_alternativeFlow.setName("flows");
-				// assign attribute __normalStep_stepAlternative_alt
-				__normalStep_stepAlternative_alt.setName("stepAlternative");
-				// assign attribute __alt_ref_alternativeFlow
-				__alt_ref_alternativeFlow.setName("ref");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_alternativeFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						alternativeFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__alt_ref_alternativeFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__normalStep_stepAlternative_alt,
-								"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match, alt,
-						"toBeTranslatedNodes");
-
-				// create link
-				__useCase_flows_alternativeFlow.setSrc(useCase);
-
-				// create link
-				__normalStep_stepAlternative_alt.setSrc(normalStep);
-
-				// create link
-				__alt_ref_alternativeFlow.setTrg(alternativeFlow);
-
-				// create link
-				__useCase_flows_alternativeFlow.setTrg(alternativeFlow);
-
-				// create link
-				__alt_ref_alternativeFlow.setSrc(alt);
-
-				// create link
-				__normalStep_stepAlternative_alt.setTrg(alt);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_10_4_blackBBBBBB(
+							match, useCase, flow, normalStep, alternativeFlow,
+							alt);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_10_4_greenBBBBBFFF(
+							match, useCase, normalStep, alternativeFlow, alt);
+			// EMoflonEdge useCase__alternativeFlow____flows = (EMoflonEdge) result4_green[5];
+			// EMoflonEdge normalStep__alt____stepAlternative = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge alt__alternativeFlow____ref = (EMoflonEdge) result4_green[7];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object alt is really bound
-				JavaSDM.ensure(alt != null);
-				// check object alternativeFlow is really bound
-				JavaSDM.ensure(alternativeFlow != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// check isomorphic binding between objects flow and alternativeFlow 
-				JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-				// create object __flow_steps_normalStep
-				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __useCase_flows_flow
-				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __useCase_flows_flow
-				__useCase_flows_flow.setName("flows");
-				// assign attribute __flow_steps_normalStep
-				__flow_steps_normalStep.setName("steps");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						normalStep, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_normalStep, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_flow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
-
-				// create link
-				__useCase_flows_flow.setSrc(useCase);
-
-				// create link
-				__useCase_flows_flow.setTrg(flow);
-
-				// create link
-				__flow_steps_normalStep.setSrc(flow);
-
-				// create link
-				__flow_steps_normalStep.setTrg(normalStep);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_10_5_blackBBBBBB(
+							match, useCase, flow, normalStep, alternativeFlow,
+							alt);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_10_5_greenBBBBFF(
+							match, useCase, flow, normalStep);
+			// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result5_green[4];
+			// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result5_green[5];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_BWD(match, useCase, flow, normalStep,
-					alternativeFlow, alt);
-			return true;
-
+			// register objects to match
+			SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_10_6_expressionBBBBBBB(
+							this, match, useCase, flow, normalStep,
+							alternativeFlow, alt);
+			return SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_10_7_expressionF();
 		} else {
-			return false;
-
+			return SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_10_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -2262,697 +613,87 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		AlternativeFlowAlternative alt = null;
-		AlternativeFlow alternativeFlow = null;
-		SequenceFlow defaultFlow = null;
-		SequenceFlowToUCFlow defaultFlowToFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		FlowNodeToStep exclusiveGatewayToNormalStep = null;
-		Flow flow = null;
-		NormalStep normalStep = null;
-		bpmn2.Process process = null;
-		ProcessToUseCase processToUseCase = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		SequenceFlowToUCFlow outFlowToAlternativeFlow = null;
-		SequenceFlow outFlow = null;
-		SeqFlowToAltFlowAlt outFlowToAlt = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge outFlow__sourceRef__exclusiveGateway = null;
-		EMoflonEdge exclusiveGateway__outgoing__outFlow = null;
-		EMoflonEdge __useCase_flows_alternativeFlow = null;
-		EMoflonEdge outFlowToAlt__source__outFlow = null;
-		EMoflonEdge outFlowToAlternativeFlow__target__alternativeFlow = null;
-		EMoflonEdge __normalStep_stepAlternative_alt = null;
-		EMoflonEdge process__flowElements__outFlow = null;
-		EMoflonEdge outFlowToAlt__target__alt = null;
-		EMoflonEdge outFlowToAlternativeFlow__source__outFlow = null;
-		EMoflonEdge __alt_ref_alternativeFlow = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("alt"));
-
-			// ensure correct type and really bound of object alt
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlowAlternative);
-			alt = (AlternativeFlowAlternative) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("alternativeFlow"));
-
-			// ensure correct type and really bound of object alternativeFlow
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-			alternativeFlow = (AlternativeFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("defaultFlow"));
-
-			// ensure correct type and really bound of object defaultFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			defaultFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("defaultFlowToFlow"));
-
-			// ensure correct type and really bound of object defaultFlowToFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			defaultFlowToFlow = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("exclusiveGateway"));
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-			_TmpObject = (isApplicableMatch
-					.getObject("exclusiveGatewayToNormalStep"));
-
-			// ensure correct type and really bound of object exclusiveGatewayToNormalStep
-			JavaSDM.ensure(_TmpObject instanceof FlowNodeToStep);
-			exclusiveGatewayToNormalStep = (FlowNodeToStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("normalStep"));
-
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("processToUseCase"));
-
-			// ensure correct type and really bound of object processToUseCase
-			JavaSDM.ensure(_TmpObject instanceof ProcessToUseCase);
-			processToUseCase = (ProcessToUseCase) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// check isomorphic binding between objects flow and alternativeFlow 
-			JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object outFlowToAlternativeFlow
-			outFlowToAlternativeFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSequenceFlowToUCFlow();
-
-			// create object outFlow
-			outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
-
-			// create object outFlowToAlt
-			outFlowToAlt = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSeqFlowToAltFlowAlt();
-
-			// assign attribute outFlow
-			outFlow.setId((java.lang.String) csp.getValue("outFlow", "id"));
-			// assign attribute outFlow
-			outFlow.setName((java.lang.String) csp.getValue("outFlow", "name"));
-
-			// create link
-			outFlowToAlternativeFlow.setTarget(alternativeFlow);
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-					outFlowToAlternativeFlow, outFlow, "source");
-
-			// create link
-			outFlowToAlt.setTarget(alt);
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToAlt,
-					outFlow, "source");
-
-			// create link
-			outFlow.setSourceRef(exclusiveGateway);
-
-			// create link
-			process.getFlowElements().add(outFlow); // add link
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_11_1_bindingAndBlackFFFFFFFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
+		ProcessToUseCase processToUseCase = (ProcessToUseCase) result1_bindingAndBlack[1];
+		SequenceFlow defaultFlow = (SequenceFlow) result1_bindingAndBlack[2];
+		Flow flow = (Flow) result1_bindingAndBlack[3];
+		SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[4];
+		NormalStep normalStep = (NormalStep) result1_bindingAndBlack[5];
+		FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result1_bindingAndBlack[6];
+		AlternativeFlow alternativeFlow = (AlternativeFlow) result1_bindingAndBlack[7];
+		AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result1_bindingAndBlack[8];
+		ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result1_bindingAndBlack[9];
+		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[10];
+		CSP csp = (CSP) result1_bindingAndBlack[11];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_11_1_greenBFBFBBFB(
+						alternativeFlow, alt, exclusiveGateway, process, csp);
+		SequenceFlowToUCFlow outFlowToAlternativeFlow = (SequenceFlowToUCFlow) result1_green[1];
+		SeqFlowToAltFlowAlt outFlowToAlt = (SeqFlowToAltFlowAlt) result1_green[3];
+		SequenceFlow outFlow = (SequenceFlow) result1_green[6];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object alt is really bound
-			JavaSDM.ensure(alt != null);
-			// check object alternativeFlow is really bound
-			JavaSDM.ensure(alternativeFlow != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToAlt is really bound
-			JavaSDM.ensure(outFlowToAlt != null);
-			// check object outFlowToAlternativeFlow is really bound
-			JavaSDM.ensure(outFlowToAlternativeFlow != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alt, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlternativeFlow, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					alternativeFlow, "translatedElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_11_2_blackBBBBB(
+						alternativeFlow, outFlowToAlternativeFlow, alt,
+						outFlowToAlt, outFlow);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object alt is really bound
-			JavaSDM.ensure(alt != null);
-			// check object alternativeFlow is really bound
-			JavaSDM.ensure(alternativeFlow != null);
-			// check object defaultFlow is really bound
-			JavaSDM.ensure(defaultFlow != null);
-			// check object defaultFlowToFlow is really bound
-			JavaSDM.ensure(defaultFlowToFlow != null);
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object exclusiveGatewayToNormalStep is really bound
-			JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToAlt is really bound
-			JavaSDM.ensure(outFlowToAlt != null);
-			// check object outFlowToAlternativeFlow is really bound
-			JavaSDM.ensure(outFlowToAlternativeFlow != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check object processToUseCase is really bound
-			JavaSDM.ensure(processToUseCase != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check isomorphic binding between objects alternativeFlow and alt 
-			JavaSDM.ensure(!alternativeFlow.equals(alt));
-
-			// check isomorphic binding between objects defaultFlow and alt 
-			JavaSDM.ensure(!defaultFlow.equals(alt));
-
-			// check isomorphic binding between objects defaultFlowToFlow and alt 
-			JavaSDM.ensure(!defaultFlowToFlow.equals(alt));
-
-			// check isomorphic binding between objects exclusiveGateway and alt 
-			JavaSDM.ensure(!exclusiveGateway.equals(alt));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and alt 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep.equals(alt));
-
-			// check isomorphic binding between objects flow and alt 
-			JavaSDM.ensure(!flow.equals(alt));
-
-			// check isomorphic binding between objects normalStep and alt 
-			JavaSDM.ensure(!normalStep.equals(alt));
-
-			// check isomorphic binding between objects outFlow and alt 
-			JavaSDM.ensure(!outFlow.equals(alt));
-
-			// check isomorphic binding between objects outFlowToAlt and alt 
-			JavaSDM.ensure(!outFlowToAlt.equals(alt));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and alt 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(alt));
-
-			// check isomorphic binding between objects process and alt 
-			JavaSDM.ensure(!process.equals(alt));
-
-			// check isomorphic binding between objects processToUseCase and alt 
-			JavaSDM.ensure(!processToUseCase.equals(alt));
-
-			// check isomorphic binding between objects useCase and alt 
-			JavaSDM.ensure(!useCase.equals(alt));
-
-			// check isomorphic binding between objects defaultFlow and alternativeFlow 
-			JavaSDM.ensure(!defaultFlow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects defaultFlowToFlow and alternativeFlow 
-			JavaSDM.ensure(!defaultFlowToFlow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects exclusiveGateway and alternativeFlow 
-			JavaSDM.ensure(!exclusiveGateway.equals(alternativeFlow));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and alternativeFlow 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep
-					.equals(alternativeFlow));
-
-			// check isomorphic binding between objects flow and alternativeFlow 
-			JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects normalStep and alternativeFlow 
-			JavaSDM.ensure(!normalStep.equals(alternativeFlow));
-
-			// check isomorphic binding between objects outFlow and alternativeFlow 
-			JavaSDM.ensure(!outFlow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects outFlowToAlt and alternativeFlow 
-			JavaSDM.ensure(!outFlowToAlt.equals(alternativeFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and alternativeFlow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(alternativeFlow));
-
-			// check isomorphic binding between objects process and alternativeFlow 
-			JavaSDM.ensure(!process.equals(alternativeFlow));
-
-			// check isomorphic binding between objects processToUseCase and alternativeFlow 
-			JavaSDM.ensure(!processToUseCase.equals(alternativeFlow));
-
-			// check isomorphic binding between objects useCase and alternativeFlow 
-			JavaSDM.ensure(!useCase.equals(alternativeFlow));
-
-			// check isomorphic binding between objects defaultFlowToFlow and defaultFlow 
-			JavaSDM.ensure(!defaultFlowToFlow.equals(defaultFlow));
-
-			// check isomorphic binding between objects exclusiveGateway and defaultFlow 
-			JavaSDM.ensure(!exclusiveGateway.equals(defaultFlow));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and defaultFlow 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep.equals(defaultFlow));
-
-			// check isomorphic binding between objects flow and defaultFlow 
-			JavaSDM.ensure(!flow.equals(defaultFlow));
-
-			// check isomorphic binding between objects normalStep and defaultFlow 
-			JavaSDM.ensure(!normalStep.equals(defaultFlow));
-
-			// check isomorphic binding between objects outFlow and defaultFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-			// check isomorphic binding between objects outFlowToAlt and defaultFlow 
-			JavaSDM.ensure(!outFlowToAlt.equals(defaultFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and defaultFlow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(defaultFlow));
-
-			// check isomorphic binding between objects process and defaultFlow 
-			JavaSDM.ensure(!process.equals(defaultFlow));
-
-			// check isomorphic binding between objects processToUseCase and defaultFlow 
-			JavaSDM.ensure(!processToUseCase.equals(defaultFlow));
-
-			// check isomorphic binding between objects useCase and defaultFlow 
-			JavaSDM.ensure(!useCase.equals(defaultFlow));
-
-			// check isomorphic binding between objects exclusiveGateway and defaultFlowToFlow 
-			JavaSDM.ensure(!exclusiveGateway.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and defaultFlowToFlow 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep
-					.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects flow and defaultFlowToFlow 
-			JavaSDM.ensure(!flow.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects normalStep and defaultFlowToFlow 
-			JavaSDM.ensure(!normalStep.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects outFlow and defaultFlowToFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToAlt and defaultFlowToFlow 
-			JavaSDM.ensure(!outFlowToAlt.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and defaultFlowToFlow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects process and defaultFlowToFlow 
-			JavaSDM.ensure(!process.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects processToUseCase and defaultFlowToFlow 
-			JavaSDM.ensure(!processToUseCase.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects useCase and defaultFlowToFlow 
-			JavaSDM.ensure(!useCase.equals(defaultFlowToFlow));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and exclusiveGateway 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep
-					.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects flow and exclusiveGateway 
-			JavaSDM.ensure(!flow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects normalStep and exclusiveGateway 
-			JavaSDM.ensure(!normalStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlow and exclusiveGateway 
-			JavaSDM.ensure(!outFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlowToAlt and exclusiveGateway 
-			JavaSDM.ensure(!outFlowToAlt.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and exclusiveGateway 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects process and exclusiveGateway 
-			JavaSDM.ensure(!process.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects processToUseCase and exclusiveGateway 
-			JavaSDM.ensure(!processToUseCase.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects useCase and exclusiveGateway 
-			JavaSDM.ensure(!useCase.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects flow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!flow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects normalStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!normalStep.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlowToAlt and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlowToAlt.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlowToAlternativeFlow
-					.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects process and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!process.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects processToUseCase and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!processToUseCase
-					.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects useCase and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!useCase.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects normalStep and flow 
-			JavaSDM.ensure(!normalStep.equals(flow));
-
-			// check isomorphic binding between objects outFlow and flow 
-			JavaSDM.ensure(!outFlow.equals(flow));
-
-			// check isomorphic binding between objects outFlowToAlt and flow 
-			JavaSDM.ensure(!outFlowToAlt.equals(flow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and flow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(flow));
-
-			// check isomorphic binding between objects process and flow 
-			JavaSDM.ensure(!process.equals(flow));
-
-			// check isomorphic binding between objects processToUseCase and flow 
-			JavaSDM.ensure(!processToUseCase.equals(flow));
-
-			// check isomorphic binding between objects useCase and flow 
-			JavaSDM.ensure(!useCase.equals(flow));
-
-			// check isomorphic binding between objects outFlow and normalStep 
-			JavaSDM.ensure(!outFlow.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToAlt and normalStep 
-			JavaSDM.ensure(!outFlowToAlt.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and normalStep 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(normalStep));
-
-			// check isomorphic binding between objects process and normalStep 
-			JavaSDM.ensure(!process.equals(normalStep));
-
-			// check isomorphic binding between objects processToUseCase and normalStep 
-			JavaSDM.ensure(!processToUseCase.equals(normalStep));
-
-			// check isomorphic binding between objects useCase and normalStep 
-			JavaSDM.ensure(!useCase.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToAlt and outFlow 
-			JavaSDM.ensure(!outFlowToAlt.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and outFlow 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(outFlow));
-
-			// check isomorphic binding between objects process and outFlow 
-			JavaSDM.ensure(!process.equals(outFlow));
-
-			// check isomorphic binding between objects processToUseCase and outFlow 
-			JavaSDM.ensure(!processToUseCase.equals(outFlow));
-
-			// check isomorphic binding between objects useCase and outFlow 
-			JavaSDM.ensure(!useCase.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToAlternativeFlow and outFlowToAlt 
-			JavaSDM.ensure(!outFlowToAlternativeFlow.equals(outFlowToAlt));
-
-			// check isomorphic binding between objects process and outFlowToAlt 
-			JavaSDM.ensure(!process.equals(outFlowToAlt));
-
-			// check isomorphic binding between objects processToUseCase and outFlowToAlt 
-			JavaSDM.ensure(!processToUseCase.equals(outFlowToAlt));
-
-			// check isomorphic binding between objects useCase and outFlowToAlt 
-			JavaSDM.ensure(!useCase.equals(outFlowToAlt));
-
-			// check isomorphic binding between objects process and outFlowToAlternativeFlow 
-			JavaSDM.ensure(!process.equals(outFlowToAlternativeFlow));
-
-			// check isomorphic binding between objects processToUseCase and outFlowToAlternativeFlow 
-			JavaSDM.ensure(!processToUseCase.equals(outFlowToAlternativeFlow));
-
-			// check isomorphic binding between objects useCase and outFlowToAlternativeFlow 
-			JavaSDM.ensure(!useCase.equals(outFlowToAlternativeFlow));
-
-			// check isomorphic binding between objects processToUseCase and process 
-			JavaSDM.ensure(!processToUseCase.equals(process));
-
-			// check isomorphic binding between objects useCase and process 
-			JavaSDM.ensure(!useCase.equals(process));
-
-			// check isomorphic binding between objects useCase and processToUseCase 
-			JavaSDM.ensure(!useCase.equals(processToUseCase));
-
-			// create object outFlow__sourceRef__exclusiveGateway
-			outFlow__sourceRef__exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object exclusiveGateway__outgoing__outFlow
-			exclusiveGateway__outgoing__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __useCase_flows_alternativeFlow
-			__useCase_flows_alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlt__source__outFlow
-			outFlowToAlt__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlternativeFlow__target__alternativeFlow
-			outFlowToAlternativeFlow__target__alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __normalStep_stepAlternative_alt
-			__normalStep_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object process__flowElements__outFlow
-			process__flowElements__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlt__target__alt
-			outFlowToAlt__target__alt = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToAlternativeFlow__source__outFlow
-			outFlowToAlternativeFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __alt_ref_alternativeFlow
-			__alt_ref_alternativeFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("SeqFlowAfterEGToAltFlowRule");
-			// assign attribute __useCase_flows_alternativeFlow
-			__useCase_flows_alternativeFlow.setName("flows");
-			// assign attribute __normalStep_stepAlternative_alt
-			__normalStep_stepAlternative_alt.setName("stepAlternative");
-			// assign attribute outFlowToAlternativeFlow__source__outFlow
-			outFlowToAlternativeFlow__source__outFlow.setName("source");
-			// assign attribute outFlowToAlternativeFlow__target__alternativeFlow
-			outFlowToAlternativeFlow__target__alternativeFlow.setName("target");
-			// assign attribute __alt_ref_alternativeFlow
-			__alt_ref_alternativeFlow.setName("ref");
-			// assign attribute outFlowToAlt__source__outFlow
-			outFlowToAlt__source__outFlow.setName("source");
-			// assign attribute outFlowToAlt__target__alt
-			outFlowToAlt__target__alt.setName("target");
-			// assign attribute outFlow__sourceRef__exclusiveGateway
-			outFlow__sourceRef__exclusiveGateway.setName("sourceRef");
-			// assign attribute exclusiveGateway__outgoing__outFlow
-			exclusiveGateway__outgoing__outFlow.setName("outgoing");
-			// assign attribute process__flowElements__outFlow
-			process__flowElements__outFlow.setName("flowElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow__sourceRef__exclusiveGateway, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGateway__outgoing__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__useCase_flows_alternativeFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlternativeFlow__target__alternativeFlow,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__normalStep_stepAlternative_alt, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					process__flowElements__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlt__target__alt, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToAlternativeFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__alt_ref_alternativeFlow, "translatedEdges");
-
-			// create link
-			__useCase_flows_alternativeFlow.setSrc(useCase);
-
-			// create link
-			__normalStep_stepAlternative_alt.setSrc(normalStep);
-
-			// create link
-			__useCase_flows_alternativeFlow.setTrg(alternativeFlow);
-
-			// create link
-			__alt_ref_alternativeFlow.setTrg(alternativeFlow);
-
-			// create link
-			outFlowToAlternativeFlow__target__alternativeFlow
-					.setTrg(alternativeFlow);
-
-			// create link
-			outFlowToAlternativeFlow__source__outFlow
-					.setSrc(outFlowToAlternativeFlow);
-
-			// create link
-			outFlowToAlternativeFlow__target__alternativeFlow
-					.setSrc(outFlowToAlternativeFlow);
-
-			// create link
-			__normalStep_stepAlternative_alt.setTrg(alt);
-
-			// create link
-			outFlowToAlt__target__alt.setTrg(alt);
-
-			// create link
-			__alt_ref_alternativeFlow.setSrc(alt);
-
-			// create link
-			outFlowToAlt__source__outFlow.setSrc(outFlowToAlt);
-
-			// create link
-			outFlowToAlt__target__alt.setSrc(outFlowToAlt);
-
-			// create link
-			outFlow__sourceRef__exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			exclusiveGateway__outgoing__outFlow.setSrc(exclusiveGateway);
-
-			// create link
-			process__flowElements__outFlow.setSrc(process);
-
-			// create link
-			process__flowElements__outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToAlternativeFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToAlt__source__outFlow.setTrg(outFlow);
-
-			// create link
-			exclusiveGateway__outgoing__outFlow.setTrg(outFlow);
-
-			// create link
-			outFlow__sourceRef__exclusiveGateway.setSrc(outFlow);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_11_2_greenFBBBBB(
+						alternativeFlow, outFlowToAlternativeFlow, alt,
+						outFlowToAlt, outFlow);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
+
+		// bookkeeping for edges
+		Object[] result3_black = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_11_3_blackBBBBBBBBBBBBBBB(
+						ruleresult, useCase, processToUseCase, defaultFlow,
+						flow, defaultFlowToFlow, normalStep,
+						exclusiveGatewayToNormalStep, alternativeFlow,
+						outFlowToAlternativeFlow, alt, outFlowToAlt,
+						exclusiveGateway, process, outFlow);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_11_3_greenBBBBBBBBBBFFFFFFFFFF(
+						ruleresult, useCase, normalStep, alternativeFlow,
+						outFlowToAlternativeFlow, alt, outFlowToAlt,
+						exclusiveGateway, process, outFlow);
+		// EMoflonEdge useCase__alternativeFlow____flows = (EMoflonEdge) result3_green[10];
+		// EMoflonEdge normalStep__alt____stepAlternative = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge outFlowToAlternativeFlow__outFlow____source = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge outFlowToAlternativeFlow__alternativeFlow____target = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge alt__alternativeFlow____ref = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge outFlowToAlt__outFlow____source = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge outFlowToAlt__alt____target = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[19];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_BWD(ruleresult, useCase, processToUseCase,
-				defaultFlow, flow, defaultFlowToFlow, normalStep,
-				exclusiveGatewayToNormalStep, alternativeFlow,
-				outFlowToAlternativeFlow, alt, outFlowToAlt, exclusiveGateway,
-				process, outFlow);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_11_5_expressionBBBBBBBBBBBBBBBB(
+						this, ruleresult, useCase, processToUseCase,
+						defaultFlow, flow, defaultFlowToFlow, normalStep,
+						exclusiveGatewayToNormalStep, alternativeFlow,
+						outFlowToAlternativeFlow, alt, outFlowToAlt,
+						exclusiveGateway, process, outFlow);
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_11_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -2961,793 +702,108 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_BWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		AlternativeFlowAlternative alt = null;
-		AlternativeFlow alternativeFlow = null;
-		Flow flow = null;
-		NormalStep normalStep = null;
-		UseCase useCase = null;
-		EMoflonEdge __processToUseCase_target_useCase = null;
-		EMoflonEdge __useCase_flows_flow = null;
-		EMoflonEdge __useCase_flows_alternativeFlow = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __processToUseCase_source_process = null;
-		EMoflonEdge __exclusiveGateway_outgoing_defaultFlow = null;
-		EMoflonEdge __defaultFlowToFlow_source_defaultFlow = null;
-		EMoflonEdge __process_flowElements_defaultFlow = null;
-		EMoflonEdge __exclusiveGateway_default_defaultFlow = null;
-		EMoflonEdge __defaultFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge __defaultFlowToFlow_target_flow = null;
-		EMoflonEdge __exclusiveGatewayToNormalStep_target_normalStep = null;
-		EMoflonEdge __normalStep_stepAlternative_alt = null;
-		EMoflonEdge __exclusiveGatewayToNormalStep_source_exclusiveGateway = null;
-		EMoflonEdge __alt_ref_alternativeFlow = null;
-		EMoflonEdge __process_flowElements_exclusiveGateway = null;
-		CSP csp = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterUseCaseToProcessToUseCase = null;
-		ProcessToUseCase processToUseCase = null;
-		ExclusiveGateway exclusiveGateway = null;
-		Iterator fujaba__IterNormalStepToExclusiveGatewayToNormalStep = null;
-		FlowNodeToStep exclusiveGatewayToNormalStep = null;
-		SequenceFlow defaultFlow = null;
-		Iterator fujaba__IterFlowToDefaultFlowToFlow = null;
-		SequenceFlowToUCFlow defaultFlowToFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("SeqFlowAfterEGToAltFlowRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_12_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (match.getObject("alt"));
-
-			// ensure correct type and really bound of object alt
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlowAlternative);
-			alt = (AlternativeFlowAlternative) _TmpObject;
-			_TmpObject = (match.getObject("alternativeFlow"));
-
-			// ensure correct type and really bound of object alternativeFlow
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-			alternativeFlow = (AlternativeFlow) _TmpObject;
-			_TmpObject = (match.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (match.getObject("normalStep"));
-
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-			_TmpObject = (match.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check isomorphic binding between objects flow and alternativeFlow 
-			JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-			// iterate to-many link target from flow to defaultFlowToFlow
-			fujaba__Success = false;
-
-			fujaba__IterFlowToDefaultFlowToFlow = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(flow,
-							SequenceFlowToUCFlow.class, "target")).iterator();
-
-			while (fujaba__IterFlowToDefaultFlowToFlow.hasNext()) {
-				try {
-					defaultFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterFlowToDefaultFlowToFlow
-							.next();
-
-					// check object defaultFlowToFlow is really bound
-					JavaSDM.ensure(defaultFlowToFlow != null);
-					// bind object
-					defaultFlow = defaultFlowToFlow.getSource();
-
-					// check object defaultFlow is really bound
-					JavaSDM.ensure(defaultFlow != null);
-
-					// iterate to-many link target from normalStep to exclusiveGatewayToNormalStep
-					fujaba__Success = false;
-
-					fujaba__IterNormalStepToExclusiveGatewayToNormalStep = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(normalStep,
-											FlowNodeToStep.class, "target"))
-							.iterator();
-
-					while (fujaba__IterNormalStepToExclusiveGatewayToNormalStep
-							.hasNext()) {
-						try {
-							exclusiveGatewayToNormalStep = (FlowNodeToStep) fujaba__IterNormalStepToExclusiveGatewayToNormalStep
-									.next();
-
-							// check object exclusiveGatewayToNormalStep is really bound
-							JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-							// bind object
-							_TmpObject = exclusiveGatewayToNormalStep
-									.getSource();
-
-							// ensure correct type and really bound of object exclusiveGateway
-							JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-							exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-							// iterate to-many link target from useCase to processToUseCase
-							fujaba__Success = false;
-
-							fujaba__IterUseCaseToProcessToUseCase = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(useCase,
-													ProcessToUseCase.class,
-													"target")).iterator();
-
-							while (fujaba__IterUseCaseToProcessToUseCase
-									.hasNext()) {
-								try {
-									processToUseCase = (ProcessToUseCase) fujaba__IterUseCaseToProcessToUseCase
-											.next();
-
-									// check object processToUseCase is really bound
-									JavaSDM.ensure(processToUseCase != null);
-									// bind object
-									process = processToUseCase.getSource();
-
-									// check object process is really bound
-									JavaSDM.ensure(process != null);
-
-									// story node 'find context'
-									try {
-										fujaba__Success = false;
-
-										// check object alt is really bound
-										JavaSDM.ensure(alt != null);
-										// check object alternativeFlow is really bound
-										JavaSDM.ensure(alternativeFlow != null);
-										// check object defaultFlow is really bound
-										JavaSDM.ensure(defaultFlow != null);
-										// check object defaultFlowToFlow is really bound
-										JavaSDM.ensure(defaultFlowToFlow != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object exclusiveGatewayToNormalStep is really bound
-										JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-										// check object flow is really bound
-										JavaSDM.ensure(flow != null);
-										// check object normalStep is really bound
-										JavaSDM.ensure(normalStep != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check object processToUseCase is really bound
-										JavaSDM.ensure(processToUseCase != null);
-										// check object useCase is really bound
-										JavaSDM.ensure(useCase != null);
-										// check isomorphic binding between objects flow and alternativeFlow 
-										JavaSDM.ensure(!flow
-												.equals(alternativeFlow));
-
-										// check link default from exclusiveGateway to defaultFlow
-										JavaSDM.ensure(defaultFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link ref from alt to alternativeFlow
-										JavaSDM.ensure(alternativeFlow
-												.equals(alt.getRef()));
-
-										// check link flowElements from defaultFlow to process
-										JavaSDM.ensure(process
-												.equals(defaultFlow
-														.eContainer()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flows from alternativeFlow to useCase
-										JavaSDM.ensure(useCase
-												.equals(alternativeFlow
-														.eContainer()));
-
-										// check link flows from flow to useCase
-										JavaSDM.ensure(useCase.equals(flow
-												.eContainer()));
-
-										// check link source from defaultFlowToFlow to defaultFlow
-										JavaSDM.ensure(defaultFlow
-												.equals(defaultFlowToFlow
-														.getSource()));
-
-										// check link source from exclusiveGatewayToNormalStep to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(exclusiveGatewayToNormalStep
-														.getSource()));
-
-										// check link source from processToUseCase to process
-										JavaSDM.ensure(process
-												.equals(processToUseCase
-														.getSource()));
-
-										// check link sourceRef from defaultFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(defaultFlow
-														.getSourceRef()));
-
-										// check link stepAlternative from alt to normalStep
-										JavaSDM.ensure(normalStep.equals(alt
-												.eContainer()));
-
-										// check link steps from normalStep to flow
-										JavaSDM.ensure(flow.equals(normalStep
-												.eContainer()));
-
-										// check link target from defaultFlowToFlow to flow
-										JavaSDM.ensure(flow
-												.equals(defaultFlowToFlow
-														.getTarget()));
-
-										// check link target from exclusiveGatewayToNormalStep to normalStep
-										JavaSDM.ensure(normalStep
-												.equals(exclusiveGatewayToNormalStep
-														.getTarget()));
-
-										// check link target from processToUseCase to useCase
-										JavaSDM.ensure(useCase
-												.equals(processToUseCase
-														.getTarget()));
-
-										// create object __processToUseCase_target_useCase
-										__processToUseCase_target_useCase = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __useCase_flows_flow
-										__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __useCase_flows_alternativeFlow
-										__useCase_flows_alternativeFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object isApplicableMatch
-										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-												.createIsApplicableMatch();
-
-										// create object __processToUseCase_source_process
-										__processToUseCase_source_process = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGateway_outgoing_defaultFlow
-										__exclusiveGateway_outgoing_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __defaultFlowToFlow_source_defaultFlow
-										__defaultFlowToFlow_source_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_defaultFlow
-										__process_flowElements_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGateway_default_defaultFlow
-										__exclusiveGateway_default_defaultFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __defaultFlow_sourceRef_exclusiveGateway
-										__defaultFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __flow_steps_normalStep
-										__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __defaultFlowToFlow_target_flow
-										__defaultFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGatewayToNormalStep_target_normalStep
-										__exclusiveGatewayToNormalStep_target_normalStep = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __normalStep_stepAlternative_alt
-										__normalStep_stepAlternative_alt = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGatewayToNormalStep_source_exclusiveGateway
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __alt_ref_alternativeFlow
-										__alt_ref_alternativeFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_exclusiveGateway
-										__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// assign attribute __useCase_flows_flow
-										__useCase_flows_flow.setName("flows");
-										// assign attribute __useCase_flows_alternativeFlow
-										__useCase_flows_alternativeFlow
-												.setName("flows");
-										// assign attribute __processToUseCase_source_process
-										__processToUseCase_source_process
-												.setName("source");
-										// assign attribute __processToUseCase_target_useCase
-										__processToUseCase_target_useCase
-												.setName("target");
-										// assign attribute __flow_steps_normalStep
-										__flow_steps_normalStep
-												.setName("steps");
-										// assign attribute __defaultFlowToFlow_source_defaultFlow
-										__defaultFlowToFlow_source_defaultFlow
-												.setName("source");
-										// assign attribute __defaultFlowToFlow_target_flow
-										__defaultFlowToFlow_target_flow
-												.setName("target");
-										// assign attribute __normalStep_stepAlternative_alt
-										__normalStep_stepAlternative_alt
-												.setName("stepAlternative");
-										// assign attribute __exclusiveGatewayToNormalStep_source_exclusiveGateway
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway
-												.setName("source");
-										// assign attribute __exclusiveGatewayToNormalStep_target_normalStep
-										__exclusiveGatewayToNormalStep_target_normalStep
-												.setName("target");
-										// assign attribute __alt_ref_alternativeFlow
-										__alt_ref_alternativeFlow
-												.setName("ref");
-										// assign attribute __exclusiveGateway_default_defaultFlow
-										__exclusiveGateway_default_defaultFlow
-												.setName("default");
-										// assign attribute __defaultFlow_sourceRef_exclusiveGateway
-										__defaultFlow_sourceRef_exclusiveGateway
-												.setName("sourceRef");
-										// assign attribute __exclusiveGateway_outgoing_defaultFlow
-										__exclusiveGateway_outgoing_defaultFlow
-												.setName("outgoing");
-										// assign attribute __process_flowElements_defaultFlow
-										__process_flowElements_defaultFlow
-												.setName("flowElements");
-										// assign attribute __process_flowElements_exclusiveGateway
-										__process_flowElements_exclusiveGateway
-												.setName("flowElements");
-
-										// create link
-										__processToUseCase_target_useCase
-												.setTrg(useCase);
-
-										// create link
-										__useCase_flows_flow.setSrc(useCase);
-
-										// create link
-										__useCase_flows_alternativeFlow
-												.setSrc(useCase);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														useCase);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														processToUseCase);
-
-										// create link
-										__processToUseCase_target_useCase
-												.setSrc(processToUseCase);
-
-										// create link
-										__processToUseCase_source_process
-												.setSrc(processToUseCase);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														defaultFlow);
-
-										// create link
-										__exclusiveGateway_outgoing_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__defaultFlowToFlow_source_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__process_flowElements_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__exclusiveGateway_default_defaultFlow
-												.setTrg(defaultFlow);
-
-										// create link
-										__defaultFlow_sourceRef_exclusiveGateway
-												.setSrc(defaultFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														flow);
-
-										// create link
-										__useCase_flows_flow.setTrg(flow);
-
-										// create link
-										__flow_steps_normalStep.setSrc(flow);
-
-										// create link
-										__defaultFlowToFlow_target_flow
-												.setTrg(flow);
-
-										// create link
-										__defaultFlowToFlow_source_defaultFlow
-												.setSrc(defaultFlowToFlow);
-
-										// create link
-										__defaultFlowToFlow_target_flow
-												.setSrc(defaultFlowToFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														defaultFlowToFlow);
-
-										// create link
-										__exclusiveGatewayToNormalStep_target_normalStep
-												.setTrg(normalStep);
-
-										// create link
-										__flow_steps_normalStep
-												.setTrg(normalStep);
-
-										// create link
-										__normalStep_stepAlternative_alt
-												.setSrc(normalStep);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														normalStep);
-
-										// create link
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway
-												.setSrc(exclusiveGatewayToNormalStep);
-
-										// create link
-										__exclusiveGatewayToNormalStep_target_normalStep
-												.setSrc(exclusiveGatewayToNormalStep);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements()
-												.add(exclusiveGatewayToNormalStep);
-
-										// create link
-										__alt_ref_alternativeFlow
-												.setTrg(alternativeFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														alternativeFlow);
-
-										// create link
-										__useCase_flows_alternativeFlow
-												.setTrg(alternativeFlow);
-
-										// create link
-										__alt_ref_alternativeFlow.setSrc(alt);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														alt);
-
-										// create link
-										__normalStep_stepAlternative_alt
-												.setTrg(alt);
-
-										// create link
-										__exclusiveGateway_default_defaultFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
-										__exclusiveGateway_outgoing_defaultFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
-										__process_flowElements_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														exclusiveGateway);
-
-										// create link
-										__exclusiveGatewayToNormalStep_source_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__defaultFlow_sourceRef_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__process_flowElements_exclusiveGateway
-												.setSrc(process);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														process);
-
-										// create link
-										__process_flowElements_defaultFlow
-												.setSrc(process);
-
-										// create link
-										__processToUseCase_source_process
-												.setTrg(process);
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__normalStep_stepAlternative_alt,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__alt_ref_alternativeFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__useCase_flows_alternativeFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToUseCase_source_process,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_default_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlowToFlow_target_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToUseCase_target_useCase,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlow_sourceRef_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGatewayToNormalStep_source_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__flow_steps_normalStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGatewayToNormalStep_target_normalStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__useCase_flows_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_outgoing_defaultFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__defaultFlowToFlow_source_defaultFlow,
-														"allContextElements");
-										// story node 'solve CSP'
-										try {
-											fujaba__Success = false;
-
-											_TmpObject = (this
-													.isApplicable_solveCsp_BWD(
-															isApplicableMatch,
-															useCase,
-															processToUseCase,
-															defaultFlow,
-															flow,
-															defaultFlowToFlow,
-															normalStep,
-															exclusiveGatewayToNormalStep,
-															alternativeFlow,
-															alt,
-															exclusiveGateway,
-															process));
-
-											// ensure correct type and really bound of object csp
-											JavaSDM.ensure(_TmpObject instanceof CSP);
-											csp = (CSP) _TmpObject;
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										// statement node 'check CSP'
-										fujaba__Success = this
-												.isApplicable_checkCsp_BWD(csp);
-										if (fujaba__Success) {
-											// story node 'add match to rule result'
-											try {
-												fujaba__Success = false;
-
-												// check object isApplicableMatch is really bound
-												JavaSDM.ensure(isApplicableMatch != null);
-												// check object ruleresult is really bound
-												JavaSDM.ensure(ruleresult != null);
-												// assign attribute isApplicableMatch
-												isApplicableMatch
-														.setRuleName("SeqFlowAfterEGToAltFlowRule");
-												// assign attribute ruleresult
-												ruleresult.setSuccess(true);
-
-												// create link
-												ruleresult
-														.getIsApplicableMatch()
-														.add(isApplicableMatch);
-
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_12_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
+
+		// ForEach core match
+		Object[] result2_binding = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_12_2_bindingFFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		UseCase useCase = (UseCase) result2_binding[0];
+		Flow flow = (Flow) result2_binding[1];
+		NormalStep normalStep = (NormalStep) result2_binding[2];
+		AlternativeFlow alternativeFlow = (AlternativeFlow) result2_binding[3];
+		AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result2_binding[4];
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_12_2_blackBFFBFBFBBFFB(
+						useCase, flow, normalStep, alternativeFlow, alt, match)) {
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) result2_black[1];
+			SequenceFlow defaultFlow = (SequenceFlow) result2_black[2];
+			SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) result2_black[4];
+			FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result2_black[6];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[9];
+			bpmn2.Process process = (bpmn2.Process) result2_black[10];
+			// ForEach find context
+			for (Object[] result3_black : SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_12_3_blackBBBBBBBBBBB(
+							useCase, processToUseCase, defaultFlow, flow,
+							defaultFlowToFlow, normalStep,
+							exclusiveGatewayToNormalStep, alternativeFlow, alt,
+							exclusiveGateway, process)) {
+				Object[] result3_green = SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_12_3_greenBBBBBBBBBBBFFFFFFFFFFFFFFFFF(
+								useCase, processToUseCase, defaultFlow, flow,
+								defaultFlowToFlow, normalStep,
+								exclusiveGatewayToNormalStep, alternativeFlow,
+								alt, exclusiveGateway, process);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[11];
+				// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge useCase__alternativeFlow____flows = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge processToUseCase__process____source = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge processToUseCase__useCase____target = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge defaultFlowToFlow__defaultFlow____source = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge defaultFlowToFlow__flow____target = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge normalStep__alt____stepAlternative = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge exclusiveGatewayToNormalStep__exclusiveGateway____source = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge exclusiveGatewayToNormalStep__normalStep____target = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge alt__alternativeFlow____ref = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge exclusiveGateway__defaultFlow____default = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge defaultFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge exclusiveGateway__defaultFlow____outgoing = (EMoflonEdge) result3_green[25];
+				// EMoflonEdge process__defaultFlow____flowElements = (EMoflonEdge) result3_green[26];
+				// EMoflonEdge process__exclusiveGateway____flowElements = (EMoflonEdge) result3_green[27];
+
+				// solve CSP
+				Object[] result4_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_12_4_bindingAndBlackFBBBBBBBBBBBBB(
+								this, isApplicableMatch, useCase,
+								processToUseCase, defaultFlow, flow,
+								defaultFlowToFlow, normalStep,
+								exclusiveGatewayToNormalStep, alternativeFlow,
+								alt, exclusiveGateway, process);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_12_5_expressionFBB(
+								this, csp)) {
+
+					// add match to rule result
+					Object[] result6_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_12_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_12_6_greenBB(
+									ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_12_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -3773,15 +829,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 */
 	public CSP isAppropriate_solveCsp_BWD(Match match, UseCase useCase,
 			Flow flow, NormalStep normalStep, AlternativeFlow alternativeFlow,
-			AlternativeFlowAlternative alt) {
-		// Create CSP
+			AlternativeFlowAlternative alt) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -3811,8 +864,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
 			FlowNodeToStep exclusiveGatewayToNormalStep,
 			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt,
-			ExclusiveGateway exclusiveGateway, bpmn2.Process process) {
-		// Create CSP
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -3822,21 +874,19 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Variable var_alternativeFlow_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("alternativeFlow.name", true, csp);
 		var_alternativeFlow_name.setValue(alternativeFlow.getName());
-		var_alternativeFlow_name.setType("");
+		var_alternativeFlow_name.setType("String");
 		Variable var_alt_condition = CSPFactoryHelper.eINSTANCE.createVariable(
 				"alt.condition", true, csp);
 		var_alt_condition.setValue(alt.getCondition());
-		var_alt_condition.setType("");
-
-		// Create explicit parameters
+		var_alt_condition.setType("String");
 
 		// Create unbound variables
 		Variable var_outFlow_id = CSPFactoryHelper.eINSTANCE.createVariable(
 				"outFlow.id", csp);
-		var_outFlow_id.setType("");
+		var_outFlow_id.setType("String");
 		Variable var_outFlow_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"outFlow.name", csp);
-		var_outFlow_name.setType("");
+		var_outFlow_name.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
@@ -3932,374 +982,62 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_21(
 			EMoflonEdge _edge_flows) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		UseCase __DEC_alternativeFlow_flows_40136 = null;
-		NormalStep __DEC_alt_stepAlternative_442571 = null;
-		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_427914 = null;
-		AlternativeFlowAlternative __DEC_alternativeFlow_ref_427914 = null;
-		Match match = null;
-		Iterator fujaba__IterFlowToNormalStep = null;
-		NormalStep normalStep = null;
-		Iterator fujaba__IterUseCaseToFlow = null;
-		Flow flow = null;
-		Iterator fujaba__IterAlternativeFlowToAlt = null;
-		AlternativeFlowAlternative alt = null;
-		AlternativeFlow alternativeFlow = null;
-		UseCase useCase = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_20_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_20_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_20_2_blackFFFFFB(_edge_flows)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			Flow flow = (Flow) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[2];
+			AlternativeFlow alternativeFlow = (AlternativeFlow) result2_black[3];
+			AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result2_black[4];
+			Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_20_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_flows is really bound
-			JavaSDM.ensure(_edge_flows != null);
-			// bind object
-			_TmpObject = _edge_flows.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_20_3_expressionFBBBBBBB(
+							this, match, useCase, flow, normalStep,
+							alternativeFlow, alt)) {
+				// Ensure that the correct types of elements are matched
+				if (SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_20_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flows.getTrg();
-
-			// ensure correct type and really bound of object alternativeFlow
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-			alternativeFlow = (AlternativeFlow) _TmpObject;
-
-			// check link flows from alternativeFlow to useCase
-			JavaSDM.ensure(useCase.equals(alternativeFlow.eContainer()));
-
-			// iterate to-many link ref from alternativeFlow to alt
-			fujaba__Success = false;
-
-			fujaba__IterAlternativeFlowToAlt = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							alternativeFlow, AlternativeFlowAlternative.class,
-							"ref")).iterator();
-
-			while (fujaba__IterAlternativeFlowToAlt.hasNext()) {
-				try {
-					alt = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowToAlt
-							.next();
-
-					// check object alt is really bound
-					JavaSDM.ensure(alt != null);
-					// iterate to-many link flows from useCase to flow
-					fujaba__Success = false;
-
-					fujaba__IterUseCaseToFlow = new ArrayList(
-							useCase.getFlows()).iterator();
-
-					while (fujaba__IterUseCaseToFlow.hasNext()) {
-						try {
-							flow = (Flow) fujaba__IterUseCaseToFlow.next();
-
-							// check object flow is really bound
-							JavaSDM.ensure(flow != null);
-							// check isomorphic binding between objects flow and alternativeFlow 
-							JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-							// iterate to-many link steps from flow to normalStep
-							fujaba__Success = false;
-
-							fujaba__IterFlowToNormalStep = new ArrayList(
-									flow.getSteps()).iterator();
-
-							while (fujaba__IterFlowToNormalStep.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterFlowToNormalStep
-											.next();
-
-									// ensure correct type and really bound of object normalStep
-									JavaSDM.ensure(_TmpObject instanceof NormalStep);
-									normalStep = (NormalStep) _TmpObject;
-									// check link stepAlternative from alt to normalStep
-									JavaSDM.ensure(normalStep.equals(alt
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_alternativeFlow_flows_40136 = alternativeFlow
-													.eContainer() instanceof UseCase ? (UseCase) alternativeFlow
-													.eContainer() : null;
-
-											// check object __DEC_alternativeFlow_flows_40136 is really bound
-											JavaSDM.ensure(__DEC_alternativeFlow_flows_40136 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_alternativeFlow_flows_40136
-													.getFlows().contains(
-															alternativeFlow));
-
-											// check isomorphic binding between objects __DEC_alternativeFlow_flows_40136 and useCase 
-											JavaSDM.ensure(!__DEC_alternativeFlow_flows_40136
-													.equals(useCase));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_alt_stepAlternative_442571 = alt
-													.eContainer() instanceof NormalStep ? (NormalStep) alt
-													.eContainer() : null;
-
-											// check object __DEC_alt_stepAlternative_442571 is really bound
-											JavaSDM.ensure(__DEC_alt_stepAlternative_442571 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_alt_stepAlternative_442571
-													.getStepAlternative()
-													.contains(alt));
-
-											// check isomorphic binding between objects __DEC_alt_stepAlternative_442571 and normalStep 
-											JavaSDM.ensure(!__DEC_alt_stepAlternative_442571
-													.equals(normalStep));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_427914
-											fujaba__Success = false;
-
-											fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_427914 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	alternativeFlow,
-																	AlternativeFlowAlternative.class,
-																	"ref"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_427914
-															.hasNext()) {
-												try {
-													__DEC_alternativeFlow_ref_427914 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_427914
-															.next();
-
-													// check object __DEC_alternativeFlow_ref_427914 is really bound
-													JavaSDM.ensure(__DEC_alternativeFlow_ref_427914 != null);
-													// check isomorphic binding between objects __DEC_alternativeFlow_ref_427914 and alt 
-													JavaSDM.ensure(!__DEC_alternativeFlow_ref_427914
-															.equals(alt));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_flows is really bound
-										JavaSDM.ensure(_edge_flows != null);
-										// check object alt is really bound
-										JavaSDM.ensure(alt != null);
-										// check object alternativeFlow is really bound
-										JavaSDM.ensure(alternativeFlow != null);
-										// check object flow is really bound
-										JavaSDM.ensure(flow != null);
-										// check object normalStep is really bound
-										JavaSDM.ensure(normalStep != null);
-										// check object useCase is really bound
-										JavaSDM.ensure(useCase != null);
-										// check isomorphic binding between objects flow and alternativeFlow 
-										JavaSDM.ensure(!flow
-												.equals(alternativeFlow));
-
-										// check link ref from alt to alternativeFlow
-										JavaSDM.ensure(alternativeFlow
-												.equals(alt.getRef()));
-
-										// check link flows from alternativeFlow to useCase
-										JavaSDM.ensure(useCase
-												.equals(alternativeFlow
-														.eContainer()));
-
-										// check link flows from flow to useCase
-										JavaSDM.ensure(useCase.equals(flow
-												.eContainer()));
-
-										// check link src from _edge_flows to useCase
-										JavaSDM.ensure(useCase
-												.equals(_edge_flows.getSrc()));
-
-										// check link stepAlternative from alt to normalStep
-										JavaSDM.ensure(normalStep.equals(alt
-												.eContainer()));
-
-										// check link steps from normalStep to flow
-										JavaSDM.ensure(flow.equals(normalStep
-												.eContainer()));
-
-										// check link trg from _edge_flows to alternativeFlow
-										JavaSDM.ensure(alternativeFlow
-												.equals(_edge_flows.getTrg()));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_BWD(match,
-														useCase, flow,
-														normalStep,
-														alternativeFlow, alt);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_BWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_20_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_20_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_20_6_expressionFB(__result);
 	}
 
 	/**
@@ -4309,333 +1047,62 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_22(
 			EMoflonEdge _edge_stepAlternative) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		UseCase __DEC_alternativeFlow_flows_656650 = null;
-		NormalStep __DEC_alt_stepAlternative_94222 = null;
-		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_181397 = null;
-		AlternativeFlowAlternative __DEC_alternativeFlow_ref_181397 = null;
-		Match match = null;
-		Iterator fujaba__IterUseCaseToAlternativeFlow = null;
-		AlternativeFlow alternativeFlow = null;
-		AlternativeFlowAlternative alt = null;
-		UseCase useCase = null;
-		Flow flow = null;
-		NormalStep normalStep = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_21_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_21_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_21_2_blackFFFFFB(_edge_stepAlternative)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			Flow flow = (Flow) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[2];
+			AlternativeFlow alternativeFlow = (AlternativeFlow) result2_black[3];
+			AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result2_black[4];
+			Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_21_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_stepAlternative is really bound
-			JavaSDM.ensure(_edge_stepAlternative != null);
-			// bind object
-			_TmpObject = _edge_stepAlternative.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_21_3_expressionFBBBBBBB(
+							this, match, useCase, flow, normalStep,
+							alternativeFlow, alt)) {
+				// Ensure that the correct types of elements are matched
+				if (SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_21_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-
-			// bind object
-			flow = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
-					.eContainer() : null;
-
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(flow.getSteps().contains(normalStep));
-
-			// bind object
-			useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
-					.eContainer() : null;
-
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(useCase.getFlows().contains(flow));
-
-			// bind object
-			_TmpObject = _edge_stepAlternative.getTrg();
-
-			// ensure correct type and really bound of object alt
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlowAlternative);
-			alt = (AlternativeFlowAlternative) _TmpObject;
-
-			// check link stepAlternative from alt to normalStep
-			JavaSDM.ensure(normalStep.equals(alt.eContainer()));
-
-			// iterate to-many link flows from useCase to alternativeFlow
-			fujaba__Success = false;
-
-			fujaba__IterUseCaseToAlternativeFlow = new ArrayList(
-					useCase.getFlows()).iterator();
-
-			while (fujaba__IterUseCaseToAlternativeFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterUseCaseToAlternativeFlow.next();
-
-					// ensure correct type and really bound of object alternativeFlow
-					JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-					alternativeFlow = (AlternativeFlow) _TmpObject;
-					// check isomorphic binding between objects flow and alternativeFlow 
-					JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-					// check link ref from alt to alternativeFlow
-					JavaSDM.ensure(alternativeFlow.equals(alt.getRef()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_alternativeFlow_flows_656650 = alternativeFlow
-									.eContainer() instanceof UseCase ? (UseCase) alternativeFlow
-									.eContainer() : null;
-
-							// check object __DEC_alternativeFlow_flows_656650 is really bound
-							JavaSDM.ensure(__DEC_alternativeFlow_flows_656650 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_alternativeFlow_flows_656650
-									.getFlows().contains(alternativeFlow));
-
-							// check isomorphic binding between objects __DEC_alternativeFlow_flows_656650 and useCase 
-							JavaSDM.ensure(!__DEC_alternativeFlow_flows_656650
-									.equals(useCase));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_alt_stepAlternative_94222 = alt.eContainer() instanceof NormalStep ? (NormalStep) alt
-									.eContainer() : null;
-
-							// check object __DEC_alt_stepAlternative_94222 is really bound
-							JavaSDM.ensure(__DEC_alt_stepAlternative_94222 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_alt_stepAlternative_94222
-									.getStepAlternative().contains(alt));
-
-							// check isomorphic binding between objects __DEC_alt_stepAlternative_94222 and normalStep 
-							JavaSDM.ensure(!__DEC_alt_stepAlternative_94222
-									.equals(normalStep));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_181397
-							fujaba__Success = false;
-
-							fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_181397 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													alternativeFlow,
-													AlternativeFlowAlternative.class,
-													"ref")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_181397
-											.hasNext()) {
-								try {
-									__DEC_alternativeFlow_ref_181397 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_181397
-											.next();
-
-									// check object __DEC_alternativeFlow_ref_181397 is really bound
-									JavaSDM.ensure(__DEC_alternativeFlow_ref_181397 != null);
-									// check isomorphic binding between objects __DEC_alternativeFlow_ref_181397 and alt 
-									JavaSDM.ensure(!__DEC_alternativeFlow_ref_181397
-											.equals(alt));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check object _edge_stepAlternative is really bound
-						JavaSDM.ensure(_edge_stepAlternative != null);
-						// check object alt is really bound
-						JavaSDM.ensure(alt != null);
-						// check object alternativeFlow is really bound
-						JavaSDM.ensure(alternativeFlow != null);
-						// check object flow is really bound
-						JavaSDM.ensure(flow != null);
-						// check object normalStep is really bound
-						JavaSDM.ensure(normalStep != null);
-						// check object useCase is really bound
-						JavaSDM.ensure(useCase != null);
-						// check isomorphic binding between objects flow and alternativeFlow 
-						JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-						// check link ref from alt to alternativeFlow
-						JavaSDM.ensure(alternativeFlow.equals(alt.getRef()));
-
-						// check link flows from alternativeFlow to useCase
-						JavaSDM.ensure(useCase.equals(alternativeFlow
-								.eContainer()));
-
-						// check link flows from flow to useCase
-						JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-						// check link src from _edge_stepAlternative to normalStep
-						JavaSDM.ensure(normalStep.equals(_edge_stepAlternative
-								.getSrc()));
-
-						// check link stepAlternative from alt to normalStep
-						JavaSDM.ensure(normalStep.equals(alt.eContainer()));
-
-						// check link steps from normalStep to flow
-						JavaSDM.ensure(flow.equals(normalStep.eContainer()));
-
-						// check link trg from _edge_stepAlternative to alt
-						JavaSDM.ensure(alt.equals(_edge_stepAlternative
-								.getTrg()));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this
-								.isAppropriate_BWD(match, useCase, flow,
-										normalStep, alternativeFlow, alt);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// Add match to rule result
+					Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_21_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_21_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_21_6_expressionFB(__result);
 	}
 
 	/**
@@ -4645,350 +1112,62 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_23(
 			EMoflonEdge _edge_ref) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		UseCase __DEC_alternativeFlow_flows_153638 = null;
-		NormalStep __DEC_alt_stepAlternative_741875 = null;
-		Iterator fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_521829 = null;
-		AlternativeFlowAlternative __DEC_alternativeFlow_ref_521829 = null;
-		Match match = null;
-		Iterator fujaba__IterFlowToNormalStep = null;
-		NormalStep normalStep = null;
-		Iterator fujaba__IterUseCaseToFlow = null;
-		Flow flow = null;
-		UseCase useCase = null;
-		AlternativeFlow alternativeFlow = null;
-		AlternativeFlowAlternative alt = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_22_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_22_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_22_2_blackFFFFFB(_edge_ref)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			Flow flow = (Flow) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[2];
+			AlternativeFlow alternativeFlow = (AlternativeFlow) result2_black[3];
+			AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result2_black[4];
+			Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_22_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_ref is really bound
-			JavaSDM.ensure(_edge_ref != null);
-			// bind object
-			_TmpObject = _edge_ref.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_22_3_expressionFBBBBBBB(
+							this, match, useCase, flow, normalStep,
+							alternativeFlow, alt)) {
+				// Ensure that the correct types of elements are matched
+				if (SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_22_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object alt
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlowAlternative);
-			alt = (AlternativeFlowAlternative) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_ref.getTrg();
-
-			// ensure correct type and really bound of object alternativeFlow
-			JavaSDM.ensure(_TmpObject instanceof AlternativeFlow);
-			alternativeFlow = (AlternativeFlow) _TmpObject;
-
-			// check link ref from alt to alternativeFlow
-			JavaSDM.ensure(alternativeFlow.equals(alt.getRef()));
-
-			// bind object
-			useCase = alternativeFlow.eContainer() instanceof UseCase ? (UseCase) alternativeFlow
-					.eContainer() : null;
-
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(useCase.getFlows().contains(alternativeFlow));
-
-			// iterate to-many link flows from useCase to flow
-			fujaba__Success = false;
-
-			fujaba__IterUseCaseToFlow = new ArrayList(useCase.getFlows())
-					.iterator();
-
-			while (fujaba__IterUseCaseToFlow.hasNext()) {
-				try {
-					flow = (Flow) fujaba__IterUseCaseToFlow.next();
-
-					// check object flow is really bound
-					JavaSDM.ensure(flow != null);
-					// check isomorphic binding between objects flow and alternativeFlow 
-					JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-					// iterate to-many link steps from flow to normalStep
-					fujaba__Success = false;
-
-					fujaba__IterFlowToNormalStep = new ArrayList(
-							flow.getSteps()).iterator();
-
-					while (fujaba__IterFlowToNormalStep.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterFlowToNormalStep.next();
-
-							// ensure correct type and really bound of object normalStep
-							JavaSDM.ensure(_TmpObject instanceof NormalStep);
-							normalStep = (NormalStep) _TmpObject;
-							// check link stepAlternative from alt to normalStep
-							JavaSDM.ensure(normalStep.equals(alt.eContainer()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_alternativeFlow_flows_153638 = alternativeFlow
-											.eContainer() instanceof UseCase ? (UseCase) alternativeFlow
-											.eContainer() : null;
-
-									// check object __DEC_alternativeFlow_flows_153638 is really bound
-									JavaSDM.ensure(__DEC_alternativeFlow_flows_153638 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_alternativeFlow_flows_153638
-											.getFlows().contains(
-													alternativeFlow));
-
-									// check isomorphic binding between objects __DEC_alternativeFlow_flows_153638 and useCase 
-									JavaSDM.ensure(!__DEC_alternativeFlow_flows_153638
-											.equals(useCase));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_alt_stepAlternative_741875 = alt
-											.eContainer() instanceof NormalStep ? (NormalStep) alt
-											.eContainer() : null;
-
-									// check object __DEC_alt_stepAlternative_741875 is really bound
-									JavaSDM.ensure(__DEC_alt_stepAlternative_741875 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_alt_stepAlternative_741875
-											.getStepAlternative().contains(alt));
-
-									// check isomorphic binding between objects __DEC_alt_stepAlternative_741875 and normalStep 
-									JavaSDM.ensure(!__DEC_alt_stepAlternative_741875
-											.equals(normalStep));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link ref from alternativeFlow to __DEC_alternativeFlow_ref_521829
-									fujaba__Success = false;
-
-									fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_521829 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															alternativeFlow,
-															AlternativeFlowAlternative.class,
-															"ref")).iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_521829
-													.hasNext()) {
-										try {
-											__DEC_alternativeFlow_ref_521829 = (AlternativeFlowAlternative) fujaba__IterAlternativeFlowTo__DEC_alternativeFlow_ref_521829
-													.next();
-
-											// check object __DEC_alternativeFlow_ref_521829 is really bound
-											JavaSDM.ensure(__DEC_alternativeFlow_ref_521829 != null);
-											// check isomorphic binding between objects __DEC_alternativeFlow_ref_521829 and alt 
-											JavaSDM.ensure(!__DEC_alternativeFlow_ref_521829
-													.equals(alt));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_ref is really bound
-								JavaSDM.ensure(_edge_ref != null);
-								// check object alt is really bound
-								JavaSDM.ensure(alt != null);
-								// check object alternativeFlow is really bound
-								JavaSDM.ensure(alternativeFlow != null);
-								// check object flow is really bound
-								JavaSDM.ensure(flow != null);
-								// check object normalStep is really bound
-								JavaSDM.ensure(normalStep != null);
-								// check object useCase is really bound
-								JavaSDM.ensure(useCase != null);
-								// check isomorphic binding between objects flow and alternativeFlow 
-								JavaSDM.ensure(!flow.equals(alternativeFlow));
-
-								// check link ref from alt to alternativeFlow
-								JavaSDM.ensure(alternativeFlow.equals(alt
-										.getRef()));
-
-								// check link flows from alternativeFlow to useCase
-								JavaSDM.ensure(useCase.equals(alternativeFlow
-										.eContainer()));
-
-								// check link flows from flow to useCase
-								JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-								// check link src from _edge_ref to alt
-								JavaSDM.ensure(alt.equals(_edge_ref.getSrc()));
-
-								// check link stepAlternative from alt to normalStep
-								JavaSDM.ensure(normalStep.equals(alt
-										.eContainer()));
-
-								// check link steps from normalStep to flow
-								JavaSDM.ensure(flow.equals(normalStep
-										.eContainer()));
-
-								// check link trg from _edge_ref to alternativeFlow
-								JavaSDM.ensure(alternativeFlow.equals(_edge_ref
-										.getTrg()));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_BWD(match,
-										useCase, flow, normalStep,
-										alternativeFlow, alt);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_BWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_22_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_22_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_22_6_expressionFB(__result);
 	}
 
 	/**
@@ -4998,284 +1177,61 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_61(
 			EMoflonEdge _edge_sourceRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_790649 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_105514 = null;
-		ExclusiveGateway __DEC_outFlow_default_105514 = null;
-		Match match = null;
-		bpmn2.Process process = null;
-		SequenceFlow defaultFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		SequenceFlow outFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_23_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_23_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_23_2_blackFFFFB(_edge_sourceRef)) {
+			SequenceFlow defaultFlow = (SequenceFlow) result2_black[0];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[1];
+			bpmn2.Process process = (bpmn2.Process) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_23_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_sourceRef is really bound
-			JavaSDM.ensure(_edge_sourceRef != null);
-			// bind object
-			_TmpObject = _edge_sourceRef.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_23_3_expressionFBBBBBB(
+							this, match, defaultFlow, exclusiveGateway,
+							process, outFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_23_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_sourceRef.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			defaultFlow = exclusiveGateway.getDefault();
-
-			// check object defaultFlow is really bound
-			JavaSDM.ensure(defaultFlow != null);
-
-			// check isomorphic binding between objects outFlow and defaultFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-			// bind object
-			_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(exclusiveGateway));
-
-			// check link flowElements from defaultFlow to process
-			JavaSDM.ensure(process.equals(defaultFlow.eContainer()));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from defaultFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(defaultFlow.getSourceRef()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_outFlow_flowElements_790649 = outFlow.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-							.eContainer() : null;
-
-					// check object __DEC_outFlow_flowElements_790649 is really bound
-					JavaSDM.ensure(__DEC_outFlow_flowElements_790649 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_outFlow_flowElements_790649
-							.getFlowElements().contains(outFlow));
-
-					// check isomorphic binding between objects __DEC_outFlow_flowElements_790649 and process 
-					JavaSDM.ensure(!__DEC_outFlow_flowElements_790649
-							.equals(process));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link default from outFlow to __DEC_outFlow_default_105514
-					fujaba__Success = false;
-
-					fujaba__IterOutFlowTo__DEC_outFlow_default_105514 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(outFlow,
-											ExclusiveGateway.class, "default"))
-							.iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterOutFlowTo__DEC_outFlow_default_105514
-									.hasNext()) {
-						try {
-							__DEC_outFlow_default_105514 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_105514
-									.next();
-
-							// check object __DEC_outFlow_default_105514 is really bound
-							JavaSDM.ensure(__DEC_outFlow_default_105514 != null);
-							// check isomorphic binding between objects __DEC_outFlow_default_105514 and exclusiveGateway 
-							JavaSDM.ensure(!__DEC_outFlow_default_105514
-									.equals(exclusiveGateway));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_23_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_sourceRef is really bound
-				JavaSDM.ensure(_edge_sourceRef != null);
-				// check object defaultFlow is really bound
-				JavaSDM.ensure(defaultFlow != null);
-				// check object exclusiveGateway is really bound
-				JavaSDM.ensure(exclusiveGateway != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects outFlow and defaultFlow 
-				JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-				// check link default from exclusiveGateway to defaultFlow
-				JavaSDM.ensure(defaultFlow.equals(exclusiveGateway.getDefault()));
-
-				// check link default from exclusiveGateway to outFlow
-				JavaSDM.ensure(!(outFlow.equals(exclusiveGateway.getDefault())));
-
-				// check link flowElements from defaultFlow to process
-				JavaSDM.ensure(process.equals(defaultFlow.eContainer()));
-
-				// check link flowElements from exclusiveGateway to process
-				JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-				// check link flowElements from outFlow to process
-				JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-				// check link sourceRef from defaultFlow to exclusiveGateway
-				JavaSDM.ensure(exclusiveGateway.equals(defaultFlow
-						.getSourceRef()));
-
-				// check link sourceRef from outFlow to exclusiveGateway
-				JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-				// check link src from _edge_sourceRef to outFlow
-				JavaSDM.ensure(outFlow.equals(_edge_sourceRef.getSrc()));
-
-				// check link trg from _edge_sourceRef to exclusiveGateway
-				JavaSDM.ensure(exclusiveGateway.equals(_edge_sourceRef.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, defaultFlow,
-						exclusiveGateway, process, outFlow);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
-					}
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_23_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_23_6_expressionFB(__result);
 	}
 
 	/**
@@ -5285,333 +1241,61 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_62(
 			EMoflonEdge _edge_outgoing) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_22648 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_832625 = null;
-		ExclusiveGateway __DEC_outFlow_default_832625 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayTo_edge_sourceRef = null;
-		EMoflonEdge _edge_sourceRef = null;
-		bpmn2.Process process = null;
-		SequenceFlow defaultFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		SequenceFlow outFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_24_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_24_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_24_2_blackFFFFB(_edge_outgoing)) {
+			SequenceFlow defaultFlow = (SequenceFlow) result2_black[0];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[1];
+			bpmn2.Process process = (bpmn2.Process) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_24_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_outgoing is really bound
-			JavaSDM.ensure(_edge_outgoing != null);
-			// bind object
-			_TmpObject = _edge_outgoing.getTrg();
+			// bookkeeping with generic isAppropriate method
+			if (SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_24_3_expressionFBBBBBB(
+							this, match, defaultFlow, exclusiveGateway,
+							process, outFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_24_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_outgoing.getSrc();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			defaultFlow = exclusiveGateway.getDefault();
-
-			// check object defaultFlow is really bound
-			JavaSDM.ensure(defaultFlow != null);
-
-			// check isomorphic binding between objects outFlow and defaultFlow 
-			JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-			// bind object
-			_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(exclusiveGateway));
-
-			// check link flowElements from defaultFlow to process
-			JavaSDM.ensure(process.equals(defaultFlow.eContainer()));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from defaultFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(defaultFlow.getSourceRef()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// iterate to-many link trg from exclusiveGateway to _edge_sourceRef
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayTo_edge_sourceRef = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, EMoflonEdge.class, "trg"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayTo_edge_sourceRef.hasNext()) {
-				try {
-					_edge_sourceRef = (EMoflonEdge) fujaba__IterExclusiveGatewayTo_edge_sourceRef
-							.next();
-
-					// check object _edge_sourceRef is really bound
-					JavaSDM.ensure(_edge_sourceRef != null);
-					// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-					JavaSDM.ensure(!_edge_sourceRef.equals(_edge_outgoing));
-
-					// check link src from _edge_sourceRef to outFlow
-					JavaSDM.ensure(outFlow.equals(_edge_sourceRef.getSrc()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_outFlow_flowElements_22648 = outFlow
-									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-									.eContainer() : null;
-
-							// check object __DEC_outFlow_flowElements_22648 is really bound
-							JavaSDM.ensure(__DEC_outFlow_flowElements_22648 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_outFlow_flowElements_22648
-									.getFlowElements().contains(outFlow));
-
-							// check isomorphic binding between objects __DEC_outFlow_flowElements_22648 and process 
-							JavaSDM.ensure(!__DEC_outFlow_flowElements_22648
-									.equals(process));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link default from outFlow to __DEC_outFlow_default_832625
-							fujaba__Success = false;
-
-							fujaba__IterOutFlowTo__DEC_outFlow_default_832625 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(outFlow,
-													ExclusiveGateway.class,
-													"default")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterOutFlowTo__DEC_outFlow_default_832625
-											.hasNext()) {
-								try {
-									__DEC_outFlow_default_832625 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_832625
-											.next();
-
-									// check object __DEC_outFlow_default_832625 is really bound
-									JavaSDM.ensure(__DEC_outFlow_default_832625 != null);
-									// check isomorphic binding between objects __DEC_outFlow_default_832625 and exclusiveGateway 
-									JavaSDM.ensure(!__DEC_outFlow_default_832625
-											.equals(exclusiveGateway));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check object _edge_outgoing is really bound
-						JavaSDM.ensure(_edge_outgoing != null);
-						// check object _edge_sourceRef is really bound
-						JavaSDM.ensure(_edge_sourceRef != null);
-						// check object defaultFlow is really bound
-						JavaSDM.ensure(defaultFlow != null);
-						// check object exclusiveGateway is really bound
-						JavaSDM.ensure(exclusiveGateway != null);
-						// check object outFlow is really bound
-						JavaSDM.ensure(outFlow != null);
-						// check object process is really bound
-						JavaSDM.ensure(process != null);
-						// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-						JavaSDM.ensure(!_edge_sourceRef.equals(_edge_outgoing));
-
-						// check isomorphic binding between objects outFlow and defaultFlow 
-						JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-						// check link default from exclusiveGateway to defaultFlow
-						JavaSDM.ensure(defaultFlow.equals(exclusiveGateway
-								.getDefault()));
-
-						// check link default from exclusiveGateway to outFlow
-						JavaSDM.ensure(!(outFlow.equals(exclusiveGateway
-								.getDefault())));
-
-						// check link flowElements from defaultFlow to process
-						JavaSDM.ensure(process.equals(defaultFlow.eContainer()));
-
-						// check link flowElements from exclusiveGateway to process
-						JavaSDM.ensure(process.equals(exclusiveGateway
-								.eContainer()));
-
-						// check link flowElements from outFlow to process
-						JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-						// check link sourceRef from defaultFlow to exclusiveGateway
-						JavaSDM.ensure(exclusiveGateway.equals(defaultFlow
-								.getSourceRef()));
-
-						// check link sourceRef from outFlow to exclusiveGateway
-						JavaSDM.ensure(exclusiveGateway.equals(outFlow
-								.getSourceRef()));
-
-						// check link src from _edge_outgoing to exclusiveGateway
-						JavaSDM.ensure(exclusiveGateway.equals(_edge_outgoing
-								.getSrc()));
-
-						// check link src from _edge_sourceRef to outFlow
-						JavaSDM.ensure(outFlow.equals(_edge_sourceRef.getSrc()));
-
-						// check link trg from _edge_outgoing to outFlow
-						JavaSDM.ensure(outFlow.equals(_edge_outgoing.getTrg()));
-
-						// check link trg from _edge_sourceRef to exclusiveGateway
-						JavaSDM.ensure(exclusiveGateway.equals(_edge_sourceRef
-								.getTrg()));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this
-								.isAppropriate_FWD(match, defaultFlow,
-										exclusiveGateway, process, outFlow);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_FWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// Add match to rule result
+					Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_24_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_24_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_24_6_expressionFB(__result);
 	}
 
 	/**
@@ -5621,305 +1305,61 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_63(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_375195 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_707913 = null;
-		ExclusiveGateway __DEC_outFlow_default_707913 = null;
-		Match match = null;
-		ExclusiveGateway exclusiveGateway = null;
-		Iterator fujaba__IterProcessToDefaultFlow = null;
-		SequenceFlow defaultFlow = null;
-		SequenceFlow outFlow = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_25_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_25_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_25_2_blackFFFFB(_edge_flowElements)) {
+			SequenceFlow defaultFlow = (SequenceFlow) result2_black[0];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[1];
+			bpmn2.Process process = (bpmn2.Process) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_25_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_25_3_expressionFBBBBBB(
+							this, match, defaultFlow, exclusiveGateway,
+							process, outFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_25_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// iterate to-many link flowElements from process to defaultFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToDefaultFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToDefaultFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToDefaultFlow.next();
-
-					// ensure correct type and really bound of object defaultFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					defaultFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and defaultFlow 
-					JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-					// bind object
-					_TmpObject = defaultFlow.getSourceRef();
-
-					// ensure correct type and really bound of object exclusiveGateway
-					JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-					exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-					// check link default from exclusiveGateway to defaultFlow
-					JavaSDM.ensure(defaultFlow.equals(exclusiveGateway
-							.getDefault()));
-
-					// check link flowElements from exclusiveGateway to process
-					JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-					// check link sourceRef from outFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(outFlow
-							.getSourceRef()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_outFlow_flowElements_375195 = outFlow
-									.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-									.eContainer() : null;
-
-							// check object __DEC_outFlow_flowElements_375195 is really bound
-							JavaSDM.ensure(__DEC_outFlow_flowElements_375195 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_outFlow_flowElements_375195
-									.getFlowElements().contains(outFlow));
-
-							// check isomorphic binding between objects __DEC_outFlow_flowElements_375195 and process 
-							JavaSDM.ensure(!__DEC_outFlow_flowElements_375195
-									.equals(process));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link default from outFlow to __DEC_outFlow_default_707913
-							fujaba__Success = false;
-
-							fujaba__IterOutFlowTo__DEC_outFlow_default_707913 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(outFlow,
-													ExclusiveGateway.class,
-													"default")).iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterOutFlowTo__DEC_outFlow_default_707913
-											.hasNext()) {
-								try {
-									__DEC_outFlow_default_707913 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_707913
-											.next();
-
-									// check object __DEC_outFlow_default_707913 is really bound
-									JavaSDM.ensure(__DEC_outFlow_default_707913 != null);
-									// check isomorphic binding between objects __DEC_outFlow_default_707913 and exclusiveGateway 
-									JavaSDM.ensure(!__DEC_outFlow_default_707913
-											.equals(exclusiveGateway));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check object _edge_flowElements is really bound
-						JavaSDM.ensure(_edge_flowElements != null);
-						// check object defaultFlow is really bound
-						JavaSDM.ensure(defaultFlow != null);
-						// check object exclusiveGateway is really bound
-						JavaSDM.ensure(exclusiveGateway != null);
-						// check object outFlow is really bound
-						JavaSDM.ensure(outFlow != null);
-						// check object process is really bound
-						JavaSDM.ensure(process != null);
-						// check isomorphic binding between objects outFlow and defaultFlow 
-						JavaSDM.ensure(!outFlow.equals(defaultFlow));
-
-						// check link default from exclusiveGateway to defaultFlow
-						JavaSDM.ensure(defaultFlow.equals(exclusiveGateway
-								.getDefault()));
-
-						// check link default from exclusiveGateway to outFlow
-						JavaSDM.ensure(!(outFlow.equals(exclusiveGateway
-								.getDefault())));
-
-						// check link flowElements from defaultFlow to process
-						JavaSDM.ensure(process.equals(defaultFlow.eContainer()));
-
-						// check link flowElements from exclusiveGateway to process
-						JavaSDM.ensure(process.equals(exclusiveGateway
-								.eContainer()));
-
-						// check link flowElements from outFlow to process
-						JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-						// check link sourceRef from defaultFlow to exclusiveGateway
-						JavaSDM.ensure(exclusiveGateway.equals(defaultFlow
-								.getSourceRef()));
-
-						// check link sourceRef from outFlow to exclusiveGateway
-						JavaSDM.ensure(exclusiveGateway.equals(outFlow
-								.getSourceRef()));
-
-						// check link src from _edge_flowElements to process
-						JavaSDM.ensure(process.equals(_edge_flowElements
-								.getSrc()));
-
-						// check link trg from _edge_flowElements to outFlow
-						JavaSDM.ensure(outFlow.equals(_edge_flowElements
-								.getTrg()));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this
-								.isAppropriate_FWD(match, defaultFlow,
-										exclusiveGateway, process, outFlow);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_FWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// Add match to rule result
+					Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_25_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_25_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_25_6_expressionFB(__result);
 	}
 
 	/**
@@ -5927,12 +1367,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
-
-		// [user code injected with eMoflon]
-
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
 	}
 
 	/**
@@ -5940,12 +1376,170 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// [user code injected with eMoflon]
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer,
+			FlowNodeToStep exclusiveGatewayToNormalStepParameter) {
+		// create result
+		Object[] result1_black = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_28_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_28_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+		// ForEach is applicable core
+		for (Object[] result2_black : SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_28_2_blackFFFFFFFFFFBB(
+						ruleEntryContainer, ruleResult)) {
+			// RuleEntryList exclusiveGatewayToNormalStepList = (RuleEntryList) result2_black[0];
+			UseCase useCase = (UseCase) result2_black[1];
+			Flow flow = (Flow) result2_black[2];
+			NormalStep normalStep = (NormalStep) result2_black[3];
+			FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result2_black[4];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[5];
+			SequenceFlow defaultFlow = (SequenceFlow) result2_black[6];
+			SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) result2_black[7];
+			bpmn2.Process process = (bpmn2.Process) result2_black[8];
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) result2_black[9];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_28_3_bindingAndBlackFBBBBBBBBBBBB(
+							this, isApplicableMatch, useCase, processToUseCase,
+							defaultFlow, flow, defaultFlowToFlow, normalStep,
+							exclusiveGatewayToNormalStep, exclusiveGateway,
+							process, ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (SeqFlowAfterEGToAltFlowRuleImpl
+					.pattern_SeqFlowAfterEGToAltFlowRule_28_4_expressionFBB(
+							this, csp)) {
+				// check nacs
+				Object[] result5_black = SeqFlowAfterEGToAltFlowRuleImpl
+						.pattern_SeqFlowAfterEGToAltFlowRule_28_5_blackBBBBBBBBB(
+								useCase, processToUseCase, defaultFlow, flow,
+								defaultFlowToFlow, normalStep,
+								exclusiveGatewayToNormalStep, exclusiveGateway,
+								process);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_28_6_blackBBBBBBBBBB(
+									useCase, processToUseCase, defaultFlow,
+									flow, defaultFlowToFlow, normalStep,
+									exclusiveGatewayToNormalStep,
+									exclusiveGateway, process, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					SeqFlowAfterEGToAltFlowRuleImpl
+							.pattern_SeqFlowAfterEGToAltFlowRule_28_6_greenBBFFFFBBFBB(
+									useCase, normalStep, exclusiveGateway,
+									process, ruleResult, csp);
+					// AlternativeFlow alternativeFlow = (AlternativeFlow) result6_green[2];
+					// SequenceFlowToUCFlow outFlowToAlternativeFlow = (SequenceFlowToUCFlow) result6_green[3];
+					// AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result6_green[4];
+					// SeqFlowToAltFlowAlt outFlowToAlt = (SeqFlowToAltFlowAlt) result6_green[5];
+					// SequenceFlow outFlow = (SequenceFlow) result6_green[8];
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return SeqFlowAfterEGToAltFlowRuleImpl
+				.pattern_SeqFlowAfterEGToAltFlowRule_28_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+
+		// Create attribute variables
+
+		// Create unbound variables
+		Variable var_outFlow_id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"outFlow.id", csp);
+		var_outFlow_id.setType("String");
+		Variable var_alternativeFlow_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("alternativeFlow.name", csp);
+		var_alternativeFlow_name.setType("String");
+		Variable var_outFlow_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"outFlow.name", csp);
+		var_outFlow_name.setType("String");
+		Variable var_alt_condition = CSPFactoryHelper.eINSTANCE.createVariable(
+				"alt.condition", csp);
+		var_alt_condition.setType("String");
+
+		// Create constraints
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
+
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
+
+		// Solve CSP
+		eq.setRuleName("");
+		eq.solve(var_outFlow_id, var_alternativeFlow_name);
+		eq_0.setRuleName("");
+		eq_0.solve(var_outFlow_name, var_alt_condition);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("useCase", useCase);
+		isApplicableMatch.registerObject("processToUseCase", processToUseCase);
+		isApplicableMatch.registerObject("defaultFlow", defaultFlow);
+		isApplicableMatch.registerObject("flow", flow);
+		isApplicableMatch
+				.registerObject("defaultFlowToFlow", defaultFlowToFlow);
+		isApplicableMatch.registerObject("normalStep", normalStep);
+		isApplicableMatch.registerObject("exclusiveGatewayToNormalStep",
+				exclusiveGatewayToNormalStep);
+		isApplicableMatch.registerObject("exclusiveGateway", exclusiveGateway);
+		isApplicableMatch.registerObject("process", process);
+		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean generateModel_checkCsp_BWD(CSP csp) {
+		return csp.check();
 	}
 
 	/**
@@ -6082,9 +1676,3732 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_FLOWNODETOSTEP:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(FlowNodeToStep) arguments.get(1));
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_PROCESSTOUSECASE_SEQUENCEFLOW_FLOW_SEQUENCEFLOWTOUCFLOW_NORMALSTEP_FLOWNODETOSTEP_EXCLUSIVEGATEWAY_PROCESS_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(UseCase) arguments.get(1),
+					(ProcessToUseCase) arguments.get(2),
+					(SequenceFlow) arguments.get(3), (Flow) arguments.get(4),
+					(SequenceFlowToUCFlow) arguments.get(5),
+					(NormalStep) arguments.get(6),
+					(FlowNodeToStep) arguments.get(7),
+					(ExclusiveGateway) arguments.get(8),
+					(bpmn2.Process) arguments.get(9),
+					(ModelgeneratorRuleResult) arguments.get(10));
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_0_1_blackBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match,
+			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow) {
+		if (!defaultFlow.equals(outFlow)) {
+			return new Object[] { _this, match, defaultFlow, exclusiveGateway,
+					process, outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_0_2_bindingFBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match,
+			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match,
+				defaultFlow, exclusiveGateway, process, outFlow);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, defaultFlow,
+					exclusiveGateway, process, outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_0_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_0_2_bindingAndBlackFBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match,
+			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_0_2_binding = pattern_SeqFlowAfterEGToAltFlowRule_0_2_bindingFBBBBBB(
+				_this, match, defaultFlow, exclusiveGateway, process, outFlow);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_0_2_binding != null) {
+			CSP csp = (CSP) result_pattern_SeqFlowAfterEGToAltFlowRule_0_2_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_0_2_black = pattern_SeqFlowAfterEGToAltFlowRule_0_2_blackB(csp);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_0_2_black != null) {
+
+				return new Object[] { csp, _this, match, defaultFlow,
+						exclusiveGateway, process, outFlow };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_0_3_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_0_4_blackBBBBB(
+			Match match, SequenceFlow defaultFlow,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			SequenceFlow outFlow) {
+		if (!defaultFlow.equals(outFlow)) {
+			return new Object[] { match, defaultFlow, exclusiveGateway,
+					process, outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_0_4_greenBBBBFFF(
+			Match match, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow) {
+		EMoflonEdge outFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(outFlow);
+		String outFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__outFlow____outgoing_name_prime = "outgoing";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		outFlow__exclusiveGateway____sourceRef.setSrc(outFlow);
+		outFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		match.getToBeTranslatedEdges().add(
+				outFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__outFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____outgoing.setTrg(outFlow);
+		match.getToBeTranslatedEdges().add(
+				exclusiveGateway__outFlow____outgoing);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		match.getToBeTranslatedEdges().add(process__outFlow____flowElements);
+		outFlow__exclusiveGateway____sourceRef
+				.setName(outFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__outFlow____outgoing
+				.setName(exclusiveGateway__outFlow____outgoing_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		return new Object[] { match, exclusiveGateway, process, outFlow,
+				outFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__outFlow____outgoing,
+				process__outFlow____flowElements };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_0_5_blackBBBBB(
+			Match match, SequenceFlow defaultFlow,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			SequenceFlow outFlow) {
+		if (!defaultFlow.equals(outFlow)) {
+			return new Object[] { match, defaultFlow, exclusiveGateway,
+					process, outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_0_5_greenBBBBFFFFF(
+			Match match, SequenceFlow defaultFlow,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process) {
+		EMoflonEdge exclusiveGateway__defaultFlow____default = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge defaultFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__defaultFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__defaultFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__exclusiveGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getContextNodes().add(defaultFlow);
+		match.getContextNodes().add(exclusiveGateway);
+		match.getContextNodes().add(process);
+		String exclusiveGateway__defaultFlow____default_name_prime = "default";
+		String defaultFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__defaultFlow____outgoing_name_prime = "outgoing";
+		String process__defaultFlow____flowElements_name_prime = "flowElements";
+		String process__exclusiveGateway____flowElements_name_prime = "flowElements";
+		exclusiveGateway__defaultFlow____default.setSrc(exclusiveGateway);
+		exclusiveGateway__defaultFlow____default.setTrg(defaultFlow);
+		match.getContextEdges().add(exclusiveGateway__defaultFlow____default);
+		defaultFlow__exclusiveGateway____sourceRef.setSrc(defaultFlow);
+		defaultFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		match.getContextEdges().add(defaultFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__defaultFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__defaultFlow____outgoing.setTrg(defaultFlow);
+		match.getContextEdges().add(exclusiveGateway__defaultFlow____outgoing);
+		process__defaultFlow____flowElements.setSrc(process);
+		process__defaultFlow____flowElements.setTrg(defaultFlow);
+		match.getContextEdges().add(process__defaultFlow____flowElements);
+		process__exclusiveGateway____flowElements.setSrc(process);
+		process__exclusiveGateway____flowElements.setTrg(exclusiveGateway);
+		match.getContextEdges().add(process__exclusiveGateway____flowElements);
+		exclusiveGateway__defaultFlow____default
+				.setName(exclusiveGateway__defaultFlow____default_name_prime);
+		defaultFlow__exclusiveGateway____sourceRef
+				.setName(defaultFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__defaultFlow____outgoing
+				.setName(exclusiveGateway__defaultFlow____outgoing_name_prime);
+		process__defaultFlow____flowElements
+				.setName(process__defaultFlow____flowElements_name_prime);
+		process__exclusiveGateway____flowElements
+				.setName(process__exclusiveGateway____flowElements_name_prime);
+		return new Object[] { match, defaultFlow, exclusiveGateway, process,
+				exclusiveGateway__defaultFlow____default,
+				defaultFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__defaultFlow____outgoing,
+				process__defaultFlow____flowElements,
+				process__exclusiveGateway____flowElements };
+	}
+
+	public static final void pattern_SeqFlowAfterEGToAltFlowRule_0_6_expressionBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match,
+			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow) {
+		_this.registerObjectsToMatch_FWD(match, defaultFlow, exclusiveGateway,
+				process, outFlow);
+
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_0_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_0_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_1_1_bindingFFFFFFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_1 = isApplicableMatch
+				.getObject("processToUseCase");
+		EObject _localVariable_2 = isApplicableMatch.getObject("defaultFlow");
+		EObject _localVariable_3 = isApplicableMatch.getObject("flow");
+		EObject _localVariable_4 = isApplicableMatch
+				.getObject("defaultFlowToFlow");
+		EObject _localVariable_5 = isApplicableMatch.getObject("normalStep");
+		EObject _localVariable_6 = isApplicableMatch
+				.getObject("exclusiveGatewayToNormalStep");
+		EObject _localVariable_7 = isApplicableMatch
+				.getObject("exclusiveGateway");
+		EObject _localVariable_8 = isApplicableMatch.getObject("process");
+		EObject _localVariable_9 = isApplicableMatch.getObject("outFlow");
+		EObject tmpUseCase = _localVariable_0;
+		EObject tmpProcessToUseCase = _localVariable_1;
+		EObject tmpDefaultFlow = _localVariable_2;
+		EObject tmpFlow = _localVariable_3;
+		EObject tmpDefaultFlowToFlow = _localVariable_4;
+		EObject tmpNormalStep = _localVariable_5;
+		EObject tmpExclusiveGatewayToNormalStep = _localVariable_6;
+		EObject tmpExclusiveGateway = _localVariable_7;
+		EObject tmpProcess = _localVariable_8;
+		EObject tmpOutFlow = _localVariable_9;
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			if (tmpProcessToUseCase instanceof ProcessToUseCase) {
+				ProcessToUseCase processToUseCase = (ProcessToUseCase) tmpProcessToUseCase;
+				if (tmpDefaultFlow instanceof SequenceFlow) {
+					SequenceFlow defaultFlow = (SequenceFlow) tmpDefaultFlow;
+					if (tmpFlow instanceof Flow) {
+						Flow flow = (Flow) tmpFlow;
+						if (tmpDefaultFlowToFlow instanceof SequenceFlowToUCFlow) {
+							SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) tmpDefaultFlowToFlow;
+							if (tmpNormalStep instanceof NormalStep) {
+								NormalStep normalStep = (NormalStep) tmpNormalStep;
+								if (tmpExclusiveGatewayToNormalStep instanceof FlowNodeToStep) {
+									FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) tmpExclusiveGatewayToNormalStep;
+									if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+										ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+										if (tmpProcess instanceof bpmn2.Process) {
+											bpmn2.Process process = (bpmn2.Process) tmpProcess;
+											if (tmpOutFlow instanceof SequenceFlow) {
+												SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+												return new Object[] {
+														useCase,
+														processToUseCase,
+														defaultFlow,
+														flow,
+														defaultFlowToFlow,
+														normalStep,
+														exclusiveGatewayToNormalStep,
+														exclusiveGateway,
+														process, outFlow,
+														isApplicableMatch };
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_1_1_blackBBBBBBBBBBFBB(
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			SequenceFlow outFlow, SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		if (!defaultFlow.equals(outFlow)) {
+			for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+				if (tmpCsp instanceof CSP) {
+					CSP csp = (CSP) tmpCsp;
+					return new Object[] { useCase, processToUseCase,
+							defaultFlow, flow, defaultFlowToFlow, normalStep,
+							exclusiveGatewayToNormalStep, exclusiveGateway,
+							process, outFlow, csp, _this, isApplicableMatch };
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_1_1_bindingAndBlackFFFFFFFFFFFBB(
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_1_1_bindingFFFFFFFFFFB(isApplicableMatch);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding != null) {
+			UseCase useCase = (UseCase) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[0];
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[1];
+			SequenceFlow defaultFlow = (SequenceFlow) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[2];
+			Flow flow = (Flow) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[3];
+			SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[4];
+			NormalStep normalStep = (NormalStep) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[5];
+			FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[6];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[7];
+			bpmn2.Process process = (bpmn2.Process) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[8];
+			SequenceFlow outFlow = (SequenceFlow) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_binding[9];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_black = pattern_SeqFlowAfterEGToAltFlowRule_1_1_blackBBBBBBBBBBFBB(
+					useCase, processToUseCase, defaultFlow, flow,
+					defaultFlowToFlow, normalStep,
+					exclusiveGatewayToNormalStep, exclusiveGateway, process,
+					outFlow, _this, isApplicableMatch);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_black != null) {
+				CSP csp = (CSP) result_pattern_SeqFlowAfterEGToAltFlowRule_1_1_black[10];
+
+				return new Object[] { useCase, processToUseCase, defaultFlow,
+						flow, defaultFlowToFlow, normalStep,
+						exclusiveGatewayToNormalStep, exclusiveGateway,
+						process, outFlow, csp, _this, isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_1_1_greenBBFFFFBB(
+			UseCase useCase, NormalStep normalStep, SequenceFlow outFlow,
+			CSP csp) {
+		AlternativeFlow alternativeFlow = UseCaseDSLFactory.eINSTANCE
+				.createAlternativeFlow();
+		SequenceFlowToUCFlow outFlowToAlternativeFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToUCFlow();
+		AlternativeFlowAlternative alt = UseCaseDSLFactory.eINSTANCE
+				.createAlternativeFlowAlternative();
+		SeqFlowToAltFlowAlt outFlowToAlt = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSeqFlowToAltFlowAlt();
+		Object _localVariable_0 = csp.getValue("alternativeFlow", "name");
+		Object _localVariable_1 = csp.getValue("alt", "condition");
+		useCase.getFlows().add(alternativeFlow);
+		outFlowToAlternativeFlow.setSource(outFlow);
+		outFlowToAlternativeFlow.setTarget(alternativeFlow);
+		normalStep.getStepAlternative().add(alt);
+		alt.setRef(alternativeFlow);
+		outFlowToAlt.setSource(outFlow);
+		outFlowToAlt.setTarget(alt);
+		String alternativeFlow_name_prime = (String) _localVariable_0;
+		String alt_condition_prime = (String) _localVariable_1;
+		alternativeFlow.setName(alternativeFlow_name_prime);
+		alt.setCondition(alt_condition_prime);
+		return new Object[] { useCase, normalStep, alternativeFlow,
+				outFlowToAlternativeFlow, alt, outFlowToAlt, outFlow, csp };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_1_2_blackBBBBB(
+			AlternativeFlow alternativeFlow,
+			SequenceFlowToUCFlow outFlowToAlternativeFlow,
+			AlternativeFlowAlternative alt, SeqFlowToAltFlowAlt outFlowToAlt,
+			SequenceFlow outFlow) {
+		return new Object[] { alternativeFlow, outFlowToAlternativeFlow, alt,
+				outFlowToAlt, outFlow };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_1_2_greenFBBBBB(
+			AlternativeFlow alternativeFlow,
+			SequenceFlowToUCFlow outFlowToAlternativeFlow,
+			AlternativeFlowAlternative alt, SeqFlowToAltFlowAlt outFlowToAlt,
+			SequenceFlow outFlow) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getCreatedElements().add(alternativeFlow);
+		ruleresult.getCreatedLinkElements().add(outFlowToAlternativeFlow);
+		ruleresult.getCreatedElements().add(alt);
+		ruleresult.getCreatedLinkElements().add(outFlowToAlt);
+		ruleresult.getTranslatedElements().add(outFlow);
+		return new Object[] { ruleresult, alternativeFlow,
+				outFlowToAlternativeFlow, alt, outFlowToAlt, outFlow };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_1_3_blackBBBBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject useCase,
+			EObject processToUseCase, EObject defaultFlow, EObject flow,
+			EObject defaultFlowToFlow, EObject normalStep,
+			EObject exclusiveGatewayToNormalStep, EObject alternativeFlow,
+			EObject outFlowToAlternativeFlow, EObject alt,
+			EObject outFlowToAlt, EObject exclusiveGateway, EObject process,
+			EObject outFlow) {
+		if (!processToUseCase.equals(useCase)) {
+			if (!defaultFlow.equals(useCase)) {
+				if (!defaultFlow.equals(processToUseCase)) {
+					if (!defaultFlow.equals(flow)) {
+						if (!defaultFlow.equals(defaultFlowToFlow)) {
+							if (!defaultFlow.equals(normalStep)) {
+								if (!defaultFlow
+										.equals(exclusiveGatewayToNormalStep)) {
+									if (!defaultFlow
+											.equals(outFlowToAlternativeFlow)) {
+										if (!defaultFlow.equals(outFlowToAlt)) {
+											if (!defaultFlow
+													.equals(exclusiveGateway)) {
+												if (!defaultFlow
+														.equals(process)) {
+													if (!defaultFlow
+															.equals(outFlow)) {
+														if (!flow
+																.equals(useCase)) {
+															if (!flow
+																	.equals(processToUseCase)) {
+																if (!flow
+																		.equals(normalStep)) {
+																	if (!flow
+																			.equals(outFlowToAlternativeFlow)) {
+																		if (!flow
+																				.equals(outFlowToAlt)) {
+																			if (!flow
+																					.equals(process)) {
+																				if (!flow
+																						.equals(outFlow)) {
+																					if (!defaultFlowToFlow
+																							.equals(useCase)) {
+																						if (!defaultFlowToFlow
+																								.equals(processToUseCase)) {
+																							if (!defaultFlowToFlow
+																									.equals(flow)) {
+																								if (!defaultFlowToFlow
+																										.equals(normalStep)) {
+																									if (!defaultFlowToFlow
+																											.equals(exclusiveGatewayToNormalStep)) {
+																										if (!defaultFlowToFlow
+																												.equals(outFlowToAlternativeFlow)) {
+																											if (!defaultFlowToFlow
+																													.equals(outFlowToAlt)) {
+																												if (!defaultFlowToFlow
+																														.equals(exclusiveGateway)) {
+																													if (!defaultFlowToFlow
+																															.equals(process)) {
+																														if (!defaultFlowToFlow
+																																.equals(outFlow)) {
+																															if (!normalStep
+																																	.equals(useCase)) {
+																																if (!normalStep
+																																		.equals(processToUseCase)) {
+																																	if (!normalStep
+																																			.equals(outFlowToAlternativeFlow)) {
+																																		if (!normalStep
+																																				.equals(outFlowToAlt)) {
+																																			if (!normalStep
+																																					.equals(process)) {
+																																				if (!normalStep
+																																						.equals(outFlow)) {
+																																					if (!exclusiveGatewayToNormalStep
+																																							.equals(useCase)) {
+																																						if (!exclusiveGatewayToNormalStep
+																																								.equals(processToUseCase)) {
+																																							if (!exclusiveGatewayToNormalStep
+																																									.equals(flow)) {
+																																								if (!exclusiveGatewayToNormalStep
+																																										.equals(normalStep)) {
+																																									if (!exclusiveGatewayToNormalStep
+																																											.equals(outFlowToAlternativeFlow)) {
+																																										if (!exclusiveGatewayToNormalStep
+																																												.equals(outFlowToAlt)) {
+																																											if (!exclusiveGatewayToNormalStep
+																																													.equals(process)) {
+																																												if (!exclusiveGatewayToNormalStep
+																																														.equals(outFlow)) {
+																																													if (!alternativeFlow
+																																															.equals(useCase)) {
+																																														if (!alternativeFlow
+																																																.equals(processToUseCase)) {
+																																															if (!alternativeFlow
+																																																	.equals(defaultFlow)) {
+																																																if (!alternativeFlow
+																																																		.equals(flow)) {
+																																																	if (!alternativeFlow
+																																																			.equals(defaultFlowToFlow)) {
+																																																		if (!alternativeFlow
+																																																				.equals(normalStep)) {
+																																																			if (!alternativeFlow
+																																																					.equals(exclusiveGatewayToNormalStep)) {
+																																																				if (!alternativeFlow
+																																																						.equals(outFlowToAlternativeFlow)) {
+																																																					if (!alternativeFlow
+																																																							.equals(outFlowToAlt)) {
+																																																						if (!alternativeFlow
+																																																								.equals(exclusiveGateway)) {
+																																																							if (!alternativeFlow
+																																																									.equals(process)) {
+																																																								if (!alternativeFlow
+																																																										.equals(outFlow)) {
+																																																									if (!outFlowToAlternativeFlow
+																																																											.equals(useCase)) {
+																																																										if (!outFlowToAlternativeFlow
+																																																												.equals(processToUseCase)) {
+																																																											if (!outFlowToAlternativeFlow
+																																																													.equals(process)) {
+																																																												if (!alt.equals(useCase)) {
+																																																													if (!alt.equals(processToUseCase)) {
+																																																														if (!alt.equals(defaultFlow)) {
+																																																															if (!alt.equals(flow)) {
+																																																																if (!alt.equals(defaultFlowToFlow)) {
+																																																																	if (!alt.equals(normalStep)) {
+																																																																		if (!alt.equals(exclusiveGatewayToNormalStep)) {
+																																																																			if (!alt.equals(alternativeFlow)) {
+																																																																				if (!alt.equals(outFlowToAlternativeFlow)) {
+																																																																					if (!alt.equals(outFlowToAlt)) {
+																																																																						if (!alt.equals(exclusiveGateway)) {
+																																																																							if (!alt.equals(process)) {
+																																																																								if (!alt.equals(outFlow)) {
+																																																																									if (!outFlowToAlt
+																																																																											.equals(useCase)) {
+																																																																										if (!outFlowToAlt
+																																																																												.equals(processToUseCase)) {
+																																																																											if (!outFlowToAlt
+																																																																													.equals(outFlowToAlternativeFlow)) {
+																																																																												if (!outFlowToAlt
+																																																																														.equals(process)) {
+																																																																													if (!exclusiveGateway
+																																																																															.equals(useCase)) {
+																																																																														if (!exclusiveGateway
+																																																																																.equals(processToUseCase)) {
+																																																																															if (!exclusiveGateway
+																																																																																	.equals(flow)) {
+																																																																																if (!exclusiveGateway
+																																																																																		.equals(normalStep)) {
+																																																																																	if (!exclusiveGateway
+																																																																																			.equals(exclusiveGatewayToNormalStep)) {
+																																																																																		if (!exclusiveGateway
+																																																																																				.equals(outFlowToAlternativeFlow)) {
+																																																																																			if (!exclusiveGateway
+																																																																																					.equals(outFlowToAlt)) {
+																																																																																				if (!exclusiveGateway
+																																																																																						.equals(process)) {
+																																																																																					if (!exclusiveGateway
+																																																																																							.equals(outFlow)) {
+																																																																																						if (!process
+																																																																																								.equals(useCase)) {
+																																																																																							if (!process
+																																																																																									.equals(processToUseCase)) {
+																																																																																								if (!outFlow
+																																																																																										.equals(useCase)) {
+																																																																																									if (!outFlow
+																																																																																											.equals(processToUseCase)) {
+																																																																																										if (!outFlow
+																																																																																												.equals(outFlowToAlternativeFlow)) {
+																																																																																											if (!outFlow
+																																																																																													.equals(outFlowToAlt)) {
+																																																																																												if (!outFlow
+																																																																																														.equals(process)) {
+																																																																																													return new Object[] {
+																																																																																															ruleresult,
+																																																																																															useCase,
+																																																																																															processToUseCase,
+																																																																																															defaultFlow,
+																																																																																															flow,
+																																																																																															defaultFlowToFlow,
+																																																																																															normalStep,
+																																																																																															exclusiveGatewayToNormalStep,
+																																																																																															alternativeFlow,
+																																																																																															outFlowToAlternativeFlow,
+																																																																																															alt,
+																																																																																															outFlowToAlt,
+																																																																																															exclusiveGateway,
+																																																																																															process,
+																																																																																															outFlow };
+																																																																																												}
+																																																																																											}
+																																																																																										}
+																																																																																									}
+																																																																																								}
+																																																																																							}
+																																																																																						}
+																																																																																					}
+																																																																																				}
+																																																																																			}
+																																																																																		}
+																																																																																	}
+																																																																																}
+																																																																															}
+																																																																														}
+																																																																													}
+																																																																												}
+																																																																											}
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_1_3_greenBBBBBBBBBBFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject useCase, EObject normalStep,
+			EObject alternativeFlow, EObject outFlowToAlternativeFlow,
+			EObject alt, EObject outFlowToAlt, EObject exclusiveGateway,
+			EObject process, EObject outFlow) {
+		EMoflonEdge useCase__alternativeFlow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge normalStep__alt____stepAlternative = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToAlternativeFlow__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToAlternativeFlow__alternativeFlow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge alt__alternativeFlow____ref = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToAlt__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToAlt__alt____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "SeqFlowAfterEGToAltFlowRule";
+		String useCase__alternativeFlow____flows_name_prime = "flows";
+		String normalStep__alt____stepAlternative_name_prime = "stepAlternative";
+		String outFlowToAlternativeFlow__outFlow____source_name_prime = "source";
+		String outFlowToAlternativeFlow__alternativeFlow____target_name_prime = "target";
+		String alt__alternativeFlow____ref_name_prime = "ref";
+		String outFlowToAlt__outFlow____source_name_prime = "source";
+		String outFlowToAlt__alt____target_name_prime = "target";
+		String outFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__outFlow____outgoing_name_prime = "outgoing";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		useCase__alternativeFlow____flows.setSrc(useCase);
+		useCase__alternativeFlow____flows.setTrg(alternativeFlow);
+		ruleresult.getCreatedEdges().add(useCase__alternativeFlow____flows);
+		normalStep__alt____stepAlternative.setSrc(normalStep);
+		normalStep__alt____stepAlternative.setTrg(alt);
+		ruleresult.getCreatedEdges().add(normalStep__alt____stepAlternative);
+		outFlowToAlternativeFlow__outFlow____source
+				.setSrc(outFlowToAlternativeFlow);
+		outFlowToAlternativeFlow__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(
+				outFlowToAlternativeFlow__outFlow____source);
+		outFlowToAlternativeFlow__alternativeFlow____target
+				.setSrc(outFlowToAlternativeFlow);
+		outFlowToAlternativeFlow__alternativeFlow____target
+				.setTrg(alternativeFlow);
+		ruleresult.getCreatedEdges().add(
+				outFlowToAlternativeFlow__alternativeFlow____target);
+		alt__alternativeFlow____ref.setSrc(alt);
+		alt__alternativeFlow____ref.setTrg(alternativeFlow);
+		ruleresult.getCreatedEdges().add(alt__alternativeFlow____ref);
+		outFlowToAlt__outFlow____source.setSrc(outFlowToAlt);
+		outFlowToAlt__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(outFlowToAlt__outFlow____source);
+		outFlowToAlt__alt____target.setSrc(outFlowToAlt);
+		outFlowToAlt__alt____target.setTrg(alt);
+		ruleresult.getCreatedEdges().add(outFlowToAlt__alt____target);
+		outFlow__exclusiveGateway____sourceRef.setSrc(outFlow);
+		outFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		ruleresult.getTranslatedEdges().add(
+				outFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__outFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____outgoing.setTrg(outFlow);
+		ruleresult.getTranslatedEdges().add(
+				exclusiveGateway__outFlow____outgoing);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		ruleresult.getTranslatedEdges().add(process__outFlow____flowElements);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		useCase__alternativeFlow____flows
+				.setName(useCase__alternativeFlow____flows_name_prime);
+		normalStep__alt____stepAlternative
+				.setName(normalStep__alt____stepAlternative_name_prime);
+		outFlowToAlternativeFlow__outFlow____source
+				.setName(outFlowToAlternativeFlow__outFlow____source_name_prime);
+		outFlowToAlternativeFlow__alternativeFlow____target
+				.setName(outFlowToAlternativeFlow__alternativeFlow____target_name_prime);
+		alt__alternativeFlow____ref
+				.setName(alt__alternativeFlow____ref_name_prime);
+		outFlowToAlt__outFlow____source
+				.setName(outFlowToAlt__outFlow____source_name_prime);
+		outFlowToAlt__alt____target
+				.setName(outFlowToAlt__alt____target_name_prime);
+		outFlow__exclusiveGateway____sourceRef
+				.setName(outFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__outFlow____outgoing
+				.setName(exclusiveGateway__outFlow____outgoing_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		return new Object[] { ruleresult, useCase, normalStep, alternativeFlow,
+				outFlowToAlternativeFlow, alt, outFlowToAlt, exclusiveGateway,
+				process, outFlow, useCase__alternativeFlow____flows,
+				normalStep__alt____stepAlternative,
+				outFlowToAlternativeFlow__outFlow____source,
+				outFlowToAlternativeFlow__alternativeFlow____target,
+				alt__alternativeFlow____ref, outFlowToAlt__outFlow____source,
+				outFlowToAlt__alt____target,
+				outFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__outFlow____outgoing,
+				process__outFlow____flowElements };
+	}
+
+	public static final void pattern_SeqFlowAfterEGToAltFlowRule_1_5_expressionBBBBBBBBBBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, PerformRuleResult ruleresult,
+			EObject useCase, EObject processToUseCase, EObject defaultFlow,
+			EObject flow, EObject defaultFlowToFlow, EObject normalStep,
+			EObject exclusiveGatewayToNormalStep, EObject alternativeFlow,
+			EObject outFlowToAlternativeFlow, EObject alt,
+			EObject outFlowToAlt, EObject exclusiveGateway, EObject process,
+			EObject outFlow) {
+		_this.registerObjects_FWD(ruleresult, useCase, processToUseCase,
+				defaultFlow, flow, defaultFlowToFlow, normalStep,
+				exclusiveGatewayToNormalStep, alternativeFlow,
+				outFlowToAlternativeFlow, alt, outFlowToAlt, exclusiveGateway,
+				process, outFlow);
+
+	}
+
+	public static final PerformRuleResult pattern_SeqFlowAfterEGToAltFlowRule_1_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_1_bindingFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_1_blackFBB(
+			EClass eClass, SeqFlowAfterEGToAltFlowRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_FWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_1_bindingAndBlackFFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_2_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_2_1_bindingFB(_this);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_2_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_SeqFlowAfterEGToAltFlowRule_2_1_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_2_1_black = pattern_SeqFlowAfterEGToAltFlowRule_2_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_2_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_SeqFlowAfterEGToAltFlowRule_2_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "SeqFlowAfterEGToAltFlowRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_2_bindingFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("defaultFlow");
+		EObject _localVariable_1 = match.getObject("exclusiveGateway");
+		EObject _localVariable_2 = match.getObject("process");
+		EObject _localVariable_3 = match.getObject("outFlow");
+		EObject tmpDefaultFlow = _localVariable_0;
+		EObject tmpExclusiveGateway = _localVariable_1;
+		EObject tmpProcess = _localVariable_2;
+		EObject tmpOutFlow = _localVariable_3;
+		if (tmpDefaultFlow instanceof SequenceFlow) {
+			SequenceFlow defaultFlow = (SequenceFlow) tmpDefaultFlow;
+			if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+				ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+				if (tmpProcess instanceof bpmn2.Process) {
+					bpmn2.Process process = (bpmn2.Process) tmpProcess;
+					if (tmpOutFlow instanceof SequenceFlow) {
+						SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+						return new Object[] { defaultFlow, exclusiveGateway,
+								process, outFlow, match };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_2_2_blackFFBFFFFBBBB(
+			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!defaultFlow.equals(outFlow)) {
+			for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+					.getOppositeReferenceTyped(process, ProcessToUseCase.class,
+							"source")) {
+				UseCase useCase = processToUseCase.getTarget();
+				if (useCase != null) {
+					for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(defaultFlow,
+									SequenceFlowToUCFlow.class, "source")) {
+						Flow flow = defaultFlowToFlow.getTarget();
+						if (flow != null) {
+							for (FlowNodeToStep exclusiveGatewayToNormalStep : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(
+											exclusiveGateway,
+											FlowNodeToStep.class, "source")) {
+								Step tmpNormalStep = exclusiveGatewayToNormalStep
+										.getTarget();
+								if (tmpNormalStep instanceof NormalStep) {
+									NormalStep normalStep = (NormalStep) tmpNormalStep;
+									_result.add(new Object[] { useCase,
+											processToUseCase, defaultFlow,
+											flow, defaultFlowToFlow,
+											normalStep,
+											exclusiveGatewayToNormalStep,
+											exclusiveGateway, process, outFlow,
+											match });
+								}
+
+							}
+						}
+
+					}
+				}
+
+			}
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_2_3_blackBBBBBBBBBB(
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			SequenceFlow outFlow) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!defaultFlow.equals(outFlow)) {
+			if (useCase.getFlows().contains(flow)) {
+				if (process.equals(processToUseCase.getSource())) {
+					if (useCase.equals(processToUseCase.getTarget())) {
+						if (flow.getSteps().contains(normalStep)) {
+							if (defaultFlow.equals(defaultFlowToFlow
+									.getSource())) {
+								if (flow.equals(defaultFlowToFlow.getTarget())) {
+									if (exclusiveGateway
+											.equals(exclusiveGatewayToNormalStep
+													.getSource())) {
+										if (normalStep
+												.equals(exclusiveGatewayToNormalStep
+														.getTarget())) {
+											if (defaultFlow
+													.equals(exclusiveGateway
+															.getDefault())) {
+												if (exclusiveGateway
+														.equals(defaultFlow
+																.getSourceRef())) {
+													if (exclusiveGateway
+															.equals(outFlow
+																	.getSourceRef())) {
+														if (process
+																.getFlowElements()
+																.contains(
+																		defaultFlow)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			exclusiveGateway)) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				outFlow)) {
+																	_result.add(new Object[] {
+																			useCase,
+																			processToUseCase,
+																			defaultFlow,
+																			flow,
+																			defaultFlowToFlow,
+																			normalStep,
+																			exclusiveGatewayToNormalStep,
+																			exclusiveGateway,
+																			process,
+																			outFlow });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_3_greenBBBBBBBBBBFFFFFFFFFFFFFFFFF(
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			SequenceFlow outFlow) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToUseCase__process____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToUseCase__useCase____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge defaultFlowToFlow__defaultFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge defaultFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGatewayToNormalStep__exclusiveGateway____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGatewayToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__defaultFlow____default = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge defaultFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__defaultFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__defaultFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__exclusiveGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String useCase__flow____flows_name_prime = "flows";
+		String processToUseCase__process____source_name_prime = "source";
+		String processToUseCase__useCase____target_name_prime = "target";
+		String flow__normalStep____steps_name_prime = "steps";
+		String defaultFlowToFlow__defaultFlow____source_name_prime = "source";
+		String defaultFlowToFlow__flow____target_name_prime = "target";
+		String exclusiveGatewayToNormalStep__exclusiveGateway____source_name_prime = "source";
+		String exclusiveGatewayToNormalStep__normalStep____target_name_prime = "target";
+		String exclusiveGateway__defaultFlow____default_name_prime = "default";
+		String defaultFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__defaultFlow____outgoing_name_prime = "outgoing";
+		String outFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__outFlow____outgoing_name_prime = "outgoing";
+		String process__defaultFlow____flowElements_name_prime = "flowElements";
+		String process__exclusiveGateway____flowElements_name_prime = "flowElements";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(processToUseCase);
+		isApplicableMatch.getAllContextElements().add(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(flow);
+		isApplicableMatch.getAllContextElements().add(defaultFlowToFlow);
+		isApplicableMatch.getAllContextElements().add(normalStep);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGatewayToNormalStep);
+		isApplicableMatch.getAllContextElements().add(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(process);
+		isApplicableMatch.getAllContextElements().add(outFlow);
+		useCase__flow____flows.setSrc(useCase);
+		useCase__flow____flows.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(useCase__flow____flows);
+		processToUseCase__process____source.setSrc(processToUseCase);
+		processToUseCase__process____source.setTrg(process);
+		isApplicableMatch.getAllContextElements().add(
+				processToUseCase__process____source);
+		processToUseCase__useCase____target.setSrc(processToUseCase);
+		processToUseCase__useCase____target.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				processToUseCase__useCase____target);
+		flow__normalStep____steps.setSrc(flow);
+		flow__normalStep____steps.setTrg(normalStep);
+		isApplicableMatch.getAllContextElements()
+				.add(flow__normalStep____steps);
+		defaultFlowToFlow__defaultFlow____source.setSrc(defaultFlowToFlow);
+		defaultFlowToFlow__defaultFlow____source.setTrg(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(
+				defaultFlowToFlow__defaultFlow____source);
+		defaultFlowToFlow__flow____target.setSrc(defaultFlowToFlow);
+		defaultFlowToFlow__flow____target.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(
+				defaultFlowToFlow__flow____target);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setSrc(exclusiveGatewayToNormalStep);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGatewayToNormalStep__exclusiveGateway____source);
+		exclusiveGatewayToNormalStep__normalStep____target
+				.setSrc(exclusiveGatewayToNormalStep);
+		exclusiveGatewayToNormalStep__normalStep____target.setTrg(normalStep);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGatewayToNormalStep__normalStep____target);
+		exclusiveGateway__defaultFlow____default.setSrc(exclusiveGateway);
+		exclusiveGateway__defaultFlow____default.setTrg(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGateway__defaultFlow____default);
+		defaultFlow__exclusiveGateway____sourceRef.setSrc(defaultFlow);
+		defaultFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				defaultFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__defaultFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__defaultFlow____outgoing.setTrg(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGateway__defaultFlow____outgoing);
+		outFlow__exclusiveGateway____sourceRef.setSrc(outFlow);
+		outFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				outFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__outFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____outgoing.setTrg(outFlow);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGateway__outFlow____outgoing);
+		process__defaultFlow____flowElements.setSrc(process);
+		process__defaultFlow____flowElements.setTrg(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__defaultFlow____flowElements);
+		process__exclusiveGateway____flowElements.setSrc(process);
+		process__exclusiveGateway____flowElements.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				process__exclusiveGateway____flowElements);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__outFlow____flowElements);
+		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		processToUseCase__process____source
+				.setName(processToUseCase__process____source_name_prime);
+		processToUseCase__useCase____target
+				.setName(processToUseCase__useCase____target_name_prime);
+		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
+		defaultFlowToFlow__defaultFlow____source
+				.setName(defaultFlowToFlow__defaultFlow____source_name_prime);
+		defaultFlowToFlow__flow____target
+				.setName(defaultFlowToFlow__flow____target_name_prime);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setName(exclusiveGatewayToNormalStep__exclusiveGateway____source_name_prime);
+		exclusiveGatewayToNormalStep__normalStep____target
+				.setName(exclusiveGatewayToNormalStep__normalStep____target_name_prime);
+		exclusiveGateway__defaultFlow____default
+				.setName(exclusiveGateway__defaultFlow____default_name_prime);
+		defaultFlow__exclusiveGateway____sourceRef
+				.setName(defaultFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__defaultFlow____outgoing
+				.setName(exclusiveGateway__defaultFlow____outgoing_name_prime);
+		outFlow__exclusiveGateway____sourceRef
+				.setName(outFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__outFlow____outgoing
+				.setName(exclusiveGateway__outFlow____outgoing_name_prime);
+		process__defaultFlow____flowElements
+				.setName(process__defaultFlow____flowElements_name_prime);
+		process__exclusiveGateway____flowElements
+				.setName(process__exclusiveGateway____flowElements_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		return new Object[] { useCase, processToUseCase, defaultFlow, flow,
+				defaultFlowToFlow, normalStep, exclusiveGatewayToNormalStep,
+				exclusiveGateway, process, outFlow, isApplicableMatch,
+				useCase__flow____flows, processToUseCase__process____source,
+				processToUseCase__useCase____target, flow__normalStep____steps,
+				defaultFlowToFlow__defaultFlow____source,
+				defaultFlowToFlow__flow____target,
+				exclusiveGatewayToNormalStep__exclusiveGateway____source,
+				exclusiveGatewayToNormalStep__normalStep____target,
+				exclusiveGateway__defaultFlow____default,
+				defaultFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__defaultFlow____outgoing,
+				outFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__outFlow____outgoing,
+				process__defaultFlow____flowElements,
+				process__exclusiveGateway____flowElements,
+				process__outFlow____flowElements };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_4_bindingFBBBBBBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			ProcessToUseCase processToUseCase, SequenceFlow defaultFlow,
+			Flow flow, SequenceFlowToUCFlow defaultFlowToFlow,
+			NormalStep normalStep, FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			SequenceFlow outFlow) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
+				isApplicableMatch, useCase, processToUseCase, defaultFlow,
+				flow, defaultFlowToFlow, normalStep,
+				exclusiveGatewayToNormalStep, exclusiveGateway, process,
+				outFlow);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, useCase,
+					processToUseCase, defaultFlow, flow, defaultFlowToFlow,
+					normalStep, exclusiveGatewayToNormalStep, exclusiveGateway,
+					process, outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_4_bindingAndBlackFBBBBBBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			ProcessToUseCase processToUseCase, SequenceFlow defaultFlow,
+			Flow flow, SequenceFlowToUCFlow defaultFlowToFlow,
+			NormalStep normalStep, FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			SequenceFlow outFlow) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_2_4_binding = pattern_SeqFlowAfterEGToAltFlowRule_2_4_bindingFBBBBBBBBBBBB(
+				_this, isApplicableMatch, useCase, processToUseCase,
+				defaultFlow, flow, defaultFlowToFlow, normalStep,
+				exclusiveGatewayToNormalStep, exclusiveGateway, process,
+				outFlow);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_2_4_binding != null) {
+			CSP csp = (CSP) result_pattern_SeqFlowAfterEGToAltFlowRule_2_4_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_2_4_black = pattern_SeqFlowAfterEGToAltFlowRule_2_4_blackB(csp);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_2_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, useCase,
+						processToUseCase, defaultFlow, flow, defaultFlowToFlow,
+						normalStep, exclusiveGatewayToNormalStep,
+						exclusiveGateway, process, outFlow };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_2_5_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_2_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "SeqFlowAfterEGToAltFlowRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_SeqFlowAfterEGToAltFlowRule_2_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_10_1_blackBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match, UseCase useCase,
+			Flow flow, NormalStep normalStep, AlternativeFlow alternativeFlow,
+			AlternativeFlowAlternative alt) {
+		if (!alternativeFlow.equals(flow)) {
+			return new Object[] { _this, match, useCase, flow, normalStep,
+					alternativeFlow, alt };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_10_2_bindingFBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match, UseCase useCase,
+			Flow flow, NormalStep normalStep, AlternativeFlow alternativeFlow,
+			AlternativeFlowAlternative alt) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_BWD(match, useCase,
+				flow, normalStep, alternativeFlow, alt);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, useCase, flow, normalStep,
+					alternativeFlow, alt };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_10_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_10_2_bindingAndBlackFBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match, UseCase useCase,
+			Flow flow, NormalStep normalStep, AlternativeFlow alternativeFlow,
+			AlternativeFlowAlternative alt) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_10_2_binding = pattern_SeqFlowAfterEGToAltFlowRule_10_2_bindingFBBBBBBB(
+				_this, match, useCase, flow, normalStep, alternativeFlow, alt);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_10_2_binding != null) {
+			CSP csp = (CSP) result_pattern_SeqFlowAfterEGToAltFlowRule_10_2_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_10_2_black = pattern_SeqFlowAfterEGToAltFlowRule_10_2_blackB(csp);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_10_2_black != null) {
+
+				return new Object[] { csp, _this, match, useCase, flow,
+						normalStep, alternativeFlow, alt };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_10_3_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_10_4_blackBBBBBB(
+			Match match, UseCase useCase, Flow flow, NormalStep normalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt) {
+		if (!alternativeFlow.equals(flow)) {
+			return new Object[] { match, useCase, flow, normalStep,
+					alternativeFlow, alt };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_10_4_greenBBBBBFFF(
+			Match match, UseCase useCase, NormalStep normalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt) {
+		EMoflonEdge useCase__alternativeFlow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge normalStep__alt____stepAlternative = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge alt__alternativeFlow____ref = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(alternativeFlow);
+		match.getToBeTranslatedNodes().add(alt);
+		String useCase__alternativeFlow____flows_name_prime = "flows";
+		String normalStep__alt____stepAlternative_name_prime = "stepAlternative";
+		String alt__alternativeFlow____ref_name_prime = "ref";
+		useCase__alternativeFlow____flows.setSrc(useCase);
+		useCase__alternativeFlow____flows.setTrg(alternativeFlow);
+		match.getToBeTranslatedEdges().add(useCase__alternativeFlow____flows);
+		normalStep__alt____stepAlternative.setSrc(normalStep);
+		normalStep__alt____stepAlternative.setTrg(alt);
+		match.getToBeTranslatedEdges().add(normalStep__alt____stepAlternative);
+		alt__alternativeFlow____ref.setSrc(alt);
+		alt__alternativeFlow____ref.setTrg(alternativeFlow);
+		match.getToBeTranslatedEdges().add(alt__alternativeFlow____ref);
+		useCase__alternativeFlow____flows
+				.setName(useCase__alternativeFlow____flows_name_prime);
+		normalStep__alt____stepAlternative
+				.setName(normalStep__alt____stepAlternative_name_prime);
+		alt__alternativeFlow____ref
+				.setName(alt__alternativeFlow____ref_name_prime);
+		return new Object[] { match, useCase, normalStep, alternativeFlow, alt,
+				useCase__alternativeFlow____flows,
+				normalStep__alt____stepAlternative, alt__alternativeFlow____ref };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_10_5_blackBBBBBB(
+			Match match, UseCase useCase, Flow flow, NormalStep normalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt) {
+		if (!alternativeFlow.equals(flow)) {
+			return new Object[] { match, useCase, flow, normalStep,
+					alternativeFlow, alt };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_10_5_greenBBBBFF(
+			Match match, UseCase useCase, Flow flow, NormalStep normalStep) {
+		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getContextNodes().add(useCase);
+		match.getContextNodes().add(flow);
+		match.getContextNodes().add(normalStep);
+		String useCase__flow____flows_name_prime = "flows";
+		String flow__normalStep____steps_name_prime = "steps";
+		useCase__flow____flows.setSrc(useCase);
+		useCase__flow____flows.setTrg(flow);
+		match.getContextEdges().add(useCase__flow____flows);
+		flow__normalStep____steps.setSrc(flow);
+		flow__normalStep____steps.setTrg(normalStep);
+		match.getContextEdges().add(flow__normalStep____steps);
+		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
+		return new Object[] { match, useCase, flow, normalStep,
+				useCase__flow____flows, flow__normalStep____steps };
+	}
+
+	public static final void pattern_SeqFlowAfterEGToAltFlowRule_10_6_expressionBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match, UseCase useCase,
+			Flow flow, NormalStep normalStep, AlternativeFlow alternativeFlow,
+			AlternativeFlowAlternative alt) {
+		_this.registerObjectsToMatch_BWD(match, useCase, flow, normalStep,
+				alternativeFlow, alt);
+
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_10_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_10_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_11_1_bindingFFFFFFFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_1 = isApplicableMatch
+				.getObject("processToUseCase");
+		EObject _localVariable_2 = isApplicableMatch.getObject("defaultFlow");
+		EObject _localVariable_3 = isApplicableMatch.getObject("flow");
+		EObject _localVariable_4 = isApplicableMatch
+				.getObject("defaultFlowToFlow");
+		EObject _localVariable_5 = isApplicableMatch.getObject("normalStep");
+		EObject _localVariable_6 = isApplicableMatch
+				.getObject("exclusiveGatewayToNormalStep");
+		EObject _localVariable_7 = isApplicableMatch
+				.getObject("alternativeFlow");
+		EObject _localVariable_8 = isApplicableMatch.getObject("alt");
+		EObject _localVariable_9 = isApplicableMatch
+				.getObject("exclusiveGateway");
+		EObject _localVariable_10 = isApplicableMatch.getObject("process");
+		EObject tmpUseCase = _localVariable_0;
+		EObject tmpProcessToUseCase = _localVariable_1;
+		EObject tmpDefaultFlow = _localVariable_2;
+		EObject tmpFlow = _localVariable_3;
+		EObject tmpDefaultFlowToFlow = _localVariable_4;
+		EObject tmpNormalStep = _localVariable_5;
+		EObject tmpExclusiveGatewayToNormalStep = _localVariable_6;
+		EObject tmpAlternativeFlow = _localVariable_7;
+		EObject tmpAlt = _localVariable_8;
+		EObject tmpExclusiveGateway = _localVariable_9;
+		EObject tmpProcess = _localVariable_10;
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			if (tmpProcessToUseCase instanceof ProcessToUseCase) {
+				ProcessToUseCase processToUseCase = (ProcessToUseCase) tmpProcessToUseCase;
+				if (tmpDefaultFlow instanceof SequenceFlow) {
+					SequenceFlow defaultFlow = (SequenceFlow) tmpDefaultFlow;
+					if (tmpFlow instanceof Flow) {
+						Flow flow = (Flow) tmpFlow;
+						if (tmpDefaultFlowToFlow instanceof SequenceFlowToUCFlow) {
+							SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) tmpDefaultFlowToFlow;
+							if (tmpNormalStep instanceof NormalStep) {
+								NormalStep normalStep = (NormalStep) tmpNormalStep;
+								if (tmpExclusiveGatewayToNormalStep instanceof FlowNodeToStep) {
+									FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) tmpExclusiveGatewayToNormalStep;
+									if (tmpAlternativeFlow instanceof AlternativeFlow) {
+										AlternativeFlow alternativeFlow = (AlternativeFlow) tmpAlternativeFlow;
+										if (tmpAlt instanceof AlternativeFlowAlternative) {
+											AlternativeFlowAlternative alt = (AlternativeFlowAlternative) tmpAlt;
+											if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+												ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+												if (tmpProcess instanceof bpmn2.Process) {
+													bpmn2.Process process = (bpmn2.Process) tmpProcess;
+													return new Object[] {
+															useCase,
+															processToUseCase,
+															defaultFlow,
+															flow,
+															defaultFlowToFlow,
+															normalStep,
+															exclusiveGatewayToNormalStep,
+															alternativeFlow,
+															alt,
+															exclusiveGateway,
+															process,
+															isApplicableMatch };
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_11_1_blackBBBBBBBBBBBFBB(
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		if (!alternativeFlow.equals(flow)) {
+			for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+				if (tmpCsp instanceof CSP) {
+					CSP csp = (CSP) tmpCsp;
+					return new Object[] { useCase, processToUseCase,
+							defaultFlow, flow, defaultFlowToFlow, normalStep,
+							exclusiveGatewayToNormalStep, alternativeFlow, alt,
+							exclusiveGateway, process, csp, _this,
+							isApplicableMatch };
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_11_1_bindingAndBlackFFFFFFFFFFFFBB(
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_11_1_bindingFFFFFFFFFFFB(isApplicableMatch);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding != null) {
+			UseCase useCase = (UseCase) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[0];
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[1];
+			SequenceFlow defaultFlow = (SequenceFlow) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[2];
+			Flow flow = (Flow) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[3];
+			SequenceFlowToUCFlow defaultFlowToFlow = (SequenceFlowToUCFlow) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[4];
+			NormalStep normalStep = (NormalStep) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[5];
+			FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[6];
+			AlternativeFlow alternativeFlow = (AlternativeFlow) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[7];
+			AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[8];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[9];
+			bpmn2.Process process = (bpmn2.Process) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_binding[10];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_black = pattern_SeqFlowAfterEGToAltFlowRule_11_1_blackBBBBBBBBBBBFBB(
+					useCase, processToUseCase, defaultFlow, flow,
+					defaultFlowToFlow, normalStep,
+					exclusiveGatewayToNormalStep, alternativeFlow, alt,
+					exclusiveGateway, process, _this, isApplicableMatch);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_black != null) {
+				CSP csp = (CSP) result_pattern_SeqFlowAfterEGToAltFlowRule_11_1_black[11];
+
+				return new Object[] { useCase, processToUseCase, defaultFlow,
+						flow, defaultFlowToFlow, normalStep,
+						exclusiveGatewayToNormalStep, alternativeFlow, alt,
+						exclusiveGateway, process, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_11_1_greenBFBFBBFB(
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process, CSP csp) {
+		SequenceFlowToUCFlow outFlowToAlternativeFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToUCFlow();
+		SeqFlowToAltFlowAlt outFlowToAlt = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSeqFlowToAltFlowAlt();
+		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
+		Object _localVariable_0 = csp.getValue("outFlow", "id");
+		Object _localVariable_1 = csp.getValue("outFlow", "name");
+		outFlowToAlternativeFlow.setTarget(alternativeFlow);
+		outFlowToAlt.setTarget(alt);
+		outFlowToAlternativeFlow.setSource(outFlow);
+		outFlowToAlt.setSource(outFlow);
+		outFlow.setSourceRef(exclusiveGateway);
+		process.getFlowElements().add(outFlow);
+		String outFlow_id_prime = (String) _localVariable_0;
+		String outFlow_name_prime = (String) _localVariable_1;
+		outFlow.setId(outFlow_id_prime);
+		outFlow.setName(outFlow_name_prime);
+		return new Object[] { alternativeFlow, outFlowToAlternativeFlow, alt,
+				outFlowToAlt, exclusiveGateway, process, outFlow, csp };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_11_2_blackBBBBB(
+			AlternativeFlow alternativeFlow,
+			SequenceFlowToUCFlow outFlowToAlternativeFlow,
+			AlternativeFlowAlternative alt, SeqFlowToAltFlowAlt outFlowToAlt,
+			SequenceFlow outFlow) {
+		return new Object[] { alternativeFlow, outFlowToAlternativeFlow, alt,
+				outFlowToAlt, outFlow };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_11_2_greenFBBBBB(
+			AlternativeFlow alternativeFlow,
+			SequenceFlowToUCFlow outFlowToAlternativeFlow,
+			AlternativeFlowAlternative alt, SeqFlowToAltFlowAlt outFlowToAlt,
+			SequenceFlow outFlow) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getTranslatedElements().add(alternativeFlow);
+		ruleresult.getCreatedLinkElements().add(outFlowToAlternativeFlow);
+		ruleresult.getTranslatedElements().add(alt);
+		ruleresult.getCreatedLinkElements().add(outFlowToAlt);
+		ruleresult.getCreatedElements().add(outFlow);
+		return new Object[] { ruleresult, alternativeFlow,
+				outFlowToAlternativeFlow, alt, outFlowToAlt, outFlow };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_11_3_blackBBBBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject useCase,
+			EObject processToUseCase, EObject defaultFlow, EObject flow,
+			EObject defaultFlowToFlow, EObject normalStep,
+			EObject exclusiveGatewayToNormalStep, EObject alternativeFlow,
+			EObject outFlowToAlternativeFlow, EObject alt,
+			EObject outFlowToAlt, EObject exclusiveGateway, EObject process,
+			EObject outFlow) {
+		if (!processToUseCase.equals(useCase)) {
+			if (!defaultFlow.equals(useCase)) {
+				if (!defaultFlow.equals(processToUseCase)) {
+					if (!defaultFlow.equals(flow)) {
+						if (!defaultFlow.equals(defaultFlowToFlow)) {
+							if (!defaultFlow.equals(normalStep)) {
+								if (!defaultFlow
+										.equals(exclusiveGatewayToNormalStep)) {
+									if (!defaultFlow
+											.equals(outFlowToAlternativeFlow)) {
+										if (!defaultFlow.equals(outFlowToAlt)) {
+											if (!defaultFlow
+													.equals(exclusiveGateway)) {
+												if (!defaultFlow
+														.equals(process)) {
+													if (!defaultFlow
+															.equals(outFlow)) {
+														if (!flow
+																.equals(useCase)) {
+															if (!flow
+																	.equals(processToUseCase)) {
+																if (!flow
+																		.equals(normalStep)) {
+																	if (!flow
+																			.equals(outFlowToAlternativeFlow)) {
+																		if (!flow
+																				.equals(outFlowToAlt)) {
+																			if (!flow
+																					.equals(process)) {
+																				if (!flow
+																						.equals(outFlow)) {
+																					if (!defaultFlowToFlow
+																							.equals(useCase)) {
+																						if (!defaultFlowToFlow
+																								.equals(processToUseCase)) {
+																							if (!defaultFlowToFlow
+																									.equals(flow)) {
+																								if (!defaultFlowToFlow
+																										.equals(normalStep)) {
+																									if (!defaultFlowToFlow
+																											.equals(exclusiveGatewayToNormalStep)) {
+																										if (!defaultFlowToFlow
+																												.equals(outFlowToAlternativeFlow)) {
+																											if (!defaultFlowToFlow
+																													.equals(outFlowToAlt)) {
+																												if (!defaultFlowToFlow
+																														.equals(exclusiveGateway)) {
+																													if (!defaultFlowToFlow
+																															.equals(process)) {
+																														if (!defaultFlowToFlow
+																																.equals(outFlow)) {
+																															if (!normalStep
+																																	.equals(useCase)) {
+																																if (!normalStep
+																																		.equals(processToUseCase)) {
+																																	if (!normalStep
+																																			.equals(outFlowToAlternativeFlow)) {
+																																		if (!normalStep
+																																				.equals(outFlowToAlt)) {
+																																			if (!normalStep
+																																					.equals(process)) {
+																																				if (!normalStep
+																																						.equals(outFlow)) {
+																																					if (!exclusiveGatewayToNormalStep
+																																							.equals(useCase)) {
+																																						if (!exclusiveGatewayToNormalStep
+																																								.equals(processToUseCase)) {
+																																							if (!exclusiveGatewayToNormalStep
+																																									.equals(flow)) {
+																																								if (!exclusiveGatewayToNormalStep
+																																										.equals(normalStep)) {
+																																									if (!exclusiveGatewayToNormalStep
+																																											.equals(outFlowToAlternativeFlow)) {
+																																										if (!exclusiveGatewayToNormalStep
+																																												.equals(outFlowToAlt)) {
+																																											if (!exclusiveGatewayToNormalStep
+																																													.equals(process)) {
+																																												if (!exclusiveGatewayToNormalStep
+																																														.equals(outFlow)) {
+																																													if (!alternativeFlow
+																																															.equals(useCase)) {
+																																														if (!alternativeFlow
+																																																.equals(processToUseCase)) {
+																																															if (!alternativeFlow
+																																																	.equals(defaultFlow)) {
+																																																if (!alternativeFlow
+																																																		.equals(flow)) {
+																																																	if (!alternativeFlow
+																																																			.equals(defaultFlowToFlow)) {
+																																																		if (!alternativeFlow
+																																																				.equals(normalStep)) {
+																																																			if (!alternativeFlow
+																																																					.equals(exclusiveGatewayToNormalStep)) {
+																																																				if (!alternativeFlow
+																																																						.equals(outFlowToAlternativeFlow)) {
+																																																					if (!alternativeFlow
+																																																							.equals(outFlowToAlt)) {
+																																																						if (!alternativeFlow
+																																																								.equals(exclusiveGateway)) {
+																																																							if (!alternativeFlow
+																																																									.equals(process)) {
+																																																								if (!alternativeFlow
+																																																										.equals(outFlow)) {
+																																																									if (!outFlowToAlternativeFlow
+																																																											.equals(useCase)) {
+																																																										if (!outFlowToAlternativeFlow
+																																																												.equals(processToUseCase)) {
+																																																											if (!outFlowToAlternativeFlow
+																																																													.equals(process)) {
+																																																												if (!alt.equals(useCase)) {
+																																																													if (!alt.equals(processToUseCase)) {
+																																																														if (!alt.equals(defaultFlow)) {
+																																																															if (!alt.equals(flow)) {
+																																																																if (!alt.equals(defaultFlowToFlow)) {
+																																																																	if (!alt.equals(normalStep)) {
+																																																																		if (!alt.equals(exclusiveGatewayToNormalStep)) {
+																																																																			if (!alt.equals(alternativeFlow)) {
+																																																																				if (!alt.equals(outFlowToAlternativeFlow)) {
+																																																																					if (!alt.equals(outFlowToAlt)) {
+																																																																						if (!alt.equals(exclusiveGateway)) {
+																																																																							if (!alt.equals(process)) {
+																																																																								if (!alt.equals(outFlow)) {
+																																																																									if (!outFlowToAlt
+																																																																											.equals(useCase)) {
+																																																																										if (!outFlowToAlt
+																																																																												.equals(processToUseCase)) {
+																																																																											if (!outFlowToAlt
+																																																																													.equals(outFlowToAlternativeFlow)) {
+																																																																												if (!outFlowToAlt
+																																																																														.equals(process)) {
+																																																																													if (!exclusiveGateway
+																																																																															.equals(useCase)) {
+																																																																														if (!exclusiveGateway
+																																																																																.equals(processToUseCase)) {
+																																																																															if (!exclusiveGateway
+																																																																																	.equals(flow)) {
+																																																																																if (!exclusiveGateway
+																																																																																		.equals(normalStep)) {
+																																																																																	if (!exclusiveGateway
+																																																																																			.equals(exclusiveGatewayToNormalStep)) {
+																																																																																		if (!exclusiveGateway
+																																																																																				.equals(outFlowToAlternativeFlow)) {
+																																																																																			if (!exclusiveGateway
+																																																																																					.equals(outFlowToAlt)) {
+																																																																																				if (!exclusiveGateway
+																																																																																						.equals(process)) {
+																																																																																					if (!exclusiveGateway
+																																																																																							.equals(outFlow)) {
+																																																																																						if (!process
+																																																																																								.equals(useCase)) {
+																																																																																							if (!process
+																																																																																									.equals(processToUseCase)) {
+																																																																																								if (!outFlow
+																																																																																										.equals(useCase)) {
+																																																																																									if (!outFlow
+																																																																																											.equals(processToUseCase)) {
+																																																																																										if (!outFlow
+																																																																																												.equals(outFlowToAlternativeFlow)) {
+																																																																																											if (!outFlow
+																																																																																													.equals(outFlowToAlt)) {
+																																																																																												if (!outFlow
+																																																																																														.equals(process)) {
+																																																																																													return new Object[] {
+																																																																																															ruleresult,
+																																																																																															useCase,
+																																																																																															processToUseCase,
+																																																																																															defaultFlow,
+																																																																																															flow,
+																																																																																															defaultFlowToFlow,
+																																																																																															normalStep,
+																																																																																															exclusiveGatewayToNormalStep,
+																																																																																															alternativeFlow,
+																																																																																															outFlowToAlternativeFlow,
+																																																																																															alt,
+																																																																																															outFlowToAlt,
+																																																																																															exclusiveGateway,
+																																																																																															process,
+																																																																																															outFlow };
+																																																																																												}
+																																																																																											}
+																																																																																										}
+																																																																																									}
+																																																																																								}
+																																																																																							}
+																																																																																						}
+																																																																																					}
+																																																																																				}
+																																																																																			}
+																																																																																		}
+																																																																																	}
+																																																																																}
+																																																																															}
+																																																																														}
+																																																																													}
+																																																																												}
+																																																																											}
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_11_3_greenBBBBBBBBBBFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject useCase, EObject normalStep,
+			EObject alternativeFlow, EObject outFlowToAlternativeFlow,
+			EObject alt, EObject outFlowToAlt, EObject exclusiveGateway,
+			EObject process, EObject outFlow) {
+		EMoflonEdge useCase__alternativeFlow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge normalStep__alt____stepAlternative = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToAlternativeFlow__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToAlternativeFlow__alternativeFlow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge alt__alternativeFlow____ref = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToAlt__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToAlt__alt____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "SeqFlowAfterEGToAltFlowRule";
+		String useCase__alternativeFlow____flows_name_prime = "flows";
+		String normalStep__alt____stepAlternative_name_prime = "stepAlternative";
+		String outFlowToAlternativeFlow__outFlow____source_name_prime = "source";
+		String outFlowToAlternativeFlow__alternativeFlow____target_name_prime = "target";
+		String alt__alternativeFlow____ref_name_prime = "ref";
+		String outFlowToAlt__outFlow____source_name_prime = "source";
+		String outFlowToAlt__alt____target_name_prime = "target";
+		String outFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__outFlow____outgoing_name_prime = "outgoing";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		useCase__alternativeFlow____flows.setSrc(useCase);
+		useCase__alternativeFlow____flows.setTrg(alternativeFlow);
+		ruleresult.getTranslatedEdges().add(useCase__alternativeFlow____flows);
+		normalStep__alt____stepAlternative.setSrc(normalStep);
+		normalStep__alt____stepAlternative.setTrg(alt);
+		ruleresult.getTranslatedEdges().add(normalStep__alt____stepAlternative);
+		outFlowToAlternativeFlow__outFlow____source
+				.setSrc(outFlowToAlternativeFlow);
+		outFlowToAlternativeFlow__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(
+				outFlowToAlternativeFlow__outFlow____source);
+		outFlowToAlternativeFlow__alternativeFlow____target
+				.setSrc(outFlowToAlternativeFlow);
+		outFlowToAlternativeFlow__alternativeFlow____target
+				.setTrg(alternativeFlow);
+		ruleresult.getCreatedEdges().add(
+				outFlowToAlternativeFlow__alternativeFlow____target);
+		alt__alternativeFlow____ref.setSrc(alt);
+		alt__alternativeFlow____ref.setTrg(alternativeFlow);
+		ruleresult.getTranslatedEdges().add(alt__alternativeFlow____ref);
+		outFlowToAlt__outFlow____source.setSrc(outFlowToAlt);
+		outFlowToAlt__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(outFlowToAlt__outFlow____source);
+		outFlowToAlt__alt____target.setSrc(outFlowToAlt);
+		outFlowToAlt__alt____target.setTrg(alt);
+		ruleresult.getCreatedEdges().add(outFlowToAlt__alt____target);
+		outFlow__exclusiveGateway____sourceRef.setSrc(outFlow);
+		outFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		ruleresult.getCreatedEdges()
+				.add(outFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__outFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____outgoing.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(exclusiveGateway__outFlow____outgoing);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(process__outFlow____flowElements);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		useCase__alternativeFlow____flows
+				.setName(useCase__alternativeFlow____flows_name_prime);
+		normalStep__alt____stepAlternative
+				.setName(normalStep__alt____stepAlternative_name_prime);
+		outFlowToAlternativeFlow__outFlow____source
+				.setName(outFlowToAlternativeFlow__outFlow____source_name_prime);
+		outFlowToAlternativeFlow__alternativeFlow____target
+				.setName(outFlowToAlternativeFlow__alternativeFlow____target_name_prime);
+		alt__alternativeFlow____ref
+				.setName(alt__alternativeFlow____ref_name_prime);
+		outFlowToAlt__outFlow____source
+				.setName(outFlowToAlt__outFlow____source_name_prime);
+		outFlowToAlt__alt____target
+				.setName(outFlowToAlt__alt____target_name_prime);
+		outFlow__exclusiveGateway____sourceRef
+				.setName(outFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__outFlow____outgoing
+				.setName(exclusiveGateway__outFlow____outgoing_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		return new Object[] { ruleresult, useCase, normalStep, alternativeFlow,
+				outFlowToAlternativeFlow, alt, outFlowToAlt, exclusiveGateway,
+				process, outFlow, useCase__alternativeFlow____flows,
+				normalStep__alt____stepAlternative,
+				outFlowToAlternativeFlow__outFlow____source,
+				outFlowToAlternativeFlow__alternativeFlow____target,
+				alt__alternativeFlow____ref, outFlowToAlt__outFlow____source,
+				outFlowToAlt__alt____target,
+				outFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__outFlow____outgoing,
+				process__outFlow____flowElements };
+	}
+
+	public static final void pattern_SeqFlowAfterEGToAltFlowRule_11_5_expressionBBBBBBBBBBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, PerformRuleResult ruleresult,
+			EObject useCase, EObject processToUseCase, EObject defaultFlow,
+			EObject flow, EObject defaultFlowToFlow, EObject normalStep,
+			EObject exclusiveGatewayToNormalStep, EObject alternativeFlow,
+			EObject outFlowToAlternativeFlow, EObject alt,
+			EObject outFlowToAlt, EObject exclusiveGateway, EObject process,
+			EObject outFlow) {
+		_this.registerObjects_BWD(ruleresult, useCase, processToUseCase,
+				defaultFlow, flow, defaultFlowToFlow, normalStep,
+				exclusiveGatewayToNormalStep, alternativeFlow,
+				outFlowToAlternativeFlow, alt, outFlowToAlt, exclusiveGateway,
+				process, outFlow);
+
+	}
+
+	public static final PerformRuleResult pattern_SeqFlowAfterEGToAltFlowRule_11_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_1_bindingFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_1_blackFBB(
+			EClass eClass, SeqFlowAfterEGToAltFlowRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_BWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_1_bindingAndBlackFFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_12_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_12_1_bindingFB(_this);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_12_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_SeqFlowAfterEGToAltFlowRule_12_1_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_12_1_black = pattern_SeqFlowAfterEGToAltFlowRule_12_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_12_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_SeqFlowAfterEGToAltFlowRule_12_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "SeqFlowAfterEGToAltFlowRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_2_bindingFFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("useCase");
+		EObject _localVariable_1 = match.getObject("flow");
+		EObject _localVariable_2 = match.getObject("normalStep");
+		EObject _localVariable_3 = match.getObject("alternativeFlow");
+		EObject _localVariable_4 = match.getObject("alt");
+		EObject tmpUseCase = _localVariable_0;
+		EObject tmpFlow = _localVariable_1;
+		EObject tmpNormalStep = _localVariable_2;
+		EObject tmpAlternativeFlow = _localVariable_3;
+		EObject tmpAlt = _localVariable_4;
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			if (tmpFlow instanceof Flow) {
+				Flow flow = (Flow) tmpFlow;
+				if (tmpNormalStep instanceof NormalStep) {
+					NormalStep normalStep = (NormalStep) tmpNormalStep;
+					if (tmpAlternativeFlow instanceof AlternativeFlow) {
+						AlternativeFlow alternativeFlow = (AlternativeFlow) tmpAlternativeFlow;
+						if (tmpAlt instanceof AlternativeFlowAlternative) {
+							AlternativeFlowAlternative alt = (AlternativeFlowAlternative) tmpAlt;
+							return new Object[] { useCase, flow, normalStep,
+									alternativeFlow, alt, match };
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_12_2_blackBFFBFBFBBFFB(
+			UseCase useCase, Flow flow, NormalStep normalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt,
+			Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!alternativeFlow.equals(flow)) {
+			for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+					.getOppositeReferenceTyped(useCase, ProcessToUseCase.class,
+							"target")) {
+				bpmn2.Process process = processToUseCase.getSource();
+				if (process != null) {
+					for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(flow,
+									SequenceFlowToUCFlow.class, "target")) {
+						SequenceFlow defaultFlow = defaultFlowToFlow
+								.getSource();
+						if (defaultFlow != null) {
+							for (FlowNodeToStep exclusiveGatewayToNormalStep : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(normalStep,
+											FlowNodeToStep.class, "target")) {
+								FlowNode tmpExclusiveGateway = exclusiveGatewayToNormalStep
+										.getSource();
+								if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+									ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+									_result.add(new Object[] { useCase,
+											processToUseCase, defaultFlow,
+											flow, defaultFlowToFlow,
+											normalStep,
+											exclusiveGatewayToNormalStep,
+											alternativeFlow, alt,
+											exclusiveGateway, process, match });
+								}
+
+							}
+						}
+
+					}
+				}
+
+			}
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_12_3_blackBBBBBBBBBBB(
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!alternativeFlow.equals(flow)) {
+			if (useCase.getFlows().contains(flow)) {
+				if (useCase.getFlows().contains(alternativeFlow)) {
+					if (process.equals(processToUseCase.getSource())) {
+						if (useCase.equals(processToUseCase.getTarget())) {
+							if (flow.getSteps().contains(normalStep)) {
+								if (defaultFlow.equals(defaultFlowToFlow
+										.getSource())) {
+									if (flow.equals(defaultFlowToFlow
+											.getTarget())) {
+										if (normalStep.getStepAlternative()
+												.contains(alt)) {
+											if (exclusiveGateway
+													.equals(exclusiveGatewayToNormalStep
+															.getSource())) {
+												if (normalStep
+														.equals(exclusiveGatewayToNormalStep
+																.getTarget())) {
+													if (alternativeFlow
+															.equals(alt
+																	.getRef())) {
+														if (defaultFlow
+																.equals(exclusiveGateway
+																		.getDefault())) {
+															if (exclusiveGateway
+																	.equals(defaultFlow
+																			.getSourceRef())) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				defaultFlow)) {
+																	if (process
+																			.getFlowElements()
+																			.contains(
+																					exclusiveGateway)) {
+																		_result.add(new Object[] {
+																				useCase,
+																				processToUseCase,
+																				defaultFlow,
+																				flow,
+																				defaultFlowToFlow,
+																				normalStep,
+																				exclusiveGatewayToNormalStep,
+																				alternativeFlow,
+																				alt,
+																				exclusiveGateway,
+																				process });
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_3_greenBBBBBBBBBBBFFFFFFFFFFFFFFFFF(
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCase__alternativeFlow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToUseCase__process____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToUseCase__useCase____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge defaultFlowToFlow__defaultFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge defaultFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge normalStep__alt____stepAlternative = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGatewayToNormalStep__exclusiveGateway____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGatewayToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge alt__alternativeFlow____ref = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__defaultFlow____default = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge defaultFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__defaultFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__defaultFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__exclusiveGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String useCase__flow____flows_name_prime = "flows";
+		String useCase__alternativeFlow____flows_name_prime = "flows";
+		String processToUseCase__process____source_name_prime = "source";
+		String processToUseCase__useCase____target_name_prime = "target";
+		String flow__normalStep____steps_name_prime = "steps";
+		String defaultFlowToFlow__defaultFlow____source_name_prime = "source";
+		String defaultFlowToFlow__flow____target_name_prime = "target";
+		String normalStep__alt____stepAlternative_name_prime = "stepAlternative";
+		String exclusiveGatewayToNormalStep__exclusiveGateway____source_name_prime = "source";
+		String exclusiveGatewayToNormalStep__normalStep____target_name_prime = "target";
+		String alt__alternativeFlow____ref_name_prime = "ref";
+		String exclusiveGateway__defaultFlow____default_name_prime = "default";
+		String defaultFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__defaultFlow____outgoing_name_prime = "outgoing";
+		String process__defaultFlow____flowElements_name_prime = "flowElements";
+		String process__exclusiveGateway____flowElements_name_prime = "flowElements";
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(processToUseCase);
+		isApplicableMatch.getAllContextElements().add(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(flow);
+		isApplicableMatch.getAllContextElements().add(defaultFlowToFlow);
+		isApplicableMatch.getAllContextElements().add(normalStep);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGatewayToNormalStep);
+		isApplicableMatch.getAllContextElements().add(alternativeFlow);
+		isApplicableMatch.getAllContextElements().add(alt);
+		isApplicableMatch.getAllContextElements().add(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(process);
+		useCase__flow____flows.setSrc(useCase);
+		useCase__flow____flows.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(useCase__flow____flows);
+		useCase__alternativeFlow____flows.setSrc(useCase);
+		useCase__alternativeFlow____flows.setTrg(alternativeFlow);
+		isApplicableMatch.getAllContextElements().add(
+				useCase__alternativeFlow____flows);
+		processToUseCase__process____source.setSrc(processToUseCase);
+		processToUseCase__process____source.setTrg(process);
+		isApplicableMatch.getAllContextElements().add(
+				processToUseCase__process____source);
+		processToUseCase__useCase____target.setSrc(processToUseCase);
+		processToUseCase__useCase____target.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				processToUseCase__useCase____target);
+		flow__normalStep____steps.setSrc(flow);
+		flow__normalStep____steps.setTrg(normalStep);
+		isApplicableMatch.getAllContextElements()
+				.add(flow__normalStep____steps);
+		defaultFlowToFlow__defaultFlow____source.setSrc(defaultFlowToFlow);
+		defaultFlowToFlow__defaultFlow____source.setTrg(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(
+				defaultFlowToFlow__defaultFlow____source);
+		defaultFlowToFlow__flow____target.setSrc(defaultFlowToFlow);
+		defaultFlowToFlow__flow____target.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(
+				defaultFlowToFlow__flow____target);
+		normalStep__alt____stepAlternative.setSrc(normalStep);
+		normalStep__alt____stepAlternative.setTrg(alt);
+		isApplicableMatch.getAllContextElements().add(
+				normalStep__alt____stepAlternative);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setSrc(exclusiveGatewayToNormalStep);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGatewayToNormalStep__exclusiveGateway____source);
+		exclusiveGatewayToNormalStep__normalStep____target
+				.setSrc(exclusiveGatewayToNormalStep);
+		exclusiveGatewayToNormalStep__normalStep____target.setTrg(normalStep);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGatewayToNormalStep__normalStep____target);
+		alt__alternativeFlow____ref.setSrc(alt);
+		alt__alternativeFlow____ref.setTrg(alternativeFlow);
+		isApplicableMatch.getAllContextElements().add(
+				alt__alternativeFlow____ref);
+		exclusiveGateway__defaultFlow____default.setSrc(exclusiveGateway);
+		exclusiveGateway__defaultFlow____default.setTrg(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGateway__defaultFlow____default);
+		defaultFlow__exclusiveGateway____sourceRef.setSrc(defaultFlow);
+		defaultFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				defaultFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__defaultFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__defaultFlow____outgoing.setTrg(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGateway__defaultFlow____outgoing);
+		process__defaultFlow____flowElements.setSrc(process);
+		process__defaultFlow____flowElements.setTrg(defaultFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__defaultFlow____flowElements);
+		process__exclusiveGateway____flowElements.setSrc(process);
+		process__exclusiveGateway____flowElements.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				process__exclusiveGateway____flowElements);
+		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		useCase__alternativeFlow____flows
+				.setName(useCase__alternativeFlow____flows_name_prime);
+		processToUseCase__process____source
+				.setName(processToUseCase__process____source_name_prime);
+		processToUseCase__useCase____target
+				.setName(processToUseCase__useCase____target_name_prime);
+		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
+		defaultFlowToFlow__defaultFlow____source
+				.setName(defaultFlowToFlow__defaultFlow____source_name_prime);
+		defaultFlowToFlow__flow____target
+				.setName(defaultFlowToFlow__flow____target_name_prime);
+		normalStep__alt____stepAlternative
+				.setName(normalStep__alt____stepAlternative_name_prime);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setName(exclusiveGatewayToNormalStep__exclusiveGateway____source_name_prime);
+		exclusiveGatewayToNormalStep__normalStep____target
+				.setName(exclusiveGatewayToNormalStep__normalStep____target_name_prime);
+		alt__alternativeFlow____ref
+				.setName(alt__alternativeFlow____ref_name_prime);
+		exclusiveGateway__defaultFlow____default
+				.setName(exclusiveGateway__defaultFlow____default_name_prime);
+		defaultFlow__exclusiveGateway____sourceRef
+				.setName(defaultFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__defaultFlow____outgoing
+				.setName(exclusiveGateway__defaultFlow____outgoing_name_prime);
+		process__defaultFlow____flowElements
+				.setName(process__defaultFlow____flowElements_name_prime);
+		process__exclusiveGateway____flowElements
+				.setName(process__exclusiveGateway____flowElements_name_prime);
+		return new Object[] { useCase, processToUseCase, defaultFlow, flow,
+				defaultFlowToFlow, normalStep, exclusiveGatewayToNormalStep,
+				alternativeFlow, alt, exclusiveGateway, process,
+				isApplicableMatch, useCase__flow____flows,
+				useCase__alternativeFlow____flows,
+				processToUseCase__process____source,
+				processToUseCase__useCase____target, flow__normalStep____steps,
+				defaultFlowToFlow__defaultFlow____source,
+				defaultFlowToFlow__flow____target,
+				normalStep__alt____stepAlternative,
+				exclusiveGatewayToNormalStep__exclusiveGateway____source,
+				exclusiveGatewayToNormalStep__normalStep____target,
+				alt__alternativeFlow____ref,
+				exclusiveGateway__defaultFlow____default,
+				defaultFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__defaultFlow____outgoing,
+				process__defaultFlow____flowElements,
+				process__exclusiveGateway____flowElements };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_4_bindingFBBBBBBBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			ProcessToUseCase processToUseCase, SequenceFlow defaultFlow,
+			Flow flow, SequenceFlowToUCFlow defaultFlowToFlow,
+			NormalStep normalStep, FlowNodeToStep exclusiveGatewayToNormalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
+				isApplicableMatch, useCase, processToUseCase, defaultFlow,
+				flow, defaultFlowToFlow, normalStep,
+				exclusiveGatewayToNormalStep, alternativeFlow, alt,
+				exclusiveGateway, process);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, useCase,
+					processToUseCase, defaultFlow, flow, defaultFlowToFlow,
+					normalStep, exclusiveGatewayToNormalStep, alternativeFlow,
+					alt, exclusiveGateway, process };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_4_bindingAndBlackFBBBBBBBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			ProcessToUseCase processToUseCase, SequenceFlow defaultFlow,
+			Flow flow, SequenceFlowToUCFlow defaultFlowToFlow,
+			NormalStep normalStep, FlowNodeToStep exclusiveGatewayToNormalStep,
+			AlternativeFlow alternativeFlow, AlternativeFlowAlternative alt,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_12_4_binding = pattern_SeqFlowAfterEGToAltFlowRule_12_4_bindingFBBBBBBBBBBBBB(
+				_this, isApplicableMatch, useCase, processToUseCase,
+				defaultFlow, flow, defaultFlowToFlow, normalStep,
+				exclusiveGatewayToNormalStep, alternativeFlow, alt,
+				exclusiveGateway, process);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_12_4_binding != null) {
+			CSP csp = (CSP) result_pattern_SeqFlowAfterEGToAltFlowRule_12_4_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_12_4_black = pattern_SeqFlowAfterEGToAltFlowRule_12_4_blackB(csp);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_12_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, useCase,
+						processToUseCase, defaultFlow, flow, defaultFlowToFlow,
+						normalStep, exclusiveGatewayToNormalStep,
+						alternativeFlow, alt, exclusiveGateway, process };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_12_5_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_12_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "SeqFlowAfterEGToAltFlowRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_SeqFlowAfterEGToAltFlowRule_12_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_20_1_bindingFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_20_1_blackFBB(
+			EClass __eClass, SeqFlowAfterEGToAltFlowRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_20_1_bindingAndBlackFFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_20_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_20_1_bindingFB(_this);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_20_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_SeqFlowAfterEGToAltFlowRule_20_1_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_20_1_black = pattern_SeqFlowAfterEGToAltFlowRule_20_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_20_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_SeqFlowAfterEGToAltFlowRule_20_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_20_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_20_2_blackFFFFFB(
+			EMoflonEdge _edge_flows) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpUseCase = _edge_flows.getSrc();
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			EObject tmpAlternativeFlow = _edge_flows.getTrg();
+			if (tmpAlternativeFlow instanceof AlternativeFlow) {
+				AlternativeFlow alternativeFlow = (AlternativeFlow) tmpAlternativeFlow;
+				if (useCase.getFlows().contains(alternativeFlow)) {
+					for (Flow flow : useCase.getFlows()) {
+						if (!alternativeFlow.equals(flow)) {
+							for (Step tmpNormalStep : flow.getSteps()) {
+								if (tmpNormalStep instanceof NormalStep) {
+									NormalStep normalStep = (NormalStep) tmpNormalStep;
+									for (StepAlternative tmpAlt : normalStep
+											.getStepAlternative()) {
+										if (tmpAlt instanceof AlternativeFlowAlternative) {
+											AlternativeFlowAlternative alt = (AlternativeFlowAlternative) tmpAlt;
+											if (alternativeFlow.equals(alt
+													.getRef())) {
+												_result.add(new Object[] {
+														useCase, flow,
+														normalStep,
+														alternativeFlow, alt,
+														_edge_flows });
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_20_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_20_3_expressionFBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match, UseCase useCase,
+			Flow flow, NormalStep normalStep, AlternativeFlow alternativeFlow,
+			AlternativeFlowAlternative alt) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, useCase,
+				flow, normalStep, alternativeFlow, alt);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_20_4_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_20_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_20_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_SeqFlowAfterEGToAltFlowRule_20_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_21_1_bindingFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_21_1_blackFBB(
+			EClass __eClass, SeqFlowAfterEGToAltFlowRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_21_1_bindingAndBlackFFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_21_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_21_1_bindingFB(_this);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_21_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_SeqFlowAfterEGToAltFlowRule_21_1_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_21_1_black = pattern_SeqFlowAfterEGToAltFlowRule_21_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_21_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_SeqFlowAfterEGToAltFlowRule_21_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_21_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_21_2_blackFFFFFB(
+			EMoflonEdge _edge_stepAlternative) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpNormalStep = _edge_stepAlternative.getSrc();
+		if (tmpNormalStep instanceof NormalStep) {
+			NormalStep normalStep = (NormalStep) tmpNormalStep;
+			EObject tmpAlt = _edge_stepAlternative.getTrg();
+			if (tmpAlt instanceof AlternativeFlowAlternative) {
+				AlternativeFlowAlternative alt = (AlternativeFlowAlternative) tmpAlt;
+				if (normalStep.getStepAlternative().contains(alt)) {
+					NamedFlow tmpAlternativeFlow = alt.getRef();
+					if (tmpAlternativeFlow instanceof AlternativeFlow) {
+						AlternativeFlow alternativeFlow = (AlternativeFlow) tmpAlternativeFlow;
+						for (Flow flow : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(normalStep,
+										Flow.class, "steps")) {
+							if (!alternativeFlow.equals(flow)) {
+								for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+										.getOppositeReferenceTyped(
+												alternativeFlow, UseCase.class,
+												"flows")) {
+									if (useCase.getFlows().contains(flow)) {
+										_result.add(new Object[] { useCase,
+												flow, normalStep,
+												alternativeFlow, alt,
+												_edge_stepAlternative });
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_21_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_21_3_expressionFBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match, UseCase useCase,
+			Flow flow, NormalStep normalStep, AlternativeFlow alternativeFlow,
+			AlternativeFlowAlternative alt) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, useCase,
+				flow, normalStep, alternativeFlow, alt);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_21_4_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_21_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_21_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_SeqFlowAfterEGToAltFlowRule_21_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_22_1_bindingFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_22_1_blackFBB(
+			EClass __eClass, SeqFlowAfterEGToAltFlowRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_22_1_bindingAndBlackFFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_22_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_22_1_bindingFB(_this);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_22_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_SeqFlowAfterEGToAltFlowRule_22_1_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_22_1_black = pattern_SeqFlowAfterEGToAltFlowRule_22_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_22_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_SeqFlowAfterEGToAltFlowRule_22_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_22_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_22_2_blackFFFFFB(
+			EMoflonEdge _edge_ref) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpAlt = _edge_ref.getSrc();
+		if (tmpAlt instanceof AlternativeFlowAlternative) {
+			AlternativeFlowAlternative alt = (AlternativeFlowAlternative) tmpAlt;
+			EObject tmpAlternativeFlow = _edge_ref.getTrg();
+			if (tmpAlternativeFlow instanceof AlternativeFlow) {
+				AlternativeFlow alternativeFlow = (AlternativeFlow) tmpAlternativeFlow;
+				if (alternativeFlow.equals(alt.getRef())) {
+					for (NormalStep normalStep : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(alt, NormalStep.class,
+									"stepAlternative")) {
+						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(alternativeFlow,
+										UseCase.class, "flows")) {
+							for (Flow flow : useCase.getFlows()) {
+								if (!alternativeFlow.equals(flow)) {
+									if (flow.getSteps().contains(normalStep)) {
+										_result.add(new Object[] { useCase,
+												flow, normalStep,
+												alternativeFlow, alt, _edge_ref });
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_22_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_22_3_expressionFBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match, UseCase useCase,
+			Flow flow, NormalStep normalStep, AlternativeFlow alternativeFlow,
+			AlternativeFlowAlternative alt) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, useCase,
+				flow, normalStep, alternativeFlow, alt);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_22_4_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_22_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_22_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_SeqFlowAfterEGToAltFlowRule_22_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_1_bindingFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_1_blackFBB(
+			EClass __eClass, SeqFlowAfterEGToAltFlowRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_1_bindingAndBlackFFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_23_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_23_1_bindingFB(_this);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_23_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_SeqFlowAfterEGToAltFlowRule_23_1_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_23_1_black = pattern_SeqFlowAfterEGToAltFlowRule_23_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_23_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_SeqFlowAfterEGToAltFlowRule_23_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_369234 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_369234)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_2_black_nac_1BB(
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow) {
+		if (outFlow.equals(exclusiveGateway.getDefault())) {
+			return new Object[] { exclusiveGateway, outFlow };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_23_2_blackFFFFB(
+			EMoflonEdge _edge_sourceRef) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpOutFlow = _edge_sourceRef.getSrc();
+		if (tmpOutFlow instanceof SequenceFlow) {
+			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+			EObject tmpExclusiveGateway = _edge_sourceRef.getTrg();
+			if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+				ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+				if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+					SequenceFlow defaultFlow = exclusiveGateway.getDefault();
+					if (defaultFlow != null) {
+						if (!defaultFlow.equals(outFlow)) {
+							if (exclusiveGateway.equals(defaultFlow
+									.getSourceRef())) {
+								if (pattern_SeqFlowAfterEGToAltFlowRule_23_2_black_nac_0BB(
+										outFlow, exclusiveGateway) == null) {
+									if (pattern_SeqFlowAfterEGToAltFlowRule_23_2_black_nac_1BB(
+											exclusiveGateway, outFlow) == null) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														outFlow,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (process.getFlowElements()
+														.contains(defaultFlow)) {
+													if (process
+															.getFlowElements()
+															.contains(
+																	exclusiveGateway)) {
+														_result.add(new Object[] {
+																defaultFlow,
+																exclusiveGateway,
+																process,
+																outFlow,
+																_edge_sourceRef });
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_23_3_expressionFBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match,
+			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, defaultFlow,
+				exclusiveGateway, process, outFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_23_4_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_SeqFlowAfterEGToAltFlowRule_23_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_1_bindingFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_1_blackFBB(
+			EClass __eClass, SeqFlowAfterEGToAltFlowRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_1_bindingAndBlackFFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_24_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_24_1_bindingFB(_this);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_24_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_SeqFlowAfterEGToAltFlowRule_24_1_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_24_1_black = pattern_SeqFlowAfterEGToAltFlowRule_24_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_24_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_SeqFlowAfterEGToAltFlowRule_24_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_318605 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_318605)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_2_black_nac_1BB(
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow) {
+		if (outFlow.equals(exclusiveGateway.getDefault())) {
+			return new Object[] { exclusiveGateway, outFlow };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_24_2_blackFFFFB(
+			EMoflonEdge _edge_outgoing) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpExclusiveGateway = _edge_outgoing.getSrc();
+		if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+			EObject tmpOutFlow = _edge_outgoing.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+					SequenceFlow defaultFlow = exclusiveGateway.getDefault();
+					if (defaultFlow != null) {
+						if (!defaultFlow.equals(outFlow)) {
+							if (exclusiveGateway.equals(defaultFlow
+									.getSourceRef())) {
+								if (pattern_SeqFlowAfterEGToAltFlowRule_24_2_black_nac_0BB(
+										outFlow, exclusiveGateway) == null) {
+									if (pattern_SeqFlowAfterEGToAltFlowRule_24_2_black_nac_1BB(
+											exclusiveGateway, outFlow) == null) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														exclusiveGateway,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (process.getFlowElements()
+														.contains(defaultFlow)) {
+													if (process
+															.getFlowElements()
+															.contains(outFlow)) {
+														_result.add(new Object[] {
+																defaultFlow,
+																exclusiveGateway,
+																process,
+																outFlow,
+																_edge_outgoing });
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_24_3_expressionFBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match,
+			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, defaultFlow,
+				exclusiveGateway, process, outFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_24_4_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_SeqFlowAfterEGToAltFlowRule_24_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_1_bindingFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_1_blackFBB(
+			EClass __eClass, SeqFlowAfterEGToAltFlowRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_1_bindingAndBlackFFB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_25_1_binding = pattern_SeqFlowAfterEGToAltFlowRule_25_1_bindingFB(_this);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_25_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_SeqFlowAfterEGToAltFlowRule_25_1_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_25_1_black = pattern_SeqFlowAfterEGToAltFlowRule_25_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_25_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_SeqFlowAfterEGToAltFlowRule_25_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_247235 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_247235)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_2_black_nac_1BB(
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow) {
+		if (outFlow.equals(exclusiveGateway.getDefault())) {
+			return new Object[] { exclusiveGateway, outFlow };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_25_2_blackFFFFB(
+			EMoflonEdge _edge_flowElements) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpOutFlow = _edge_flowElements.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (process.getFlowElements().contains(outFlow)) {
+					FlowNode tmpExclusiveGateway = outFlow.getSourceRef();
+					if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+						ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+						if (process.getFlowElements()
+								.contains(exclusiveGateway)) {
+							SequenceFlow defaultFlow = exclusiveGateway
+									.getDefault();
+							if (defaultFlow != null) {
+								if (!defaultFlow.equals(outFlow)) {
+									if (exclusiveGateway.equals(defaultFlow
+											.getSourceRef())) {
+										if (process.getFlowElements().contains(
+												defaultFlow)) {
+											if (pattern_SeqFlowAfterEGToAltFlowRule_25_2_black_nac_0BB(
+													outFlow, exclusiveGateway) == null) {
+												if (pattern_SeqFlowAfterEGToAltFlowRule_25_2_black_nac_1BB(
+														exclusiveGateway,
+														outFlow) == null) {
+													_result.add(new Object[] {
+															defaultFlow,
+															exclusiveGateway,
+															process, outFlow,
+															_edge_flowElements });
+												}
+											}
+										}
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_25_3_expressionFBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match,
+			SequenceFlow defaultFlow, ExclusiveGateway exclusiveGateway,
+			bpmn2.Process process, SequenceFlow outFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, defaultFlow,
+				exclusiveGateway, process, outFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_25_4_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_SeqFlowAfterEGToAltFlowRule_25_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_1_blackB(
+			SeqFlowAfterEGToAltFlowRule _this) {
+		return new Object[] { _this };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_1_greenFF() {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
+				.createModelgeneratorRuleResult();
+		boolean ruleResult_success_prime = false;
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		return new Object[] { isApplicableMatch, ruleResult };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult, UseCase useCase) {
+		if (ruleResult.getTargetObjects().contains(useCase)) {
+			return new Object[] { ruleResult, useCase };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult, Flow flow) {
+		if (ruleResult.getTargetObjects().contains(flow)) {
+			return new Object[] { ruleResult, flow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_2BB(
+			ModelgeneratorRuleResult ruleResult, NormalStep normalStep) {
+		if (ruleResult.getTargetObjects().contains(normalStep)) {
+			return new Object[] { ruleResult, normalStep };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_3BB(
+			ModelgeneratorRuleResult ruleResult,
+			FlowNodeToStep exclusiveGatewayToNormalStep) {
+		if (ruleResult.getCorrObjects().contains(exclusiveGatewayToNormalStep)) {
+			return new Object[] { ruleResult, exclusiveGatewayToNormalStep };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_4BB(
+			ModelgeneratorRuleResult ruleResult,
+			ExclusiveGateway exclusiveGateway) {
+		if (ruleResult.getSourceObjects().contains(exclusiveGateway)) {
+			return new Object[] { ruleResult, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_5BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlow defaultFlow) {
+		if (ruleResult.getSourceObjects().contains(defaultFlow)) {
+			return new Object[] { ruleResult, defaultFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_6BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToUCFlow defaultFlowToFlow) {
+		if (ruleResult.getCorrObjects().contains(defaultFlowToFlow)) {
+			return new Object[] { ruleResult, defaultFlowToFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_7BB(
+			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
+		if (ruleResult.getSourceObjects().contains(process)) {
+			return new Object[] { ruleResult, process };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_8BB(
+			ModelgeneratorRuleResult ruleResult,
+			ProcessToUseCase processToUseCase) {
+		if (ruleResult.getCorrObjects().contains(processToUseCase)) {
+			return new Object[] { ruleResult, processToUseCase };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_SeqFlowAfterEGToAltFlowRule_28_2_blackFFFFFFFFFFBB(
+			RuleEntryContainer ruleEntryContainer,
+			ModelgeneratorRuleResult ruleResult) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (RuleEntryList exclusiveGatewayToNormalStepList : ruleEntryContainer
+				.getRuleEntryList()) {
+			for (EObject tmpExclusiveGatewayToNormalStep : exclusiveGatewayToNormalStepList
+					.getEntryObjects()) {
+				if (tmpExclusiveGatewayToNormalStep instanceof FlowNodeToStep) {
+					FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) tmpExclusiveGatewayToNormalStep;
+					Step tmpNormalStep = exclusiveGatewayToNormalStep
+							.getTarget();
+					if (tmpNormalStep instanceof NormalStep) {
+						NormalStep normalStep = (NormalStep) tmpNormalStep;
+						FlowNode tmpExclusiveGateway = exclusiveGatewayToNormalStep
+								.getSource();
+						if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+							ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+							SequenceFlow defaultFlow = exclusiveGateway
+									.getDefault();
+							if (defaultFlow != null) {
+								if (exclusiveGateway.equals(defaultFlow
+										.getSourceRef())) {
+									if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_3BB(
+											ruleResult,
+											exclusiveGatewayToNormalStep) == null) {
+										if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_2BB(
+												ruleResult, normalStep) == null) {
+											if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_4BB(
+													ruleResult,
+													exclusiveGateway) == null) {
+												if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_5BB(
+														ruleResult, defaultFlow) == null) {
+													for (Flow flow : org.moflon.util.eMoflonEMFUtil
+															.getOppositeReferenceTyped(
+																	normalStep,
+																	Flow.class,
+																	"steps")) {
+														if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_1BB(
+																ruleResult,
+																flow) == null) {
+															for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+																	.getOppositeReferenceTyped(
+																			exclusiveGateway,
+																			FlowElementsContainer.class,
+																			"flowElements")) {
+																if (tmpProcess instanceof bpmn2.Process) {
+																	bpmn2.Process process = (bpmn2.Process) tmpProcess;
+																	if (process
+																			.getFlowElements()
+																			.contains(
+																					defaultFlow)) {
+																		if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_7BB(
+																				ruleResult,
+																				process) == null) {
+																			for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																					.getOppositeReferenceTyped(
+																							defaultFlow,
+																							SequenceFlowToUCFlow.class,
+																							"source")) {
+																				if (flow.equals(defaultFlowToFlow
+																						.getTarget())) {
+																					if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_6BB(
+																							ruleResult,
+																							defaultFlowToFlow) == null) {
+																						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+																								.getOppositeReferenceTyped(
+																										flow,
+																										UseCase.class,
+																										"flows")) {
+																							if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_0BB(
+																									ruleResult,
+																									useCase) == null) {
+																								for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+																										.getOppositeReferenceTyped(
+																												process,
+																												ProcessToUseCase.class,
+																												"source")) {
+																									if (useCase
+																											.equals(processToUseCase
+																													.getTarget())) {
+																										if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_8BB(
+																												ruleResult,
+																												processToUseCase) == null) {
+																											_result.add(new Object[] {
+																													exclusiveGatewayToNormalStepList,
+																													useCase,
+																													flow,
+																													normalStep,
+																													exclusiveGatewayToNormalStep,
+																													exclusiveGateway,
+																													defaultFlow,
+																													defaultFlowToFlow,
+																													process,
+																													processToUseCase,
+																													ruleEntryContainer,
+																													ruleResult });
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+
+						}
+
+					}
+
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_3_bindingFBBBBBBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			ProcessToUseCase processToUseCase, SequenceFlow defaultFlow,
+			Flow flow, SequenceFlowToUCFlow defaultFlowToFlow,
+			NormalStep normalStep, FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			ModelgeneratorRuleResult ruleResult) {
+		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
+				isApplicableMatch, useCase, processToUseCase, defaultFlow,
+				flow, defaultFlowToFlow, normalStep,
+				exclusiveGatewayToNormalStep, exclusiveGateway, process,
+				ruleResult);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, useCase,
+					processToUseCase, defaultFlow, flow, defaultFlowToFlow,
+					normalStep, exclusiveGatewayToNormalStep, exclusiveGateway,
+					process, ruleResult };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_3_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_3_bindingAndBlackFBBBBBBBBBBBB(
+			SeqFlowAfterEGToAltFlowRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			ProcessToUseCase processToUseCase, SequenceFlow defaultFlow,
+			Flow flow, SequenceFlowToUCFlow defaultFlowToFlow,
+			NormalStep normalStep, FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_28_3_binding = pattern_SeqFlowAfterEGToAltFlowRule_28_3_bindingFBBBBBBBBBBBB(
+				_this, isApplicableMatch, useCase, processToUseCase,
+				defaultFlow, flow, defaultFlowToFlow, normalStep,
+				exclusiveGatewayToNormalStep, exclusiveGateway, process,
+				ruleResult);
+		if (result_pattern_SeqFlowAfterEGToAltFlowRule_28_3_binding != null) {
+			CSP csp = (CSP) result_pattern_SeqFlowAfterEGToAltFlowRule_28_3_binding[0];
+
+			Object[] result_pattern_SeqFlowAfterEGToAltFlowRule_28_3_black = pattern_SeqFlowAfterEGToAltFlowRule_28_3_blackB(csp);
+			if (result_pattern_SeqFlowAfterEGToAltFlowRule_28_3_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, useCase,
+						processToUseCase, defaultFlow, flow, defaultFlowToFlow,
+						normalStep, exclusiveGatewayToNormalStep,
+						exclusiveGateway, process, ruleResult };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_SeqFlowAfterEGToAltFlowRule_28_4_expressionFBB(
+			SeqFlowAfterEGToAltFlowRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_5_blackBBBBBBBBB(
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process) {
+		return new Object[] { useCase, processToUseCase, defaultFlow, flow,
+				defaultFlowToFlow, normalStep, exclusiveGatewayToNormalStep,
+				exclusiveGateway, process };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_6_blackBBBBBBBBBB(
+			UseCase useCase, ProcessToUseCase processToUseCase,
+			SequenceFlow defaultFlow, Flow flow,
+			SequenceFlowToUCFlow defaultFlowToFlow, NormalStep normalStep,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { useCase, processToUseCase, defaultFlow, flow,
+				defaultFlowToFlow, normalStep, exclusiveGatewayToNormalStep,
+				exclusiveGateway, process, ruleResult };
+	}
+
+	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_28_6_greenBBFFFFBBFBB(
+			UseCase useCase, NormalStep normalStep,
+			ExclusiveGateway exclusiveGateway, bpmn2.Process process,
+			ModelgeneratorRuleResult ruleResult, CSP csp) {
+		AlternativeFlow alternativeFlow = UseCaseDSLFactory.eINSTANCE
+				.createAlternativeFlow();
+		SequenceFlowToUCFlow outFlowToAlternativeFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToUCFlow();
+		AlternativeFlowAlternative alt = UseCaseDSLFactory.eINSTANCE
+				.createAlternativeFlowAlternative();
+		SeqFlowToAltFlowAlt outFlowToAlt = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSeqFlowToAltFlowAlt();
+		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
+		Object _localVariable_0 = csp.getValue("alternativeFlow", "name");
+		Object _localVariable_1 = csp.getValue("alt", "condition");
+		Object _localVariable_2 = csp.getValue("outFlow", "id");
+		Object _localVariable_3 = csp.getValue("outFlow", "name");
+		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
+		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		useCase.getFlows().add(alternativeFlow);
+		ruleResult.getTargetObjects().add(alternativeFlow);
+		outFlowToAlternativeFlow.setTarget(alternativeFlow);
+		ruleResult.getCorrObjects().add(outFlowToAlternativeFlow);
+		normalStep.getStepAlternative().add(alt);
+		alt.setRef(alternativeFlow);
+		ruleResult.getTargetObjects().add(alt);
+		outFlowToAlt.setTarget(alt);
+		ruleResult.getCorrObjects().add(outFlowToAlt);
+		outFlowToAlternativeFlow.setSource(outFlow);
+		outFlowToAlt.setSource(outFlow);
+		outFlow.setSourceRef(exclusiveGateway);
+		process.getFlowElements().add(outFlow);
+		ruleResult.getSourceObjects().add(outFlow);
+		String alternativeFlow_name_prime = (String) _localVariable_0;
+		String alt_condition_prime = (String) _localVariable_1;
+		String outFlow_id_prime = (String) _localVariable_2;
+		String outFlow_name_prime = (String) _localVariable_3;
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		alternativeFlow.setName(alternativeFlow_name_prime);
+		alt.setCondition(alt_condition_prime);
+		outFlow.setId(outFlow_id_prime);
+		outFlow.setName(outFlow_name_prime);
+		ruleResult.setPerformCount(Integer
+				.valueOf(ruleResult_performCount_prime));
+		return new Object[] { useCase, normalStep, alternativeFlow,
+				outFlowToAlternativeFlow, alt, outFlowToAlt, exclusiveGateway,
+				process, outFlow, ruleResult, csp };
+	}
+
+	public static final ModelgeneratorRuleResult pattern_SeqFlowAfterEGToAltFlowRule_28_7_expressionFB(
+			ModelgeneratorRuleResult ruleResult) {
+		ModelgeneratorRuleResult _result = ruleResult;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

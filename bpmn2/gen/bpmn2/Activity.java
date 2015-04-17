@@ -2,9 +2,6 @@
  */
 package bpmn2;
 
-import de.upb.tools.sdm.*;
-
-import java.util.*;
 // <-- [user defined imports]
 // [user defined imports] -->
 

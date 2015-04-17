@@ -19,6 +19,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.0/@objectVariable.1" source="//@tggRule.0/@objectVariable.2" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//FileToUseCasesModel/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="PackageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="ucModel" incomingLink="//@tggRule.1/@linkVariable.3" outgoingLink="//@tggRule.1/@linkVariable.0" domain="//@domain.1">
@@ -69,8 +70,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="rootNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="p"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="rootNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="p"/>
     </csp>
   </tggRule>
   <tggRule name="ActorsRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -99,6 +100,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.2/@objectVariable.0" source="//@tggRule.2/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToPackageDeclaration/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="ActorRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actorsNode" incomingLink="//@tggRule.3/@linkVariable.0" outgoingLink="//@tggRule.3/@linkVariable.2" domain="//@domain.0">
@@ -190,10 +192,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="typeNodeVal"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actorNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actorNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
     </csp>
   </tggRule>
   <tggRule name="ActorDescRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -215,6 +217,14 @@
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actorsNode" incomingLink="//@tggRule.4/@linkVariable.2" outgoingLink="//@tggRule.4/@linkVariable.4" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Node"/>
+      <constraint>
+        <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
+          <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;actors&quot;"/>
+          <leftExpression xsi:type="patternExpressions:AttributeValueExpression" object="//@tggRule.4/@objectVariable.4">
+            <attribute href="platform:/plugin/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+          </leftExpression>
+        </constraintExpression>
+      </constraint>
       <constraint>
         <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
           <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;actors&quot;"/>
@@ -304,12 +314,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="descValueNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="description" objectVariable="actor"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="descValueNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="description" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="typeNodeVal"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actorNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actorNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
     </csp>
   </tggRule>
   <tggRule name="UseCaseExtendsRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -400,8 +410,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="extendsValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="superUseCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="extendsValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="superUseCase"/>
     </csp>
   </tggRule>
   <tggRule name="UseCasesRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -430,6 +440,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.6/@objectVariable.0" source="//@tggRule.6/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToPackageDeclaration/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="UseCaseRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCaseRootNode" incomingLink="//@tggRule.7/@linkVariable.0" outgoingLink="//@tggRule.7/@linkVariable.2" domain="//@domain.0">
@@ -494,8 +505,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCaseNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCaseNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCase"/>
     </csp>
   </tggRule>
   <tggRule name="UseCaseDescRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -517,6 +528,14 @@
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCaseRootNode" incomingLink="//@tggRule.8/@linkVariable.2" outgoingLink="//@tggRule.8/@linkVariable.4" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Node"/>
+      <constraint>
+        <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
+          <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;USECASE&quot;"/>
+          <leftExpression xsi:type="patternExpressions:AttributeValueExpression" object="//@tggRule.8/@objectVariable.4">
+            <attribute href="platform:/plugin/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+          </leftExpression>
+        </constraintExpression>
+      </constraint>
       <constraint>
         <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
           <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;USECASE&quot;"/>
@@ -579,10 +598,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="descValueNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="description" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCaseNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="descValueNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="description" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCaseNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCase"/>
     </csp>
   </tggRule>
   <tggRule name="UseCaseDescPreCondRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -614,6 +633,30 @@
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCaseRootNode" incomingLink="//@tggRule.9/@linkVariable.4" outgoingLink="//@tggRule.9/@linkVariable.6" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Node"/>
+      <constraint>
+        <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
+          <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;USECASE&quot;"/>
+          <leftExpression xsi:type="patternExpressions:AttributeValueExpression" object="//@tggRule.9/@objectVariable.6">
+            <attribute href="platform:/plugin/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+          </leftExpression>
+        </constraintExpression>
+      </constraint>
+      <constraint>
+        <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
+          <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;USECASE&quot;"/>
+          <leftExpression xsi:type="patternExpressions:AttributeValueExpression" object="//@tggRule.9/@objectVariable.6">
+            <attribute href="platform:/plugin/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+          </leftExpression>
+        </constraintExpression>
+      </constraint>
+      <constraint>
+        <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
+          <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;USECASE&quot;"/>
+          <leftExpression xsi:type="patternExpressions:AttributeValueExpression" object="//@tggRule.9/@objectVariable.6">
+            <attribute href="platform:/plugin/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+          </leftExpression>
+        </constraintExpression>
+      </constraint>
       <constraint>
         <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
           <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;USECASE&quot;"/>
@@ -693,12 +736,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="preCondValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="preConditions" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="descValueNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="description" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCaseNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="preCondValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="preConditions" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="descValueNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="description" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCaseNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCase"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelStepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -770,8 +813,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="nameValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="nameValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
     </csp>
   </tggRule>
   <tggRule name="UseCasePreCondRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -793,6 +836,14 @@
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCaseRootNode" incomingLink="//@tggRule.11/@linkVariable.2" outgoingLink="//@tggRule.11/@linkVariable.4" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//Node"/>
+      <constraint>
+        <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
+          <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;USECASE&quot;"/>
+          <leftExpression xsi:type="patternExpressions:AttributeValueExpression" object="//@tggRule.11/@objectVariable.4">
+            <attribute href="platform:/plugin/MocaTree/model/MocaTree.ecore#//TreeElement/name"/>
+          </leftExpression>
+        </constraintExpression>
+      </constraint>
       <constraint>
         <constraintExpression xsi:type="expressions:ComparisonExpression" operator="EQUAL">
           <rightExpression xsi:type="expressions:LiteralExpression" value="&quot;USECASE&quot;"/>
@@ -855,10 +906,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="preCondValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="preConditions" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCaseNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="preCondValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="preConditions" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCaseNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCase"/>
     </csp>
   </tggRule>
   <tggRule name="BasicFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -902,6 +953,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.12/@objectVariable.4" source="//@tggRule.12/@objectVariable.5" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToFlow/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="AlternativeFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCase" incomingLink="//@tggRule.13/@linkVariable.3" outgoingLink="//@tggRule.13/@linkVariable.0" domain="//@domain.1">
@@ -972,8 +1024,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="nameNodeVal"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="nameNodeVal"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altFlow"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1045,8 +1097,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="nameNodeVal"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="parallelFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="nameNodeVal"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="parallelFlow"/>
     </csp>
   </tggRule>
   <tggRule name="BasicFlowFinalStateRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1105,8 +1157,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="finalStateValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="finalState" objectVariable="basicFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="finalStateValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="finalState" objectVariable="basicFlow"/>
     </csp>
   </tggRule>
   <tggRule name="ActorExtendsRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1188,8 +1240,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="extendsValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="superActor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="extendsValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="superActor"/>
     </csp>
   </tggRule>
   <tggRule name="AltFlowFinalStateRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1282,12 +1334,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="finalStateValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="finalState" objectVariable="altFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="finalStateNode"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED0005740014227769746820706F7374636F6E646974696F6E22" type=""/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="nameNodeVal"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="finalStateValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="finalState" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="finalStateNode"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED0005740014227769746820706F7374636F6E646974696F6E22" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="nameNodeVal"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altFlow"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelFlowFinalStateRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1373,10 +1425,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="finalStateValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="finalState" objectVariable="parallelFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="nameNodeVal"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="parallelFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="finalStateValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="finalState" objectVariable="parallelFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="nameNodeVal"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="parallelFlow"/>
     </csp>
   </tggRule>
   <tggRule name="StepRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1496,10 +1548,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="byValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actor"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="nameValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="byValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="nameValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
     </csp>
   </tggRule>
   <tggRule name="StepDescRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1633,12 +1685,12 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="descValueNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="step"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="byValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actor"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="nameValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="descValueNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="byValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="nameValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelStepDescRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1724,10 +1776,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="descValueNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="label" objectVariable="step"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="nameValNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="descValueNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="nameValNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
     </csp>
   </tggRule>
   <tggRule name="StepAlternativesRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1764,6 +1816,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.22/@objectVariable.0" source="//@tggRule.22/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToStep/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="AltFlowAltRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="altNode" incomingLink="//@tggRule.23/@linkVariable.0" outgoingLink="//@tggRule.23/@linkVariable.2" domain="//@domain.0">
@@ -1898,10 +1951,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="condNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="condition" objectVariable="altFlowAlt"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altIdNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="condNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="condition" objectVariable="altFlowAlt"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altIdNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altFlow"/>
     </csp>
   </tggRule>
   <tggRule name="AltFlowAltContinueRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1977,8 +2030,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="stepIdNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="stepIdNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelFlowInvokeRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2015,6 +2068,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.25/@objectVariable.0" source="//@tggRule.25/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToStep/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="ParallelStepInvokeRefRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="f" incomingLink="//@tggRule.26/@linkVariable.6" outgoingLink="//@tggRule.26/@linkVariable.0" domain="//@domain.1">
@@ -2093,8 +2147,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="flowIdNode"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="flow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="flowIdNode"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="flow"/>
     </csp>
   </tggRule>
   <metamodel name="MocaTree">

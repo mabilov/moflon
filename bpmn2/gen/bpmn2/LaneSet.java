@@ -2,10 +2,6 @@
  */
 package bpmn2;
 
-import de.upb.tools.sdm.*;
-
-import java.util.*;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;

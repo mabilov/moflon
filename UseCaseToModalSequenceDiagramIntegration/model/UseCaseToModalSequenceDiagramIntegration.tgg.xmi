@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UseCaseToModalSequenceDiagramIntegration">
   <domain name="Source" metamodel="//@metamodel.1" type="SOURCE"/>
-  <domain name="Target" metamodel="//@metamodel.2" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.0"/>
+  <domain name="Target" metamodel="//@metamodel.0" type="TARGET"/>
+  <domain name="Correspondence" metamodel="//@metamodel.2"/>
   <tggRule name="UCModelToMSDModelRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCasesModel" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCasesModel"/>
@@ -19,6 +19,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.0/@objectVariable.1" source="//@tggRule.0/@objectVariable.2" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//UseCasesModelToModel/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="UCPackageToMSDPackage" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCasesModel" incomingLink="//@tggRule.1/@linkVariable.2" outgoingLink="//@tggRule.1/@linkVariable.0" domain="//@domain.0">
@@ -69,8 +70,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="packageDeclaration"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="p"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="packageDeclaration"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="p"/>
     </csp>
   </tggRule>
   <tggRule name="UseCaseNoPrecondRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -144,9 +145,9 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="preConditions" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="interaction"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="preConditions" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="interaction"/>
     </csp>
   </tggRule>
   <tggRule name="UserActorToLifelineRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -215,10 +216,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822504552534F4E22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actor"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="line"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822504552534F4E22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="line"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelStepToCombinedFragmentRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -276,8 +277,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="interactionOperator" objectVariable="combo"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400052270617222" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.InteractionOperatorKind" attribute="interactionOperator" objectVariable="combo"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400052270617222"/>
     </csp>
   </tggRule>
   <tggRule name="ParallelFlowToOperandRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -356,8 +357,8 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="parFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="value" objectVariable="spec"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="parFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="value" objectVariable="spec"/>
     </csp>
   </tggRule>
   <tggRule name="UseCasePrecondToFoundMessageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -520,18 +521,18 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="preConditions" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="message"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageKind" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000722666F756E6422" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="actor"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="line"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageSort" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000F224153594E43485F5349474E414C22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="useCase"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="interaction"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="preConditions" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000722666F756E6422"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="line"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageSort" attribute="messageSort" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000F224153594E43485F5349474E414C22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="interaction"/>
     </csp>
   </tggRule>
   <tggRule name="SystemStepBFToMessageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -681,14 +682,14 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="message"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageSort" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000D224153594E43485F43414C4C22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageKind" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageSort" attribute="messageSort" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000D224153594E43485F43414C4C22"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522"/>
     </csp>
   </tggRule>
   <tggRule name="StepAltToOperandRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -826,10 +827,10 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="condition" objectVariable="alt"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="value" objectVariable="spec"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="guard"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="condition" objectVariable="alt"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="value" objectVariable="spec"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="guard"/>
     </csp>
   </tggRule>
   <tggRule name="UserStepBFMessageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1017,16 +1018,16 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822706572736F6E22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="sysActor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="message"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageSort" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000D224153594E43485F43414C4C22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageKind" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822706572736F6E22"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="sysActor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageSort" attribute="messageSort" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000D224153594E43485F43414C4C22"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522"/>
     </csp>
   </tggRule>
   <tggRule name="SystemStepNFToMessageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1188,14 +1189,14 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="message"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageSort" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000D224153594E43485F43414C4C22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageKind" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageSort" attribute="messageSort" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000D224153594E43485F43414C4C22"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522"/>
     </csp>
   </tggRule>
   <tggRule name="UserStepNfToMessageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1398,16 +1399,16 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822706572736F6E22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="sysActor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="step"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="message"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageSort" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000D224153594E43485F43414C4C22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="messageKind" objectVariable="message"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822706572736F6E22"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="sysActor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageSort" attribute="messageSort" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000D224153594E43485F43414C4C22"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522"/>
     </csp>
   </tggRule>
   <tggRule name="AltSysStepBFToComboRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1597,14 +1598,14 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="guard"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="condition" objectVariable="alt"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="value" objectVariable="spec"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="interactionOperator" objectVariable="combo"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="guard"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="condition" objectVariable="alt"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="value" objectVariable="spec"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.InteractionOperatorKind" attribute="interactionOperator" objectVariable="combo"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422"/>
     </csp>
   </tggRule>
   <tggRule name="AltUserStepBFToComboRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -1835,16 +1836,16 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822706572736F6E22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="sysActor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="guard"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="condition" objectVariable="alt"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="value" objectVariable="spec"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="interactionOperator" objectVariable="combo"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822706572736F6E22"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="sysActor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="guard"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="condition" objectVariable="alt"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="value" objectVariable="spec"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.InteractionOperatorKind" attribute="interactionOperator" objectVariable="combo"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422"/>
     </csp>
   </tggRule>
   <tggRule name="AltSysStepNFToComboRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2049,14 +2050,14 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="guard"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="condition" objectVariable="alt"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="value" objectVariable="spec"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="interactionOperator" objectVariable="combo"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="guard"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="condition" objectVariable="alt"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="value" objectVariable="spec"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.InteractionOperatorKind" attribute="interactionOperator" objectVariable="combo"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422"/>
     </csp>
   </tggRule>
   <tggRule name="AltUserStepNFToComboRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
@@ -2302,25 +2303,25 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="actor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822706572736F6E22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="type" objectVariable="sysActor"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22" type="String"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="altFlow"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="name" objectVariable="guard"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="condition" objectVariable="alt"/>
-      <variables xsi:type="csp:AttributeVariable" type="" attribute="value" objectVariable="spec"/>
-      <variables xsi:type="csp:AttributeVariable" type="EObject" attribute="interactionOperator" objectVariable="combo"/>
-      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422" type="String"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="actor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000822706572736F6E22"/>
+      <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.ActorType" attribute="type" objectVariable="sysActor"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="altFlow"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="guard"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="condition" objectVariable="alt"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="value" objectVariable="spec"/>
+      <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.InteractionOperatorKind" attribute="interactionOperator" objectVariable="combo"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422"/>
     </csp>
   </tggRule>
-  <metamodel name="UseCaseToModalSequenceDiagramIntegration">
-    <outermostPackage href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#/"/>
+  <metamodel name="ModalSequenceDiagram">
+    <outermostPackage href="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#/"/>
   </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
-  <metamodel name="ModalSequenceDiagram">
-    <outermostPackage href="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#/"/>
+  <metamodel name="UseCaseToModalSequenceDiagramIntegration">
+    <outermostPackage href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

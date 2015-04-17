@@ -3,23 +3,21 @@
 package UseCaseToModalSequenceDiagramIntegration.Rules.impl;
 
 import ModalSequenceDiagram.CombinedFragment;
-import ModalSequenceDiagram.Constraint;
 import ModalSequenceDiagram.Interaction;
-import ModalSequenceDiagram.InteractionConstraint;
-import ModalSequenceDiagram.InteractionOperand;
-import ModalSequenceDiagram.Lifeline;
-import ModalSequenceDiagram.LiteralString;
-import ModalSequenceDiagram.Message;
-import ModalSequenceDiagram.MessageEnd;
-import ModalSequenceDiagram.MessageOccurrenceSpecification;
+import ModalSequenceDiagram.InteractionOperatorKind;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
-import ModalSequenceDiagram.Model;
+
+import TGGLanguage.csp.CSP;
+
+import TGGLanguage.modelgenerator.RuleEntryContainer;
+import TGGLanguage.modelgenerator.RuleEntryList;
 
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
+import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -27,49 +25,30 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
-import UseCaseDSL.Actor;
-import UseCaseDSL.AlternativeFlow;
-import UseCaseDSL.AlternativeFlowAlternative;
-import UseCaseDSL.BasicFlow;
 import UseCaseDSL.Flow;
-import UseCaseDSL.NamedFlow;
-import UseCaseDSL.NormalStep;
-import UseCaseDSL.PackageDeclaration;
-import UseCaseDSL.ParallelFlow;
 import UseCaseDSL.ParallelStep;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
-import UseCaseDSL.UseCasesModel;
 
-import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
-import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
-import UseCaseToModalSequenceDiagramIntegration.NormalStepToCombinedFragment;
-import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
-import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
 import UseCaseToModalSequenceDiagramIntegration.ParallelStepToCombinedFragment;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule;
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 
-import UseCaseToModalSequenceDiagramIntegration.StepAlternativeToInteractionOperand;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
-import UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
-import UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel;
 
-import de.upb.tools.sdm.*;
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
 import org.moflon.csp.*;
 import csp.constraints.*;
@@ -114,135 +93,66 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 */
 	public boolean isAppropriate_FWD(Match match, UseCase useCase, Flow flow,
 			ParallelStep step) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge __useCase_flows_flow = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object step is really bound
-			JavaSDM.ensure(step != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_0_1_blackBBBBB(
+						this, match, useCase, flow, step);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, useCase, flow,
-					step));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_0_2_bindingAndBlackFBBBBB(
+						this, match, useCase, flow, step);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_0_3_expressionFBB(
+						this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object step is really bound
-				JavaSDM.ensure(step != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// create object __flow_steps_step
-				__flow_steps_step = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __flow_steps_step
-				__flow_steps_step.setName("steps");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						step, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_step, "toBeTranslatedEdges");
-
-				// create link
-				__flow_steps_step.setSrc(flow);
-
-				// create link
-				__flow_steps_step.setTrg(step);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_0_4_blackBBBB(
+							match, useCase, flow, step);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_0_4_greenBBBF(
+							match, flow, step);
+			// EMoflonEdge flow__step____steps = (EMoflonEdge) result4_green[3];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object step is really bound
-				JavaSDM.ensure(step != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// create object __useCase_flows_flow
-				__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __useCase_flows_flow
-				__useCase_flows_flow.setName("flows");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						useCase, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__useCase_flows_flow, "contextEdges");
-
-				// create link
-				__useCase_flows_flow.setSrc(useCase);
-
-				// create link
-				__useCase_flows_flow.setTrg(flow);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_0_5_blackBBBB(
+							match, useCase, flow, step);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_0_5_greenBBBF(
+							match, useCase, flow);
+			// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result5_green[3];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, useCase, flow, step);
-			return true;
-
+			// register objects to match
+			ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_0_6_expressionBBBBB(
+							this, match, useCase, flow, step);
+			return ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -251,308 +161,65 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		Flow flow = null;
-		Interaction interaction = null;
-		ParallelStep step = null;
-		UseCase useCase = null;
-		UseCaseToInteraction useCaseToInteraction = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		CombinedFragment combo = null;
-		ParallelStepToCombinedFragment stepToCombo = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge stepToCombo__target__combo = null;
-		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge combo__enclosingInteraction__interaction = null;
-		EMoflonEdge interaction__fragment__combo = null;
-		EMoflonEdge stepToCombo__source__step = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("interaction"));
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("step"));
-
-			// ensure correct type and really bound of object step
-			JavaSDM.ensure(_TmpObject instanceof ParallelStep);
-			step = (ParallelStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCaseToInteraction"));
-
-			// ensure correct type and really bound of object useCaseToInteraction
-			JavaSDM.ensure(_TmpObject instanceof UseCaseToInteraction);
-			useCaseToInteraction = (UseCaseToInteraction) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object combo
-			combo = ModalSequenceDiagramFactory.eINSTANCE
-					.createCombinedFragment();
-
-			// create object stepToCombo
-			stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createParallelStepToCombinedFragment();
-
-			// assign attribute combo
-			combo.setInteractionOperator((ModalSequenceDiagram.InteractionOperatorKind) csp
-					.getValue("combo", "interactionOperator"));
-
-			// create link
-			combo.setEnclosingInteraction(interaction);
-
-			// create link
-			stepToCombo.setSource(step);
-
-			// create link
-			stepToCombo.setTarget(combo);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_1_1_bindingAndBlackFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
+		Interaction interaction = (Interaction) result1_bindingAndBlack[1];
+		Flow flow = (Flow) result1_bindingAndBlack[2];
+		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[3];
+		ParallelStep step = (ParallelStep) result1_bindingAndBlack[4];
+		CSP csp = (CSP) result1_bindingAndBlack[5];
+		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_1_1_greenBBFFB(
+						interaction, step, csp);
+		CombinedFragment combo = (CombinedFragment) result1_green[2];
+		ParallelStepToCombinedFragment stepToCombo = (ParallelStepToCombinedFragment) result1_green[3];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object combo is really bound
-			JavaSDM.ensure(combo != null);
-			// check object step is really bound
-			JavaSDM.ensure(step != null);
-			// check object stepToCombo is really bound
-			JavaSDM.ensure(stepToCombo != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					step, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					combo, "createdElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_1_2_blackBBB(step,
+						combo, stepToCombo);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
+		Object[] result2_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_1_2_greenFBBB(step,
+						combo, stepToCombo);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object combo is really bound
-			JavaSDM.ensure(combo != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object step is really bound
-			JavaSDM.ensure(step != null);
-			// check object stepToCombo is really bound
-			JavaSDM.ensure(stepToCombo != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToInteraction is really bound
-			JavaSDM.ensure(useCaseToInteraction != null);
-			// check isomorphic binding between objects flow and combo 
-			JavaSDM.ensure(!flow.equals(combo));
-
-			// check isomorphic binding between objects interaction and combo 
-			JavaSDM.ensure(!interaction.equals(combo));
-
-			// check isomorphic binding between objects step and combo 
-			JavaSDM.ensure(!step.equals(combo));
-
-			// check isomorphic binding between objects stepToCombo and combo 
-			JavaSDM.ensure(!stepToCombo.equals(combo));
-
-			// check isomorphic binding between objects useCase and combo 
-			JavaSDM.ensure(!useCase.equals(combo));
-
-			// check isomorphic binding between objects useCaseToInteraction and combo 
-			JavaSDM.ensure(!useCaseToInteraction.equals(combo));
-
-			// check isomorphic binding between objects interaction and flow 
-			JavaSDM.ensure(!interaction.equals(flow));
-
-			// check isomorphic binding between objects step and flow 
-			JavaSDM.ensure(!step.equals(flow));
-
-			// check isomorphic binding between objects stepToCombo and flow 
-			JavaSDM.ensure(!stepToCombo.equals(flow));
-
-			// check isomorphic binding between objects useCase and flow 
-			JavaSDM.ensure(!useCase.equals(flow));
-
-			// check isomorphic binding between objects useCaseToInteraction and flow 
-			JavaSDM.ensure(!useCaseToInteraction.equals(flow));
-
-			// check isomorphic binding between objects step and interaction 
-			JavaSDM.ensure(!step.equals(interaction));
-
-			// check isomorphic binding between objects stepToCombo and interaction 
-			JavaSDM.ensure(!stepToCombo.equals(interaction));
-
-			// check isomorphic binding between objects useCase and interaction 
-			JavaSDM.ensure(!useCase.equals(interaction));
-
-			// check isomorphic binding between objects useCaseToInteraction and interaction 
-			JavaSDM.ensure(!useCaseToInteraction.equals(interaction));
-
-			// check isomorphic binding between objects stepToCombo and step 
-			JavaSDM.ensure(!stepToCombo.equals(step));
-
-			// check isomorphic binding between objects useCase and step 
-			JavaSDM.ensure(!useCase.equals(step));
-
-			// check isomorphic binding between objects useCaseToInteraction and step 
-			JavaSDM.ensure(!useCaseToInteraction.equals(step));
-
-			// check isomorphic binding between objects useCase and stepToCombo 
-			JavaSDM.ensure(!useCase.equals(stepToCombo));
-
-			// check isomorphic binding between objects useCaseToInteraction and stepToCombo 
-			JavaSDM.ensure(!useCaseToInteraction.equals(stepToCombo));
-
-			// check isomorphic binding between objects useCaseToInteraction and useCase 
-			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
-
-			// create object stepToCombo__target__combo
-			stepToCombo__target__combo = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __flow_steps_step
-			__flow_steps_step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
-			// create object combo__enclosingInteraction__interaction
-			combo__enclosingInteraction__interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object interaction__fragment__combo
-			interaction__fragment__combo = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object stepToCombo__source__step
-			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("ParallelStepToCombinedFragmentRule");
-			// assign attribute combo__enclosingInteraction__interaction
-			combo__enclosingInteraction__interaction
-					.setName("enclosingInteraction");
-			// assign attribute interaction__fragment__combo
-			interaction__fragment__combo.setName("fragment");
-			// assign attribute __flow_steps_step
-			__flow_steps_step.setName("steps");
-			// assign attribute stepToCombo__source__step
-			stepToCombo__source__step.setName("source");
-			// assign attribute stepToCombo__target__combo
-			stepToCombo__target__combo.setName("target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__target__combo, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__flow_steps_step, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					combo__enclosingInteraction__interaction, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					interaction__fragment__combo, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__source__step, "createdEdges");
-
-			// create link
-			interaction__fragment__combo.setSrc(interaction);
-
-			// create link
-			combo__enclosingInteraction__interaction.setTrg(interaction);
-
-			// create link
-			__flow_steps_step.setSrc(flow);
-
-			// create link
-			stepToCombo__source__step.setTrg(step);
-
-			// create link
-			__flow_steps_step.setTrg(step);
-
-			// create link
-			interaction__fragment__combo.setTrg(combo);
-
-			// create link
-			combo__enclosingInteraction__interaction.setSrc(combo);
-
-			// create link
-			stepToCombo__target__combo.setTrg(combo);
-
-			// create link
-			stepToCombo__target__combo.setSrc(stepToCombo);
-
-			// create link
-			stepToCombo__source__step.setSrc(stepToCombo);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// bookkeeping for edges
+		Object[] result3_black = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_1_3_blackBBBBBBBB(
+						ruleresult, useCase, interaction, flow,
+						useCaseToInteraction, step, combo, stepToCombo);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_1_3_greenBBBBBBFFFFF(
+						ruleresult, interaction, flow, step, combo, stepToCombo);
+		// EMoflonEdge combo__interaction____enclosingInteraction = (EMoflonEdge) result3_green[6];
+		// EMoflonEdge interaction__combo____fragment = (EMoflonEdge) result3_green[7];
+		// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[8];
+		// EMoflonEdge stepToCombo__step____source = (EMoflonEdge) result3_green[9];
+		// EMoflonEdge stepToCombo__combo____target = (EMoflonEdge) result3_green[10];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, useCase, interaction, flow,
-				useCaseToInteraction, step, combo, stepToCombo);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_1_5_expressionBBBBBBBBB(
+						this, ruleresult, useCase, interaction, flow,
+						useCaseToInteraction, step, combo, stepToCombo);
+		return ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_1_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -561,302 +228,83 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		Flow flow = null;
-		ParallelStep step = null;
-		UseCase useCase = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __useCaseToInteraction_source_useCase = null;
-		EMoflonEdge __useCase_flows_flow = null;
-		EMoflonEdge __useCaseToInteraction_target_interaction = null;
-		EMoflonEdge __flow_steps_step = null;
-		CSP csp = null;
-		Interaction interaction = null;
-		Iterator fujaba__IterUseCaseToUseCaseToInteraction = null;
-		UseCaseToInteraction useCaseToInteraction = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("ParallelStepToCombinedFragmentRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_2_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_2_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
 
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
+		// ForEach core match
+		Object[] result2_binding = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_2_2_bindingFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		UseCase useCase = (UseCase) result2_binding[0];
+		Flow flow = (Flow) result2_binding[1];
+		ParallelStep step = (ParallelStep) result2_binding[2];
+		for (Object[] result2_black : ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_2_2_blackBFBFBB(
+						useCase, flow, step, match)) {
+			Interaction interaction = (Interaction) result2_black[1];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[3];
+			// ForEach find context
+			for (Object[] result3_black : ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_2_3_blackBBBBB(
+							useCase, interaction, flow, useCaseToInteraction,
+							step)) {
+				Object[] result3_green = ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_2_3_greenBBBBBFFFFF(
+								useCase, interaction, flow,
+								useCaseToInteraction, step);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[5];
+				// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result3_green[6];
+				// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[7];
+				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[8];
+				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[9];
 
-			_TmpObject = (match.getObject("flow"));
+				// solve CSP
+				Object[] result4_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_2_4_bindingAndBlackFBBBBBBB(
+								this, isApplicableMatch, useCase, interaction,
+								flow, useCaseToInteraction, step);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_2_5_expressionFBB(
+								this, csp)) {
 
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (match.getObject("step"));
-
-			// ensure correct type and really bound of object step
-			JavaSDM.ensure(_TmpObject instanceof ParallelStep);
-			step = (ParallelStep) _TmpObject;
-			_TmpObject = (match.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// iterate to-many link source from useCase to useCaseToInteraction
-			fujaba__Success = false;
-
-			fujaba__IterUseCaseToUseCaseToInteraction = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							useCase, UseCaseToInteraction.class, "source"))
-					.iterator();
-
-			while (fujaba__IterUseCaseToUseCaseToInteraction.hasNext()) {
-				try {
-					useCaseToInteraction = (UseCaseToInteraction) fujaba__IterUseCaseToUseCaseToInteraction
-							.next();
-
-					// check object useCaseToInteraction is really bound
-					JavaSDM.ensure(useCaseToInteraction != null);
-					// bind object
-					interaction = useCaseToInteraction.getTarget();
-
-					// check object interaction is really bound
-					JavaSDM.ensure(interaction != null);
-
-					// story node 'find context'
-					try {
-						fujaba__Success = false;
-
-						// check object flow is really bound
-						JavaSDM.ensure(flow != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object step is really bound
-						JavaSDM.ensure(step != null);
-						// check object useCase is really bound
-						JavaSDM.ensure(useCase != null);
-						// check object useCaseToInteraction is really bound
-						JavaSDM.ensure(useCaseToInteraction != null);
-						// check link flows from flow to useCase
-						JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-						// check link source from useCaseToInteraction to useCase
-						JavaSDM.ensure(useCase.equals(useCaseToInteraction
-								.getSource()));
-
-						// check link steps from step to flow
-						JavaSDM.ensure(flow.equals(step.eContainer()));
-
-						// check link target from useCaseToInteraction to interaction
-						JavaSDM.ensure(interaction.equals(useCaseToInteraction
-								.getTarget()));
-
-						// create object isApplicableMatch
-						isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-								.createIsApplicableMatch();
-
-						// create object __useCaseToInteraction_source_useCase
-						__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __useCase_flows_flow
-						__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __useCaseToInteraction_target_interaction
-						__useCaseToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// create object __flow_steps_step
-						__flow_steps_step = TGGRuntimeFactory.eINSTANCE
-								.createEMoflonEdge();
-
-						// assign attribute __useCase_flows_flow
-						__useCase_flows_flow.setName("flows");
-						// assign attribute __flow_steps_step
-						__flow_steps_step.setName("steps");
-						// assign attribute __useCaseToInteraction_source_useCase
-						__useCaseToInteraction_source_useCase.setName("source");
-						// assign attribute __useCaseToInteraction_target_interaction
-						__useCaseToInteraction_target_interaction
-								.setName("target");
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(useCase);
-
-						// create link
-						__useCaseToInteraction_source_useCase.setTrg(useCase);
-
-						// create link
-						__useCase_flows_flow.setSrc(useCase);
-
-						// create link
-						__useCaseToInteraction_target_interaction
-								.setTrg(interaction);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								interaction);
-
-						// create link
-						__flow_steps_step.setSrc(flow);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(flow);
-
-						// create link
-						__useCase_flows_flow.setTrg(flow);
-
-						// create link
-						__useCaseToInteraction_source_useCase
-								.setSrc(useCaseToInteraction);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(
-								useCaseToInteraction);
-
-						// create link
-						__useCaseToInteraction_target_interaction
-								.setSrc(useCaseToInteraction);
-
-						// create link
-						__flow_steps_step.setTrg(step);
-
-						// create link
-						isApplicableMatch.getAllContextElements().add(step);
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __flow_steps_step,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch, __useCase_flows_flow,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__useCaseToInteraction_source_useCase,
-								"allContextElements");
-
-						// create link
-						org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-								isApplicableMatch,
-								__useCaseToInteraction_target_interaction,
-								"allContextElements");
-						// story node 'solve CSP'
-						try {
-							fujaba__Success = false;
-
-							_TmpObject = (this.isApplicable_solveCsp_FWD(
-									isApplicableMatch, useCase, interaction,
-									flow, useCaseToInteraction, step));
-
-							// ensure correct type and really bound of object csp
-							JavaSDM.ensure(_TmpObject instanceof CSP);
-							csp = (CSP) _TmpObject;
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						// statement node 'check CSP'
-						fujaba__Success = this.isApplicable_checkCsp_FWD(csp);
-						if (fujaba__Success) {
-							// story node 'add match to rule result'
-							try {
-								fujaba__Success = false;
-
-								// check object isApplicableMatch is really bound
-								JavaSDM.ensure(isApplicableMatch != null);
-								// check object ruleresult is really bound
-								JavaSDM.ensure(ruleresult != null);
-								// assign attribute isApplicableMatch
-								isApplicableMatch
-										.setRuleName("ParallelStepToCombinedFragmentRule");
-								// assign attribute ruleresult
-								ruleresult.setSuccess(true);
-
-								// create link
-								ruleresult.getIsApplicableMatch().add(
-										isApplicableMatch);
-
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// add match to rule result
+					Object[] result6_black = ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_2_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
+					ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_2_6_greenBB(
+									ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_2_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -878,15 +326,12 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, UseCase useCase,
-			Flow flow, ParallelStep step) {
-		// Create CSP
+			Flow flow, ParallelStep step) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -912,8 +357,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 */
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			UseCase useCase, Interaction interaction, Flow flow,
-			UseCaseToInteraction useCaseToInteraction, ParallelStep step) {
-		// Create CSP
+			UseCaseToInteraction useCaseToInteraction, ParallelStep step) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -921,16 +365,15 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("par");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 		Variable var_combo_interactionOperator = CSPFactoryHelper.eINSTANCE
 				.createVariable("combo.interactionOperator", csp);
-		var_combo_interactionOperator.setType("EObject");
+		var_combo_interactionOperator
+				.setType("ModalSequenceDiagram.InteractionOperatorKind");
 
 		// Create constraints
 		EqInterOperKind eqInterOperKind = new EqInterOperKind();
@@ -999,126 +442,66 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 */
 	public boolean isAppropriate_BWD(Match match, Interaction interaction,
 			CombinedFragment combo) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __interaction_fragment_combo = null;
-		EMoflonEdge __combo_enclosingInteraction_interaction = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object combo is really bound
-			JavaSDM.ensure(combo != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_10_1_blackBBBB(
+						this, match, interaction, combo);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_BWD(match, interaction,
-					combo));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_10_2_bindingAndBlackFBBBB(
+						this, match, interaction, combo);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_10_3_expressionFBB(
+						this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_BWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object combo is really bound
-				JavaSDM.ensure(combo != null);
-				// check object interaction is really bound
-				JavaSDM.ensure(interaction != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// create object __interaction_fragment_combo
-				__interaction_fragment_combo = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __combo_enclosingInteraction_interaction
-				__combo_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __combo_enclosingInteraction_interaction
-				__combo_enclosingInteraction_interaction
-						.setName("enclosingInteraction");
-				// assign attribute __interaction_fragment_combo
-				__interaction_fragment_combo.setName("fragment");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__interaction_fragment_combo, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						combo, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__combo_enclosingInteraction_interaction,
-						"toBeTranslatedEdges");
-
-				// create link
-				__interaction_fragment_combo.setSrc(interaction);
-
-				// create link
-				__combo_enclosingInteraction_interaction.setTrg(interaction);
-
-				// create link
-				__interaction_fragment_combo.setTrg(combo);
-
-				// create link
-				__combo_enclosingInteraction_interaction.setSrc(combo);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_10_4_blackBBB(
+							match, interaction, combo);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_10_4_greenBBBFF(
+							match, interaction, combo);
+			// EMoflonEdge combo__interaction____enclosingInteraction = (EMoflonEdge) result4_green[3];
+			// EMoflonEdge interaction__combo____fragment = (EMoflonEdge) result4_green[4];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object combo is really bound
-				JavaSDM.ensure(combo != null);
-				// check object interaction is really bound
-				JavaSDM.ensure(interaction != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						interaction, "contextNodes");
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_10_5_blackBBB(
+							match, interaction, combo);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_10_5_greenBB(
+							match, interaction);
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_BWD(match, interaction, combo);
-			return true;
-
+			// register objects to match
+			ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_10_6_expressionBBBB(
+							this, match, interaction, combo);
+			return ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_10_7_expressionF();
 		} else {
-			return false;
-
+			return ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_10_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -1127,305 +510,65 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CombinedFragment combo = null;
-		Flow flow = null;
-		Interaction interaction = null;
-		UseCase useCase = null;
-		UseCaseToInteraction useCaseToInteraction = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		ParallelStep step = null;
-		ParallelStepToCombinedFragment stepToCombo = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge stepToCombo__source__step = null;
-		EMoflonEdge __interaction_fragment_combo = null;
-		EMoflonEdge stepToCombo__target__combo = null;
-		EMoflonEdge flow__steps__step = null;
-		EMoflonEdge __combo_enclosingInteraction_interaction = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("combo"));
-
-			// ensure correct type and really bound of object combo
-			JavaSDM.ensure(_TmpObject instanceof CombinedFragment);
-			combo = (CombinedFragment) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("interaction"));
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCaseToInteraction"));
-
-			// ensure correct type and really bound of object useCaseToInteraction
-			JavaSDM.ensure(_TmpObject instanceof UseCaseToInteraction);
-			useCaseToInteraction = (UseCaseToInteraction) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object step
-			step = UseCaseDSLFactory.eINSTANCE.createParallelStep();
-
-			// create object stepToCombo
-			stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-					.createParallelStepToCombinedFragment();
-
-			// create link
-			flow.getSteps().add(step); // add link
-
-			// create link
-			stepToCombo.setSource(step);
-
-			// create link
-			stepToCombo.setTarget(combo);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_11_1_bindingAndBlackFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
+		Interaction interaction = (Interaction) result1_bindingAndBlack[1];
+		Flow flow = (Flow) result1_bindingAndBlack[2];
+		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[3];
+		CombinedFragment combo = (CombinedFragment) result1_bindingAndBlack[4];
+		// CSP csp = (CSP) result1_bindingAndBlack[5];
+		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_11_1_greenBFBF(
+						flow, combo);
+		ParallelStep step = (ParallelStep) result1_green[1];
+		ParallelStepToCombinedFragment stepToCombo = (ParallelStepToCombinedFragment) result1_green[3];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object combo is really bound
-			JavaSDM.ensure(combo != null);
-			// check object step is really bound
-			JavaSDM.ensure(step != null);
-			// check object stepToCombo is really bound
-			JavaSDM.ensure(stepToCombo != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					combo, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					step, "createdElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_11_2_blackBBB(step,
+						combo, stepToCombo);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
+		Object[] result2_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_11_2_greenFBBB(
+						step, combo, stepToCombo);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object combo is really bound
-			JavaSDM.ensure(combo != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object interaction is really bound
-			JavaSDM.ensure(interaction != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object step is really bound
-			JavaSDM.ensure(step != null);
-			// check object stepToCombo is really bound
-			JavaSDM.ensure(stepToCombo != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check object useCaseToInteraction is really bound
-			JavaSDM.ensure(useCaseToInteraction != null);
-			// check isomorphic binding between objects flow and combo 
-			JavaSDM.ensure(!flow.equals(combo));
-
-			// check isomorphic binding between objects interaction and combo 
-			JavaSDM.ensure(!interaction.equals(combo));
-
-			// check isomorphic binding between objects step and combo 
-			JavaSDM.ensure(!step.equals(combo));
-
-			// check isomorphic binding between objects stepToCombo and combo 
-			JavaSDM.ensure(!stepToCombo.equals(combo));
-
-			// check isomorphic binding between objects useCase and combo 
-			JavaSDM.ensure(!useCase.equals(combo));
-
-			// check isomorphic binding between objects useCaseToInteraction and combo 
-			JavaSDM.ensure(!useCaseToInteraction.equals(combo));
-
-			// check isomorphic binding between objects interaction and flow 
-			JavaSDM.ensure(!interaction.equals(flow));
-
-			// check isomorphic binding between objects step and flow 
-			JavaSDM.ensure(!step.equals(flow));
-
-			// check isomorphic binding between objects stepToCombo and flow 
-			JavaSDM.ensure(!stepToCombo.equals(flow));
-
-			// check isomorphic binding between objects useCase and flow 
-			JavaSDM.ensure(!useCase.equals(flow));
-
-			// check isomorphic binding between objects useCaseToInteraction and flow 
-			JavaSDM.ensure(!useCaseToInteraction.equals(flow));
-
-			// check isomorphic binding between objects step and interaction 
-			JavaSDM.ensure(!step.equals(interaction));
-
-			// check isomorphic binding between objects stepToCombo and interaction 
-			JavaSDM.ensure(!stepToCombo.equals(interaction));
-
-			// check isomorphic binding between objects useCase and interaction 
-			JavaSDM.ensure(!useCase.equals(interaction));
-
-			// check isomorphic binding between objects useCaseToInteraction and interaction 
-			JavaSDM.ensure(!useCaseToInteraction.equals(interaction));
-
-			// check isomorphic binding between objects stepToCombo and step 
-			JavaSDM.ensure(!stepToCombo.equals(step));
-
-			// check isomorphic binding between objects useCase and step 
-			JavaSDM.ensure(!useCase.equals(step));
-
-			// check isomorphic binding between objects useCaseToInteraction and step 
-			JavaSDM.ensure(!useCaseToInteraction.equals(step));
-
-			// check isomorphic binding between objects useCase and stepToCombo 
-			JavaSDM.ensure(!useCase.equals(stepToCombo));
-
-			// check isomorphic binding between objects useCaseToInteraction and stepToCombo 
-			JavaSDM.ensure(!useCaseToInteraction.equals(stepToCombo));
-
-			// check isomorphic binding between objects useCaseToInteraction and useCase 
-			JavaSDM.ensure(!useCaseToInteraction.equals(useCase));
-
-			// create object stepToCombo__source__step
-			stepToCombo__source__step = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __interaction_fragment_combo
-			__interaction_fragment_combo = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object stepToCombo__target__combo
-			stepToCombo__target__combo = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object flow__steps__step
-			flow__steps__step = TGGRuntimeFactory.eINSTANCE.createEMoflonEdge();
-
-			// create object __combo_enclosingInteraction_interaction
-			__combo_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("ParallelStepToCombinedFragmentRule");
-			// assign attribute __combo_enclosingInteraction_interaction
-			__combo_enclosingInteraction_interaction
-					.setName("enclosingInteraction");
-			// assign attribute __interaction_fragment_combo
-			__interaction_fragment_combo.setName("fragment");
-			// assign attribute flow__steps__step
-			flow__steps__step.setName("steps");
-			// assign attribute stepToCombo__source__step
-			stepToCombo__source__step.setName("source");
-			// assign attribute stepToCombo__target__combo
-			stepToCombo__target__combo.setName("target");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__source__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__interaction_fragment_combo, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					stepToCombo__target__combo, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					flow__steps__step, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							__combo_enclosingInteraction_interaction,
-							"translatedEdges");
-
-			// create link
-			__interaction_fragment_combo.setSrc(interaction);
-
-			// create link
-			__combo_enclosingInteraction_interaction.setTrg(interaction);
-
-			// create link
-			flow__steps__step.setSrc(flow);
-
-			// create link
-			flow__steps__step.setTrg(step);
-
-			// create link
-			stepToCombo__source__step.setTrg(step);
-
-			// create link
-			__combo_enclosingInteraction_interaction.setSrc(combo);
-
-			// create link
-			__interaction_fragment_combo.setTrg(combo);
-
-			// create link
-			stepToCombo__target__combo.setTrg(combo);
-
-			// create link
-			stepToCombo__source__step.setSrc(stepToCombo);
-
-			// create link
-			stepToCombo__target__combo.setSrc(stepToCombo);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// bookkeeping for edges
+		Object[] result3_black = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_11_3_blackBBBBBBBB(
+						ruleresult, useCase, interaction, flow,
+						useCaseToInteraction, step, combo, stepToCombo);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_11_3_greenBBBBBBFFFFF(
+						ruleresult, interaction, flow, step, combo, stepToCombo);
+		// EMoflonEdge combo__interaction____enclosingInteraction = (EMoflonEdge) result3_green[6];
+		// EMoflonEdge interaction__combo____fragment = (EMoflonEdge) result3_green[7];
+		// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[8];
+		// EMoflonEdge stepToCombo__step____source = (EMoflonEdge) result3_green[9];
+		// EMoflonEdge stepToCombo__combo____target = (EMoflonEdge) result3_green[10];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_BWD(ruleresult, useCase, interaction, flow,
-				useCaseToInteraction, step, combo, stepToCombo);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_11_5_expressionBBBBBBBBB(
+						this, ruleresult, useCase, interaction, flow,
+						useCaseToInteraction, step, combo, stepToCombo);
+		return ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_11_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1434,352 +577,83 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_BWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		CombinedFragment combo = null;
-		Interaction interaction = null;
-		EMoflonEdge __useCase_flows_flow = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __useCaseToInteraction_source_useCase = null;
-		EMoflonEdge __interaction_fragment_combo = null;
-		EMoflonEdge __useCaseToInteraction_target_interaction = null;
-		EMoflonEdge __combo_enclosingInteraction_interaction = null;
-		CSP csp = null;
-		Iterator fujaba__IterUseCaseToFlow = null;
-		Flow flow = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterInteractionToUseCaseToInteraction = null;
-		UseCaseToInteraction useCaseToInteraction = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("ParallelStepToCombinedFragmentRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_12_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_12_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
 
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
+		// ForEach core match
+		Object[] result2_binding = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_12_2_bindingFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		Interaction interaction = (Interaction) result2_binding[0];
+		CombinedFragment combo = (CombinedFragment) result2_binding[1];
+		for (Object[] result2_black : ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_12_2_blackFBFBB(
+						interaction, combo, match)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[2];
+			// ForEach find context
+			for (Object[] result3_black : ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_12_3_blackBBFBB(
+							useCase, interaction, useCaseToInteraction, combo)) {
+				Flow flow = (Flow) result3_black[2];
+				Object[] result3_green = ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_12_3_greenBBBBBFFFFFF(
+								useCase, interaction, flow,
+								useCaseToInteraction, combo);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[5];
+				// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result3_green[6];
+				// EMoflonEdge combo__interaction____enclosingInteraction = (EMoflonEdge) result3_green[7];
+				// EMoflonEdge interaction__combo____fragment = (EMoflonEdge) result3_green[8];
+				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[9];
+				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[10];
 
-			_TmpObject = (match.getObject("combo"));
+				// solve CSP
+				Object[] result4_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_12_4_bindingAndBlackFBBBBBBB(
+								this, isApplicableMatch, useCase, interaction,
+								flow, useCaseToInteraction, combo);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_12_5_expressionFBB(
+								this, csp)) {
 
-			// ensure correct type and really bound of object combo
-			JavaSDM.ensure(_TmpObject instanceof CombinedFragment);
-			combo = (CombinedFragment) _TmpObject;
-			_TmpObject = (match.getObject("interaction"));
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// iterate to-many link target from interaction to useCaseToInteraction
-			fujaba__Success = false;
-
-			fujaba__IterInteractionToUseCaseToInteraction = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							interaction, UseCaseToInteraction.class, "target"))
-					.iterator();
-
-			while (fujaba__IterInteractionToUseCaseToInteraction.hasNext()) {
-				try {
-					useCaseToInteraction = (UseCaseToInteraction) fujaba__IterInteractionToUseCaseToInteraction
-							.next();
-
-					// check object useCaseToInteraction is really bound
-					JavaSDM.ensure(useCaseToInteraction != null);
-					// bind object
-					useCase = useCaseToInteraction.getSource();
-
-					// check object useCase is really bound
-					JavaSDM.ensure(useCase != null);
-
-					// story node 'find context'
-					try {
-						fujaba__Success = false;
-
-						// check object combo is really bound
-						JavaSDM.ensure(combo != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check object useCase is really bound
-						JavaSDM.ensure(useCase != null);
-						// check object useCaseToInteraction is really bound
-						JavaSDM.ensure(useCaseToInteraction != null);
-						// check link fragment from combo to interaction
-						JavaSDM.ensure(interaction.equals(combo
-								.getEnclosingInteraction()));
-
-						// check link source from useCaseToInteraction to useCase
-						JavaSDM.ensure(useCase.equals(useCaseToInteraction
-								.getSource()));
-
-						// check link target from useCaseToInteraction to interaction
-						JavaSDM.ensure(interaction.equals(useCaseToInteraction
-								.getTarget()));
-
-						// iterate to-many link flows from useCase to flow
-						fujaba__Success = false;
-
-						fujaba__IterUseCaseToFlow = new ArrayList(
-								useCase.getFlows()).iterator();
-
-						while (fujaba__IterUseCaseToFlow.hasNext()) {
-							try {
-								flow = (Flow) fujaba__IterUseCaseToFlow.next();
-
-								// check object flow is really bound
-								JavaSDM.ensure(flow != null);
-								// create object __useCase_flows_flow
-								__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object isApplicableMatch
-								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-										.createIsApplicableMatch();
-
-								// create object __useCaseToInteraction_source_useCase
-								__useCaseToInteraction_source_useCase = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __interaction_fragment_combo
-								__interaction_fragment_combo = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __useCaseToInteraction_target_interaction
-								__useCaseToInteraction_target_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __combo_enclosingInteraction_interaction
-								__combo_enclosingInteraction_interaction = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// assign attribute __useCase_flows_flow
-								__useCase_flows_flow.setName("flows");
-								// assign attribute __combo_enclosingInteraction_interaction
-								__combo_enclosingInteraction_interaction
-										.setName("enclosingInteraction");
-								// assign attribute __interaction_fragment_combo
-								__interaction_fragment_combo
-										.setName("fragment");
-								// assign attribute __useCaseToInteraction_source_useCase
-								__useCaseToInteraction_source_useCase
-										.setName("source");
-								// assign attribute __useCaseToInteraction_target_interaction
-								__useCaseToInteraction_target_interaction
-										.setName("target");
-
-								// create link
-								__useCase_flows_flow.setSrc(useCase);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										useCase);
-
-								// create link
-								__useCaseToInteraction_source_useCase
-										.setTrg(useCase);
-
-								// create link
-								__interaction_fragment_combo
-										.setSrc(interaction);
-
-								// create link
-								__useCaseToInteraction_target_interaction
-										.setTrg(interaction);
-
-								// create link
-								__combo_enclosingInteraction_interaction
-										.setTrg(interaction);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										interaction);
-
-								// create link
-								__useCase_flows_flow.setTrg(flow);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										flow);
-
-								// create link
-								__useCaseToInteraction_source_useCase
-										.setSrc(useCaseToInteraction);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										useCaseToInteraction);
-
-								// create link
-								__useCaseToInteraction_target_interaction
-										.setSrc(useCaseToInteraction);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										combo);
-
-								// create link
-								__combo_enclosingInteraction_interaction
-										.setSrc(combo);
-
-								// create link
-								__interaction_fragment_combo.setTrg(combo);
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCaseToInteraction_target_interaction,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCase_flows_flow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCaseToInteraction_source_useCase,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__interaction_fragment_combo,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__combo_enclosingInteraction_interaction,
-												"allContextElements");
-								// story node 'solve CSP'
-								try {
-									fujaba__Success = false;
-
-									_TmpObject = (this
-											.isApplicable_solveCsp_BWD(
-													isApplicableMatch, useCase,
-													interaction, flow,
-													useCaseToInteraction, combo));
-
-									// ensure correct type and really bound of object csp
-									JavaSDM.ensure(_TmpObject instanceof CSP);
-									csp = (CSP) _TmpObject;
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								// statement node 'check CSP'
-								fujaba__Success = this
-										.isApplicable_checkCsp_BWD(csp);
-								if (fujaba__Success) {
-									// story node 'add match to rule result'
-									try {
-										fujaba__Success = false;
-
-										// check object isApplicableMatch is really bound
-										JavaSDM.ensure(isApplicableMatch != null);
-										// check object ruleresult is really bound
-										JavaSDM.ensure(ruleresult != null);
-										// assign attribute isApplicableMatch
-										isApplicableMatch
-												.setRuleName("ParallelStepToCombinedFragmentRule");
-										// assign attribute ruleresult
-										ruleresult.setSuccess(true);
-
-										// create link
-										ruleresult.getIsApplicableMatch().add(
-												isApplicableMatch);
-
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-								} else {
-
-								}
-
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-						}
-						JavaSDM.ensure(fujaba__Success);
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// add match to rule result
+					Object[] result6_black = ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_12_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
+					ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_12_6_greenBB(
+									ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_12_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1800,23 +674,21 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_BWD(Match match, Interaction interaction,
-			CombinedFragment combo) {
-		// Create CSP
+			CombinedFragment combo) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("par");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_combo_interactionOperator = CSPFactoryHelper.eINSTANCE
 				.createVariable("combo.interactionOperator", true, csp);
 		var_combo_interactionOperator.setValue(combo.getInteractionOperator());
-		var_combo_interactionOperator.setType("EObject");
-
-		// Create explicit parameters
+		var_combo_interactionOperator
+				.setType("ModalSequenceDiagram.InteractionOperatorKind");
 
 		// Create unbound variables
 
@@ -1847,16 +719,13 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 */
 	public CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
 			UseCase useCase, Interaction interaction, Flow flow,
-			UseCaseToInteraction useCaseToInteraction, CombinedFragment combo) {
-		// Create CSP
+			UseCaseToInteraction useCaseToInteraction, CombinedFragment combo) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -1920,160 +789,60 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_326(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_76(
 			EMoflonEdge _edge_enclosingInteraction) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Match match = null;
-		Interaction interaction = null;
-		CombinedFragment combo = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_20_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_20_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_20_2_blackFFB(_edge_enclosingInteraction)) {
+			Interaction interaction = (Interaction) result2_black[0];
+			CombinedFragment combo = (CombinedFragment) result2_black[1];
+			Object[] result2_green = ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_20_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_enclosingInteraction is really bound
-			JavaSDM.ensure(_edge_enclosingInteraction != null);
-			// bind object
-			_TmpObject = _edge_enclosingInteraction.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_20_3_expressionFBBBB(
+							this, match, interaction, combo)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_20_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object combo
-			JavaSDM.ensure(_TmpObject instanceof CombinedFragment);
-			combo = (CombinedFragment) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_enclosingInteraction.getTrg();
-
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-
-			// check link fragment from combo to interaction
-			JavaSDM.ensure(interaction.equals(combo.getEnclosingInteraction()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// negative check for link fragment from combo
-				JavaSDM.ensure(combo.getEnclosingOperand() == null);
-				// check object _edge_enclosingInteraction is really bound
-				JavaSDM.ensure(_edge_enclosingInteraction != null);
-				// check object combo is really bound
-				JavaSDM.ensure(combo != null);
-				// check object interaction is really bound
-				JavaSDM.ensure(interaction != null);
-				// check link fragment from combo to interaction
-				JavaSDM.ensure(interaction.equals(combo
-						.getEnclosingInteraction()));
-
-				// check link src from _edge_enclosingInteraction to combo
-				JavaSDM.ensure(combo.equals(_edge_enclosingInteraction.getSrc()));
-
-				// check link trg from _edge_enclosingInteraction to interaction
-				JavaSDM.ensure(interaction.equals(_edge_enclosingInteraction
-						.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_BWD(match, interaction,
-						combo);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_BWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
+					// Add match to rule result
+					Object[] result5_black = ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_20_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_20_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_20_6_expressionFB(__result);
 	}
 
 	/**
@@ -2081,407 +850,60 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_327(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_77(
 			EMoflonEdge _edge_fragment) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Match match = null;
-		Iterator fujaba__IterInteractionTo_edge_enclosingInteraction = null;
-		EMoflonEdge _edge_enclosingInteraction = null;
-		CombinedFragment combo = null;
-		Interaction interaction = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_21_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_21_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_21_2_blackFFB(_edge_fragment)) {
+			Interaction interaction = (Interaction) result2_black[0];
+			CombinedFragment combo = (CombinedFragment) result2_black[1];
+			Object[] result2_green = ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_21_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_fragment is really bound
-			JavaSDM.ensure(_edge_fragment != null);
-			// bind object
-			_TmpObject = _edge_fragment.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_21_3_expressionFBBBB(
+							this, match, interaction, combo)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_21_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object interaction
-			JavaSDM.ensure(_TmpObject instanceof Interaction);
-			interaction = (Interaction) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_fragment.getTrg();
-
-			// ensure correct type and really bound of object combo
-			JavaSDM.ensure(_TmpObject instanceof CombinedFragment);
-			combo = (CombinedFragment) _TmpObject;
-
-			// check link fragment from combo to interaction
-			JavaSDM.ensure(interaction.equals(combo.getEnclosingInteraction()));
-
-			// iterate to-many link trg from interaction to _edge_enclosingInteraction
-			fujaba__Success = false;
-
-			fujaba__IterInteractionTo_edge_enclosingInteraction = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							interaction, EMoflonEdge.class, "trg")).iterator();
-
-			while (fujaba__IterInteractionTo_edge_enclosingInteraction
-					.hasNext()) {
-				try {
-					_edge_enclosingInteraction = (EMoflonEdge) fujaba__IterInteractionTo_edge_enclosingInteraction
-							.next();
-
-					// check object _edge_enclosingInteraction is really bound
-					JavaSDM.ensure(_edge_enclosingInteraction != null);
-					// check isomorphic binding between objects _edge_fragment and _edge_enclosingInteraction 
-					JavaSDM.ensure(!_edge_fragment
-							.equals(_edge_enclosingInteraction));
-
-					// check link src from _edge_enclosingInteraction to combo
-					JavaSDM.ensure(combo.equals(_edge_enclosingInteraction
-							.getSrc()));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// negative check for link fragment from combo
-						JavaSDM.ensure(combo.getEnclosingOperand() == null);
-						// check object _edge_enclosingInteraction is really bound
-						JavaSDM.ensure(_edge_enclosingInteraction != null);
-						// check object _edge_fragment is really bound
-						JavaSDM.ensure(_edge_fragment != null);
-						// check object combo is really bound
-						JavaSDM.ensure(combo != null);
-						// check object interaction is really bound
-						JavaSDM.ensure(interaction != null);
-						// check isomorphic binding between objects _edge_fragment and _edge_enclosingInteraction 
-						JavaSDM.ensure(!_edge_fragment
-								.equals(_edge_enclosingInteraction));
-
-						// check link fragment from combo to interaction
-						JavaSDM.ensure(interaction.equals(combo
-								.getEnclosingInteraction()));
-
-						// check link src from _edge_enclosingInteraction to combo
-						JavaSDM.ensure(combo.equals(_edge_enclosingInteraction
-								.getSrc()));
-
-						// check link src from _edge_fragment to interaction
-						JavaSDM.ensure(interaction.equals(_edge_fragment
-								.getSrc()));
-
-						// check link trg from _edge_enclosingInteraction to interaction
-						JavaSDM.ensure(interaction
-								.equals(_edge_enclosingInteraction.getTrg()));
-
-						// check link trg from _edge_fragment to combo
-						JavaSDM.ensure(combo.equals(_edge_fragment.getTrg()));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								interaction, combo);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// Add match to rule result
+					Object[] result5_black = ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_21_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		return __result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_78(
-			EMoflonEdge _edge_steps) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Flow __DEC_step_steps_435354 = null;
-		Match match = null;
-		ParallelStep step = null;
-		UseCase useCase = null;
-		Flow flow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_steps is really bound
-			JavaSDM.ensure(_edge_steps != null);
-			// bind object
-			_TmpObject = _edge_steps.getSrc();
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-
-			// bind object
-			useCase = flow.eContainer() instanceof UseCase ? (UseCase) flow
-					.eContainer() : null;
-
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(useCase.getFlows().contains(flow));
-
-			// bind object
-			_TmpObject = _edge_steps.getTrg();
-
-			// ensure correct type and really bound of object step
-			JavaSDM.ensure(_TmpObject instanceof ParallelStep);
-			step = (ParallelStep) _TmpObject;
-
-			// check link steps from step to flow
-			JavaSDM.ensure(flow.equals(step.eContainer()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_step_steps_435354 = step.eContainer() instanceof Flow ? (Flow) step
-							.eContainer() : null;
-
-					// check object __DEC_step_steps_435354 is really bound
-					JavaSDM.ensure(__DEC_step_steps_435354 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_step_steps_435354.getSteps().contains(
-							step));
-
-					// check isomorphic binding between objects __DEC_step_steps_435354 and flow 
-					JavaSDM.ensure(!__DEC_step_steps_435354.equals(flow));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check object _edge_steps is really bound
-				JavaSDM.ensure(_edge_steps != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object step is really bound
-				JavaSDM.ensure(step != null);
-				// check object useCase is really bound
-				JavaSDM.ensure(useCase != null);
-				// check link flows from flow to useCase
-				JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-				// check link src from _edge_steps to flow
-				JavaSDM.ensure(flow.equals(_edge_steps.getSrc()));
-
-				// check link steps from step to flow
-				JavaSDM.ensure(flow.equals(step.eContainer()));
-
-				// check link trg from _edge_steps to step
-				JavaSDM.ensure(step.equals(_edge_steps.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_FWD(match, useCase, flow,
-						step);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_FWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
-					}
+					ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_21_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_21_6_expressionFB(__result);
 	}
 
 	/**
@@ -2489,12 +911,61 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_233(
+			EMoflonEdge _edge_steps) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_22_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_22_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// [user code injected with eMoflon]
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_22_2_blackFFFB(_edge_steps)) {
+			UseCase useCase = (UseCase) result2_black[0];
+			Flow flow = (Flow) result2_black[1];
+			ParallelStep step = (ParallelStep) result2_black[2];
+			Object[] result2_green = ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_22_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+			// bookkeeping with generic isAppropriate method
+			if (ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_22_3_expressionFBBBBB(
+							this, match, useCase, flow, step)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_22_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_22_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_22_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_22_6_expressionFB(__result);
 	}
 
 	/**
@@ -2502,12 +973,148 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// [user code injected with eMoflon]
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer,
+			UseCaseToInteraction useCaseToInteractionParameter) {
+		// create result
+		Object[] result1_black = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_25_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_25_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
+
+		// ForEach is applicable core
+		for (Object[] result2_black : ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_25_2_blackFFFFFBB(
+						ruleEntryContainer, ruleResult)) {
+			// RuleEntryList useCaseToInteractionList = (RuleEntryList) result2_black[0];
+			UseCase useCase = (UseCase) result2_black[1];
+			Flow flow = (Flow) result2_black[2];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[3];
+			Interaction interaction = (Interaction) result2_black[4];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_25_3_bindingAndBlackFBBBBBBB(
+							this, isApplicableMatch, useCase, interaction,
+							flow, useCaseToInteraction, ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (ParallelStepToCombinedFragmentRuleImpl
+					.pattern_ParallelStepToCombinedFragmentRule_25_4_expressionFBB(
+							this, csp)) {
+				// check nacs
+				Object[] result5_black = ParallelStepToCombinedFragmentRuleImpl
+						.pattern_ParallelStepToCombinedFragmentRule_25_5_blackBBBB(
+								useCase, interaction, flow,
+								useCaseToInteraction);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_25_6_blackBBBBB(
+									useCase, interaction, flow,
+									useCaseToInteraction, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					ParallelStepToCombinedFragmentRuleImpl
+							.pattern_ParallelStepToCombinedFragmentRule_25_6_greenBBFFFBB(
+									interaction, flow, ruleResult, csp);
+					// ParallelStep step = (ParallelStep) result6_green[2];
+					// CombinedFragment combo = (CombinedFragment) result6_green[3];
+					// ParallelStepToCombinedFragment stepToCombo = (ParallelStepToCombinedFragment) result6_green[4];
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return ParallelStepToCombinedFragmentRuleImpl
+				.pattern_ParallelStepToCombinedFragmentRule_25_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			UseCase useCase, Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("par");
+		literal0.setType("");
+
+		// Create attribute variables
+
+		// Create unbound variables
+		Variable var_combo_interactionOperator = CSPFactoryHelper.eINSTANCE
+				.createVariable("combo.interactionOperator", csp);
+		var_combo_interactionOperator
+				.setType("ModalSequenceDiagram.InteractionOperatorKind");
+
+		// Create constraints
+		EqInterOperKind eqInterOperKind = new EqInterOperKind();
+
+		csp.getConstraints().add(eqInterOperKind);
+
+		// Solve CSP
+		eqInterOperKind.setRuleName("");
+		eqInterOperKind.solve(var_combo_interactionOperator, literal0);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("useCase", useCase);
+		isApplicableMatch.registerObject("interaction", interaction);
+		isApplicableMatch.registerObject("flow", flow);
+		isApplicableMatch.registerObject("useCaseToInteraction",
+				useCaseToInteraction);
+		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean generateModel_checkCsp_BWD(CSP csp) {
+		return csp.check();
 	}
 
 	/**
@@ -2593,22 +1200,1711 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_326__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_326((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_76__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_76((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_327__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_327((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_77__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_77((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_78__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_78((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_233__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_233((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_USECASETOINTERACTION:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(UseCaseToInteraction) arguments.get(1));
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASE_INTERACTION_FLOW_USECASETOINTERACTION_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(UseCase) arguments.get(1), (Interaction) arguments.get(2),
+					(Flow) arguments.get(3),
+					(UseCaseToInteraction) arguments.get(4),
+					(ModelgeneratorRuleResult) arguments.get(5));
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_0_1_blackBBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			UseCase useCase, Flow flow, ParallelStep step) {
+		return new Object[] { _this, match, useCase, flow, step };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_0_2_bindingFBBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			UseCase useCase, Flow flow, ParallelStep step) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, useCase,
+				flow, step);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, useCase, flow, step };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_0_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_0_2_bindingAndBlackFBBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			UseCase useCase, Flow flow, ParallelStep step) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_0_2_binding = pattern_ParallelStepToCombinedFragmentRule_0_2_bindingFBBBBB(
+				_this, match, useCase, flow, step);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_0_2_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelStepToCombinedFragmentRule_0_2_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_0_2_black = pattern_ParallelStepToCombinedFragmentRule_0_2_blackB(csp);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_0_2_black != null) {
+
+				return new Object[] { csp, _this, match, useCase, flow, step };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_0_3_expressionFBB(
+			ParallelStepToCombinedFragmentRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_0_4_blackBBBB(
+			Match match, UseCase useCase, Flow flow, ParallelStep step) {
+		return new Object[] { match, useCase, flow, step };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_0_4_greenBBBF(
+			Match match, Flow flow, ParallelStep step) {
+		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(step);
+		String flow__step____steps_name_prime = "steps";
+		flow__step____steps.setSrc(flow);
+		flow__step____steps.setTrg(step);
+		match.getToBeTranslatedEdges().add(flow__step____steps);
+		flow__step____steps.setName(flow__step____steps_name_prime);
+		return new Object[] { match, flow, step, flow__step____steps };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_0_5_blackBBBB(
+			Match match, UseCase useCase, Flow flow, ParallelStep step) {
+		return new Object[] { match, useCase, flow, step };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_0_5_greenBBBF(
+			Match match, UseCase useCase, Flow flow) {
+		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getContextNodes().add(useCase);
+		match.getContextNodes().add(flow);
+		String useCase__flow____flows_name_prime = "flows";
+		useCase__flow____flows.setSrc(useCase);
+		useCase__flow____flows.setTrg(flow);
+		match.getContextEdges().add(useCase__flow____flows);
+		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		return new Object[] { match, useCase, flow, useCase__flow____flows };
+	}
+
+	public static final void pattern_ParallelStepToCombinedFragmentRule_0_6_expressionBBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			UseCase useCase, Flow flow, ParallelStep step) {
+		_this.registerObjectsToMatch_FWD(match, useCase, flow, step);
+
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_0_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_0_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_1_1_bindingFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_1 = isApplicableMatch.getObject("interaction");
+		EObject _localVariable_2 = isApplicableMatch.getObject("flow");
+		EObject _localVariable_3 = isApplicableMatch
+				.getObject("useCaseToInteraction");
+		EObject _localVariable_4 = isApplicableMatch.getObject("step");
+		EObject tmpUseCase = _localVariable_0;
+		EObject tmpInteraction = _localVariable_1;
+		EObject tmpFlow = _localVariable_2;
+		EObject tmpUseCaseToInteraction = _localVariable_3;
+		EObject tmpStep = _localVariable_4;
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (tmpFlow instanceof Flow) {
+					Flow flow = (Flow) tmpFlow;
+					if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+						UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+						if (tmpStep instanceof ParallelStep) {
+							ParallelStep step = (ParallelStep) tmpStep;
+							return new Object[] { useCase, interaction, flow,
+									useCaseToInteraction, step,
+									isApplicableMatch };
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_1_1_blackBBBBBFBB(
+			UseCase useCase, Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, ParallelStep step,
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+			if (tmpCsp instanceof CSP) {
+				CSP csp = (CSP) tmpCsp;
+				return new Object[] { useCase, interaction, flow,
+						useCaseToInteraction, step, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_1_1_bindingAndBlackFFFFFFBB(
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_1_1_binding = pattern_ParallelStepToCombinedFragmentRule_1_1_bindingFFFFFB(isApplicableMatch);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_1_1_binding != null) {
+			UseCase useCase = (UseCase) result_pattern_ParallelStepToCombinedFragmentRule_1_1_binding[0];
+			Interaction interaction = (Interaction) result_pattern_ParallelStepToCombinedFragmentRule_1_1_binding[1];
+			Flow flow = (Flow) result_pattern_ParallelStepToCombinedFragmentRule_1_1_binding[2];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_ParallelStepToCombinedFragmentRule_1_1_binding[3];
+			ParallelStep step = (ParallelStep) result_pattern_ParallelStepToCombinedFragmentRule_1_1_binding[4];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_1_1_black = pattern_ParallelStepToCombinedFragmentRule_1_1_blackBBBBBFBB(
+					useCase, interaction, flow, useCaseToInteraction, step,
+					_this, isApplicableMatch);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_1_1_black != null) {
+				CSP csp = (CSP) result_pattern_ParallelStepToCombinedFragmentRule_1_1_black[5];
+
+				return new Object[] { useCase, interaction, flow,
+						useCaseToInteraction, step, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_1_1_greenBBFFB(
+			Interaction interaction, ParallelStep step, CSP csp) {
+		CombinedFragment combo = ModalSequenceDiagramFactory.eINSTANCE
+				.createCombinedFragment();
+		ParallelStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createParallelStepToCombinedFragment();
+		Object _localVariable_0 = csp.getValue("combo", "interactionOperator");
+		combo.setEnclosingInteraction(interaction);
+		stepToCombo.setSource(step);
+		stepToCombo.setTarget(combo);
+		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_0;
+		combo.setInteractionOperator(combo_interactionOperator_prime);
+		return new Object[] { interaction, step, combo, stepToCombo, csp };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_1_2_blackBBB(
+			ParallelStep step, CombinedFragment combo,
+			ParallelStepToCombinedFragment stepToCombo) {
+		return new Object[] { step, combo, stepToCombo };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_1_2_greenFBBB(
+			ParallelStep step, CombinedFragment combo,
+			ParallelStepToCombinedFragment stepToCombo) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getTranslatedElements().add(step);
+		ruleresult.getCreatedElements().add(combo);
+		ruleresult.getCreatedLinkElements().add(stepToCombo);
+		return new Object[] { ruleresult, step, combo, stepToCombo };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_1_3_blackBBBBBBBB(
+			PerformRuleResult ruleresult, EObject useCase, EObject interaction,
+			EObject flow, EObject useCaseToInteraction, EObject step,
+			EObject combo, EObject stepToCombo) {
+		if (!useCase.equals(useCaseToInteraction)) {
+			if (!interaction.equals(useCase)) {
+				if (!interaction.equals(useCaseToInteraction)) {
+					if (!interaction.equals(step)) {
+						if (!interaction.equals(stepToCombo)) {
+							if (!flow.equals(useCase)) {
+								if (!flow.equals(interaction)) {
+									if (!flow.equals(useCaseToInteraction)) {
+										if (!flow.equals(step)) {
+											if (!flow.equals(stepToCombo)) {
+												if (!step.equals(useCase)) {
+													if (!step
+															.equals(useCaseToInteraction)) {
+														if (!step
+																.equals(stepToCombo)) {
+															if (!combo
+																	.equals(useCase)) {
+																if (!combo
+																		.equals(interaction)) {
+																	if (!combo
+																			.equals(flow)) {
+																		if (!combo
+																				.equals(useCaseToInteraction)) {
+																			if (!combo
+																					.equals(step)) {
+																				if (!combo
+																						.equals(stepToCombo)) {
+																					if (!stepToCombo
+																							.equals(useCase)) {
+																						if (!stepToCombo
+																								.equals(useCaseToInteraction)) {
+																							return new Object[] {
+																									ruleresult,
+																									useCase,
+																									interaction,
+																									flow,
+																									useCaseToInteraction,
+																									step,
+																									combo,
+																									stepToCombo };
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_1_3_greenBBBBBBFFFFF(
+			PerformRuleResult ruleresult, EObject interaction, EObject flow,
+			EObject step, EObject combo, EObject stepToCombo) {
+		EMoflonEdge combo__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__combo____fragment = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge stepToCombo__step____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge stepToCombo__combo____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "ParallelStepToCombinedFragmentRule";
+		String combo__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
+		String interaction__combo____fragment_name_prime = "fragment";
+		String flow__step____steps_name_prime = "steps";
+		String stepToCombo__step____source_name_prime = "source";
+		String stepToCombo__combo____target_name_prime = "target";
+		combo__interaction____enclosingInteraction.setSrc(combo);
+		combo__interaction____enclosingInteraction.setTrg(interaction);
+		ruleresult.getCreatedEdges().add(
+				combo__interaction____enclosingInteraction);
+		interaction__combo____fragment.setSrc(interaction);
+		interaction__combo____fragment.setTrg(combo);
+		ruleresult.getCreatedEdges().add(interaction__combo____fragment);
+		flow__step____steps.setSrc(flow);
+		flow__step____steps.setTrg(step);
+		ruleresult.getTranslatedEdges().add(flow__step____steps);
+		stepToCombo__step____source.setSrc(stepToCombo);
+		stepToCombo__step____source.setTrg(step);
+		ruleresult.getCreatedEdges().add(stepToCombo__step____source);
+		stepToCombo__combo____target.setSrc(stepToCombo);
+		stepToCombo__combo____target.setTrg(combo);
+		ruleresult.getCreatedEdges().add(stepToCombo__combo____target);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		combo__interaction____enclosingInteraction
+				.setName(combo__interaction____enclosingInteraction_name_prime);
+		interaction__combo____fragment
+				.setName(interaction__combo____fragment_name_prime);
+		flow__step____steps.setName(flow__step____steps_name_prime);
+		stepToCombo__step____source
+				.setName(stepToCombo__step____source_name_prime);
+		stepToCombo__combo____target
+				.setName(stepToCombo__combo____target_name_prime);
+		return new Object[] { ruleresult, interaction, flow, step, combo,
+				stepToCombo, combo__interaction____enclosingInteraction,
+				interaction__combo____fragment, flow__step____steps,
+				stepToCombo__step____source, stepToCombo__combo____target };
+	}
+
+	public static final void pattern_ParallelStepToCombinedFragmentRule_1_5_expressionBBBBBBBBB(
+			ParallelStepToCombinedFragmentRule _this,
+			PerformRuleResult ruleresult, EObject useCase, EObject interaction,
+			EObject flow, EObject useCaseToInteraction, EObject step,
+			EObject combo, EObject stepToCombo) {
+		_this.registerObjects_FWD(ruleresult, useCase, interaction, flow,
+				useCaseToInteraction, step, combo, stepToCombo);
+
+	}
+
+	public static final PerformRuleResult pattern_ParallelStepToCombinedFragmentRule_1_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_1_bindingFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_1_blackFBB(
+			EClass eClass, ParallelStepToCombinedFragmentRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_FWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_1_bindingAndBlackFFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_2_1_binding = pattern_ParallelStepToCombinedFragmentRule_2_1_bindingFB(_this);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_2_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_ParallelStepToCombinedFragmentRule_2_1_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_2_1_black = pattern_ParallelStepToCombinedFragmentRule_2_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_2_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_ParallelStepToCombinedFragmentRule_2_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "ParallelStepToCombinedFragmentRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_2_bindingFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("useCase");
+		EObject _localVariable_1 = match.getObject("flow");
+		EObject _localVariable_2 = match.getObject("step");
+		EObject tmpUseCase = _localVariable_0;
+		EObject tmpFlow = _localVariable_1;
+		EObject tmpStep = _localVariable_2;
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			if (tmpFlow instanceof Flow) {
+				Flow flow = (Flow) tmpFlow;
+				if (tmpStep instanceof ParallelStep) {
+					ParallelStep step = (ParallelStep) tmpStep;
+					return new Object[] { useCase, flow, step, match };
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_2_2_blackBFBFBB(
+			UseCase useCase, Flow flow, ParallelStep step, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(useCase, UseCaseToInteraction.class,
+						"source")) {
+			Interaction interaction = useCaseToInteraction.getTarget();
+			if (interaction != null) {
+				_result.add(new Object[] { useCase, interaction, flow,
+						useCaseToInteraction, step, match });
+			}
+
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_2_3_blackBBBBB(
+			UseCase useCase, Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, ParallelStep step) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (useCase.getFlows().contains(flow)) {
+			if (flow.getSteps().contains(step)) {
+				if (useCase.equals(useCaseToInteraction.getSource())) {
+					if (interaction.equals(useCaseToInteraction.getTarget())) {
+						_result.add(new Object[] { useCase, interaction, flow,
+								useCaseToInteraction, step });
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_3_greenBBBBBFFFFF(
+			UseCase useCase, Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, ParallelStep step) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String useCase__flow____flows_name_prime = "flows";
+		String flow__step____steps_name_prime = "steps";
+		String useCaseToInteraction__useCase____source_name_prime = "source";
+		String useCaseToInteraction__interaction____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(interaction);
+		isApplicableMatch.getAllContextElements().add(flow);
+		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
+		isApplicableMatch.getAllContextElements().add(step);
+		useCase__flow____flows.setSrc(useCase);
+		useCase__flow____flows.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(useCase__flow____flows);
+		flow__step____steps.setSrc(flow);
+		flow__step____steps.setTrg(step);
+		isApplicableMatch.getAllContextElements().add(flow__step____steps);
+		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
+		useCaseToInteraction__useCase____source.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__useCase____source);
+		useCaseToInteraction__interaction____target
+				.setSrc(useCaseToInteraction);
+		useCaseToInteraction__interaction____target.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__interaction____target);
+		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		flow__step____steps.setName(flow__step____steps_name_prime);
+		useCaseToInteraction__useCase____source
+				.setName(useCaseToInteraction__useCase____source_name_prime);
+		useCaseToInteraction__interaction____target
+				.setName(useCaseToInteraction__interaction____target_name_prime);
+		return new Object[] { useCase, interaction, flow, useCaseToInteraction,
+				step, isApplicableMatch, useCase__flow____flows,
+				flow__step____steps, useCaseToInteraction__useCase____source,
+				useCaseToInteraction__interaction____target };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_4_bindingFBBBBBBB(
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, ParallelStep step) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
+				isApplicableMatch, useCase, interaction, flow,
+				useCaseToInteraction, step);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, useCase,
+					interaction, flow, useCaseToInteraction, step };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_4_bindingAndBlackFBBBBBBB(
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, ParallelStep step) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_2_4_binding = pattern_ParallelStepToCombinedFragmentRule_2_4_bindingFBBBBBBB(
+				_this, isApplicableMatch, useCase, interaction, flow,
+				useCaseToInteraction, step);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_2_4_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelStepToCombinedFragmentRule_2_4_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_2_4_black = pattern_ParallelStepToCombinedFragmentRule_2_4_blackB(csp);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_2_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, useCase,
+						interaction, flow, useCaseToInteraction, step };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_2_5_expressionFBB(
+			ParallelStepToCombinedFragmentRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_2_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "ParallelStepToCombinedFragmentRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_ParallelStepToCombinedFragmentRule_2_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_10_1_blackBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			Interaction interaction, CombinedFragment combo) {
+		return new Object[] { _this, match, interaction, combo };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_10_2_bindingFBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			Interaction interaction, CombinedFragment combo) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_BWD(match,
+				interaction, combo);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, interaction, combo };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_10_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_10_2_bindingAndBlackFBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			Interaction interaction, CombinedFragment combo) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_10_2_binding = pattern_ParallelStepToCombinedFragmentRule_10_2_bindingFBBBB(
+				_this, match, interaction, combo);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_10_2_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelStepToCombinedFragmentRule_10_2_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_10_2_black = pattern_ParallelStepToCombinedFragmentRule_10_2_blackB(csp);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_10_2_black != null) {
+
+				return new Object[] { csp, _this, match, interaction, combo };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_10_3_expressionFBB(
+			ParallelStepToCombinedFragmentRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_10_4_blackBBB(
+			Match match, Interaction interaction, CombinedFragment combo) {
+		return new Object[] { match, interaction, combo };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_10_4_greenBBBFF(
+			Match match, Interaction interaction, CombinedFragment combo) {
+		EMoflonEdge combo__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__combo____fragment = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(combo);
+		String combo__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
+		String interaction__combo____fragment_name_prime = "fragment";
+		combo__interaction____enclosingInteraction.setSrc(combo);
+		combo__interaction____enclosingInteraction.setTrg(interaction);
+		match.getToBeTranslatedEdges().add(
+				combo__interaction____enclosingInteraction);
+		interaction__combo____fragment.setSrc(interaction);
+		interaction__combo____fragment.setTrg(combo);
+		match.getToBeTranslatedEdges().add(interaction__combo____fragment);
+		combo__interaction____enclosingInteraction
+				.setName(combo__interaction____enclosingInteraction_name_prime);
+		interaction__combo____fragment
+				.setName(interaction__combo____fragment_name_prime);
+		return new Object[] { match, interaction, combo,
+				combo__interaction____enclosingInteraction,
+				interaction__combo____fragment };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_10_5_blackBBB(
+			Match match, Interaction interaction, CombinedFragment combo) {
+		return new Object[] { match, interaction, combo };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_10_5_greenBB(
+			Match match, Interaction interaction) {
+		match.getContextNodes().add(interaction);
+		return new Object[] { match, interaction };
+	}
+
+	public static final void pattern_ParallelStepToCombinedFragmentRule_10_6_expressionBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			Interaction interaction, CombinedFragment combo) {
+		_this.registerObjectsToMatch_BWD(match, interaction, combo);
+
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_10_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_10_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_1_bindingFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_1 = isApplicableMatch.getObject("interaction");
+		EObject _localVariable_2 = isApplicableMatch.getObject("flow");
+		EObject _localVariable_3 = isApplicableMatch
+				.getObject("useCaseToInteraction");
+		EObject _localVariable_4 = isApplicableMatch.getObject("combo");
+		EObject tmpUseCase = _localVariable_0;
+		EObject tmpInteraction = _localVariable_1;
+		EObject tmpFlow = _localVariable_2;
+		EObject tmpUseCaseToInteraction = _localVariable_3;
+		EObject tmpCombo = _localVariable_4;
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (tmpFlow instanceof Flow) {
+					Flow flow = (Flow) tmpFlow;
+					if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+						UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+						if (tmpCombo instanceof CombinedFragment) {
+							CombinedFragment combo = (CombinedFragment) tmpCombo;
+							return new Object[] { useCase, interaction, flow,
+									useCaseToInteraction, combo,
+									isApplicableMatch };
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_1_blackBBBBBFBB(
+			UseCase useCase, Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, CombinedFragment combo,
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+			if (tmpCsp instanceof CSP) {
+				CSP csp = (CSP) tmpCsp;
+				return new Object[] { useCase, interaction, flow,
+						useCaseToInteraction, combo, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_1_bindingAndBlackFFFFFFBB(
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_11_1_binding = pattern_ParallelStepToCombinedFragmentRule_11_1_bindingFFFFFB(isApplicableMatch);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_11_1_binding != null) {
+			UseCase useCase = (UseCase) result_pattern_ParallelStepToCombinedFragmentRule_11_1_binding[0];
+			Interaction interaction = (Interaction) result_pattern_ParallelStepToCombinedFragmentRule_11_1_binding[1];
+			Flow flow = (Flow) result_pattern_ParallelStepToCombinedFragmentRule_11_1_binding[2];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_ParallelStepToCombinedFragmentRule_11_1_binding[3];
+			CombinedFragment combo = (CombinedFragment) result_pattern_ParallelStepToCombinedFragmentRule_11_1_binding[4];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_11_1_black = pattern_ParallelStepToCombinedFragmentRule_11_1_blackBBBBBFBB(
+					useCase, interaction, flow, useCaseToInteraction, combo,
+					_this, isApplicableMatch);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_11_1_black != null) {
+				CSP csp = (CSP) result_pattern_ParallelStepToCombinedFragmentRule_11_1_black[5];
+
+				return new Object[] { useCase, interaction, flow,
+						useCaseToInteraction, combo, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_1_greenBFBF(
+			Flow flow, CombinedFragment combo) {
+		ParallelStep step = UseCaseDSLFactory.eINSTANCE.createParallelStep();
+		ParallelStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createParallelStepToCombinedFragment();
+		flow.getSteps().add(step);
+		stepToCombo.setSource(step);
+		stepToCombo.setTarget(combo);
+		return new Object[] { flow, step, combo, stepToCombo };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_2_blackBBB(
+			ParallelStep step, CombinedFragment combo,
+			ParallelStepToCombinedFragment stepToCombo) {
+		return new Object[] { step, combo, stepToCombo };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_2_greenFBBB(
+			ParallelStep step, CombinedFragment combo,
+			ParallelStepToCombinedFragment stepToCombo) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getCreatedElements().add(step);
+		ruleresult.getTranslatedElements().add(combo);
+		ruleresult.getCreatedLinkElements().add(stepToCombo);
+		return new Object[] { ruleresult, step, combo, stepToCombo };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_3_blackBBBBBBBB(
+			PerformRuleResult ruleresult, EObject useCase, EObject interaction,
+			EObject flow, EObject useCaseToInteraction, EObject step,
+			EObject combo, EObject stepToCombo) {
+		if (!useCase.equals(useCaseToInteraction)) {
+			if (!interaction.equals(useCase)) {
+				if (!interaction.equals(useCaseToInteraction)) {
+					if (!interaction.equals(step)) {
+						if (!interaction.equals(stepToCombo)) {
+							if (!flow.equals(useCase)) {
+								if (!flow.equals(interaction)) {
+									if (!flow.equals(useCaseToInteraction)) {
+										if (!flow.equals(step)) {
+											if (!flow.equals(stepToCombo)) {
+												if (!step.equals(useCase)) {
+													if (!step
+															.equals(useCaseToInteraction)) {
+														if (!step
+																.equals(stepToCombo)) {
+															if (!combo
+																	.equals(useCase)) {
+																if (!combo
+																		.equals(interaction)) {
+																	if (!combo
+																			.equals(flow)) {
+																		if (!combo
+																				.equals(useCaseToInteraction)) {
+																			if (!combo
+																					.equals(step)) {
+																				if (!combo
+																						.equals(stepToCombo)) {
+																					if (!stepToCombo
+																							.equals(useCase)) {
+																						if (!stepToCombo
+																								.equals(useCaseToInteraction)) {
+																							return new Object[] {
+																									ruleresult,
+																									useCase,
+																									interaction,
+																									flow,
+																									useCaseToInteraction,
+																									step,
+																									combo,
+																									stepToCombo };
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_3_greenBBBBBBFFFFF(
+			PerformRuleResult ruleresult, EObject interaction, EObject flow,
+			EObject step, EObject combo, EObject stepToCombo) {
+		EMoflonEdge combo__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__combo____fragment = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge stepToCombo__step____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge stepToCombo__combo____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "ParallelStepToCombinedFragmentRule";
+		String combo__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
+		String interaction__combo____fragment_name_prime = "fragment";
+		String flow__step____steps_name_prime = "steps";
+		String stepToCombo__step____source_name_prime = "source";
+		String stepToCombo__combo____target_name_prime = "target";
+		combo__interaction____enclosingInteraction.setSrc(combo);
+		combo__interaction____enclosingInteraction.setTrg(interaction);
+		ruleresult.getTranslatedEdges().add(
+				combo__interaction____enclosingInteraction);
+		interaction__combo____fragment.setSrc(interaction);
+		interaction__combo____fragment.setTrg(combo);
+		ruleresult.getTranslatedEdges().add(interaction__combo____fragment);
+		flow__step____steps.setSrc(flow);
+		flow__step____steps.setTrg(step);
+		ruleresult.getCreatedEdges().add(flow__step____steps);
+		stepToCombo__step____source.setSrc(stepToCombo);
+		stepToCombo__step____source.setTrg(step);
+		ruleresult.getCreatedEdges().add(stepToCombo__step____source);
+		stepToCombo__combo____target.setSrc(stepToCombo);
+		stepToCombo__combo____target.setTrg(combo);
+		ruleresult.getCreatedEdges().add(stepToCombo__combo____target);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		combo__interaction____enclosingInteraction
+				.setName(combo__interaction____enclosingInteraction_name_prime);
+		interaction__combo____fragment
+				.setName(interaction__combo____fragment_name_prime);
+		flow__step____steps.setName(flow__step____steps_name_prime);
+		stepToCombo__step____source
+				.setName(stepToCombo__step____source_name_prime);
+		stepToCombo__combo____target
+				.setName(stepToCombo__combo____target_name_prime);
+		return new Object[] { ruleresult, interaction, flow, step, combo,
+				stepToCombo, combo__interaction____enclosingInteraction,
+				interaction__combo____fragment, flow__step____steps,
+				stepToCombo__step____source, stepToCombo__combo____target };
+	}
+
+	public static final void pattern_ParallelStepToCombinedFragmentRule_11_5_expressionBBBBBBBBB(
+			ParallelStepToCombinedFragmentRule _this,
+			PerformRuleResult ruleresult, EObject useCase, EObject interaction,
+			EObject flow, EObject useCaseToInteraction, EObject step,
+			EObject combo, EObject stepToCombo) {
+		_this.registerObjects_BWD(ruleresult, useCase, interaction, flow,
+				useCaseToInteraction, step, combo, stepToCombo);
+
+	}
+
+	public static final PerformRuleResult pattern_ParallelStepToCombinedFragmentRule_11_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_1_bindingFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_1_blackFBB(
+			EClass eClass, ParallelStepToCombinedFragmentRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_BWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_1_bindingAndBlackFFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_12_1_binding = pattern_ParallelStepToCombinedFragmentRule_12_1_bindingFB(_this);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_12_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_ParallelStepToCombinedFragmentRule_12_1_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_12_1_black = pattern_ParallelStepToCombinedFragmentRule_12_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_12_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_ParallelStepToCombinedFragmentRule_12_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "ParallelStepToCombinedFragmentRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_2_bindingFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("interaction");
+		EObject _localVariable_1 = match.getObject("combo");
+		EObject tmpInteraction = _localVariable_0;
+		EObject tmpCombo = _localVariable_1;
+		if (tmpInteraction instanceof Interaction) {
+			Interaction interaction = (Interaction) tmpInteraction;
+			if (tmpCombo instanceof CombinedFragment) {
+				CombinedFragment combo = (CombinedFragment) tmpCombo;
+				return new Object[] { interaction, combo, match };
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_12_2_blackFBFBB(
+			Interaction interaction, CombinedFragment combo, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(interaction,
+						UseCaseToInteraction.class, "target")) {
+			UseCase useCase = useCaseToInteraction.getSource();
+			if (useCase != null) {
+				_result.add(new Object[] { useCase, interaction,
+						useCaseToInteraction, combo, match });
+			}
+
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_12_3_blackBBFBB(
+			UseCase useCase, Interaction interaction,
+			UseCaseToInteraction useCaseToInteraction, CombinedFragment combo) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (interaction.equals(combo.getEnclosingInteraction())) {
+			if (useCase.equals(useCaseToInteraction.getSource())) {
+				if (interaction.equals(useCaseToInteraction.getTarget())) {
+					for (Flow flow : useCase.getFlows()) {
+						_result.add(new Object[] { useCase, interaction, flow,
+								useCaseToInteraction, combo });
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_3_greenBBBBBFFFFFF(
+			UseCase useCase, Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, CombinedFragment combo) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge combo__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__combo____fragment = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String useCase__flow____flows_name_prime = "flows";
+		String combo__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
+		String interaction__combo____fragment_name_prime = "fragment";
+		String useCaseToInteraction__useCase____source_name_prime = "source";
+		String useCaseToInteraction__interaction____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(interaction);
+		isApplicableMatch.getAllContextElements().add(flow);
+		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
+		isApplicableMatch.getAllContextElements().add(combo);
+		useCase__flow____flows.setSrc(useCase);
+		useCase__flow____flows.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(useCase__flow____flows);
+		combo__interaction____enclosingInteraction.setSrc(combo);
+		combo__interaction____enclosingInteraction.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				combo__interaction____enclosingInteraction);
+		interaction__combo____fragment.setSrc(interaction);
+		interaction__combo____fragment.setTrg(combo);
+		isApplicableMatch.getAllContextElements().add(
+				interaction__combo____fragment);
+		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
+		useCaseToInteraction__useCase____source.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__useCase____source);
+		useCaseToInteraction__interaction____target
+				.setSrc(useCaseToInteraction);
+		useCaseToInteraction__interaction____target.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__interaction____target);
+		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		combo__interaction____enclosingInteraction
+				.setName(combo__interaction____enclosingInteraction_name_prime);
+		interaction__combo____fragment
+				.setName(interaction__combo____fragment_name_prime);
+		useCaseToInteraction__useCase____source
+				.setName(useCaseToInteraction__useCase____source_name_prime);
+		useCaseToInteraction__interaction____target
+				.setName(useCaseToInteraction__interaction____target_name_prime);
+		return new Object[] { useCase, interaction, flow, useCaseToInteraction,
+				combo, isApplicableMatch, useCase__flow____flows,
+				combo__interaction____enclosingInteraction,
+				interaction__combo____fragment,
+				useCaseToInteraction__useCase____source,
+				useCaseToInteraction__interaction____target };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_4_bindingFBBBBBBB(
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, CombinedFragment combo) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
+				isApplicableMatch, useCase, interaction, flow,
+				useCaseToInteraction, combo);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, useCase,
+					interaction, flow, useCaseToInteraction, combo };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_4_bindingAndBlackFBBBBBBB(
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction, CombinedFragment combo) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_12_4_binding = pattern_ParallelStepToCombinedFragmentRule_12_4_bindingFBBBBBBB(
+				_this, isApplicableMatch, useCase, interaction, flow,
+				useCaseToInteraction, combo);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_12_4_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelStepToCombinedFragmentRule_12_4_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_12_4_black = pattern_ParallelStepToCombinedFragmentRule_12_4_blackB(csp);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_12_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, useCase,
+						interaction, flow, useCaseToInteraction, combo };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_12_5_expressionFBB(
+			ParallelStepToCombinedFragmentRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_12_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "ParallelStepToCombinedFragmentRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_ParallelStepToCombinedFragmentRule_12_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_20_1_bindingFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_20_1_blackFBB(
+			EClass __eClass, ParallelStepToCombinedFragmentRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_20_1_bindingAndBlackFFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_20_1_binding = pattern_ParallelStepToCombinedFragmentRule_20_1_bindingFB(_this);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_20_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelStepToCombinedFragmentRule_20_1_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_20_1_black = pattern_ParallelStepToCombinedFragmentRule_20_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_20_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelStepToCombinedFragmentRule_20_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_20_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_20_2_blackFFB(
+			EMoflonEdge _edge_enclosingInteraction) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpCombo = _edge_enclosingInteraction.getSrc();
+		if (tmpCombo instanceof CombinedFragment) {
+			CombinedFragment combo = (CombinedFragment) tmpCombo;
+			EObject tmpInteraction = _edge_enclosingInteraction.getTrg();
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (interaction.equals(combo.getEnclosingInteraction())) {
+					_result.add(new Object[] { interaction, combo,
+							_edge_enclosingInteraction });
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_20_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_20_3_expressionFBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			Interaction interaction, CombinedFragment combo) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, interaction,
+				combo);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_20_4_expressionFBB(
+			ParallelStepToCombinedFragmentRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_20_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_20_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelStepToCombinedFragmentRule_20_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_21_1_bindingFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_21_1_blackFBB(
+			EClass __eClass, ParallelStepToCombinedFragmentRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_21_1_bindingAndBlackFFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_21_1_binding = pattern_ParallelStepToCombinedFragmentRule_21_1_bindingFB(_this);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_21_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelStepToCombinedFragmentRule_21_1_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_21_1_black = pattern_ParallelStepToCombinedFragmentRule_21_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_21_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelStepToCombinedFragmentRule_21_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_21_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_21_2_blackFFB(
+			EMoflonEdge _edge_fragment) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpInteraction = _edge_fragment.getSrc();
+		if (tmpInteraction instanceof Interaction) {
+			Interaction interaction = (Interaction) tmpInteraction;
+			EObject tmpCombo = _edge_fragment.getTrg();
+			if (tmpCombo instanceof CombinedFragment) {
+				CombinedFragment combo = (CombinedFragment) tmpCombo;
+				if (interaction.equals(combo.getEnclosingInteraction())) {
+					_result.add(new Object[] { interaction, combo,
+							_edge_fragment });
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_21_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_21_3_expressionFBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			Interaction interaction, CombinedFragment combo) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, interaction,
+				combo);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_21_4_expressionFBB(
+			ParallelStepToCombinedFragmentRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_21_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_21_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelStepToCombinedFragmentRule_21_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_22_1_bindingFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_22_1_blackFBB(
+			EClass __eClass, ParallelStepToCombinedFragmentRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_22_1_bindingAndBlackFFB(
+			ParallelStepToCombinedFragmentRule _this) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_22_1_binding = pattern_ParallelStepToCombinedFragmentRule_22_1_bindingFB(_this);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_22_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelStepToCombinedFragmentRule_22_1_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_22_1_black = pattern_ParallelStepToCombinedFragmentRule_22_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_22_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelStepToCombinedFragmentRule_22_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_22_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_22_2_blackFFFB(
+			EMoflonEdge _edge_steps) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpFlow = _edge_steps.getSrc();
+		if (tmpFlow instanceof Flow) {
+			Flow flow = (Flow) tmpFlow;
+			EObject tmpStep = _edge_steps.getTrg();
+			if (tmpStep instanceof ParallelStep) {
+				ParallelStep step = (ParallelStep) tmpStep;
+				if (flow.getSteps().contains(step)) {
+					for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(flow, UseCase.class,
+									"flows")) {
+						_result.add(new Object[] { useCase, flow, step,
+								_edge_steps });
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_22_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_22_3_expressionFBBBBB(
+			ParallelStepToCombinedFragmentRule _this, Match match,
+			UseCase useCase, Flow flow, ParallelStep step) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, useCase,
+				flow, step);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_22_4_expressionFBB(
+			ParallelStepToCombinedFragmentRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_22_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_22_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelStepToCombinedFragmentRule_22_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_1_blackB(
+			ParallelStepToCombinedFragmentRule _this) {
+		return new Object[] { _this };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_1_greenFF() {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
+				.createModelgeneratorRuleResult();
+		boolean ruleResult_success_prime = false;
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		return new Object[] { isApplicableMatch, ruleResult };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult, UseCase useCase) {
+		if (ruleResult.getSourceObjects().contains(useCase)) {
+			return new Object[] { ruleResult, useCase };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult, Flow flow) {
+		if (ruleResult.getSourceObjects().contains(flow)) {
+			return new Object[] { ruleResult, flow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_2_black_nac_2BB(
+			ModelgeneratorRuleResult ruleResult,
+			UseCaseToInteraction useCaseToInteraction) {
+		if (ruleResult.getCorrObjects().contains(useCaseToInteraction)) {
+			return new Object[] { ruleResult, useCaseToInteraction };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_2_black_nac_3BB(
+			ModelgeneratorRuleResult ruleResult, Interaction interaction) {
+		if (ruleResult.getTargetObjects().contains(interaction)) {
+			return new Object[] { ruleResult, interaction };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_25_2_blackFFFFFBB(
+			RuleEntryContainer ruleEntryContainer,
+			ModelgeneratorRuleResult ruleResult) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (RuleEntryList useCaseToInteractionList : ruleEntryContainer
+				.getRuleEntryList()) {
+			for (EObject tmpUseCaseToInteraction : useCaseToInteractionList
+					.getEntryObjects()) {
+				if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+					UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+					UseCase useCase = useCaseToInteraction.getSource();
+					if (useCase != null) {
+						Interaction interaction = useCaseToInteraction
+								.getTarget();
+						if (interaction != null) {
+							if (pattern_ParallelStepToCombinedFragmentRule_25_2_black_nac_2BB(
+									ruleResult, useCaseToInteraction) == null) {
+								if (pattern_ParallelStepToCombinedFragmentRule_25_2_black_nac_0BB(
+										ruleResult, useCase) == null) {
+									if (pattern_ParallelStepToCombinedFragmentRule_25_2_black_nac_3BB(
+											ruleResult, interaction) == null) {
+										for (Flow flow : useCase.getFlows()) {
+											if (pattern_ParallelStepToCombinedFragmentRule_25_2_black_nac_1BB(
+													ruleResult, flow) == null) {
+												_result.add(new Object[] {
+														useCaseToInteractionList,
+														useCase, flow,
+														useCaseToInteraction,
+														interaction,
+														ruleEntryContainer,
+														ruleResult });
+											}
+										}
+									}
+								}
+							}
+						}
+
+					}
+
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_3_bindingFBBBBBBB(
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction,
+			ModelgeneratorRuleResult ruleResult) {
+		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
+				isApplicableMatch, useCase, interaction, flow,
+				useCaseToInteraction, ruleResult);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, useCase,
+					interaction, flow, useCaseToInteraction, ruleResult };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_3_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_3_bindingAndBlackFBBBBBBB(
+			ParallelStepToCombinedFragmentRule _this,
+			IsApplicableMatch isApplicableMatch, UseCase useCase,
+			Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction,
+			ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_ParallelStepToCombinedFragmentRule_25_3_binding = pattern_ParallelStepToCombinedFragmentRule_25_3_bindingFBBBBBBB(
+				_this, isApplicableMatch, useCase, interaction, flow,
+				useCaseToInteraction, ruleResult);
+		if (result_pattern_ParallelStepToCombinedFragmentRule_25_3_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelStepToCombinedFragmentRule_25_3_binding[0];
+
+			Object[] result_pattern_ParallelStepToCombinedFragmentRule_25_3_black = pattern_ParallelStepToCombinedFragmentRule_25_3_blackB(csp);
+			if (result_pattern_ParallelStepToCombinedFragmentRule_25_3_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, useCase,
+						interaction, flow, useCaseToInteraction, ruleResult };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ParallelStepToCombinedFragmentRule_25_4_expressionFBB(
+			ParallelStepToCombinedFragmentRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_5_blackBBBB(
+			UseCase useCase, Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction) {
+		return new Object[] { useCase, interaction, flow, useCaseToInteraction };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_6_blackBBBBB(
+			UseCase useCase, Interaction interaction, Flow flow,
+			UseCaseToInteraction useCaseToInteraction,
+			ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { useCase, interaction, flow, useCaseToInteraction,
+				ruleResult };
+	}
+
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_25_6_greenBBFFFBB(
+			Interaction interaction, Flow flow,
+			ModelgeneratorRuleResult ruleResult, CSP csp) {
+		ParallelStep step = UseCaseDSLFactory.eINSTANCE.createParallelStep();
+		CombinedFragment combo = ModalSequenceDiagramFactory.eINSTANCE
+				.createCombinedFragment();
+		ParallelStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createParallelStepToCombinedFragment();
+		Object _localVariable_0 = csp.getValue("combo", "interactionOperator");
+		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
+		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		flow.getSteps().add(step);
+		ruleResult.getSourceObjects().add(step);
+		combo.setEnclosingInteraction(interaction);
+		ruleResult.getTargetObjects().add(combo);
+		stepToCombo.setSource(step);
+		stepToCombo.setTarget(combo);
+		ruleResult.getCorrObjects().add(stepToCombo);
+		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_0;
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		combo.setInteractionOperator(combo_interactionOperator_prime);
+		ruleResult.setPerformCount(Integer
+				.valueOf(ruleResult_performCount_prime));
+		return new Object[] { interaction, flow, step, combo, stepToCombo,
+				ruleResult, csp };
+	}
+
+	public static final ModelgeneratorRuleResult pattern_ParallelStepToCombinedFragmentRule_25_7_expressionFB(
+			ModelgeneratorRuleResult ruleResult) {
+		ModelgeneratorRuleResult _result = ruleResult;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

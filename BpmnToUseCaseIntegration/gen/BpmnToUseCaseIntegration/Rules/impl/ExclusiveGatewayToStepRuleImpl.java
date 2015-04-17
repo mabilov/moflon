@@ -3,29 +3,27 @@
 package BpmnToUseCaseIntegration.Rules.impl;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
-import BpmnToUseCaseIntegration.DefinitionsToPackage;
-import BpmnToUseCaseIntegration.DocRootToUCModel;
-import BpmnToUseCaseIntegration.EndEventToFlow;
 import BpmnToUseCaseIntegration.FlowNodeToStep;
-import BpmnToUseCaseIntegration.ICEToAltFlow;
-import BpmnToUseCaseIntegration.LaneToActor;
 import BpmnToUseCaseIntegration.ProcessToActor;
-import BpmnToUseCaseIntegration.ProcessToUseCase;
 
 import BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepCoreRule;
 import BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule;
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
 
-import BpmnToUseCaseIntegration.SeqFlowToAltFlowAlt;
 import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
-import BpmnToUseCaseIntegration.StartEventToBasicFlow;
+
+import TGGLanguage.csp.CSP;
+
+import TGGLanguage.modelgenerator.RuleEntryContainer;
+import TGGLanguage.modelgenerator.RuleEntryList;
 
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
+import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -34,52 +32,32 @@ import TGGRuntime.TripleMatch;
 import TGGRuntime.impl.AbstractRuleImpl;
 
 import UseCaseDSL.Actor;
-import UseCaseDSL.AlternativeFlow;
-import UseCaseDSL.AlternativeFlowAlternative;
-import UseCaseDSL.BasicFlow;
 import UseCaseDSL.Flow;
 import UseCaseDSL.NormalStep;
-import UseCaseDSL.PackageDeclaration;
-import UseCaseDSL.ParallelFlow;
-import UseCaseDSL.ParallelStep;
 import UseCaseDSL.Step;
-import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
-import UseCaseDSL.UseCasesModel;
 
 import bpmn2.Bpmn2Factory;
-import bpmn2.Definitions;
-import bpmn2.DocumentRoot;
-import bpmn2.EndEvent;
-import bpmn2.Event;
-import bpmn2.EventBasedGateway;
 import bpmn2.ExclusiveGateway;
+import bpmn2.FlowElement;
 import bpmn2.FlowElementsContainer;
 import bpmn2.FlowNode;
-import bpmn2.IntermediateCatchEvent;
-import bpmn2.IntermediateThrowEvent;
+import bpmn2.GatewayDirection;
 import bpmn2.Lane;
 import bpmn2.LaneSet;
-import bpmn2.ParallelGateway;
 import bpmn2.SequenceFlow;
-import bpmn2.ServiceTask;
-import bpmn2.StartEvent;
-import bpmn2.Task;
-import bpmn2.UserTask;
 
-import de.upb.tools.sdm.*;
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
 import org.moflon.csp.*;
 import csp.constraints.*;
@@ -125,336 +103,80 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	public boolean isAppropriate_FWD(Match match, SequenceFlow inFlow,
 			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
 			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __exclusiveGateway_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __inFlow_targetRef_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
-		EMoflonEdge __exclusiveGateway_default_outFlow = null;
-		EMoflonEdge __lane_flowNodeRefs_exclusiveGateway = null;
-		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __process_flowElements_exclusiveGateway = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_0_1_blackBBBBBBBB(this,
+						match, inFlow, process, exclusiveGateway, outFlow,
+						lane, laneSet);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, inFlow,
-					process, exclusiveGateway, outFlow, lane, laneSet));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_0_2_bindingAndBlackFBBBBBBBB(
+						this, match, inFlow, process, exclusiveGateway,
+						outFlow, lane, laneSet);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_0_3_expressionFBB(this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object exclusiveGateway is really bound
-				JavaSDM.ensure(exclusiveGateway != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects outFlow and inFlow 
-				JavaSDM.ensure(!outFlow.equals(inFlow));
-
-				// create object __exclusiveGateway_incoming_inFlow
-				__exclusiveGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_outFlow
-				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __inFlow_targetRef_exclusiveGateway
-				__inFlow_targetRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_outgoing_outFlow
-				__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_default_outFlow
-				__exclusiveGateway_default_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __lane_flowNodeRefs_exclusiveGateway
-				__lane_flowNodeRefs_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __outFlow_sourceRef_exclusiveGateway
-				__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_exclusiveGateway
-				__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_flowElements_exclusiveGateway
-				__process_flowElements_exclusiveGateway.setName("flowElements");
-				// assign attribute __process_flowElements_outFlow
-				__process_flowElements_outFlow.setName("flowElements");
-				// assign attribute __inFlow_targetRef_exclusiveGateway
-				__inFlow_targetRef_exclusiveGateway.setName("targetRef");
-				// assign attribute __exclusiveGateway_incoming_inFlow
-				__exclusiveGateway_incoming_inFlow.setName("incoming");
-				// assign attribute __outFlow_sourceRef_exclusiveGateway
-				__outFlow_sourceRef_exclusiveGateway.setName("sourceRef");
-				// assign attribute __exclusiveGateway_outgoing_outFlow
-				__exclusiveGateway_outgoing_outFlow.setName("outgoing");
-				// assign attribute __exclusiveGateway_default_outFlow
-				__exclusiveGateway_default_outFlow.setName("default");
-				// assign attribute __lane_flowNodeRefs_exclusiveGateway
-				__lane_flowNodeRefs_exclusiveGateway.setName("flowNodeRefs");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_incoming_inFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_outFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_outgoing_outFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_default_outFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__lane_flowNodeRefs_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__outFlow_sourceRef_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						exclusiveGateway, "toBeTranslatedNodes");
-
-				// create link
-				__exclusiveGateway_incoming_inFlow.setTrg(inFlow);
-
-				// create link
-				__inFlow_targetRef_exclusiveGateway.setSrc(inFlow);
-
-				// create link
-				__process_flowElements_exclusiveGateway.setSrc(process);
-
-				// create link
-				__process_flowElements_outFlow.setSrc(process);
-
-				// create link
-				__lane_flowNodeRefs_exclusiveGateway.setTrg(exclusiveGateway);
-
-				// create link
-				__process_flowElements_exclusiveGateway
-						.setTrg(exclusiveGateway);
-
-				// create link
-				__inFlow_targetRef_exclusiveGateway.setTrg(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_outgoing_outFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__outFlow_sourceRef_exclusiveGateway.setTrg(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_default_outFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_incoming_inFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__process_flowElements_outFlow.setTrg(outFlow);
-
-				// create link
-				__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
-
-				// create link
-				__outFlow_sourceRef_exclusiveGateway.setSrc(outFlow);
-
-				// create link
-				__exclusiveGateway_default_outFlow.setTrg(outFlow);
-
-				// create link
-				__lane_flowNodeRefs_exclusiveGateway.setSrc(lane);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_0_4_blackBBBBBBB(match,
+							inFlow, process, exclusiveGateway, outFlow, lane,
+							laneSet);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_0_4_greenBBBBBBFFFFFFFF(
+							match, inFlow, process, exclusiveGateway, outFlow,
+							lane);
+			// EMoflonEdge process__exclusiveGateway____flowElements = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge inFlow__exclusiveGateway____targetRef = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge exclusiveGateway__inFlow____incoming = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge exclusiveGateway__outFlow____default = (EMoflonEdge) result4_green[12];
+			// EMoflonEdge lane__exclusiveGateway____flowNodeRefs = (EMoflonEdge) result4_green[13];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object exclusiveGateway is really bound
-				JavaSDM.ensure(exclusiveGateway != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects outFlow and inFlow 
-				JavaSDM.ensure(!outFlow.equals(inFlow));
-
-				// create object __process_flowElements_inFlow
-				__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_laneSets_laneSet
-				__process_laneSets_laneSet.setName("laneSets");
-				// assign attribute __process_flowElements_inFlow
-				__process_flowElements_inFlow.setName("flowElements");
-				// assign attribute __laneSet_lanes_lane
-				__laneSet_lanes_lane.setName("lanes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__laneSet_lanes_lane, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
-
-				// create link
-				__process_flowElements_inFlow.setTrg(inFlow);
-
-				// create link
-				__process_laneSets_laneSet.setSrc(process);
-
-				// create link
-				__process_flowElements_inFlow.setSrc(process);
-
-				// create link
-				__laneSet_lanes_lane.setTrg(lane);
-
-				// create link
-				__process_laneSets_laneSet.setTrg(laneSet);
-
-				// create link
-				__laneSet_lanes_lane.setSrc(laneSet);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_0_5_blackBBBBBBB(match,
+							inFlow, process, exclusiveGateway, outFlow, lane,
+							laneSet);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_0_5_greenBBBBBFFF(
+							match, inFlow, process, lane, laneSet);
+			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[5];
+			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[6];
+			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[7];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, inFlow, process,
-					exclusiveGateway, outFlow, lane, laneSet);
-			return true;
-
+			// register objects to match
+			ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_0_6_expressionBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet);
+			return ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -463,936 +185,97 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		Actor actor = null;
-		ExclusiveGateway exclusiveGateway = null;
-		Flow flow = null;
-		SequenceFlow inFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-		SequenceFlowToStep inFlowToPrevStep = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		SequenceFlow outFlow = null;
-		Step prevStep = null;
-		bpmn2.Process process = null;
-		ProcessToActor processToActor = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		NormalStep normalStep = null;
-		SequenceFlowToStep outFlowToNormalStep = null;
-		FlowNodeToStep exclusiveGatewayToNormalStep = null;
-		SequenceFlowToUCFlow outFlowToFlow = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge outFlowToFlow__target__flow = null;
-		EMoflonEdge __exclusiveGateway_incoming_inFlow = null;
-		EMoflonEdge outFlowToFlow__source__outFlow = null;
-		EMoflonEdge exclusiveGatewayToNormalStep__source__exclusiveGateway = null;
-		EMoflonEdge normalStep__actor__actor = null;
-		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
-		EMoflonEdge __inFlow_targetRef_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_default_outFlow = null;
-		EMoflonEdge flow__steps__normalStep = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
-		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
-		EMoflonEdge __process_flowElements_exclusiveGateway = null;
-		EMoflonEdge exclusiveGatewayToNormalStep__target__normalStep = null;
-		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __lane_flowNodeRefs_exclusiveGateway = null;
-		EMoflonEdge prevStep__next__normalStep = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("actor"));
-
-			// ensure correct type and really bound of object actor
-			JavaSDM.ensure(_TmpObject instanceof Actor);
-			actor = (Actor) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("exclusiveGateway"));
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlow"));
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlowToFlow"));
-
-			// ensure correct type and really bound of object inFlowToFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			inFlowToFlow = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlowToPrevStep"));
-
-			// ensure correct type and really bound of object inFlowToPrevStep
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToStep);
-			inFlowToPrevStep = (SequenceFlowToStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("outFlow"));
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("prevStep"));
-
-			// ensure correct type and really bound of object prevStep
-			JavaSDM.ensure(_TmpObject instanceof Step);
-			prevStep = (Step) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("processToActor"));
-
-			// ensure correct type and really bound of object processToActor
-			JavaSDM.ensure(_TmpObject instanceof ProcessToActor);
-			processToActor = (ProcessToActor) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object normalStep
-			normalStep = UseCaseDSLFactory.eINSTANCE.createNormalStep();
-
-			// create object outFlowToNormalStep
-			outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSequenceFlowToStep();
-
-			// create object exclusiveGatewayToNormalStep
-			exclusiveGatewayToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createFlowNodeToStep();
-
-			// create object outFlowToFlow
-			outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSequenceFlowToUCFlow();
-
-			// assign attribute normalStep
-			normalStep.setName((java.lang.String) csp.getValue("normalStep",
-					"name"));
-			// assign attribute normalStep
-			normalStep.setLabel((java.lang.String) csp.getValue("normalStep",
-					"label"));
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToFlow,
-					outFlow, "source");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToFlow,
-					flow, "target");
-
-			// create link
-			exclusiveGatewayToNormalStep.setSource(exclusiveGateway);
-
-			// create link
-			outFlowToNormalStep.setSource(outFlow);
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(prevStep,
-					normalStep, "next");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(normalStep,
-					actor, "actor");
-
-			// create link
-			outFlowToNormalStep.setTarget(normalStep);
-
-			// create link
-			flow.getSteps().add(normalStep);
-
-			// create link
-			exclusiveGatewayToNormalStep.setTarget(normalStep);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_1_1_bindingAndBlackFFFFFFFFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[0];
+		Step prevStep = (Step) result1_bindingAndBlack[1];
+		SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) result1_bindingAndBlack[2];
+		SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[3];
+		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[4];
+		ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result1_bindingAndBlack[5];
+		SequenceFlow outFlow = (SequenceFlow) result1_bindingAndBlack[6];
+		Flow flow = (Flow) result1_bindingAndBlack[7];
+		Actor actor = (Actor) result1_bindingAndBlack[8];
+		ProcessToActor processToActor = (ProcessToActor) result1_bindingAndBlack[9];
+		Lane lane = (Lane) result1_bindingAndBlack[10];
+		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[11];
+		CSP csp = (CSP) result1_bindingAndBlack[12];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_1_1_greenBFFBBFFBBB(
+						prevStep, exclusiveGateway, outFlow, flow, actor, csp);
+		NormalStep normalStep = (NormalStep) result1_green[1];
+		SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result1_green[2];
+		FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result1_green[5];
+		SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result1_green[6];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object exclusiveGatewayToNormalStep is really bound
-			JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToFlow is really bound
-			JavaSDM.ensure(outFlowToFlow != null);
-			// check object outFlowToNormalStep is really bound
-			JavaSDM.ensure(outFlowToNormalStep != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGatewayToNormalStep, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGateway, "translatedElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_1_2_blackBBBBBB(normalStep,
+						outFlowToFlow, exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object exclusiveGatewayToNormalStep is really bound
-			JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object inFlowToFlow is really bound
-			JavaSDM.ensure(inFlowToFlow != null);
-			// check object inFlowToPrevStep is really bound
-			JavaSDM.ensure(inFlowToPrevStep != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToFlow is really bound
-			JavaSDM.ensure(outFlowToFlow != null);
-			// check object outFlowToNormalStep is really bound
-			JavaSDM.ensure(outFlowToNormalStep != null);
-			// check object prevStep is really bound
-			JavaSDM.ensure(prevStep != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check object processToActor is really bound
-			JavaSDM.ensure(processToActor != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check isomorphic binding between objects exclusiveGateway and actor 
-			JavaSDM.ensure(!exclusiveGateway.equals(actor));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and actor 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep.equals(actor));
-
-			// check isomorphic binding between objects flow and actor 
-			JavaSDM.ensure(!flow.equals(actor));
-
-			// check isomorphic binding between objects inFlow and actor 
-			JavaSDM.ensure(!inFlow.equals(actor));
-
-			// check isomorphic binding between objects inFlowToFlow and actor 
-			JavaSDM.ensure(!inFlowToFlow.equals(actor));
-
-			// check isomorphic binding between objects inFlowToPrevStep and actor 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(actor));
-
-			// check isomorphic binding between objects lane and actor 
-			JavaSDM.ensure(!lane.equals(actor));
-
-			// check isomorphic binding between objects laneSet and actor 
-			JavaSDM.ensure(!laneSet.equals(actor));
-
-			// check isomorphic binding between objects normalStep and actor 
-			JavaSDM.ensure(!normalStep.equals(actor));
-
-			// check isomorphic binding between objects outFlow and actor 
-			JavaSDM.ensure(!outFlow.equals(actor));
-
-			// check isomorphic binding between objects outFlowToFlow and actor 
-			JavaSDM.ensure(!outFlowToFlow.equals(actor));
-
-			// check isomorphic binding between objects outFlowToNormalStep and actor 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(actor));
-
-			// check isomorphic binding between objects prevStep and actor 
-			JavaSDM.ensure(!prevStep.equals(actor));
-
-			// check isomorphic binding between objects process and actor 
-			JavaSDM.ensure(!process.equals(actor));
-
-			// check isomorphic binding between objects processToActor and actor 
-			JavaSDM.ensure(!processToActor.equals(actor));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and exclusiveGateway 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep
-					.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects flow and exclusiveGateway 
-			JavaSDM.ensure(!flow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects inFlow and exclusiveGateway 
-			JavaSDM.ensure(!inFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects inFlowToFlow and exclusiveGateway 
-			JavaSDM.ensure(!inFlowToFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects inFlowToPrevStep and exclusiveGateway 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects lane and exclusiveGateway 
-			JavaSDM.ensure(!lane.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects laneSet and exclusiveGateway 
-			JavaSDM.ensure(!laneSet.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects normalStep and exclusiveGateway 
-			JavaSDM.ensure(!normalStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlow and exclusiveGateway 
-			JavaSDM.ensure(!outFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlowToFlow and exclusiveGateway 
-			JavaSDM.ensure(!outFlowToFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlowToNormalStep and exclusiveGateway 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects prevStep and exclusiveGateway 
-			JavaSDM.ensure(!prevStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects process and exclusiveGateway 
-			JavaSDM.ensure(!process.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects processToActor and exclusiveGateway 
-			JavaSDM.ensure(!processToActor.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects flow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!flow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects inFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!inFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects inFlowToFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!inFlowToFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects inFlowToPrevStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!inFlowToPrevStep
-					.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects lane and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!lane.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects laneSet and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!laneSet.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects normalStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!normalStep.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlowToFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlowToFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlowToNormalStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlowToNormalStep
-					.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects prevStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!prevStep.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects process and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!process.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects processToActor and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!processToActor.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects inFlow and flow 
-			JavaSDM.ensure(!inFlow.equals(flow));
-
-			// check isomorphic binding between objects inFlowToFlow and flow 
-			JavaSDM.ensure(!inFlowToFlow.equals(flow));
-
-			// check isomorphic binding between objects inFlowToPrevStep and flow 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(flow));
-
-			// check isomorphic binding between objects lane and flow 
-			JavaSDM.ensure(!lane.equals(flow));
-
-			// check isomorphic binding between objects laneSet and flow 
-			JavaSDM.ensure(!laneSet.equals(flow));
-
-			// check isomorphic binding between objects normalStep and flow 
-			JavaSDM.ensure(!normalStep.equals(flow));
-
-			// check isomorphic binding between objects outFlow and flow 
-			JavaSDM.ensure(!outFlow.equals(flow));
-
-			// check isomorphic binding between objects outFlowToFlow and flow 
-			JavaSDM.ensure(!outFlowToFlow.equals(flow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and flow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(flow));
-
-			// check isomorphic binding between objects prevStep and flow 
-			JavaSDM.ensure(!prevStep.equals(flow));
-
-			// check isomorphic binding between objects process and flow 
-			JavaSDM.ensure(!process.equals(flow));
-
-			// check isomorphic binding between objects processToActor and flow 
-			JavaSDM.ensure(!processToActor.equals(flow));
-
-			// check isomorphic binding between objects inFlowToFlow and inFlow 
-			JavaSDM.ensure(!inFlowToFlow.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToPrevStep and inFlow 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(inFlow));
-
-			// check isomorphic binding between objects lane and inFlow 
-			JavaSDM.ensure(!lane.equals(inFlow));
-
-			// check isomorphic binding between objects laneSet and inFlow 
-			JavaSDM.ensure(!laneSet.equals(inFlow));
-
-			// check isomorphic binding between objects normalStep and inFlow 
-			JavaSDM.ensure(!normalStep.equals(inFlow));
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check isomorphic binding between objects outFlowToFlow and inFlow 
-			JavaSDM.ensure(!outFlowToFlow.equals(inFlow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and inFlow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(inFlow));
-
-			// check isomorphic binding between objects prevStep and inFlow 
-			JavaSDM.ensure(!prevStep.equals(inFlow));
-
-			// check isomorphic binding between objects process and inFlow 
-			JavaSDM.ensure(!process.equals(inFlow));
-
-			// check isomorphic binding between objects processToActor and inFlow 
-			JavaSDM.ensure(!processToActor.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToPrevStep and inFlowToFlow 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects lane and inFlowToFlow 
-			JavaSDM.ensure(!lane.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects laneSet and inFlowToFlow 
-			JavaSDM.ensure(!laneSet.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects normalStep and inFlowToFlow 
-			JavaSDM.ensure(!normalStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlow and inFlowToFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToFlow and inFlowToFlow 
-			JavaSDM.ensure(!outFlowToFlow.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and inFlowToFlow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects prevStep and inFlowToFlow 
-			JavaSDM.ensure(!prevStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects process and inFlowToFlow 
-			JavaSDM.ensure(!process.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects processToActor and inFlowToFlow 
-			JavaSDM.ensure(!processToActor.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects lane and inFlowToPrevStep 
-			JavaSDM.ensure(!lane.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects laneSet and inFlowToPrevStep 
-			JavaSDM.ensure(!laneSet.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects normalStep and inFlowToPrevStep 
-			JavaSDM.ensure(!normalStep.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects outFlow and inFlowToPrevStep 
-			JavaSDM.ensure(!outFlow.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects outFlowToFlow and inFlowToPrevStep 
-			JavaSDM.ensure(!outFlowToFlow.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects outFlowToNormalStep and inFlowToPrevStep 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects prevStep and inFlowToPrevStep 
-			JavaSDM.ensure(!prevStep.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects process and inFlowToPrevStep 
-			JavaSDM.ensure(!process.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects processToActor and inFlowToPrevStep 
-			JavaSDM.ensure(!processToActor.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects laneSet and lane 
-			JavaSDM.ensure(!laneSet.equals(lane));
-
-			// check isomorphic binding between objects normalStep and lane 
-			JavaSDM.ensure(!normalStep.equals(lane));
-
-			// check isomorphic binding between objects outFlow and lane 
-			JavaSDM.ensure(!outFlow.equals(lane));
-
-			// check isomorphic binding between objects outFlowToFlow and lane 
-			JavaSDM.ensure(!outFlowToFlow.equals(lane));
-
-			// check isomorphic binding between objects outFlowToNormalStep and lane 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(lane));
-
-			// check isomorphic binding between objects prevStep and lane 
-			JavaSDM.ensure(!prevStep.equals(lane));
-
-			// check isomorphic binding between objects process and lane 
-			JavaSDM.ensure(!process.equals(lane));
-
-			// check isomorphic binding between objects processToActor and lane 
-			JavaSDM.ensure(!processToActor.equals(lane));
-
-			// check isomorphic binding between objects normalStep and laneSet 
-			JavaSDM.ensure(!normalStep.equals(laneSet));
-
-			// check isomorphic binding between objects outFlow and laneSet 
-			JavaSDM.ensure(!outFlow.equals(laneSet));
-
-			// check isomorphic binding between objects outFlowToFlow and laneSet 
-			JavaSDM.ensure(!outFlowToFlow.equals(laneSet));
-
-			// check isomorphic binding between objects outFlowToNormalStep and laneSet 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(laneSet));
-
-			// check isomorphic binding between objects prevStep and laneSet 
-			JavaSDM.ensure(!prevStep.equals(laneSet));
-
-			// check isomorphic binding between objects process and laneSet 
-			JavaSDM.ensure(!process.equals(laneSet));
-
-			// check isomorphic binding between objects processToActor and laneSet 
-			JavaSDM.ensure(!processToActor.equals(laneSet));
-
-			// check isomorphic binding between objects outFlow and normalStep 
-			JavaSDM.ensure(!outFlow.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToFlow and normalStep 
-			JavaSDM.ensure(!outFlowToFlow.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToNormalStep and normalStep 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(normalStep));
-
-			// check isomorphic binding between objects prevStep and normalStep 
-			JavaSDM.ensure(!prevStep.equals(normalStep));
-
-			// check isomorphic binding between objects process and normalStep 
-			JavaSDM.ensure(!process.equals(normalStep));
-
-			// check isomorphic binding between objects processToActor and normalStep 
-			JavaSDM.ensure(!processToActor.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToFlow and outFlow 
-			JavaSDM.ensure(!outFlowToFlow.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and outFlow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(outFlow));
-
-			// check isomorphic binding between objects prevStep and outFlow 
-			JavaSDM.ensure(!prevStep.equals(outFlow));
-
-			// check isomorphic binding between objects process and outFlow 
-			JavaSDM.ensure(!process.equals(outFlow));
-
-			// check isomorphic binding between objects processToActor and outFlow 
-			JavaSDM.ensure(!processToActor.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and outFlowToFlow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(outFlowToFlow));
-
-			// check isomorphic binding between objects prevStep and outFlowToFlow 
-			JavaSDM.ensure(!prevStep.equals(outFlowToFlow));
-
-			// check isomorphic binding between objects process and outFlowToFlow 
-			JavaSDM.ensure(!process.equals(outFlowToFlow));
-
-			// check isomorphic binding between objects processToActor and outFlowToFlow 
-			JavaSDM.ensure(!processToActor.equals(outFlowToFlow));
-
-			// check isomorphic binding between objects prevStep and outFlowToNormalStep 
-			JavaSDM.ensure(!prevStep.equals(outFlowToNormalStep));
-
-			// check isomorphic binding between objects process and outFlowToNormalStep 
-			JavaSDM.ensure(!process.equals(outFlowToNormalStep));
-
-			// check isomorphic binding between objects processToActor and outFlowToNormalStep 
-			JavaSDM.ensure(!processToActor.equals(outFlowToNormalStep));
-
-			// check isomorphic binding between objects process and prevStep 
-			JavaSDM.ensure(!process.equals(prevStep));
-
-			// check isomorphic binding between objects processToActor and prevStep 
-			JavaSDM.ensure(!processToActor.equals(prevStep));
-
-			// check isomorphic binding between objects processToActor and process 
-			JavaSDM.ensure(!processToActor.equals(process));
-
-			// create object outFlowToFlow__target__flow
-			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __exclusiveGateway_incoming_inFlow
-			__exclusiveGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object exclusiveGatewayToNormalStep__source__exclusiveGateway
-			exclusiveGatewayToNormalStep__source__exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object normalStep__actor__actor
-			normalStep__actor__actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __inFlow_targetRef_exclusiveGateway
-			__inFlow_targetRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __exclusiveGateway_default_outFlow
-			__exclusiveGateway_default_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object flow__steps__normalStep
-			flow__steps__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __exclusiveGateway_outgoing_outFlow
-			__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_exclusiveGateway
-			__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object exclusiveGatewayToNormalStep__target__normalStep
-			exclusiveGatewayToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __outFlow_sourceRef_exclusiveGateway
-			__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_outFlow
-			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __lane_flowNodeRefs_exclusiveGateway
-			__lane_flowNodeRefs_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object prevStep__next__normalStep
-			prevStep__next__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("ExclusiveGatewayToStepRule");
-			// assign attribute prevStep__next__normalStep
-			prevStep__next__normalStep.setName("next");
-			// assign attribute normalStep__actor__actor
-			normalStep__actor__actor.setName("actor");
-			// assign attribute outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow.setName("source");
-			// assign attribute outFlowToFlow__target__flow
-			outFlowToFlow__target__flow.setName("target");
-			// assign attribute __process_flowElements_exclusiveGateway
-			__process_flowElements_exclusiveGateway.setName("flowElements");
-			// assign attribute __process_flowElements_outFlow
-			__process_flowElements_outFlow.setName("flowElements");
-			// assign attribute __inFlow_targetRef_exclusiveGateway
-			__inFlow_targetRef_exclusiveGateway.setName("targetRef");
-			// assign attribute __exclusiveGateway_incoming_inFlow
-			__exclusiveGateway_incoming_inFlow.setName("incoming");
-			// assign attribute __outFlow_sourceRef_exclusiveGateway
-			__outFlow_sourceRef_exclusiveGateway.setName("sourceRef");
-			// assign attribute __exclusiveGateway_outgoing_outFlow
-			__exclusiveGateway_outgoing_outFlow.setName("outgoing");
-			// assign attribute __exclusiveGateway_default_outFlow
-			__exclusiveGateway_default_outFlow.setName("default");
-			// assign attribute exclusiveGatewayToNormalStep__source__exclusiveGateway
-			exclusiveGatewayToNormalStep__source__exclusiveGateway
-					.setName("source");
-			// assign attribute exclusiveGatewayToNormalStep__target__normalStep
-			exclusiveGatewayToNormalStep__target__normalStep.setName("target");
-			// assign attribute outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow.setName("source");
-			// assign attribute outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep.setName("target");
-			// assign attribute flow__steps__normalStep
-			flow__steps__normalStep.setName("steps");
-			// assign attribute __lane_flowNodeRefs_exclusiveGateway
-			__lane_flowNodeRefs_exclusiveGateway.setName("flowNodeRefs");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__target__flow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__exclusiveGateway_incoming_inFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGatewayToNormalStep__source__exclusiveGateway,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep__actor__actor, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__inFlow_targetRef_exclusiveGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__exclusiveGateway_default_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					flow__steps__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__exclusiveGateway_outgoing_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_exclusiveGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGatewayToNormalStep__target__normalStep,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__outFlow_sourceRef_exclusiveGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__lane_flowNodeRefs_exclusiveGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					prevStep__next__normalStep, "createdEdges");
-
-			// create link
-			__inFlow_targetRef_exclusiveGateway.setSrc(inFlow);
-
-			// create link
-			__exclusiveGateway_incoming_inFlow.setTrg(inFlow);
-
-			// create link
-			prevStep__next__normalStep.setSrc(prevStep);
-
-			// create link
-			exclusiveGatewayToNormalStep__target__normalStep.setTrg(normalStep);
-
-			// create link
-			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
-
-			// create link
-			prevStep__next__normalStep.setTrg(normalStep);
-
-			// create link
-			normalStep__actor__actor.setSrc(normalStep);
-
-			// create link
-			flow__steps__normalStep.setTrg(normalStep);
-
-			// create link
-			outFlowToFlow__target__flow.setSrc(outFlowToFlow);
-
-			// create link
-			outFlowToFlow__source__outFlow.setSrc(outFlowToFlow);
-
-			// create link
-			__process_flowElements_outFlow.setSrc(process);
-
-			// create link
-			__process_flowElements_exclusiveGateway.setSrc(process);
-
-			// create link
-			__inFlow_targetRef_exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			__lane_flowNodeRefs_exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			__exclusiveGateway_incoming_inFlow.setSrc(exclusiveGateway);
-
-			// create link
-			exclusiveGatewayToNormalStep__source__exclusiveGateway
-					.setTrg(exclusiveGateway);
-
-			// create link
-			__outFlow_sourceRef_exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			__process_flowElements_exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			__exclusiveGateway_default_outFlow.setSrc(exclusiveGateway);
-
-			// create link
-			__exclusiveGateway_outgoing_outFlow.setSrc(exclusiveGateway);
-
-			// create link
-			__process_flowElements_outFlow.setTrg(outFlow);
-
-			// create link
-			__exclusiveGateway_default_outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
-
-			// create link
-			__outFlow_sourceRef_exclusiveGateway.setSrc(outFlow);
-
-			// create link
-			__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
-			exclusiveGatewayToNormalStep__source__exclusiveGateway
-					.setSrc(exclusiveGatewayToNormalStep);
-
-			// create link
-			exclusiveGatewayToNormalStep__target__normalStep
-					.setSrc(exclusiveGatewayToNormalStep);
-
-			// create link
-			outFlowToNormalStep__source__outFlow.setSrc(outFlowToNormalStep);
-
-			// create link
-			outFlowToNormalStep__target__normalStep.setSrc(outFlowToNormalStep);
-
-			// create link
-			flow__steps__normalStep.setSrc(flow);
-
-			// create link
-			outFlowToFlow__target__flow.setTrg(flow);
-
-			// create link
-			normalStep__actor__actor.setTrg(actor);
-
-			// create link
-			__lane_flowNodeRefs_exclusiveGateway.setSrc(lane);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_1_2_greenFBBBBBB(
+						normalStep, outFlowToFlow, exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
+
+		// bookkeeping for edges
+		Object[] result3_black = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_1_3_blackBBBBBBBBBBBBBBBBB(
+						ruleresult, inFlow, prevStep, inFlowToPrevStep,
+						normalStep, outFlowToFlow, inFlowToFlow, process,
+						exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep,
+						flow, actor, processToActor, lane, laneSet);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFF(
+						ruleresult, inFlow, prevStep, normalStep,
+						outFlowToFlow, process, exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep,
+						flow, actor, lane);
+		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge process__exclusiveGateway____flowElements = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge inFlow__exclusiveGateway____targetRef = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge exclusiveGateway__inFlow____incoming = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge exclusiveGateway__outFlow____default = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge exclusiveGatewayToNormalStep__exclusiveGateway____source = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge exclusiveGatewayToNormalStep__normalStep____target = (EMoflonEdge) result3_green[25];
+		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[26];
+		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[28];
+		// EMoflonEdge lane__exclusiveGateway____flowNodeRefs = (EMoflonEdge) result3_green[29];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, inFlow, prevStep,
-				inFlowToPrevStep, normalStep, outFlowToFlow, inFlowToFlow,
-				process, exclusiveGateway, outFlow,
-				exclusiveGatewayToNormalStep, outFlowToNormalStep, flow, actor,
-				processToActor, lane, laneSet);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_1_5_expressionBBBBBBBBBBBBBBBBBB(
+						this, ruleresult, inFlow, prevStep, inFlowToPrevStep,
+						normalStep, outFlowToFlow, inFlowToFlow, process,
+						exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep,
+						flow, actor, processToActor, lane, laneSet);
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_1_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1401,820 +284,109 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		ExclusiveGateway exclusiveGateway = null;
-		SequenceFlow inFlow = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		SequenceFlow outFlow = null;
-		bpmn2.Process process = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __inFlow_targetRef_exclusiveGateway = null;
-		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __inFlowToFlow_source_inFlow = null;
-		EMoflonEdge __exclusiveGateway_incoming_inFlow = null;
-		EMoflonEdge __inFlowToPrevStep_target_prevStep = null;
-		EMoflonEdge __inFlowToFlow_target_flow = null;
-		EMoflonEdge __processToActor_source_process = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __process_flowElements_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_default_outFlow = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
-		EMoflonEdge __lane_flowNodeRefs_exclusiveGateway = null;
-		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __processToActor_target_actor = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		CSP csp = null;
-		Actor actor = null;
-		Iterator fujaba__IterProcessToProcessToActor = null;
-		ProcessToActor processToActor = null;
-		Step prevStep = null;
-		Iterator fujaba__IterInFlowToInFlowToPrevStep = null;
-		SequenceFlowToStep inFlowToPrevStep = null;
-		Flow flow = null;
-		Iterator fujaba__IterInFlowToInFlowToFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("ExclusiveGatewayToStepRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_2_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (match.getObject("exclusiveGateway"));
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-			_TmpObject = (match.getObject("inFlow"));
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (match.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (match.getObject("outFlow"));
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// iterate to-many link source from inFlow to inFlowToFlow
-			fujaba__Success = false;
-
-			fujaba__IterInFlowToInFlowToFlow = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(inFlow,
-							SequenceFlowToUCFlow.class, "source")).iterator();
-
-			while (fujaba__IterInFlowToInFlowToFlow.hasNext()) {
-				try {
-					inFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterInFlowToInFlowToFlow
-							.next();
-
-					// check object inFlowToFlow is really bound
-					JavaSDM.ensure(inFlowToFlow != null);
-					// bind object
-					flow = inFlowToFlow.getTarget();
-
-					// check object flow is really bound
-					JavaSDM.ensure(flow != null);
-
-					// iterate to-many link source from inFlow to inFlowToPrevStep
-					fujaba__Success = false;
-
-					fujaba__IterInFlowToInFlowToPrevStep = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(inFlow,
-											SequenceFlowToStep.class, "source"))
-							.iterator();
-
-					while (fujaba__IterInFlowToInFlowToPrevStep.hasNext()) {
-						try {
-							inFlowToPrevStep = (SequenceFlowToStep) fujaba__IterInFlowToInFlowToPrevStep
-									.next();
-
-							// check object inFlowToPrevStep is really bound
-							JavaSDM.ensure(inFlowToPrevStep != null);
-							// bind object
-							prevStep = inFlowToPrevStep.getTarget();
-
-							// check object prevStep is really bound
-							JavaSDM.ensure(prevStep != null);
-
-							// iterate to-many link source from process to processToActor
-							fujaba__Success = false;
-
-							fujaba__IterProcessToProcessToActor = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(process,
-													ProcessToActor.class,
-													"source")).iterator();
-
-							while (fujaba__IterProcessToProcessToActor
-									.hasNext()) {
-								try {
-									processToActor = (ProcessToActor) fujaba__IterProcessToProcessToActor
-											.next();
-
-									// check object processToActor is really bound
-									JavaSDM.ensure(processToActor != null);
-									// bind object
-									actor = processToActor.getTarget();
-
-									// check object actor is really bound
-									JavaSDM.ensure(actor != null);
-
-									// story node 'find context'
-									try {
-										fujaba__Success = false;
-
-										// check object actor is really bound
-										JavaSDM.ensure(actor != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object flow is really bound
-										JavaSDM.ensure(flow != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object inFlowToFlow is really bound
-										JavaSDM.ensure(inFlowToFlow != null);
-										// check object inFlowToPrevStep is really bound
-										JavaSDM.ensure(inFlowToPrevStep != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object prevStep is really bound
-										JavaSDM.ensure(prevStep != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check object processToActor is really bound
-										JavaSDM.ensure(processToActor != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link source from inFlowToFlow to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(inFlowToFlow
-														.getSource()));
-
-										// check link source from inFlowToPrevStep to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(inFlowToPrevStep
-														.getSource()));
-
-										// check link source from processToActor to process
-										JavaSDM.ensure(process
-												.equals(processToActor
-														.getSource()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link target from inFlowToFlow to flow
-										JavaSDM.ensure(flow.equals(inFlowToFlow
-												.getTarget()));
-
-										// check link target from inFlowToPrevStep to prevStep
-										JavaSDM.ensure(prevStep
-												.equals(inFlowToPrevStep
-														.getTarget()));
-
-										// check link target from processToActor to actor
-										JavaSDM.ensure(actor
-												.equals(processToActor
-														.getTarget()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object isApplicableMatch
-										isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-												.createIsApplicableMatch();
-
-										// create object __inFlow_targetRef_exclusiveGateway
-										__inFlow_targetRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __inFlowToPrevStep_source_inFlow
-										__inFlowToPrevStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_inFlow
-										__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __inFlowToFlow_source_inFlow
-										__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGateway_incoming_inFlow
-										__exclusiveGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __inFlowToPrevStep_target_prevStep
-										__inFlowToPrevStep_target_prevStep = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __inFlowToFlow_target_flow
-										__inFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __processToActor_source_process
-										__processToActor_source_process = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_outFlow
-										__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_laneSets_laneSet
-										__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __process_flowElements_exclusiveGateway
-										__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGateway_default_outFlow
-										__exclusiveGateway_default_outFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __exclusiveGateway_outgoing_outFlow
-										__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __lane_flowNodeRefs_exclusiveGateway
-										__lane_flowNodeRefs_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __outFlow_sourceRef_exclusiveGateway
-										__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __processToActor_target_actor
-										__processToActor_target_actor = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// create object __laneSet_lanes_lane
-										__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-												.createEMoflonEdge();
-
-										// assign attribute __inFlowToPrevStep_source_inFlow
-										__inFlowToPrevStep_source_inFlow
-												.setName("source");
-										// assign attribute __inFlowToPrevStep_target_prevStep
-										__inFlowToPrevStep_target_prevStep
-												.setName("target");
-										// assign attribute __inFlowToFlow_source_inFlow
-										__inFlowToFlow_source_inFlow
-												.setName("source");
-										// assign attribute __inFlowToFlow_target_flow
-										__inFlowToFlow_target_flow
-												.setName("target");
-										// assign attribute __process_laneSets_laneSet
-										__process_laneSets_laneSet
-												.setName("laneSets");
-										// assign attribute __process_flowElements_inFlow
-										__process_flowElements_inFlow
-												.setName("flowElements");
-										// assign attribute __process_flowElements_exclusiveGateway
-										__process_flowElements_exclusiveGateway
-												.setName("flowElements");
-										// assign attribute __process_flowElements_outFlow
-										__process_flowElements_outFlow
-												.setName("flowElements");
-										// assign attribute __inFlow_targetRef_exclusiveGateway
-										__inFlow_targetRef_exclusiveGateway
-												.setName("targetRef");
-										// assign attribute __exclusiveGateway_incoming_inFlow
-										__exclusiveGateway_incoming_inFlow
-												.setName("incoming");
-										// assign attribute __outFlow_sourceRef_exclusiveGateway
-										__outFlow_sourceRef_exclusiveGateway
-												.setName("sourceRef");
-										// assign attribute __exclusiveGateway_outgoing_outFlow
-										__exclusiveGateway_outgoing_outFlow
-												.setName("outgoing");
-										// assign attribute __exclusiveGateway_default_outFlow
-										__exclusiveGateway_default_outFlow
-												.setName("default");
-										// assign attribute __processToActor_source_process
-										__processToActor_source_process
-												.setName("source");
-										// assign attribute __processToActor_target_actor
-										__processToActor_target_actor
-												.setName("target");
-										// assign attribute __lane_flowNodeRefs_exclusiveGateway
-										__lane_flowNodeRefs_exclusiveGateway
-												.setName("flowNodeRefs");
-										// assign attribute __laneSet_lanes_lane
-										__laneSet_lanes_lane.setName("lanes");
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														inFlow);
-
-										// create link
-										__inFlow_targetRef_exclusiveGateway
-												.setSrc(inFlow);
-
-										// create link
-										__inFlowToPrevStep_source_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										__process_flowElements_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										__inFlowToFlow_source_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										__exclusiveGateway_incoming_inFlow
-												.setTrg(inFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														prevStep);
-
-										// create link
-										__inFlowToPrevStep_target_prevStep
-												.setTrg(prevStep);
-
-										// create link
-										__inFlowToPrevStep_source_inFlow
-												.setSrc(inFlowToPrevStep);
-
-										// create link
-										__inFlowToPrevStep_target_prevStep
-												.setSrc(inFlowToPrevStep);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														inFlowToPrevStep);
-
-										// create link
-										__inFlowToFlow_target_flow
-												.setSrc(inFlowToFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														inFlowToFlow);
-
-										// create link
-										__inFlowToFlow_source_inFlow
-												.setSrc(inFlowToFlow);
-
-										// create link
-										__processToActor_source_process
-												.setTrg(process);
-
-										// create link
-										__process_flowElements_outFlow
-												.setSrc(process);
-
-										// create link
-										__process_laneSets_laneSet
-												.setSrc(process);
-
-										// create link
-										__process_flowElements_inFlow
-												.setSrc(process);
-
-										// create link
-										__process_flowElements_exclusiveGateway
-												.setSrc(process);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														process);
-
-										// create link
-										__exclusiveGateway_default_outFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														exclusiveGateway);
-
-										// create link
-										__exclusiveGateway_outgoing_outFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
-										__exclusiveGateway_incoming_inFlow
-												.setSrc(exclusiveGateway);
-
-										// create link
-										__inFlow_targetRef_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__process_flowElements_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__lane_flowNodeRefs_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__outFlow_sourceRef_exclusiveGateway
-												.setTrg(exclusiveGateway);
-
-										// create link
-										__exclusiveGateway_outgoing_outFlow
-												.setTrg(outFlow);
-
-										// create link
-										__process_flowElements_outFlow
-												.setTrg(outFlow);
-
-										// create link
-										__outFlow_sourceRef_exclusiveGateway
-												.setSrc(outFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														outFlow);
-
-										// create link
-										__exclusiveGateway_default_outFlow
-												.setTrg(outFlow);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														flow);
-
-										// create link
-										__inFlowToFlow_target_flow.setTrg(flow);
-
-										// create link
-										__processToActor_target_actor
-												.setTrg(actor);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														actor);
-
-										// create link
-										__processToActor_target_actor
-												.setSrc(processToActor);
-
-										// create link
-										__processToActor_source_process
-												.setSrc(processToActor);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														processToActor);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														lane);
-
-										// create link
-										__laneSet_lanes_lane.setTrg(lane);
-
-										// create link
-										__lane_flowNodeRefs_exclusiveGateway
-												.setSrc(lane);
-
-										// create link
-										isApplicableMatch
-												.getAllContextElements().add(
-														laneSet);
-
-										// create link
-										__process_laneSets_laneSet
-												.setTrg(laneSet);
-
-										// create link
-										__laneSet_lanes_lane.setSrc(laneSet);
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__laneSet_lanes_lane,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_default_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__lane_flowNodeRefs_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToActor_target_actor,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_outgoing_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__exclusiveGateway_incoming_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_target_prevStep,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlow_targetRef_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToFlow_target_flow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToPrevStep_source_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_laneSets_laneSet,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__process_flowElements_outFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__outFlow_sourceRef_exclusiveGateway,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__inFlowToFlow_source_inFlow,
-														"allContextElements");
-
-										// create link
-										org.moflon.util.eMoflonEMFUtil
-												.addOppositeReference(
-														isApplicableMatch,
-														__processToActor_source_process,
-														"allContextElements");
-										// story node 'solve CSP'
-										try {
-											fujaba__Success = false;
-
-											_TmpObject = (this
-													.isApplicable_solveCsp_FWD(
-															isApplicableMatch,
-															inFlow, prevStep,
-															inFlowToPrevStep,
-															inFlowToFlow,
-															process,
-															exclusiveGateway,
-															outFlow, flow,
-															actor,
-															processToActor,
-															lane, laneSet));
-
-											// ensure correct type and really bound of object csp
-											JavaSDM.ensure(_TmpObject instanceof CSP);
-											csp = (CSP) _TmpObject;
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										// statement node 'check CSP'
-										fujaba__Success = this
-												.isApplicable_checkCsp_FWD(csp);
-										if (fujaba__Success) {
-											// story node 'add match to rule result'
-											try {
-												fujaba__Success = false;
-
-												// check object isApplicableMatch is really bound
-												JavaSDM.ensure(isApplicableMatch != null);
-												// check object ruleresult is really bound
-												JavaSDM.ensure(ruleresult != null);
-												// assign attribute isApplicableMatch
-												isApplicableMatch
-														.setRuleName("ExclusiveGatewayToStepRule");
-												// assign attribute ruleresult
-												ruleresult.setSuccess(true);
-
-												// create link
-												ruleresult
-														.getIsApplicableMatch()
-														.add(isApplicableMatch);
-
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_2_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
+
+		// ForEach core match
+		Object[] result2_binding = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_2_2_bindingFFFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		SequenceFlow inFlow = (SequenceFlow) result2_binding[0];
+		bpmn2.Process process = (bpmn2.Process) result2_binding[1];
+		ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_binding[2];
+		SequenceFlow outFlow = (SequenceFlow) result2_binding[3];
+		Lane lane = (Lane) result2_binding[4];
+		LaneSet laneSet = (LaneSet) result2_binding[5];
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_2_2_blackBFFFBBBFFFBBB(
+						inFlow, process, exclusiveGateway, outFlow, lane,
+						laneSet, match)) {
+			Step prevStep = (Step) result2_black[1];
+			SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) result2_black[2];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[3];
+			Flow flow = (Flow) result2_black[7];
+			Actor actor = (Actor) result2_black[8];
+			ProcessToActor processToActor = (ProcessToActor) result2_black[9];
+			// ForEach find context
+			for (Object[] result3_black : ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_2_3_blackBBBBBBBBBBBB(
+							inFlow, prevStep, inFlowToPrevStep, inFlowToFlow,
+							process, exclusiveGateway, outFlow, flow, actor,
+							processToActor, lane, laneSet)) {
+				Object[] result3_green = ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_2_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFFFFF(
+								inFlow, prevStep, inFlowToPrevStep,
+								inFlowToFlow, process, exclusiveGateway,
+								outFlow, flow, actor, processToActor, lane,
+								laneSet);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[12];
+				// EMoflonEdge inFlowToPrevStep__inFlow____source = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge inFlowToPrevStep__prevStep____target = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge process__exclusiveGateway____flowElements = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge inFlow__exclusiveGateway____targetRef = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge exclusiveGateway__inFlow____incoming = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge exclusiveGateway__outFlow____default = (EMoflonEdge) result3_green[25];
+				// EMoflonEdge processToActor__process____source = (EMoflonEdge) result3_green[26];
+				// EMoflonEdge processToActor__actor____target = (EMoflonEdge) result3_green[27];
+				// EMoflonEdge lane__exclusiveGateway____flowNodeRefs = (EMoflonEdge) result3_green[28];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[29];
+
+				// solve CSP
+				Object[] result4_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_2_4_bindingAndBlackFBBBBBBBBBBBBBB(
+								this, isApplicableMatch, inFlow, prevStep,
+								inFlowToPrevStep, inFlowToFlow, process,
+								exclusiveGateway, outFlow, flow, actor,
+								processToActor, lane, laneSet);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_2_5_expressionFBB(
+								this, csp)) {
+
+					// add match to rule result
+					Object[] result6_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_2_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_2_6_greenBB(
+									ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_2_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -2241,24 +413,21 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, SequenceFlow inFlow,
 			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
-			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
-		// Create CSP
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("Diverging");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_exclusiveGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.gatewayDirection", true, csp);
 		var_exclusiveGateway_gatewayDirection.setValue(exclusiveGateway
 				.getGatewayDirection());
-		var_exclusiveGateway_gatewayDirection.setType("EObject");
-
-		// Create explicit parameters
+		var_exclusiveGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
 
 		// Create unbound variables
 
@@ -2294,8 +463,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
 			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Flow flow,
 			Actor actor, ProcessToActor processToActor, Lane lane,
-			LaneSet laneSet) {
-		// Create CSP
+			LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -2305,21 +473,19 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		Variable var_exclusiveGateway_id = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.id", true, csp);
 		var_exclusiveGateway_id.setValue(exclusiveGateway.getId());
-		var_exclusiveGateway_id.setType("");
+		var_exclusiveGateway_id.setType("String");
 		Variable var_exclusiveGateway_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.name", true, csp);
 		var_exclusiveGateway_name.setValue(exclusiveGateway.getName());
-		var_exclusiveGateway_name.setType("");
-
-		// Create explicit parameters
+		var_exclusiveGateway_name.setType("String");
 
 		// Create unbound variables
 		Variable var_normalStep_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.name", csp);
-		var_normalStep_name.setType("");
+		var_normalStep_name.setType("String");
 		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.label", csp);
-		var_normalStep_label.setType("");
+		var_normalStep_label.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
@@ -2413,170 +579,67 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isAppropriate_BWD(Match match, Step prevStep,
 			NormalStep normalStep, Flow flow, Actor actor) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __prevStep_next_normalStep = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge __normalStep_actor_actor = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			// check object prevStep is really bound
-			JavaSDM.ensure(prevStep != null);
-			// check isomorphic binding between objects prevStep and normalStep 
-			JavaSDM.ensure(!prevStep.equals(normalStep));
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_10_1_blackBBBBBB(this,
+						match, prevStep, normalStep, flow, actor);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_BWD(match, prevStep,
-					normalStep, flow, actor));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_10_2_bindingAndBlackFBBBBBB(
+						this, match, prevStep, normalStep, flow, actor);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_10_3_expressionFBB(this,
+						csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_BWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-				// check object prevStep is really bound
-				JavaSDM.ensure(prevStep != null);
-				// check isomorphic binding between objects prevStep and normalStep 
-				JavaSDM.ensure(!prevStep.equals(normalStep));
-
-				// create object __prevStep_next_normalStep
-				__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __flow_steps_normalStep
-				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __normalStep_actor_actor
-				__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __prevStep_next_normalStep
-				__prevStep_next_normalStep.setName("next");
-				// assign attribute __normalStep_actor_actor
-				__normalStep_actor_actor.setName("actor");
-				// assign attribute __flow_steps_normalStep
-				__flow_steps_normalStep.setName("steps");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__prevStep_next_normalStep, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						normalStep, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_normalStep, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__normalStep_actor_actor, "toBeTranslatedEdges");
-
-				// create link
-				__prevStep_next_normalStep.setSrc(prevStep);
-
-				// create link
-				__flow_steps_normalStep.setTrg(normalStep);
-
-				// create link
-				__prevStep_next_normalStep.setTrg(normalStep);
-
-				// create link
-				__normalStep_actor_actor.setSrc(normalStep);
-
-				// create link
-				__flow_steps_normalStep.setSrc(flow);
-
-				// create link
-				__normalStep_actor_actor.setTrg(actor);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_10_4_blackBBBBB(match,
+							prevStep, normalStep, flow, actor);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_10_4_greenBBBBBFFF(
+							match, prevStep, normalStep, flow, actor);
+			// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result4_green[5];
+			// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result4_green[7];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-				// check object prevStep is really bound
-				JavaSDM.ensure(prevStep != null);
-				// check isomorphic binding between objects prevStep and normalStep 
-				JavaSDM.ensure(!prevStep.equals(normalStep));
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						prevStep, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "contextNodes");
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_10_5_blackBBBBB(match,
+							prevStep, normalStep, flow, actor);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_10_5_greenBBBB(match,
+							prevStep, flow, actor);
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_BWD(match, prevStep, normalStep, flow,
-					actor);
-			return true;
-
+			// register objects to match
+			ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_10_6_expressionBBBBBB(
+							this, match, prevStep, normalStep, flow, actor);
+			return ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_10_7_expressionF();
 		} else {
-			return false;
-
+			return ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_10_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -2585,945 +648,97 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		Actor actor = null;
-		Flow flow = null;
-		SequenceFlow inFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-		SequenceFlowToStep inFlowToPrevStep = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		NormalStep normalStep = null;
-		Step prevStep = null;
-		bpmn2.Process process = null;
-		ProcessToActor processToActor = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		ExclusiveGateway exclusiveGateway = null;
-		FlowNodeToStep exclusiveGatewayToNormalStep = null;
-		SequenceFlowToStep outFlowToNormalStep = null;
-		SequenceFlowToUCFlow outFlowToFlow = null;
-		SequenceFlow outFlow = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge outFlowToNormalStep__source__outFlow = null;
-		EMoflonEdge exclusiveGatewayToNormalStep__source__exclusiveGateway = null;
-		EMoflonEdge inFlow__targetRef__exclusiveGateway = null;
-		EMoflonEdge exclusiveGateway__outgoing__outFlow = null;
-		EMoflonEdge process__flowElements__outFlow = null;
-		EMoflonEdge __normalStep_actor_actor = null;
-		EMoflonEdge process__flowElements__exclusiveGateway = null;
-		EMoflonEdge outFlowToFlow__source__outFlow = null;
-		EMoflonEdge lane__flowNodeRefs__exclusiveGateway = null;
-		EMoflonEdge exclusiveGateway__default__outFlow = null;
-		EMoflonEdge exclusiveGateway__incoming__inFlow = null;
-		EMoflonEdge __prevStep_next_normalStep = null;
-		EMoflonEdge outFlowToNormalStep__target__normalStep = null;
-		EMoflonEdge outFlow__sourceRef__exclusiveGateway = null;
-		EMoflonEdge outFlowToFlow__target__flow = null;
-		EMoflonEdge exclusiveGatewayToNormalStep__target__normalStep = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("actor"));
-
-			// ensure correct type and really bound of object actor
-			JavaSDM.ensure(_TmpObject instanceof Actor);
-			actor = (Actor) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlow"));
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlowToFlow"));
-
-			// ensure correct type and really bound of object inFlowToFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			inFlowToFlow = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlowToPrevStep"));
-
-			// ensure correct type and really bound of object inFlowToPrevStep
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToStep);
-			inFlowToPrevStep = (SequenceFlowToStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("normalStep"));
-
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("prevStep"));
-
-			// ensure correct type and really bound of object prevStep
-			JavaSDM.ensure(_TmpObject instanceof Step);
-			prevStep = (Step) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("processToActor"));
-
-			// ensure correct type and really bound of object processToActor
-			JavaSDM.ensure(_TmpObject instanceof ProcessToActor);
-			processToActor = (ProcessToActor) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// check isomorphic binding between objects prevStep and normalStep 
-			JavaSDM.ensure(!prevStep.equals(normalStep));
-
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object exclusiveGateway
-			exclusiveGateway = Bpmn2Factory.eINSTANCE.createExclusiveGateway();
-
-			// create object exclusiveGatewayToNormalStep
-			exclusiveGatewayToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createFlowNodeToStep();
-
-			// create object outFlowToNormalStep
-			outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSequenceFlowToStep();
-
-			// create object outFlowToFlow
-			outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSequenceFlowToUCFlow();
-
-			// create object outFlow
-			outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
-
-			// assign attribute exclusiveGateway
-			exclusiveGateway.setId((java.lang.String) csp.getValue(
-					"exclusiveGateway", "id"));
-			// assign attribute exclusiveGateway
-			exclusiveGateway.setName((java.lang.String) csp.getValue(
-					"exclusiveGateway", "name"));
-			// assign attribute exclusiveGateway
-			exclusiveGateway.setGatewayDirection((bpmn2.GatewayDirection) csp
-					.getValue("exclusiveGateway", "gatewayDirection"));
-
-			// create link
-			outFlowToNormalStep.setSource(outFlow);
-
-			// create link
-			exclusiveGateway.getIncoming().add(inFlow);
-
-			// create link
-			exclusiveGatewayToNormalStep.setTarget(normalStep);
-
-			// create link
-			outFlowToNormalStep.setTarget(normalStep);
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToFlow,
-					outFlow, "source");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(outFlowToFlow,
-					flow, "target");
-
-			// create link
-			process.getFlowElements().add(exclusiveGateway); // add link
-
-			// create link
-			process.getFlowElements().add(outFlow); // add link
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(
-					exclusiveGateway, outFlow, "default");
-
-			// create link
-			outFlow.setSourceRef(exclusiveGateway);
-
-			// create link
-			lane.getFlowNodeRefs().add(exclusiveGateway);
-
-			// create link
-			exclusiveGatewayToNormalStep.setSource(exclusiveGateway);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_11_1_bindingAndBlackFFFFFFFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[0];
+		Step prevStep = (Step) result1_bindingAndBlack[1];
+		SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) result1_bindingAndBlack[2];
+		NormalStep normalStep = (NormalStep) result1_bindingAndBlack[3];
+		SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[4];
+		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[5];
+		Flow flow = (Flow) result1_bindingAndBlack[6];
+		Actor actor = (Actor) result1_bindingAndBlack[7];
+		ProcessToActor processToActor = (ProcessToActor) result1_bindingAndBlack[8];
+		Lane lane = (Lane) result1_bindingAndBlack[9];
+		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[10];
+		CSP csp = (CSP) result1_bindingAndBlack[11];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_11_1_greenBBFBFFFFBBB(
+						inFlow, normalStep, process, flow, lane, csp);
+		SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result1_green[2];
+		ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result1_green[4];
+		SequenceFlow outFlow = (SequenceFlow) result1_green[5];
+		FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result1_green[6];
+		SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result1_green[7];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object exclusiveGatewayToNormalStep is really bound
-			JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToFlow is really bound
-			JavaSDM.ensure(outFlowToFlow != null);
-			// check object outFlowToNormalStep is really bound
-			JavaSDM.ensure(outFlowToNormalStep != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGateway, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					normalStep, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "createdElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGatewayToNormalStep, "createdLinkElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_11_2_blackBBBBBB(
+						normalStep, outFlowToFlow, exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object exclusiveGatewayToNormalStep is really bound
-			JavaSDM.ensure(exclusiveGatewayToNormalStep != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object inFlowToFlow is really bound
-			JavaSDM.ensure(inFlowToFlow != null);
-			// check object inFlowToPrevStep is really bound
-			JavaSDM.ensure(inFlowToPrevStep != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToFlow is really bound
-			JavaSDM.ensure(outFlowToFlow != null);
-			// check object outFlowToNormalStep is really bound
-			JavaSDM.ensure(outFlowToNormalStep != null);
-			// check object prevStep is really bound
-			JavaSDM.ensure(prevStep != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check object processToActor is really bound
-			JavaSDM.ensure(processToActor != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check isomorphic binding between objects exclusiveGateway and actor 
-			JavaSDM.ensure(!exclusiveGateway.equals(actor));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and actor 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep.equals(actor));
-
-			// check isomorphic binding between objects flow and actor 
-			JavaSDM.ensure(!flow.equals(actor));
-
-			// check isomorphic binding between objects inFlow and actor 
-			JavaSDM.ensure(!inFlow.equals(actor));
-
-			// check isomorphic binding between objects inFlowToFlow and actor 
-			JavaSDM.ensure(!inFlowToFlow.equals(actor));
-
-			// check isomorphic binding between objects inFlowToPrevStep and actor 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(actor));
-
-			// check isomorphic binding between objects lane and actor 
-			JavaSDM.ensure(!lane.equals(actor));
-
-			// check isomorphic binding between objects laneSet and actor 
-			JavaSDM.ensure(!laneSet.equals(actor));
-
-			// check isomorphic binding between objects normalStep and actor 
-			JavaSDM.ensure(!normalStep.equals(actor));
-
-			// check isomorphic binding between objects outFlow and actor 
-			JavaSDM.ensure(!outFlow.equals(actor));
-
-			// check isomorphic binding between objects outFlowToFlow and actor 
-			JavaSDM.ensure(!outFlowToFlow.equals(actor));
-
-			// check isomorphic binding between objects outFlowToNormalStep and actor 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(actor));
-
-			// check isomorphic binding between objects prevStep and actor 
-			JavaSDM.ensure(!prevStep.equals(actor));
-
-			// check isomorphic binding between objects process and actor 
-			JavaSDM.ensure(!process.equals(actor));
-
-			// check isomorphic binding between objects processToActor and actor 
-			JavaSDM.ensure(!processToActor.equals(actor));
-
-			// check isomorphic binding between objects exclusiveGatewayToNormalStep and exclusiveGateway 
-			JavaSDM.ensure(!exclusiveGatewayToNormalStep
-					.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects flow and exclusiveGateway 
-			JavaSDM.ensure(!flow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects inFlow and exclusiveGateway 
-			JavaSDM.ensure(!inFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects inFlowToFlow and exclusiveGateway 
-			JavaSDM.ensure(!inFlowToFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects inFlowToPrevStep and exclusiveGateway 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects lane and exclusiveGateway 
-			JavaSDM.ensure(!lane.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects laneSet and exclusiveGateway 
-			JavaSDM.ensure(!laneSet.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects normalStep and exclusiveGateway 
-			JavaSDM.ensure(!normalStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlow and exclusiveGateway 
-			JavaSDM.ensure(!outFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlowToFlow and exclusiveGateway 
-			JavaSDM.ensure(!outFlowToFlow.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects outFlowToNormalStep and exclusiveGateway 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects prevStep and exclusiveGateway 
-			JavaSDM.ensure(!prevStep.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects process and exclusiveGateway 
-			JavaSDM.ensure(!process.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects processToActor and exclusiveGateway 
-			JavaSDM.ensure(!processToActor.equals(exclusiveGateway));
-
-			// check isomorphic binding between objects flow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!flow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects inFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!inFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects inFlowToFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!inFlowToFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects inFlowToPrevStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!inFlowToPrevStep
-					.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects lane and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!lane.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects laneSet and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!laneSet.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects normalStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!normalStep.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlowToFlow and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlowToFlow.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects outFlowToNormalStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!outFlowToNormalStep
-					.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects prevStep and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!prevStep.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects process and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!process.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects processToActor and exclusiveGatewayToNormalStep 
-			JavaSDM.ensure(!processToActor.equals(exclusiveGatewayToNormalStep));
-
-			// check isomorphic binding between objects inFlow and flow 
-			JavaSDM.ensure(!inFlow.equals(flow));
-
-			// check isomorphic binding between objects inFlowToFlow and flow 
-			JavaSDM.ensure(!inFlowToFlow.equals(flow));
-
-			// check isomorphic binding between objects inFlowToPrevStep and flow 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(flow));
-
-			// check isomorphic binding between objects lane and flow 
-			JavaSDM.ensure(!lane.equals(flow));
-
-			// check isomorphic binding between objects laneSet and flow 
-			JavaSDM.ensure(!laneSet.equals(flow));
-
-			// check isomorphic binding between objects normalStep and flow 
-			JavaSDM.ensure(!normalStep.equals(flow));
-
-			// check isomorphic binding between objects outFlow and flow 
-			JavaSDM.ensure(!outFlow.equals(flow));
-
-			// check isomorphic binding between objects outFlowToFlow and flow 
-			JavaSDM.ensure(!outFlowToFlow.equals(flow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and flow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(flow));
-
-			// check isomorphic binding between objects prevStep and flow 
-			JavaSDM.ensure(!prevStep.equals(flow));
-
-			// check isomorphic binding between objects process and flow 
-			JavaSDM.ensure(!process.equals(flow));
-
-			// check isomorphic binding between objects processToActor and flow 
-			JavaSDM.ensure(!processToActor.equals(flow));
-
-			// check isomorphic binding between objects inFlowToFlow and inFlow 
-			JavaSDM.ensure(!inFlowToFlow.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToPrevStep and inFlow 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(inFlow));
-
-			// check isomorphic binding between objects lane and inFlow 
-			JavaSDM.ensure(!lane.equals(inFlow));
-
-			// check isomorphic binding between objects laneSet and inFlow 
-			JavaSDM.ensure(!laneSet.equals(inFlow));
-
-			// check isomorphic binding between objects normalStep and inFlow 
-			JavaSDM.ensure(!normalStep.equals(inFlow));
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check isomorphic binding between objects outFlowToFlow and inFlow 
-			JavaSDM.ensure(!outFlowToFlow.equals(inFlow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and inFlow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(inFlow));
-
-			// check isomorphic binding between objects prevStep and inFlow 
-			JavaSDM.ensure(!prevStep.equals(inFlow));
-
-			// check isomorphic binding between objects process and inFlow 
-			JavaSDM.ensure(!process.equals(inFlow));
-
-			// check isomorphic binding between objects processToActor and inFlow 
-			JavaSDM.ensure(!processToActor.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToPrevStep and inFlowToFlow 
-			JavaSDM.ensure(!inFlowToPrevStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects lane and inFlowToFlow 
-			JavaSDM.ensure(!lane.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects laneSet and inFlowToFlow 
-			JavaSDM.ensure(!laneSet.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects normalStep and inFlowToFlow 
-			JavaSDM.ensure(!normalStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlow and inFlowToFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToFlow and inFlowToFlow 
-			JavaSDM.ensure(!outFlowToFlow.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and inFlowToFlow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects prevStep and inFlowToFlow 
-			JavaSDM.ensure(!prevStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects process and inFlowToFlow 
-			JavaSDM.ensure(!process.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects processToActor and inFlowToFlow 
-			JavaSDM.ensure(!processToActor.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects lane and inFlowToPrevStep 
-			JavaSDM.ensure(!lane.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects laneSet and inFlowToPrevStep 
-			JavaSDM.ensure(!laneSet.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects normalStep and inFlowToPrevStep 
-			JavaSDM.ensure(!normalStep.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects outFlow and inFlowToPrevStep 
-			JavaSDM.ensure(!outFlow.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects outFlowToFlow and inFlowToPrevStep 
-			JavaSDM.ensure(!outFlowToFlow.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects outFlowToNormalStep and inFlowToPrevStep 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects prevStep and inFlowToPrevStep 
-			JavaSDM.ensure(!prevStep.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects process and inFlowToPrevStep 
-			JavaSDM.ensure(!process.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects processToActor and inFlowToPrevStep 
-			JavaSDM.ensure(!processToActor.equals(inFlowToPrevStep));
-
-			// check isomorphic binding between objects laneSet and lane 
-			JavaSDM.ensure(!laneSet.equals(lane));
-
-			// check isomorphic binding between objects normalStep and lane 
-			JavaSDM.ensure(!normalStep.equals(lane));
-
-			// check isomorphic binding between objects outFlow and lane 
-			JavaSDM.ensure(!outFlow.equals(lane));
-
-			// check isomorphic binding between objects outFlowToFlow and lane 
-			JavaSDM.ensure(!outFlowToFlow.equals(lane));
-
-			// check isomorphic binding between objects outFlowToNormalStep and lane 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(lane));
-
-			// check isomorphic binding between objects prevStep and lane 
-			JavaSDM.ensure(!prevStep.equals(lane));
-
-			// check isomorphic binding between objects process and lane 
-			JavaSDM.ensure(!process.equals(lane));
-
-			// check isomorphic binding between objects processToActor and lane 
-			JavaSDM.ensure(!processToActor.equals(lane));
-
-			// check isomorphic binding between objects normalStep and laneSet 
-			JavaSDM.ensure(!normalStep.equals(laneSet));
-
-			// check isomorphic binding between objects outFlow and laneSet 
-			JavaSDM.ensure(!outFlow.equals(laneSet));
-
-			// check isomorphic binding between objects outFlowToFlow and laneSet 
-			JavaSDM.ensure(!outFlowToFlow.equals(laneSet));
-
-			// check isomorphic binding between objects outFlowToNormalStep and laneSet 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(laneSet));
-
-			// check isomorphic binding between objects prevStep and laneSet 
-			JavaSDM.ensure(!prevStep.equals(laneSet));
-
-			// check isomorphic binding between objects process and laneSet 
-			JavaSDM.ensure(!process.equals(laneSet));
-
-			// check isomorphic binding between objects processToActor and laneSet 
-			JavaSDM.ensure(!processToActor.equals(laneSet));
-
-			// check isomorphic binding between objects outFlow and normalStep 
-			JavaSDM.ensure(!outFlow.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToFlow and normalStep 
-			JavaSDM.ensure(!outFlowToFlow.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToNormalStep and normalStep 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(normalStep));
-
-			// check isomorphic binding between objects prevStep and normalStep 
-			JavaSDM.ensure(!prevStep.equals(normalStep));
-
-			// check isomorphic binding between objects process and normalStep 
-			JavaSDM.ensure(!process.equals(normalStep));
-
-			// check isomorphic binding between objects processToActor and normalStep 
-			JavaSDM.ensure(!processToActor.equals(normalStep));
-
-			// check isomorphic binding between objects outFlowToFlow and outFlow 
-			JavaSDM.ensure(!outFlowToFlow.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and outFlow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(outFlow));
-
-			// check isomorphic binding between objects prevStep and outFlow 
-			JavaSDM.ensure(!prevStep.equals(outFlow));
-
-			// check isomorphic binding between objects process and outFlow 
-			JavaSDM.ensure(!process.equals(outFlow));
-
-			// check isomorphic binding between objects processToActor and outFlow 
-			JavaSDM.ensure(!processToActor.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToNormalStep and outFlowToFlow 
-			JavaSDM.ensure(!outFlowToNormalStep.equals(outFlowToFlow));
-
-			// check isomorphic binding between objects prevStep and outFlowToFlow 
-			JavaSDM.ensure(!prevStep.equals(outFlowToFlow));
-
-			// check isomorphic binding between objects process and outFlowToFlow 
-			JavaSDM.ensure(!process.equals(outFlowToFlow));
-
-			// check isomorphic binding between objects processToActor and outFlowToFlow 
-			JavaSDM.ensure(!processToActor.equals(outFlowToFlow));
-
-			// check isomorphic binding between objects prevStep and outFlowToNormalStep 
-			JavaSDM.ensure(!prevStep.equals(outFlowToNormalStep));
-
-			// check isomorphic binding between objects process and outFlowToNormalStep 
-			JavaSDM.ensure(!process.equals(outFlowToNormalStep));
-
-			// check isomorphic binding between objects processToActor and outFlowToNormalStep 
-			JavaSDM.ensure(!processToActor.equals(outFlowToNormalStep));
-
-			// check isomorphic binding between objects process and prevStep 
-			JavaSDM.ensure(!process.equals(prevStep));
-
-			// check isomorphic binding between objects processToActor and prevStep 
-			JavaSDM.ensure(!processToActor.equals(prevStep));
-
-			// check isomorphic binding between objects processToActor and process 
-			JavaSDM.ensure(!processToActor.equals(process));
-
-			// create object __flow_steps_normalStep
-			__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object exclusiveGatewayToNormalStep__source__exclusiveGateway
-			exclusiveGatewayToNormalStep__source__exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object inFlow__targetRef__exclusiveGateway
-			inFlow__targetRef__exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object exclusiveGateway__outgoing__outFlow
-			exclusiveGateway__outgoing__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object process__flowElements__outFlow
-			process__flowElements__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __normalStep_actor_actor
-			__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object process__flowElements__exclusiveGateway
-			process__flowElements__exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object lane__flowNodeRefs__exclusiveGateway
-			lane__flowNodeRefs__exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object exclusiveGateway__default__outFlow
-			exclusiveGateway__default__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object exclusiveGateway__incoming__inFlow
-			exclusiveGateway__incoming__inFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __prevStep_next_normalStep
-			__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlow__sourceRef__exclusiveGateway
-			outFlow__sourceRef__exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToFlow__target__flow
-			outFlowToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object exclusiveGatewayToNormalStep__target__normalStep
-			exclusiveGatewayToNormalStep__target__normalStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("ExclusiveGatewayToStepRule");
-			// assign attribute __prevStep_next_normalStep
-			__prevStep_next_normalStep.setName("next");
-			// assign attribute __normalStep_actor_actor
-			__normalStep_actor_actor.setName("actor");
-			// assign attribute outFlowToFlow__source__outFlow
-			outFlowToFlow__source__outFlow.setName("source");
-			// assign attribute outFlowToFlow__target__flow
-			outFlowToFlow__target__flow.setName("target");
-			// assign attribute process__flowElements__exclusiveGateway
-			process__flowElements__exclusiveGateway.setName("flowElements");
-			// assign attribute process__flowElements__outFlow
-			process__flowElements__outFlow.setName("flowElements");
-			// assign attribute inFlow__targetRef__exclusiveGateway
-			inFlow__targetRef__exclusiveGateway.setName("targetRef");
-			// assign attribute exclusiveGateway__incoming__inFlow
-			exclusiveGateway__incoming__inFlow.setName("incoming");
-			// assign attribute outFlow__sourceRef__exclusiveGateway
-			outFlow__sourceRef__exclusiveGateway.setName("sourceRef");
-			// assign attribute exclusiveGateway__outgoing__outFlow
-			exclusiveGateway__outgoing__outFlow.setName("outgoing");
-			// assign attribute exclusiveGateway__default__outFlow
-			exclusiveGateway__default__outFlow.setName("default");
-			// assign attribute exclusiveGatewayToNormalStep__source__exclusiveGateway
-			exclusiveGatewayToNormalStep__source__exclusiveGateway
-					.setName("source");
-			// assign attribute exclusiveGatewayToNormalStep__target__normalStep
-			exclusiveGatewayToNormalStep__target__normalStep.setName("target");
-			// assign attribute outFlowToNormalStep__source__outFlow
-			outFlowToNormalStep__source__outFlow.setName("source");
-			// assign attribute outFlowToNormalStep__target__normalStep
-			outFlowToNormalStep__target__normalStep.setName("target");
-			// assign attribute __flow_steps_normalStep
-			__flow_steps_normalStep.setName("steps");
-			// assign attribute lane__flowNodeRefs__exclusiveGateway
-			lane__flowNodeRefs__exclusiveGateway.setName("flowNodeRefs");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__flow_steps_normalStep, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGatewayToNormalStep__source__exclusiveGateway,
-					"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					inFlow__targetRef__exclusiveGateway, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGateway__outgoing__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					process__flowElements__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__normalStep_actor_actor, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					process__flowElements__exclusiveGateway, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					lane__flowNodeRefs__exclusiveGateway, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGateway__default__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGateway__incoming__inFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__prevStep_next_normalStep, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToNormalStep__target__normalStep, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow__sourceRef__exclusiveGateway, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToFlow__target__flow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					exclusiveGatewayToNormalStep__target__normalStep,
-					"createdEdges");
-
-			// create link
-			inFlow__targetRef__exclusiveGateway.setSrc(inFlow);
-
-			// create link
-			exclusiveGateway__incoming__inFlow.setTrg(inFlow);
-
-			// create link
-			__prevStep_next_normalStep.setSrc(prevStep);
-
-			// create link
-			__normalStep_actor_actor.setSrc(normalStep);
-
-			// create link
-			__prevStep_next_normalStep.setTrg(normalStep);
-
-			// create link
-			exclusiveGatewayToNormalStep__target__normalStep.setTrg(normalStep);
-
-			// create link
-			__flow_steps_normalStep.setTrg(normalStep);
-
-			// create link
-			outFlowToNormalStep__target__normalStep.setTrg(normalStep);
-
-			// create link
-			outFlowToFlow__source__outFlow.setSrc(outFlowToFlow);
-
-			// create link
-			outFlowToFlow__target__flow.setSrc(outFlowToFlow);
-
-			// create link
-			process__flowElements__outFlow.setSrc(process);
-
-			// create link
-			process__flowElements__exclusiveGateway.setSrc(process);
-
-			// create link
-			exclusiveGateway__outgoing__outFlow.setSrc(exclusiveGateway);
-
-			// create link
-			exclusiveGateway__incoming__inFlow.setSrc(exclusiveGateway);
-
-			// create link
-			exclusiveGateway__default__outFlow.setSrc(exclusiveGateway);
-
-			// create link
-			exclusiveGatewayToNormalStep__source__exclusiveGateway
-					.setTrg(exclusiveGateway);
-
-			// create link
-			process__flowElements__exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			outFlow__sourceRef__exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			lane__flowNodeRefs__exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			inFlow__targetRef__exclusiveGateway.setTrg(exclusiveGateway);
-
-			// create link
-			outFlow__sourceRef__exclusiveGateway.setSrc(outFlow);
-
-			// create link
-			outFlowToNormalStep__source__outFlow.setTrg(outFlow);
-
-			// create link
-			exclusiveGateway__default__outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
-			exclusiveGateway__outgoing__outFlow.setTrg(outFlow);
-
-			// create link
-			process__flowElements__outFlow.setTrg(outFlow);
-
-			// create link
-			exclusiveGatewayToNormalStep__source__exclusiveGateway
-					.setSrc(exclusiveGatewayToNormalStep);
-
-			// create link
-			exclusiveGatewayToNormalStep__target__normalStep
-					.setSrc(exclusiveGatewayToNormalStep);
-
-			// create link
-			outFlowToNormalStep__target__normalStep.setSrc(outFlowToNormalStep);
-
-			// create link
-			outFlowToNormalStep__source__outFlow.setSrc(outFlowToNormalStep);
-
-			// create link
-			outFlowToFlow__target__flow.setTrg(flow);
-
-			// create link
-			__flow_steps_normalStep.setSrc(flow);
-
-			// create link
-			__normalStep_actor_actor.setTrg(actor);
-
-			// create link
-			lane__flowNodeRefs__exclusiveGateway.setSrc(lane);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_11_2_greenFBBBBBB(
+						normalStep, outFlowToFlow, exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
+
+		// bookkeeping for edges
+		Object[] result3_black = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_11_3_blackBBBBBBBBBBBBBBBBB(
+						ruleresult, inFlow, prevStep, inFlowToPrevStep,
+						normalStep, outFlowToFlow, inFlowToFlow, process,
+						exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep,
+						flow, actor, processToActor, lane, laneSet);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFF(
+						ruleresult, inFlow, prevStep, normalStep,
+						outFlowToFlow, process, exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep,
+						flow, actor, lane);
+		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge process__exclusiveGateway____flowElements = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge inFlow__exclusiveGateway____targetRef = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge exclusiveGateway__inFlow____incoming = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge exclusiveGateway__outFlow____default = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge exclusiveGatewayToNormalStep__exclusiveGateway____source = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge exclusiveGatewayToNormalStep__normalStep____target = (EMoflonEdge) result3_green[25];
+		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[26];
+		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[28];
+		// EMoflonEdge lane__exclusiveGateway____flowNodeRefs = (EMoflonEdge) result3_green[29];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_BWD(ruleresult, inFlow, prevStep,
-				inFlowToPrevStep, normalStep, outFlowToFlow, inFlowToFlow,
-				process, exclusiveGateway, outFlow,
-				exclusiveGatewayToNormalStep, outFlowToNormalStep, flow, actor,
-				processToActor, lane, laneSet);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_11_5_expressionBBBBBBBBBBBBBBBBBB(
+						this, ruleresult, inFlow, prevStep, inFlowToPrevStep,
+						normalStep, outFlowToFlow, inFlowToFlow, process,
+						exclusiveGateway, outFlow,
+						exclusiveGatewayToNormalStep, outFlowToNormalStep,
+						flow, actor, processToActor, lane, laneSet);
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_11_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -3532,712 +747,100 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_BWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		Actor actor = null;
-		Flow flow = null;
-		NormalStep normalStep = null;
-		Step prevStep = null;
-		EMoflonEdge __inFlowToFlow_source_inFlow = null;
-		EMoflonEdge __inFlowToPrevStep_source_inFlow = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __inFlowToPrevStep_target_prevStep = null;
-		EMoflonEdge __prevStep_next_normalStep = null;
-		EMoflonEdge __normalStep_actor_actor = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-		EMoflonEdge __inFlowToFlow_target_flow = null;
-		EMoflonEdge __processToActor_source_process = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __processToActor_target_actor = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		CSP csp = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterActorToProcessToActor = null;
-		ProcessToActor processToActor = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterPrevStepToInFlowToPrevStep = null;
-		SequenceFlowToStep inFlowToPrevStep = null;
-		Iterator fujaba__IterFlowToInFlowToFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("ExclusiveGatewayToStepRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_12_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (match.getObject("actor"));
-
-			// ensure correct type and really bound of object actor
-			JavaSDM.ensure(_TmpObject instanceof Actor);
-			actor = (Actor) _TmpObject;
-			_TmpObject = (match.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (match.getObject("normalStep"));
-
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-			_TmpObject = (match.getObject("prevStep"));
-
-			// ensure correct type and really bound of object prevStep
-			JavaSDM.ensure(_TmpObject instanceof Step);
-			prevStep = (Step) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check isomorphic binding between objects prevStep and normalStep 
-			JavaSDM.ensure(!prevStep.equals(normalStep));
-
-			// iterate to-many link target from flow to inFlowToFlow
-			fujaba__Success = false;
-
-			fujaba__IterFlowToInFlowToFlow = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(flow,
-							SequenceFlowToUCFlow.class, "target")).iterator();
-
-			while (fujaba__IterFlowToInFlowToFlow.hasNext()) {
-				try {
-					inFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterFlowToInFlowToFlow
-							.next();
-
-					// check object inFlowToFlow is really bound
-					JavaSDM.ensure(inFlowToFlow != null);
-					// iterate to-many link target from prevStep to inFlowToPrevStep
-					fujaba__Success = false;
-
-					fujaba__IterPrevStepToInFlowToPrevStep = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(prevStep,
-											SequenceFlowToStep.class, "target"))
-							.iterator();
-
-					while (fujaba__IterPrevStepToInFlowToPrevStep.hasNext()) {
-						try {
-							inFlowToPrevStep = (SequenceFlowToStep) fujaba__IterPrevStepToInFlowToPrevStep
-									.next();
-
-							// check object inFlowToPrevStep is really bound
-							JavaSDM.ensure(inFlowToPrevStep != null);
-							// bind object
-							inFlow = inFlowToPrevStep.getSource();
-
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-
-							// check link source from inFlowToFlow to inFlow
-							JavaSDM.ensure(inFlow.equals(inFlowToFlow
-									.getSource()));
-
-							// iterate to-many link target from actor to processToActor
-							fujaba__Success = false;
-
-							fujaba__IterActorToProcessToActor = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(actor,
-													ProcessToActor.class,
-													"target")).iterator();
-
-							while (fujaba__IterActorToProcessToActor.hasNext()) {
-								try {
-									processToActor = (ProcessToActor) fujaba__IterActorToProcessToActor
-											.next();
-
-									// check object processToActor is really bound
-									JavaSDM.ensure(processToActor != null);
-									// bind object
-									process = processToActor.getSource();
-
-									// check object process is really bound
-									JavaSDM.ensure(process != null);
-
-									// story node 'find context'
-									try {
-										fujaba__Success = false;
-
-										// check object actor is really bound
-										JavaSDM.ensure(actor != null);
-										// check object flow is really bound
-										JavaSDM.ensure(flow != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object inFlowToFlow is really bound
-										JavaSDM.ensure(inFlowToFlow != null);
-										// check object inFlowToPrevStep is really bound
-										JavaSDM.ensure(inFlowToPrevStep != null);
-										// check object normalStep is really bound
-										JavaSDM.ensure(normalStep != null);
-										// check object prevStep is really bound
-										JavaSDM.ensure(prevStep != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check object processToActor is really bound
-										JavaSDM.ensure(processToActor != null);
-										// check isomorphic binding between objects prevStep and normalStep 
-										JavaSDM.ensure(!prevStep
-												.equals(normalStep));
-
-										// check link actor from normalStep to actor
-										JavaSDM.ensure(actor.equals(normalStep
-												.getActor()));
-
-										// check link next from prevStep to normalStep
-										JavaSDM.ensure(normalStep
-												.equals(prevStep.getNext()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link source from inFlowToFlow to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(inFlowToFlow
-														.getSource()));
-
-										// check link source from inFlowToPrevStep to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(inFlowToPrevStep
-														.getSource()));
-
-										// check link source from processToActor to process
-										JavaSDM.ensure(process
-												.equals(processToActor
-														.getSource()));
-
-										// check link steps from normalStep to flow
-										JavaSDM.ensure(flow.equals(normalStep
-												.eContainer()));
-
-										// check link target from inFlowToFlow to flow
-										JavaSDM.ensure(flow.equals(inFlowToFlow
-												.getTarget()));
-
-										// check link target from inFlowToPrevStep to prevStep
-										JavaSDM.ensure(prevStep
-												.equals(inFlowToPrevStep
-														.getTarget()));
-
-										// check link target from processToActor to actor
-										JavaSDM.ensure(actor
-												.equals(processToActor
-														.getTarget()));
-
-										// iterate to-many link laneSets from process to laneSet
-										fujaba__Success = false;
-
-										fujaba__IterProcessToLaneSet = new ArrayList(
-												process.getLaneSets())
-												.iterator();
-
-										while (fujaba__IterProcessToLaneSet
-												.hasNext()) {
-											try {
-												laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-														.next();
-
-												// check object laneSet is really bound
-												JavaSDM.ensure(laneSet != null);
-												// iterate to-many link lanes from laneSet to lane
-												fujaba__Success = false;
-
-												fujaba__IterLaneSetToLane = new ArrayList(
-														laneSet.getLanes())
-														.iterator();
-
-												while (fujaba__IterLaneSetToLane
-														.hasNext()) {
-													try {
-														lane = (Lane) fujaba__IterLaneSetToLane
-																.next();
-
-														// check object lane is really bound
-														JavaSDM.ensure(lane != null);
-														// create object __inFlowToFlow_source_inFlow
-														__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __inFlowToPrevStep_source_inFlow
-														__inFlowToPrevStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object isApplicableMatch
-														isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-																.createIsApplicableMatch();
-
-														// create object __process_flowElements_inFlow
-														__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __inFlowToPrevStep_target_prevStep
-														__inFlowToPrevStep_target_prevStep = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __prevStep_next_normalStep
-														__prevStep_next_normalStep = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __normalStep_actor_actor
-														__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __flow_steps_normalStep
-														__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __inFlowToFlow_target_flow
-														__inFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __processToActor_source_process
-														__processToActor_source_process = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __process_laneSets_laneSet
-														__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __processToActor_target_actor
-														__processToActor_target_actor = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// create object __laneSet_lanes_lane
-														__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-																.createEMoflonEdge();
-
-														// assign attribute __prevStep_next_normalStep
-														__prevStep_next_normalStep
-																.setName("next");
-														// assign attribute __inFlowToPrevStep_source_inFlow
-														__inFlowToPrevStep_source_inFlow
-																.setName("source");
-														// assign attribute __inFlowToPrevStep_target_prevStep
-														__inFlowToPrevStep_target_prevStep
-																.setName("target");
-														// assign attribute __normalStep_actor_actor
-														__normalStep_actor_actor
-																.setName("actor");
-														// assign attribute __inFlowToFlow_source_inFlow
-														__inFlowToFlow_source_inFlow
-																.setName("source");
-														// assign attribute __inFlowToFlow_target_flow
-														__inFlowToFlow_target_flow
-																.setName("target");
-														// assign attribute __process_laneSets_laneSet
-														__process_laneSets_laneSet
-																.setName("laneSets");
-														// assign attribute __process_flowElements_inFlow
-														__process_flowElements_inFlow
-																.setName("flowElements");
-														// assign attribute __flow_steps_normalStep
-														__flow_steps_normalStep
-																.setName("steps");
-														// assign attribute __processToActor_source_process
-														__processToActor_source_process
-																.setName("source");
-														// assign attribute __processToActor_target_actor
-														__processToActor_target_actor
-																.setName("target");
-														// assign attribute __laneSet_lanes_lane
-														__laneSet_lanes_lane
-																.setName("lanes");
-
-														// create link
-														__inFlowToFlow_source_inFlow
-																.setTrg(inFlow);
-
-														// create link
-														__inFlowToPrevStep_source_inFlow
-																.setTrg(inFlow);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(inFlow);
-
-														// create link
-														__process_flowElements_inFlow
-																.setTrg(inFlow);
-
-														// create link
-														__inFlowToPrevStep_target_prevStep
-																.setTrg(prevStep);
-
-														// create link
-														__prevStep_next_normalStep
-																.setSrc(prevStep);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(prevStep);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(inFlowToPrevStep);
-
-														// create link
-														__inFlowToPrevStep_source_inFlow
-																.setSrc(inFlowToPrevStep);
-
-														// create link
-														__inFlowToPrevStep_target_prevStep
-																.setSrc(inFlowToPrevStep);
-
-														// create link
-														__prevStep_next_normalStep
-																.setTrg(normalStep);
-
-														// create link
-														__normalStep_actor_actor
-																.setSrc(normalStep);
-
-														// create link
-														__flow_steps_normalStep
-																.setTrg(normalStep);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(normalStep);
-
-														// create link
-														__inFlowToFlow_source_inFlow
-																.setSrc(inFlowToFlow);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(inFlowToFlow);
-
-														// create link
-														__inFlowToFlow_target_flow
-																.setSrc(inFlowToFlow);
-
-														// create link
-														__processToActor_source_process
-																.setTrg(process);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(process);
-
-														// create link
-														__process_flowElements_inFlow
-																.setSrc(process);
-
-														// create link
-														__process_laneSets_laneSet
-																.setSrc(process);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(flow);
-
-														// create link
-														__inFlowToFlow_target_flow
-																.setTrg(flow);
-
-														// create link
-														__flow_steps_normalStep
-																.setSrc(flow);
-
-														// create link
-														__processToActor_target_actor
-																.setTrg(actor);
-
-														// create link
-														__normalStep_actor_actor
-																.setTrg(actor);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(actor);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(processToActor);
-
-														// create link
-														__processToActor_target_actor
-																.setSrc(processToActor);
-
-														// create link
-														__processToActor_source_process
-																.setSrc(processToActor);
-
-														// create link
-														__laneSet_lanes_lane
-																.setTrg(lane);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(lane);
-
-														// create link
-														__process_laneSets_laneSet
-																.setTrg(laneSet);
-
-														// create link
-														__laneSet_lanes_lane
-																.setSrc(laneSet);
-
-														// create link
-														isApplicableMatch
-																.getAllContextElements()
-																.add(laneSet);
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__laneSet_lanes_lane,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__prevStep_next_normalStep,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlowToFlow_source_inFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__process_laneSets_laneSet,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlowToPrevStep_target_prevStep,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__processToActor_target_actor,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__flow_steps_normalStep,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__normalStep_actor_actor,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__processToActor_source_process,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlowToFlow_target_flow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__inFlowToPrevStep_source_inFlow,
-																		"allContextElements");
-
-														// create link
-														org.moflon.util.eMoflonEMFUtil
-																.addOppositeReference(
-																		isApplicableMatch,
-																		__process_flowElements_inFlow,
-																		"allContextElements");
-														// story node 'solve CSP'
-														try {
-															fujaba__Success = false;
-
-															_TmpObject = (this
-																	.isApplicable_solveCsp_BWD(
-																			isApplicableMatch,
-																			inFlow,
-																			prevStep,
-																			inFlowToPrevStep,
-																			normalStep,
-																			inFlowToFlow,
-																			process,
-																			flow,
-																			actor,
-																			processToActor,
-																			lane,
-																			laneSet));
-
-															// ensure correct type and really bound of object csp
-															JavaSDM.ensure(_TmpObject instanceof CSP);
-															csp = (CSP) _TmpObject;
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														// statement node 'check CSP'
-														fujaba__Success = this
-																.isApplicable_checkCsp_BWD(csp);
-														if (fujaba__Success) {
-															// story node 'add match to rule result'
-															try {
-																fujaba__Success = false;
-
-																// check object isApplicableMatch is really bound
-																JavaSDM.ensure(isApplicableMatch != null);
-																// check object ruleresult is really bound
-																JavaSDM.ensure(ruleresult != null);
-																// assign attribute isApplicableMatch
-																isApplicableMatch
-																		.setRuleName("ExclusiveGatewayToStepRule");
-																// assign attribute ruleresult
-																ruleresult
-																		.setSuccess(true);
-
-																// create link
-																ruleresult
-																		.getIsApplicableMatch()
-																		.add(isApplicableMatch);
-
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-														} else {
-
-														}
-
-														fujaba__Success = true;
-													} catch (JavaSDMException fujaba__InternalException) {
-														fujaba__Success = false;
-													}
-												}
-												JavaSDM.ensure(fujaba__Success);
-
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
-											}
-										}
-										JavaSDM.ensure(fujaba__Success);
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_12_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
+
+		// ForEach core match
+		Object[] result2_binding = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_12_2_bindingFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		Step prevStep = (Step) result2_binding[0];
+		NormalStep normalStep = (NormalStep) result2_binding[1];
+		Flow flow = (Flow) result2_binding[2];
+		Actor actor = (Actor) result2_binding[3];
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_12_2_blackFBFBFFBBFB(
+						prevStep, normalStep, flow, actor, match)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) result2_black[2];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[4];
+			bpmn2.Process process = (bpmn2.Process) result2_black[5];
+			ProcessToActor processToActor = (ProcessToActor) result2_black[8];
+			// ForEach find context
+			for (Object[] result3_black : ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_12_3_blackBBBBBBBBBFF(
+							inFlow, prevStep, inFlowToPrevStep, normalStep,
+							inFlowToFlow, process, flow, actor, processToActor)) {
+				Lane lane = (Lane) result3_black[9];
+				LaneSet laneSet = (LaneSet) result3_black[10];
+				Object[] result3_green = ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_12_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
+								inFlow, prevStep, inFlowToPrevStep, normalStep,
+								inFlowToFlow, process, flow, actor,
+								processToActor, lane, laneSet);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[11];
+				// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge inFlowToPrevStep__inFlow____source = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge inFlowToPrevStep__prevStep____target = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge processToActor__process____source = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge processToActor__actor____target = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[23];
+
+				// solve CSP
+				Object[] result4_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_12_4_bindingAndBlackFBBBBBBBBBBBBB(
+								this, isApplicableMatch, inFlow, prevStep,
+								inFlowToPrevStep, normalStep, inFlowToFlow,
+								process, flow, actor, processToActor, lane,
+								laneSet);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_12_5_expressionFBB(
+								this, csp)) {
+
+					// add match to rule result
+					Object[] result6_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_12_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_12_6_greenBB(
+									ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_12_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -4260,15 +863,12 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_BWD(Match match, Step prevStep,
-			NormalStep normalStep, Flow flow, Actor actor) {
-		// Create CSP
+			NormalStep normalStep, Flow flow, Actor actor) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -4297,8 +897,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			SequenceFlowToStep inFlowToPrevStep, NormalStep normalStep,
 			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
 			Flow flow, Actor actor, ProcessToActor processToActor, Lane lane,
-			LaneSet laneSet) {
-		// Create CSP
+			LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -4306,30 +905,28 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("Diverging");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_normalStep_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.name", true, csp);
 		var_normalStep_name.setValue(normalStep.getName());
-		var_normalStep_name.setType("");
+		var_normalStep_name.setType("String");
 		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.label", true, csp);
 		var_normalStep_label.setValue(normalStep.getLabel());
-		var_normalStep_label.setType("");
-
-		// Create explicit parameters
+		var_normalStep_label.setType("String");
 
 		// Create unbound variables
 		Variable var_exclusiveGateway_id = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.id", csp);
-		var_exclusiveGateway_id.setType("");
+		var_exclusiveGateway_id.setType("String");
 		Variable var_exclusiveGateway_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.name", csp);
-		var_exclusiveGateway_name.setType("");
+		var_exclusiveGateway_name.setType("String");
 		Variable var_exclusiveGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.gatewayDirection", csp);
-		var_exclusiveGateway_gatewayDirection.setType("EObject");
+		var_exclusiveGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
 
 		// Create constraints
 		Eq eq = new Eq();
@@ -4422,273 +1019,60 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_29(
 			EMoflonEdge _edge_next) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_342299 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_134577 = null;
-		Step __DEC_normalStep_next_134577 = null;
-		Match match = null;
-		Flow flow = null;
-		Actor actor = null;
-		NormalStep normalStep = null;
-		Step prevStep = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_20_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_20_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_20_2_blackFFFFB(_edge_next)) {
+			Step prevStep = (Step) result2_black[0];
+			NormalStep normalStep = (NormalStep) result2_black[1];
+			Flow flow = (Flow) result2_black[2];
+			Actor actor = (Actor) result2_black[3];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_20_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_next is really bound
-			JavaSDM.ensure(_edge_next != null);
-			// bind object
-			_TmpObject = _edge_next.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_20_3_expressionFBBBBBB(
+							this, match, prevStep, normalStep, flow, actor)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_20_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object prevStep
-			JavaSDM.ensure(_TmpObject instanceof Step);
-			prevStep = (Step) _TmpObject;
-
-			// bind object
-			_TmpObject = prevStep.getNext();
-
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-
-			// check isomorphic binding between objects prevStep and normalStep 
-			JavaSDM.ensure(!prevStep.equals(normalStep));
-
-			// bind object
-			actor = normalStep.getActor();
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-
-			// bind object
-			flow = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
-					.eContainer() : null;
-
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(flow.getSteps().contains(normalStep));
-
-			// check link trg from _edge_next to normalStep
-			JavaSDM.ensure(normalStep.equals(_edge_next.getTrg()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_normalStep_steps_342299 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
-							.eContainer() : null;
-
-					// check object __DEC_normalStep_steps_342299 is really bound
-					JavaSDM.ensure(__DEC_normalStep_steps_342299 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_normalStep_steps_342299.getSteps()
-							.contains(normalStep));
-
-					// check isomorphic binding between objects __DEC_normalStep_steps_342299 and flow 
-					JavaSDM.ensure(!__DEC_normalStep_steps_342299.equals(flow));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link next from normalStep to __DEC_normalStep_next_134577
-					fujaba__Success = false;
-
-					fujaba__IterNormalStepTo__DEC_normalStep_next_134577 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(normalStep,
-											Step.class, "next")).iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterNormalStepTo__DEC_normalStep_next_134577
-									.hasNext()) {
-						try {
-							__DEC_normalStep_next_134577 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_134577
-									.next();
-
-							// check object __DEC_normalStep_next_134577 is really bound
-							JavaSDM.ensure(__DEC_normalStep_next_134577 != null);
-							// check isomorphic binding between objects __DEC_normalStep_next_134577 and normalStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_134577
-									.equals(normalStep));
-
-							// check isomorphic binding between objects __DEC_normalStep_next_134577 and prevStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_134577
-									.equals(prevStep));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_20_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check link next from normalStep to normalStep
-				JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(normalStep, NormalStep.class,
-								"next").contains(normalStep)));
-
-				// check link next from normalStep to normalStep
-				JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(normalStep, NormalStep.class,
-								"next").contains(normalStep)));
-
-				// check object _edge_next is really bound
-				JavaSDM.ensure(_edge_next != null);
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-				// check object prevStep is really bound
-				JavaSDM.ensure(prevStep != null);
-				// check isomorphic binding between objects prevStep and normalStep 
-				JavaSDM.ensure(!prevStep.equals(normalStep));
-
-				// check link actor from normalStep to actor
-				JavaSDM.ensure(actor.equals(normalStep.getActor()));
-
-				// check link next from prevStep to normalStep
-				JavaSDM.ensure(normalStep.equals(prevStep.getNext()));
-
-				// check link src from _edge_next to prevStep
-				JavaSDM.ensure(prevStep.equals(_edge_next.getSrc()));
-
-				// check link steps from normalStep to flow
-				JavaSDM.ensure(flow.equals(normalStep.eContainer()));
-
-				// check link trg from _edge_next to normalStep
-				JavaSDM.ensure(normalStep.equals(_edge_next.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_BWD(match, prevStep,
-						normalStep, flow, actor);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_BWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
-					}
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_20_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_20_6_expressionFB(__result);
 	}
 
 	/**
@@ -4698,292 +1082,60 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_30(
 			EMoflonEdge _edge_actor) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_831062 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_764912 = null;
-		Step __DEC_normalStep_next_764912 = null;
-		Match match = null;
-		Iterator fujaba__IterNormalStepToPrevStep = null;
-		Step prevStep = null;
-		Flow flow = null;
-		Actor actor = null;
-		NormalStep normalStep = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_21_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_21_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_21_2_blackFFFFB(_edge_actor)) {
+			Step prevStep = (Step) result2_black[0];
+			NormalStep normalStep = (NormalStep) result2_black[1];
+			Flow flow = (Flow) result2_black[2];
+			Actor actor = (Actor) result2_black[3];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_21_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_actor is really bound
-			JavaSDM.ensure(_edge_actor != null);
-			// bind object
-			_TmpObject = _edge_actor.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_21_3_expressionFBBBBBB(
+							this, match, prevStep, normalStep, flow, actor)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_21_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-
-			// bind object
-			actor = normalStep.getActor();
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-
-			// bind object
-			flow = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
-					.eContainer() : null;
-
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(flow.getSteps().contains(normalStep));
-
-			// check link trg from _edge_actor to actor
-			JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
-
-			// iterate to-many link next from normalStep to prevStep
-			fujaba__Success = false;
-
-			fujaba__IterNormalStepToPrevStep = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							normalStep, Step.class, "next")).iterator();
-
-			while (fujaba__IterNormalStepToPrevStep.hasNext()) {
-				try {
-					prevStep = (Step) fujaba__IterNormalStepToPrevStep.next();
-
-					// check object prevStep is really bound
-					JavaSDM.ensure(prevStep != null);
-					// check isomorphic binding between objects prevStep and normalStep 
-					JavaSDM.ensure(!prevStep.equals(normalStep));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_normalStep_steps_831062 = normalStep
-									.eContainer() instanceof Flow ? (Flow) normalStep
-									.eContainer() : null;
-
-							// check object __DEC_normalStep_steps_831062 is really bound
-							JavaSDM.ensure(__DEC_normalStep_steps_831062 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_normalStep_steps_831062
-									.getSteps().contains(normalStep));
-
-							// check isomorphic binding between objects __DEC_normalStep_steps_831062 and flow 
-							JavaSDM.ensure(!__DEC_normalStep_steps_831062
-									.equals(flow));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link next from normalStep to __DEC_normalStep_next_764912
-							fujaba__Success = false;
-
-							fujaba__IterNormalStepTo__DEC_normalStep_next_764912 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(normalStep,
-													Step.class, "next"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterNormalStepTo__DEC_normalStep_next_764912
-											.hasNext()) {
-								try {
-									__DEC_normalStep_next_764912 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_764912
-											.next();
-
-									// check object __DEC_normalStep_next_764912 is really bound
-									JavaSDM.ensure(__DEC_normalStep_next_764912 != null);
-									// check isomorphic binding between objects __DEC_normalStep_next_764912 and normalStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_764912
-											.equals(normalStep));
-
-									// check isomorphic binding between objects __DEC_normalStep_next_764912 and prevStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_764912
-											.equals(prevStep));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check link next from normalStep to normalStep
-						JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-								.getOppositeReference(normalStep,
-										NormalStep.class, "next")
-								.contains(normalStep)));
-
-						// check link next from normalStep to normalStep
-						JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-								.getOppositeReference(normalStep,
-										NormalStep.class, "next")
-								.contains(normalStep)));
-
-						// check object _edge_actor is really bound
-						JavaSDM.ensure(_edge_actor != null);
-						// check object actor is really bound
-						JavaSDM.ensure(actor != null);
-						// check object flow is really bound
-						JavaSDM.ensure(flow != null);
-						// check object normalStep is really bound
-						JavaSDM.ensure(normalStep != null);
-						// check object prevStep is really bound
-						JavaSDM.ensure(prevStep != null);
-						// check isomorphic binding between objects prevStep and normalStep 
-						JavaSDM.ensure(!prevStep.equals(normalStep));
-
-						// check link actor from normalStep to actor
-						JavaSDM.ensure(actor.equals(normalStep.getActor()));
-
-						// check link next from prevStep to normalStep
-						JavaSDM.ensure(normalStep.equals(prevStep.getNext()));
-
-						// check link src from _edge_actor to normalStep
-						JavaSDM.ensure(normalStep.equals(_edge_actor.getSrc()));
-
-						// check link steps from normalStep to flow
-						JavaSDM.ensure(flow.equals(normalStep.eContainer()));
-
-						// check link trg from _edge_actor to actor
-						JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								prevStep, normalStep, flow, actor);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_21_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_21_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_21_6_expressionFB(__result);
 	}
 
 	/**
@@ -4993,461 +1145,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_77(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_150933 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_171871 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_896092 = null;
-		ExclusiveGateway __DEC_outFlow_default_896092 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_27862 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_27862 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_22_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			outFlow = exclusiveGateway.getDefault();
-
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-
-			// check link flowElements from exclusiveGateway to process
-			JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// iterate to-many link targetRef from exclusiveGateway to inFlow
-							fujaba__Success = false;
-
-							fujaba__IterExclusiveGatewayToInFlow = new ArrayList(
-									exclusiveGateway.getIncoming()).iterator();
-
-							while (fujaba__IterExclusiveGatewayToInFlow
-									.hasNext()) {
-								try {
-									inFlow = (SequenceFlow) fujaba__IterExclusiveGatewayToInFlow
-											.next();
-
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link flowElements from inFlow to process
-									JavaSDM.ensure(process.equals(inFlow
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_150933 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_150933 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_150933 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_150933
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_150933 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_150933
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_171871 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_171871 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_171871 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_171871
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_171871 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_171871
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_896092
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_896092 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_896092
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_896092 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_896092
-															.next();
-
-													// check object __DEC_outFlow_default_896092 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_896092 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_896092 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_896092
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_27862
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_27862 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_27862
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_27862 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_27862
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_27862 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_27862 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_27862 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_27862
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_27862 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_27862
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_flowElements is really bound
-										JavaSDM.ensure(_edge_flowElements != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_flowElements to process
-										JavaSDM.ensure(process
-												.equals(_edge_flowElements
-														.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_flowElements to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_flowElements
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														inFlow, process,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_22_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_22_2_blackFFFFFFB(_edge_flowElements)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_22_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_22_3_expressionFBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_22_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_22_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_22_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_22_6_expressionFB(__result);
 	}
 
 	/**
@@ -5457,463 +1211,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_78(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_101937 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_498662 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_972432 = null;
-		ExclusiveGateway __DEC_outFlow_default_972432 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_88407 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_88407 = null;
-		Match match = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_23_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// iterate to-many link flowElements from process to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToInFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToInFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToInFlow.next();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-					// bind object
-					_TmpObject = inFlow.getTargetRef();
-
-					// ensure correct type and really bound of object exclusiveGateway
-					JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-					exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-					// bind object
-					outFlow = exclusiveGateway.getDefault();
-
-					// check object outFlow is really bound
-					JavaSDM.ensure(outFlow != null);
-
-					// check isomorphic binding between objects outFlow and inFlow 
-					JavaSDM.ensure(!outFlow.equals(inFlow));
-
-					// check link flowElements from exclusiveGateway to process
-					JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-					// check link sourceRef from outFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(outFlow
-							.getSourceRef()));
-
-					// check link trg from _edge_flowElements to outFlow
-					JavaSDM.ensure(outFlow.equals(_edge_flowElements.getTrg()));
-
-					// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-					fujaba__Success = false;
-
-					fujaba__IterExclusiveGatewayToLane = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(exclusiveGateway,
-											Lane.class, "flowNodeRefs"))
-							.iterator();
-
-					while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-						try {
-							lane = (Lane) fujaba__IterExclusiveGatewayToLane
-									.next();
-
-							// check object lane is really bound
-							JavaSDM.ensure(lane != null);
-							// iterate to-many link laneSets from process to laneSet
-							fujaba__Success = false;
-
-							fujaba__IterProcessToLaneSet = new ArrayList(
-									process.getLaneSets()).iterator();
-
-							while (fujaba__IterProcessToLaneSet.hasNext()) {
-								try {
-									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-											.next();
-
-									// check object laneSet is really bound
-									JavaSDM.ensure(laneSet != null);
-									// check link lanes from lane to laneSet
-									JavaSDM.ensure(laneSet.equals(lane
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_101937 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_101937 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_101937 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_101937
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_101937 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_101937
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_498662 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_498662 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_498662 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_498662
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_498662 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_498662
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_972432
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_972432 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_972432
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_972432 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_972432
-															.next();
-
-													// check object __DEC_outFlow_default_972432 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_972432 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_972432 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_972432
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_88407
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_88407 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_88407
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_88407 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_88407
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_88407 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_88407 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_88407 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_88407
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_88407 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_88407
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_flowElements is really bound
-										JavaSDM.ensure(_edge_flowElements != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_flowElements to process
-										JavaSDM.ensure(process
-												.equals(_edge_flowElements
-														.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_flowElements to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(_edge_flowElements
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														inFlow, process,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_23_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_23_2_blackFFFFFFB(_edge_flowElements)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_23_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_23_3_expressionFBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_23_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_23_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_23_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_23_6_expressionFB(__result);
 	}
 
 	/**
@@ -5923,440 +1277,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_79(
 			EMoflonEdge _edge_targetRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_191212 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_473472 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_148461 = null;
-		ExclusiveGateway __DEC_outFlow_default_148461 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_601587 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_601587 = null;
-		Match match = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_24_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_targetRef is really bound
-			JavaSDM.ensure(_edge_targetRef != null);
-			// bind object
-			_TmpObject = _edge_targetRef.getSrc();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-			// bind object
-			_TmpObject = _edge_targetRef.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			outFlow = exclusiveGateway.getDefault();
-
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check link flowElements from exclusiveGateway to process
-			JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// check link targetRef from inFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_exclusiveGateway_flowElements_191212 = exclusiveGateway
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-											.eContainer() : null;
-
-									// check object __DEC_exclusiveGateway_flowElements_191212 is really bound
-									JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_191212 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_191212
-											.getFlowElements().contains(
-													exclusiveGateway));
-
-									// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_191212 and process 
-									JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_191212
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_outFlow_flowElements_473472 = outFlow
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-											.eContainer() : null;
-
-									// check object __DEC_outFlow_flowElements_473472 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_473472 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_473472
-											.getFlowElements()
-											.contains(outFlow));
-
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_473472 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_473472
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link default from outFlow to __DEC_outFlow_default_148461
-									fujaba__Success = false;
-
-									fujaba__IterOutFlowTo__DEC_outFlow_default_148461 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															outFlow,
-															ExclusiveGateway.class,
-															"default"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterOutFlowTo__DEC_outFlow_default_148461
-													.hasNext()) {
-										try {
-											__DEC_outFlow_default_148461 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_148461
-													.next();
-
-											// check object __DEC_outFlow_default_148461 is really bound
-											JavaSDM.ensure(__DEC_outFlow_default_148461 != null);
-											// check isomorphic binding between objects __DEC_outFlow_default_148461 and exclusiveGateway 
-											JavaSDM.ensure(!__DEC_outFlow_default_148461
-													.equals(exclusiveGateway));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_601587
-									fujaba__Success = false;
-
-									fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_601587 = new ArrayList(
-											exclusiveGateway.getIncoming())
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_601587
-													.hasNext()) {
-										try {
-											__DEC_exclusiveGateway_targetRef_601587 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_601587
-													.next();
-
-											// check object __DEC_exclusiveGateway_targetRef_601587 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_601587 != null);
-											// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_601587 and inFlow 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_601587
-													.equals(inFlow));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_601587 and outFlow 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_601587
-													.equals(outFlow));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_targetRef is really bound
-								JavaSDM.ensure(_edge_targetRef != null);
-								// check object exclusiveGateway is really bound
-								JavaSDM.ensure(exclusiveGateway != null);
-								// check object inFlow is really bound
-								JavaSDM.ensure(inFlow != null);
-								// check object lane is really bound
-								JavaSDM.ensure(lane != null);
-								// check object laneSet is really bound
-								JavaSDM.ensure(laneSet != null);
-								// check object outFlow is really bound
-								JavaSDM.ensure(outFlow != null);
-								// check object process is really bound
-								JavaSDM.ensure(process != null);
-								// check isomorphic binding between objects outFlow and inFlow 
-								JavaSDM.ensure(!outFlow.equals(inFlow));
-
-								// check link default from exclusiveGateway to outFlow
-								JavaSDM.ensure(outFlow.equals(exclusiveGateway
-										.getDefault()));
-
-								// check link flowElements from exclusiveGateway to process
-								JavaSDM.ensure(process.equals(exclusiveGateway
-										.eContainer()));
-
-								// check link flowElements from inFlow to process
-								JavaSDM.ensure(process.equals(inFlow
-										.eContainer()));
-
-								// check link flowElements from outFlow to process
-								JavaSDM.ensure(process.equals(outFlow
-										.eContainer()));
-
-								// check link laneSets from laneSet to process
-								JavaSDM.ensure(process.equals(laneSet
-										.eContainer()));
-
-								// check link lanes from lane to laneSet
-								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-								// check link sourceRef from outFlow to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway.equals(outFlow
-										.getSourceRef()));
-
-								// check link src from _edge_targetRef to inFlow
-								JavaSDM.ensure(inFlow.equals(_edge_targetRef
-										.getSrc()));
-
-								// check link targetRef from inFlow to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to exclusiveGateway
-								JavaSDM.ensure(!(exclusiveGateway
-										.equals(outFlow.getTargetRef())));
-
-								// check link trg from _edge_targetRef to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway
-										.equals(_edge_targetRef.getTrg()));
-
-								// check link flowNodeRefs from lane to exclusiveGateway
-								JavaSDM.ensure(lane.getFlowNodeRefs().contains(
-										exclusiveGateway));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_FWD(match,
-										inFlow, process, exclusiveGateway,
-										outFlow, lane, laneSet);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_FWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_24_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_24_2_blackFFFFFFB(_edge_targetRef)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_24_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_24_3_expressionFBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_24_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_24_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_24_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_24_6_expressionFB(__result);
 	}
 
 	/**
@@ -6366,497 +1343,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_80(
 			EMoflonEdge _edge_incoming) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_998325 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_651943 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_902567 = null;
-		ExclusiveGateway __DEC_outFlow_default_902567 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_543956 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_543956 = null;
-		Match match = null;
-		Iterator fujaba__IterInFlowTo_edge_targetRef = null;
-		EMoflonEdge _edge_targetRef = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_25_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_incoming is really bound
-			JavaSDM.ensure(_edge_incoming != null);
-			// bind object
-			_TmpObject = _edge_incoming.getTrg();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-			// bind object
-			_TmpObject = _edge_incoming.getSrc();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			outFlow = exclusiveGateway.getDefault();
-
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check link flowElements from exclusiveGateway to process
-			JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// check link targetRef from inFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// iterate to-many link src from inFlow to _edge_targetRef
-							fujaba__Success = false;
-
-							fujaba__IterInFlowTo_edge_targetRef = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(inFlow,
-													EMoflonEdge.class, "src"))
-									.iterator();
-
-							while (fujaba__IterInFlowTo_edge_targetRef
-									.hasNext()) {
-								try {
-									_edge_targetRef = (EMoflonEdge) fujaba__IterInFlowTo_edge_targetRef
-											.next();
-
-									// check object _edge_targetRef is really bound
-									JavaSDM.ensure(_edge_targetRef != null);
-									// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-									JavaSDM.ensure(!_edge_targetRef
-											.equals(_edge_incoming));
-
-									// check link trg from _edge_targetRef to exclusiveGateway
-									JavaSDM.ensure(exclusiveGateway
-											.equals(_edge_targetRef.getTrg()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_998325 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_998325 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_998325 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_998325
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_998325 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_998325
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_651943 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_651943 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_651943 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_651943
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_651943 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_651943
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_902567
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_902567 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_902567
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_902567 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_902567
-															.next();
-
-													// check object __DEC_outFlow_default_902567 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_902567 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_902567 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_902567
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_543956
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_543956 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_543956
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_543956 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_543956
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_543956 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_543956 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_543956 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_543956
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_543956 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_543956
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_incoming is really bound
-										JavaSDM.ensure(_edge_incoming != null);
-										// check object _edge_targetRef is really bound
-										JavaSDM.ensure(_edge_targetRef != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-										JavaSDM.ensure(!_edge_targetRef
-												.equals(_edge_incoming));
-
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_incoming to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_incoming.getSrc()));
-
-										// check link src from _edge_targetRef to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(_edge_targetRef
-														.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_incoming to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(_edge_incoming.getTrg()));
-
-										// check link trg from _edge_targetRef to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_targetRef
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														inFlow, process,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_25_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_25_2_blackFFFFFFB(_edge_incoming)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_25_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_25_3_expressionFBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_25_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_25_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_25_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_25_6_expressionFB(__result);
 	}
 
 	/**
@@ -6866,467 +1409,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_81(
 			EMoflonEdge _edge_sourceRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_643711 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_888164 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_736368 = null;
-		ExclusiveGateway __DEC_outFlow_default_736368 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_480876 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_480876 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		SequenceFlow outFlow = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		ExclusiveGateway exclusiveGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_26_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_sourceRef is really bound
-			JavaSDM.ensure(_edge_sourceRef != null);
-			// bind object
-			_TmpObject = _edge_sourceRef.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							exclusiveGateway));
-
-					// bind object
-					outFlow = exclusiveGateway.getDefault();
-
-					// check object outFlow is really bound
-					JavaSDM.ensure(outFlow != null);
-
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-					// check link sourceRef from outFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(outFlow
-							.getSourceRef()));
-
-					// check link src from _edge_sourceRef to outFlow
-					JavaSDM.ensure(outFlow.equals(_edge_sourceRef.getSrc()));
-
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// iterate to-many link targetRef from exclusiveGateway to inFlow
-							fujaba__Success = false;
-
-							fujaba__IterExclusiveGatewayToInFlow = new ArrayList(
-									exclusiveGateway.getIncoming()).iterator();
-
-							while (fujaba__IterExclusiveGatewayToInFlow
-									.hasNext()) {
-								try {
-									inFlow = (SequenceFlow) fujaba__IterExclusiveGatewayToInFlow
-											.next();
-
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link flowElements from inFlow to process
-									JavaSDM.ensure(process.equals(inFlow
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_643711 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_643711 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_643711 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_643711
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_643711 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_643711
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_888164 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_888164 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_888164 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_888164
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_888164 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_888164
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_736368
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_736368 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_736368
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_736368 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_736368
-															.next();
-
-													// check object __DEC_outFlow_default_736368 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_736368 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_736368 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_736368
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_480876
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_480876 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_480876
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_480876 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_480876
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_480876 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_480876 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_480876 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_480876
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_480876 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_480876
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_sourceRef is really bound
-										JavaSDM.ensure(_edge_sourceRef != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_sourceRef to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(_edge_sourceRef
-														.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_sourceRef to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_sourceRef
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														inFlow, process,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_26_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_26_2_blackFFFFFFB(_edge_sourceRef)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_26_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_26_3_expressionFBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_26_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_26_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_26_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_26_6_expressionFB(__result);
 	}
 
 	/**
@@ -7336,533 +1475,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_82(
 			EMoflonEdge _edge_outgoing) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_413499 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_228053 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_302651 = null;
-		ExclusiveGateway __DEC_outFlow_default_302651 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_657961 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_657961 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayTo_edge_sourceRef = null;
-		EMoflonEdge _edge_sourceRef = null;
-		Iterator fujaba__IterExclusiveGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		SequenceFlow outFlow = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		ExclusiveGateway exclusiveGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_27_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_outgoing is really bound
-			JavaSDM.ensure(_edge_outgoing != null);
-			// bind object
-			_TmpObject = _edge_outgoing.getSrc();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							exclusiveGateway));
-
-					// bind object
-					outFlow = exclusiveGateway.getDefault();
-
-					// check object outFlow is really bound
-					JavaSDM.ensure(outFlow != null);
-
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-					// check link sourceRef from outFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(outFlow
-							.getSourceRef()));
-
-					// check link trg from _edge_outgoing to outFlow
-					JavaSDM.ensure(outFlow.equals(_edge_outgoing.getTrg()));
-
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// iterate to-many link targetRef from exclusiveGateway to inFlow
-							fujaba__Success = false;
-
-							fujaba__IterExclusiveGatewayToInFlow = new ArrayList(
-									exclusiveGateway.getIncoming()).iterator();
-
-							while (fujaba__IterExclusiveGatewayToInFlow
-									.hasNext()) {
-								try {
-									inFlow = (SequenceFlow) fujaba__IterExclusiveGatewayToInFlow
-											.next();
-
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link flowElements from inFlow to process
-									JavaSDM.ensure(process.equals(inFlow
-											.eContainer()));
-
-									// iterate to-many link trg from exclusiveGateway to _edge_sourceRef
-									fujaba__Success = false;
-
-									fujaba__IterExclusiveGatewayTo_edge_sourceRef = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															exclusiveGateway,
-															EMoflonEdge.class,
-															"trg")).iterator();
-
-									while (fujaba__IterExclusiveGatewayTo_edge_sourceRef
-											.hasNext()) {
-										try {
-											_edge_sourceRef = (EMoflonEdge) fujaba__IterExclusiveGatewayTo_edge_sourceRef
-													.next();
-
-											// check object _edge_sourceRef is really bound
-											JavaSDM.ensure(_edge_sourceRef != null);
-											// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-											JavaSDM.ensure(!_edge_sourceRef
-													.equals(_edge_outgoing));
-
-											// check link src from _edge_sourceRef to outFlow
-											JavaSDM.ensure(outFlow
-													.equals(_edge_sourceRef
-															.getSrc()));
-
-											// story node 'test core match and DECs'
-											try {
-												fujaba__Success = false;
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// bind object
-													__DEC_exclusiveGateway_flowElements_413499 = exclusiveGateway
-															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-															.eContainer()
-															: null;
-
-													// check object __DEC_exclusiveGateway_flowElements_413499 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_413499 != null);
-
-													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_413499
-															.getFlowElements()
-															.contains(
-																	exclusiveGateway));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_413499 and process 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_413499
-															.equals(process));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// bind object
-													__DEC_outFlow_flowElements_228053 = outFlow
-															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-															.eContainer()
-															: null;
-
-													// check object __DEC_outFlow_flowElements_228053 is really bound
-													JavaSDM.ensure(__DEC_outFlow_flowElements_228053 != null);
-
-													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_outFlow_flowElements_228053
-															.getFlowElements()
-															.contains(outFlow));
-
-													// check isomorphic binding between objects __DEC_outFlow_flowElements_228053 and process 
-													JavaSDM.ensure(!__DEC_outFlow_flowElements_228053
-															.equals(process));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// iterate to-many link default from outFlow to __DEC_outFlow_default_302651
-													fujaba__Success = false;
-
-													fujaba__IterOutFlowTo__DEC_outFlow_default_302651 = new ArrayList(
-															org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReference(
-																			outFlow,
-																			ExclusiveGateway.class,
-																			"default"))
-															.iterator();
-
-													while (!(fujaba__Success)
-															&& fujaba__IterOutFlowTo__DEC_outFlow_default_302651
-																	.hasNext()) {
-														try {
-															__DEC_outFlow_default_302651 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_302651
-																	.next();
-
-															// check object __DEC_outFlow_default_302651 is really bound
-															JavaSDM.ensure(__DEC_outFlow_default_302651 != null);
-															// check isomorphic binding between objects __DEC_outFlow_default_302651 and exclusiveGateway 
-															JavaSDM.ensure(!__DEC_outFlow_default_302651
-																	.equals(exclusiveGateway));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_657961
-													fujaba__Success = false;
-
-													fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_657961 = new ArrayList(
-															exclusiveGateway
-																	.getIncoming())
-															.iterator();
-
-													while (!(fujaba__Success)
-															&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_657961
-																	.hasNext()) {
-														try {
-															__DEC_exclusiveGateway_targetRef_657961 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_657961
-																	.next();
-
-															// check object __DEC_exclusiveGateway_targetRef_657961 is really bound
-															JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_657961 != null);
-															// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_657961 and inFlow 
-															JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_657961
-																	.equals(inFlow));
-
-															// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_657961 and outFlow 
-															JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_657961
-																	.equals(outFlow));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check object _edge_outgoing is really bound
-												JavaSDM.ensure(_edge_outgoing != null);
-												// check object _edge_sourceRef is really bound
-												JavaSDM.ensure(_edge_sourceRef != null);
-												// check object exclusiveGateway is really bound
-												JavaSDM.ensure(exclusiveGateway != null);
-												// check object inFlow is really bound
-												JavaSDM.ensure(inFlow != null);
-												// check object lane is really bound
-												JavaSDM.ensure(lane != null);
-												// check object laneSet is really bound
-												JavaSDM.ensure(laneSet != null);
-												// check object outFlow is really bound
-												JavaSDM.ensure(outFlow != null);
-												// check object process is really bound
-												JavaSDM.ensure(process != null);
-												// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-												JavaSDM.ensure(!_edge_sourceRef
-														.equals(_edge_outgoing));
-
-												// check isomorphic binding between objects outFlow and inFlow 
-												JavaSDM.ensure(!outFlow
-														.equals(inFlow));
-
-												// check link default from exclusiveGateway to outFlow
-												JavaSDM.ensure(outFlow
-														.equals(exclusiveGateway
-																.getDefault()));
-
-												// check link flowElements from exclusiveGateway to process
-												JavaSDM.ensure(process
-														.equals(exclusiveGateway
-																.eContainer()));
-
-												// check link flowElements from inFlow to process
-												JavaSDM.ensure(process
-														.equals(inFlow
-																.eContainer()));
-
-												// check link flowElements from outFlow to process
-												JavaSDM.ensure(process
-														.equals(outFlow
-																.eContainer()));
-
-												// check link laneSets from laneSet to process
-												JavaSDM.ensure(process
-														.equals(laneSet
-																.eContainer()));
-
-												// check link lanes from lane to laneSet
-												JavaSDM.ensure(laneSet
-														.equals(lane
-																.eContainer()));
-
-												// check link sourceRef from outFlow to exclusiveGateway
-												JavaSDM.ensure(exclusiveGateway.equals(outFlow
-														.getSourceRef()));
-
-												// check link src from _edge_outgoing to exclusiveGateway
-												JavaSDM.ensure(exclusiveGateway
-														.equals(_edge_outgoing
-																.getSrc()));
-
-												// check link src from _edge_sourceRef to outFlow
-												JavaSDM.ensure(outFlow
-														.equals(_edge_sourceRef
-																.getSrc()));
-
-												// check link targetRef from inFlow to exclusiveGateway
-												JavaSDM.ensure(exclusiveGateway.equals(inFlow
-														.getTargetRef()));
-
-												// check link targetRef from outFlow to exclusiveGateway
-												JavaSDM.ensure(!(exclusiveGateway.equals(outFlow
-														.getTargetRef())));
-
-												// check link trg from _edge_outgoing to outFlow
-												JavaSDM.ensure(outFlow
-														.equals(_edge_outgoing
-																.getTrg()));
-
-												// check link trg from _edge_sourceRef to exclusiveGateway
-												JavaSDM.ensure(exclusiveGateway
-														.equals(_edge_sourceRef
-																.getTrg()));
-
-												// check link flowNodeRefs from lane to exclusiveGateway
-												JavaSDM.ensure(lane
-														.getFlowNodeRefs()
-														.contains(
-																exclusiveGateway));
-
-												// create object match
-												match = TGGRuntimeFactory.eINSTANCE
-														.createMatch();
-
-												// assign attribute match
-												match.setRuleName(__eClass
-														.getName());
-												// statement node 'bookkeeping with generic isAppropriate method'
-												fujaba__Success = this
-														.isAppropriate_FWD(
-																match,
-																inFlow,
-																process,
-																exclusiveGateway,
-																outFlow, lane,
-																laneSet);
-												if (fujaba__Success) {
-													// statement node 'Ensure that the correct types of elements are matched'
-													fujaba__Success = this
-															.checkTypes_FWD(match);
-													if (fujaba__Success) {
-														// story node 'Add match to rule result'
-														try {
-															fujaba__Success = false;
-
-															// check object __performOperation is really bound
-															JavaSDM.ensure(__performOperation != null);
-															// check object __result is really bound
-															JavaSDM.ensure(__result != null);
-															// check object match is really bound
-															JavaSDM.ensure(match != null);
-
-															// create link
-															org.moflon.util.eMoflonEMFUtil
-																	.addOppositeReference(
-																			match,
-																			__performOperation,
-																			"isApplicableOperation");
-
-															// create link
-															__result.getContents()
-																	.add(match);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-													} else {
-
-													}
-
-												} else {
-
-												}
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
-											}
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_27_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_27_2_blackFFFFFFB(_edge_outgoing)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_27_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_27_3_expressionFBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_27_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_27_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_27_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_27_6_expressionFB(__result);
 	}
 
 	/**
@@ -7872,465 +1541,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_83(
 			EMoflonEdge _edge_default) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_76517 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_615684 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_906599 = null;
-		ExclusiveGateway __DEC_outFlow_default_906599 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_756451 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_756451 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		ExclusiveGateway exclusiveGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_28_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_default is really bound
-			JavaSDM.ensure(_edge_default != null);
-			// bind object
-			_TmpObject = _edge_default.getSrc();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					outFlow = exclusiveGateway.getDefault();
-
-					// check object outFlow is really bound
-					JavaSDM.ensure(outFlow != null);
-
-					// bind object
-					_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							exclusiveGateway));
-
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-					// check link sourceRef from outFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(outFlow
-							.getSourceRef()));
-
-					// check link trg from _edge_default to outFlow
-					JavaSDM.ensure(outFlow.equals(_edge_default.getTrg()));
-
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// iterate to-many link targetRef from exclusiveGateway to inFlow
-							fujaba__Success = false;
-
-							fujaba__IterExclusiveGatewayToInFlow = new ArrayList(
-									exclusiveGateway.getIncoming()).iterator();
-
-							while (fujaba__IterExclusiveGatewayToInFlow
-									.hasNext()) {
-								try {
-									inFlow = (SequenceFlow) fujaba__IterExclusiveGatewayToInFlow
-											.next();
-
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link flowElements from inFlow to process
-									JavaSDM.ensure(process.equals(inFlow
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_76517 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_76517 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_76517 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_76517
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_76517 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_76517
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_615684 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_615684 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_615684 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_615684
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_615684 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_615684
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_906599
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_906599 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_906599
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_906599 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_906599
-															.next();
-
-													// check object __DEC_outFlow_default_906599 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_906599 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_906599 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_906599
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_756451
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_756451 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_756451
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_756451 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_756451
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_756451 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_756451 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_756451 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_756451
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_756451 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_756451
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_default is really bound
-										JavaSDM.ensure(_edge_default != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_default to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_default.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_default to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(_edge_default.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														inFlow, process,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_28_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_28_2_blackFFFFFFB(_edge_default)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_28_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_28_3_expressionFBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_28_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_28_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_28_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_28_6_expressionFB(__result);
 	}
 
 	/**
@@ -8340,289 +1607,60 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_31(
 			EMoflonEdge _edge_steps) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_665113 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_725015 = null;
-		Step __DEC_normalStep_next_725015 = null;
-		Match match = null;
-		Iterator fujaba__IterNormalStepToPrevStep = null;
-		Step prevStep = null;
-		Actor actor = null;
-		NormalStep normalStep = null;
-		Flow flow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_29_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_29_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_29_2_blackFFFFB(_edge_steps)) {
+			Step prevStep = (Step) result2_black[0];
+			NormalStep normalStep = (NormalStep) result2_black[1];
+			Flow flow = (Flow) result2_black[2];
+			Actor actor = (Actor) result2_black[3];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_29_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_steps is really bound
-			JavaSDM.ensure(_edge_steps != null);
-			// bind object
-			_TmpObject = _edge_steps.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_29_3_expressionFBBBBBB(
+							this, match, prevStep, normalStep, flow, actor)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_29_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_steps.getTrg();
-
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-
-			// bind object
-			actor = normalStep.getActor();
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-
-			// check link steps from normalStep to flow
-			JavaSDM.ensure(flow.equals(normalStep.eContainer()));
-
-			// iterate to-many link next from normalStep to prevStep
-			fujaba__Success = false;
-
-			fujaba__IterNormalStepToPrevStep = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							normalStep, Step.class, "next")).iterator();
-
-			while (fujaba__IterNormalStepToPrevStep.hasNext()) {
-				try {
-					prevStep = (Step) fujaba__IterNormalStepToPrevStep.next();
-
-					// check object prevStep is really bound
-					JavaSDM.ensure(prevStep != null);
-					// check isomorphic binding between objects prevStep and normalStep 
-					JavaSDM.ensure(!prevStep.equals(normalStep));
-
-					// story node 'test core match and DECs'
-					try {
-						fujaba__Success = false;
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// bind object
-							__DEC_normalStep_steps_665113 = normalStep
-									.eContainer() instanceof Flow ? (Flow) normalStep
-									.eContainer() : null;
-
-							// check object __DEC_normalStep_steps_665113 is really bound
-							JavaSDM.ensure(__DEC_normalStep_steps_665113 != null);
-
-							// check if contained via correct reference
-							JavaSDM.ensure(__DEC_normalStep_steps_665113
-									.getSteps().contains(normalStep));
-
-							// check isomorphic binding between objects __DEC_normalStep_steps_665113 and flow 
-							JavaSDM.ensure(!__DEC_normalStep_steps_665113
-									.equals(flow));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check negative bindings
-						try {
-							fujaba__Success = false;
-
-							// iterate to-many link next from normalStep to __DEC_normalStep_next_725015
-							fujaba__Success = false;
-
-							fujaba__IterNormalStepTo__DEC_normalStep_next_725015 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(normalStep,
-													Step.class, "next"))
-									.iterator();
-
-							while (!(fujaba__Success)
-									&& fujaba__IterNormalStepTo__DEC_normalStep_next_725015
-											.hasNext()) {
-								try {
-									__DEC_normalStep_next_725015 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_725015
-											.next();
-
-									// check object __DEC_normalStep_next_725015 is really bound
-									JavaSDM.ensure(__DEC_normalStep_next_725015 != null);
-									// check isomorphic binding between objects __DEC_normalStep_next_725015 and normalStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_725015
-											.equals(normalStep));
-
-									// check isomorphic binding between objects __DEC_normalStep_next_725015 and prevStep 
-									JavaSDM.ensure(!__DEC_normalStep_next_725015
-											.equals(prevStep));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-						fujaba__Success = !(fujaba__Success);
-
-						JavaSDM.ensure(fujaba__Success);
-
-						// check link next from normalStep to normalStep
-						JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-								.getOppositeReference(normalStep,
-										NormalStep.class, "next")
-								.contains(normalStep)));
-
-						// check link next from normalStep to normalStep
-						JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-								.getOppositeReference(normalStep,
-										NormalStep.class, "next")
-								.contains(normalStep)));
-
-						// check object _edge_steps is really bound
-						JavaSDM.ensure(_edge_steps != null);
-						// check object actor is really bound
-						JavaSDM.ensure(actor != null);
-						// check object flow is really bound
-						JavaSDM.ensure(flow != null);
-						// check object normalStep is really bound
-						JavaSDM.ensure(normalStep != null);
-						// check object prevStep is really bound
-						JavaSDM.ensure(prevStep != null);
-						// check isomorphic binding between objects prevStep and normalStep 
-						JavaSDM.ensure(!prevStep.equals(normalStep));
-
-						// check link actor from normalStep to actor
-						JavaSDM.ensure(actor.equals(normalStep.getActor()));
-
-						// check link next from prevStep to normalStep
-						JavaSDM.ensure(normalStep.equals(prevStep.getNext()));
-
-						// check link src from _edge_steps to flow
-						JavaSDM.ensure(flow.equals(_edge_steps.getSrc()));
-
-						// check link steps from normalStep to flow
-						JavaSDM.ensure(flow.equals(normalStep.eContainer()));
-
-						// check link trg from _edge_steps to normalStep
-						JavaSDM.ensure(normalStep.equals(_edge_steps.getTrg()));
-
-						// create object match
-						match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-						// assign attribute match
-						match.setRuleName(__eClass.getName());
-						// statement node 'bookkeeping with generic isAppropriate method'
-						fujaba__Success = this.isAppropriate_BWD(match,
-								prevStep, normalStep, flow, actor);
-						if (fujaba__Success) {
-							// statement node 'Ensure that the correct types of elements are matched'
-							fujaba__Success = this.checkTypes_BWD(match);
-							if (fujaba__Success) {
-								// story node 'Add match to rule result'
-								try {
-									fujaba__Success = false;
-
-									// check object __performOperation is really bound
-									JavaSDM.ensure(__performOperation != null);
-									// check object __result is really bound
-									JavaSDM.ensure(__result != null);
-									// check object match is really bound
-									JavaSDM.ensure(match != null);
-
-									// create link
-									org.moflon.util.eMoflonEMFUtil
-											.addOppositeReference(match,
-													__performOperation,
-													"isApplicableOperation");
-
-									// create link
-									__result.getContents().add(match);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-							} else {
-
-							}
-
-						} else {
-
-						}
-						fujaba__Success = true;
-					} catch (JavaSDMException fujaba__InternalException) {
-						fujaba__Success = false;
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_29_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_29_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_29_6_expressionFB(__result);
 	}
 
 	/**
@@ -8632,438 +1670,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_84(
 			EMoflonEdge _edge_flowNodeRefs) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_709073 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_949131 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_894757 = null;
-		ExclusiveGateway __DEC_outFlow_default_894757 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_573576 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_573576 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		Lane lane = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_30_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowNodeRefs is really bound
-			JavaSDM.ensure(_edge_flowNodeRefs != null);
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getSrc();
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			outFlow = exclusiveGateway.getDefault();
-
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-
-			// bind object
-			_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(exclusiveGateway));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// check link flowNodeRefs from lane to exclusiveGateway
-			JavaSDM.ensure(lane.getFlowNodeRefs().contains(exclusiveGateway));
-
-			// iterate to-many link laneSets from process to laneSet
-			fujaba__Success = false;
-
-			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
-					.iterator();
-
-			while (fujaba__IterProcessToLaneSet.hasNext()) {
-				try {
-					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
-
-					// check object laneSet is really bound
-					JavaSDM.ensure(laneSet != null);
-					// check link lanes from lane to laneSet
-					JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-					// iterate to-many link targetRef from exclusiveGateway to inFlow
-					fujaba__Success = false;
-
-					fujaba__IterExclusiveGatewayToInFlow = new ArrayList(
-							exclusiveGateway.getIncoming()).iterator();
-
-					while (fujaba__IterExclusiveGatewayToInFlow.hasNext()) {
-						try {
-							inFlow = (SequenceFlow) fujaba__IterExclusiveGatewayToInFlow
-									.next();
-
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link flowElements from inFlow to process
-							JavaSDM.ensure(process.equals(inFlow.eContainer()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_exclusiveGateway_flowElements_709073 = exclusiveGateway
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-											.eContainer() : null;
-
-									// check object __DEC_exclusiveGateway_flowElements_709073 is really bound
-									JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_709073 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_709073
-											.getFlowElements().contains(
-													exclusiveGateway));
-
-									// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_709073 and process 
-									JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_709073
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_outFlow_flowElements_949131 = outFlow
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-											.eContainer() : null;
-
-									// check object __DEC_outFlow_flowElements_949131 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_949131 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_949131
-											.getFlowElements()
-											.contains(outFlow));
-
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_949131 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_949131
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link default from outFlow to __DEC_outFlow_default_894757
-									fujaba__Success = false;
-
-									fujaba__IterOutFlowTo__DEC_outFlow_default_894757 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															outFlow,
-															ExclusiveGateway.class,
-															"default"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterOutFlowTo__DEC_outFlow_default_894757
-													.hasNext()) {
-										try {
-											__DEC_outFlow_default_894757 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_894757
-													.next();
-
-											// check object __DEC_outFlow_default_894757 is really bound
-											JavaSDM.ensure(__DEC_outFlow_default_894757 != null);
-											// check isomorphic binding between objects __DEC_outFlow_default_894757 and exclusiveGateway 
-											JavaSDM.ensure(!__DEC_outFlow_default_894757
-													.equals(exclusiveGateway));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_573576
-									fujaba__Success = false;
-
-									fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_573576 = new ArrayList(
-											exclusiveGateway.getIncoming())
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_573576
-													.hasNext()) {
-										try {
-											__DEC_exclusiveGateway_targetRef_573576 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_573576
-													.next();
-
-											// check object __DEC_exclusiveGateway_targetRef_573576 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_573576 != null);
-											// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_573576 and inFlow 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_573576
-													.equals(inFlow));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_573576 and outFlow 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_573576
-													.equals(outFlow));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_flowNodeRefs is really bound
-								JavaSDM.ensure(_edge_flowNodeRefs != null);
-								// check object exclusiveGateway is really bound
-								JavaSDM.ensure(exclusiveGateway != null);
-								// check object inFlow is really bound
-								JavaSDM.ensure(inFlow != null);
-								// check object lane is really bound
-								JavaSDM.ensure(lane != null);
-								// check object laneSet is really bound
-								JavaSDM.ensure(laneSet != null);
-								// check object outFlow is really bound
-								JavaSDM.ensure(outFlow != null);
-								// check object process is really bound
-								JavaSDM.ensure(process != null);
-								// check isomorphic binding between objects outFlow and inFlow 
-								JavaSDM.ensure(!outFlow.equals(inFlow));
-
-								// check link default from exclusiveGateway to outFlow
-								JavaSDM.ensure(outFlow.equals(exclusiveGateway
-										.getDefault()));
-
-								// check link flowElements from exclusiveGateway to process
-								JavaSDM.ensure(process.equals(exclusiveGateway
-										.eContainer()));
-
-								// check link flowElements from inFlow to process
-								JavaSDM.ensure(process.equals(inFlow
-										.eContainer()));
-
-								// check link flowElements from outFlow to process
-								JavaSDM.ensure(process.equals(outFlow
-										.eContainer()));
-
-								// check link laneSets from laneSet to process
-								JavaSDM.ensure(process.equals(laneSet
-										.eContainer()));
-
-								// check link lanes from lane to laneSet
-								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-								// check link sourceRef from outFlow to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway.equals(outFlow
-										.getSourceRef()));
-
-								// check link src from _edge_flowNodeRefs to lane
-								JavaSDM.ensure(lane.equals(_edge_flowNodeRefs
-										.getSrc()));
-
-								// check link targetRef from inFlow to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to exclusiveGateway
-								JavaSDM.ensure(!(exclusiveGateway
-										.equals(outFlow.getTargetRef())));
-
-								// check link trg from _edge_flowNodeRefs to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway
-										.equals(_edge_flowNodeRefs.getTrg()));
-
-								// check link flowNodeRefs from lane to exclusiveGateway
-								JavaSDM.ensure(lane.getFlowNodeRefs().contains(
-										exclusiveGateway));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_FWD(match,
-										inFlow, process, exclusiveGateway,
-										outFlow, lane, laneSet);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_FWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_30_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_30_2_blackFFFFFFB(_edge_flowNodeRefs)) {
+			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_30_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_30_3_expressionFBBBBBBBB(
+							this, match, inFlow, process, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_30_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_30_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_30_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_30_6_expressionFB(__result);
 	}
 
 	/**
@@ -9071,12 +1734,8 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
-
-		// [user code injected with eMoflon]
-
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
 	}
 
 	/**
@@ -9084,12 +1743,179 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// [user code injected with eMoflon]
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer,
+			SequenceFlowToStep inFlowToPrevStepParameter) {
+		// create result
+		Object[] result1_black = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_33_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_33_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+		// ForEach is applicable core
+		for (Object[] result2_black : ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_33_2_blackFFFFFFFFFFFBB(
+						ruleEntryContainer, ruleResult)) {
+			// RuleEntryList inFlowToPrevStepList = (RuleEntryList) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) result2_black[2];
+			Step prevStep = (Step) result2_black[3];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[4];
+			Flow flow = (Flow) result2_black[5];
+			bpmn2.Process process = (bpmn2.Process) result2_black[6];
+			LaneSet laneSet = (LaneSet) result2_black[7];
+			Lane lane = (Lane) result2_black[8];
+			ProcessToActor processToActor = (ProcessToActor) result2_black[9];
+			Actor actor = (Actor) result2_black[10];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_33_3_bindingAndBlackFBBBBBBBBBBBBB(
+							this, isApplicableMatch, inFlow, prevStep,
+							inFlowToPrevStep, inFlowToFlow, process, flow,
+							actor, processToActor, lane, laneSet, ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (ExclusiveGatewayToStepRuleImpl
+					.pattern_ExclusiveGatewayToStepRule_33_4_expressionFBB(
+							this, csp)) {
+				// check nacs
+				Object[] result5_black = ExclusiveGatewayToStepRuleImpl
+						.pattern_ExclusiveGatewayToStepRule_33_5_blackBBBBBBBBBB(
+								inFlow, prevStep, inFlowToPrevStep,
+								inFlowToFlow, process, flow, actor,
+								processToActor, lane, laneSet);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_33_6_blackBBBBBBBBBBB(
+									inFlow, prevStep, inFlowToPrevStep,
+									inFlowToFlow, process, flow, actor,
+									processToActor, lane, laneSet, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					ExclusiveGatewayToStepRuleImpl
+							.pattern_ExclusiveGatewayToStepRule_33_6_greenBBFFBFFFFBBBBB(
+									inFlow, prevStep, process, flow, actor,
+									lane, ruleResult, csp);
+					// NormalStep normalStep = (NormalStep) result6_green[2];
+					// SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result6_green[3];
+					// ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result6_green[5];
+					// SequenceFlow outFlow = (SequenceFlow) result6_green[6];
+					// FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result6_green[7];
+					// SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result6_green[8];
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return ExclusiveGatewayToStepRuleImpl
+				.pattern_ExclusiveGatewayToStepRule_33_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			Flow flow, Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("Diverging");
+		literal0.setType("");
+
+		// Create attribute variables
+
+		// Create unbound variables
+		Variable var_exclusiveGateway_id = CSPFactoryHelper.eINSTANCE
+				.createVariable("exclusiveGateway.id", csp);
+		var_exclusiveGateway_id.setType("String");
+		Variable var_normalStep_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.name", csp);
+		var_normalStep_name.setType("String");
+		Variable var_exclusiveGateway_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("exclusiveGateway.name", csp);
+		var_exclusiveGateway_name.setType("String");
+		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.label", csp);
+		var_normalStep_label.setType("String");
+		Variable var_exclusiveGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
+				.createVariable("exclusiveGateway.gatewayDirection", csp);
+		var_exclusiveGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
+
+		// Create constraints
+		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
+
+		csp.getConstraints().add(eqGatewayDirection);
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
+
+		// Solve CSP
+		eqGatewayDirection.setRuleName("");
+		eqGatewayDirection.solve(var_exclusiveGateway_gatewayDirection,
+				literal0);
+		eq.setRuleName("");
+		eq.solve(var_exclusiveGateway_id, var_normalStep_name);
+		eq_0.setRuleName("");
+		eq_0.solve(var_exclusiveGateway_name, var_normalStep_label);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("inFlow", inFlow);
+		isApplicableMatch.registerObject("prevStep", prevStep);
+		isApplicableMatch.registerObject("inFlowToPrevStep", inFlowToPrevStep);
+		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
+		isApplicableMatch.registerObject("process", process);
+		isApplicableMatch.registerObject("flow", flow);
+		isApplicableMatch.registerObject("actor", actor);
+		isApplicableMatch.registerObject("processToActor", processToActor);
+		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("laneSet", laneSet);
+		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean generateModel_checkCsp_BWD(CSP csp) {
+		return csp.check();
 	}
 
 	/**
@@ -9100,336 +1926,81 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	public boolean isAppropriate_FWD(Match match, bpmn2.Process process,
 			SequenceFlow inFlow, ExclusiveGateway exclusiveGateway,
 			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __outFlow_sourceRef_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_outgoing_outFlow = null;
-		EMoflonEdge __exclusiveGateway_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_exclusiveGateway = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __lane_flowNodeRefs_exclusiveGateway = null;
-		EMoflonEdge __inFlow_targetRef_exclusiveGateway = null;
-		EMoflonEdge __exclusiveGateway_default_outFlow = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object exclusiveGateway is really bound
-			JavaSDM.ensure(exclusiveGateway != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_0_1_blackBBBBBBBB(this,
+						match, process, inFlow, exclusiveGateway, outFlow,
+						lane, laneSet);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, process,
-					inFlow, exclusiveGateway, outFlow, lane, laneSet));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_0_2_bindingAndBlackFBBBBBBBB(
+						this, match, process, inFlow, exclusiveGateway,
+						outFlow, lane, laneSet);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_0_3_expressionFBB(this,
+						csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object exclusiveGateway is really bound
-				JavaSDM.ensure(exclusiveGateway != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects outFlow and inFlow 
-				JavaSDM.ensure(!outFlow.equals(inFlow));
-
-				// create object __outFlow_sourceRef_exclusiveGateway
-				__outFlow_sourceRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_outgoing_outFlow
-				__exclusiveGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_incoming_inFlow
-				__exclusiveGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_exclusiveGateway
-				__process_flowElements_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_outFlow
-				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __lane_flowNodeRefs_exclusiveGateway
-				__lane_flowNodeRefs_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __inFlow_targetRef_exclusiveGateway
-				__inFlow_targetRef_exclusiveGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __exclusiveGateway_default_outFlow
-				__exclusiveGateway_default_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_flowElements_exclusiveGateway
-				__process_flowElements_exclusiveGateway.setName("flowElements");
-				// assign attribute __process_flowElements_outFlow
-				__process_flowElements_outFlow.setName("flowElements");
-				// assign attribute __inFlow_targetRef_exclusiveGateway
-				__inFlow_targetRef_exclusiveGateway.setName("targetRef");
-				// assign attribute __exclusiveGateway_incoming_inFlow
-				__exclusiveGateway_incoming_inFlow.setName("incoming");
-				// assign attribute __outFlow_sourceRef_exclusiveGateway
-				__outFlow_sourceRef_exclusiveGateway.setName("sourceRef");
-				// assign attribute __exclusiveGateway_outgoing_outFlow
-				__exclusiveGateway_outgoing_outFlow.setName("outgoing");
-				// assign attribute __exclusiveGateway_default_outFlow
-				__exclusiveGateway_default_outFlow.setName("default");
-				// assign attribute __lane_flowNodeRefs_exclusiveGateway
-				__lane_flowNodeRefs_exclusiveGateway.setName("flowNodeRefs");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__outFlow_sourceRef_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_outgoing_outFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_incoming_inFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						exclusiveGateway, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_outFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__lane_flowNodeRefs_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_exclusiveGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__exclusiveGateway_default_outFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				__process_flowElements_exclusiveGateway.setSrc(process);
-
-				// create link
-				__process_flowElements_outFlow.setSrc(process);
-
-				// create link
-				__inFlow_targetRef_exclusiveGateway.setSrc(inFlow);
-
-				// create link
-				__exclusiveGateway_incoming_inFlow.setTrg(inFlow);
-
-				// create link
-				__exclusiveGateway_incoming_inFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_outgoing_outFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__inFlow_targetRef_exclusiveGateway.setTrg(exclusiveGateway);
-
-				// create link
-				__process_flowElements_exclusiveGateway
-						.setTrg(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_default_outFlow.setSrc(exclusiveGateway);
-
-				// create link
-				__outFlow_sourceRef_exclusiveGateway.setTrg(exclusiveGateway);
-
-				// create link
-				__lane_flowNodeRefs_exclusiveGateway.setTrg(exclusiveGateway);
-
-				// create link
-				__exclusiveGateway_outgoing_outFlow.setTrg(outFlow);
-
-				// create link
-				__outFlow_sourceRef_exclusiveGateway.setSrc(outFlow);
-
-				// create link
-				__process_flowElements_outFlow.setTrg(outFlow);
-
-				// create link
-				__exclusiveGateway_default_outFlow.setTrg(outFlow);
-
-				// create link
-				__lane_flowNodeRefs_exclusiveGateway.setSrc(lane);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_0_4_blackBBBBBBB(
+							match, process, inFlow, exclusiveGateway, outFlow,
+							lane, laneSet);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_0_4_greenBBBBBBFFFFFFFF(
+							match, process, inFlow, exclusiveGateway, outFlow,
+							lane);
+			// EMoflonEdge process__exclusiveGateway____flowElements = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge inFlow__exclusiveGateway____targetRef = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge exclusiveGateway__inFlow____incoming = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge outFlow__exclusiveGateway____sourceRef = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge exclusiveGateway__outFlow____outgoing = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge exclusiveGateway__outFlow____default = (EMoflonEdge) result4_green[12];
+			// EMoflonEdge lane__exclusiveGateway____flowNodeRefs = (EMoflonEdge) result4_green[13];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object exclusiveGateway is really bound
-				JavaSDM.ensure(exclusiveGateway != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects outFlow and inFlow 
-				JavaSDM.ensure(!outFlow.equals(inFlow));
-
-				// create object __process_flowElements_inFlow
-				__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_laneSets_laneSet
-				__process_laneSets_laneSet.setName("laneSets");
-				// assign attribute __process_flowElements_inFlow
-				__process_flowElements_inFlow.setName("flowElements");
-				// assign attribute __laneSet_lanes_lane
-				__laneSet_lanes_lane.setName("lanes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__laneSet_lanes_lane, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
-
-				// create link
-				__process_flowElements_inFlow.setSrc(process);
-
-				// create link
-				__process_laneSets_laneSet.setSrc(process);
-
-				// create link
-				__process_flowElements_inFlow.setTrg(inFlow);
-
-				// create link
-				__laneSet_lanes_lane.setTrg(lane);
-
-				// create link
-				__laneSet_lanes_lane.setSrc(laneSet);
-
-				// create link
-				__process_laneSets_laneSet.setTrg(laneSet);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_0_5_blackBBBBBBB(
+							match, process, inFlow, exclusiveGateway, outFlow,
+							lane, laneSet);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_0_5_greenBBBBBFFF(
+							match, process, inFlow, lane, laneSet);
+			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[5];
+			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[6];
+			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[7];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, process, inFlow,
-					exclusiveGateway, outFlow, lane, laneSet);
-			return true;
-
+			// register objects to match
+			ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_0_6_expressionBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet);
+			return ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -9456,24 +2027,21 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, bpmn2.Process process,
 			SequenceFlow inFlow, ExclusiveGateway exclusiveGateway,
-			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
-		// Create CSP
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("Diverging");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_exclusiveGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.gatewayDirection", true, csp);
 		var_exclusiveGateway_gatewayDirection.setValue(exclusiveGateway
 				.getGatewayDirection());
-		var_exclusiveGateway_gatewayDirection.setType("EObject");
-
-		// Create explicit parameters
+		var_exclusiveGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
 
 		// Create unbound variables
 
@@ -9498,8 +2066,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
 			SequenceFlow inFlow, ExclusiveGateway exclusiveGateway,
 			SequenceFlow outFlow, Flow flow, Actor actor,
-			ProcessToActor processToActor, Lane lane, LaneSet laneSet) {
-		// Create CSP
+			ProcessToActor processToActor, Lane lane, LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -9509,21 +2076,19 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		Variable var_exclusiveGateway_id = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.id", true, csp);
 		var_exclusiveGateway_id.setValue(exclusiveGateway.getId());
-		var_exclusiveGateway_id.setType("");
+		var_exclusiveGateway_id.setType("String");
 		Variable var_exclusiveGateway_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.name", true, csp);
 		var_exclusiveGateway_name.setValue(exclusiveGateway.getName());
-		var_exclusiveGateway_name.setType("");
-
-		// Create explicit parameters
+		var_exclusiveGateway_name.setType("String");
 
 		// Create unbound variables
 		Variable var_normalStep_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.name", csp);
-		var_normalStep_name.setType("");
+		var_normalStep_name.setType("String");
 		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.label", csp);
-		var_normalStep_label.setType("");
+		var_normalStep_label.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
@@ -9588,134 +2153,66 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isAppropriate_BWD(Match match, NormalStep normalStep,
 			Flow flow, Actor actor) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __normalStep_actor_actor = null;
-		EMoflonEdge __flow_steps_normalStep = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object normalStep is really bound
-			JavaSDM.ensure(normalStep != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_10_1_blackBBBBB(this,
+						match, normalStep, flow, actor);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_BWD(match, normalStep,
-					flow, actor));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_10_2_bindingAndBlackFBBBBB(
+						this, match, normalStep, flow, actor);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_10_3_expressionFBB(
+						this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_BWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-				// create object __normalStep_actor_actor
-				__normalStep_actor_actor = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __flow_steps_normalStep
-				__flow_steps_normalStep = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __normalStep_actor_actor
-				__normalStep_actor_actor.setName("actor");
-				// assign attribute __flow_steps_normalStep
-				__flow_steps_normalStep.setName("steps");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__normalStep_actor_actor, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						normalStep, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__flow_steps_normalStep, "toBeTranslatedEdges");
-
-				// create link
-				__flow_steps_normalStep.setTrg(normalStep);
-
-				// create link
-				__normalStep_actor_actor.setSrc(normalStep);
-
-				// create link
-				__flow_steps_normalStep.setSrc(flow);
-
-				// create link
-				__normalStep_actor_actor.setTrg(actor);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_10_4_blackBBBB(
+							match, normalStep, flow, actor);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_10_4_greenBBBBFF(
+							match, normalStep, flow, actor);
+			// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result4_green[4];
+			// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result4_green[5];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						actor, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						flow, "contextNodes");
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_10_5_blackBBBB(
+							match, normalStep, flow, actor);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_10_5_greenBBB(
+							match, flow, actor);
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_BWD(match, normalStep, flow, actor);
-			return true;
-
+			// register objects to match
+			ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_10_6_expressionBBBBB(
+							this, match, normalStep, flow, actor);
+			return ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_10_7_expressionF();
 		} else {
-			return false;
-
+			return ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_10_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -9737,15 +2234,12 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_BWD(Match match, NormalStep normalStep,
-			Flow flow, Actor actor) {
-		// Create CSP
+			Flow flow, Actor actor) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -9763,8 +2257,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	public CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
 			NormalStep normalStep, SequenceFlowToUCFlow inFlowToFlow,
 			bpmn2.Process process, SequenceFlow inFlow, Flow flow, Actor actor,
-			ProcessToActor processToActor, Lane lane, LaneSet laneSet) {
-		// Create CSP
+			ProcessToActor processToActor, Lane lane, LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -9772,30 +2265,28 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("Diverging");
-		literal0.setType("String");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_normalStep_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.name", true, csp);
 		var_normalStep_name.setValue(normalStep.getName());
-		var_normalStep_name.setType("");
+		var_normalStep_name.setType("String");
 		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.label", true, csp);
 		var_normalStep_label.setValue(normalStep.getLabel());
-		var_normalStep_label.setType("");
-
-		// Create explicit parameters
+		var_normalStep_label.setType("String");
 
 		// Create unbound variables
 		Variable var_exclusiveGateway_id = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.id", csp);
-		var_exclusiveGateway_id.setType("");
+		var_exclusiveGateway_id.setType("String");
 		Variable var_exclusiveGateway_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.name", csp);
-		var_exclusiveGateway_name.setType("");
+		var_exclusiveGateway_name.setType("String");
 		Variable var_exclusiveGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
 				.createVariable("exclusiveGateway.gatewayDirection", csp);
-		var_exclusiveGateway_gatewayDirection.setType("EObject");
+		var_exclusiveGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
 
 		// Create constraints
 		Eq eq = new Eq();
@@ -9864,250 +2355,59 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_14(
 			EMoflonEdge _edge_actor) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_428262 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_970001 = null;
-		Step __DEC_normalStep_next_970001 = null;
-		Match match = null;
-		Flow flow = null;
-		Actor actor = null;
-		NormalStep normalStep = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_20_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_20_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_20_2_blackFFFB(_edge_actor)) {
+			NormalStep normalStep = (NormalStep) result2_black[0];
+			Flow flow = (Flow) result2_black[1];
+			Actor actor = (Actor) result2_black[2];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_20_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_actor is really bound
-			JavaSDM.ensure(_edge_actor != null);
-			// bind object
-			_TmpObject = _edge_actor.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_20_3_expressionFBBBBB(
+							this, match, normalStep, flow, actor)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_20_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-
-			// bind object
-			actor = normalStep.getActor();
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-
-			// bind object
-			flow = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
-					.eContainer() : null;
-
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-
-			// check if contained via correct reference
-			JavaSDM.ensure(flow.getSteps().contains(normalStep));
-
-			// check link trg from _edge_actor to actor
-			JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_normalStep_steps_428262 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
-							.eContainer() : null;
-
-					// check object __DEC_normalStep_steps_428262 is really bound
-					JavaSDM.ensure(__DEC_normalStep_steps_428262 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_normalStep_steps_428262.getSteps()
-							.contains(normalStep));
-
-					// check isomorphic binding between objects __DEC_normalStep_steps_428262 and flow 
-					JavaSDM.ensure(!__DEC_normalStep_steps_428262.equals(flow));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link next from normalStep to __DEC_normalStep_next_970001
-					fujaba__Success = false;
-
-					fujaba__IterNormalStepTo__DEC_normalStep_next_970001 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(normalStep,
-											Step.class, "next")).iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterNormalStepTo__DEC_normalStep_next_970001
-									.hasNext()) {
-						try {
-							__DEC_normalStep_next_970001 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_970001
-									.next();
-
-							// check object __DEC_normalStep_next_970001 is really bound
-							JavaSDM.ensure(__DEC_normalStep_next_970001 != null);
-							// check isomorphic binding between objects __DEC_normalStep_next_970001 and normalStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_970001
-									.equals(normalStep));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_20_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check link next from normalStep to normalStep
-				JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(normalStep, NormalStep.class,
-								"next").contains(normalStep)));
-
-				// check link next from normalStep to normalStep
-				JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(normalStep, NormalStep.class,
-								"next").contains(normalStep)));
-
-				// check object _edge_actor is really bound
-				JavaSDM.ensure(_edge_actor != null);
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-				// check link actor from normalStep to actor
-				JavaSDM.ensure(actor.equals(normalStep.getActor()));
-
-				// check link src from _edge_actor to normalStep
-				JavaSDM.ensure(normalStep.equals(_edge_actor.getSrc()));
-
-				// check link steps from normalStep to flow
-				JavaSDM.ensure(flow.equals(normalStep.eContainer()));
-
-				// check link trg from _edge_actor to actor
-				JavaSDM.ensure(actor.equals(_edge_actor.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_BWD(match, normalStep,
-						flow, actor);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_BWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
-					}
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_20_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_20_6_expressionFB(__result);
 	}
 
 	/**
@@ -10117,463 +2417,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_31(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_682218 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_459563 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_441128 = null;
-		ExclusiveGateway __DEC_outFlow_default_441128 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_942817 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_942817 = null;
-		Match match = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_21_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			outFlow = exclusiveGateway.getDefault();
-
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-
-			// check link flowElements from exclusiveGateway to process
-			JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// iterate to-many link flowElements from process to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToInFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToInFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToInFlow.next();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and inFlow 
-					JavaSDM.ensure(!outFlow.equals(inFlow));
-
-					// check link targetRef from inFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(inFlow
-							.getTargetRef()));
-
-					// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-					fujaba__Success = false;
-
-					fujaba__IterExclusiveGatewayToLane = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(exclusiveGateway,
-											Lane.class, "flowNodeRefs"))
-							.iterator();
-
-					while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-						try {
-							lane = (Lane) fujaba__IterExclusiveGatewayToLane
-									.next();
-
-							// check object lane is really bound
-							JavaSDM.ensure(lane != null);
-							// iterate to-many link laneSets from process to laneSet
-							fujaba__Success = false;
-
-							fujaba__IterProcessToLaneSet = new ArrayList(
-									process.getLaneSets()).iterator();
-
-							while (fujaba__IterProcessToLaneSet.hasNext()) {
-								try {
-									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-											.next();
-
-									// check object laneSet is really bound
-									JavaSDM.ensure(laneSet != null);
-									// check link lanes from lane to laneSet
-									JavaSDM.ensure(laneSet.equals(lane
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_682218 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_682218 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_682218 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_682218
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_682218 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_682218
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_459563 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_459563 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_459563 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_459563
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_459563 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_459563
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_441128
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_441128 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_441128
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_441128 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_441128
-															.next();
-
-													// check object __DEC_outFlow_default_441128 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_441128 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_441128 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_441128
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_942817
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_942817 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_942817
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_942817 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_942817
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_942817 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_942817 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_942817 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_942817
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_942817 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_942817
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_flowElements is really bound
-										JavaSDM.ensure(_edge_flowElements != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_flowElements to process
-										JavaSDM.ensure(process
-												.equals(_edge_flowElements
-														.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_flowElements to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_flowElements
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														process, inFlow,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_21_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_21_2_blackFFFFFFB(_edge_flowElements)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_21_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_21_3_expressionFBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_21_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_21_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_21_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_21_6_expressionFB(__result);
 	}
 
 	/**
@@ -10583,461 +2483,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_32(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_514719 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_64830 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_507918 = null;
-		ExclusiveGateway __DEC_outFlow_default_507918 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_374827 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_374827 = null;
-		Match match = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		SequenceFlow outFlow = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_22_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// bind object
-			_TmpObject = outFlow.getSourceRef();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// check link default from exclusiveGateway to outFlow
-			JavaSDM.ensure(outFlow.equals(exclusiveGateway.getDefault()));
-
-			// check link flowElements from exclusiveGateway to process
-			JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-			// iterate to-many link flowElements from process to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToInFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToInFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToInFlow.next();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and inFlow 
-					JavaSDM.ensure(!outFlow.equals(inFlow));
-
-					// check link targetRef from inFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(inFlow
-							.getTargetRef()));
-
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// iterate to-many link lanes from laneSet to lane
-							fujaba__Success = false;
-
-							fujaba__IterLaneSetToLane = new ArrayList(
-									laneSet.getLanes()).iterator();
-
-							while (fujaba__IterLaneSetToLane.hasNext()) {
-								try {
-									lane = (Lane) fujaba__IterLaneSetToLane
-											.next();
-
-									// check object lane is really bound
-									JavaSDM.ensure(lane != null);
-									// check link flowNodeRefs from lane to exclusiveGateway
-									JavaSDM.ensure(lane.getFlowNodeRefs()
-											.contains(exclusiveGateway));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_514719 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_514719 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_514719 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_514719
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_514719 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_514719
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_64830 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_64830 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_64830 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_64830
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_64830 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_64830
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_507918
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_507918 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_507918
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_507918 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_507918
-															.next();
-
-													// check object __DEC_outFlow_default_507918 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_507918 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_507918 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_507918
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_374827
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_374827 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_374827
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_374827 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_374827
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_374827 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_374827 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_374827 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_374827
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_374827 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_374827
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_flowElements is really bound
-										JavaSDM.ensure(_edge_flowElements != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_flowElements to process
-										JavaSDM.ensure(process
-												.equals(_edge_flowElements
-														.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_flowElements to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(_edge_flowElements
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														process, inFlow,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_22_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_22_2_blackFFFFFFB(_edge_flowElements)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_22_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_22_3_expressionFBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_22_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_22_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_22_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_22_6_expressionFB(__result);
 	}
 
 	/**
@@ -11047,442 +2549,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_33(
 			EMoflonEdge _edge_targetRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_99870 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_616433 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_741129 = null;
-		ExclusiveGateway __DEC_outFlow_default_741129 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_946800 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_946800 = null;
-		Match match = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		ExclusiveGateway exclusiveGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_23_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_targetRef is really bound
-			JavaSDM.ensure(_edge_targetRef != null);
-			// bind object
-			_TmpObject = _edge_targetRef.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					outFlow = exclusiveGateway.getDefault();
-
-					// check object outFlow is really bound
-					JavaSDM.ensure(outFlow != null);
-
-					// check link sourceRef from outFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(outFlow
-							.getSourceRef()));
-
-					// bind object
-					_TmpObject = _edge_targetRef.getSrc();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-
-					// check isomorphic binding between objects outFlow and inFlow 
-					JavaSDM.ensure(!outFlow.equals(inFlow));
-
-					// bind object
-					_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-					// check link flowElements from exclusiveGateway to process
-					JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-					// check link targetRef from inFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(inFlow
-							.getTargetRef()));
-
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_exclusiveGateway_flowElements_99870 = exclusiveGateway
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-											.eContainer() : null;
-
-									// check object __DEC_exclusiveGateway_flowElements_99870 is really bound
-									JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_99870 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_99870
-											.getFlowElements().contains(
-													exclusiveGateway));
-
-									// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_99870 and process 
-									JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_99870
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_outFlow_flowElements_616433 = outFlow
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-											.eContainer() : null;
-
-									// check object __DEC_outFlow_flowElements_616433 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_616433 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_616433
-											.getFlowElements()
-											.contains(outFlow));
-
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_616433 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_616433
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link default from outFlow to __DEC_outFlow_default_741129
-									fujaba__Success = false;
-
-									fujaba__IterOutFlowTo__DEC_outFlow_default_741129 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															outFlow,
-															ExclusiveGateway.class,
-															"default"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterOutFlowTo__DEC_outFlow_default_741129
-													.hasNext()) {
-										try {
-											__DEC_outFlow_default_741129 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_741129
-													.next();
-
-											// check object __DEC_outFlow_default_741129 is really bound
-											JavaSDM.ensure(__DEC_outFlow_default_741129 != null);
-											// check isomorphic binding between objects __DEC_outFlow_default_741129 and exclusiveGateway 
-											JavaSDM.ensure(!__DEC_outFlow_default_741129
-													.equals(exclusiveGateway));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_946800
-									fujaba__Success = false;
-
-									fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_946800 = new ArrayList(
-											exclusiveGateway.getIncoming())
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_946800
-													.hasNext()) {
-										try {
-											__DEC_exclusiveGateway_targetRef_946800 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_946800
-													.next();
-
-											// check object __DEC_exclusiveGateway_targetRef_946800 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_946800 != null);
-											// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_946800 and inFlow 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_946800
-													.equals(inFlow));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_946800 and outFlow 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_946800
-													.equals(outFlow));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_targetRef is really bound
-								JavaSDM.ensure(_edge_targetRef != null);
-								// check object exclusiveGateway is really bound
-								JavaSDM.ensure(exclusiveGateway != null);
-								// check object inFlow is really bound
-								JavaSDM.ensure(inFlow != null);
-								// check object lane is really bound
-								JavaSDM.ensure(lane != null);
-								// check object laneSet is really bound
-								JavaSDM.ensure(laneSet != null);
-								// check object outFlow is really bound
-								JavaSDM.ensure(outFlow != null);
-								// check object process is really bound
-								JavaSDM.ensure(process != null);
-								// check isomorphic binding between objects outFlow and inFlow 
-								JavaSDM.ensure(!outFlow.equals(inFlow));
-
-								// check link default from exclusiveGateway to outFlow
-								JavaSDM.ensure(outFlow.equals(exclusiveGateway
-										.getDefault()));
-
-								// check link flowElements from exclusiveGateway to process
-								JavaSDM.ensure(process.equals(exclusiveGateway
-										.eContainer()));
-
-								// check link flowElements from inFlow to process
-								JavaSDM.ensure(process.equals(inFlow
-										.eContainer()));
-
-								// check link flowElements from outFlow to process
-								JavaSDM.ensure(process.equals(outFlow
-										.eContainer()));
-
-								// check link laneSets from laneSet to process
-								JavaSDM.ensure(process.equals(laneSet
-										.eContainer()));
-
-								// check link lanes from lane to laneSet
-								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-								// check link sourceRef from outFlow to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway.equals(outFlow
-										.getSourceRef()));
-
-								// check link src from _edge_targetRef to inFlow
-								JavaSDM.ensure(inFlow.equals(_edge_targetRef
-										.getSrc()));
-
-								// check link targetRef from inFlow to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to exclusiveGateway
-								JavaSDM.ensure(!(exclusiveGateway
-										.equals(outFlow.getTargetRef())));
-
-								// check link trg from _edge_targetRef to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway
-										.equals(_edge_targetRef.getTrg()));
-
-								// check link flowNodeRefs from lane to exclusiveGateway
-								JavaSDM.ensure(lane.getFlowNodeRefs().contains(
-										exclusiveGateway));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_FWD(match,
-										process, inFlow, exclusiveGateway,
-										outFlow, lane, laneSet);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_FWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_23_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_23_2_blackFFFFFFB(_edge_targetRef)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_23_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_23_3_expressionFBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_23_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_23_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_23_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_23_6_expressionFB(__result);
 	}
 
 	/**
@@ -11492,500 +2615,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_34(
 			EMoflonEdge _edge_incoming) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_571347 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_679746 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_154539 = null;
-		ExclusiveGateway __DEC_outFlow_default_154539 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_351726 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_351726 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayTo_edge_targetRef = null;
-		EMoflonEdge _edge_targetRef = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		ExclusiveGateway exclusiveGateway = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_24_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_incoming is really bound
-			JavaSDM.ensure(_edge_incoming != null);
-			// bind object
-			_TmpObject = _edge_incoming.getTrg();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_incoming.getSrc();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// check link targetRef from inFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					outFlow = exclusiveGateway.getDefault();
-
-					// check object outFlow is really bound
-					JavaSDM.ensure(outFlow != null);
-
-					// check isomorphic binding between objects outFlow and inFlow 
-					JavaSDM.ensure(!outFlow.equals(inFlow));
-
-					// bind object
-					_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							exclusiveGateway));
-
-					// check link flowElements from inFlow to process
-					JavaSDM.ensure(process.equals(inFlow.eContainer()));
-
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-					// check link sourceRef from outFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(outFlow
-							.getSourceRef()));
-
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// iterate to-many link trg from exclusiveGateway to _edge_targetRef
-							fujaba__Success = false;
-
-							fujaba__IterExclusiveGatewayTo_edge_targetRef = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													exclusiveGateway,
-													EMoflonEdge.class, "trg"))
-									.iterator();
-
-							while (fujaba__IterExclusiveGatewayTo_edge_targetRef
-									.hasNext()) {
-								try {
-									_edge_targetRef = (EMoflonEdge) fujaba__IterExclusiveGatewayTo_edge_targetRef
-											.next();
-
-									// check object _edge_targetRef is really bound
-									JavaSDM.ensure(_edge_targetRef != null);
-									// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-									JavaSDM.ensure(!_edge_targetRef
-											.equals(_edge_incoming));
-
-									// check link src from _edge_targetRef to inFlow
-									JavaSDM.ensure(inFlow
-											.equals(_edge_targetRef.getSrc()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_571347 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_571347 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_571347 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_571347
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_571347 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_571347
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_679746 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_679746 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_679746 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_679746
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_679746 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_679746
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_154539
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_154539 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_154539
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_154539 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_154539
-															.next();
-
-													// check object __DEC_outFlow_default_154539 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_154539 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_154539 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_154539
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_351726
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_351726 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_351726
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_351726 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_351726
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_351726 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_351726 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_351726 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_351726
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_351726 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_351726
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_incoming is really bound
-										JavaSDM.ensure(_edge_incoming != null);
-										// check object _edge_targetRef is really bound
-										JavaSDM.ensure(_edge_targetRef != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-										JavaSDM.ensure(!_edge_targetRef
-												.equals(_edge_incoming));
-
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_incoming to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_incoming.getSrc()));
-
-										// check link src from _edge_targetRef to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(_edge_targetRef
-														.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_incoming to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(_edge_incoming.getTrg()));
-
-										// check link trg from _edge_targetRef to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_targetRef
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														process, inFlow,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_24_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_24_2_blackFFFFFFB(_edge_incoming)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_24_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_24_3_expressionFBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_24_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_24_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_24_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_24_6_expressionFB(__result);
 	}
 
 	/**
@@ -11995,465 +2681,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_35(
 			EMoflonEdge _edge_sourceRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_907927 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_494466 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_157387 = null;
-		ExclusiveGateway __DEC_outFlow_default_157387 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_22624 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_22624 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_25_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_sourceRef is really bound
-			JavaSDM.ensure(_edge_sourceRef != null);
-			// bind object
-			_TmpObject = _edge_sourceRef.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			outFlow = exclusiveGateway.getDefault();
-
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-
-			// bind object
-			_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(exclusiveGateway));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// check link src from _edge_sourceRef to outFlow
-			JavaSDM.ensure(outFlow.equals(_edge_sourceRef.getSrc()));
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// iterate to-many link targetRef from exclusiveGateway to inFlow
-							fujaba__Success = false;
-
-							fujaba__IterExclusiveGatewayToInFlow = new ArrayList(
-									exclusiveGateway.getIncoming()).iterator();
-
-							while (fujaba__IterExclusiveGatewayToInFlow
-									.hasNext()) {
-								try {
-									inFlow = (SequenceFlow) fujaba__IterExclusiveGatewayToInFlow
-											.next();
-
-									// check object inFlow is really bound
-									JavaSDM.ensure(inFlow != null);
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link flowElements from inFlow to process
-									JavaSDM.ensure(process.equals(inFlow
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_907927 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_907927 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_907927 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_907927
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_907927 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_907927
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_494466 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_494466 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_494466 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_494466
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_494466 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_494466
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_157387
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_157387 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_157387
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_157387 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_157387
-															.next();
-
-													// check object __DEC_outFlow_default_157387 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_157387 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_157387 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_157387
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_22624
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_22624 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_22624
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_22624 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_22624
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_22624 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_22624 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_22624 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_22624
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_22624 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_22624
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_sourceRef is really bound
-										JavaSDM.ensure(_edge_sourceRef != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_sourceRef to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(_edge_sourceRef
-														.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_sourceRef to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_sourceRef
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														process, inFlow,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_25_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_25_2_blackFFFFFFB(_edge_sourceRef)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_25_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_25_3_expressionFBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_25_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_25_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_25_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_25_6_expressionFB(__result);
 	}
 
 	/**
@@ -12463,533 +2747,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_36(
 			EMoflonEdge _edge_outgoing) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_334834 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_201876 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_390508 = null;
-		ExclusiveGateway __DEC_outFlow_default_390508 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_654267 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_654267 = null;
-		Match match = null;
-		Iterator fujaba__IterOutFlowTo_edge_sourceRef = null;
-		EMoflonEdge _edge_sourceRef = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		ExclusiveGateway exclusiveGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_26_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_outgoing is really bound
-			JavaSDM.ensure(_edge_outgoing != null);
-			// bind object
-			_TmpObject = _edge_outgoing.getSrc();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterExclusiveGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							exclusiveGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterExclusiveGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					_TmpObject = _edge_outgoing.getTrg();
-
-					// ensure correct type and really bound of object outFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					outFlow = (SequenceFlow) _TmpObject;
-
-					// check link default from exclusiveGateway to outFlow
-					JavaSDM.ensure(outFlow.equals(exclusiveGateway.getDefault()));
-
-					// bind object
-					_TmpObject = outFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) outFlow
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(outFlow));
-
-					// check link flowElements from exclusiveGateway to process
-					JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-					// check link sourceRef from outFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(outFlow
-							.getSourceRef()));
-
-					// iterate to-many link flowElements from process to inFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToInFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToInFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToInFlow.next();
-
-							// ensure correct type and really bound of object inFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							inFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link targetRef from inFlow to exclusiveGateway
-							JavaSDM.ensure(exclusiveGateway.equals(inFlow
-									.getTargetRef()));
-
-							// iterate to-many link laneSets from process to laneSet
-							fujaba__Success = false;
-
-							fujaba__IterProcessToLaneSet = new ArrayList(
-									process.getLaneSets()).iterator();
-
-							while (fujaba__IterProcessToLaneSet.hasNext()) {
-								try {
-									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-											.next();
-
-									// check object laneSet is really bound
-									JavaSDM.ensure(laneSet != null);
-									// check link lanes from lane to laneSet
-									JavaSDM.ensure(laneSet.equals(lane
-											.eContainer()));
-
-									// iterate to-many link src from outFlow to _edge_sourceRef
-									fujaba__Success = false;
-
-									fujaba__IterOutFlowTo_edge_sourceRef = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															outFlow,
-															EMoflonEdge.class,
-															"src")).iterator();
-
-									while (fujaba__IterOutFlowTo_edge_sourceRef
-											.hasNext()) {
-										try {
-											_edge_sourceRef = (EMoflonEdge) fujaba__IterOutFlowTo_edge_sourceRef
-													.next();
-
-											// check object _edge_sourceRef is really bound
-											JavaSDM.ensure(_edge_sourceRef != null);
-											// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-											JavaSDM.ensure(!_edge_sourceRef
-													.equals(_edge_outgoing));
-
-											// check link trg from _edge_sourceRef to exclusiveGateway
-											JavaSDM.ensure(exclusiveGateway
-													.equals(_edge_sourceRef
-															.getTrg()));
-
-											// story node 'test core match and DECs'
-											try {
-												fujaba__Success = false;
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// bind object
-													__DEC_exclusiveGateway_flowElements_334834 = exclusiveGateway
-															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-															.eContainer()
-															: null;
-
-													// check object __DEC_exclusiveGateway_flowElements_334834 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_334834 != null);
-
-													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_334834
-															.getFlowElements()
-															.contains(
-																	exclusiveGateway));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_334834 and process 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_334834
-															.equals(process));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// bind object
-													__DEC_outFlow_flowElements_201876 = outFlow
-															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-															.eContainer()
-															: null;
-
-													// check object __DEC_outFlow_flowElements_201876 is really bound
-													JavaSDM.ensure(__DEC_outFlow_flowElements_201876 != null);
-
-													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_outFlow_flowElements_201876
-															.getFlowElements()
-															.contains(outFlow));
-
-													// check isomorphic binding between objects __DEC_outFlow_flowElements_201876 and process 
-													JavaSDM.ensure(!__DEC_outFlow_flowElements_201876
-															.equals(process));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// iterate to-many link default from outFlow to __DEC_outFlow_default_390508
-													fujaba__Success = false;
-
-													fujaba__IterOutFlowTo__DEC_outFlow_default_390508 = new ArrayList(
-															org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReference(
-																			outFlow,
-																			ExclusiveGateway.class,
-																			"default"))
-															.iterator();
-
-													while (!(fujaba__Success)
-															&& fujaba__IterOutFlowTo__DEC_outFlow_default_390508
-																	.hasNext()) {
-														try {
-															__DEC_outFlow_default_390508 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_390508
-																	.next();
-
-															// check object __DEC_outFlow_default_390508 is really bound
-															JavaSDM.ensure(__DEC_outFlow_default_390508 != null);
-															// check isomorphic binding between objects __DEC_outFlow_default_390508 and exclusiveGateway 
-															JavaSDM.ensure(!__DEC_outFlow_default_390508
-																	.equals(exclusiveGateway));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_654267
-													fujaba__Success = false;
-
-													fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_654267 = new ArrayList(
-															exclusiveGateway
-																	.getIncoming())
-															.iterator();
-
-													while (!(fujaba__Success)
-															&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_654267
-																	.hasNext()) {
-														try {
-															__DEC_exclusiveGateway_targetRef_654267 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_654267
-																	.next();
-
-															// check object __DEC_exclusiveGateway_targetRef_654267 is really bound
-															JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_654267 != null);
-															// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_654267 and inFlow 
-															JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_654267
-																	.equals(inFlow));
-
-															// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_654267 and outFlow 
-															JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_654267
-																	.equals(outFlow));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check object _edge_outgoing is really bound
-												JavaSDM.ensure(_edge_outgoing != null);
-												// check object _edge_sourceRef is really bound
-												JavaSDM.ensure(_edge_sourceRef != null);
-												// check object exclusiveGateway is really bound
-												JavaSDM.ensure(exclusiveGateway != null);
-												// check object inFlow is really bound
-												JavaSDM.ensure(inFlow != null);
-												// check object lane is really bound
-												JavaSDM.ensure(lane != null);
-												// check object laneSet is really bound
-												JavaSDM.ensure(laneSet != null);
-												// check object outFlow is really bound
-												JavaSDM.ensure(outFlow != null);
-												// check object process is really bound
-												JavaSDM.ensure(process != null);
-												// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-												JavaSDM.ensure(!_edge_sourceRef
-														.equals(_edge_outgoing));
-
-												// check isomorphic binding between objects outFlow and inFlow 
-												JavaSDM.ensure(!outFlow
-														.equals(inFlow));
-
-												// check link default from exclusiveGateway to outFlow
-												JavaSDM.ensure(outFlow
-														.equals(exclusiveGateway
-																.getDefault()));
-
-												// check link flowElements from exclusiveGateway to process
-												JavaSDM.ensure(process
-														.equals(exclusiveGateway
-																.eContainer()));
-
-												// check link flowElements from inFlow to process
-												JavaSDM.ensure(process
-														.equals(inFlow
-																.eContainer()));
-
-												// check link flowElements from outFlow to process
-												JavaSDM.ensure(process
-														.equals(outFlow
-																.eContainer()));
-
-												// check link laneSets from laneSet to process
-												JavaSDM.ensure(process
-														.equals(laneSet
-																.eContainer()));
-
-												// check link lanes from lane to laneSet
-												JavaSDM.ensure(laneSet
-														.equals(lane
-																.eContainer()));
-
-												// check link sourceRef from outFlow to exclusiveGateway
-												JavaSDM.ensure(exclusiveGateway.equals(outFlow
-														.getSourceRef()));
-
-												// check link src from _edge_outgoing to exclusiveGateway
-												JavaSDM.ensure(exclusiveGateway
-														.equals(_edge_outgoing
-																.getSrc()));
-
-												// check link src from _edge_sourceRef to outFlow
-												JavaSDM.ensure(outFlow
-														.equals(_edge_sourceRef
-																.getSrc()));
-
-												// check link targetRef from inFlow to exclusiveGateway
-												JavaSDM.ensure(exclusiveGateway.equals(inFlow
-														.getTargetRef()));
-
-												// check link targetRef from outFlow to exclusiveGateway
-												JavaSDM.ensure(!(exclusiveGateway.equals(outFlow
-														.getTargetRef())));
-
-												// check link trg from _edge_outgoing to outFlow
-												JavaSDM.ensure(outFlow
-														.equals(_edge_outgoing
-																.getTrg()));
-
-												// check link trg from _edge_sourceRef to exclusiveGateway
-												JavaSDM.ensure(exclusiveGateway
-														.equals(_edge_sourceRef
-																.getTrg()));
-
-												// check link flowNodeRefs from lane to exclusiveGateway
-												JavaSDM.ensure(lane
-														.getFlowNodeRefs()
-														.contains(
-																exclusiveGateway));
-
-												// create object match
-												match = TGGRuntimeFactory.eINSTANCE
-														.createMatch();
-
-												// assign attribute match
-												match.setRuleName(__eClass
-														.getName());
-												// statement node 'bookkeeping with generic isAppropriate method'
-												fujaba__Success = this
-														.isAppropriate_FWD(
-																match,
-																process,
-																inFlow,
-																exclusiveGateway,
-																outFlow, lane,
-																laneSet);
-												if (fujaba__Success) {
-													// statement node 'Ensure that the correct types of elements are matched'
-													fujaba__Success = this
-															.checkTypes_FWD(match);
-													if (fujaba__Success) {
-														// story node 'Add match to rule result'
-														try {
-															fujaba__Success = false;
-
-															// check object __performOperation is really bound
-															JavaSDM.ensure(__performOperation != null);
-															// check object __result is really bound
-															JavaSDM.ensure(__result != null);
-															// check object match is really bound
-															JavaSDM.ensure(match != null);
-
-															// create link
-															org.moflon.util.eMoflonEMFUtil
-																	.addOppositeReference(
-																			match,
-																			__performOperation,
-																			"isApplicableOperation");
-
-															// create link
-															__result.getContents()
-																	.add(match);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-													} else {
-
-													}
-
-												} else {
-
-												}
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
-											}
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_26_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_26_2_blackFFFFFFB(_edge_outgoing)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_26_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_26_3_expressionFBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_26_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_26_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_26_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_26_6_expressionFB(__result);
 	}
 
 	/**
@@ -12999,466 +2813,63 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_37(
 			EMoflonEdge _edge_default) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_429533 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_424166 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_503683 = null;
-		ExclusiveGateway __DEC_outFlow_default_503683 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_83236 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_83236 = null;
-		Match match = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterExclusiveGatewayToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_27_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_default is really bound
-			JavaSDM.ensure(_edge_default != null);
-			// bind object
-			_TmpObject = _edge_default.getSrc();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_default.getTrg();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// check link default from exclusiveGateway to outFlow
-			JavaSDM.ensure(outFlow.equals(exclusiveGateway.getDefault()));
-
-			// bind object
-			_TmpObject = outFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) outFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(outFlow));
-
-			// check link flowElements from exclusiveGateway to process
-			JavaSDM.ensure(process.equals(exclusiveGateway.eContainer()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// iterate to-many link flowElements from process to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToInFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToInFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToInFlow.next();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and inFlow 
-					JavaSDM.ensure(!outFlow.equals(inFlow));
-
-					// check link targetRef from inFlow to exclusiveGateway
-					JavaSDM.ensure(exclusiveGateway.equals(inFlow
-							.getTargetRef()));
-
-					// iterate to-many link flowNodeRefs from exclusiveGateway to lane
-					fujaba__Success = false;
-
-					fujaba__IterExclusiveGatewayToLane = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(exclusiveGateway,
-											Lane.class, "flowNodeRefs"))
-							.iterator();
-
-					while (fujaba__IterExclusiveGatewayToLane.hasNext()) {
-						try {
-							lane = (Lane) fujaba__IterExclusiveGatewayToLane
-									.next();
-
-							// check object lane is really bound
-							JavaSDM.ensure(lane != null);
-							// iterate to-many link laneSets from process to laneSet
-							fujaba__Success = false;
-
-							fujaba__IterProcessToLaneSet = new ArrayList(
-									process.getLaneSets()).iterator();
-
-							while (fujaba__IterProcessToLaneSet.hasNext()) {
-								try {
-									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-											.next();
-
-									// check object laneSet is really bound
-									JavaSDM.ensure(laneSet != null);
-									// check link lanes from lane to laneSet
-									JavaSDM.ensure(laneSet.equals(lane
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_exclusiveGateway_flowElements_429533 = exclusiveGateway
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-													.eContainer() : null;
-
-											// check object __DEC_exclusiveGateway_flowElements_429533 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_429533 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_429533
-													.getFlowElements()
-													.contains(exclusiveGateway));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_429533 and process 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_429533
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_outFlow_flowElements_424166 = outFlow
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-													.eContainer() : null;
-
-											// check object __DEC_outFlow_flowElements_424166 is really bound
-											JavaSDM.ensure(__DEC_outFlow_flowElements_424166 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_outFlow_flowElements_424166
-													.getFlowElements()
-													.contains(outFlow));
-
-											// check isomorphic binding between objects __DEC_outFlow_flowElements_424166 and process 
-											JavaSDM.ensure(!__DEC_outFlow_flowElements_424166
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link default from outFlow to __DEC_outFlow_default_503683
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo__DEC_outFlow_default_503683 = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	ExclusiveGateway.class,
-																	"default"))
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterOutFlowTo__DEC_outFlow_default_503683
-															.hasNext()) {
-												try {
-													__DEC_outFlow_default_503683 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_503683
-															.next();
-
-													// check object __DEC_outFlow_default_503683 is really bound
-													JavaSDM.ensure(__DEC_outFlow_default_503683 != null);
-													// check isomorphic binding between objects __DEC_outFlow_default_503683 and exclusiveGateway 
-													JavaSDM.ensure(!__DEC_outFlow_default_503683
-															.equals(exclusiveGateway));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_83236
-											fujaba__Success = false;
-
-											fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_83236 = new ArrayList(
-													exclusiveGateway
-															.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_83236
-															.hasNext()) {
-												try {
-													__DEC_exclusiveGateway_targetRef_83236 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_83236
-															.next();
-
-													// check object __DEC_exclusiveGateway_targetRef_83236 is really bound
-													JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_83236 != null);
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_83236 and inFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_83236
-															.equals(inFlow));
-
-													// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_83236 and outFlow 
-													JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_83236
-															.equals(outFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_default is really bound
-										JavaSDM.ensure(_edge_default != null);
-										// check object exclusiveGateway is really bound
-										JavaSDM.ensure(exclusiveGateway != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object outFlow is really bound
-										JavaSDM.ensure(outFlow != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects outFlow and inFlow 
-										JavaSDM.ensure(!outFlow.equals(inFlow));
-
-										// check link default from exclusiveGateway to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(exclusiveGateway
-														.getDefault()));
-
-										// check link flowElements from exclusiveGateway to process
-										JavaSDM.ensure(process
-												.equals(exclusiveGateway
-														.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link flowElements from outFlow to process
-										JavaSDM.ensure(process.equals(outFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link sourceRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(outFlow.getSourceRef()));
-
-										// check link src from _edge_default to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(_edge_default.getSrc()));
-
-										// check link targetRef from inFlow to exclusiveGateway
-										JavaSDM.ensure(exclusiveGateway
-												.equals(inFlow.getTargetRef()));
-
-										// check link targetRef from outFlow to exclusiveGateway
-										JavaSDM.ensure(!(exclusiveGateway
-												.equals(outFlow.getTargetRef())));
-
-										// check link trg from _edge_default to outFlow
-										JavaSDM.ensure(outFlow
-												.equals(_edge_default.getTrg()));
-
-										// check link flowNodeRefs from lane to exclusiveGateway
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(exclusiveGateway));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														process, inFlow,
-														exclusiveGateway,
-														outFlow, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_27_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_27_2_blackFFFFFFB(_edge_default)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_27_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_27_3_expressionFBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_27_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_27_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_27_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_27_6_expressionFB(__result);
 	}
 
 	/**
@@ -13468,247 +2879,59 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_BWD_EMoflonEdge_15(
 			EMoflonEdge _edge_steps) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		Flow __DEC_normalStep_steps_455564 = null;
-		Iterator fujaba__IterNormalStepTo__DEC_normalStep_next_893884 = null;
-		Step __DEC_normalStep_next_893884 = null;
-		Match match = null;
-		Actor actor = null;
-		NormalStep normalStep = null;
-		Flow flow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_BWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_28_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_28_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_28_2_blackFFFB(_edge_steps)) {
+			NormalStep normalStep = (NormalStep) result2_black[0];
+			Flow flow = (Flow) result2_black[1];
+			Actor actor = (Actor) result2_black[2];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_28_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_steps is really bound
-			JavaSDM.ensure(_edge_steps != null);
-			// bind object
-			_TmpObject = _edge_steps.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_28_3_expressionFBBBBB(
+							this, match, normalStep, flow, actor)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_28_4_expressionFBB(
+								this, match)) {
 
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_steps.getTrg();
-
-			// ensure correct type and really bound of object normalStep
-			JavaSDM.ensure(_TmpObject instanceof NormalStep);
-			normalStep = (NormalStep) _TmpObject;
-
-			// bind object
-			actor = normalStep.getActor();
-
-			// check object actor is really bound
-			JavaSDM.ensure(actor != null);
-
-			// check link steps from normalStep to flow
-			JavaSDM.ensure(flow.equals(normalStep.eContainer()));
-
-			// story node 'test core match and DECs'
-			try {
-				fujaba__Success = false;
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// bind object
-					__DEC_normalStep_steps_455564 = normalStep.eContainer() instanceof Flow ? (Flow) normalStep
-							.eContainer() : null;
-
-					// check object __DEC_normalStep_steps_455564 is really bound
-					JavaSDM.ensure(__DEC_normalStep_steps_455564 != null);
-
-					// check if contained via correct reference
-					JavaSDM.ensure(__DEC_normalStep_steps_455564.getSteps()
-							.contains(normalStep));
-
-					// check isomorphic binding between objects __DEC_normalStep_steps_455564 and flow 
-					JavaSDM.ensure(!__DEC_normalStep_steps_455564.equals(flow));
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check negative bindings
-				try {
-					fujaba__Success = false;
-
-					// iterate to-many link next from normalStep to __DEC_normalStep_next_893884
-					fujaba__Success = false;
-
-					fujaba__IterNormalStepTo__DEC_normalStep_next_893884 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(normalStep,
-											Step.class, "next")).iterator();
-
-					while (!(fujaba__Success)
-							&& fujaba__IterNormalStepTo__DEC_normalStep_next_893884
-									.hasNext()) {
-						try {
-							__DEC_normalStep_next_893884 = (Step) fujaba__IterNormalStepTo__DEC_normalStep_next_893884
-									.next();
-
-							// check object __DEC_normalStep_next_893884 is really bound
-							JavaSDM.ensure(__DEC_normalStep_next_893884 != null);
-							// check isomorphic binding between objects __DEC_normalStep_next_893884 and normalStep 
-							JavaSDM.ensure(!__DEC_normalStep_next_893884
-									.equals(normalStep));
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_28_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-
-				fujaba__Success = !(fujaba__Success);
-
-				JavaSDM.ensure(fujaba__Success);
-
-				// check link next from normalStep to normalStep
-				JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(normalStep, NormalStep.class,
-								"next").contains(normalStep)));
-
-				// check link next from normalStep to normalStep
-				JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-						.getOppositeReference(normalStep, NormalStep.class,
-								"next").contains(normalStep)));
-
-				// check object _edge_steps is really bound
-				JavaSDM.ensure(_edge_steps != null);
-				// check object actor is really bound
-				JavaSDM.ensure(actor != null);
-				// check object flow is really bound
-				JavaSDM.ensure(flow != null);
-				// check object normalStep is really bound
-				JavaSDM.ensure(normalStep != null);
-				// check link actor from normalStep to actor
-				JavaSDM.ensure(actor.equals(normalStep.getActor()));
-
-				// check link src from _edge_steps to flow
-				JavaSDM.ensure(flow.equals(_edge_steps.getSrc()));
-
-				// check link steps from normalStep to flow
-				JavaSDM.ensure(flow.equals(normalStep.eContainer()));
-
-				// check link trg from _edge_steps to normalStep
-				JavaSDM.ensure(normalStep.equals(_edge_steps.getTrg()));
-
-				// create object match
-				match = TGGRuntimeFactory.eINSTANCE.createMatch();
-
-				// assign attribute match
-				match.setRuleName(__eClass.getName());
-				// statement node 'bookkeeping with generic isAppropriate method'
-				fujaba__Success = this.isAppropriate_BWD(match, normalStep,
-						flow, actor);
-				if (fujaba__Success) {
-					// statement node 'Ensure that the correct types of elements are matched'
-					fujaba__Success = this.checkTypes_BWD(match);
-					if (fujaba__Success) {
-						// story node 'Add match to rule result'
-						try {
-							fujaba__Success = false;
-
-							// check object __performOperation is really bound
-							JavaSDM.ensure(__performOperation != null);
-							// check object __result is really bound
-							JavaSDM.ensure(__result != null);
-							// check object match is really bound
-							JavaSDM.ensure(match != null);
-
-							// create link
-							org.moflon.util.eMoflonEMFUtil
-									.addOppositeReference(match,
-											__performOperation,
-											"isApplicableOperation");
-
-							// create link
-							__result.getContents().add(match);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
-
-					} else {
-
-					}
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_28_5_greenBBB(
+									match, __performOperation, __result);
 
 				} else {
-
 				}
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+
+			} else {
 			}
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_28_6_expressionFB(__result);
 	}
 
 	/**
@@ -13718,438 +2941,218 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_38(
 			EMoflonEdge _edge_flowNodeRefs) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_exclusiveGateway_flowElements_486181 = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_28927 = null;
-		Iterator fujaba__IterOutFlowTo__DEC_outFlow_default_413825 = null;
-		ExclusiveGateway __DEC_outFlow_default_413825 = null;
-		Iterator fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_93190 = null;
-		SequenceFlow __DEC_exclusiveGateway_targetRef_93190 = null;
-		Match match = null;
-		Iterator fujaba__IterExclusiveGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		ExclusiveGateway exclusiveGateway = null;
-		Lane lane = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_29_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowNodeRefs is really bound
-			JavaSDM.ensure(_edge_flowNodeRefs != null);
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getSrc();
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getTrg();
-
-			// ensure correct type and really bound of object exclusiveGateway
-			JavaSDM.ensure(_TmpObject instanceof ExclusiveGateway);
-			exclusiveGateway = (ExclusiveGateway) _TmpObject;
-
-			// bind object
-			outFlow = exclusiveGateway.getDefault();
-
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-
-			// bind object
-			_TmpObject = exclusiveGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) exclusiveGateway
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(exclusiveGateway));
-
-			// check link flowElements from outFlow to process
-			JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-			// check link sourceRef from outFlow to exclusiveGateway
-			JavaSDM.ensure(exclusiveGateway.equals(outFlow.getSourceRef()));
-
-			// check link flowNodeRefs from lane to exclusiveGateway
-			JavaSDM.ensure(lane.getFlowNodeRefs().contains(exclusiveGateway));
-
-			// iterate to-many link laneSets from process to laneSet
-			fujaba__Success = false;
-
-			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
-					.iterator();
-
-			while (fujaba__IterProcessToLaneSet.hasNext()) {
-				try {
-					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
-
-					// check object laneSet is really bound
-					JavaSDM.ensure(laneSet != null);
-					// check link lanes from lane to laneSet
-					JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-					// iterate to-many link targetRef from exclusiveGateway to inFlow
-					fujaba__Success = false;
-
-					fujaba__IterExclusiveGatewayToInFlow = new ArrayList(
-							exclusiveGateway.getIncoming()).iterator();
-
-					while (fujaba__IterExclusiveGatewayToInFlow.hasNext()) {
-						try {
-							inFlow = (SequenceFlow) fujaba__IterExclusiveGatewayToInFlow
-									.next();
-
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link flowElements from inFlow to process
-							JavaSDM.ensure(process.equals(inFlow.eContainer()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_exclusiveGateway_flowElements_486181 = exclusiveGateway
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) exclusiveGateway
-											.eContainer() : null;
-
-									// check object __DEC_exclusiveGateway_flowElements_486181 is really bound
-									JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_486181 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_exclusiveGateway_flowElements_486181
-											.getFlowElements().contains(
-													exclusiveGateway));
-
-									// check isomorphic binding between objects __DEC_exclusiveGateway_flowElements_486181 and process 
-									JavaSDM.ensure(!__DEC_exclusiveGateway_flowElements_486181
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_outFlow_flowElements_28927 = outFlow
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-											.eContainer() : null;
-
-									// check object __DEC_outFlow_flowElements_28927 is really bound
-									JavaSDM.ensure(__DEC_outFlow_flowElements_28927 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_outFlow_flowElements_28927
-											.getFlowElements()
-											.contains(outFlow));
-
-									// check isomorphic binding between objects __DEC_outFlow_flowElements_28927 and process 
-									JavaSDM.ensure(!__DEC_outFlow_flowElements_28927
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link default from outFlow to __DEC_outFlow_default_413825
-									fujaba__Success = false;
-
-									fujaba__IterOutFlowTo__DEC_outFlow_default_413825 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															outFlow,
-															ExclusiveGateway.class,
-															"default"))
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterOutFlowTo__DEC_outFlow_default_413825
-													.hasNext()) {
-										try {
-											__DEC_outFlow_default_413825 = (ExclusiveGateway) fujaba__IterOutFlowTo__DEC_outFlow_default_413825
-													.next();
-
-											// check object __DEC_outFlow_default_413825 is really bound
-											JavaSDM.ensure(__DEC_outFlow_default_413825 != null);
-											// check isomorphic binding between objects __DEC_outFlow_default_413825 and exclusiveGateway 
-											JavaSDM.ensure(!__DEC_outFlow_default_413825
-													.equals(exclusiveGateway));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link targetRef from exclusiveGateway to __DEC_exclusiveGateway_targetRef_93190
-									fujaba__Success = false;
-
-									fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_93190 = new ArrayList(
-											exclusiveGateway.getIncoming())
-											.iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_93190
-													.hasNext()) {
-										try {
-											__DEC_exclusiveGateway_targetRef_93190 = (SequenceFlow) fujaba__IterExclusiveGatewayTo__DEC_exclusiveGateway_targetRef_93190
-													.next();
-
-											// check object __DEC_exclusiveGateway_targetRef_93190 is really bound
-											JavaSDM.ensure(__DEC_exclusiveGateway_targetRef_93190 != null);
-											// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_93190 and inFlow 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_93190
-													.equals(inFlow));
-
-											// check isomorphic binding between objects __DEC_exclusiveGateway_targetRef_93190 and outFlow 
-											JavaSDM.ensure(!__DEC_exclusiveGateway_targetRef_93190
-													.equals(outFlow));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_flowNodeRefs is really bound
-								JavaSDM.ensure(_edge_flowNodeRefs != null);
-								// check object exclusiveGateway is really bound
-								JavaSDM.ensure(exclusiveGateway != null);
-								// check object inFlow is really bound
-								JavaSDM.ensure(inFlow != null);
-								// check object lane is really bound
-								JavaSDM.ensure(lane != null);
-								// check object laneSet is really bound
-								JavaSDM.ensure(laneSet != null);
-								// check object outFlow is really bound
-								JavaSDM.ensure(outFlow != null);
-								// check object process is really bound
-								JavaSDM.ensure(process != null);
-								// check isomorphic binding between objects outFlow and inFlow 
-								JavaSDM.ensure(!outFlow.equals(inFlow));
-
-								// check link default from exclusiveGateway to outFlow
-								JavaSDM.ensure(outFlow.equals(exclusiveGateway
-										.getDefault()));
-
-								// check link flowElements from exclusiveGateway to process
-								JavaSDM.ensure(process.equals(exclusiveGateway
-										.eContainer()));
-
-								// check link flowElements from inFlow to process
-								JavaSDM.ensure(process.equals(inFlow
-										.eContainer()));
-
-								// check link flowElements from outFlow to process
-								JavaSDM.ensure(process.equals(outFlow
-										.eContainer()));
-
-								// check link laneSets from laneSet to process
-								JavaSDM.ensure(process.equals(laneSet
-										.eContainer()));
-
-								// check link lanes from lane to laneSet
-								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-								// check link sourceRef from outFlow to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway.equals(outFlow
-										.getSourceRef()));
-
-								// check link src from _edge_flowNodeRefs to lane
-								JavaSDM.ensure(lane.equals(_edge_flowNodeRefs
-										.getSrc()));
-
-								// check link targetRef from inFlow to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway.equals(inFlow
-										.getTargetRef()));
-
-								// check link targetRef from outFlow to exclusiveGateway
-								JavaSDM.ensure(!(exclusiveGateway
-										.equals(outFlow.getTargetRef())));
-
-								// check link trg from _edge_flowNodeRefs to exclusiveGateway
-								JavaSDM.ensure(exclusiveGateway
-										.equals(_edge_flowNodeRefs.getTrg()));
-
-								// check link flowNodeRefs from lane to exclusiveGateway
-								JavaSDM.ensure(lane.getFlowNodeRefs().contains(
-										exclusiveGateway));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_FWD(match,
-										process, inFlow, exclusiveGateway,
-										outFlow, lane, laneSet);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_FWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_29_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_29_2_blackFFFFFFB(_edge_flowNodeRefs)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			Object[] result2_green = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_29_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_29_3_expressionFBBBBBBBB(
+							this, match, process, inFlow, exclusiveGateway,
+							outFlow, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_29_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_29_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_29_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_29_6_expressionFB(__result);
+	}
 
-		return __result;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer,
+			SequenceFlowToUCFlow inFlowToFlowParameter) {
+		// create result
+		Object[] result1_black = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_32_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_32_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
+
+		// ForEach is applicable core
+		for (Object[] result2_black : ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_32_2_blackFFFFFFFFFBB(
+						ruleEntryContainer, ruleResult)) {
+			// RuleEntryList inFlowToFlowList = (RuleEntryList) result2_black[0];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[1];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
+			bpmn2.Process process = (bpmn2.Process) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Lane lane = (Lane) result2_black[5];
+			ProcessToActor processToActor = (ProcessToActor) result2_black[6];
+			Actor actor = (Actor) result2_black[7];
+			Flow flow = (Flow) result2_black[8];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_32_3_bindingAndBlackFBBBBBBBBBBB(
+							this, isApplicableMatch, inFlowToFlow, process,
+							inFlow, flow, actor, processToActor, lane, laneSet,
+							ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (ExclusiveGatewayToStepCoreRuleImpl
+					.pattern_ExclusiveGatewayToStepCoreRule_32_4_expressionFBB(
+							this, csp)) {
+				// check nacs
+				Object[] result5_black = ExclusiveGatewayToStepCoreRuleImpl
+						.pattern_ExclusiveGatewayToStepCoreRule_32_5_blackBBBBBBBB(
+								inFlowToFlow, process, inFlow, flow, actor,
+								processToActor, lane, laneSet);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_32_6_blackBBBBBBBBB(
+									inFlowToFlow, process, inFlow, flow, actor,
+									processToActor, lane, laneSet, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					ExclusiveGatewayToStepCoreRuleImpl
+							.pattern_ExclusiveGatewayToStepCoreRule_32_6_greenFFBBFFFFBBBBB(
+									process, inFlow, flow, actor, lane,
+									ruleResult, csp);
+					// NormalStep normalStep = (NormalStep) result6_green[0];
+					// SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result6_green[1];
+					// ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result6_green[4];
+					// SequenceFlow outFlow = (SequenceFlow) result6_green[5];
+					// FlowNodeToStep exclusiveGatewayToNormalStep = (FlowNodeToStep) result6_green[6];
+					// SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result6_green[7];
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return ExclusiveGatewayToStepCoreRuleImpl
+				.pattern_ExclusiveGatewayToStepCoreRule_32_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			SequenceFlow inFlow, Flow flow, Actor actor,
+			ProcessToActor processToActor, Lane lane, LaneSet laneSet,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("Diverging");
+		literal0.setType("");
+
+		// Create attribute variables
+
+		// Create unbound variables
+		Variable var_exclusiveGateway_id = CSPFactoryHelper.eINSTANCE
+				.createVariable("exclusiveGateway.id", csp);
+		var_exclusiveGateway_id.setType("String");
+		Variable var_normalStep_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.name", csp);
+		var_normalStep_name.setType("String");
+		Variable var_exclusiveGateway_name = CSPFactoryHelper.eINSTANCE
+				.createVariable("exclusiveGateway.name", csp);
+		var_exclusiveGateway_name.setType("String");
+		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.label", csp);
+		var_normalStep_label.setType("String");
+		Variable var_exclusiveGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
+				.createVariable("exclusiveGateway.gatewayDirection", csp);
+		var_exclusiveGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
+
+		// Create constraints
+		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
+
+		csp.getConstraints().add(eqGatewayDirection);
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
+
+		// Solve CSP
+		eqGatewayDirection.setRuleName("");
+		eqGatewayDirection.solve(var_exclusiveGateway_gatewayDirection,
+				literal0);
+		eq.setRuleName("");
+		eq.solve(var_exclusiveGateway_id, var_normalStep_name);
+		eq_0.setRuleName("");
+		eq_0.solve(var_exclusiveGateway_name, var_normalStep_label);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
+		isApplicableMatch.registerObject("process", process);
+		isApplicableMatch.registerObject("inFlow", inFlow);
+		isApplicableMatch.registerObject("flow", flow);
+		isApplicableMatch.registerObject("actor", actor);
+		isApplicableMatch.registerObject("processToActor", processToActor);
+		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("laneSet", laneSet);
+		return csp;
 	}
 
 	/**
@@ -14225,6 +3228,12 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				return RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH;
 			case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_CORE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 				return RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH;
+			case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_CORE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW:
+				return RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW;
+			case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_CORE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOWTOUCFLOW_PROCESS_SEQUENCEFLOW_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET_MODELGENERATORRULERESULT:
+				return RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOWTOUCFLOW_PROCESS_SEQUENCEFLOW_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET_MODELGENERATORRULERESULT;
+			case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_CORE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+				return RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP;
 			default:
 				return -1;
 			}
@@ -14378,6 +3387,22 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
+		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(SequenceFlowToStep) arguments.get(1));
+		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_SEQUENCEFLOWTOUCFLOW_PROCESS_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(SequenceFlow) arguments.get(1), (Step) arguments.get(2),
+					(SequenceFlowToStep) arguments.get(3),
+					(SequenceFlowToUCFlow) arguments.get(4),
+					(bpmn2.Process) arguments.get(5), (Flow) arguments.get(6),
+					(Actor) arguments.get(7),
+					(ProcessToActor) arguments.get(8), (Lane) arguments.get(9),
+					(LaneSet) arguments.get(10),
+					(ModelgeneratorRuleResult) arguments.get(11));
+		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_SEQUENCEFLOW_EXCLUSIVEGATEWAY_SEQUENCEFLOW_LANE_LANESET:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(bpmn2.Process) arguments.get(1),
@@ -14484,9 +3509,4912 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_38__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_38((EMoflonEdge) arguments
 					.get(0));
+		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(SequenceFlowToUCFlow) arguments.get(1));
+		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOWTOUCFLOW_PROCESS_SEQUENCEFLOW_FLOW_ACTOR_PROCESSTOACTOR_LANE_LANESET_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(SequenceFlowToUCFlow) arguments.get(1),
+					(bpmn2.Process) arguments.get(2),
+					(SequenceFlow) arguments.get(3), (Flow) arguments.get(4),
+					(Actor) arguments.get(5),
+					(ProcessToActor) arguments.get(6), (Lane) arguments.get(7),
+					(LaneSet) arguments.get(8),
+					(ModelgeneratorRuleResult) arguments.get(9));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_0_1_blackBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		if (!inFlow.equals(outFlow)) {
+			return new Object[] { _this, match, inFlow, process,
+					exclusiveGateway, outFlow, lane, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_0_2_bindingFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, inFlow, process,
+					exclusiveGateway, outFlow, lane, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_0_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_0_2_bindingAndBlackFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_0_2_binding = pattern_ExclusiveGatewayToStepRule_0_2_bindingFBBBBBBBB(
+				_this, match, inFlow, process, exclusiveGateway, outFlow, lane,
+				laneSet);
+		if (result_pattern_ExclusiveGatewayToStepRule_0_2_binding != null) {
+			CSP csp = (CSP) result_pattern_ExclusiveGatewayToStepRule_0_2_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_0_2_black = pattern_ExclusiveGatewayToStepRule_0_2_blackB(csp);
+			if (result_pattern_ExclusiveGatewayToStepRule_0_2_black != null) {
+
+				return new Object[] { csp, _this, match, inFlow, process,
+						exclusiveGateway, outFlow, lane, laneSet };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_0_3_expressionFBB(
+			ExclusiveGatewayToStepRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_0_4_blackBBBBBBB(
+			Match match, SequenceFlow inFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet) {
+		if (!inFlow.equals(outFlow)) {
+			return new Object[] { match, inFlow, process, exclusiveGateway,
+					outFlow, lane, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_0_4_greenBBBBBBFFFFFFFF(
+			Match match, SequenceFlow inFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Lane lane) {
+		EMoflonEdge process__exclusiveGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__exclusiveGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____default = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__exclusiveGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(exclusiveGateway);
+		match.getToBeTranslatedNodes().add(outFlow);
+		String process__exclusiveGateway____flowElements_name_prime = "flowElements";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		String inFlow__exclusiveGateway____targetRef_name_prime = "targetRef";
+		String exclusiveGateway__inFlow____incoming_name_prime = "incoming";
+		String outFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__outFlow____outgoing_name_prime = "outgoing";
+		String exclusiveGateway__outFlow____default_name_prime = "default";
+		String lane__exclusiveGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		process__exclusiveGateway____flowElements.setSrc(process);
+		process__exclusiveGateway____flowElements.setTrg(exclusiveGateway);
+		match.getToBeTranslatedEdges().add(
+				process__exclusiveGateway____flowElements);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		match.getToBeTranslatedEdges().add(process__outFlow____flowElements);
+		inFlow__exclusiveGateway____targetRef.setSrc(inFlow);
+		inFlow__exclusiveGateway____targetRef.setTrg(exclusiveGateway);
+		match.getToBeTranslatedEdges().add(
+				inFlow__exclusiveGateway____targetRef);
+		exclusiveGateway__inFlow____incoming.setSrc(exclusiveGateway);
+		exclusiveGateway__inFlow____incoming.setTrg(inFlow);
+		match.getToBeTranslatedEdges()
+				.add(exclusiveGateway__inFlow____incoming);
+		outFlow__exclusiveGateway____sourceRef.setSrc(outFlow);
+		outFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		match.getToBeTranslatedEdges().add(
+				outFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__outFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____outgoing.setTrg(outFlow);
+		match.getToBeTranslatedEdges().add(
+				exclusiveGateway__outFlow____outgoing);
+		exclusiveGateway__outFlow____default.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____default.setTrg(outFlow);
+		match.getToBeTranslatedEdges()
+				.add(exclusiveGateway__outFlow____default);
+		lane__exclusiveGateway____flowNodeRefs.setSrc(lane);
+		lane__exclusiveGateway____flowNodeRefs.setTrg(exclusiveGateway);
+		match.getToBeTranslatedEdges().add(
+				lane__exclusiveGateway____flowNodeRefs);
+		process__exclusiveGateway____flowElements
+				.setName(process__exclusiveGateway____flowElements_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		inFlow__exclusiveGateway____targetRef
+				.setName(inFlow__exclusiveGateway____targetRef_name_prime);
+		exclusiveGateway__inFlow____incoming
+				.setName(exclusiveGateway__inFlow____incoming_name_prime);
+		outFlow__exclusiveGateway____sourceRef
+				.setName(outFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__outFlow____outgoing
+				.setName(exclusiveGateway__outFlow____outgoing_name_prime);
+		exclusiveGateway__outFlow____default
+				.setName(exclusiveGateway__outFlow____default_name_prime);
+		lane__exclusiveGateway____flowNodeRefs
+				.setName(lane__exclusiveGateway____flowNodeRefs_name_prime);
+		return new Object[] { match, inFlow, process, exclusiveGateway,
+				outFlow, lane, process__exclusiveGateway____flowElements,
+				process__outFlow____flowElements,
+				inFlow__exclusiveGateway____targetRef,
+				exclusiveGateway__inFlow____incoming,
+				outFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__outFlow____outgoing,
+				exclusiveGateway__outFlow____default,
+				lane__exclusiveGateway____flowNodeRefs };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_0_5_blackBBBBBBB(
+			Match match, SequenceFlow inFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet) {
+		if (!inFlow.equals(outFlow)) {
+			return new Object[] { match, inFlow, process, exclusiveGateway,
+					outFlow, lane, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_0_5_greenBBBBBFFF(
+			Match match, SequenceFlow inFlow, bpmn2.Process process, Lane lane,
+			LaneSet laneSet) {
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getContextNodes().add(inFlow);
+		match.getContextNodes().add(process);
+		match.getContextNodes().add(lane);
+		match.getContextNodes().add(laneSet);
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__inFlow____flowElements_name_prime = "flowElements";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		match.getContextEdges().add(process__laneSet____laneSets);
+		process__inFlow____flowElements.setSrc(process);
+		process__inFlow____flowElements.setTrg(inFlow);
+		match.getContextEdges().add(process__inFlow____flowElements);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		match.getContextEdges().add(laneSet__lane____lanes);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__inFlow____flowElements
+				.setName(process__inFlow____flowElements_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		return new Object[] { match, inFlow, process, lane, laneSet,
+				process__laneSet____laneSets, process__inFlow____flowElements,
+				laneSet__lane____lanes };
+	}
+
+	public static final void pattern_ExclusiveGatewayToStepRule_0_6_expressionBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		_this.registerObjectsToMatch_FWD(match, inFlow, process,
+				exclusiveGateway, outFlow, lane, laneSet);
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_0_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_0_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_1_1_bindingFFFFFFFFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("inFlow");
+		EObject _localVariable_1 = isApplicableMatch.getObject("prevStep");
+		EObject _localVariable_2 = isApplicableMatch
+				.getObject("inFlowToPrevStep");
+		EObject _localVariable_3 = isApplicableMatch.getObject("inFlowToFlow");
+		EObject _localVariable_4 = isApplicableMatch.getObject("process");
+		EObject _localVariable_5 = isApplicableMatch
+				.getObject("exclusiveGateway");
+		EObject _localVariable_6 = isApplicableMatch.getObject("outFlow");
+		EObject _localVariable_7 = isApplicableMatch.getObject("flow");
+		EObject _localVariable_8 = isApplicableMatch.getObject("actor");
+		EObject _localVariable_9 = isApplicableMatch
+				.getObject("processToActor");
+		EObject _localVariable_10 = isApplicableMatch.getObject("lane");
+		EObject _localVariable_11 = isApplicableMatch.getObject("laneSet");
+		EObject tmpInFlow = _localVariable_0;
+		EObject tmpPrevStep = _localVariable_1;
+		EObject tmpInFlowToPrevStep = _localVariable_2;
+		EObject tmpInFlowToFlow = _localVariable_3;
+		EObject tmpProcess = _localVariable_4;
+		EObject tmpExclusiveGateway = _localVariable_5;
+		EObject tmpOutFlow = _localVariable_6;
+		EObject tmpFlow = _localVariable_7;
+		EObject tmpActor = _localVariable_8;
+		EObject tmpProcessToActor = _localVariable_9;
+		EObject tmpLane = _localVariable_10;
+		EObject tmpLaneSet = _localVariable_11;
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			if (tmpPrevStep instanceof Step) {
+				Step prevStep = (Step) tmpPrevStep;
+				if (tmpInFlowToPrevStep instanceof SequenceFlowToStep) {
+					SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) tmpInFlowToPrevStep;
+					if (tmpInFlowToFlow instanceof SequenceFlowToUCFlow) {
+						SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) tmpInFlowToFlow;
+						if (tmpProcess instanceof bpmn2.Process) {
+							bpmn2.Process process = (bpmn2.Process) tmpProcess;
+							if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+								ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+								if (tmpOutFlow instanceof SequenceFlow) {
+									SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+									if (tmpFlow instanceof Flow) {
+										Flow flow = (Flow) tmpFlow;
+										if (tmpActor instanceof Actor) {
+											Actor actor = (Actor) tmpActor;
+											if (tmpProcessToActor instanceof ProcessToActor) {
+												ProcessToActor processToActor = (ProcessToActor) tmpProcessToActor;
+												if (tmpLane instanceof Lane) {
+													Lane lane = (Lane) tmpLane;
+													if (tmpLaneSet instanceof LaneSet) {
+														LaneSet laneSet = (LaneSet) tmpLaneSet;
+														return new Object[] {
+																inFlow,
+																prevStep,
+																inFlowToPrevStep,
+																inFlowToFlow,
+																process,
+																exclusiveGateway,
+																outFlow, flow,
+																actor,
+																processToActor,
+																lane, laneSet,
+																isApplicableMatch };
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_1_1_blackBBBBBBBBBBBBFBB(
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Flow flow,
+			Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet, ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		if (!inFlow.equals(outFlow)) {
+			for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+				if (tmpCsp instanceof CSP) {
+					CSP csp = (CSP) tmpCsp;
+					return new Object[] { inFlow, prevStep, inFlowToPrevStep,
+							inFlowToFlow, process, exclusiveGateway, outFlow,
+							flow, actor, processToActor, lane, laneSet, csp,
+							_this, isApplicableMatch };
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_1_1_bindingAndBlackFFFFFFFFFFFFFBB(
+			ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_1_1_binding = pattern_ExclusiveGatewayToStepRule_1_1_bindingFFFFFFFFFFFFB(isApplicableMatch);
+		if (result_pattern_ExclusiveGatewayToStepRule_1_1_binding != null) {
+			SequenceFlow inFlow = (SequenceFlow) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[0];
+			Step prevStep = (Step) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[1];
+			SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[2];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[3];
+			bpmn2.Process process = (bpmn2.Process) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[4];
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[5];
+			SequenceFlow outFlow = (SequenceFlow) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[6];
+			Flow flow = (Flow) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[7];
+			Actor actor = (Actor) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[8];
+			ProcessToActor processToActor = (ProcessToActor) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[9];
+			Lane lane = (Lane) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[10];
+			LaneSet laneSet = (LaneSet) result_pattern_ExclusiveGatewayToStepRule_1_1_binding[11];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_1_1_black = pattern_ExclusiveGatewayToStepRule_1_1_blackBBBBBBBBBBBBFBB(
+					inFlow, prevStep, inFlowToPrevStep, inFlowToFlow, process,
+					exclusiveGateway, outFlow, flow, actor, processToActor,
+					lane, laneSet, _this, isApplicableMatch);
+			if (result_pattern_ExclusiveGatewayToStepRule_1_1_black != null) {
+				CSP csp = (CSP) result_pattern_ExclusiveGatewayToStepRule_1_1_black[12];
+
+				return new Object[] { inFlow, prevStep, inFlowToPrevStep,
+						inFlowToFlow, process, exclusiveGateway, outFlow, flow,
+						actor, processToActor, lane, laneSet, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_1_1_greenBFFBBFFBBB(
+			Step prevStep, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Flow flow, Actor actor, CSP csp) {
+		NormalStep normalStep = UseCaseDSLFactory.eINSTANCE.createNormalStep();
+		SequenceFlowToUCFlow outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToUCFlow();
+		FlowNodeToStep exclusiveGatewayToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createFlowNodeToStep();
+		SequenceFlowToStep outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToStep();
+		Object _localVariable_0 = csp.getValue("normalStep", "name");
+		Object _localVariable_1 = csp.getValue("normalStep", "label");
+		prevStep.setNext(normalStep);
+		normalStep.setActor(actor);
+		flow.getSteps().add(normalStep);
+		outFlowToFlow.setSource(outFlow);
+		outFlowToFlow.setTarget(flow);
+		exclusiveGatewayToNormalStep.setSource(exclusiveGateway);
+		exclusiveGatewayToNormalStep.setTarget(normalStep);
+		outFlowToNormalStep.setSource(outFlow);
+		outFlowToNormalStep.setTarget(normalStep);
+		String normalStep_name_prime = (String) _localVariable_0;
+		String normalStep_label_prime = (String) _localVariable_1;
+		normalStep.setName(normalStep_name_prime);
+		normalStep.setLabel(normalStep_label_prime);
+		return new Object[] { prevStep, normalStep, outFlowToFlow,
+				exclusiveGateway, outFlow, exclusiveGatewayToNormalStep,
+				outFlowToNormalStep, flow, actor, csp };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_1_2_blackBBBBBB(
+			NormalStep normalStep, SequenceFlowToUCFlow outFlowToFlow,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			SequenceFlowToStep outFlowToNormalStep) {
+		return new Object[] { normalStep, outFlowToFlow, exclusiveGateway,
+				outFlow, exclusiveGatewayToNormalStep, outFlowToNormalStep };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_1_2_greenFBBBBBB(
+			NormalStep normalStep, SequenceFlowToUCFlow outFlowToFlow,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			SequenceFlowToStep outFlowToNormalStep) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getCreatedElements().add(normalStep);
+		ruleresult.getCreatedLinkElements().add(outFlowToFlow);
+		ruleresult.getTranslatedElements().add(exclusiveGateway);
+		ruleresult.getTranslatedElements().add(outFlow);
+		ruleresult.getCreatedLinkElements().add(exclusiveGatewayToNormalStep);
+		ruleresult.getCreatedLinkElements().add(outFlowToNormalStep);
+		return new Object[] { ruleresult, normalStep, outFlowToFlow,
+				exclusiveGateway, outFlow, exclusiveGatewayToNormalStep,
+				outFlowToNormalStep };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_1_3_blackBBBBBBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject inFlow, EObject prevStep,
+			EObject inFlowToPrevStep, EObject normalStep,
+			EObject outFlowToFlow, EObject inFlowToFlow, EObject process,
+			EObject exclusiveGateway, EObject outFlow,
+			EObject exclusiveGatewayToNormalStep, EObject outFlowToNormalStep,
+			EObject flow, EObject actor, EObject processToActor, EObject lane,
+			EObject laneSet) {
+		if (!inFlow.equals(prevStep)) {
+			if (!inFlow.equals(inFlowToPrevStep)) {
+				if (!inFlow.equals(normalStep)) {
+					if (!inFlow.equals(outFlowToFlow)) {
+						if (!inFlow.equals(inFlowToFlow)) {
+							if (!inFlow.equals(process)) {
+								if (!inFlow.equals(outFlow)) {
+									if (!inFlow.equals(outFlowToNormalStep)) {
+										if (!inFlow.equals(processToActor)) {
+											if (!inFlow.equals(lane)) {
+												if (!inFlow.equals(laneSet)) {
+													if (!prevStep
+															.equals(process)) {
+														if (!prevStep
+																.equals(processToActor)) {
+															if (!inFlowToPrevStep
+																	.equals(prevStep)) {
+																if (!inFlowToPrevStep
+																		.equals(normalStep)) {
+																	if (!inFlowToPrevStep
+																			.equals(outFlowToFlow)) {
+																		if (!inFlowToPrevStep
+																				.equals(process)) {
+																			if (!inFlowToPrevStep
+																					.equals(outFlow)) {
+																				if (!inFlowToPrevStep
+																						.equals(outFlowToNormalStep)) {
+																					if (!inFlowToPrevStep
+																							.equals(processToActor)) {
+																						if (!inFlowToPrevStep
+																								.equals(lane)) {
+																							if (!inFlowToPrevStep
+																									.equals(laneSet)) {
+																								if (!normalStep
+																										.equals(prevStep)) {
+																									if (!normalStep
+																											.equals(outFlowToFlow)) {
+																										if (!normalStep
+																												.equals(process)) {
+																											if (!normalStep
+																													.equals(outFlow)) {
+																												if (!normalStep
+																														.equals(outFlowToNormalStep)) {
+																													if (!normalStep
+																															.equals(processToActor)) {
+																														if (!outFlowToFlow
+																																.equals(prevStep)) {
+																															if (!outFlowToFlow
+																																	.equals(process)) {
+																																if (!outFlowToFlow
+																																		.equals(outFlowToNormalStep)) {
+																																	if (!outFlowToFlow
+																																			.equals(processToActor)) {
+																																		if (!inFlowToFlow
+																																				.equals(prevStep)) {
+																																			if (!inFlowToFlow
+																																					.equals(inFlowToPrevStep)) {
+																																				if (!inFlowToFlow
+																																						.equals(normalStep)) {
+																																					if (!inFlowToFlow
+																																							.equals(outFlowToFlow)) {
+																																						if (!inFlowToFlow
+																																								.equals(process)) {
+																																							if (!inFlowToFlow
+																																									.equals(outFlow)) {
+																																								if (!inFlowToFlow
+																																										.equals(outFlowToNormalStep)) {
+																																									if (!inFlowToFlow
+																																											.equals(processToActor)) {
+																																										if (!inFlowToFlow
+																																												.equals(lane)) {
+																																											if (!inFlowToFlow
+																																													.equals(laneSet)) {
+																																												if (!process
+																																														.equals(processToActor)) {
+																																													if (!exclusiveGateway
+																																															.equals(inFlow)) {
+																																														if (!exclusiveGateway
+																																																.equals(prevStep)) {
+																																															if (!exclusiveGateway
+																																																	.equals(inFlowToPrevStep)) {
+																																																if (!exclusiveGateway
+																																																		.equals(normalStep)) {
+																																																	if (!exclusiveGateway
+																																																			.equals(outFlowToFlow)) {
+																																																		if (!exclusiveGateway
+																																																				.equals(inFlowToFlow)) {
+																																																			if (!exclusiveGateway
+																																																					.equals(process)) {
+																																																				if (!exclusiveGateway
+																																																						.equals(outFlow)) {
+																																																					if (!exclusiveGateway
+																																																							.equals(exclusiveGatewayToNormalStep)) {
+																																																						if (!exclusiveGateway
+																																																								.equals(outFlowToNormalStep)) {
+																																																							if (!exclusiveGateway
+																																																									.equals(flow)) {
+																																																								if (!exclusiveGateway
+																																																										.equals(processToActor)) {
+																																																									if (!exclusiveGateway
+																																																											.equals(lane)) {
+																																																										if (!exclusiveGateway
+																																																												.equals(laneSet)) {
+																																																											if (!outFlow
+																																																													.equals(prevStep)) {
+																																																												if (!outFlow
+																																																														.equals(outFlowToFlow)) {
+																																																													if (!outFlow
+																																																															.equals(process)) {
+																																																														if (!outFlow
+																																																																.equals(outFlowToNormalStep)) {
+																																																															if (!outFlow
+																																																																	.equals(processToActor)) {
+																																																																if (!exclusiveGatewayToNormalStep
+																																																																		.equals(inFlow)) {
+																																																																	if (!exclusiveGatewayToNormalStep
+																																																																			.equals(prevStep)) {
+																																																																		if (!exclusiveGatewayToNormalStep
+																																																																				.equals(inFlowToPrevStep)) {
+																																																																			if (!exclusiveGatewayToNormalStep
+																																																																					.equals(normalStep)) {
+																																																																				if (!exclusiveGatewayToNormalStep
+																																																																						.equals(outFlowToFlow)) {
+																																																																					if (!exclusiveGatewayToNormalStep
+																																																																							.equals(inFlowToFlow)) {
+																																																																						if (!exclusiveGatewayToNormalStep
+																																																																								.equals(process)) {
+																																																																							if (!exclusiveGatewayToNormalStep
+																																																																									.equals(outFlow)) {
+																																																																								if (!exclusiveGatewayToNormalStep
+																																																																										.equals(outFlowToNormalStep)) {
+																																																																									if (!exclusiveGatewayToNormalStep
+																																																																											.equals(flow)) {
+																																																																										if (!exclusiveGatewayToNormalStep
+																																																																												.equals(processToActor)) {
+																																																																											if (!exclusiveGatewayToNormalStep
+																																																																													.equals(lane)) {
+																																																																												if (!exclusiveGatewayToNormalStep
+																																																																														.equals(laneSet)) {
+																																																																													if (!outFlowToNormalStep
+																																																																															.equals(prevStep)) {
+																																																																														if (!outFlowToNormalStep
+																																																																																.equals(process)) {
+																																																																															if (!outFlowToNormalStep
+																																																																																	.equals(processToActor)) {
+																																																																																if (!flow
+																																																																																		.equals(inFlow)) {
+																																																																																	if (!flow
+																																																																																			.equals(prevStep)) {
+																																																																																		if (!flow
+																																																																																				.equals(inFlowToPrevStep)) {
+																																																																																			if (!flow
+																																																																																					.equals(normalStep)) {
+																																																																																				if (!flow
+																																																																																						.equals(outFlowToFlow)) {
+																																																																																					if (!flow
+																																																																																							.equals(inFlowToFlow)) {
+																																																																																						if (!flow
+																																																																																								.equals(process)) {
+																																																																																							if (!flow
+																																																																																									.equals(outFlow)) {
+																																																																																								if (!flow
+																																																																																										.equals(outFlowToNormalStep)) {
+																																																																																									if (!flow
+																																																																																											.equals(processToActor)) {
+																																																																																										if (!flow
+																																																																																												.equals(lane)) {
+																																																																																											if (!flow
+																																																																																													.equals(laneSet)) {
+																																																																																												if (!actor
+																																																																																														.equals(inFlow)) {
+																																																																																													if (!actor
+																																																																																															.equals(prevStep)) {
+																																																																																														if (!actor
+																																																																																																.equals(inFlowToPrevStep)) {
+																																																																																															if (!actor
+																																																																																																	.equals(normalStep)) {
+																																																																																																if (!actor
+																																																																																																		.equals(outFlowToFlow)) {
+																																																																																																	if (!actor
+																																																																																																			.equals(inFlowToFlow)) {
+																																																																																																		if (!actor
+																																																																																																				.equals(process)) {
+																																																																																																			if (!actor
+																																																																																																					.equals(exclusiveGateway)) {
+																																																																																																				if (!actor
+																																																																																																						.equals(outFlow)) {
+																																																																																																					if (!actor
+																																																																																																							.equals(exclusiveGatewayToNormalStep)) {
+																																																																																																						if (!actor
+																																																																																																								.equals(outFlowToNormalStep)) {
+																																																																																																							if (!actor
+																																																																																																									.equals(flow)) {
+																																																																																																								if (!actor
+																																																																																																										.equals(processToActor)) {
+																																																																																																									if (!actor
+																																																																																																											.equals(lane)) {
+																																																																																																										if (!actor
+																																																																																																												.equals(laneSet)) {
+																																																																																																											if (!lane
+																																																																																																													.equals(prevStep)) {
+																																																																																																												if (!lane
+																																																																																																														.equals(normalStep)) {
+																																																																																																													if (!lane
+																																																																																																															.equals(outFlowToFlow)) {
+																																																																																																														if (!lane
+																																																																																																																.equals(process)) {
+																																																																																																															if (!lane
+																																																																																																																	.equals(outFlow)) {
+																																																																																																																if (!lane
+																																																																																																																		.equals(outFlowToNormalStep)) {
+																																																																																																																	if (!lane
+																																																																																																																			.equals(processToActor)) {
+																																																																																																																		if (!lane
+																																																																																																																				.equals(laneSet)) {
+																																																																																																																			if (!laneSet
+																																																																																																																					.equals(prevStep)) {
+																																																																																																																				if (!laneSet
+																																																																																																																						.equals(normalStep)) {
+																																																																																																																					if (!laneSet
+																																																																																																																							.equals(outFlowToFlow)) {
+																																																																																																																						if (!laneSet
+																																																																																																																								.equals(process)) {
+																																																																																																																							if (!laneSet
+																																																																																																																									.equals(outFlow)) {
+																																																																																																																								if (!laneSet
+																																																																																																																										.equals(outFlowToNormalStep)) {
+																																																																																																																									if (!laneSet
+																																																																																																																											.equals(processToActor)) {
+																																																																																																																										return new Object[] {
+																																																																																																																												ruleresult,
+																																																																																																																												inFlow,
+																																																																																																																												prevStep,
+																																																																																																																												inFlowToPrevStep,
+																																																																																																																												normalStep,
+																																																																																																																												outFlowToFlow,
+																																																																																																																												inFlowToFlow,
+																																																																																																																												process,
+																																																																																																																												exclusiveGateway,
+																																																																																																																												outFlow,
+																																																																																																																												exclusiveGatewayToNormalStep,
+																																																																																																																												outFlowToNormalStep,
+																																																																																																																												flow,
+																																																																																																																												actor,
+																																																																																																																												processToActor,
+																																																																																																																												lane,
+																																																																																																																												laneSet };
+																																																																																																																									}
+																																																																																																																								}
+																																																																																																																							}
+																																																																																																																						}
+																																																																																																																					}
+																																																																																																																				}
+																																																																																																																			}
+																																																																																																																		}
+																																																																																																																	}
+																																																																																																																}
+																																																																																																															}
+																																																																																																														}
+																																																																																																													}
+																																																																																																												}
+																																																																																																											}
+																																																																																																										}
+																																																																																																									}
+																																																																																																								}
+																																																																																																							}
+																																																																																																						}
+																																																																																																					}
+																																																																																																				}
+																																																																																																			}
+																																																																																																		}
+																																																																																																	}
+																																																																																																}
+																																																																																															}
+																																																																																														}
+																																																																																													}
+																																																																																												}
+																																																																																											}
+																																																																																										}
+																																																																																									}
+																																																																																								}
+																																																																																							}
+																																																																																						}
+																																																																																					}
+																																																																																				}
+																																																																																			}
+																																																																																		}
+																																																																																	}
+																																																																																}
+																																																																															}
+																																																																														}
+																																																																													}
+																																																																												}
+																																																																											}
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject inFlow, EObject prevStep,
+			EObject normalStep, EObject outFlowToFlow, EObject process,
+			EObject exclusiveGateway, EObject outFlow,
+			EObject exclusiveGatewayToNormalStep, EObject outFlowToNormalStep,
+			EObject flow, EObject actor, EObject lane) {
+		EMoflonEdge prevStep__normalStep____next = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge normalStep__actor____actor = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToFlow__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__exclusiveGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__exclusiveGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____default = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGatewayToNormalStep__exclusiveGateway____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGatewayToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToNormalStep__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__exclusiveGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "ExclusiveGatewayToStepRule";
+		String prevStep__normalStep____next_name_prime = "next";
+		String normalStep__actor____actor_name_prime = "actor";
+		String outFlowToFlow__outFlow____source_name_prime = "source";
+		String outFlowToFlow__flow____target_name_prime = "target";
+		String process__exclusiveGateway____flowElements_name_prime = "flowElements";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		String inFlow__exclusiveGateway____targetRef_name_prime = "targetRef";
+		String exclusiveGateway__inFlow____incoming_name_prime = "incoming";
+		String outFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__outFlow____outgoing_name_prime = "outgoing";
+		String exclusiveGateway__outFlow____default_name_prime = "default";
+		String exclusiveGatewayToNormalStep__exclusiveGateway____source_name_prime = "source";
+		String exclusiveGatewayToNormalStep__normalStep____target_name_prime = "target";
+		String outFlowToNormalStep__outFlow____source_name_prime = "source";
+		String outFlowToNormalStep__normalStep____target_name_prime = "target";
+		String flow__normalStep____steps_name_prime = "steps";
+		String lane__exclusiveGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		prevStep__normalStep____next.setSrc(prevStep);
+		prevStep__normalStep____next.setTrg(normalStep);
+		ruleresult.getCreatedEdges().add(prevStep__normalStep____next);
+		normalStep__actor____actor.setSrc(normalStep);
+		normalStep__actor____actor.setTrg(actor);
+		ruleresult.getCreatedEdges().add(normalStep__actor____actor);
+		outFlowToFlow__outFlow____source.setSrc(outFlowToFlow);
+		outFlowToFlow__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(outFlowToFlow__outFlow____source);
+		outFlowToFlow__flow____target.setSrc(outFlowToFlow);
+		outFlowToFlow__flow____target.setTrg(flow);
+		ruleresult.getCreatedEdges().add(outFlowToFlow__flow____target);
+		process__exclusiveGateway____flowElements.setSrc(process);
+		process__exclusiveGateway____flowElements.setTrg(exclusiveGateway);
+		ruleresult.getTranslatedEdges().add(
+				process__exclusiveGateway____flowElements);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		ruleresult.getTranslatedEdges().add(process__outFlow____flowElements);
+		inFlow__exclusiveGateway____targetRef.setSrc(inFlow);
+		inFlow__exclusiveGateway____targetRef.setTrg(exclusiveGateway);
+		ruleresult.getTranslatedEdges().add(
+				inFlow__exclusiveGateway____targetRef);
+		exclusiveGateway__inFlow____incoming.setSrc(exclusiveGateway);
+		exclusiveGateway__inFlow____incoming.setTrg(inFlow);
+		ruleresult.getTranslatedEdges().add(
+				exclusiveGateway__inFlow____incoming);
+		outFlow__exclusiveGateway____sourceRef.setSrc(outFlow);
+		outFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		ruleresult.getTranslatedEdges().add(
+				outFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__outFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____outgoing.setTrg(outFlow);
+		ruleresult.getTranslatedEdges().add(
+				exclusiveGateway__outFlow____outgoing);
+		exclusiveGateway__outFlow____default.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____default.setTrg(outFlow);
+		ruleresult.getTranslatedEdges().add(
+				exclusiveGateway__outFlow____default);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setSrc(exclusiveGatewayToNormalStep);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setTrg(exclusiveGateway);
+		ruleresult.getCreatedEdges().add(
+				exclusiveGatewayToNormalStep__exclusiveGateway____source);
+		exclusiveGatewayToNormalStep__normalStep____target
+				.setSrc(exclusiveGatewayToNormalStep);
+		exclusiveGatewayToNormalStep__normalStep____target.setTrg(normalStep);
+		ruleresult.getCreatedEdges().add(
+				exclusiveGatewayToNormalStep__normalStep____target);
+		outFlowToNormalStep__outFlow____source.setSrc(outFlowToNormalStep);
+		outFlowToNormalStep__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges()
+				.add(outFlowToNormalStep__outFlow____source);
+		outFlowToNormalStep__normalStep____target.setSrc(outFlowToNormalStep);
+		outFlowToNormalStep__normalStep____target.setTrg(normalStep);
+		ruleresult.getCreatedEdges().add(
+				outFlowToNormalStep__normalStep____target);
+		flow__normalStep____steps.setSrc(flow);
+		flow__normalStep____steps.setTrg(normalStep);
+		ruleresult.getCreatedEdges().add(flow__normalStep____steps);
+		lane__exclusiveGateway____flowNodeRefs.setSrc(lane);
+		lane__exclusiveGateway____flowNodeRefs.setTrg(exclusiveGateway);
+		ruleresult.getTranslatedEdges().add(
+				lane__exclusiveGateway____flowNodeRefs);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		prevStep__normalStep____next
+				.setName(prevStep__normalStep____next_name_prime);
+		normalStep__actor____actor
+				.setName(normalStep__actor____actor_name_prime);
+		outFlowToFlow__outFlow____source
+				.setName(outFlowToFlow__outFlow____source_name_prime);
+		outFlowToFlow__flow____target
+				.setName(outFlowToFlow__flow____target_name_prime);
+		process__exclusiveGateway____flowElements
+				.setName(process__exclusiveGateway____flowElements_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		inFlow__exclusiveGateway____targetRef
+				.setName(inFlow__exclusiveGateway____targetRef_name_prime);
+		exclusiveGateway__inFlow____incoming
+				.setName(exclusiveGateway__inFlow____incoming_name_prime);
+		outFlow__exclusiveGateway____sourceRef
+				.setName(outFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__outFlow____outgoing
+				.setName(exclusiveGateway__outFlow____outgoing_name_prime);
+		exclusiveGateway__outFlow____default
+				.setName(exclusiveGateway__outFlow____default_name_prime);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setName(exclusiveGatewayToNormalStep__exclusiveGateway____source_name_prime);
+		exclusiveGatewayToNormalStep__normalStep____target
+				.setName(exclusiveGatewayToNormalStep__normalStep____target_name_prime);
+		outFlowToNormalStep__outFlow____source
+				.setName(outFlowToNormalStep__outFlow____source_name_prime);
+		outFlowToNormalStep__normalStep____target
+				.setName(outFlowToNormalStep__normalStep____target_name_prime);
+		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
+		lane__exclusiveGateway____flowNodeRefs
+				.setName(lane__exclusiveGateway____flowNodeRefs_name_prime);
+		return new Object[] { ruleresult, inFlow, prevStep, normalStep,
+				outFlowToFlow, process, exclusiveGateway, outFlow,
+				exclusiveGatewayToNormalStep, outFlowToNormalStep, flow, actor,
+				lane, prevStep__normalStep____next, normalStep__actor____actor,
+				outFlowToFlow__outFlow____source,
+				outFlowToFlow__flow____target,
+				process__exclusiveGateway____flowElements,
+				process__outFlow____flowElements,
+				inFlow__exclusiveGateway____targetRef,
+				exclusiveGateway__inFlow____incoming,
+				outFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__outFlow____outgoing,
+				exclusiveGateway__outFlow____default,
+				exclusiveGatewayToNormalStep__exclusiveGateway____source,
+				exclusiveGatewayToNormalStep__normalStep____target,
+				outFlowToNormalStep__outFlow____source,
+				outFlowToNormalStep__normalStep____target,
+				flow__normalStep____steps,
+				lane__exclusiveGateway____flowNodeRefs };
+	}
+
+	public static final void pattern_ExclusiveGatewayToStepRule_1_5_expressionBBBBBBBBBBBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, PerformRuleResult ruleresult,
+			EObject inFlow, EObject prevStep, EObject inFlowToPrevStep,
+			EObject normalStep, EObject outFlowToFlow, EObject inFlowToFlow,
+			EObject process, EObject exclusiveGateway, EObject outFlow,
+			EObject exclusiveGatewayToNormalStep, EObject outFlowToNormalStep,
+			EObject flow, EObject actor, EObject processToActor, EObject lane,
+			EObject laneSet) {
+		_this.registerObjects_FWD(ruleresult, inFlow, prevStep,
+				inFlowToPrevStep, normalStep, outFlowToFlow, inFlowToFlow,
+				process, exclusiveGateway, outFlow,
+				exclusiveGatewayToNormalStep, outFlowToNormalStep, flow, actor,
+				processToActor, lane, laneSet);
+
+	}
+
+	public static final PerformRuleResult pattern_ExclusiveGatewayToStepRule_1_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_1_blackFBB(
+			EClass eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_FWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_2_1_binding = pattern_ExclusiveGatewayToStepRule_2_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_2_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_2_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_2_1_black = pattern_ExclusiveGatewayToStepRule_2_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_2_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_2_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "ExclusiveGatewayToStepRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_2_bindingFFFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("inFlow");
+		EObject _localVariable_1 = match.getObject("process");
+		EObject _localVariable_2 = match.getObject("exclusiveGateway");
+		EObject _localVariable_3 = match.getObject("outFlow");
+		EObject _localVariable_4 = match.getObject("lane");
+		EObject _localVariable_5 = match.getObject("laneSet");
+		EObject tmpInFlow = _localVariable_0;
+		EObject tmpProcess = _localVariable_1;
+		EObject tmpExclusiveGateway = _localVariable_2;
+		EObject tmpOutFlow = _localVariable_3;
+		EObject tmpLane = _localVariable_4;
+		EObject tmpLaneSet = _localVariable_5;
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			if (tmpProcess instanceof bpmn2.Process) {
+				bpmn2.Process process = (bpmn2.Process) tmpProcess;
+				if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+					ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+					if (tmpOutFlow instanceof SequenceFlow) {
+						SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+						if (tmpLane instanceof Lane) {
+							Lane lane = (Lane) tmpLane;
+							if (tmpLaneSet instanceof LaneSet) {
+								LaneSet laneSet = (LaneSet) tmpLaneSet;
+								return new Object[] { inFlow, process,
+										exclusiveGateway, outFlow, lane,
+										laneSet, match };
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_2_2_blackBFFFBBBFFFBBB(
+			SequenceFlow inFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!inFlow.equals(outFlow)) {
+			for (SequenceFlowToStep inFlowToPrevStep : org.moflon.util.eMoflonEMFUtil
+					.getOppositeReferenceTyped(inFlow,
+							SequenceFlowToStep.class, "source")) {
+				Step prevStep = inFlowToPrevStep.getTarget();
+				if (prevStep != null) {
+					for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(inFlow,
+									SequenceFlowToUCFlow.class, "source")) {
+						Flow flow = inFlowToFlow.getTarget();
+						if (flow != null) {
+							for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(process,
+											ProcessToActor.class, "source")) {
+								Actor actor = processToActor.getTarget();
+								if (actor != null) {
+									_result.add(new Object[] { inFlow,
+											prevStep, inFlowToPrevStep,
+											inFlowToFlow, process,
+											exclusiveGateway, outFlow, flow,
+											actor, processToActor, lane,
+											laneSet, match });
+								}
+
+							}
+						}
+
+					}
+				}
+
+			}
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_2_3_blackBBBBBBBBBBBB(
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Flow flow,
+			Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!inFlow.equals(outFlow)) {
+			if (inFlow.equals(inFlowToPrevStep.getSource())) {
+				if (prevStep.equals(inFlowToPrevStep.getTarget())) {
+					if (inFlow.equals(inFlowToFlow.getSource())) {
+						if (flow.equals(inFlowToFlow.getTarget())) {
+							if (process.getLaneSets().contains(laneSet)) {
+								if (process.getFlowElements().contains(inFlow)) {
+									if (process.getFlowElements().contains(
+											exclusiveGateway)) {
+										if (process.getFlowElements().contains(
+												outFlow)) {
+											if (exclusiveGateway.equals(inFlow
+													.getTargetRef())) {
+												if (exclusiveGateway
+														.equals(outFlow
+																.getSourceRef())) {
+													if (outFlow
+															.equals(exclusiveGateway
+																	.getDefault())) {
+														if (process
+																.equals(processToActor
+																		.getSource())) {
+															if (actor
+																	.equals(processToActor
+																			.getTarget())) {
+																if (lane.getFlowNodeRefs()
+																		.contains(
+																				exclusiveGateway)) {
+																	if (laneSet
+																			.getLanes()
+																			.contains(
+																					lane)) {
+																		_result.add(new Object[] {
+																				inFlow,
+																				prevStep,
+																				inFlowToPrevStep,
+																				inFlowToFlow,
+																				process,
+																				exclusiveGateway,
+																				outFlow,
+																				flow,
+																				actor,
+																				processToActor,
+																				lane,
+																				laneSet });
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFFFFF(
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Flow flow,
+			Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge inFlowToPrevStep__inFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToPrevStep__prevStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToFlow__inFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__exclusiveGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__exclusiveGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____default = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToActor__process____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToActor__actor____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__exclusiveGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String inFlowToPrevStep__inFlow____source_name_prime = "source";
+		String inFlowToPrevStep__prevStep____target_name_prime = "target";
+		String inFlowToFlow__inFlow____source_name_prime = "source";
+		String inFlowToFlow__flow____target_name_prime = "target";
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__inFlow____flowElements_name_prime = "flowElements";
+		String process__exclusiveGateway____flowElements_name_prime = "flowElements";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		String inFlow__exclusiveGateway____targetRef_name_prime = "targetRef";
+		String exclusiveGateway__inFlow____incoming_name_prime = "incoming";
+		String outFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__outFlow____outgoing_name_prime = "outgoing";
+		String exclusiveGateway__outFlow____default_name_prime = "default";
+		String processToActor__process____source_name_prime = "source";
+		String processToActor__actor____target_name_prime = "target";
+		String lane__exclusiveGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		isApplicableMatch.getAllContextElements().add(inFlow);
+		isApplicableMatch.getAllContextElements().add(prevStep);
+		isApplicableMatch.getAllContextElements().add(inFlowToPrevStep);
+		isApplicableMatch.getAllContextElements().add(inFlowToFlow);
+		isApplicableMatch.getAllContextElements().add(process);
+		isApplicableMatch.getAllContextElements().add(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(outFlow);
+		isApplicableMatch.getAllContextElements().add(flow);
+		isApplicableMatch.getAllContextElements().add(actor);
+		isApplicableMatch.getAllContextElements().add(processToActor);
+		isApplicableMatch.getAllContextElements().add(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet);
+		inFlowToPrevStep__inFlow____source.setSrc(inFlowToPrevStep);
+		inFlowToPrevStep__inFlow____source.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToPrevStep__inFlow____source);
+		inFlowToPrevStep__prevStep____target.setSrc(inFlowToPrevStep);
+		inFlowToPrevStep__prevStep____target.setTrg(prevStep);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToPrevStep__prevStep____target);
+		inFlowToFlow__inFlow____source.setSrc(inFlowToFlow);
+		inFlowToFlow__inFlow____source.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToFlow__inFlow____source);
+		inFlowToFlow__flow____target.setSrc(inFlowToFlow);
+		inFlowToFlow__flow____target.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToFlow__flow____target);
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		isApplicableMatch.getAllContextElements().add(
+				process__laneSet____laneSets);
+		process__inFlow____flowElements.setSrc(process);
+		process__inFlow____flowElements.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__inFlow____flowElements);
+		process__exclusiveGateway____flowElements.setSrc(process);
+		process__exclusiveGateway____flowElements.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				process__exclusiveGateway____flowElements);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__outFlow____flowElements);
+		inFlow__exclusiveGateway____targetRef.setSrc(inFlow);
+		inFlow__exclusiveGateway____targetRef.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow__exclusiveGateway____targetRef);
+		exclusiveGateway__inFlow____incoming.setSrc(exclusiveGateway);
+		exclusiveGateway__inFlow____incoming.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGateway__inFlow____incoming);
+		outFlow__exclusiveGateway____sourceRef.setSrc(outFlow);
+		outFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				outFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__outFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____outgoing.setTrg(outFlow);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGateway__outFlow____outgoing);
+		exclusiveGateway__outFlow____default.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____default.setTrg(outFlow);
+		isApplicableMatch.getAllContextElements().add(
+				exclusiveGateway__outFlow____default);
+		processToActor__process____source.setSrc(processToActor);
+		processToActor__process____source.setTrg(process);
+		isApplicableMatch.getAllContextElements().add(
+				processToActor__process____source);
+		processToActor__actor____target.setSrc(processToActor);
+		processToActor__actor____target.setTrg(actor);
+		isApplicableMatch.getAllContextElements().add(
+				processToActor__actor____target);
+		lane__exclusiveGateway____flowNodeRefs.setSrc(lane);
+		lane__exclusiveGateway____flowNodeRefs.setTrg(exclusiveGateway);
+		isApplicableMatch.getAllContextElements().add(
+				lane__exclusiveGateway____flowNodeRefs);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet__lane____lanes);
+		inFlowToPrevStep__inFlow____source
+				.setName(inFlowToPrevStep__inFlow____source_name_prime);
+		inFlowToPrevStep__prevStep____target
+				.setName(inFlowToPrevStep__prevStep____target_name_prime);
+		inFlowToFlow__inFlow____source
+				.setName(inFlowToFlow__inFlow____source_name_prime);
+		inFlowToFlow__flow____target
+				.setName(inFlowToFlow__flow____target_name_prime);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__inFlow____flowElements
+				.setName(process__inFlow____flowElements_name_prime);
+		process__exclusiveGateway____flowElements
+				.setName(process__exclusiveGateway____flowElements_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		inFlow__exclusiveGateway____targetRef
+				.setName(inFlow__exclusiveGateway____targetRef_name_prime);
+		exclusiveGateway__inFlow____incoming
+				.setName(exclusiveGateway__inFlow____incoming_name_prime);
+		outFlow__exclusiveGateway____sourceRef
+				.setName(outFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__outFlow____outgoing
+				.setName(exclusiveGateway__outFlow____outgoing_name_prime);
+		exclusiveGateway__outFlow____default
+				.setName(exclusiveGateway__outFlow____default_name_prime);
+		processToActor__process____source
+				.setName(processToActor__process____source_name_prime);
+		processToActor__actor____target
+				.setName(processToActor__actor____target_name_prime);
+		lane__exclusiveGateway____flowNodeRefs
+				.setName(lane__exclusiveGateway____flowNodeRefs_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		return new Object[] { inFlow, prevStep, inFlowToPrevStep, inFlowToFlow,
+				process, exclusiveGateway, outFlow, flow, actor,
+				processToActor, lane, laneSet, isApplicableMatch,
+				inFlowToPrevStep__inFlow____source,
+				inFlowToPrevStep__prevStep____target,
+				inFlowToFlow__inFlow____source, inFlowToFlow__flow____target,
+				process__laneSet____laneSets, process__inFlow____flowElements,
+				process__exclusiveGateway____flowElements,
+				process__outFlow____flowElements,
+				inFlow__exclusiveGateway____targetRef,
+				exclusiveGateway__inFlow____incoming,
+				outFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__outFlow____outgoing,
+				exclusiveGateway__outFlow____default,
+				processToActor__process____source,
+				processToActor__actor____target,
+				lane__exclusiveGateway____flowNodeRefs, laneSet__lane____lanes };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_4_bindingFBBBBBBBBBBBBBB(
+			ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
+			Step prevStep, SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Flow flow,
+			Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
+				isApplicableMatch, inFlow, prevStep, inFlowToPrevStep,
+				inFlowToFlow, process, exclusiveGateway, outFlow, flow, actor,
+				processToActor, lane, laneSet);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, inFlow,
+					prevStep, inFlowToPrevStep, inFlowToFlow, process,
+					exclusiveGateway, outFlow, flow, actor, processToActor,
+					lane, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_4_bindingAndBlackFBBBBBBBBBBBBBB(
+			ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
+			Step prevStep, SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow, Flow flow,
+			Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_2_4_binding = pattern_ExclusiveGatewayToStepRule_2_4_bindingFBBBBBBBBBBBBBB(
+				_this, isApplicableMatch, inFlow, prevStep, inFlowToPrevStep,
+				inFlowToFlow, process, exclusiveGateway, outFlow, flow, actor,
+				processToActor, lane, laneSet);
+		if (result_pattern_ExclusiveGatewayToStepRule_2_4_binding != null) {
+			CSP csp = (CSP) result_pattern_ExclusiveGatewayToStepRule_2_4_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_2_4_black = pattern_ExclusiveGatewayToStepRule_2_4_blackB(csp);
+			if (result_pattern_ExclusiveGatewayToStepRule_2_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, inFlow,
+						prevStep, inFlowToPrevStep, inFlowToFlow, process,
+						exclusiveGateway, outFlow, flow, actor, processToActor,
+						lane, laneSet };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_2_5_expressionFBB(
+			ExclusiveGatewayToStepRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_2_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "ExclusiveGatewayToStepRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_ExclusiveGatewayToStepRule_2_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_10_1_blackBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, Step prevStep,
+			NormalStep normalStep, Flow flow, Actor actor) {
+		if (!normalStep.equals(prevStep)) {
+			return new Object[] { _this, match, prevStep, normalStep, flow,
+					actor };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_10_2_bindingFBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, Step prevStep,
+			NormalStep normalStep, Flow flow, Actor actor) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_BWD(match,
+				prevStep, normalStep, flow, actor);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, prevStep, normalStep,
+					flow, actor };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_10_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_10_2_bindingAndBlackFBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, Step prevStep,
+			NormalStep normalStep, Flow flow, Actor actor) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_10_2_binding = pattern_ExclusiveGatewayToStepRule_10_2_bindingFBBBBBB(
+				_this, match, prevStep, normalStep, flow, actor);
+		if (result_pattern_ExclusiveGatewayToStepRule_10_2_binding != null) {
+			CSP csp = (CSP) result_pattern_ExclusiveGatewayToStepRule_10_2_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_10_2_black = pattern_ExclusiveGatewayToStepRule_10_2_blackB(csp);
+			if (result_pattern_ExclusiveGatewayToStepRule_10_2_black != null) {
+
+				return new Object[] { csp, _this, match, prevStep, normalStep,
+						flow, actor };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_10_3_expressionFBB(
+			ExclusiveGatewayToStepRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_10_4_blackBBBBB(
+			Match match, Step prevStep, NormalStep normalStep, Flow flow,
+			Actor actor) {
+		if (!normalStep.equals(prevStep)) {
+			return new Object[] { match, prevStep, normalStep, flow, actor };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_10_4_greenBBBBBFFF(
+			Match match, Step prevStep, NormalStep normalStep, Flow flow,
+			Actor actor) {
+		EMoflonEdge prevStep__normalStep____next = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge normalStep__actor____actor = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(normalStep);
+		String prevStep__normalStep____next_name_prime = "next";
+		String normalStep__actor____actor_name_prime = "actor";
+		String flow__normalStep____steps_name_prime = "steps";
+		prevStep__normalStep____next.setSrc(prevStep);
+		prevStep__normalStep____next.setTrg(normalStep);
+		match.getToBeTranslatedEdges().add(prevStep__normalStep____next);
+		normalStep__actor____actor.setSrc(normalStep);
+		normalStep__actor____actor.setTrg(actor);
+		match.getToBeTranslatedEdges().add(normalStep__actor____actor);
+		flow__normalStep____steps.setSrc(flow);
+		flow__normalStep____steps.setTrg(normalStep);
+		match.getToBeTranslatedEdges().add(flow__normalStep____steps);
+		prevStep__normalStep____next
+				.setName(prevStep__normalStep____next_name_prime);
+		normalStep__actor____actor
+				.setName(normalStep__actor____actor_name_prime);
+		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
+		return new Object[] { match, prevStep, normalStep, flow, actor,
+				prevStep__normalStep____next, normalStep__actor____actor,
+				flow__normalStep____steps };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_10_5_blackBBBBB(
+			Match match, Step prevStep, NormalStep normalStep, Flow flow,
+			Actor actor) {
+		if (!normalStep.equals(prevStep)) {
+			return new Object[] { match, prevStep, normalStep, flow, actor };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_10_5_greenBBBB(
+			Match match, Step prevStep, Flow flow, Actor actor) {
+		match.getContextNodes().add(prevStep);
+		match.getContextNodes().add(flow);
+		match.getContextNodes().add(actor);
+		return new Object[] { match, prevStep, flow, actor };
+	}
+
+	public static final void pattern_ExclusiveGatewayToStepRule_10_6_expressionBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, Step prevStep,
+			NormalStep normalStep, Flow flow, Actor actor) {
+		_this.registerObjectsToMatch_BWD(match, prevStep, normalStep, flow,
+				actor);
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_10_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_10_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_11_1_bindingFFFFFFFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("inFlow");
+		EObject _localVariable_1 = isApplicableMatch.getObject("prevStep");
+		EObject _localVariable_2 = isApplicableMatch
+				.getObject("inFlowToPrevStep");
+		EObject _localVariable_3 = isApplicableMatch.getObject("normalStep");
+		EObject _localVariable_4 = isApplicableMatch.getObject("inFlowToFlow");
+		EObject _localVariable_5 = isApplicableMatch.getObject("process");
+		EObject _localVariable_6 = isApplicableMatch.getObject("flow");
+		EObject _localVariable_7 = isApplicableMatch.getObject("actor");
+		EObject _localVariable_8 = isApplicableMatch
+				.getObject("processToActor");
+		EObject _localVariable_9 = isApplicableMatch.getObject("lane");
+		EObject _localVariable_10 = isApplicableMatch.getObject("laneSet");
+		EObject tmpInFlow = _localVariable_0;
+		EObject tmpPrevStep = _localVariable_1;
+		EObject tmpInFlowToPrevStep = _localVariable_2;
+		EObject tmpNormalStep = _localVariable_3;
+		EObject tmpInFlowToFlow = _localVariable_4;
+		EObject tmpProcess = _localVariable_5;
+		EObject tmpFlow = _localVariable_6;
+		EObject tmpActor = _localVariable_7;
+		EObject tmpProcessToActor = _localVariable_8;
+		EObject tmpLane = _localVariable_9;
+		EObject tmpLaneSet = _localVariable_10;
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			if (tmpPrevStep instanceof Step) {
+				Step prevStep = (Step) tmpPrevStep;
+				if (tmpInFlowToPrevStep instanceof SequenceFlowToStep) {
+					SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) tmpInFlowToPrevStep;
+					if (tmpNormalStep instanceof NormalStep) {
+						NormalStep normalStep = (NormalStep) tmpNormalStep;
+						if (tmpInFlowToFlow instanceof SequenceFlowToUCFlow) {
+							SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) tmpInFlowToFlow;
+							if (tmpProcess instanceof bpmn2.Process) {
+								bpmn2.Process process = (bpmn2.Process) tmpProcess;
+								if (tmpFlow instanceof Flow) {
+									Flow flow = (Flow) tmpFlow;
+									if (tmpActor instanceof Actor) {
+										Actor actor = (Actor) tmpActor;
+										if (tmpProcessToActor instanceof ProcessToActor) {
+											ProcessToActor processToActor = (ProcessToActor) tmpProcessToActor;
+											if (tmpLane instanceof Lane) {
+												Lane lane = (Lane) tmpLane;
+												if (tmpLaneSet instanceof LaneSet) {
+													LaneSet laneSet = (LaneSet) tmpLaneSet;
+													return new Object[] {
+															inFlow, prevStep,
+															inFlowToPrevStep,
+															normalStep,
+															inFlowToFlow,
+															process, flow,
+															actor,
+															processToActor,
+															lane, laneSet,
+															isApplicableMatch };
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_11_1_blackBBBBBBBBBBBFBB(
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep, NormalStep normalStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			Flow flow, Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet, ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		if (!normalStep.equals(prevStep)) {
+			for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+				if (tmpCsp instanceof CSP) {
+					CSP csp = (CSP) tmpCsp;
+					return new Object[] { inFlow, prevStep, inFlowToPrevStep,
+							normalStep, inFlowToFlow, process, flow, actor,
+							processToActor, lane, laneSet, csp, _this,
+							isApplicableMatch };
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_11_1_bindingAndBlackFFFFFFFFFFFFBB(
+			ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_11_1_binding = pattern_ExclusiveGatewayToStepRule_11_1_bindingFFFFFFFFFFFB(isApplicableMatch);
+		if (result_pattern_ExclusiveGatewayToStepRule_11_1_binding != null) {
+			SequenceFlow inFlow = (SequenceFlow) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[0];
+			Step prevStep = (Step) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[1];
+			SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[2];
+			NormalStep normalStep = (NormalStep) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[3];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[4];
+			bpmn2.Process process = (bpmn2.Process) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[5];
+			Flow flow = (Flow) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[6];
+			Actor actor = (Actor) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[7];
+			ProcessToActor processToActor = (ProcessToActor) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[8];
+			Lane lane = (Lane) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[9];
+			LaneSet laneSet = (LaneSet) result_pattern_ExclusiveGatewayToStepRule_11_1_binding[10];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_11_1_black = pattern_ExclusiveGatewayToStepRule_11_1_blackBBBBBBBBBBBFBB(
+					inFlow, prevStep, inFlowToPrevStep, normalStep,
+					inFlowToFlow, process, flow, actor, processToActor, lane,
+					laneSet, _this, isApplicableMatch);
+			if (result_pattern_ExclusiveGatewayToStepRule_11_1_black != null) {
+				CSP csp = (CSP) result_pattern_ExclusiveGatewayToStepRule_11_1_black[11];
+
+				return new Object[] { inFlow, prevStep, inFlowToPrevStep,
+						normalStep, inFlowToFlow, process, flow, actor,
+						processToActor, lane, laneSet, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_11_1_greenBBFBFFFFBBB(
+			SequenceFlow inFlow, NormalStep normalStep, bpmn2.Process process,
+			Flow flow, Lane lane, CSP csp) {
+		SequenceFlowToUCFlow outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToUCFlow();
+		ExclusiveGateway exclusiveGateway = Bpmn2Factory.eINSTANCE
+				.createExclusiveGateway();
+		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
+		FlowNodeToStep exclusiveGatewayToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createFlowNodeToStep();
+		SequenceFlowToStep outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToStep();
+		Object _localVariable_0 = csp.getValue("exclusiveGateway", "id");
+		Object _localVariable_1 = csp.getValue("exclusiveGateway", "name");
+		Object _localVariable_2 = csp.getValue("exclusiveGateway",
+				"gatewayDirection");
+		outFlowToFlow.setTarget(flow);
+		process.getFlowElements().add(exclusiveGateway);
+		inFlow.setTargetRef(exclusiveGateway);
+		lane.getFlowNodeRefs().add(exclusiveGateway);
+		outFlowToFlow.setSource(outFlow);
+		process.getFlowElements().add(outFlow);
+		outFlow.setSourceRef(exclusiveGateway);
+		exclusiveGateway.setDefault(outFlow);
+		exclusiveGatewayToNormalStep.setSource(exclusiveGateway);
+		exclusiveGatewayToNormalStep.setTarget(normalStep);
+		outFlowToNormalStep.setSource(outFlow);
+		outFlowToNormalStep.setTarget(normalStep);
+		String exclusiveGateway_id_prime = (String) _localVariable_0;
+		String exclusiveGateway_name_prime = (String) _localVariable_1;
+		GatewayDirection exclusiveGateway_gatewayDirection_prime = (GatewayDirection) _localVariable_2;
+		exclusiveGateway.setId(exclusiveGateway_id_prime);
+		exclusiveGateway.setName(exclusiveGateway_name_prime);
+		exclusiveGateway
+				.setGatewayDirection(exclusiveGateway_gatewayDirection_prime);
+		return new Object[] { inFlow, normalStep, outFlowToFlow, process,
+				exclusiveGateway, outFlow, exclusiveGatewayToNormalStep,
+				outFlowToNormalStep, flow, lane, csp };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_11_2_blackBBBBBB(
+			NormalStep normalStep, SequenceFlowToUCFlow outFlowToFlow,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			SequenceFlowToStep outFlowToNormalStep) {
+		return new Object[] { normalStep, outFlowToFlow, exclusiveGateway,
+				outFlow, exclusiveGatewayToNormalStep, outFlowToNormalStep };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_11_2_greenFBBBBBB(
+			NormalStep normalStep, SequenceFlowToUCFlow outFlowToFlow,
+			ExclusiveGateway exclusiveGateway, SequenceFlow outFlow,
+			FlowNodeToStep exclusiveGatewayToNormalStep,
+			SequenceFlowToStep outFlowToNormalStep) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getTranslatedElements().add(normalStep);
+		ruleresult.getCreatedLinkElements().add(outFlowToFlow);
+		ruleresult.getCreatedElements().add(exclusiveGateway);
+		ruleresult.getCreatedElements().add(outFlow);
+		ruleresult.getCreatedLinkElements().add(exclusiveGatewayToNormalStep);
+		ruleresult.getCreatedLinkElements().add(outFlowToNormalStep);
+		return new Object[] { ruleresult, normalStep, outFlowToFlow,
+				exclusiveGateway, outFlow, exclusiveGatewayToNormalStep,
+				outFlowToNormalStep };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_11_3_blackBBBBBBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject inFlow, EObject prevStep,
+			EObject inFlowToPrevStep, EObject normalStep,
+			EObject outFlowToFlow, EObject inFlowToFlow, EObject process,
+			EObject exclusiveGateway, EObject outFlow,
+			EObject exclusiveGatewayToNormalStep, EObject outFlowToNormalStep,
+			EObject flow, EObject actor, EObject processToActor, EObject lane,
+			EObject laneSet) {
+		if (!inFlow.equals(prevStep)) {
+			if (!inFlow.equals(inFlowToPrevStep)) {
+				if (!inFlow.equals(normalStep)) {
+					if (!inFlow.equals(outFlowToFlow)) {
+						if (!inFlow.equals(inFlowToFlow)) {
+							if (!inFlow.equals(process)) {
+								if (!inFlow.equals(outFlow)) {
+									if (!inFlow.equals(outFlowToNormalStep)) {
+										if (!inFlow.equals(processToActor)) {
+											if (!inFlow.equals(lane)) {
+												if (!inFlow.equals(laneSet)) {
+													if (!prevStep
+															.equals(process)) {
+														if (!prevStep
+																.equals(processToActor)) {
+															if (!inFlowToPrevStep
+																	.equals(prevStep)) {
+																if (!inFlowToPrevStep
+																		.equals(normalStep)) {
+																	if (!inFlowToPrevStep
+																			.equals(outFlowToFlow)) {
+																		if (!inFlowToPrevStep
+																				.equals(process)) {
+																			if (!inFlowToPrevStep
+																					.equals(outFlow)) {
+																				if (!inFlowToPrevStep
+																						.equals(outFlowToNormalStep)) {
+																					if (!inFlowToPrevStep
+																							.equals(processToActor)) {
+																						if (!inFlowToPrevStep
+																								.equals(lane)) {
+																							if (!inFlowToPrevStep
+																									.equals(laneSet)) {
+																								if (!normalStep
+																										.equals(prevStep)) {
+																									if (!normalStep
+																											.equals(outFlowToFlow)) {
+																										if (!normalStep
+																												.equals(process)) {
+																											if (!normalStep
+																													.equals(outFlow)) {
+																												if (!normalStep
+																														.equals(outFlowToNormalStep)) {
+																													if (!normalStep
+																															.equals(processToActor)) {
+																														if (!outFlowToFlow
+																																.equals(prevStep)) {
+																															if (!outFlowToFlow
+																																	.equals(process)) {
+																																if (!outFlowToFlow
+																																		.equals(outFlowToNormalStep)) {
+																																	if (!outFlowToFlow
+																																			.equals(processToActor)) {
+																																		if (!inFlowToFlow
+																																				.equals(prevStep)) {
+																																			if (!inFlowToFlow
+																																					.equals(inFlowToPrevStep)) {
+																																				if (!inFlowToFlow
+																																						.equals(normalStep)) {
+																																					if (!inFlowToFlow
+																																							.equals(outFlowToFlow)) {
+																																						if (!inFlowToFlow
+																																								.equals(process)) {
+																																							if (!inFlowToFlow
+																																									.equals(outFlow)) {
+																																								if (!inFlowToFlow
+																																										.equals(outFlowToNormalStep)) {
+																																									if (!inFlowToFlow
+																																											.equals(processToActor)) {
+																																										if (!inFlowToFlow
+																																												.equals(lane)) {
+																																											if (!inFlowToFlow
+																																													.equals(laneSet)) {
+																																												if (!process
+																																														.equals(processToActor)) {
+																																													if (!exclusiveGateway
+																																															.equals(inFlow)) {
+																																														if (!exclusiveGateway
+																																																.equals(prevStep)) {
+																																															if (!exclusiveGateway
+																																																	.equals(inFlowToPrevStep)) {
+																																																if (!exclusiveGateway
+																																																		.equals(normalStep)) {
+																																																	if (!exclusiveGateway
+																																																			.equals(outFlowToFlow)) {
+																																																		if (!exclusiveGateway
+																																																				.equals(inFlowToFlow)) {
+																																																			if (!exclusiveGateway
+																																																					.equals(process)) {
+																																																				if (!exclusiveGateway
+																																																						.equals(outFlow)) {
+																																																					if (!exclusiveGateway
+																																																							.equals(exclusiveGatewayToNormalStep)) {
+																																																						if (!exclusiveGateway
+																																																								.equals(outFlowToNormalStep)) {
+																																																							if (!exclusiveGateway
+																																																									.equals(flow)) {
+																																																								if (!exclusiveGateway
+																																																										.equals(processToActor)) {
+																																																									if (!exclusiveGateway
+																																																											.equals(lane)) {
+																																																										if (!exclusiveGateway
+																																																												.equals(laneSet)) {
+																																																											if (!outFlow
+																																																													.equals(prevStep)) {
+																																																												if (!outFlow
+																																																														.equals(outFlowToFlow)) {
+																																																													if (!outFlow
+																																																															.equals(process)) {
+																																																														if (!outFlow
+																																																																.equals(outFlowToNormalStep)) {
+																																																															if (!outFlow
+																																																																	.equals(processToActor)) {
+																																																																if (!exclusiveGatewayToNormalStep
+																																																																		.equals(inFlow)) {
+																																																																	if (!exclusiveGatewayToNormalStep
+																																																																			.equals(prevStep)) {
+																																																																		if (!exclusiveGatewayToNormalStep
+																																																																				.equals(inFlowToPrevStep)) {
+																																																																			if (!exclusiveGatewayToNormalStep
+																																																																					.equals(normalStep)) {
+																																																																				if (!exclusiveGatewayToNormalStep
+																																																																						.equals(outFlowToFlow)) {
+																																																																					if (!exclusiveGatewayToNormalStep
+																																																																							.equals(inFlowToFlow)) {
+																																																																						if (!exclusiveGatewayToNormalStep
+																																																																								.equals(process)) {
+																																																																							if (!exclusiveGatewayToNormalStep
+																																																																									.equals(outFlow)) {
+																																																																								if (!exclusiveGatewayToNormalStep
+																																																																										.equals(outFlowToNormalStep)) {
+																																																																									if (!exclusiveGatewayToNormalStep
+																																																																											.equals(flow)) {
+																																																																										if (!exclusiveGatewayToNormalStep
+																																																																												.equals(processToActor)) {
+																																																																											if (!exclusiveGatewayToNormalStep
+																																																																													.equals(lane)) {
+																																																																												if (!exclusiveGatewayToNormalStep
+																																																																														.equals(laneSet)) {
+																																																																													if (!outFlowToNormalStep
+																																																																															.equals(prevStep)) {
+																																																																														if (!outFlowToNormalStep
+																																																																																.equals(process)) {
+																																																																															if (!outFlowToNormalStep
+																																																																																	.equals(processToActor)) {
+																																																																																if (!flow
+																																																																																		.equals(inFlow)) {
+																																																																																	if (!flow
+																																																																																			.equals(prevStep)) {
+																																																																																		if (!flow
+																																																																																				.equals(inFlowToPrevStep)) {
+																																																																																			if (!flow
+																																																																																					.equals(normalStep)) {
+																																																																																				if (!flow
+																																																																																						.equals(outFlowToFlow)) {
+																																																																																					if (!flow
+																																																																																							.equals(inFlowToFlow)) {
+																																																																																						if (!flow
+																																																																																								.equals(process)) {
+																																																																																							if (!flow
+																																																																																									.equals(outFlow)) {
+																																																																																								if (!flow
+																																																																																										.equals(outFlowToNormalStep)) {
+																																																																																									if (!flow
+																																																																																											.equals(processToActor)) {
+																																																																																										if (!flow
+																																																																																												.equals(lane)) {
+																																																																																											if (!flow
+																																																																																													.equals(laneSet)) {
+																																																																																												if (!actor
+																																																																																														.equals(inFlow)) {
+																																																																																													if (!actor
+																																																																																															.equals(prevStep)) {
+																																																																																														if (!actor
+																																																																																																.equals(inFlowToPrevStep)) {
+																																																																																															if (!actor
+																																																																																																	.equals(normalStep)) {
+																																																																																																if (!actor
+																																																																																																		.equals(outFlowToFlow)) {
+																																																																																																	if (!actor
+																																																																																																			.equals(inFlowToFlow)) {
+																																																																																																		if (!actor
+																																																																																																				.equals(process)) {
+																																																																																																			if (!actor
+																																																																																																					.equals(exclusiveGateway)) {
+																																																																																																				if (!actor
+																																																																																																						.equals(outFlow)) {
+																																																																																																					if (!actor
+																																																																																																							.equals(exclusiveGatewayToNormalStep)) {
+																																																																																																						if (!actor
+																																																																																																								.equals(outFlowToNormalStep)) {
+																																																																																																							if (!actor
+																																																																																																									.equals(flow)) {
+																																																																																																								if (!actor
+																																																																																																										.equals(processToActor)) {
+																																																																																																									if (!actor
+																																																																																																											.equals(lane)) {
+																																																																																																										if (!actor
+																																																																																																												.equals(laneSet)) {
+																																																																																																											if (!lane
+																																																																																																													.equals(prevStep)) {
+																																																																																																												if (!lane
+																																																																																																														.equals(normalStep)) {
+																																																																																																													if (!lane
+																																																																																																															.equals(outFlowToFlow)) {
+																																																																																																														if (!lane
+																																																																																																																.equals(process)) {
+																																																																																																															if (!lane
+																																																																																																																	.equals(outFlow)) {
+																																																																																																																if (!lane
+																																																																																																																		.equals(outFlowToNormalStep)) {
+																																																																																																																	if (!lane
+																																																																																																																			.equals(processToActor)) {
+																																																																																																																		if (!lane
+																																																																																																																				.equals(laneSet)) {
+																																																																																																																			if (!laneSet
+																																																																																																																					.equals(prevStep)) {
+																																																																																																																				if (!laneSet
+																																																																																																																						.equals(normalStep)) {
+																																																																																																																					if (!laneSet
+																																																																																																																							.equals(outFlowToFlow)) {
+																																																																																																																						if (!laneSet
+																																																																																																																								.equals(process)) {
+																																																																																																																							if (!laneSet
+																																																																																																																									.equals(outFlow)) {
+																																																																																																																								if (!laneSet
+																																																																																																																										.equals(outFlowToNormalStep)) {
+																																																																																																																									if (!laneSet
+																																																																																																																											.equals(processToActor)) {
+																																																																																																																										return new Object[] {
+																																																																																																																												ruleresult,
+																																																																																																																												inFlow,
+																																																																																																																												prevStep,
+																																																																																																																												inFlowToPrevStep,
+																																																																																																																												normalStep,
+																																																																																																																												outFlowToFlow,
+																																																																																																																												inFlowToFlow,
+																																																																																																																												process,
+																																																																																																																												exclusiveGateway,
+																																																																																																																												outFlow,
+																																																																																																																												exclusiveGatewayToNormalStep,
+																																																																																																																												outFlowToNormalStep,
+																																																																																																																												flow,
+																																																																																																																												actor,
+																																																																																																																												processToActor,
+																																																																																																																												lane,
+																																																																																																																												laneSet };
+																																																																																																																									}
+																																																																																																																								}
+																																																																																																																							}
+																																																																																																																						}
+																																																																																																																					}
+																																																																																																																				}
+																																																																																																																			}
+																																																																																																																		}
+																																																																																																																	}
+																																																																																																																}
+																																																																																																															}
+																																																																																																														}
+																																																																																																													}
+																																																																																																												}
+																																																																																																											}
+																																																																																																										}
+																																																																																																									}
+																																																																																																								}
+																																																																																																							}
+																																																																																																						}
+																																																																																																					}
+																																																																																																				}
+																																																																																																			}
+																																																																																																		}
+																																																																																																	}
+																																																																																																}
+																																																																																															}
+																																																																																														}
+																																																																																													}
+																																																																																												}
+																																																																																											}
+																																																																																										}
+																																																																																									}
+																																																																																								}
+																																																																																							}
+																																																																																						}
+																																																																																					}
+																																																																																				}
+																																																																																			}
+																																																																																		}
+																																																																																	}
+																																																																																}
+																																																																															}
+																																																																														}
+																																																																													}
+																																																																												}
+																																																																											}
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject inFlow, EObject prevStep,
+			EObject normalStep, EObject outFlowToFlow, EObject process,
+			EObject exclusiveGateway, EObject outFlow,
+			EObject exclusiveGatewayToNormalStep, EObject outFlowToNormalStep,
+			EObject flow, EObject actor, EObject lane) {
+		EMoflonEdge prevStep__normalStep____next = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge normalStep__actor____actor = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToFlow__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__exclusiveGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__exclusiveGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__exclusiveGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGateway__outFlow____default = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGatewayToNormalStep__exclusiveGateway____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge exclusiveGatewayToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToNormalStep__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__exclusiveGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "ExclusiveGatewayToStepRule";
+		String prevStep__normalStep____next_name_prime = "next";
+		String normalStep__actor____actor_name_prime = "actor";
+		String outFlowToFlow__outFlow____source_name_prime = "source";
+		String outFlowToFlow__flow____target_name_prime = "target";
+		String process__exclusiveGateway____flowElements_name_prime = "flowElements";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		String inFlow__exclusiveGateway____targetRef_name_prime = "targetRef";
+		String exclusiveGateway__inFlow____incoming_name_prime = "incoming";
+		String outFlow__exclusiveGateway____sourceRef_name_prime = "sourceRef";
+		String exclusiveGateway__outFlow____outgoing_name_prime = "outgoing";
+		String exclusiveGateway__outFlow____default_name_prime = "default";
+		String exclusiveGatewayToNormalStep__exclusiveGateway____source_name_prime = "source";
+		String exclusiveGatewayToNormalStep__normalStep____target_name_prime = "target";
+		String outFlowToNormalStep__outFlow____source_name_prime = "source";
+		String outFlowToNormalStep__normalStep____target_name_prime = "target";
+		String flow__normalStep____steps_name_prime = "steps";
+		String lane__exclusiveGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		prevStep__normalStep____next.setSrc(prevStep);
+		prevStep__normalStep____next.setTrg(normalStep);
+		ruleresult.getTranslatedEdges().add(prevStep__normalStep____next);
+		normalStep__actor____actor.setSrc(normalStep);
+		normalStep__actor____actor.setTrg(actor);
+		ruleresult.getTranslatedEdges().add(normalStep__actor____actor);
+		outFlowToFlow__outFlow____source.setSrc(outFlowToFlow);
+		outFlowToFlow__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(outFlowToFlow__outFlow____source);
+		outFlowToFlow__flow____target.setSrc(outFlowToFlow);
+		outFlowToFlow__flow____target.setTrg(flow);
+		ruleresult.getCreatedEdges().add(outFlowToFlow__flow____target);
+		process__exclusiveGateway____flowElements.setSrc(process);
+		process__exclusiveGateway____flowElements.setTrg(exclusiveGateway);
+		ruleresult.getCreatedEdges().add(
+				process__exclusiveGateway____flowElements);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(process__outFlow____flowElements);
+		inFlow__exclusiveGateway____targetRef.setSrc(inFlow);
+		inFlow__exclusiveGateway____targetRef.setTrg(exclusiveGateway);
+		ruleresult.getCreatedEdges().add(inFlow__exclusiveGateway____targetRef);
+		exclusiveGateway__inFlow____incoming.setSrc(exclusiveGateway);
+		exclusiveGateway__inFlow____incoming.setTrg(inFlow);
+		ruleresult.getCreatedEdges().add(exclusiveGateway__inFlow____incoming);
+		outFlow__exclusiveGateway____sourceRef.setSrc(outFlow);
+		outFlow__exclusiveGateway____sourceRef.setTrg(exclusiveGateway);
+		ruleresult.getCreatedEdges()
+				.add(outFlow__exclusiveGateway____sourceRef);
+		exclusiveGateway__outFlow____outgoing.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____outgoing.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(exclusiveGateway__outFlow____outgoing);
+		exclusiveGateway__outFlow____default.setSrc(exclusiveGateway);
+		exclusiveGateway__outFlow____default.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(exclusiveGateway__outFlow____default);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setSrc(exclusiveGatewayToNormalStep);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setTrg(exclusiveGateway);
+		ruleresult.getCreatedEdges().add(
+				exclusiveGatewayToNormalStep__exclusiveGateway____source);
+		exclusiveGatewayToNormalStep__normalStep____target
+				.setSrc(exclusiveGatewayToNormalStep);
+		exclusiveGatewayToNormalStep__normalStep____target.setTrg(normalStep);
+		ruleresult.getCreatedEdges().add(
+				exclusiveGatewayToNormalStep__normalStep____target);
+		outFlowToNormalStep__outFlow____source.setSrc(outFlowToNormalStep);
+		outFlowToNormalStep__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges()
+				.add(outFlowToNormalStep__outFlow____source);
+		outFlowToNormalStep__normalStep____target.setSrc(outFlowToNormalStep);
+		outFlowToNormalStep__normalStep____target.setTrg(normalStep);
+		ruleresult.getCreatedEdges().add(
+				outFlowToNormalStep__normalStep____target);
+		flow__normalStep____steps.setSrc(flow);
+		flow__normalStep____steps.setTrg(normalStep);
+		ruleresult.getTranslatedEdges().add(flow__normalStep____steps);
+		lane__exclusiveGateway____flowNodeRefs.setSrc(lane);
+		lane__exclusiveGateway____flowNodeRefs.setTrg(exclusiveGateway);
+		ruleresult.getCreatedEdges()
+				.add(lane__exclusiveGateway____flowNodeRefs);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		prevStep__normalStep____next
+				.setName(prevStep__normalStep____next_name_prime);
+		normalStep__actor____actor
+				.setName(normalStep__actor____actor_name_prime);
+		outFlowToFlow__outFlow____source
+				.setName(outFlowToFlow__outFlow____source_name_prime);
+		outFlowToFlow__flow____target
+				.setName(outFlowToFlow__flow____target_name_prime);
+		process__exclusiveGateway____flowElements
+				.setName(process__exclusiveGateway____flowElements_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		inFlow__exclusiveGateway____targetRef
+				.setName(inFlow__exclusiveGateway____targetRef_name_prime);
+		exclusiveGateway__inFlow____incoming
+				.setName(exclusiveGateway__inFlow____incoming_name_prime);
+		outFlow__exclusiveGateway____sourceRef
+				.setName(outFlow__exclusiveGateway____sourceRef_name_prime);
+		exclusiveGateway__outFlow____outgoing
+				.setName(exclusiveGateway__outFlow____outgoing_name_prime);
+		exclusiveGateway__outFlow____default
+				.setName(exclusiveGateway__outFlow____default_name_prime);
+		exclusiveGatewayToNormalStep__exclusiveGateway____source
+				.setName(exclusiveGatewayToNormalStep__exclusiveGateway____source_name_prime);
+		exclusiveGatewayToNormalStep__normalStep____target
+				.setName(exclusiveGatewayToNormalStep__normalStep____target_name_prime);
+		outFlowToNormalStep__outFlow____source
+				.setName(outFlowToNormalStep__outFlow____source_name_prime);
+		outFlowToNormalStep__normalStep____target
+				.setName(outFlowToNormalStep__normalStep____target_name_prime);
+		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
+		lane__exclusiveGateway____flowNodeRefs
+				.setName(lane__exclusiveGateway____flowNodeRefs_name_prime);
+		return new Object[] { ruleresult, inFlow, prevStep, normalStep,
+				outFlowToFlow, process, exclusiveGateway, outFlow,
+				exclusiveGatewayToNormalStep, outFlowToNormalStep, flow, actor,
+				lane, prevStep__normalStep____next, normalStep__actor____actor,
+				outFlowToFlow__outFlow____source,
+				outFlowToFlow__flow____target,
+				process__exclusiveGateway____flowElements,
+				process__outFlow____flowElements,
+				inFlow__exclusiveGateway____targetRef,
+				exclusiveGateway__inFlow____incoming,
+				outFlow__exclusiveGateway____sourceRef,
+				exclusiveGateway__outFlow____outgoing,
+				exclusiveGateway__outFlow____default,
+				exclusiveGatewayToNormalStep__exclusiveGateway____source,
+				exclusiveGatewayToNormalStep__normalStep____target,
+				outFlowToNormalStep__outFlow____source,
+				outFlowToNormalStep__normalStep____target,
+				flow__normalStep____steps,
+				lane__exclusiveGateway____flowNodeRefs };
+	}
+
+	public static final void pattern_ExclusiveGatewayToStepRule_11_5_expressionBBBBBBBBBBBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, PerformRuleResult ruleresult,
+			EObject inFlow, EObject prevStep, EObject inFlowToPrevStep,
+			EObject normalStep, EObject outFlowToFlow, EObject inFlowToFlow,
+			EObject process, EObject exclusiveGateway, EObject outFlow,
+			EObject exclusiveGatewayToNormalStep, EObject outFlowToNormalStep,
+			EObject flow, EObject actor, EObject processToActor, EObject lane,
+			EObject laneSet) {
+		_this.registerObjects_BWD(ruleresult, inFlow, prevStep,
+				inFlowToPrevStep, normalStep, outFlowToFlow, inFlowToFlow,
+				process, exclusiveGateway, outFlow,
+				exclusiveGatewayToNormalStep, outFlowToNormalStep, flow, actor,
+				processToActor, lane, laneSet);
+
+	}
+
+	public static final PerformRuleResult pattern_ExclusiveGatewayToStepRule_11_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_1_blackFBB(
+			EClass eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_BWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_12_1_binding = pattern_ExclusiveGatewayToStepRule_12_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_12_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_12_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_12_1_black = pattern_ExclusiveGatewayToStepRule_12_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_12_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_12_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "ExclusiveGatewayToStepRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_2_bindingFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("prevStep");
+		EObject _localVariable_1 = match.getObject("normalStep");
+		EObject _localVariable_2 = match.getObject("flow");
+		EObject _localVariable_3 = match.getObject("actor");
+		EObject tmpPrevStep = _localVariable_0;
+		EObject tmpNormalStep = _localVariable_1;
+		EObject tmpFlow = _localVariable_2;
+		EObject tmpActor = _localVariable_3;
+		if (tmpPrevStep instanceof Step) {
+			Step prevStep = (Step) tmpPrevStep;
+			if (tmpNormalStep instanceof NormalStep) {
+				NormalStep normalStep = (NormalStep) tmpNormalStep;
+				if (tmpFlow instanceof Flow) {
+					Flow flow = (Flow) tmpFlow;
+					if (tmpActor instanceof Actor) {
+						Actor actor = (Actor) tmpActor;
+						return new Object[] { prevStep, normalStep, flow,
+								actor, match };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_12_2_blackFBFBFFBBFB(
+			Step prevStep, NormalStep normalStep, Flow flow, Actor actor,
+			Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!normalStep.equals(prevStep)) {
+			for (SequenceFlowToStep inFlowToPrevStep : org.moflon.util.eMoflonEMFUtil
+					.getOppositeReferenceTyped(prevStep,
+							SequenceFlowToStep.class, "target")) {
+				SequenceFlow inFlow = inFlowToPrevStep.getSource();
+				if (inFlow != null) {
+					for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(flow,
+									SequenceFlowToUCFlow.class, "target")) {
+						if (inFlow.equals(inFlowToFlow.getSource())) {
+							for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(actor,
+											ProcessToActor.class, "target")) {
+								bpmn2.Process process = processToActor
+										.getSource();
+								if (process != null) {
+									_result.add(new Object[] { inFlow,
+											prevStep, inFlowToPrevStep,
+											normalStep, inFlowToFlow, process,
+											flow, actor, processToActor, match });
+								}
+
+							}
+						}
+					}
+				}
+
+			}
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_12_3_blackBBBBBBBBBFF(
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep, NormalStep normalStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			Flow flow, Actor actor, ProcessToActor processToActor) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!normalStep.equals(prevStep)) {
+			if (normalStep.equals(prevStep.getNext())) {
+				if (inFlow.equals(inFlowToPrevStep.getSource())) {
+					if (prevStep.equals(inFlowToPrevStep.getTarget())) {
+						if (actor.equals(normalStep.getActor())) {
+							if (inFlow.equals(inFlowToFlow.getSource())) {
+								if (flow.equals(inFlowToFlow.getTarget())) {
+									if (process.getFlowElements().contains(
+											inFlow)) {
+										if (flow.getSteps()
+												.contains(normalStep)) {
+											if (process.equals(processToActor
+													.getSource())) {
+												if (actor.equals(processToActor
+														.getTarget())) {
+													for (LaneSet laneSet : process
+															.getLaneSets()) {
+														for (Lane lane : laneSet
+																.getLanes()) {
+															_result.add(new Object[] {
+																	inFlow,
+																	prevStep,
+																	inFlowToPrevStep,
+																	normalStep,
+																	inFlowToFlow,
+																	process,
+																	flow,
+																	actor,
+																	processToActor,
+																	lane,
+																	laneSet });
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep, NormalStep normalStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			Flow flow, Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge prevStep__normalStep____next = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToPrevStep__inFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToPrevStep__prevStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge normalStep__actor____actor = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToFlow__inFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToActor__process____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToActor__actor____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String prevStep__normalStep____next_name_prime = "next";
+		String inFlowToPrevStep__inFlow____source_name_prime = "source";
+		String inFlowToPrevStep__prevStep____target_name_prime = "target";
+		String normalStep__actor____actor_name_prime = "actor";
+		String inFlowToFlow__inFlow____source_name_prime = "source";
+		String inFlowToFlow__flow____target_name_prime = "target";
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__inFlow____flowElements_name_prime = "flowElements";
+		String flow__normalStep____steps_name_prime = "steps";
+		String processToActor__process____source_name_prime = "source";
+		String processToActor__actor____target_name_prime = "target";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		isApplicableMatch.getAllContextElements().add(inFlow);
+		isApplicableMatch.getAllContextElements().add(prevStep);
+		isApplicableMatch.getAllContextElements().add(inFlowToPrevStep);
+		isApplicableMatch.getAllContextElements().add(normalStep);
+		isApplicableMatch.getAllContextElements().add(inFlowToFlow);
+		isApplicableMatch.getAllContextElements().add(process);
+		isApplicableMatch.getAllContextElements().add(flow);
+		isApplicableMatch.getAllContextElements().add(actor);
+		isApplicableMatch.getAllContextElements().add(processToActor);
+		isApplicableMatch.getAllContextElements().add(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet);
+		prevStep__normalStep____next.setSrc(prevStep);
+		prevStep__normalStep____next.setTrg(normalStep);
+		isApplicableMatch.getAllContextElements().add(
+				prevStep__normalStep____next);
+		inFlowToPrevStep__inFlow____source.setSrc(inFlowToPrevStep);
+		inFlowToPrevStep__inFlow____source.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToPrevStep__inFlow____source);
+		inFlowToPrevStep__prevStep____target.setSrc(inFlowToPrevStep);
+		inFlowToPrevStep__prevStep____target.setTrg(prevStep);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToPrevStep__prevStep____target);
+		normalStep__actor____actor.setSrc(normalStep);
+		normalStep__actor____actor.setTrg(actor);
+		isApplicableMatch.getAllContextElements().add(
+				normalStep__actor____actor);
+		inFlowToFlow__inFlow____source.setSrc(inFlowToFlow);
+		inFlowToFlow__inFlow____source.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToFlow__inFlow____source);
+		inFlowToFlow__flow____target.setSrc(inFlowToFlow);
+		inFlowToFlow__flow____target.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToFlow__flow____target);
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		isApplicableMatch.getAllContextElements().add(
+				process__laneSet____laneSets);
+		process__inFlow____flowElements.setSrc(process);
+		process__inFlow____flowElements.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__inFlow____flowElements);
+		flow__normalStep____steps.setSrc(flow);
+		flow__normalStep____steps.setTrg(normalStep);
+		isApplicableMatch.getAllContextElements()
+				.add(flow__normalStep____steps);
+		processToActor__process____source.setSrc(processToActor);
+		processToActor__process____source.setTrg(process);
+		isApplicableMatch.getAllContextElements().add(
+				processToActor__process____source);
+		processToActor__actor____target.setSrc(processToActor);
+		processToActor__actor____target.setTrg(actor);
+		isApplicableMatch.getAllContextElements().add(
+				processToActor__actor____target);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet__lane____lanes);
+		prevStep__normalStep____next
+				.setName(prevStep__normalStep____next_name_prime);
+		inFlowToPrevStep__inFlow____source
+				.setName(inFlowToPrevStep__inFlow____source_name_prime);
+		inFlowToPrevStep__prevStep____target
+				.setName(inFlowToPrevStep__prevStep____target_name_prime);
+		normalStep__actor____actor
+				.setName(normalStep__actor____actor_name_prime);
+		inFlowToFlow__inFlow____source
+				.setName(inFlowToFlow__inFlow____source_name_prime);
+		inFlowToFlow__flow____target
+				.setName(inFlowToFlow__flow____target_name_prime);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__inFlow____flowElements
+				.setName(process__inFlow____flowElements_name_prime);
+		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
+		processToActor__process____source
+				.setName(processToActor__process____source_name_prime);
+		processToActor__actor____target
+				.setName(processToActor__actor____target_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		return new Object[] { inFlow, prevStep, inFlowToPrevStep, normalStep,
+				inFlowToFlow, process, flow, actor, processToActor, lane,
+				laneSet, isApplicableMatch, prevStep__normalStep____next,
+				inFlowToPrevStep__inFlow____source,
+				inFlowToPrevStep__prevStep____target,
+				normalStep__actor____actor, inFlowToFlow__inFlow____source,
+				inFlowToFlow__flow____target, process__laneSet____laneSets,
+				process__inFlow____flowElements, flow__normalStep____steps,
+				processToActor__process____source,
+				processToActor__actor____target, laneSet__lane____lanes };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_4_bindingFBBBBBBBBBBBBB(
+			ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
+			Step prevStep, SequenceFlowToStep inFlowToPrevStep,
+			NormalStep normalStep, SequenceFlowToUCFlow inFlowToFlow,
+			bpmn2.Process process, Flow flow, Actor actor,
+			ProcessToActor processToActor, Lane lane, LaneSet laneSet) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
+				isApplicableMatch, inFlow, prevStep, inFlowToPrevStep,
+				normalStep, inFlowToFlow, process, flow, actor, processToActor,
+				lane, laneSet);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, inFlow,
+					prevStep, inFlowToPrevStep, normalStep, inFlowToFlow,
+					process, flow, actor, processToActor, lane, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_4_bindingAndBlackFBBBBBBBBBBBBB(
+			ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
+			Step prevStep, SequenceFlowToStep inFlowToPrevStep,
+			NormalStep normalStep, SequenceFlowToUCFlow inFlowToFlow,
+			bpmn2.Process process, Flow flow, Actor actor,
+			ProcessToActor processToActor, Lane lane, LaneSet laneSet) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_12_4_binding = pattern_ExclusiveGatewayToStepRule_12_4_bindingFBBBBBBBBBBBBB(
+				_this, isApplicableMatch, inFlow, prevStep, inFlowToPrevStep,
+				normalStep, inFlowToFlow, process, flow, actor, processToActor,
+				lane, laneSet);
+		if (result_pattern_ExclusiveGatewayToStepRule_12_4_binding != null) {
+			CSP csp = (CSP) result_pattern_ExclusiveGatewayToStepRule_12_4_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_12_4_black = pattern_ExclusiveGatewayToStepRule_12_4_blackB(csp);
+			if (result_pattern_ExclusiveGatewayToStepRule_12_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, inFlow,
+						prevStep, inFlowToPrevStep, normalStep, inFlowToFlow,
+						process, flow, actor, processToActor, lane, laneSet };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_12_5_expressionFBB(
+			ExclusiveGatewayToStepRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_12_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "ExclusiveGatewayToStepRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_ExclusiveGatewayToStepRule_12_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_20_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_20_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_20_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_20_1_binding = pattern_ExclusiveGatewayToStepRule_20_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_20_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_20_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_20_1_black = pattern_ExclusiveGatewayToStepRule_20_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_20_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_20_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_20_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_20_2_blackFFFFB(
+			EMoflonEdge _edge_next) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpPrevStep = _edge_next.getSrc();
+		if (tmpPrevStep instanceof Step) {
+			Step prevStep = (Step) tmpPrevStep;
+			EObject tmpNormalStep = _edge_next.getTrg();
+			if (tmpNormalStep instanceof NormalStep) {
+				NormalStep normalStep = (NormalStep) tmpNormalStep;
+				if (!normalStep.equals(prevStep)) {
+					if (normalStep.equals(prevStep.getNext())) {
+						Actor actor = normalStep.getActor();
+						if (actor != null) {
+							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(normalStep,
+											Flow.class, "steps")) {
+								_result.add(new Object[] { prevStep,
+										normalStep, flow, actor, _edge_next });
+							}
+						}
+
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_20_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_20_3_expressionFBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, Step prevStep,
+			NormalStep normalStep, Flow flow, Actor actor) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, prevStep,
+				normalStep, flow, actor);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_20_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_20_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_20_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_20_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_21_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_21_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_21_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_21_1_binding = pattern_ExclusiveGatewayToStepRule_21_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_21_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_21_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_21_1_black = pattern_ExclusiveGatewayToStepRule_21_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_21_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_21_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_21_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_21_2_blackFFFFB(
+			EMoflonEdge _edge_actor) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpNormalStep = _edge_actor.getSrc();
+		if (tmpNormalStep instanceof NormalStep) {
+			NormalStep normalStep = (NormalStep) tmpNormalStep;
+			EObject tmpActor = _edge_actor.getTrg();
+			if (tmpActor instanceof Actor) {
+				Actor actor = (Actor) tmpActor;
+				if (actor.equals(normalStep.getActor())) {
+					for (Step prevStep : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(normalStep, Step.class,
+									"next")) {
+						if (!normalStep.equals(prevStep)) {
+							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(normalStep,
+											Flow.class, "steps")) {
+								_result.add(new Object[] { prevStep,
+										normalStep, flow, actor, _edge_actor });
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_21_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_21_3_expressionFBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, Step prevStep,
+			NormalStep normalStep, Flow flow, Actor actor) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, prevStep,
+				normalStep, flow, actor);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_21_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_21_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_21_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_21_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_22_1_binding = pattern_ExclusiveGatewayToStepRule_22_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_22_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_22_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_22_1_black = pattern_ExclusiveGatewayToStepRule_22_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_22_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_22_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_122509 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_122509)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_2_black_nac_1BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		if (exclusiveGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_22_2_blackFFFFFFB(
+			EMoflonEdge _edge_flowElements) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpExclusiveGateway = _edge_flowElements.getTrg();
+			if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+				ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+				if (process.getFlowElements().contains(exclusiveGateway)) {
+					SequenceFlow outFlow = exclusiveGateway.getDefault();
+					if (outFlow != null) {
+						if (process.getFlowElements().contains(outFlow)) {
+							if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+								if (pattern_ExclusiveGatewayToStepRule_22_2_black_nac_0BB(
+										outFlow, exclusiveGateway) == null) {
+									if (pattern_ExclusiveGatewayToStepRule_22_2_black_nac_1BB(
+											outFlow, exclusiveGateway) == null) {
+										for (LaneSet laneSet : process
+												.getLaneSets()) {
+											for (FlowElement tmpInFlow : process
+													.getFlowElements()) {
+												if (tmpInFlow instanceof SequenceFlow) {
+													SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+													if (!inFlow.equals(outFlow)) {
+														if (exclusiveGateway
+																.equals(inFlow
+																		.getTargetRef())) {
+															for (Lane lane : laneSet
+																	.getLanes()) {
+																if (lane.getFlowNodeRefs()
+																		.contains(
+																				exclusiveGateway)) {
+																	_result.add(new Object[] {
+																			inFlow,
+																			process,
+																			exclusiveGateway,
+																			outFlow,
+																			lane,
+																			laneSet,
+																			_edge_flowElements });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_22_3_expressionFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_22_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_22_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_23_1_binding = pattern_ExclusiveGatewayToStepRule_23_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_23_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_23_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_23_1_black = pattern_ExclusiveGatewayToStepRule_23_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_23_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_23_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_649872 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_649872)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_2_black_nac_1BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		if (exclusiveGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_23_2_blackFFFFFFB(
+			EMoflonEdge _edge_flowElements) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpOutFlow = _edge_flowElements.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (process.getFlowElements().contains(outFlow)) {
+					FlowNode tmpExclusiveGateway = outFlow.getSourceRef();
+					if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+						ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+						if (process.getFlowElements()
+								.contains(exclusiveGateway)) {
+							if (outFlow.equals(exclusiveGateway.getDefault())) {
+								if (pattern_ExclusiveGatewayToStepRule_23_2_black_nac_0BB(
+										outFlow, exclusiveGateway) == null) {
+									if (pattern_ExclusiveGatewayToStepRule_23_2_black_nac_1BB(
+											outFlow, exclusiveGateway) == null) {
+										for (LaneSet laneSet : process
+												.getLaneSets()) {
+											for (FlowElement tmpInFlow : process
+													.getFlowElements()) {
+												if (tmpInFlow instanceof SequenceFlow) {
+													SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+													if (!inFlow.equals(outFlow)) {
+														if (exclusiveGateway
+																.equals(inFlow
+																		.getTargetRef())) {
+															for (Lane lane : laneSet
+																	.getLanes()) {
+																if (lane.getFlowNodeRefs()
+																		.contains(
+																				exclusiveGateway)) {
+																	_result.add(new Object[] {
+																			inFlow,
+																			process,
+																			exclusiveGateway,
+																			outFlow,
+																			lane,
+																			laneSet,
+																			_edge_flowElements });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_23_3_expressionFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_23_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_23_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_24_1_binding = pattern_ExclusiveGatewayToStepRule_24_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_24_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_24_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_24_1_black = pattern_ExclusiveGatewayToStepRule_24_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_24_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_24_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_986614 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_986614)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_2_black_nac_1BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		if (exclusiveGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_24_2_blackFFFFFFB(
+			EMoflonEdge _edge_targetRef) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpInFlow = _edge_targetRef.getSrc();
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			EObject tmpExclusiveGateway = _edge_targetRef.getTrg();
+			if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+				ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+				if (exclusiveGateway.equals(inFlow.getTargetRef())) {
+					SequenceFlow outFlow = exclusiveGateway.getDefault();
+					if (outFlow != null) {
+						if (!inFlow.equals(outFlow)) {
+							if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+								if (pattern_ExclusiveGatewayToStepRule_24_2_black_nac_0BB(
+										outFlow, exclusiveGateway) == null) {
+									if (pattern_ExclusiveGatewayToStepRule_24_2_black_nac_1BB(
+											outFlow, exclusiveGateway) == null) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														inFlow,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (process
+														.getFlowElements()
+														.contains(
+																exclusiveGateway)) {
+													if (process
+															.getFlowElements()
+															.contains(outFlow)) {
+														for (LaneSet laneSet : process
+																.getLaneSets()) {
+															for (Lane lane : laneSet
+																	.getLanes()) {
+																if (lane.getFlowNodeRefs()
+																		.contains(
+																				exclusiveGateway)) {
+																	_result.add(new Object[] {
+																			inFlow,
+																			process,
+																			exclusiveGateway,
+																			outFlow,
+																			lane,
+																			laneSet,
+																			_edge_targetRef });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_24_3_expressionFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_24_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_24_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_25_1_binding = pattern_ExclusiveGatewayToStepRule_25_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_25_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_25_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_25_1_black = pattern_ExclusiveGatewayToStepRule_25_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_25_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_25_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_419733 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_419733)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_2_black_nac_1BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		if (exclusiveGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_25_2_blackFFFFFFB(
+			EMoflonEdge _edge_incoming) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpExclusiveGateway = _edge_incoming.getSrc();
+		if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+			EObject tmpInFlow = _edge_incoming.getTrg();
+			if (tmpInFlow instanceof SequenceFlow) {
+				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+				if (exclusiveGateway.equals(inFlow.getTargetRef())) {
+					SequenceFlow outFlow = exclusiveGateway.getDefault();
+					if (outFlow != null) {
+						if (!inFlow.equals(outFlow)) {
+							if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+								if (pattern_ExclusiveGatewayToStepRule_25_2_black_nac_0BB(
+										outFlow, exclusiveGateway) == null) {
+									if (pattern_ExclusiveGatewayToStepRule_25_2_black_nac_1BB(
+											outFlow, exclusiveGateway) == null) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														exclusiveGateway,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (process.getFlowElements()
+														.contains(inFlow)) {
+													if (process
+															.getFlowElements()
+															.contains(outFlow)) {
+														for (LaneSet laneSet : process
+																.getLaneSets()) {
+															for (Lane lane : laneSet
+																	.getLanes()) {
+																if (lane.getFlowNodeRefs()
+																		.contains(
+																				exclusiveGateway)) {
+																	_result.add(new Object[] {
+																			inFlow,
+																			process,
+																			exclusiveGateway,
+																			outFlow,
+																			lane,
+																			laneSet,
+																			_edge_incoming });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_25_3_expressionFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_25_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_25_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_26_1_binding = pattern_ExclusiveGatewayToStepRule_26_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_26_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_26_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_26_1_black = pattern_ExclusiveGatewayToStepRule_26_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_26_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_26_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_418060 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_418060)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_2_black_nac_1BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		if (exclusiveGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_26_2_blackFFFFFFB(
+			EMoflonEdge _edge_sourceRef) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpOutFlow = _edge_sourceRef.getSrc();
+		if (tmpOutFlow instanceof SequenceFlow) {
+			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+			EObject tmpExclusiveGateway = _edge_sourceRef.getTrg();
+			if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+				ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+				if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+					if (outFlow.equals(exclusiveGateway.getDefault())) {
+						if (pattern_ExclusiveGatewayToStepRule_26_2_black_nac_0BB(
+								outFlow, exclusiveGateway) == null) {
+							if (pattern_ExclusiveGatewayToStepRule_26_2_black_nac_1BB(
+									outFlow, exclusiveGateway) == null) {
+								for (SequenceFlow inFlow : exclusiveGateway
+										.getIncoming()) {
+									if (!inFlow.equals(outFlow)) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														outFlow,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (process.getFlowElements()
+														.contains(inFlow)) {
+													if (process
+															.getFlowElements()
+															.contains(
+																	exclusiveGateway)) {
+														for (LaneSet laneSet : process
+																.getLaneSets()) {
+															for (Lane lane : laneSet
+																	.getLanes()) {
+																if (lane.getFlowNodeRefs()
+																		.contains(
+																				exclusiveGateway)) {
+																	_result.add(new Object[] {
+																			inFlow,
+																			process,
+																			exclusiveGateway,
+																			outFlow,
+																			lane,
+																			laneSet,
+																			_edge_sourceRef });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_26_3_expressionFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_26_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_26_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_27_1_binding = pattern_ExclusiveGatewayToStepRule_27_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_27_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_27_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_27_1_black = pattern_ExclusiveGatewayToStepRule_27_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_27_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_27_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_947295 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_947295)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_2_black_nac_1BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		if (exclusiveGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_27_2_blackFFFFFFB(
+			EMoflonEdge _edge_outgoing) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpExclusiveGateway = _edge_outgoing.getSrc();
+		if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+			EObject tmpOutFlow = _edge_outgoing.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+					if (outFlow.equals(exclusiveGateway.getDefault())) {
+						if (pattern_ExclusiveGatewayToStepRule_27_2_black_nac_0BB(
+								outFlow, exclusiveGateway) == null) {
+							if (pattern_ExclusiveGatewayToStepRule_27_2_black_nac_1BB(
+									outFlow, exclusiveGateway) == null) {
+								for (SequenceFlow inFlow : exclusiveGateway
+										.getIncoming()) {
+									if (!inFlow.equals(outFlow)) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														exclusiveGateway,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (process.getFlowElements()
+														.contains(inFlow)) {
+													if (process
+															.getFlowElements()
+															.contains(outFlow)) {
+														for (LaneSet laneSet : process
+																.getLaneSets()) {
+															for (Lane lane : laneSet
+																	.getLanes()) {
+																if (lane.getFlowNodeRefs()
+																		.contains(
+																				exclusiveGateway)) {
+																	_result.add(new Object[] {
+																			inFlow,
+																			process,
+																			exclusiveGateway,
+																			outFlow,
+																			lane,
+																			laneSet,
+																			_edge_outgoing });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_27_3_expressionFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_27_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_27_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_28_1_binding = pattern_ExclusiveGatewayToStepRule_28_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_28_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_28_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_28_1_black = pattern_ExclusiveGatewayToStepRule_28_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_28_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_28_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_828295 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_828295)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_2_black_nac_1BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		if (exclusiveGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_28_2_blackFFFFFFB(
+			EMoflonEdge _edge_default) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpExclusiveGateway = _edge_default.getSrc();
+		if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+			EObject tmpOutFlow = _edge_default.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+					if (outFlow.equals(exclusiveGateway.getDefault())) {
+						if (pattern_ExclusiveGatewayToStepRule_28_2_black_nac_0BB(
+								outFlow, exclusiveGateway) == null) {
+							if (pattern_ExclusiveGatewayToStepRule_28_2_black_nac_1BB(
+									outFlow, exclusiveGateway) == null) {
+								for (SequenceFlow inFlow : exclusiveGateway
+										.getIncoming()) {
+									if (!inFlow.equals(outFlow)) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														exclusiveGateway,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (process.getFlowElements()
+														.contains(inFlow)) {
+													if (process
+															.getFlowElements()
+															.contains(outFlow)) {
+														for (LaneSet laneSet : process
+																.getLaneSets()) {
+															for (Lane lane : laneSet
+																	.getLanes()) {
+																if (lane.getFlowNodeRefs()
+																		.contains(
+																				exclusiveGateway)) {
+																	_result.add(new Object[] {
+																			inFlow,
+																			process,
+																			exclusiveGateway,
+																			outFlow,
+																			lane,
+																			laneSet,
+																			_edge_default });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_28_3_expressionFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_28_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_28_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_29_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_29_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_29_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_29_1_binding = pattern_ExclusiveGatewayToStepRule_29_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_29_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_29_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_29_1_black = pattern_ExclusiveGatewayToStepRule_29_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_29_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_29_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_29_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_29_2_blackFFFFB(
+			EMoflonEdge _edge_steps) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpFlow = _edge_steps.getSrc();
+		if (tmpFlow instanceof Flow) {
+			Flow flow = (Flow) tmpFlow;
+			EObject tmpNormalStep = _edge_steps.getTrg();
+			if (tmpNormalStep instanceof NormalStep) {
+				NormalStep normalStep = (NormalStep) tmpNormalStep;
+				if (flow.getSteps().contains(normalStep)) {
+					Actor actor = normalStep.getActor();
+					if (actor != null) {
+						for (Step prevStep : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(normalStep,
+										Step.class, "next")) {
+							if (!normalStep.equals(prevStep)) {
+								_result.add(new Object[] { prevStep,
+										normalStep, flow, actor, _edge_steps });
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_29_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_29_3_expressionFBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, Step prevStep,
+			NormalStep normalStep, Flow flow, Actor actor) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, prevStep,
+				normalStep, flow, actor);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_29_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_29_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_29_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_29_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_1_bindingFB(
+			ExclusiveGatewayToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_1_blackFBB(
+			EClass __eClass, ExclusiveGatewayToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_1_bindingAndBlackFFB(
+			ExclusiveGatewayToStepRule _this) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_30_1_binding = pattern_ExclusiveGatewayToStepRule_30_1_bindingFB(_this);
+		if (result_pattern_ExclusiveGatewayToStepRule_30_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ExclusiveGatewayToStepRule_30_1_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_30_1_black = pattern_ExclusiveGatewayToStepRule_30_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ExclusiveGatewayToStepRule_30_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ExclusiveGatewayToStepRule_30_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_2_black_nac_0BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		for (ExclusiveGateway __DEC_outFlow_default_502887 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_502887)) {
+				return new Object[] { outFlow, exclusiveGateway };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_2_black_nac_1BB(
+			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
+		if (exclusiveGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, exclusiveGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_30_2_blackFFFFFFB(
+			EMoflonEdge _edge_flowNodeRefs) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpLane = _edge_flowNodeRefs.getSrc();
+		if (tmpLane instanceof Lane) {
+			Lane lane = (Lane) tmpLane;
+			EObject tmpExclusiveGateway = _edge_flowNodeRefs.getTrg();
+			if (tmpExclusiveGateway instanceof ExclusiveGateway) {
+				ExclusiveGateway exclusiveGateway = (ExclusiveGateway) tmpExclusiveGateway;
+				if (lane.getFlowNodeRefs().contains(exclusiveGateway)) {
+					SequenceFlow outFlow = exclusiveGateway.getDefault();
+					if (outFlow != null) {
+						if (exclusiveGateway.equals(outFlow.getSourceRef())) {
+							if (pattern_ExclusiveGatewayToStepRule_30_2_black_nac_0BB(
+									outFlow, exclusiveGateway) == null) {
+								if (pattern_ExclusiveGatewayToStepRule_30_2_black_nac_1BB(
+										outFlow, exclusiveGateway) == null) {
+									for (SequenceFlow inFlow : exclusiveGateway
+											.getIncoming()) {
+										if (!inFlow.equals(outFlow)) {
+											for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+													.getOppositeReferenceTyped(
+															lane,
+															LaneSet.class,
+															"lanes")) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																exclusiveGateway,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getLaneSets()
+																.contains(
+																		laneSet)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow)) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				outFlow)) {
+																	_result.add(new Object[] {
+																			inFlow,
+																			process,
+																			exclusiveGateway,
+																			outFlow,
+																			lane,
+																			laneSet,
+																			_edge_flowNodeRefs });
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_30_3_expressionFBBBBBBBB(
+			ExclusiveGatewayToStepRule _this, Match match, SequenceFlow inFlow,
+			bpmn2.Process process, ExclusiveGateway exclusiveGateway,
+			SequenceFlow outFlow, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
+				process, exclusiveGateway, outFlow, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_30_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ExclusiveGatewayToStepRule_30_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_1_blackB(
+			ExclusiveGatewayToStepRule _this) {
+		return new Object[] { _this };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_1_greenFF() {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
+				.createModelgeneratorRuleResult();
+		boolean ruleResult_success_prime = false;
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		return new Object[] { isApplicableMatch, ruleResult };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlow inFlow) {
+		if (ruleResult.getSourceObjects().contains(inFlow)) {
+			return new Object[] { ruleResult, inFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToStep inFlowToPrevStep) {
+		if (ruleResult.getCorrObjects().contains(inFlowToPrevStep)) {
+			return new Object[] { ruleResult, inFlowToPrevStep };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_2BB(
+			ModelgeneratorRuleResult ruleResult, Step prevStep) {
+		if (ruleResult.getTargetObjects().contains(prevStep)) {
+			return new Object[] { ruleResult, prevStep };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_3BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToUCFlow inFlowToFlow) {
+		if (ruleResult.getCorrObjects().contains(inFlowToFlow)) {
+			return new Object[] { ruleResult, inFlowToFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_4BB(
+			ModelgeneratorRuleResult ruleResult, Flow flow) {
+		if (ruleResult.getTargetObjects().contains(flow)) {
+			return new Object[] { ruleResult, flow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_5BB(
+			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
+		if (ruleResult.getSourceObjects().contains(process)) {
+			return new Object[] { ruleResult, process };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_6BB(
+			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
+		if (ruleResult.getSourceObjects().contains(laneSet)) {
+			return new Object[] { ruleResult, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_7BB(
+			ModelgeneratorRuleResult ruleResult, Lane lane) {
+		if (ruleResult.getSourceObjects().contains(lane)) {
+			return new Object[] { ruleResult, lane };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_8BB(
+			ModelgeneratorRuleResult ruleResult, ProcessToActor processToActor) {
+		if (ruleResult.getCorrObjects().contains(processToActor)) {
+			return new Object[] { ruleResult, processToActor };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_2_black_nac_9BB(
+			ModelgeneratorRuleResult ruleResult, Actor actor) {
+		if (ruleResult.getTargetObjects().contains(actor)) {
+			return new Object[] { ruleResult, actor };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ExclusiveGatewayToStepRule_33_2_blackFFFFFFFFFFFBB(
+			RuleEntryContainer ruleEntryContainer,
+			ModelgeneratorRuleResult ruleResult) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (RuleEntryList inFlowToPrevStepList : ruleEntryContainer
+				.getRuleEntryList()) {
+			for (EObject tmpInFlowToPrevStep : inFlowToPrevStepList
+					.getEntryObjects()) {
+				if (tmpInFlowToPrevStep instanceof SequenceFlowToStep) {
+					SequenceFlowToStep inFlowToPrevStep = (SequenceFlowToStep) tmpInFlowToPrevStep;
+					SequenceFlow inFlow = inFlowToPrevStep.getSource();
+					if (inFlow != null) {
+						Step prevStep = inFlowToPrevStep.getTarget();
+						if (prevStep != null) {
+							if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_1BB(
+									ruleResult, inFlowToPrevStep) == null) {
+								if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_0BB(
+										ruleResult, inFlow) == null) {
+									if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_2BB(
+											ruleResult, prevStep) == null) {
+										for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														inFlow,
+														SequenceFlowToUCFlow.class,
+														"source")) {
+											Flow flow = inFlowToFlow
+													.getTarget();
+											if (flow != null) {
+												if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_3BB(
+														ruleResult,
+														inFlowToFlow) == null) {
+													if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_4BB(
+															ruleResult, flow) == null) {
+														for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		inFlow,
+																		FlowElementsContainer.class,
+																		"flowElements")) {
+															if (tmpProcess instanceof bpmn2.Process) {
+																bpmn2.Process process = (bpmn2.Process) tmpProcess;
+																if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_5BB(
+																		ruleResult,
+																		process) == null) {
+																	for (LaneSet laneSet : process
+																			.getLaneSets()) {
+																		if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_6BB(
+																				ruleResult,
+																				laneSet) == null) {
+																			for (Lane lane : laneSet
+																					.getLanes()) {
+																				if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_7BB(
+																						ruleResult,
+																						lane) == null) {
+																					for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
+																							.getOppositeReferenceTyped(
+																									process,
+																									ProcessToActor.class,
+																									"source")) {
+																						Actor actor = processToActor
+																								.getTarget();
+																						if (actor != null) {
+																							if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_8BB(
+																									ruleResult,
+																									processToActor) == null) {
+																								if (pattern_ExclusiveGatewayToStepRule_33_2_black_nac_9BB(
+																										ruleResult,
+																										actor) == null) {
+																									_result.add(new Object[] {
+																											inFlowToPrevStepList,
+																											inFlow,
+																											inFlowToPrevStep,
+																											prevStep,
+																											inFlowToFlow,
+																											flow,
+																											process,
+																											laneSet,
+																											lane,
+																											processToActor,
+																											actor,
+																											ruleEntryContainer,
+																											ruleResult });
+																								}
+																							}
+																						}
+
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+
+										}
+									}
+								}
+							}
+						}
+
+					}
+
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_3_bindingFBBBBBBBBBBBBB(
+			ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
+			Step prevStep, SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			Flow flow, Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {
+		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
+				isApplicableMatch, inFlow, prevStep, inFlowToPrevStep,
+				inFlowToFlow, process, flow, actor, processToActor, lane,
+				laneSet, ruleResult);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, inFlow,
+					prevStep, inFlowToPrevStep, inFlowToFlow, process, flow,
+					actor, processToActor, lane, laneSet, ruleResult };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_3_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_3_bindingAndBlackFBBBBBBBBBBBBB(
+			ExclusiveGatewayToStepRule _this,
+			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
+			Step prevStep, SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			Flow flow, Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_ExclusiveGatewayToStepRule_33_3_binding = pattern_ExclusiveGatewayToStepRule_33_3_bindingFBBBBBBBBBBBBB(
+				_this, isApplicableMatch, inFlow, prevStep, inFlowToPrevStep,
+				inFlowToFlow, process, flow, actor, processToActor, lane,
+				laneSet, ruleResult);
+		if (result_pattern_ExclusiveGatewayToStepRule_33_3_binding != null) {
+			CSP csp = (CSP) result_pattern_ExclusiveGatewayToStepRule_33_3_binding[0];
+
+			Object[] result_pattern_ExclusiveGatewayToStepRule_33_3_black = pattern_ExclusiveGatewayToStepRule_33_3_blackB(csp);
+			if (result_pattern_ExclusiveGatewayToStepRule_33_3_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, inFlow,
+						prevStep, inFlowToPrevStep, inFlowToFlow, process,
+						flow, actor, processToActor, lane, laneSet, ruleResult };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ExclusiveGatewayToStepRule_33_4_expressionFBB(
+			ExclusiveGatewayToStepRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_5_blackBBBBBBBBBB(
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			Flow flow, Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet) {
+		return new Object[] { inFlow, prevStep, inFlowToPrevStep, inFlowToFlow,
+				process, flow, actor, processToActor, lane, laneSet };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_6_blackBBBBBBBBBBB(
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep,
+			SequenceFlowToUCFlow inFlowToFlow, bpmn2.Process process,
+			Flow flow, Actor actor, ProcessToActor processToActor, Lane lane,
+			LaneSet laneSet, ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { inFlow, prevStep, inFlowToPrevStep, inFlowToFlow,
+				process, flow, actor, processToActor, lane, laneSet, ruleResult };
+	}
+
+	public static final Object[] pattern_ExclusiveGatewayToStepRule_33_6_greenBBFFBFFFFBBBBB(
+			SequenceFlow inFlow, Step prevStep, bpmn2.Process process,
+			Flow flow, Actor actor, Lane lane,
+			ModelgeneratorRuleResult ruleResult, CSP csp) {
+		NormalStep normalStep = UseCaseDSLFactory.eINSTANCE.createNormalStep();
+		SequenceFlowToUCFlow outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToUCFlow();
+		ExclusiveGateway exclusiveGateway = Bpmn2Factory.eINSTANCE
+				.createExclusiveGateway();
+		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
+		FlowNodeToStep exclusiveGatewayToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createFlowNodeToStep();
+		SequenceFlowToStep outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToStep();
+		Object _localVariable_0 = csp.getValue("normalStep", "name");
+		Object _localVariable_1 = csp.getValue("normalStep", "label");
+		Object _localVariable_2 = csp.getValue("exclusiveGateway", "id");
+		Object _localVariable_3 = csp.getValue("exclusiveGateway", "name");
+		Object _localVariable_4 = csp.getValue("exclusiveGateway",
+				"gatewayDirection");
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
+		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		prevStep.setNext(normalStep);
+		normalStep.setActor(actor);
+		flow.getSteps().add(normalStep);
+		ruleResult.getTargetObjects().add(normalStep);
+		outFlowToFlow.setTarget(flow);
+		ruleResult.getCorrObjects().add(outFlowToFlow);
+		process.getFlowElements().add(exclusiveGateway);
+		inFlow.setTargetRef(exclusiveGateway);
+		lane.getFlowNodeRefs().add(exclusiveGateway);
+		ruleResult.getSourceObjects().add(exclusiveGateway);
+		outFlowToFlow.setSource(outFlow);
+		process.getFlowElements().add(outFlow);
+		outFlow.setSourceRef(exclusiveGateway);
+		exclusiveGateway.setDefault(outFlow);
+		ruleResult.getSourceObjects().add(outFlow);
+		exclusiveGatewayToNormalStep.setSource(exclusiveGateway);
+		exclusiveGatewayToNormalStep.setTarget(normalStep);
+		ruleResult.getCorrObjects().add(exclusiveGatewayToNormalStep);
+		outFlowToNormalStep.setSource(outFlow);
+		outFlowToNormalStep.setTarget(normalStep);
+		ruleResult.getCorrObjects().add(outFlowToNormalStep);
+		String normalStep_name_prime = (String) _localVariable_0;
+		String normalStep_label_prime = (String) _localVariable_1;
+		String exclusiveGateway_id_prime = (String) _localVariable_2;
+		String exclusiveGateway_name_prime = (String) _localVariable_3;
+		GatewayDirection exclusiveGateway_gatewayDirection_prime = (GatewayDirection) _localVariable_4;
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		normalStep.setName(normalStep_name_prime);
+		normalStep.setLabel(normalStep_label_prime);
+		exclusiveGateway.setId(exclusiveGateway_id_prime);
+		exclusiveGateway.setName(exclusiveGateway_name_prime);
+		exclusiveGateway
+				.setGatewayDirection(exclusiveGateway_gatewayDirection_prime);
+		ruleResult.setPerformCount(Integer
+				.valueOf(ruleResult_performCount_prime));
+		return new Object[] { inFlow, prevStep, normalStep, outFlowToFlow,
+				process, exclusiveGateway, outFlow,
+				exclusiveGatewayToNormalStep, outFlowToNormalStep, flow, actor,
+				lane, ruleResult, csp };
+	}
+
+	public static final ModelgeneratorRuleResult pattern_ExclusiveGatewayToStepRule_33_7_expressionFB(
+			ModelgeneratorRuleResult ruleResult) {
+		ModelgeneratorRuleResult _result = ruleResult;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

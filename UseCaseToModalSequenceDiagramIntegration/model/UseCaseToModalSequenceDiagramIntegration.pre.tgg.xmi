@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UseCaseToModalSequenceDiagramIntegration">
   <domain name="Source" metamodel="//@metamodel.1" type="SOURCE"/>
-  <domain name="Target" metamodel="//@metamodel.2" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.0"/>
+  <domain name="Target" metamodel="//@metamodel.0" type="TARGET"/>
+  <domain name="Correspondence" metamodel="//@metamodel.2"/>
   <tggRule name="UCModelToMSDModelRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCasesModel" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//UseCasesModel"/>
@@ -19,6 +19,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.0/@objectVariable.1" source="//@tggRule.0/@objectVariable.2" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//UseCasesModelToModel/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="UCPackageToMSDPackage" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCasesModel" incomingLink="//@tggRule.1/@linkVariable.2" outgoingLink="//@tggRule.1/@linkVariable.0" domain="//@domain.0">
@@ -398,6 +399,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.7/@objectVariable.0" source="//@tggRule.7/@objectVariable.4" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//FlowToInteractionFragment/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="NormalStepNFToMessageRule" refines="//@tggRule.4" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="operand" incomingLink="//@tggRule.8/@linkVariable.3 //@tggRule.8/@linkVariable.4 //@tggRule.8/@linkVariable.6" outgoingLink="//@tggRule.8/@linkVariable.0 //@tggRule.8/@linkVariable.1" domain="//@domain.1">
@@ -442,6 +444,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="operand" target="//@tggRule.8/@objectVariable.0" source="//@tggRule.8/@objectVariable.6" domain="//@domain.1">
       <type href="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//CombinedFragment/operand"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="AltStepToComboRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="interaction" incomingLink="//@tggRule.9/@linkVariable.4 //@tggRule.9/@linkVariable.0 //@tggRule.9/@linkVariable.1" domain="//@domain.1">
@@ -661,6 +664,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="coveredBy" target="//@tggRule.10/@objectVariable.7" source="//@tggRule.10/@objectVariable.5" bindingOperator="CREATE" domain="//@domain.1">
       <type href="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//Lifeline/coveredBy"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="ParallelStepToCombinedFragmentRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCase" incomingLink="//@tggRule.11/@linkVariable.3" outgoingLink="//@tggRule.11/@linkVariable.0" domain="//@domain.0">
@@ -1136,6 +1140,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.16/@objectVariable.0" source="//@tggRule.16/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//FlowToInteractionFragment/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="UserStepBFMessageRule" refines="//@tggRule.7" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.17/@linkVariable.0" domain="//@domain.0">
@@ -1530,13 +1535,13 @@
       <variables xsi:type="csp:Literal" bound="true" value="ACED00057400082273797374656D22"/>
     </csp>
   </tggRule>
-  <metamodel name="UseCaseToModalSequenceDiagramIntegration">
-    <outermostPackage href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#/"/>
+  <metamodel name="ModalSequenceDiagram">
+    <outermostPackage href="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#/"/>
   </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
-  <metamodel name="ModalSequenceDiagram">
-    <outermostPackage href="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#/"/>
+  <metamodel name="UseCaseToModalSequenceDiagramIntegration">
+    <outermostPackage href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

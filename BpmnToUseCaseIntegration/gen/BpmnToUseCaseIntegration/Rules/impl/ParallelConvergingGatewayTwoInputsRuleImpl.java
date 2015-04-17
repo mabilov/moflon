@@ -3,29 +3,26 @@
 package BpmnToUseCaseIntegration.Rules.impl;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
-import BpmnToUseCaseIntegration.DefinitionsToPackage;
-import BpmnToUseCaseIntegration.DocRootToUCModel;
-import BpmnToUseCaseIntegration.EndEventToFlow;
 import BpmnToUseCaseIntegration.FlowNodeToStep;
-import BpmnToUseCaseIntegration.ICEToAltFlow;
-import BpmnToUseCaseIntegration.LaneToActor;
-import BpmnToUseCaseIntegration.ProcessToActor;
-import BpmnToUseCaseIntegration.ProcessToUseCase;
 
 import BpmnToUseCaseIntegration.Rules.ParallelConvergingGatewayRule;
 import BpmnToUseCaseIntegration.Rules.ParallelConvergingGatewayTwoInputsRule;
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
 
-import BpmnToUseCaseIntegration.SeqFlowToAltFlowAlt;
 import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
-import BpmnToUseCaseIntegration.StartEventToBasicFlow;
+
+import TGGLanguage.csp.CSP;
+
+import TGGLanguage.modelgenerator.RuleEntryContainer;
+import TGGLanguage.modelgenerator.RuleEntryList;
 
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
+import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -33,53 +30,33 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
-import UseCaseDSL.Actor;
-import UseCaseDSL.AlternativeFlow;
-import UseCaseDSL.AlternativeFlowAlternative;
-import UseCaseDSL.BasicFlow;
 import UseCaseDSL.Flow;
-import UseCaseDSL.NormalStep;
-import UseCaseDSL.PackageDeclaration;
 import UseCaseDSL.ParallelFlow;
 import UseCaseDSL.ParallelStep;
 import UseCaseDSL.Step;
-import UseCaseDSL.UseCase;
-import UseCaseDSL.UseCaseDSLFactory;
-import UseCaseDSL.UseCasesModel;
 
 import bpmn2.Bpmn2Factory;
-import bpmn2.Definitions;
-import bpmn2.DocumentRoot;
-import bpmn2.EndEvent;
-import bpmn2.Event;
-import bpmn2.EventBasedGateway;
 import bpmn2.ExclusiveGateway;
+import bpmn2.FlowElement;
 import bpmn2.FlowElementsContainer;
 import bpmn2.FlowNode;
-import bpmn2.IntermediateCatchEvent;
-import bpmn2.IntermediateThrowEvent;
+import bpmn2.GatewayDirection;
 import bpmn2.Lane;
 import bpmn2.LaneSet;
 import bpmn2.ParallelGateway;
 import bpmn2.SequenceFlow;
-import bpmn2.ServiceTask;
-import bpmn2.StartEvent;
-import bpmn2.Task;
-import bpmn2.UserTask;
 
-import de.upb.tools.sdm.*;
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
 import org.moflon.csp.*;
 import csp.constraints.*;
@@ -128,582 +105,93 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
 			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
 			LaneSet laneSet, SequenceFlow divergeFlow) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __inFlow1_targetRef_parallelConvGateway = null;
-		EMoflonEdge __parallelConvGateway_incoming_inFlow = null;
-		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
-		EMoflonEdge __lane_flowNodeRefs_parallelConvGateway = null;
-		EMoflonEdge __parallelConvGateway_incoming_inFlow1 = null;
-		EMoflonEdge __outFlow_sourceRef_parallelConvGateway = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
-		EMoflonEdge __process_flowElements_divergeFlow = null;
-		EMoflonEdge __divergeFlow_sourceRef_parallelGateway = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge __divergeFlow1_sourceRef_parallelGateway = null;
-		EMoflonEdge __process_flowElements_inFlow1 = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __parallelGateway_outgoing_divergeFlow1 = null;
-		EMoflonEdge __parallelGateway_outgoing_divergeFlow = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object divergeFlow1 is really bound
-			JavaSDM.ensure(divergeFlow1 != null);
-			// check object divergeFlow is really bound
-			JavaSDM.ensure(divergeFlow != null);
-			// check object inFlow1 is really bound
-			JavaSDM.ensure(inFlow1 != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object parallelConvGateway is really bound
-			JavaSDM.ensure(parallelConvGateway != null);
-			// check object parallelGateway is really bound
-			JavaSDM.ensure(parallelGateway != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-			JavaSDM.ensure(!divergeFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow1 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow and divergeFlow1 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects outFlow and divergeFlow1 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow and divergeFlow 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects outFlow and divergeFlow 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1 and inFlow 
-			JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-			// check isomorphic binding between objects outFlow and inFlow1 
-			JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-			JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_0_1_blackBBBBBBBBBBBB(
+						this, match, process, inFlow1, parallelConvGateway,
+						parallelGateway, divergeFlow1, inFlow, outFlow, lane,
+						laneSet, divergeFlow);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, process,
-					inFlow1, parallelConvGateway, parallelGateway,
-					divergeFlow1, inFlow, outFlow, lane, laneSet, divergeFlow));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_0_2_bindingAndBlackFBBBBBBBBBBBB(
+						this, match, process, inFlow1, parallelConvGateway,
+						parallelGateway, divergeFlow1, inFlow, outFlow, lane,
+						laneSet, divergeFlow);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_0_3_expressionFBB(
+						this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object divergeFlow1 is really bound
-				JavaSDM.ensure(divergeFlow1 != null);
-				// check object divergeFlow is really bound
-				JavaSDM.ensure(divergeFlow != null);
-				// check object inFlow1 is really bound
-				JavaSDM.ensure(inFlow1 != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object parallelConvGateway is really bound
-				JavaSDM.ensure(parallelConvGateway != null);
-				// check object parallelGateway is really bound
-				JavaSDM.ensure(parallelGateway != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-				JavaSDM.ensure(!divergeFlow1.equals(divergeFlow));
-
-				// check isomorphic binding between objects inFlow1 and divergeFlow1 
-				JavaSDM.ensure(!inFlow1.equals(divergeFlow1));
-
-				// check isomorphic binding between objects inFlow and divergeFlow1 
-				JavaSDM.ensure(!inFlow.equals(divergeFlow1));
-
-				// check isomorphic binding between objects outFlow and divergeFlow1 
-				JavaSDM.ensure(!outFlow.equals(divergeFlow1));
-
-				// check isomorphic binding between objects inFlow1 and divergeFlow 
-				JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-				// check isomorphic binding between objects inFlow and divergeFlow 
-				JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-				// check isomorphic binding between objects outFlow and divergeFlow 
-				JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-				// check isomorphic binding between objects inFlow1 and inFlow 
-				JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-				// check isomorphic binding between objects outFlow and inFlow1 
-				JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-				// check isomorphic binding between objects outFlow and inFlow 
-				JavaSDM.ensure(!outFlow.equals(inFlow));
-
-				// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-				JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-				// create object __inFlow1_targetRef_parallelConvGateway
-				__inFlow1_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelConvGateway_incoming_inFlow
-				__parallelConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelConvGateway_outgoing_outFlow
-				__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __lane_flowNodeRefs_parallelConvGateway
-				__lane_flowNodeRefs_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelConvGateway_incoming_inFlow1
-				__parallelConvGateway_incoming_inFlow1 = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __outFlow_sourceRef_parallelConvGateway
-				__outFlow_sourceRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_outFlow
-				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __inFlow_targetRef_parallelConvGateway
-				__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __inFlow1_targetRef_parallelConvGateway
-				__inFlow1_targetRef_parallelConvGateway.setName("targetRef");
-				// assign attribute __parallelConvGateway_incoming_inFlow1
-				__parallelConvGateway_incoming_inFlow1.setName("incoming");
-				// assign attribute __process_flowElements_outFlow
-				__process_flowElements_outFlow.setName("flowElements");
-				// assign attribute __inFlow_targetRef_parallelConvGateway
-				__inFlow_targetRef_parallelConvGateway.setName("targetRef");
-				// assign attribute __parallelConvGateway_incoming_inFlow
-				__parallelConvGateway_incoming_inFlow.setName("incoming");
-				// assign attribute __outFlow_sourceRef_parallelConvGateway
-				__outFlow_sourceRef_parallelConvGateway.setName("sourceRef");
-				// assign attribute __parallelConvGateway_outgoing_outFlow
-				__parallelConvGateway_outgoing_outFlow.setName("outgoing");
-				// assign attribute __lane_flowNodeRefs_parallelConvGateway
-				__lane_flowNodeRefs_parallelConvGateway.setName("flowNodeRefs");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow1_targetRef_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__parallelConvGateway_incoming_inFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__parallelConvGateway_outgoing_outFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__lane_flowNodeRefs_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__parallelConvGateway_incoming_inFlow1,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__outFlow_sourceRef_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_outFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						parallelConvGateway, "toBeTranslatedNodes");
-
-				// create link
-				__process_flowElements_outFlow.setSrc(process);
-
-				// create link
-				__parallelConvGateway_incoming_inFlow1.setTrg(inFlow1);
-
-				// create link
-				__inFlow1_targetRef_parallelConvGateway.setSrc(inFlow1);
-
-				// create link
-				__outFlow_sourceRef_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__parallelConvGateway_outgoing_outFlow
-						.setSrc(parallelConvGateway);
-
-				// create link
-				__lane_flowNodeRefs_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__parallelConvGateway_incoming_inFlow
-						.setSrc(parallelConvGateway);
-
-				// create link
-				__parallelConvGateway_incoming_inFlow1
-						.setSrc(parallelConvGateway);
-
-				// create link
-				__inFlow1_targetRef_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__inFlow_targetRef_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__parallelConvGateway_incoming_inFlow.setTrg(inFlow);
-
-				// create link
-				__inFlow_targetRef_parallelConvGateway.setSrc(inFlow);
-
-				// create link
-				__parallelConvGateway_outgoing_outFlow.setTrg(outFlow);
-
-				// create link
-				__process_flowElements_outFlow.setTrg(outFlow);
-
-				// create link
-				__outFlow_sourceRef_parallelConvGateway.setSrc(outFlow);
-
-				// create link
-				__lane_flowNodeRefs_parallelConvGateway.setSrc(lane);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_4_blackBBBBBBBBBBB(
+							match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_4_greenBBBBBBBFFFFFFFF(
+							match, process, inFlow1, parallelConvGateway,
+							inFlow, outFlow, lane);
+			// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result4_green[12];
+			// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result4_green[13];
+			// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result4_green[14];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object divergeFlow1 is really bound
-				JavaSDM.ensure(divergeFlow1 != null);
-				// check object divergeFlow is really bound
-				JavaSDM.ensure(divergeFlow != null);
-				// check object inFlow1 is really bound
-				JavaSDM.ensure(inFlow1 != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object parallelConvGateway is really bound
-				JavaSDM.ensure(parallelConvGateway != null);
-				// check object parallelGateway is really bound
-				JavaSDM.ensure(parallelGateway != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-				JavaSDM.ensure(!divergeFlow1.equals(divergeFlow));
-
-				// check isomorphic binding between objects inFlow1 and divergeFlow1 
-				JavaSDM.ensure(!inFlow1.equals(divergeFlow1));
-
-				// check isomorphic binding between objects inFlow and divergeFlow1 
-				JavaSDM.ensure(!inFlow.equals(divergeFlow1));
-
-				// check isomorphic binding between objects outFlow and divergeFlow1 
-				JavaSDM.ensure(!outFlow.equals(divergeFlow1));
-
-				// check isomorphic binding between objects inFlow1 and divergeFlow 
-				JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-				// check isomorphic binding between objects inFlow and divergeFlow 
-				JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-				// check isomorphic binding between objects outFlow and divergeFlow 
-				JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-				// check isomorphic binding between objects inFlow1 and inFlow 
-				JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-				// check isomorphic binding between objects outFlow and inFlow1 
-				JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-				// check isomorphic binding between objects outFlow and inFlow 
-				JavaSDM.ensure(!outFlow.equals(inFlow));
-
-				// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-				JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-				// create object __process_flowElements_divergeFlow
-				__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __divergeFlow_sourceRef_parallelGateway
-				__divergeFlow_sourceRef_parallelGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __divergeFlow1_sourceRef_parallelGateway
-				__divergeFlow1_sourceRef_parallelGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_inFlow1
-				__process_flowElements_inFlow1 = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_inFlow
-				__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelGateway_outgoing_divergeFlow1
-				__parallelGateway_outgoing_divergeFlow1 = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelGateway_outgoing_divergeFlow
-				__parallelGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_flowElements_inFlow1
-				__process_flowElements_inFlow1.setName("flowElements");
-				// assign attribute __divergeFlow1_sourceRef_parallelGateway
-				__divergeFlow1_sourceRef_parallelGateway.setName("sourceRef");
-				// assign attribute __parallelGateway_outgoing_divergeFlow1
-				__parallelGateway_outgoing_divergeFlow1.setName("outgoing");
-				// assign attribute __process_flowElements_inFlow
-				__process_flowElements_inFlow.setName("flowElements");
-				// assign attribute __process_laneSets_laneSet
-				__process_laneSets_laneSet.setName("laneSets");
-				// assign attribute __process_flowElements_divergeFlow
-				__process_flowElements_divergeFlow.setName("flowElements");
-				// assign attribute __laneSet_lanes_lane
-				__laneSet_lanes_lane.setName("lanes");
-				// assign attribute __divergeFlow_sourceRef_parallelGateway
-				__divergeFlow_sourceRef_parallelGateway.setName("sourceRef");
-				// assign attribute __parallelGateway_outgoing_divergeFlow
-				__parallelGateway_outgoing_divergeFlow.setName("outgoing");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						divergeFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_divergeFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__divergeFlow_sourceRef_parallelGateway,
-								"contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						parallelGateway, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__laneSet_lanes_lane, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						divergeFlow1, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__divergeFlow1_sourceRef_parallelGateway,
-						"contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow1, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__parallelGateway_outgoing_divergeFlow1,
-								"contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow1, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__parallelGateway_outgoing_divergeFlow, "contextEdges");
-
-				// create link
-				__process_laneSets_laneSet.setSrc(process);
-
-				// create link
-				__process_flowElements_divergeFlow.setSrc(process);
-
-				// create link
-				__process_flowElements_inFlow1.setSrc(process);
-
-				// create link
-				__process_flowElements_inFlow.setSrc(process);
-
-				// create link
-				__process_flowElements_inFlow1.setTrg(inFlow1);
-
-				// create link
-				__parallelGateway_outgoing_divergeFlow.setSrc(parallelGateway);
-
-				// create link
-				__divergeFlow1_sourceRef_parallelGateway
-						.setTrg(parallelGateway);
-
-				// create link
-				__parallelGateway_outgoing_divergeFlow1.setSrc(parallelGateway);
-
-				// create link
-				__divergeFlow_sourceRef_parallelGateway.setTrg(parallelGateway);
-
-				// create link
-				__parallelGateway_outgoing_divergeFlow1.setTrg(divergeFlow1);
-
-				// create link
-				__divergeFlow1_sourceRef_parallelGateway.setSrc(divergeFlow1);
-
-				// create link
-				__process_flowElements_inFlow.setTrg(inFlow);
-
-				// create link
-				__laneSet_lanes_lane.setTrg(lane);
-
-				// create link
-				__laneSet_lanes_lane.setSrc(laneSet);
-
-				// create link
-				__process_laneSets_laneSet.setTrg(laneSet);
-
-				// create link
-				__parallelGateway_outgoing_divergeFlow.setTrg(divergeFlow);
-
-				// create link
-				__divergeFlow_sourceRef_parallelGateway.setSrc(divergeFlow);
-
-				// create link
-				__process_flowElements_divergeFlow.setTrg(divergeFlow);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_5_blackBBBBBBBBBBB(
+							match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_5_greenBBBBBBBBBFFFFFFFFF(
+							match, process, inFlow1, parallelGateway,
+							divergeFlow1, inFlow, lane, laneSet, divergeFlow);
+			// EMoflonEdge process__inFlow1____flowElements = (EMoflonEdge) result5_green[9];
+			// EMoflonEdge divergeFlow1__parallelGateway____sourceRef = (EMoflonEdge) result5_green[10];
+			// EMoflonEdge parallelGateway__divergeFlow1____outgoing = (EMoflonEdge) result5_green[11];
+			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[12];
+			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[13];
+			// EMoflonEdge process__divergeFlow____flowElements = (EMoflonEdge) result5_green[14];
+			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[15];
+			// EMoflonEdge divergeFlow__parallelGateway____sourceRef = (EMoflonEdge) result5_green[16];
+			// EMoflonEdge parallelGateway__divergeFlow____outgoing = (EMoflonEdge) result5_green[17];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, process, inFlow1,
-					parallelConvGateway, parallelGateway, divergeFlow1, inFlow,
-					outFlow, lane, laneSet, divergeFlow);
-			return true;
-
+			// register objects to match
+			ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_6_expressionBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow);
+			return ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -712,1414 +200,103 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * @generated
 	 */
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		SequenceFlow divergeFlow1 = null;
-		SequenceFlowToUCFlow divergeFlow1ToFlow1 = null;
-		SequenceFlow divergeFlow = null;
-		SequenceFlowToUCFlow divergeFlowToFlow = null;
-		ParallelFlow flow1 = null;
-		ParallelFlow flow = null;
-		SequenceFlow inFlow1 = null;
-		SequenceFlowToUCFlow inFlow1ToFlow1 = null;
-		SequenceFlowToStep inFlow1ToStep1 = null;
-		SequenceFlow inFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-		SequenceFlowToStep inFlowToStep = null;
-		Flow initFlow = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		SequenceFlow outFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		ParallelGateway parallelGateway = null;
-		ParallelStep parallelStep = null;
-		bpmn2.Process process = null;
-		Step step1 = null;
-		Step step = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		SequenceFlowToStep outFlowToParallelStep = null;
-		SequenceFlowToUCFlow outFlowToInitFlow = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge outFlowToParallelStep__target__parallelStep = null;
-		EMoflonEdge outFlowToParallelStep__source__outFlow = null;
-		EMoflonEdge outFlowToInitFlow__source__outFlow = null;
-		EMoflonEdge __parallelConvGateway_incoming_inFlow1 = null;
-		EMoflonEdge __lane_flowNodeRefs_parallelConvGateway = null;
-		EMoflonEdge __outFlow_sourceRef_parallelConvGateway = null;
-		EMoflonEdge __inFlow1_targetRef_parallelConvGateway = null;
-		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
-		EMoflonEdge outFlowToInitFlow__target__initFlow = null;
-		EMoflonEdge __parallelConvGateway_incoming_inFlow = null;
-		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("divergeFlow1"));
-
-			// ensure correct type and really bound of object divergeFlow1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			divergeFlow1 = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("divergeFlow1ToFlow1"));
-
-			// ensure correct type and really bound of object divergeFlow1ToFlow1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			divergeFlow1ToFlow1 = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("divergeFlow"));
-
-			// ensure correct type and really bound of object divergeFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			divergeFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("divergeFlowToFlow"));
-
-			// ensure correct type and really bound of object divergeFlowToFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			divergeFlowToFlow = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("flow1"));
-
-			// ensure correct type and really bound of object flow1
-			JavaSDM.ensure(_TmpObject instanceof ParallelFlow);
-			flow1 = (ParallelFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof ParallelFlow);
-			flow = (ParallelFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlow1"));
-
-			// ensure correct type and really bound of object inFlow1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow1 = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlow1ToFlow1"));
-
-			// ensure correct type and really bound of object inFlow1ToFlow1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			inFlow1ToFlow1 = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlow1ToStep1"));
-
-			// ensure correct type and really bound of object inFlow1ToStep1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToStep);
-			inFlow1ToStep1 = (SequenceFlowToStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlow"));
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlowToFlow"));
-
-			// ensure correct type and really bound of object inFlowToFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			inFlowToFlow = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlowToStep"));
-
-			// ensure correct type and really bound of object inFlowToStep
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToStep);
-			inFlowToStep = (SequenceFlowToStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("initFlow"));
-
-			// ensure correct type and really bound of object initFlow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			initFlow = (Flow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("outFlow"));
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("parallelConvGateway"));
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("parallelGateway"));
-
-			// ensure correct type and really bound of object parallelGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelGateway = (ParallelGateway) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("parallelStep"));
-
-			// ensure correct type and really bound of object parallelStep
-			JavaSDM.ensure(_TmpObject instanceof ParallelStep);
-			parallelStep = (ParallelStep) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("step1"));
-
-			// ensure correct type and really bound of object step1
-			JavaSDM.ensure(_TmpObject instanceof Step);
-			step1 = (Step) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("step"));
-
-			// ensure correct type and really bound of object step
-			JavaSDM.ensure(_TmpObject instanceof Step);
-			step = (Step) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-			JavaSDM.ensure(!divergeFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow1 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow and divergeFlow1 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects outFlow and divergeFlow1 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects divergeFlowToFlow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!divergeFlowToFlow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlowToFlow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!inFlowToFlow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow and divergeFlow 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects outFlow and divergeFlow 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlowToFlow 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects inFlowToFlow and divergeFlowToFlow 
-			JavaSDM.ensure(!inFlowToFlow.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects flow1 and flow 
-			JavaSDM.ensure(!flow1.equals(flow));
-
-			// check isomorphic binding between objects initFlow and flow1 
-			JavaSDM.ensure(!initFlow.equals(flow1));
-
-			// check isomorphic binding between objects initFlow and flow 
-			JavaSDM.ensure(!initFlow.equals(flow));
-
-			// check isomorphic binding between objects inFlow1 and inFlow 
-			JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-			// check isomorphic binding between objects outFlow and inFlow1 
-			JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-			// check isomorphic binding between objects inFlowToFlow and inFlow1ToFlow1 
-			JavaSDM.ensure(!inFlowToFlow.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlowToStep and inFlow1ToStep1 
-			JavaSDM.ensure(!inFlowToStep.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-			JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-			// check isomorphic binding between objects step1 and parallelStep 
-			JavaSDM.ensure(!step1.equals(parallelStep));
-
-			// check isomorphic binding between objects step and parallelStep 
-			JavaSDM.ensure(!step.equals(parallelStep));
-
-			// check isomorphic binding between objects step1 and step 
-			JavaSDM.ensure(!step1.equals(step));
-
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object outFlowToParallelStep
-			outFlowToParallelStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSequenceFlowToStep();
-
-			// create object outFlowToInitFlow
-			outFlowToInitFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createSequenceFlowToUCFlow();
-
-			// create link
-			outFlowToParallelStep.setTarget(parallelStep);
-
-			// create link
-			outFlowToInitFlow.setSource(outFlow);
-
-			// create link
-			outFlowToParallelStep.setSource(outFlow);
-
-			// create link
-			outFlowToInitFlow.setTarget(initFlow);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_1_bindingAndBlackFFFFFFFFFFFFFFFFFFFFFFFBB(
+						this, isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
+		SequenceFlow inFlow1 = (SequenceFlow) result1_bindingAndBlack[1];
+		ParallelGateway parallelConvGateway = (ParallelGateway) result1_bindingAndBlack[2];
+		ParallelGateway parallelGateway = (ParallelGateway) result1_bindingAndBlack[3];
+		SequenceFlow divergeFlow1 = (SequenceFlow) result1_bindingAndBlack[4];
+		ParallelFlow flow1 = (ParallelFlow) result1_bindingAndBlack[5];
+		SequenceFlowToUCFlow inFlow1ToFlow1 = (SequenceFlowToUCFlow) result1_bindingAndBlack[6];
+		Step step1 = (Step) result1_bindingAndBlack[7];
+		SequenceFlowToStep inFlow1ToStep1 = (SequenceFlowToStep) result1_bindingAndBlack[8];
+		ParallelStep parallelStep = (ParallelStep) result1_bindingAndBlack[9];
+		SequenceFlowToUCFlow divergeFlow1ToFlow1 = (SequenceFlowToUCFlow) result1_bindingAndBlack[10];
+		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[11];
+		SequenceFlow outFlow = (SequenceFlow) result1_bindingAndBlack[12];
+		ParallelFlow flow = (ParallelFlow) result1_bindingAndBlack[13];
+		SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[14];
+		Step step = (Step) result1_bindingAndBlack[15];
+		SequenceFlowToStep inFlowToStep = (SequenceFlowToStep) result1_bindingAndBlack[16];
+		Flow initFlow = (Flow) result1_bindingAndBlack[17];
+		Lane lane = (Lane) result1_bindingAndBlack[18];
+		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[19];
+		SequenceFlow divergeFlow = (SequenceFlow) result1_bindingAndBlack[20];
+		SequenceFlowToUCFlow divergeFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[21];
+		// CSP csp = (CSP) result1_bindingAndBlack[22];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_1_greenBBBFF(
+						parallelStep, outFlow, initFlow);
+		SequenceFlowToUCFlow outFlowToInitFlow = (SequenceFlowToUCFlow) result1_green[3];
+		SequenceFlowToStep outFlowToParallelStep = (SequenceFlowToStep) result1_green[4];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToInitFlow is really bound
-			JavaSDM.ensure(outFlowToInitFlow != null);
-			// check object outFlowToParallelStep is really bound
-			JavaSDM.ensure(outFlowToParallelStep != null);
-			// check object parallelConvGateway is really bound
-			JavaSDM.ensure(parallelConvGateway != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					parallelConvGateway, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlow, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToInitFlow, "createdLinkElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToParallelStep, "createdLinkElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_2_blackBBBB(
+						parallelConvGateway, outFlow, outFlowToInitFlow,
+						outFlowToParallelStep);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object divergeFlow1 is really bound
-			JavaSDM.ensure(divergeFlow1 != null);
-			// check object divergeFlow1ToFlow1 is really bound
-			JavaSDM.ensure(divergeFlow1ToFlow1 != null);
-			// check object divergeFlow is really bound
-			JavaSDM.ensure(divergeFlow != null);
-			// check object divergeFlowToFlow is really bound
-			JavaSDM.ensure(divergeFlowToFlow != null);
-			// check object flow1 is really bound
-			JavaSDM.ensure(flow1 != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object inFlow1 is really bound
-			JavaSDM.ensure(inFlow1 != null);
-			// check object inFlow1ToFlow1 is really bound
-			JavaSDM.ensure(inFlow1ToFlow1 != null);
-			// check object inFlow1ToStep1 is really bound
-			JavaSDM.ensure(inFlow1ToStep1 != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object inFlowToFlow is really bound
-			JavaSDM.ensure(inFlowToFlow != null);
-			// check object inFlowToStep is really bound
-			JavaSDM.ensure(inFlowToStep != null);
-			// check object initFlow is really bound
-			JavaSDM.ensure(initFlow != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object outFlowToInitFlow is really bound
-			JavaSDM.ensure(outFlowToInitFlow != null);
-			// check object outFlowToParallelStep is really bound
-			JavaSDM.ensure(outFlowToParallelStep != null);
-			// check object parallelConvGateway is really bound
-			JavaSDM.ensure(parallelConvGateway != null);
-			// check object parallelGateway is really bound
-			JavaSDM.ensure(parallelGateway != null);
-			// check object parallelStep is really bound
-			JavaSDM.ensure(parallelStep != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object step1 is really bound
-			JavaSDM.ensure(step1 != null);
-			// check object step is really bound
-			JavaSDM.ensure(step != null);
-			// check isomorphic binding between objects divergeFlow1ToFlow1 and divergeFlow1 
-			JavaSDM.ensure(!divergeFlow1ToFlow1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-			JavaSDM.ensure(!divergeFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects divergeFlowToFlow and divergeFlow1 
-			JavaSDM.ensure(!divergeFlowToFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects flow1 and divergeFlow1 
-			JavaSDM.ensure(!flow1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects flow and divergeFlow1 
-			JavaSDM.ensure(!flow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow1 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlow1 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and divergeFlow1 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow and divergeFlow1 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlowToFlow and divergeFlow1 
-			JavaSDM.ensure(!inFlowToFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlowToStep and divergeFlow1 
-			JavaSDM.ensure(!inFlowToStep.equals(divergeFlow1));
-
-			// check isomorphic binding between objects initFlow and divergeFlow1 
-			JavaSDM.ensure(!initFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects lane and divergeFlow1 
-			JavaSDM.ensure(!lane.equals(divergeFlow1));
-
-			// check isomorphic binding between objects laneSet and divergeFlow1 
-			JavaSDM.ensure(!laneSet.equals(divergeFlow1));
-
-			// check isomorphic binding between objects outFlow and divergeFlow1 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects outFlowToInitFlow and divergeFlow1 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects outFlowToParallelStep and divergeFlow1 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(divergeFlow1));
-
-			// check isomorphic binding between objects parallelConvGateway and divergeFlow1 
-			JavaSDM.ensure(!parallelConvGateway.equals(divergeFlow1));
-
-			// check isomorphic binding between objects parallelGateway and divergeFlow1 
-			JavaSDM.ensure(!parallelGateway.equals(divergeFlow1));
-
-			// check isomorphic binding between objects parallelStep and divergeFlow1 
-			JavaSDM.ensure(!parallelStep.equals(divergeFlow1));
-
-			// check isomorphic binding between objects process and divergeFlow1 
-			JavaSDM.ensure(!process.equals(divergeFlow1));
-
-			// check isomorphic binding between objects step1 and divergeFlow1 
-			JavaSDM.ensure(!step1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects step and divergeFlow1 
-			JavaSDM.ensure(!step.equals(divergeFlow1));
-
-			// check isomorphic binding between objects divergeFlow1ToFlow1 and divergeFlow 
-			JavaSDM.ensure(!divergeFlow1ToFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects divergeFlowToFlow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!divergeFlowToFlow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects flow1 and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!flow1.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects flow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!flow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlowToFlow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!inFlowToFlow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlowToStep and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!inFlowToStep.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects initFlow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!initFlow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects lane and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!lane.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects laneSet and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!laneSet.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects outFlow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects outFlowToInitFlow and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects outFlowToParallelStep and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects parallelConvGateway and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!parallelConvGateway.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects parallelGateway and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!parallelGateway.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects parallelStep and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!parallelStep.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects process and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!process.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects step1 and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!step1.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects step and divergeFlow1ToFlow1 
-			JavaSDM.ensure(!step.equals(divergeFlow1ToFlow1));
-
-			// check isomorphic binding between objects divergeFlowToFlow and divergeFlow 
-			JavaSDM.ensure(!divergeFlowToFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects flow1 and divergeFlow 
-			JavaSDM.ensure(!flow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects flow and divergeFlow 
-			JavaSDM.ensure(!flow.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlow 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and divergeFlow 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow and divergeFlow 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlowToFlow and divergeFlow 
-			JavaSDM.ensure(!inFlowToFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlowToStep and divergeFlow 
-			JavaSDM.ensure(!inFlowToStep.equals(divergeFlow));
-
-			// check isomorphic binding between objects initFlow and divergeFlow 
-			JavaSDM.ensure(!initFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects lane and divergeFlow 
-			JavaSDM.ensure(!lane.equals(divergeFlow));
-
-			// check isomorphic binding between objects laneSet and divergeFlow 
-			JavaSDM.ensure(!laneSet.equals(divergeFlow));
-
-			// check isomorphic binding between objects outFlow and divergeFlow 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects outFlowToInitFlow and divergeFlow 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects outFlowToParallelStep and divergeFlow 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(divergeFlow));
-
-			// check isomorphic binding between objects parallelConvGateway and divergeFlow 
-			JavaSDM.ensure(!parallelConvGateway.equals(divergeFlow));
-
-			// check isomorphic binding between objects parallelGateway and divergeFlow 
-			JavaSDM.ensure(!parallelGateway.equals(divergeFlow));
-
-			// check isomorphic binding between objects parallelStep and divergeFlow 
-			JavaSDM.ensure(!parallelStep.equals(divergeFlow));
-
-			// check isomorphic binding between objects process and divergeFlow 
-			JavaSDM.ensure(!process.equals(divergeFlow));
-
-			// check isomorphic binding between objects step1 and divergeFlow 
-			JavaSDM.ensure(!step1.equals(divergeFlow));
-
-			// check isomorphic binding between objects step and divergeFlow 
-			JavaSDM.ensure(!step.equals(divergeFlow));
-
-			// check isomorphic binding between objects flow1 and divergeFlowToFlow 
-			JavaSDM.ensure(!flow1.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects flow and divergeFlowToFlow 
-			JavaSDM.ensure(!flow.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlowToFlow 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlowToFlow 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and divergeFlowToFlow 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects inFlow and divergeFlowToFlow 
-			JavaSDM.ensure(!inFlow.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects inFlowToFlow and divergeFlowToFlow 
-			JavaSDM.ensure(!inFlowToFlow.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects inFlowToStep and divergeFlowToFlow 
-			JavaSDM.ensure(!inFlowToStep.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects initFlow and divergeFlowToFlow 
-			JavaSDM.ensure(!initFlow.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects lane and divergeFlowToFlow 
-			JavaSDM.ensure(!lane.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects laneSet and divergeFlowToFlow 
-			JavaSDM.ensure(!laneSet.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects outFlow and divergeFlowToFlow 
-			JavaSDM.ensure(!outFlow.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToInitFlow and divergeFlowToFlow 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToParallelStep and divergeFlowToFlow 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects parallelConvGateway and divergeFlowToFlow 
-			JavaSDM.ensure(!parallelConvGateway.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects parallelGateway and divergeFlowToFlow 
-			JavaSDM.ensure(!parallelGateway.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects parallelStep and divergeFlowToFlow 
-			JavaSDM.ensure(!parallelStep.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects process and divergeFlowToFlow 
-			JavaSDM.ensure(!process.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects step1 and divergeFlowToFlow 
-			JavaSDM.ensure(!step1.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects step and divergeFlowToFlow 
-			JavaSDM.ensure(!step.equals(divergeFlowToFlow));
-
-			// check isomorphic binding between objects flow1 and flow 
-			JavaSDM.ensure(!flow1.equals(flow));
-
-			// check isomorphic binding between objects inFlow1 and flow1 
-			JavaSDM.ensure(!inFlow1.equals(flow1));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and flow1 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(flow1));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and flow1 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(flow1));
-
-			// check isomorphic binding between objects inFlow and flow1 
-			JavaSDM.ensure(!inFlow.equals(flow1));
-
-			// check isomorphic binding between objects inFlowToFlow and flow1 
-			JavaSDM.ensure(!inFlowToFlow.equals(flow1));
-
-			// check isomorphic binding between objects inFlowToStep and flow1 
-			JavaSDM.ensure(!inFlowToStep.equals(flow1));
-
-			// check isomorphic binding between objects initFlow and flow1 
-			JavaSDM.ensure(!initFlow.equals(flow1));
-
-			// check isomorphic binding between objects lane and flow1 
-			JavaSDM.ensure(!lane.equals(flow1));
-
-			// check isomorphic binding between objects laneSet and flow1 
-			JavaSDM.ensure(!laneSet.equals(flow1));
-
-			// check isomorphic binding between objects outFlow and flow1 
-			JavaSDM.ensure(!outFlow.equals(flow1));
-
-			// check isomorphic binding between objects outFlowToInitFlow and flow1 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(flow1));
-
-			// check isomorphic binding between objects outFlowToParallelStep and flow1 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(flow1));
-
-			// check isomorphic binding between objects parallelConvGateway and flow1 
-			JavaSDM.ensure(!parallelConvGateway.equals(flow1));
-
-			// check isomorphic binding between objects parallelGateway and flow1 
-			JavaSDM.ensure(!parallelGateway.equals(flow1));
-
-			// check isomorphic binding between objects parallelStep and flow1 
-			JavaSDM.ensure(!parallelStep.equals(flow1));
-
-			// check isomorphic binding between objects process and flow1 
-			JavaSDM.ensure(!process.equals(flow1));
-
-			// check isomorphic binding between objects step1 and flow1 
-			JavaSDM.ensure(!step1.equals(flow1));
-
-			// check isomorphic binding between objects step and flow1 
-			JavaSDM.ensure(!step.equals(flow1));
-
-			// check isomorphic binding between objects inFlow1 and flow 
-			JavaSDM.ensure(!inFlow1.equals(flow));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and flow 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(flow));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and flow 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(flow));
-
-			// check isomorphic binding between objects inFlow and flow 
-			JavaSDM.ensure(!inFlow.equals(flow));
-
-			// check isomorphic binding between objects inFlowToFlow and flow 
-			JavaSDM.ensure(!inFlowToFlow.equals(flow));
-
-			// check isomorphic binding between objects inFlowToStep and flow 
-			JavaSDM.ensure(!inFlowToStep.equals(flow));
-
-			// check isomorphic binding between objects initFlow and flow 
-			JavaSDM.ensure(!initFlow.equals(flow));
-
-			// check isomorphic binding between objects lane and flow 
-			JavaSDM.ensure(!lane.equals(flow));
-
-			// check isomorphic binding between objects laneSet and flow 
-			JavaSDM.ensure(!laneSet.equals(flow));
-
-			// check isomorphic binding between objects outFlow and flow 
-			JavaSDM.ensure(!outFlow.equals(flow));
-
-			// check isomorphic binding between objects outFlowToInitFlow and flow 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(flow));
-
-			// check isomorphic binding between objects outFlowToParallelStep and flow 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(flow));
-
-			// check isomorphic binding between objects parallelConvGateway and flow 
-			JavaSDM.ensure(!parallelConvGateway.equals(flow));
-
-			// check isomorphic binding between objects parallelGateway and flow 
-			JavaSDM.ensure(!parallelGateway.equals(flow));
-
-			// check isomorphic binding between objects parallelStep and flow 
-			JavaSDM.ensure(!parallelStep.equals(flow));
-
-			// check isomorphic binding between objects process and flow 
-			JavaSDM.ensure(!process.equals(flow));
-
-			// check isomorphic binding between objects step1 and flow 
-			JavaSDM.ensure(!step1.equals(flow));
-
-			// check isomorphic binding between objects step and flow 
-			JavaSDM.ensure(!step.equals(flow));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and inFlow1 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(inFlow1));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and inFlow1 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(inFlow1));
-
-			// check isomorphic binding between objects inFlow1 and inFlow 
-			JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToFlow and inFlow1 
-			JavaSDM.ensure(!inFlowToFlow.equals(inFlow1));
-
-			// check isomorphic binding between objects inFlowToStep and inFlow1 
-			JavaSDM.ensure(!inFlowToStep.equals(inFlow1));
-
-			// check isomorphic binding between objects initFlow and inFlow1 
-			JavaSDM.ensure(!initFlow.equals(inFlow1));
-
-			// check isomorphic binding between objects lane and inFlow1 
-			JavaSDM.ensure(!lane.equals(inFlow1));
-
-			// check isomorphic binding between objects laneSet and inFlow1 
-			JavaSDM.ensure(!laneSet.equals(inFlow1));
-
-			// check isomorphic binding between objects outFlow and inFlow1 
-			JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-			// check isomorphic binding between objects outFlowToInitFlow and inFlow1 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(inFlow1));
-
-			// check isomorphic binding between objects outFlowToParallelStep and inFlow1 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(inFlow1));
-
-			// check isomorphic binding between objects parallelConvGateway and inFlow1 
-			JavaSDM.ensure(!parallelConvGateway.equals(inFlow1));
-
-			// check isomorphic binding between objects parallelGateway and inFlow1 
-			JavaSDM.ensure(!parallelGateway.equals(inFlow1));
-
-			// check isomorphic binding between objects parallelStep and inFlow1 
-			JavaSDM.ensure(!parallelStep.equals(inFlow1));
-
-			// check isomorphic binding between objects process and inFlow1 
-			JavaSDM.ensure(!process.equals(inFlow1));
-
-			// check isomorphic binding between objects step1 and inFlow1 
-			JavaSDM.ensure(!step1.equals(inFlow1));
-
-			// check isomorphic binding between objects step and inFlow1 
-			JavaSDM.ensure(!step.equals(inFlow1));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and inFlow1ToFlow1 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlow1ToFlow1 and inFlow 
-			JavaSDM.ensure(!inFlow1ToFlow1.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToFlow and inFlow1ToFlow1 
-			JavaSDM.ensure(!inFlowToFlow.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlowToStep and inFlow1ToFlow1 
-			JavaSDM.ensure(!inFlowToStep.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects initFlow and inFlow1ToFlow1 
-			JavaSDM.ensure(!initFlow.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects lane and inFlow1ToFlow1 
-			JavaSDM.ensure(!lane.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects laneSet and inFlow1ToFlow1 
-			JavaSDM.ensure(!laneSet.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects outFlow and inFlow1ToFlow1 
-			JavaSDM.ensure(!outFlow.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects outFlowToInitFlow and inFlow1ToFlow1 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects outFlowToParallelStep and inFlow1ToFlow1 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects parallelConvGateway and inFlow1ToFlow1 
-			JavaSDM.ensure(!parallelConvGateway.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects parallelGateway and inFlow1ToFlow1 
-			JavaSDM.ensure(!parallelGateway.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects parallelStep and inFlow1ToFlow1 
-			JavaSDM.ensure(!parallelStep.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects process and inFlow1ToFlow1 
-			JavaSDM.ensure(!process.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects step1 and inFlow1ToFlow1 
-			JavaSDM.ensure(!step1.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects step and inFlow1ToFlow1 
-			JavaSDM.ensure(!step.equals(inFlow1ToFlow1));
-
-			// check isomorphic binding between objects inFlow1ToStep1 and inFlow 
-			JavaSDM.ensure(!inFlow1ToStep1.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToFlow and inFlow1ToStep1 
-			JavaSDM.ensure(!inFlowToFlow.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects inFlowToStep and inFlow1ToStep1 
-			JavaSDM.ensure(!inFlowToStep.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects initFlow and inFlow1ToStep1 
-			JavaSDM.ensure(!initFlow.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects lane and inFlow1ToStep1 
-			JavaSDM.ensure(!lane.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects laneSet and inFlow1ToStep1 
-			JavaSDM.ensure(!laneSet.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects outFlow and inFlow1ToStep1 
-			JavaSDM.ensure(!outFlow.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects outFlowToInitFlow and inFlow1ToStep1 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects outFlowToParallelStep and inFlow1ToStep1 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects parallelConvGateway and inFlow1ToStep1 
-			JavaSDM.ensure(!parallelConvGateway.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects parallelGateway and inFlow1ToStep1 
-			JavaSDM.ensure(!parallelGateway.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects parallelStep and inFlow1ToStep1 
-			JavaSDM.ensure(!parallelStep.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects process and inFlow1ToStep1 
-			JavaSDM.ensure(!process.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects step1 and inFlow1ToStep1 
-			JavaSDM.ensure(!step1.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects step and inFlow1ToStep1 
-			JavaSDM.ensure(!step.equals(inFlow1ToStep1));
-
-			// check isomorphic binding between objects inFlowToFlow and inFlow 
-			JavaSDM.ensure(!inFlowToFlow.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToStep and inFlow 
-			JavaSDM.ensure(!inFlowToStep.equals(inFlow));
-
-			// check isomorphic binding between objects initFlow and inFlow 
-			JavaSDM.ensure(!initFlow.equals(inFlow));
-
-			// check isomorphic binding between objects lane and inFlow 
-			JavaSDM.ensure(!lane.equals(inFlow));
-
-			// check isomorphic binding between objects laneSet and inFlow 
-			JavaSDM.ensure(!laneSet.equals(inFlow));
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check isomorphic binding between objects outFlowToInitFlow and inFlow 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(inFlow));
-
-			// check isomorphic binding between objects outFlowToParallelStep and inFlow 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(inFlow));
-
-			// check isomorphic binding between objects parallelConvGateway and inFlow 
-			JavaSDM.ensure(!parallelConvGateway.equals(inFlow));
-
-			// check isomorphic binding between objects parallelGateway and inFlow 
-			JavaSDM.ensure(!parallelGateway.equals(inFlow));
-
-			// check isomorphic binding between objects parallelStep and inFlow 
-			JavaSDM.ensure(!parallelStep.equals(inFlow));
-
-			// check isomorphic binding between objects process and inFlow 
-			JavaSDM.ensure(!process.equals(inFlow));
-
-			// check isomorphic binding between objects step1 and inFlow 
-			JavaSDM.ensure(!step1.equals(inFlow));
-
-			// check isomorphic binding between objects step and inFlow 
-			JavaSDM.ensure(!step.equals(inFlow));
-
-			// check isomorphic binding between objects inFlowToStep and inFlowToFlow 
-			JavaSDM.ensure(!inFlowToStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects initFlow and inFlowToFlow 
-			JavaSDM.ensure(!initFlow.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects lane and inFlowToFlow 
-			JavaSDM.ensure(!lane.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects laneSet and inFlowToFlow 
-			JavaSDM.ensure(!laneSet.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlow and inFlowToFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToInitFlow and inFlowToFlow 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects outFlowToParallelStep and inFlowToFlow 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects parallelConvGateway and inFlowToFlow 
-			JavaSDM.ensure(!parallelConvGateway.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects parallelGateway and inFlowToFlow 
-			JavaSDM.ensure(!parallelGateway.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects parallelStep and inFlowToFlow 
-			JavaSDM.ensure(!parallelStep.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects process and inFlowToFlow 
-			JavaSDM.ensure(!process.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects step1 and inFlowToFlow 
-			JavaSDM.ensure(!step1.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects step and inFlowToFlow 
-			JavaSDM.ensure(!step.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects initFlow and inFlowToStep 
-			JavaSDM.ensure(!initFlow.equals(inFlowToStep));
-
-			// check isomorphic binding between objects lane and inFlowToStep 
-			JavaSDM.ensure(!lane.equals(inFlowToStep));
-
-			// check isomorphic binding between objects laneSet and inFlowToStep 
-			JavaSDM.ensure(!laneSet.equals(inFlowToStep));
-
-			// check isomorphic binding between objects outFlow and inFlowToStep 
-			JavaSDM.ensure(!outFlow.equals(inFlowToStep));
-
-			// check isomorphic binding between objects outFlowToInitFlow and inFlowToStep 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(inFlowToStep));
-
-			// check isomorphic binding between objects outFlowToParallelStep and inFlowToStep 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(inFlowToStep));
-
-			// check isomorphic binding between objects parallelConvGateway and inFlowToStep 
-			JavaSDM.ensure(!parallelConvGateway.equals(inFlowToStep));
-
-			// check isomorphic binding between objects parallelGateway and inFlowToStep 
-			JavaSDM.ensure(!parallelGateway.equals(inFlowToStep));
-
-			// check isomorphic binding between objects parallelStep and inFlowToStep 
-			JavaSDM.ensure(!parallelStep.equals(inFlowToStep));
-
-			// check isomorphic binding between objects process and inFlowToStep 
-			JavaSDM.ensure(!process.equals(inFlowToStep));
-
-			// check isomorphic binding between objects step1 and inFlowToStep 
-			JavaSDM.ensure(!step1.equals(inFlowToStep));
-
-			// check isomorphic binding between objects step and inFlowToStep 
-			JavaSDM.ensure(!step.equals(inFlowToStep));
-
-			// check isomorphic binding between objects lane and initFlow 
-			JavaSDM.ensure(!lane.equals(initFlow));
-
-			// check isomorphic binding between objects laneSet and initFlow 
-			JavaSDM.ensure(!laneSet.equals(initFlow));
-
-			// check isomorphic binding between objects outFlow and initFlow 
-			JavaSDM.ensure(!outFlow.equals(initFlow));
-
-			// check isomorphic binding between objects outFlowToInitFlow and initFlow 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(initFlow));
-
-			// check isomorphic binding between objects outFlowToParallelStep and initFlow 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(initFlow));
-
-			// check isomorphic binding between objects parallelConvGateway and initFlow 
-			JavaSDM.ensure(!parallelConvGateway.equals(initFlow));
-
-			// check isomorphic binding between objects parallelGateway and initFlow 
-			JavaSDM.ensure(!parallelGateway.equals(initFlow));
-
-			// check isomorphic binding between objects parallelStep and initFlow 
-			JavaSDM.ensure(!parallelStep.equals(initFlow));
-
-			// check isomorphic binding between objects process and initFlow 
-			JavaSDM.ensure(!process.equals(initFlow));
-
-			// check isomorphic binding between objects step1 and initFlow 
-			JavaSDM.ensure(!step1.equals(initFlow));
-
-			// check isomorphic binding between objects step and initFlow 
-			JavaSDM.ensure(!step.equals(initFlow));
-
-			// check isomorphic binding between objects laneSet and lane 
-			JavaSDM.ensure(!laneSet.equals(lane));
-
-			// check isomorphic binding between objects outFlow and lane 
-			JavaSDM.ensure(!outFlow.equals(lane));
-
-			// check isomorphic binding between objects outFlowToInitFlow and lane 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(lane));
-
-			// check isomorphic binding between objects outFlowToParallelStep and lane 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(lane));
-
-			// check isomorphic binding between objects parallelConvGateway and lane 
-			JavaSDM.ensure(!parallelConvGateway.equals(lane));
-
-			// check isomorphic binding between objects parallelGateway and lane 
-			JavaSDM.ensure(!parallelGateway.equals(lane));
-
-			// check isomorphic binding between objects parallelStep and lane 
-			JavaSDM.ensure(!parallelStep.equals(lane));
-
-			// check isomorphic binding between objects process and lane 
-			JavaSDM.ensure(!process.equals(lane));
-
-			// check isomorphic binding between objects step1 and lane 
-			JavaSDM.ensure(!step1.equals(lane));
-
-			// check isomorphic binding between objects step and lane 
-			JavaSDM.ensure(!step.equals(lane));
-
-			// check isomorphic binding between objects outFlow and laneSet 
-			JavaSDM.ensure(!outFlow.equals(laneSet));
-
-			// check isomorphic binding between objects outFlowToInitFlow and laneSet 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(laneSet));
-
-			// check isomorphic binding between objects outFlowToParallelStep and laneSet 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(laneSet));
-
-			// check isomorphic binding between objects parallelConvGateway and laneSet 
-			JavaSDM.ensure(!parallelConvGateway.equals(laneSet));
-
-			// check isomorphic binding between objects parallelGateway and laneSet 
-			JavaSDM.ensure(!parallelGateway.equals(laneSet));
-
-			// check isomorphic binding between objects parallelStep and laneSet 
-			JavaSDM.ensure(!parallelStep.equals(laneSet));
-
-			// check isomorphic binding between objects process and laneSet 
-			JavaSDM.ensure(!process.equals(laneSet));
-
-			// check isomorphic binding between objects step1 and laneSet 
-			JavaSDM.ensure(!step1.equals(laneSet));
-
-			// check isomorphic binding between objects step and laneSet 
-			JavaSDM.ensure(!step.equals(laneSet));
-
-			// check isomorphic binding between objects outFlowToInitFlow and outFlow 
-			JavaSDM.ensure(!outFlowToInitFlow.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToParallelStep and outFlow 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(outFlow));
-
-			// check isomorphic binding between objects parallelConvGateway and outFlow 
-			JavaSDM.ensure(!parallelConvGateway.equals(outFlow));
-
-			// check isomorphic binding between objects parallelGateway and outFlow 
-			JavaSDM.ensure(!parallelGateway.equals(outFlow));
-
-			// check isomorphic binding between objects parallelStep and outFlow 
-			JavaSDM.ensure(!parallelStep.equals(outFlow));
-
-			// check isomorphic binding between objects process and outFlow 
-			JavaSDM.ensure(!process.equals(outFlow));
-
-			// check isomorphic binding between objects step1 and outFlow 
-			JavaSDM.ensure(!step1.equals(outFlow));
-
-			// check isomorphic binding between objects step and outFlow 
-			JavaSDM.ensure(!step.equals(outFlow));
-
-			// check isomorphic binding between objects outFlowToParallelStep and outFlowToInitFlow 
-			JavaSDM.ensure(!outFlowToParallelStep.equals(outFlowToInitFlow));
-
-			// check isomorphic binding between objects parallelConvGateway and outFlowToInitFlow 
-			JavaSDM.ensure(!parallelConvGateway.equals(outFlowToInitFlow));
-
-			// check isomorphic binding between objects parallelGateway and outFlowToInitFlow 
-			JavaSDM.ensure(!parallelGateway.equals(outFlowToInitFlow));
-
-			// check isomorphic binding between objects parallelStep and outFlowToInitFlow 
-			JavaSDM.ensure(!parallelStep.equals(outFlowToInitFlow));
-
-			// check isomorphic binding between objects process and outFlowToInitFlow 
-			JavaSDM.ensure(!process.equals(outFlowToInitFlow));
-
-			// check isomorphic binding between objects step1 and outFlowToInitFlow 
-			JavaSDM.ensure(!step1.equals(outFlowToInitFlow));
-
-			// check isomorphic binding between objects step and outFlowToInitFlow 
-			JavaSDM.ensure(!step.equals(outFlowToInitFlow));
-
-			// check isomorphic binding between objects parallelConvGateway and outFlowToParallelStep 
-			JavaSDM.ensure(!parallelConvGateway.equals(outFlowToParallelStep));
-
-			// check isomorphic binding between objects parallelGateway and outFlowToParallelStep 
-			JavaSDM.ensure(!parallelGateway.equals(outFlowToParallelStep));
-
-			// check isomorphic binding between objects parallelStep and outFlowToParallelStep 
-			JavaSDM.ensure(!parallelStep.equals(outFlowToParallelStep));
-
-			// check isomorphic binding between objects process and outFlowToParallelStep 
-			JavaSDM.ensure(!process.equals(outFlowToParallelStep));
-
-			// check isomorphic binding between objects step1 and outFlowToParallelStep 
-			JavaSDM.ensure(!step1.equals(outFlowToParallelStep));
-
-			// check isomorphic binding between objects step and outFlowToParallelStep 
-			JavaSDM.ensure(!step.equals(outFlowToParallelStep));
-
-			// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-			JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-			// check isomorphic binding between objects parallelStep and parallelConvGateway 
-			JavaSDM.ensure(!parallelStep.equals(parallelConvGateway));
-
-			// check isomorphic binding between objects process and parallelConvGateway 
-			JavaSDM.ensure(!process.equals(parallelConvGateway));
-
-			// check isomorphic binding between objects step1 and parallelConvGateway 
-			JavaSDM.ensure(!step1.equals(parallelConvGateway));
-
-			// check isomorphic binding between objects step and parallelConvGateway 
-			JavaSDM.ensure(!step.equals(parallelConvGateway));
-
-			// check isomorphic binding between objects parallelStep and parallelGateway 
-			JavaSDM.ensure(!parallelStep.equals(parallelGateway));
-
-			// check isomorphic binding between objects process and parallelGateway 
-			JavaSDM.ensure(!process.equals(parallelGateway));
-
-			// check isomorphic binding between objects step1 and parallelGateway 
-			JavaSDM.ensure(!step1.equals(parallelGateway));
-
-			// check isomorphic binding between objects step and parallelGateway 
-			JavaSDM.ensure(!step.equals(parallelGateway));
-
-			// check isomorphic binding between objects process and parallelStep 
-			JavaSDM.ensure(!process.equals(parallelStep));
-
-			// check isomorphic binding between objects step1 and parallelStep 
-			JavaSDM.ensure(!step1.equals(parallelStep));
-
-			// check isomorphic binding between objects step and parallelStep 
-			JavaSDM.ensure(!step.equals(parallelStep));
-
-			// check isomorphic binding between objects step1 and process 
-			JavaSDM.ensure(!step1.equals(process));
-
-			// check isomorphic binding between objects step and process 
-			JavaSDM.ensure(!step.equals(process));
-
-			// check isomorphic binding between objects step1 and step 
-			JavaSDM.ensure(!step1.equals(step));
-
-			// create object outFlowToParallelStep__target__parallelStep
-			outFlowToParallelStep__target__parallelStep = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToParallelStep__source__outFlow
-			outFlowToParallelStep__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToInitFlow__source__outFlow
-			outFlowToInitFlow__source__outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __parallelConvGateway_incoming_inFlow1
-			__parallelConvGateway_incoming_inFlow1 = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __lane_flowNodeRefs_parallelConvGateway
-			__lane_flowNodeRefs_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __outFlow_sourceRef_parallelConvGateway
-			__outFlow_sourceRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __inFlow1_targetRef_parallelConvGateway
-			__inFlow1_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __parallelConvGateway_outgoing_outFlow
-			__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object outFlowToInitFlow__target__initFlow
-			outFlowToInitFlow__target__initFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __parallelConvGateway_incoming_inFlow
-			__parallelConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __inFlow_targetRef_parallelConvGateway
-			__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_outFlow
-			__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("ParallelConvergingGatewayTwoInputsRule");
-			// assign attribute __inFlow1_targetRef_parallelConvGateway
-			__inFlow1_targetRef_parallelConvGateway.setName("targetRef");
-			// assign attribute __parallelConvGateway_incoming_inFlow1
-			__parallelConvGateway_incoming_inFlow1.setName("incoming");
-			// assign attribute __process_flowElements_outFlow
-			__process_flowElements_outFlow.setName("flowElements");
-			// assign attribute __inFlow_targetRef_parallelConvGateway
-			__inFlow_targetRef_parallelConvGateway.setName("targetRef");
-			// assign attribute __parallelConvGateway_incoming_inFlow
-			__parallelConvGateway_incoming_inFlow.setName("incoming");
-			// assign attribute __outFlow_sourceRef_parallelConvGateway
-			__outFlow_sourceRef_parallelConvGateway.setName("sourceRef");
-			// assign attribute __parallelConvGateway_outgoing_outFlow
-			__parallelConvGateway_outgoing_outFlow.setName("outgoing");
-			// assign attribute outFlowToInitFlow__source__outFlow
-			outFlowToInitFlow__source__outFlow.setName("source");
-			// assign attribute outFlowToInitFlow__target__initFlow
-			outFlowToInitFlow__target__initFlow.setName("target");
-			// assign attribute outFlowToParallelStep__source__outFlow
-			outFlowToParallelStep__source__outFlow.setName("source");
-			// assign attribute outFlowToParallelStep__target__parallelStep
-			outFlowToParallelStep__target__parallelStep.setName("target");
-			// assign attribute __lane_flowNodeRefs_parallelConvGateway
-			__lane_flowNodeRefs_parallelConvGateway.setName("flowNodeRefs");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil
-					.addOppositeReference(ruleresult,
-							outFlowToParallelStep__target__parallelStep,
-							"createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToParallelStep__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToInitFlow__source__outFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__parallelConvGateway_incoming_inFlow1, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__lane_flowNodeRefs_parallelConvGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__outFlow_sourceRef_parallelConvGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__inFlow1_targetRef_parallelConvGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__parallelConvGateway_outgoing_outFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					outFlowToInitFlow__target__initFlow, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__parallelConvGateway_incoming_inFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__inFlow_targetRef_parallelConvGateway, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_outFlow, "translatedEdges");
-
-			// create link
-			__process_flowElements_outFlow.setSrc(process);
-
-			// create link
-			__parallelConvGateway_incoming_inFlow1.setTrg(inFlow1);
-
-			// create link
-			__inFlow1_targetRef_parallelConvGateway.setSrc(inFlow1);
-
-			// create link
-			__parallelConvGateway_incoming_inFlow.setSrc(parallelConvGateway);
-
-			// create link
-			__parallelConvGateway_incoming_inFlow1.setSrc(parallelConvGateway);
-
-			// create link
-			__parallelConvGateway_outgoing_outFlow.setSrc(parallelConvGateway);
-
-			// create link
-			__outFlow_sourceRef_parallelConvGateway.setTrg(parallelConvGateway);
-
-			// create link
-			__lane_flowNodeRefs_parallelConvGateway.setTrg(parallelConvGateway);
-
-			// create link
-			__inFlow1_targetRef_parallelConvGateway.setTrg(parallelConvGateway);
-
-			// create link
-			__inFlow_targetRef_parallelConvGateway.setTrg(parallelConvGateway);
-
-			// create link
-			outFlowToParallelStep__target__parallelStep.setTrg(parallelStep);
-
-			// create link
-			__inFlow_targetRef_parallelConvGateway.setSrc(inFlow);
-
-			// create link
-			__parallelConvGateway_incoming_inFlow.setTrg(inFlow);
-
-			// create link
-			__outFlow_sourceRef_parallelConvGateway.setSrc(outFlow);
-
-			// create link
-			__process_flowElements_outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToParallelStep__source__outFlow.setTrg(outFlow);
-
-			// create link
-			__parallelConvGateway_outgoing_outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToInitFlow__source__outFlow.setTrg(outFlow);
-
-			// create link
-			outFlowToInitFlow__target__initFlow.setTrg(initFlow);
-
-			// create link
-			outFlowToInitFlow__source__outFlow.setSrc(outFlowToInitFlow);
-
-			// create link
-			outFlowToInitFlow__target__initFlow.setSrc(outFlowToInitFlow);
-
-			// create link
-			outFlowToParallelStep__target__parallelStep
-					.setSrc(outFlowToParallelStep);
-
-			// create link
-			outFlowToParallelStep__source__outFlow
-					.setSrc(outFlowToParallelStep);
-
-			// create link
-			__lane_flowNodeRefs_parallelConvGateway.setSrc(lane);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_2_greenFBBBB(
+						parallelConvGateway, outFlow, outFlowToInitFlow,
+						outFlowToParallelStep);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
+
+		// bookkeeping for edges
+		Object[] result3_black = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_3_blackBBBBBBBBBBBBBBBBBBBBBBBBB(
+						ruleresult, process, inFlow1, parallelConvGateway,
+						parallelGateway, divergeFlow1, flow1, inFlow1ToFlow1,
+						step1, inFlow1ToStep1, parallelStep,
+						divergeFlow1ToFlow1, inFlow, outFlow, flow,
+						inFlowToFlow, step, inFlowToStep, initFlow,
+						outFlowToInitFlow, outFlowToParallelStep, lane,
+						laneSet, divergeFlow, divergeFlowToFlow);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFF(
+						ruleresult, process, inFlow1, parallelConvGateway,
+						parallelStep, inFlow, outFlow, initFlow,
+						outFlowToInitFlow, outFlowToParallelStep, lane);
+		// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge outFlowToInitFlow__outFlow____source = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge outFlowToInitFlow__initFlow____target = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge outFlowToParallelStep__outFlow____source = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge outFlowToParallelStep__parallelStep____target = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result3_green[22];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, process, inFlow1,
-				parallelConvGateway, parallelGateway, divergeFlow1, flow1,
-				inFlow1ToFlow1, step1, inFlow1ToStep1, parallelStep,
-				divergeFlow1ToFlow1, inFlow, outFlow, flow, inFlowToFlow, step,
-				inFlowToStep, initFlow, outFlowToInitFlow,
-				outFlowToParallelStep, lane, laneSet, divergeFlow,
-				divergeFlowToFlow);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_5_expressionBBBBBBBBBBBBBBBBBBBBBBBBBB(
+						this, ruleresult, process, inFlow1,
+						parallelConvGateway, parallelGateway, divergeFlow1,
+						flow1, inFlow1ToFlow1, step1, inFlow1ToStep1,
+						parallelStep, divergeFlow1ToFlow1, inFlow, outFlow,
+						flow, inFlowToFlow, step, inFlowToStep, initFlow,
+						outFlowToInitFlow, outFlowToParallelStep, lane,
+						laneSet, divergeFlow, divergeFlowToFlow);
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -2128,1735 +305,146 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		SequenceFlow divergeFlow1 = null;
-		SequenceFlow divergeFlow = null;
-		SequenceFlow inFlow1 = null;
-		SequenceFlow inFlow = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		SequenceFlow outFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		ParallelGateway parallelGateway = null;
-		bpmn2.Process process = null;
-		Step nextStep = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __process_flowElements_divergeFlow = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __process_flowElements_inFlow1 = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __inFlow1ToFlow1_source_inFlow1 = null;
-		EMoflonEdge __parallelConvGateway_incoming_inFlow1 = null;
-		EMoflonEdge __inFlow1_targetRef_parallelConvGateway = null;
-		EMoflonEdge __inFlow1ToStep1_source_inFlow1 = null;
-		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
-		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
-		EMoflonEdge __outFlow_sourceRef_parallelConvGateway = null;
-		EMoflonEdge __lane_flowNodeRefs_parallelConvGateway = null;
-		EMoflonEdge __parallelConvGateway_incoming_inFlow = null;
-		EMoflonEdge __parallelGateway_outgoing_divergeFlow = null;
-		EMoflonEdge __parallelGateway_outgoing_divergeFlow1 = null;
-		EMoflonEdge __divergeFlow1_sourceRef_parallelGateway = null;
-		EMoflonEdge __divergeFlow_sourceRef_parallelGateway = null;
-		EMoflonEdge __divergeFlow1ToFlow1_source_divergeFlow1 = null;
-		EMoflonEdge __divergeFlow1ToFlow1_target_flow1 = null;
-		EMoflonEdge __flow1_steps_step1 = null;
-		EMoflonEdge __inFlow1ToFlow1_target_flow1 = null;
-		EMoflonEdge __parallelStep_invokedFlows_flow1 = null;
-		EMoflonEdge __inFlow1ToStep1_target_step1 = null;
-		EMoflonEdge __initFlow_steps_parallelStep = null;
-		EMoflonEdge __parallelStep_invokedFlows_flow = null;
-		EMoflonEdge __inFlowToFlow_source_inFlow = null;
-		EMoflonEdge __inFlowToStep_source_inFlow = null;
-		EMoflonEdge __divergeFlowToFlow_target_flow = null;
-		EMoflonEdge __inFlowToFlow_target_flow = null;
-		EMoflonEdge __flow_steps_step = null;
-		EMoflonEdge __inFlowToStep_target_step = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge __divergeFlowToFlow_source_divergeFlow = null;
-		CSP csp = null;
-		Flow initFlow = null;
-		Iterator fujaba__IterFlow1ToParallelStep = null;
-		ParallelStep parallelStep = null;
-		Step step = null;
-		Iterator fujaba__IterInFlowToInFlowToStep = null;
-		SequenceFlowToStep inFlowToStep = null;
-		ParallelFlow flow = null;
-		Iterator fujaba__IterInFlowToInFlowToFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-		Step step1 = null;
-		Iterator fujaba__IterInFlow1ToInFlow1ToStep1 = null;
-		SequenceFlowToStep inFlow1ToStep1 = null;
-		ParallelFlow flow1 = null;
-		Iterator fujaba__IterInFlow1ToInFlow1ToFlow1 = null;
-		SequenceFlowToUCFlow inFlow1ToFlow1 = null;
-		Iterator fujaba__IterDivergeFlow1ToDivergeFlow1ToFlow1 = null;
-		SequenceFlowToUCFlow divergeFlow1ToFlow1 = null;
-		Iterator fujaba__IterDivergeFlowToDivergeFlowToFlow = null;
-		SequenceFlowToUCFlow divergeFlowToFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("ParallelConvergingGatewayTwoInputsRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_2_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (match.getObject("divergeFlow1"));
-
-			// ensure correct type and really bound of object divergeFlow1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			divergeFlow1 = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("divergeFlow"));
-
-			// ensure correct type and really bound of object divergeFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			divergeFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("inFlow1"));
-
-			// ensure correct type and really bound of object inFlow1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow1 = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("inFlow"));
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (match.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (match.getObject("outFlow"));
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("parallelConvGateway"));
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-			_TmpObject = (match.getObject("parallelGateway"));
-
-			// ensure correct type and really bound of object parallelGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelGateway = (ParallelGateway) _TmpObject;
-			_TmpObject = (match.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-			JavaSDM.ensure(!divergeFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow1 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow and divergeFlow1 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects outFlow and divergeFlow1 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow1));
-
-			// check isomorphic binding between objects inFlow1 and divergeFlow 
-			JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow and divergeFlow 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects outFlow and divergeFlow 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects inFlow1 and inFlow 
-			JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-			// check isomorphic binding between objects outFlow and inFlow1 
-			JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-			JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-			// iterate to-many link source from divergeFlow to divergeFlowToFlow
-			fujaba__Success = false;
-
-			fujaba__IterDivergeFlowToDivergeFlowToFlow = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							divergeFlow, SequenceFlowToUCFlow.class, "source"))
-					.iterator();
-
-			while (fujaba__IterDivergeFlowToDivergeFlowToFlow.hasNext()) {
-				try {
-					divergeFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterDivergeFlowToDivergeFlowToFlow
-							.next();
-
-					// check object divergeFlowToFlow is really bound
-					JavaSDM.ensure(divergeFlowToFlow != null);
-					// iterate to-many link source from divergeFlow1 to divergeFlow1ToFlow1
-					fujaba__Success = false;
-
-					fujaba__IterDivergeFlow1ToDivergeFlow1ToFlow1 = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(divergeFlow1,
-											SequenceFlowToUCFlow.class,
-											"source")).iterator();
-
-					while (fujaba__IterDivergeFlow1ToDivergeFlow1ToFlow1
-							.hasNext()) {
-						try {
-							divergeFlow1ToFlow1 = (SequenceFlowToUCFlow) fujaba__IterDivergeFlow1ToDivergeFlow1ToFlow1
-									.next();
-
-							// check object divergeFlow1ToFlow1 is really bound
-							JavaSDM.ensure(divergeFlow1ToFlow1 != null);
-							// check isomorphic binding between objects divergeFlowToFlow and divergeFlow1ToFlow1 
-							JavaSDM.ensure(!divergeFlowToFlow
-									.equals(divergeFlow1ToFlow1));
-
-							// iterate to-many link source from inFlow1 to inFlow1ToFlow1
-							fujaba__Success = false;
-
-							fujaba__IterInFlow1ToInFlow1ToFlow1 = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(inFlow1,
-													SequenceFlowToUCFlow.class,
-													"source")).iterator();
-
-							while (fujaba__IterInFlow1ToInFlow1ToFlow1
-									.hasNext()) {
-								try {
-									inFlow1ToFlow1 = (SequenceFlowToUCFlow) fujaba__IterInFlow1ToInFlow1ToFlow1
-											.next();
-
-									// check object inFlow1ToFlow1 is really bound
-									JavaSDM.ensure(inFlow1ToFlow1 != null);
-									// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlow1ToFlow1 
-									JavaSDM.ensure(!inFlow1ToFlow1
-											.equals(divergeFlow1ToFlow1));
-
-									// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlowToFlow 
-									JavaSDM.ensure(!inFlow1ToFlow1
-											.equals(divergeFlowToFlow));
-
-									// bind object
-									_TmpObject = inFlow1ToFlow1.getTarget();
-
-									// ensure correct type and really bound of object flow1
-									JavaSDM.ensure(_TmpObject instanceof ParallelFlow);
-									flow1 = (ParallelFlow) _TmpObject;
-
-									// check link target from divergeFlow1ToFlow1 to flow1
-									JavaSDM.ensure(flow1
-											.equals(divergeFlow1ToFlow1
-													.getTarget()));
-
-									// iterate to-many link source from inFlow1 to inFlow1ToStep1
-									fujaba__Success = false;
-
-									fujaba__IterInFlow1ToInFlow1ToStep1 = new ArrayList(
-											org.moflon.util.eMoflonEMFUtil
-													.getOppositeReference(
-															inFlow1,
-															SequenceFlowToStep.class,
-															"source"))
-											.iterator();
-
-									while (fujaba__IterInFlow1ToInFlow1ToStep1
-											.hasNext()) {
-										try {
-											inFlow1ToStep1 = (SequenceFlowToStep) fujaba__IterInFlow1ToInFlow1ToStep1
-													.next();
-
-											// check object inFlow1ToStep1 is really bound
-											JavaSDM.ensure(inFlow1ToStep1 != null);
-											// bind object
-											step1 = inFlow1ToStep1.getTarget();
-
-											// check object step1 is really bound
-											JavaSDM.ensure(step1 != null);
-
-											// iterate to-many link source from inFlow to inFlowToFlow
-											fujaba__Success = false;
-
-											fujaba__IterInFlowToInFlowToFlow = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	inFlow,
-																	SequenceFlowToUCFlow.class,
-																	"source"))
-													.iterator();
-
-											while (fujaba__IterInFlowToInFlowToFlow
-													.hasNext()) {
-												try {
-													inFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterInFlowToInFlowToFlow
-															.next();
-
-													// check object inFlowToFlow is really bound
-													JavaSDM.ensure(inFlowToFlow != null);
-													// check isomorphic binding between objects inFlowToFlow and divergeFlow1ToFlow1 
-													JavaSDM.ensure(!inFlowToFlow
-															.equals(divergeFlow1ToFlow1));
-
-													// check isomorphic binding between objects inFlowToFlow and divergeFlowToFlow 
-													JavaSDM.ensure(!inFlowToFlow
-															.equals(divergeFlowToFlow));
-
-													// check isomorphic binding between objects inFlowToFlow and inFlow1ToFlow1 
-													JavaSDM.ensure(!inFlowToFlow
-															.equals(inFlow1ToFlow1));
-
-													// bind object
-													_TmpObject = inFlowToFlow
-															.getTarget();
-
-													// ensure correct type and really bound of object flow
-													JavaSDM.ensure(_TmpObject instanceof ParallelFlow);
-													flow = (ParallelFlow) _TmpObject;
-
-													// check isomorphic binding between objects flow1 and flow 
-													JavaSDM.ensure(!flow1
-															.equals(flow));
-
-													// check link target from divergeFlowToFlow to flow
-													JavaSDM.ensure(flow
-															.equals(divergeFlowToFlow
-																	.getTarget()));
-
-													// iterate to-many link source from inFlow to inFlowToStep
-													fujaba__Success = false;
-
-													fujaba__IterInFlowToInFlowToStep = new ArrayList(
-															org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReference(
-																			inFlow,
-																			SequenceFlowToStep.class,
-																			"source"))
-															.iterator();
-
-													while (fujaba__IterInFlowToInFlowToStep
-															.hasNext()) {
-														try {
-															inFlowToStep = (SequenceFlowToStep) fujaba__IterInFlowToInFlowToStep
-																	.next();
-
-															// check object inFlowToStep is really bound
-															JavaSDM.ensure(inFlowToStep != null);
-															// check isomorphic binding between objects inFlowToStep and inFlow1ToStep1 
-															JavaSDM.ensure(!inFlowToStep
-																	.equals(inFlow1ToStep1));
-
-															// bind object
-															step = inFlowToStep
-																	.getTarget();
-
-															// check object step is really bound
-															JavaSDM.ensure(step != null);
-
-															// check isomorphic binding between objects step1 and step 
-															JavaSDM.ensure(!step1
-																	.equals(step));
-
-															// story node 'find context'
-															try {
-																fujaba__Success = false;
-
-																// check object divergeFlow1 is really bound
-																JavaSDM.ensure(divergeFlow1 != null);
-																// check object divergeFlow1ToFlow1 is really bound
-																JavaSDM.ensure(divergeFlow1ToFlow1 != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object divergeFlowToFlow is really bound
-																JavaSDM.ensure(divergeFlowToFlow != null);
-																// check object flow1 is really bound
-																JavaSDM.ensure(flow1 != null);
-																// check object flow is really bound
-																JavaSDM.ensure(flow != null);
-																// check object inFlow1 is really bound
-																JavaSDM.ensure(inFlow1 != null);
-																// check object inFlow1ToFlow1 is really bound
-																JavaSDM.ensure(inFlow1ToFlow1 != null);
-																// check object inFlow1ToStep1 is really bound
-																JavaSDM.ensure(inFlow1ToStep1 != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object inFlowToFlow is really bound
-																JavaSDM.ensure(inFlowToFlow != null);
-																// check object inFlowToStep is really bound
-																JavaSDM.ensure(inFlowToStep != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check object step1 is really bound
-																JavaSDM.ensure(step1 != null);
-																// check object step is really bound
-																JavaSDM.ensure(step != null);
-																// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																JavaSDM.ensure(!divergeFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow and divergeFlow1 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects outFlow and divergeFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects divergeFlowToFlow and divergeFlow1ToFlow1 
-																JavaSDM.ensure(!divergeFlowToFlow
-																		.equals(divergeFlow1ToFlow1));
-
-																// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlow1ToFlow1 
-																JavaSDM.ensure(!inFlow1ToFlow1
-																		.equals(divergeFlow1ToFlow1));
-
-																// check isomorphic binding between objects inFlowToFlow and divergeFlow1ToFlow1 
-																JavaSDM.ensure(!inFlowToFlow
-																		.equals(divergeFlow1ToFlow1));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1ToFlow1 and divergeFlowToFlow 
-																JavaSDM.ensure(!inFlow1ToFlow1
-																		.equals(divergeFlowToFlow));
-
-																// check isomorphic binding between objects inFlowToFlow and divergeFlowToFlow 
-																JavaSDM.ensure(!inFlowToFlow
-																		.equals(divergeFlowToFlow));
-
-																// check isomorphic binding between objects flow1 and flow 
-																JavaSDM.ensure(!flow1
-																		.equals(flow));
-
-																// check isomorphic binding between objects inFlow1 and inFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow1));
-
-																// check isomorphic binding between objects inFlowToFlow and inFlow1ToFlow1 
-																JavaSDM.ensure(!inFlowToFlow
-																		.equals(inFlow1ToFlow1));
-
-																// check isomorphic binding between objects inFlowToStep and inFlow1ToStep1 
-																JavaSDM.ensure(!inFlowToStep
-																		.equals(inFlow1ToStep1));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check isomorphic binding between objects step1 and step 
-																JavaSDM.ensure(!step1
-																		.equals(step));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow1 to process
-																JavaSDM.ensure(process
-																		.equals(inFlow1
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link source from divergeFlow1ToFlow1 to divergeFlow1
-																JavaSDM.ensure(divergeFlow1
-																		.equals(divergeFlow1ToFlow1
-																				.getSource()));
-
-																// check link source from divergeFlowToFlow to divergeFlow
-																JavaSDM.ensure(divergeFlow
-																		.equals(divergeFlowToFlow
-																				.getSource()));
-
-																// check link source from inFlow1ToFlow1 to inFlow1
-																JavaSDM.ensure(inFlow1
-																		.equals(inFlow1ToFlow1
-																				.getSource()));
-
-																// check link source from inFlow1ToStep1 to inFlow1
-																JavaSDM.ensure(inFlow1
-																		.equals(inFlow1ToStep1
-																				.getSource()));
-
-																// check link source from inFlowToFlow to inFlow
-																JavaSDM.ensure(inFlow
-																		.equals(inFlowToFlow
-																				.getSource()));
-
-																// check link source from inFlowToStep to inFlow
-																JavaSDM.ensure(inFlow
-																		.equals(inFlowToStep
-																				.getSource()));
-
-																// check link sourceRef from divergeFlow1 to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow1
-																				.getSourceRef()));
-
-																// check link sourceRef from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link sourceRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link steps from step1 to flow1
-																JavaSDM.ensure(flow1
-																		.equals(step1
-																				.eContainer()));
-
-																// check link steps from step to flow
-																JavaSDM.ensure(flow
-																		.equals(step
-																				.eContainer()));
-
-																// check link target from divergeFlow1ToFlow1 to flow1
-																JavaSDM.ensure(flow1
-																		.equals(divergeFlow1ToFlow1
-																				.getTarget()));
-
-																// check link target from divergeFlowToFlow to flow
-																JavaSDM.ensure(flow
-																		.equals(divergeFlowToFlow
-																				.getTarget()));
-
-																// check link target from inFlow1ToFlow1 to flow1
-																JavaSDM.ensure(flow1
-																		.equals(inFlow1ToFlow1
-																				.getTarget()));
-
-																// check link target from inFlow1ToStep1 to step1
-																JavaSDM.ensure(step1
-																		.equals(inFlow1ToStep1
-																				.getTarget()));
-
-																// check link target from inFlowToFlow to flow
-																JavaSDM.ensure(flow
-																		.equals(inFlowToFlow
-																				.getTarget()));
-
-																// check link target from inFlowToStep to step
-																JavaSDM.ensure(step
-																		.equals(inFlowToStep
-																				.getTarget()));
-
-																// check link targetRef from inFlow1 to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow1
-																				.getTargetRef()));
-
-																// check link targetRef from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// iterate to-many link invokedFlows from flow1 to parallelStep
-																fujaba__Success = false;
-
-																fujaba__IterFlow1ToParallelStep = new ArrayList(
-																		org.moflon.util.eMoflonEMFUtil
-																				.getOppositeReference(
-																						flow1,
-																						ParallelStep.class,
-																						"invokedFlows"))
-																		.iterator();
-
-																while (fujaba__IterFlow1ToParallelStep
-																		.hasNext()) {
-																	try {
-																		parallelStep = (ParallelStep) fujaba__IterFlow1ToParallelStep
-																				.next();
-
-																		// check object parallelStep is really bound
-																		JavaSDM.ensure(parallelStep != null);
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// bind object
-																			nextStep = step
-																					.getNext();
-
-																			// check object nextStep is really bound
-																			JavaSDM.ensure(nextStep != null);
-
-																			// check isomorphic binding between objects nextStep and parallelStep 
-																			JavaSDM.ensure(!nextStep
-																					.equals(parallelStep));
-
-																			// check isomorphic binding between objects nextStep and step1 
-																			JavaSDM.ensure(!nextStep
-																					.equals(step1));
-
-																			// check isomorphic binding between objects nextStep and step 
-																			JavaSDM.ensure(!nextStep
-																					.equals(step));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// check isomorphic binding between objects step1 and parallelStep 
-																		JavaSDM.ensure(!step1
-																				.equals(parallelStep));
-
-																		// check isomorphic binding between objects step and parallelStep 
-																		JavaSDM.ensure(!step
-																				.equals(parallelStep));
-
-																		// bind object
-																		initFlow = parallelStep
-																				.eContainer() instanceof Flow ? (Flow) parallelStep
-																				.eContainer()
-																				: null;
-
-																		// check object initFlow is really bound
-																		JavaSDM.ensure(initFlow != null);
-
-																		// check if contained via correct reference
-																		JavaSDM.ensure(initFlow
-																				.getSteps()
-																				.contains(
-																						parallelStep));
-
-																		// check isomorphic binding between objects initFlow and flow1 
-																		JavaSDM.ensure(!initFlow
-																				.equals(flow1));
-
-																		// check isomorphic binding between objects initFlow and flow 
-																		JavaSDM.ensure(!initFlow
-																				.equals(flow));
-
-																		// check link invokedFlows from flow to parallelStep
-																		JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																				.getOppositeReference(
-																						flow,
-																						ParallelStep.class,
-																						"invokedFlows")
-																				.contains(
-																						parallelStep));
-
-																		// create object __process_flowElements_inFlow
-																		__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __process_flowElements_divergeFlow
-																		__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object isApplicableMatch
-																		isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-																				.createIsApplicableMatch();
-
-																		// create object __process_flowElements_inFlow1
-																		__process_flowElements_inFlow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __process_flowElements_outFlow
-																		__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __process_laneSets_laneSet
-																		__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlow1ToFlow1_source_inFlow1
-																		__inFlow1ToFlow1_source_inFlow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __parallelConvGateway_incoming_inFlow1
-																		__parallelConvGateway_incoming_inFlow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlow1_targetRef_parallelConvGateway
-																		__inFlow1_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlow1ToStep1_source_inFlow1
-																		__inFlow1ToStep1_source_inFlow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __parallelConvGateway_outgoing_outFlow
-																		__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlow_targetRef_parallelConvGateway
-																		__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __outFlow_sourceRef_parallelConvGateway
-																		__outFlow_sourceRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __lane_flowNodeRefs_parallelConvGateway
-																		__lane_flowNodeRefs_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __parallelConvGateway_incoming_inFlow
-																		__parallelConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __parallelGateway_outgoing_divergeFlow
-																		__parallelGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __parallelGateway_outgoing_divergeFlow1
-																		__parallelGateway_outgoing_divergeFlow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __divergeFlow1_sourceRef_parallelGateway
-																		__divergeFlow1_sourceRef_parallelGateway = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __divergeFlow_sourceRef_parallelGateway
-																		__divergeFlow_sourceRef_parallelGateway = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __divergeFlow1ToFlow1_source_divergeFlow1
-																		__divergeFlow1ToFlow1_source_divergeFlow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __divergeFlow1ToFlow1_target_flow1
-																		__divergeFlow1ToFlow1_target_flow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __flow1_steps_step1
-																		__flow1_steps_step1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlow1ToFlow1_target_flow1
-																		__inFlow1ToFlow1_target_flow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __parallelStep_invokedFlows_flow1
-																		__parallelStep_invokedFlows_flow1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlow1ToStep1_target_step1
-																		__inFlow1ToStep1_target_step1 = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __initFlow_steps_parallelStep
-																		__initFlow_steps_parallelStep = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __parallelStep_invokedFlows_flow
-																		__parallelStep_invokedFlows_flow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlowToFlow_source_inFlow
-																		__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlowToStep_source_inFlow
-																		__inFlowToStep_source_inFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __divergeFlowToFlow_target_flow
-																		__divergeFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlowToFlow_target_flow
-																		__inFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __flow_steps_step
-																		__flow_steps_step = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __inFlowToStep_target_step
-																		__inFlowToStep_target_step = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __laneSet_lanes_lane
-																		__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// create object __divergeFlowToFlow_source_divergeFlow
-																		__divergeFlowToFlow_source_divergeFlow = TGGRuntimeFactory.eINSTANCE
-																				.createEMoflonEdge();
-
-																		// assign attribute __process_flowElements_inFlow1
-																		__process_flowElements_inFlow1
-																				.setName("flowElements");
-																		// assign attribute __inFlow1_targetRef_parallelConvGateway
-																		__inFlow1_targetRef_parallelConvGateway
-																				.setName("targetRef");
-																		// assign attribute __parallelConvGateway_incoming_inFlow1
-																		__parallelConvGateway_incoming_inFlow1
-																				.setName("incoming");
-																		// assign attribute __divergeFlow1_sourceRef_parallelGateway
-																		__divergeFlow1_sourceRef_parallelGateway
-																				.setName("sourceRef");
-																		// assign attribute __parallelGateway_outgoing_divergeFlow1
-																		__parallelGateway_outgoing_divergeFlow1
-																				.setName("outgoing");
-																		// assign attribute __flow1_steps_step1
-																		__flow1_steps_step1
-																				.setName("steps");
-																		// assign attribute __inFlow1ToFlow1_source_inFlow1
-																		__inFlow1ToFlow1_source_inFlow1
-																				.setName("source");
-																		// assign attribute __inFlow1ToFlow1_target_flow1
-																		__inFlow1ToFlow1_target_flow1
-																				.setName("target");
-																		// assign attribute __inFlow1ToStep1_source_inFlow1
-																		__inFlow1ToStep1_source_inFlow1
-																				.setName("source");
-																		// assign attribute __inFlow1ToStep1_target_step1
-																		__inFlow1ToStep1_target_step1
-																				.setName("target");
-																		// assign attribute __parallelStep_invokedFlows_flow1
-																		__parallelStep_invokedFlows_flow1
-																				.setName("invokedFlows");
-																		// assign attribute __divergeFlow1ToFlow1_source_divergeFlow1
-																		__divergeFlow1ToFlow1_source_divergeFlow1
-																				.setName("source");
-																		// assign attribute __divergeFlow1ToFlow1_target_flow1
-																		__divergeFlow1ToFlow1_target_flow1
-																				.setName("target");
-																		// assign attribute __process_flowElements_inFlow
-																		__process_flowElements_inFlow
-																				.setName("flowElements");
-																		// assign attribute __process_laneSets_laneSet
-																		__process_laneSets_laneSet
-																				.setName("laneSets");
-																		// assign attribute __process_flowElements_outFlow
-																		__process_flowElements_outFlow
-																				.setName("flowElements");
-																		// assign attribute __process_flowElements_divergeFlow
-																		__process_flowElements_divergeFlow
-																				.setName("flowElements");
-																		// assign attribute __inFlow_targetRef_parallelConvGateway
-																		__inFlow_targetRef_parallelConvGateway
-																				.setName("targetRef");
-																		// assign attribute __parallelConvGateway_incoming_inFlow
-																		__parallelConvGateway_incoming_inFlow
-																				.setName("incoming");
-																		// assign attribute __outFlow_sourceRef_parallelConvGateway
-																		__outFlow_sourceRef_parallelConvGateway
-																				.setName("sourceRef");
-																		// assign attribute __parallelConvGateway_outgoing_outFlow
-																		__parallelConvGateway_outgoing_outFlow
-																				.setName("outgoing");
-																		// assign attribute __flow_steps_step
-																		__flow_steps_step
-																				.setName("steps");
-																		// assign attribute __inFlowToFlow_source_inFlow
-																		__inFlowToFlow_source_inFlow
-																				.setName("source");
-																		// assign attribute __inFlowToFlow_target_flow
-																		__inFlowToFlow_target_flow
-																				.setName("target");
-																		// assign attribute __inFlowToStep_source_inFlow
-																		__inFlowToStep_source_inFlow
-																				.setName("source");
-																		// assign attribute __inFlowToStep_target_step
-																		__inFlowToStep_target_step
-																				.setName("target");
-																		// assign attribute __initFlow_steps_parallelStep
-																		__initFlow_steps_parallelStep
-																				.setName("steps");
-																		// assign attribute __parallelStep_invokedFlows_flow
-																		__parallelStep_invokedFlows_flow
-																				.setName("invokedFlows");
-																		// assign attribute __lane_flowNodeRefs_parallelConvGateway
-																		__lane_flowNodeRefs_parallelConvGateway
-																				.setName("flowNodeRefs");
-																		// assign attribute __laneSet_lanes_lane
-																		__laneSet_lanes_lane
-																				.setName("lanes");
-																		// assign attribute __divergeFlow_sourceRef_parallelGateway
-																		__divergeFlow_sourceRef_parallelGateway
-																				.setName("sourceRef");
-																		// assign attribute __parallelGateway_outgoing_divergeFlow
-																		__parallelGateway_outgoing_divergeFlow
-																				.setName("outgoing");
-																		// assign attribute __divergeFlowToFlow_source_divergeFlow
-																		__divergeFlowToFlow_source_divergeFlow
-																				.setName("source");
-																		// assign attribute __divergeFlowToFlow_target_flow
-																		__divergeFlowToFlow_target_flow
-																				.setName("target");
-
-																		// create link
-																		__process_flowElements_inFlow
-																				.setSrc(process);
-
-																		// create link
-																		__process_flowElements_divergeFlow
-																				.setSrc(process);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(process);
-
-																		// create link
-																		__process_flowElements_inFlow1
-																				.setSrc(process);
-
-																		// create link
-																		__process_flowElements_outFlow
-																				.setSrc(process);
-
-																		// create link
-																		__process_laneSets_laneSet
-																				.setSrc(process);
-
-																		// create link
-																		__inFlow1ToFlow1_source_inFlow1
-																				.setTrg(inFlow1);
-
-																		// create link
-																		__parallelConvGateway_incoming_inFlow1
-																				.setTrg(inFlow1);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(inFlow1);
-
-																		// create link
-																		__inFlow1_targetRef_parallelConvGateway
-																				.setSrc(inFlow1);
-
-																		// create link
-																		__inFlow1ToStep1_source_inFlow1
-																				.setTrg(inFlow1);
-
-																		// create link
-																		__process_flowElements_inFlow1
-																				.setTrg(inFlow1);
-
-																		// create link
-																		__parallelConvGateway_incoming_inFlow1
-																				.setSrc(parallelConvGateway);
-
-																		// create link
-																		__inFlow1_targetRef_parallelConvGateway
-																				.setTrg(parallelConvGateway);
-
-																		// create link
-																		__parallelConvGateway_outgoing_outFlow
-																				.setSrc(parallelConvGateway);
-
-																		// create link
-																		__inFlow_targetRef_parallelConvGateway
-																				.setTrg(parallelConvGateway);
-
-																		// create link
-																		__outFlow_sourceRef_parallelConvGateway
-																				.setTrg(parallelConvGateway);
-
-																		// create link
-																		__lane_flowNodeRefs_parallelConvGateway
-																				.setTrg(parallelConvGateway);
-
-																		// create link
-																		__parallelConvGateway_incoming_inFlow
-																				.setSrc(parallelConvGateway);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(parallelConvGateway);
-
-																		// create link
-																		__parallelGateway_outgoing_divergeFlow
-																				.setSrc(parallelGateway);
-
-																		// create link
-																		__parallelGateway_outgoing_divergeFlow1
-																				.setSrc(parallelGateway);
-
-																		// create link
-																		__divergeFlow1_sourceRef_parallelGateway
-																				.setTrg(parallelGateway);
-
-																		// create link
-																		__divergeFlow_sourceRef_parallelGateway
-																				.setTrg(parallelGateway);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(parallelGateway);
-
-																		// create link
-																		__divergeFlow1ToFlow1_source_divergeFlow1
-																				.setTrg(divergeFlow1);
-
-																		// create link
-																		__divergeFlow1_sourceRef_parallelGateway
-																				.setSrc(divergeFlow1);
-
-																		// create link
-																		__parallelGateway_outgoing_divergeFlow1
-																				.setTrg(divergeFlow1);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(divergeFlow1);
-
-																		// create link
-																		__divergeFlow1ToFlow1_target_flow1
-																				.setTrg(flow1);
-
-																		// create link
-																		__flow1_steps_step1
-																				.setSrc(flow1);
-
-																		// create link
-																		__inFlow1ToFlow1_target_flow1
-																				.setTrg(flow1);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(flow1);
-
-																		// create link
-																		__parallelStep_invokedFlows_flow1
-																				.setTrg(flow1);
-
-																		// create link
-																		__inFlow1ToFlow1_source_inFlow1
-																				.setSrc(inFlow1ToFlow1);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(inFlow1ToFlow1);
-
-																		// create link
-																		__inFlow1ToFlow1_target_flow1
-																				.setSrc(inFlow1ToFlow1);
-
-																		// create link
-																		__flow1_steps_step1
-																				.setTrg(step1);
-
-																		// create link
-																		__inFlow1ToStep1_target_step1
-																				.setTrg(step1);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(step1);
-
-																		// create link
-																		__inFlow1ToStep1_source_inFlow1
-																				.setSrc(inFlow1ToStep1);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(inFlow1ToStep1);
-
-																		// create link
-																		__inFlow1ToStep1_target_step1
-																				.setSrc(inFlow1ToStep1);
-
-																		// create link
-																		__parallelStep_invokedFlows_flow1
-																				.setSrc(parallelStep);
-
-																		// create link
-																		__initFlow_steps_parallelStep
-																				.setTrg(parallelStep);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(parallelStep);
-
-																		// create link
-																		__parallelStep_invokedFlows_flow
-																				.setSrc(parallelStep);
-
-																		// create link
-																		__divergeFlow1ToFlow1_target_flow1
-																				.setSrc(divergeFlow1ToFlow1);
-
-																		// create link
-																		__divergeFlow1ToFlow1_source_divergeFlow1
-																				.setSrc(divergeFlow1ToFlow1);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(divergeFlow1ToFlow1);
-
-																		// create link
-																		__inFlowToFlow_source_inFlow
-																				.setTrg(inFlow);
-
-																		// create link
-																		__inFlowToStep_source_inFlow
-																				.setTrg(inFlow);
-
-																		// create link
-																		__process_flowElements_inFlow
-																				.setTrg(inFlow);
-
-																		// create link
-																		__inFlow_targetRef_parallelConvGateway
-																				.setSrc(inFlow);
-
-																		// create link
-																		__parallelConvGateway_incoming_inFlow
-																				.setTrg(inFlow);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(inFlow);
-
-																		// create link
-																		__outFlow_sourceRef_parallelConvGateway
-																				.setSrc(outFlow);
-
-																		// create link
-																		__parallelConvGateway_outgoing_outFlow
-																				.setTrg(outFlow);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(outFlow);
-
-																		// create link
-																		__process_flowElements_outFlow
-																				.setTrg(outFlow);
-
-																		// create link
-																		__divergeFlowToFlow_target_flow
-																				.setTrg(flow);
-
-																		// create link
-																		__inFlowToFlow_target_flow
-																				.setTrg(flow);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(flow);
-
-																		// create link
-																		__parallelStep_invokedFlows_flow
-																				.setTrg(flow);
-
-																		// create link
-																		__flow_steps_step
-																				.setSrc(flow);
-
-																		// create link
-																		__inFlowToFlow_source_inFlow
-																				.setSrc(inFlowToFlow);
-
-																		// create link
-																		__inFlowToFlow_target_flow
-																				.setSrc(inFlowToFlow);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(inFlowToFlow);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(step);
-
-																		// create link
-																		__inFlowToStep_target_step
-																				.setTrg(step);
-
-																		// create link
-																		__flow_steps_step
-																				.setTrg(step);
-
-																		// create link
-																		__inFlowToStep_target_step
-																				.setSrc(inFlowToStep);
-
-																		// create link
-																		__inFlowToStep_source_inFlow
-																				.setSrc(inFlowToStep);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(inFlowToStep);
-
-																		// create link
-																		__initFlow_steps_parallelStep
-																				.setSrc(initFlow);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(initFlow);
-
-																		// create link
-																		__lane_flowNodeRefs_parallelConvGateway
-																				.setSrc(lane);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(lane);
-
-																		// create link
-																		__laneSet_lanes_lane
-																				.setTrg(lane);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(laneSet);
-
-																		// create link
-																		__laneSet_lanes_lane
-																				.setSrc(laneSet);
-
-																		// create link
-																		__process_laneSets_laneSet
-																				.setTrg(laneSet);
-
-																		// create link
-																		__divergeFlow_sourceRef_parallelGateway
-																				.setSrc(divergeFlow);
-
-																		// create link
-																		__divergeFlowToFlow_source_divergeFlow
-																				.setTrg(divergeFlow);
-
-																		// create link
-																		__parallelGateway_outgoing_divergeFlow
-																				.setTrg(divergeFlow);
-
-																		// create link
-																		__process_flowElements_divergeFlow
-																				.setTrg(divergeFlow);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(divergeFlow);
-
-																		// create link
-																		__divergeFlowToFlow_target_flow
-																				.setSrc(divergeFlowToFlow);
-
-																		// create link
-																		isApplicableMatch
-																				.getAllContextElements()
-																				.add(divergeFlowToFlow);
-
-																		// create link
-																		__divergeFlowToFlow_source_divergeFlow
-																				.setSrc(divergeFlowToFlow);
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlow1ToStep1_source_inFlow1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlow1ToFlow1_target_flow1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__initFlow_steps_parallelStep,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__divergeFlow_sourceRef_parallelGateway,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__process_flowElements_inFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__parallelStep_invokedFlows_flow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__parallelStep_invokedFlows_flow1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__outFlow_sourceRef_parallelConvGateway,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlow1_targetRef_parallelConvGateway,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__parallelConvGateway_incoming_inFlow1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlowToStep_target_step,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__laneSet_lanes_lane,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlowToFlow_target_flow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlow_targetRef_parallelConvGateway,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__flow1_steps_step1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__parallelGateway_outgoing_divergeFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__process_flowElements_outFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__parallelGateway_outgoing_divergeFlow1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__parallelConvGateway_outgoing_outFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlowToFlow_source_inFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlowToStep_source_inFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__process_flowElements_divergeFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__divergeFlow1_sourceRef_parallelGateway,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__divergeFlowToFlow_source_divergeFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlow1ToFlow1_source_inFlow1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__divergeFlowToFlow_target_flow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__lane_flowNodeRefs_parallelConvGateway,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__process_flowElements_inFlow1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__parallelConvGateway_incoming_inFlow,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__divergeFlow1ToFlow1_source_divergeFlow1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__process_laneSets_laneSet,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__inFlow1ToStep1_target_step1,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__flow_steps_step,
-																						"allContextElements");
-
-																		// create link
-																		org.moflon.util.eMoflonEMFUtil
-																				.addOppositeReference(
-																						isApplicableMatch,
-																						__divergeFlow1ToFlow1_target_flow1,
-																						"allContextElements");
-																		// story node 'solve CSP'
-																		try {
-																			fujaba__Success = false;
-
-																			_TmpObject = (this
-																					.isApplicable_solveCsp_FWD(
-																							isApplicableMatch,
-																							process,
-																							inFlow1,
-																							parallelConvGateway,
-																							parallelGateway,
-																							divergeFlow1,
-																							flow1,
-																							inFlow1ToFlow1,
-																							step1,
-																							inFlow1ToStep1,
-																							parallelStep,
-																							divergeFlow1ToFlow1,
-																							inFlow,
-																							outFlow,
-																							flow,
-																							inFlowToFlow,
-																							step,
-																							inFlowToStep,
-																							initFlow,
-																							lane,
-																							laneSet,
-																							divergeFlow,
-																							divergeFlowToFlow));
-
-																			// ensure correct type and really bound of object csp
-																			JavaSDM.ensure(_TmpObject instanceof CSP);
-																			csp = (CSP) _TmpObject;
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		// statement node 'check CSP'
-																		fujaba__Success = this
-																				.isApplicable_checkCsp_FWD(csp);
-																		if (fujaba__Success) {
-																			// story node 'add match to rule result'
-																			try {
-																				fujaba__Success = false;
-
-																				// check object isApplicableMatch is really bound
-																				JavaSDM.ensure(isApplicableMatch != null);
-																				// check object ruleresult is really bound
-																				JavaSDM.ensure(ruleresult != null);
-																				// assign attribute isApplicableMatch
-																				isApplicableMatch
-																						.setRuleName("ParallelConvergingGatewayTwoInputsRule");
-																				// assign attribute ruleresult
-																				ruleresult
-																						.setSuccess(true);
-
-																				// create link
-																				ruleresult
-																						.getIsApplicableMatch()
-																						.add(isApplicableMatch);
-
-																				fujaba__Success = true;
-																			} catch (JavaSDMException fujaba__InternalException) {
-																				fujaba__Success = false;
-																			}
-
-																		} else {
-
-																		}
-
-																		fujaba__Success = true;
-																	} catch (JavaSDMException fujaba__InternalException) {
-																		fujaba__Success = false;
-																	}
-																}
-																JavaSDM.ensure(fujaba__Success);
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_2_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
+
+		// ForEach core match
+		Object[] result2_binding = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_2_2_bindingFFFFFFFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		bpmn2.Process process = (bpmn2.Process) result2_binding[0];
+		SequenceFlow inFlow1 = (SequenceFlow) result2_binding[1];
+		ParallelGateway parallelConvGateway = (ParallelGateway) result2_binding[2];
+		ParallelGateway parallelGateway = (ParallelGateway) result2_binding[3];
+		SequenceFlow divergeFlow1 = (SequenceFlow) result2_binding[4];
+		SequenceFlow inFlow = (SequenceFlow) result2_binding[5];
+		SequenceFlow outFlow = (SequenceFlow) result2_binding[6];
+		Lane lane = (Lane) result2_binding[7];
+		LaneSet laneSet = (LaneSet) result2_binding[8];
+		SequenceFlow divergeFlow = (SequenceFlow) result2_binding[9];
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_2_2_blackBBBBBFFFFFBBFFFFBBBFB(
+						process, inFlow1, parallelConvGateway, parallelGateway,
+						divergeFlow1, inFlow, outFlow, lane, laneSet,
+						divergeFlow, match)) {
+			ParallelFlow flow1 = (ParallelFlow) result2_black[5];
+			SequenceFlowToUCFlow inFlow1ToFlow1 = (SequenceFlowToUCFlow) result2_black[6];
+			Step step1 = (Step) result2_black[7];
+			SequenceFlowToStep inFlow1ToStep1 = (SequenceFlowToStep) result2_black[8];
+			SequenceFlowToUCFlow divergeFlow1ToFlow1 = (SequenceFlowToUCFlow) result2_black[9];
+			ParallelFlow flow = (ParallelFlow) result2_black[12];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[13];
+			Step step = (Step) result2_black[14];
+			SequenceFlowToStep inFlowToStep = (SequenceFlowToStep) result2_black[15];
+			SequenceFlowToUCFlow divergeFlowToFlow = (SequenceFlowToUCFlow) result2_black[19];
+			// ForEach find context
+			for (Object[] result3_black : ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_2_3_blackBBBBBBBBBFBBBBBBBFBBBB(
+							process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, flow1,
+							inFlow1ToFlow1, step1, inFlow1ToStep1,
+							divergeFlow1ToFlow1, inFlow, outFlow, flow,
+							inFlowToFlow, step, inFlowToStep, lane, laneSet,
+							divergeFlow, divergeFlowToFlow)) {
+				ParallelStep parallelStep = (ParallelStep) result3_black[9];
+				Flow initFlow = (Flow) result3_black[17];
+				Object[] result3_green = ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_2_3_greenBBBBBBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
+								process, inFlow1, parallelConvGateway,
+								parallelGateway, divergeFlow1, flow1,
+								inFlow1ToFlow1, step1, inFlow1ToStep1,
+								parallelStep, divergeFlow1ToFlow1, inFlow,
+								outFlow, flow, inFlowToFlow, step,
+								inFlowToStep, initFlow, lane, laneSet,
+								divergeFlow, divergeFlowToFlow);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[22];
+				// EMoflonEdge process__inFlow1____flowElements = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result3_green[25];
+				// EMoflonEdge divergeFlow1__parallelGateway____sourceRef = (EMoflonEdge) result3_green[26];
+				// EMoflonEdge parallelGateway__divergeFlow1____outgoing = (EMoflonEdge) result3_green[27];
+				// EMoflonEdge flow1__step1____steps = (EMoflonEdge) result3_green[28];
+				// EMoflonEdge inFlow1ToFlow1__inFlow1____source = (EMoflonEdge) result3_green[29];
+				// EMoflonEdge inFlow1ToFlow1__flow1____target = (EMoflonEdge) result3_green[30];
+				// EMoflonEdge inFlow1ToStep1__inFlow1____source = (EMoflonEdge) result3_green[31];
+				// EMoflonEdge inFlow1ToStep1__step1____target = (EMoflonEdge) result3_green[32];
+				// EMoflonEdge parallelStep__flow1____invokedFlows = (EMoflonEdge) result3_green[33];
+				// EMoflonEdge divergeFlow1ToFlow1__divergeFlow1____source = (EMoflonEdge) result3_green[34];
+				// EMoflonEdge divergeFlow1ToFlow1__flow1____target = (EMoflonEdge) result3_green[35];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[36];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[37];
+				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[38];
+				// EMoflonEdge process__divergeFlow____flowElements = (EMoflonEdge) result3_green[39];
+				// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[40];
+				// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result3_green[41];
+				// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result3_green[42];
+				// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result3_green[43];
+				// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[44];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[45];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[46];
+				// EMoflonEdge inFlowToStep__inFlow____source = (EMoflonEdge) result3_green[47];
+				// EMoflonEdge inFlowToStep__step____target = (EMoflonEdge) result3_green[48];
+				// EMoflonEdge initFlow__parallelStep____steps = (EMoflonEdge) result3_green[49];
+				// EMoflonEdge parallelStep__flow____invokedFlows = (EMoflonEdge) result3_green[50];
+				// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result3_green[51];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[52];
+				// EMoflonEdge divergeFlow__parallelGateway____sourceRef = (EMoflonEdge) result3_green[53];
+				// EMoflonEdge parallelGateway__divergeFlow____outgoing = (EMoflonEdge) result3_green[54];
+				// EMoflonEdge divergeFlowToFlow__divergeFlow____source = (EMoflonEdge) result3_green[55];
+				// EMoflonEdge divergeFlowToFlow__flow____target = (EMoflonEdge) result3_green[56];
+
+				// solve CSP
+				Object[] result4_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_2_4_bindingAndBlackFBBBBBBBBBBBBBBBBBBBBBBBB(
+								this, isApplicableMatch, process, inFlow1,
+								parallelConvGateway, parallelGateway,
+								divergeFlow1, flow1, inFlow1ToFlow1, step1,
+								inFlow1ToStep1, parallelStep,
+								divergeFlow1ToFlow1, inFlow, outFlow, flow,
+								inFlowToFlow, step, inFlowToStep, initFlow,
+								lane, laneSet, divergeFlow, divergeFlowToFlow);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_2_5_expressionFBB(
+								this, csp)) {
+
+					// add match to rule result
+					Object[] result6_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_2_6_blackBB(
+									ruleresult, isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_2_6_greenBB(
+									ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_2_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -3891,19 +479,18 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			SequenceFlow inFlow1, ParallelGateway parallelConvGateway,
 			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
 			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
-			LaneSet laneSet, SequenceFlow divergeFlow) {
-		// Create CSP
+			LaneSet laneSet, SequenceFlow divergeFlow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("Converging");
-		literal0.setType("String");
+		literal0.setType("");
 		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal1", true, csp);
 		literal1.setValue("Diverging");
-		literal1.setType("String");
+		literal1.setType("");
 
 		// Create attribute variables
 		Variable var_parallelConvGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
@@ -3911,14 +498,13 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						csp);
 		var_parallelConvGateway_gatewayDirection.setValue(parallelConvGateway
 				.getGatewayDirection());
-		var_parallelConvGateway_gatewayDirection.setType("EObject");
+		var_parallelConvGateway_gatewayDirection
+				.setType("bpmn2.GatewayDirection");
 		Variable var_parallelGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
 				.createVariable("parallelGateway.gatewayDirection", true, csp);
 		var_parallelGateway_gatewayDirection.setValue(parallelGateway
 				.getGatewayDirection());
-		var_parallelGateway_gatewayDirection.setType("EObject");
-
-		// Create explicit parameters
+		var_parallelGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
 
 		// Create unbound variables
 
@@ -3965,16 +551,13 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			SequenceFlowToUCFlow inFlowToFlow, Step step,
 			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
 			LaneSet laneSet, SequenceFlow divergeFlow,
-			SequenceFlowToUCFlow divergeFlowToFlow) {
-		// Create CSP
+			SequenceFlowToUCFlow divergeFlowToFlow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -4084,658 +667,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_110(
 			EMoflonEdge _edge_targetRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_402020 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_99950 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_649975 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_649975 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelGatewayToDivergeFlow1 = null;
-		SequenceFlow divergeFlow1 = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToOutFlow = null;
-		SequenceFlow outFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow1 = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_10_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_targetRef is really bound
-			JavaSDM.ensure(_edge_targetRef != null);
-			// bind object
-			_TmpObject = _edge_targetRef.getSrc();
-
-			// ensure correct type and really bound of object inFlow1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow1 = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow1.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow1
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow1));
-
-			// bind object
-			_TmpObject = _edge_targetRef.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link targetRef from inFlow1 to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(inFlow1.getTargetRef()));
-
-			// iterate to-many link flowElements from process to outFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToOutFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToOutFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToOutFlow.next();
-
-					// ensure correct type and really bound of object outFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					outFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and inFlow1 
-					JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-					// check link sourceRef from outFlow to parallelConvGateway
-					JavaSDM.ensure(parallelConvGateway.equals(outFlow
-							.getSourceRef()));
-
-					// iterate to-many link flowElements from process to inFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToInFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToInFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToInFlow.next();
-
-							// ensure correct type and really bound of object inFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							inFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow1 and inFlow 
-							JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link targetRef from inFlow to parallelConvGateway
-							JavaSDM.ensure(parallelConvGateway.equals(inFlow
-									.getTargetRef()));
-
-							// iterate to-many link flowElements from process to divergeFlow
-							fujaba__Success = false;
-
-							fujaba__IterProcessToDivergeFlow = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToDivergeFlow
-											.next();
-
-									// ensure correct type and really bound of object divergeFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									divergeFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow1 and divergeFlow 
-									JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// check isomorphic binding between objects outFlow and divergeFlow 
-									JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-									// bind object
-									_TmpObject = divergeFlow.getSourceRef();
-
-									// ensure correct type and really bound of object parallelGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelGateway = (ParallelGateway) _TmpObject;
-
-									// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-									JavaSDM.ensure(!parallelGateway
-											.equals(parallelConvGateway));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link lanes from laneSet to lane
-											fujaba__Success = false;
-
-											fujaba__IterLaneSetToLane = new ArrayList(
-													laneSet.getLanes())
-													.iterator();
-
-											while (fujaba__IterLaneSetToLane
-													.hasNext()) {
-												try {
-													lane = (Lane) fujaba__IterLaneSetToLane
-															.next();
-
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link flowNodeRefs from lane to parallelConvGateway
-													JavaSDM.ensure(lane
-															.getFlowNodeRefs()
-															.contains(
-																	parallelConvGateway));
-
-													// iterate to-many link sourceRef from parallelGateway to divergeFlow1
-													fujaba__Success = false;
-
-													fujaba__IterParallelGatewayToDivergeFlow1 = new ArrayList(
-															parallelGateway
-																	.getOutgoing())
-															.iterator();
-
-													while (fujaba__IterParallelGatewayToDivergeFlow1
-															.hasNext()) {
-														try {
-															divergeFlow1 = (SequenceFlow) fujaba__IterParallelGatewayToDivergeFlow1
-																	.next();
-
-															// check object divergeFlow1 is really bound
-															JavaSDM.ensure(divergeFlow1 != null);
-															// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-															JavaSDM.ensure(!divergeFlow1
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects inFlow1 and divergeFlow1 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects inFlow and divergeFlow1 
-															JavaSDM.ensure(!inFlow
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects outFlow and divergeFlow1 
-															JavaSDM.ensure(!outFlow
-																	.equals(divergeFlow1));
-
-															// story node 'test core match and DECs'
-															try {
-																fujaba__Success = false;
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_outFlow_flowElements_402020 = outFlow
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_outFlow_flowElements_402020 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_402020 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_402020
-																			.getFlowElements()
-																			.contains(
-																					outFlow));
-
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_402020 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_402020
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_parallelConvGateway_flowElements_99950 = parallelConvGateway
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_parallelConvGateway_flowElements_99950 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_99950 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_99950
-																			.getFlowElements()
-																			.contains(
-																					parallelConvGateway));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_99950 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_99950
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// negative check for link default from outFlow
-																JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				outFlow,
-																				ExclusiveGateway.class,
-																				"default")
-																		.size() == 0);
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_649975
-																	fujaba__Success = false;
-
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_649975 = new ArrayList(
-																			parallelConvGateway
-																					.getIncoming())
-																			.iterator();
-
-																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_649975
-																					.hasNext()) {
-																		try {
-																			__DEC_parallelConvGateway_targetRef_649975 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_649975
-																					.next();
-
-																			// check object __DEC_parallelConvGateway_targetRef_649975 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_649975 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_649975 and divergeFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_649975
-																					.equals(divergeFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_649975 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_649975
-																					.equals(divergeFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_649975 and inFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_649975
-																					.equals(inFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_649975 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_649975
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_649975 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_649975
-																					.equals(outFlow));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check object _edge_targetRef is really bound
-																JavaSDM.ensure(_edge_targetRef != null);
-																// check object divergeFlow1 is really bound
-																JavaSDM.ensure(divergeFlow1 != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object inFlow1 is really bound
-																JavaSDM.ensure(inFlow1 != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																JavaSDM.ensure(!divergeFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow and divergeFlow1 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects outFlow and divergeFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and inFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow1));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow1 to process
-																JavaSDM.ensure(process
-																		.equals(inFlow1
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link flowElements from parallelConvGateway to process
-																JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				parallelConvGateway,
-																				bpmn2.Process.class,
-																				"$eContainer")
-																		.contains(process)));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link sourceRef from divergeFlow1 to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow1
-																				.getSourceRef()));
-
-																// check link sourceRef from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link sourceRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link src from _edge_targetRef to inFlow1
-																JavaSDM.ensure(inFlow1
-																		.equals(_edge_targetRef
-																				.getSrc()));
-
-																// check link targetRef from inFlow1 to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow1
-																				.getTargetRef()));
-
-																// check link targetRef from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link targetRef from divergeFlow1 to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow1
-																				.getTargetRef())));
-
-																// check link targetRef from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link targetRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
-																// check link trg from _edge_targetRef to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(_edge_targetRef
-																				.getTrg()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// create object match
-																match = TGGRuntimeFactory.eINSTANCE
-																		.createMatch();
-
-																// assign attribute match
-																match.setRuleName(__eClass
-																		.getName());
-																// statement node 'bookkeeping with generic isAppropriate method'
-																fujaba__Success = this
-																		.isAppropriate_FWD(
-																				match,
-																				process,
-																				inFlow1,
-																				parallelConvGateway,
-																				parallelGateway,
-																				divergeFlow1,
-																				inFlow,
-																				outFlow,
-																				lane,
-																				laneSet,
-																				divergeFlow);
-																if (fujaba__Success) {
-																	// statement node 'Ensure that the correct types of elements are matched'
-																	fujaba__Success = this
-																			.checkTypes_FWD(match);
-																	if (fujaba__Success) {
-																		// story node 'Add match to rule result'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object __performOperation is really bound
-																			JavaSDM.ensure(__performOperation != null);
-																			// check object __result is really bound
-																			JavaSDM.ensure(__result != null);
-																			// check object match is really bound
-																			JavaSDM.ensure(match != null);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							match,
-																							__performOperation,
-																							"isApplicableOperation");
-
-																			// create link
-																			__result.getContents()
-																					.add(match);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																	} else {
-
-																	}
-
-																} else {
-
-																}
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_10_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_10_2_blackFFFFFFFFFFB(_edge_targetRef)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_10_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_10_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_10_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_10_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_10_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_10_6_expressionFB(__result);
 	}
 
 	/**
@@ -4745,712 +738,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_111(
 			EMoflonEdge _edge_incoming) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_939766 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_400422 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_730027 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_730027 = null;
-		Match match = null;
-		Iterator fujaba__IterInFlow1To_edge_targetRef = null;
-		EMoflonEdge _edge_targetRef = null;
-		Iterator fujaba__IterParallelGatewayToDivergeFlow1 = null;
-		SequenceFlow divergeFlow1 = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToOutFlow = null;
-		SequenceFlow outFlow = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow1 = null;
-		ParallelGateway parallelConvGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_11_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_incoming is really bound
-			JavaSDM.ensure(_edge_incoming != null);
-			// bind object
-			_TmpObject = _edge_incoming.getSrc();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_incoming.getTrg();
-
-			// ensure correct type and really bound of object inFlow1
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow1 = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow1.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow1
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow1));
-
-			// check link targetRef from inFlow1 to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(inFlow1.getTargetRef()));
-
-			// iterate to-many link flowElements from process to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToInFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToInFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToInFlow.next();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects inFlow1 and inFlow 
-					JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-					// check link targetRef from inFlow to parallelConvGateway
-					JavaSDM.ensure(parallelConvGateway.equals(inFlow
-							.getTargetRef()));
-
-					// iterate to-many link flowElements from process to divergeFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToDivergeFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToDivergeFlow
-									.next();
-
-							// ensure correct type and really bound of object divergeFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							divergeFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow1 and divergeFlow 
-							JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-							// check isomorphic binding between objects inFlow and divergeFlow 
-							JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-							// bind object
-							_TmpObject = divergeFlow.getSourceRef();
-
-							// ensure correct type and really bound of object parallelGateway
-							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-							parallelGateway = (ParallelGateway) _TmpObject;
-
-							// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-							JavaSDM.ensure(!parallelGateway
-									.equals(parallelConvGateway));
-
-							// iterate to-many link flowElements from process to outFlow
-							fujaba__Success = false;
-
-							fujaba__IterProcessToOutFlow = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToOutFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToOutFlow
-											.next();
-
-									// ensure correct type and really bound of object outFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									outFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects outFlow and divergeFlow 
-									JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-									// check isomorphic binding between objects outFlow and inFlow1 
-									JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link sourceRef from outFlow to parallelConvGateway
-									JavaSDM.ensure(parallelConvGateway
-											.equals(outFlow.getSourceRef()));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link lanes from laneSet to lane
-											fujaba__Success = false;
-
-											fujaba__IterLaneSetToLane = new ArrayList(
-													laneSet.getLanes())
-													.iterator();
-
-											while (fujaba__IterLaneSetToLane
-													.hasNext()) {
-												try {
-													lane = (Lane) fujaba__IterLaneSetToLane
-															.next();
-
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link flowNodeRefs from lane to parallelConvGateway
-													JavaSDM.ensure(lane
-															.getFlowNodeRefs()
-															.contains(
-																	parallelConvGateway));
-
-													// iterate to-many link sourceRef from parallelGateway to divergeFlow1
-													fujaba__Success = false;
-
-													fujaba__IterParallelGatewayToDivergeFlow1 = new ArrayList(
-															parallelGateway
-																	.getOutgoing())
-															.iterator();
-
-													while (fujaba__IterParallelGatewayToDivergeFlow1
-															.hasNext()) {
-														try {
-															divergeFlow1 = (SequenceFlow) fujaba__IterParallelGatewayToDivergeFlow1
-																	.next();
-
-															// check object divergeFlow1 is really bound
-															JavaSDM.ensure(divergeFlow1 != null);
-															// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-															JavaSDM.ensure(!divergeFlow1
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects inFlow1 and divergeFlow1 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects inFlow and divergeFlow1 
-															JavaSDM.ensure(!inFlow
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects outFlow and divergeFlow1 
-															JavaSDM.ensure(!outFlow
-																	.equals(divergeFlow1));
-
-															// iterate to-many link src from inFlow1 to _edge_targetRef
-															fujaba__Success = false;
-
-															fujaba__IterInFlow1To_edge_targetRef = new ArrayList(
-																	org.moflon.util.eMoflonEMFUtil
-																			.getOppositeReference(
-																					inFlow1,
-																					EMoflonEdge.class,
-																					"src"))
-																	.iterator();
-
-															while (fujaba__IterInFlow1To_edge_targetRef
-																	.hasNext()) {
-																try {
-																	_edge_targetRef = (EMoflonEdge) fujaba__IterInFlow1To_edge_targetRef
-																			.next();
-
-																	// check object _edge_targetRef is really bound
-																	JavaSDM.ensure(_edge_targetRef != null);
-																	// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-																	JavaSDM.ensure(!_edge_targetRef
-																			.equals(_edge_incoming));
-
-																	// check link trg from _edge_targetRef to parallelConvGateway
-																	JavaSDM.ensure(parallelConvGateway
-																			.equals(_edge_targetRef
-																					.getTrg()));
-
-																	// story node 'test core match and DECs'
-																	try {
-																		fujaba__Success = false;
-
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// bind object
-																			__DEC_outFlow_flowElements_939766 = outFlow
-																					.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																					.eContainer()
-																					: null;
-
-																			// check object __DEC_outFlow_flowElements_939766 is really bound
-																			JavaSDM.ensure(__DEC_outFlow_flowElements_939766 != null);
-
-																			// check if contained via correct reference
-																			JavaSDM.ensure(__DEC_outFlow_flowElements_939766
-																					.getFlowElements()
-																					.contains(
-																							outFlow));
-
-																			// check isomorphic binding between objects __DEC_outFlow_flowElements_939766 and process 
-																			JavaSDM.ensure(!__DEC_outFlow_flowElements_939766
-																					.equals(process));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// bind object
-																			__DEC_parallelConvGateway_flowElements_400422 = parallelConvGateway
-																					.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																					.eContainer()
-																					: null;
-
-																			// check object __DEC_parallelConvGateway_flowElements_400422 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_400422 != null);
-
-																			// check if contained via correct reference
-																			JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_400422
-																					.getFlowElements()
-																					.contains(
-																							parallelConvGateway));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_400422 and process 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_400422
-																					.equals(process));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// negative check for link default from outFlow
-																		JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																				.getOppositeReference(
-																						outFlow,
-																						ExclusiveGateway.class,
-																						"default")
-																				.size() == 0);
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_730027
-																			fujaba__Success = false;
-
-																			fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_730027 = new ArrayList(
-																					parallelConvGateway
-																							.getIncoming())
-																					.iterator();
-
-																			while (!(fujaba__Success)
-																					&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_730027
-																							.hasNext()) {
-																				try {
-																					__DEC_parallelConvGateway_targetRef_730027 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_730027
-																							.next();
-
-																					// check object __DEC_parallelConvGateway_targetRef_730027 is really bound
-																					JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_730027 != null);
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_730027 and divergeFlow1 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_730027
-																							.equals(divergeFlow1));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_730027 and divergeFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_730027
-																							.equals(divergeFlow));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_730027 and inFlow1 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_730027
-																							.equals(inFlow1));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_730027 and inFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_730027
-																							.equals(inFlow));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_730027 and outFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_730027
-																							.equals(outFlow));
-
-																					fujaba__Success = true;
-																				} catch (JavaSDMException fujaba__InternalException) {
-																					fujaba__Success = false;
-																				}
-																			}
-																			JavaSDM.ensure(fujaba__Success);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// check object _edge_incoming is really bound
-																		JavaSDM.ensure(_edge_incoming != null);
-																		// check object _edge_targetRef is really bound
-																		JavaSDM.ensure(_edge_targetRef != null);
-																		// check object divergeFlow1 is really bound
-																		JavaSDM.ensure(divergeFlow1 != null);
-																		// check object divergeFlow is really bound
-																		JavaSDM.ensure(divergeFlow != null);
-																		// check object inFlow1 is really bound
-																		JavaSDM.ensure(inFlow1 != null);
-																		// check object inFlow is really bound
-																		JavaSDM.ensure(inFlow != null);
-																		// check object lane is really bound
-																		JavaSDM.ensure(lane != null);
-																		// check object laneSet is really bound
-																		JavaSDM.ensure(laneSet != null);
-																		// check object outFlow is really bound
-																		JavaSDM.ensure(outFlow != null);
-																		// check object parallelConvGateway is really bound
-																		JavaSDM.ensure(parallelConvGateway != null);
-																		// check object parallelGateway is really bound
-																		JavaSDM.ensure(parallelGateway != null);
-																		// check object process is really bound
-																		JavaSDM.ensure(process != null);
-																		// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-																		JavaSDM.ensure(!_edge_targetRef
-																				.equals(_edge_incoming));
-
-																		// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																		JavaSDM.ensure(!divergeFlow1
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects inFlow and divergeFlow1 
-																		JavaSDM.ensure(!inFlow
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects outFlow and divergeFlow1 
-																		JavaSDM.ensure(!outFlow
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects inFlow1 and divergeFlow 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow and divergeFlow 
-																		JavaSDM.ensure(!inFlow
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects outFlow and divergeFlow 
-																		JavaSDM.ensure(!outFlow
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow1 and inFlow 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(inFlow));
-
-																		// check isomorphic binding between objects outFlow and inFlow1 
-																		JavaSDM.ensure(!outFlow
-																				.equals(inFlow1));
-
-																		// check isomorphic binding between objects outFlow and inFlow 
-																		JavaSDM.ensure(!outFlow
-																				.equals(inFlow));
-
-																		// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																		JavaSDM.ensure(!parallelGateway
-																				.equals(parallelConvGateway));
-
-																		// check link flowElements from divergeFlow to process
-																		JavaSDM.ensure(process
-																				.equals(divergeFlow
-																						.eContainer()));
-
-																		// check link flowElements from inFlow1 to process
-																		JavaSDM.ensure(process
-																				.equals(inFlow1
-																						.eContainer()));
-
-																		// check link flowElements from inFlow to process
-																		JavaSDM.ensure(process
-																				.equals(inFlow
-																						.eContainer()));
-
-																		// check link flowElements from outFlow to process
-																		JavaSDM.ensure(process
-																				.equals(outFlow
-																						.eContainer()));
-
-																		// check link flowElements from parallelConvGateway to process
-																		JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-																				.getOppositeReference(
-																						parallelConvGateway,
-																						bpmn2.Process.class,
-																						"$eContainer")
-																				.contains(process)));
-
-																		// check link laneSets from laneSet to process
-																		JavaSDM.ensure(process
-																				.equals(laneSet
-																						.eContainer()));
-
-																		// check link lanes from lane to laneSet
-																		JavaSDM.ensure(laneSet
-																				.equals(lane
-																						.eContainer()));
-
-																		// check link sourceRef from divergeFlow1 to parallelGateway
-																		JavaSDM.ensure(parallelGateway
-																				.equals(divergeFlow1
-																						.getSourceRef()));
-
-																		// check link sourceRef from divergeFlow to parallelGateway
-																		JavaSDM.ensure(parallelGateway
-																				.equals(divergeFlow
-																						.getSourceRef()));
-
-																		// check link sourceRef from outFlow to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(outFlow
-																						.getSourceRef()));
-
-																		// check link src from _edge_incoming to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(_edge_incoming
-																						.getSrc()));
-
-																		// check link src from _edge_targetRef to inFlow1
-																		JavaSDM.ensure(inFlow1
-																				.equals(_edge_targetRef
-																						.getSrc()));
-
-																		// check link targetRef from inFlow1 to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(inFlow1
-																						.getTargetRef()));
-
-																		// check link targetRef from inFlow to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(inFlow
-																						.getTargetRef()));
-
-																		// check link targetRef from divergeFlow1 to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(divergeFlow1
-																						.getTargetRef())));
-
-																		// check link targetRef from divergeFlow to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(divergeFlow
-																						.getTargetRef())));
-
-																		// check link targetRef from outFlow to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(outFlow
-																						.getTargetRef())));
-
-																		// check link trg from _edge_incoming to inFlow1
-																		JavaSDM.ensure(inFlow1
-																				.equals(_edge_incoming
-																						.getTrg()));
-
-																		// check link trg from _edge_targetRef to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(_edge_targetRef
-																						.getTrg()));
-
-																		// check link flowNodeRefs from lane to parallelConvGateway
-																		JavaSDM.ensure(lane
-																				.getFlowNodeRefs()
-																				.contains(
-																						parallelConvGateway));
-
-																		// create object match
-																		match = TGGRuntimeFactory.eINSTANCE
-																				.createMatch();
-
-																		// assign attribute match
-																		match.setRuleName(__eClass
-																				.getName());
-																		// statement node 'bookkeeping with generic isAppropriate method'
-																		fujaba__Success = this
-																				.isAppropriate_FWD(
-																						match,
-																						process,
-																						inFlow1,
-																						parallelConvGateway,
-																						parallelGateway,
-																						divergeFlow1,
-																						inFlow,
-																						outFlow,
-																						lane,
-																						laneSet,
-																						divergeFlow);
-																		if (fujaba__Success) {
-																			// statement node 'Ensure that the correct types of elements are matched'
-																			fujaba__Success = this
-																					.checkTypes_FWD(match);
-																			if (fujaba__Success) {
-																				// story node 'Add match to rule result'
-																				try {
-																					fujaba__Success = false;
-
-																					// check object __performOperation is really bound
-																					JavaSDM.ensure(__performOperation != null);
-																					// check object __result is really bound
-																					JavaSDM.ensure(__result != null);
-																					// check object match is really bound
-																					JavaSDM.ensure(match != null);
-
-																					// create link
-																					org.moflon.util.eMoflonEMFUtil
-																							.addOppositeReference(
-																									match,
-																									__performOperation,
-																									"isApplicableOperation");
-
-																					// create link
-																					__result.getContents()
-																							.add(match);
-
-																					fujaba__Success = true;
-																				} catch (JavaSDMException fujaba__InternalException) {
-																					fujaba__Success = false;
-																				}
-
-																			} else {
-
-																			}
-
-																		} else {
-
-																		}
-																		fujaba__Success = true;
-																	} catch (JavaSDMException fujaba__InternalException) {
-																		fujaba__Success = false;
-																	}
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_11_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_11_2_blackFFFFFFFFFFB(_edge_incoming)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_11_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_11_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_11_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_11_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_11_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_11_6_expressionFB(__result);
 	}
 
 	/**
@@ -5460,660 +809,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_112(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_100723 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_736687 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_405333 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_405333 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelGatewayToDivergeFlow1 = null;
-		SequenceFlow divergeFlow1 = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		Iterator fujaba__IterProcessToInFlow1 = null;
-		SequenceFlow inFlow1 = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_12_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// iterate to-many link laneSets from process to laneSet
-			fujaba__Success = false;
-
-			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
-					.iterator();
-
-			while (fujaba__IterProcessToLaneSet.hasNext()) {
-				try {
-					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
-
-					// check object laneSet is really bound
-					JavaSDM.ensure(laneSet != null);
-					// iterate to-many link lanes from laneSet to lane
-					fujaba__Success = false;
-
-					fujaba__IterLaneSetToLane = new ArrayList(
-							laneSet.getLanes()).iterator();
-
-					while (fujaba__IterLaneSetToLane.hasNext()) {
-						try {
-							lane = (Lane) fujaba__IterLaneSetToLane.next();
-
-							// check object lane is really bound
-							JavaSDM.ensure(lane != null);
-							// bind object
-							_TmpObject = _edge_flowElements.getTrg();
-
-							// ensure correct type and really bound of object outFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							outFlow = (SequenceFlow) _TmpObject;
-
-							// check link flowElements from outFlow to process
-							JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-							// iterate to-many link flowElements from process to inFlow1
-							fujaba__Success = false;
-
-							fujaba__IterProcessToInFlow1 = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToInFlow1.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToInFlow1
-											.next();
-
-									// ensure correct type and really bound of object inFlow1
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									inFlow1 = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects outFlow and inFlow1 
-									JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-									// bind object
-									_TmpObject = inFlow1.getTargetRef();
-
-									// ensure correct type and really bound of object parallelConvGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelConvGateway = (ParallelGateway) _TmpObject;
-
-									// check link sourceRef from outFlow to parallelConvGateway
-									JavaSDM.ensure(parallelConvGateway
-											.equals(outFlow.getSourceRef()));
-
-									// check link flowNodeRefs from lane to parallelConvGateway
-									JavaSDM.ensure(lane.getFlowNodeRefs()
-											.contains(parallelConvGateway));
-
-									// iterate to-many link flowElements from process to inFlow
-									fujaba__Success = false;
-
-									fujaba__IterProcessToInFlow = new ArrayList(
-											process.getFlowElements())
-											.iterator();
-
-									while (fujaba__IterProcessToInFlow
-											.hasNext()) {
-										try {
-											_TmpObject = fujaba__IterProcessToInFlow
-													.next();
-
-											// ensure correct type and really bound of object inFlow
-											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-											inFlow = (SequenceFlow) _TmpObject;
-											// check isomorphic binding between objects inFlow1 and inFlow 
-											JavaSDM.ensure(!inFlow1
-													.equals(inFlow));
-
-											// check isomorphic binding between objects outFlow and inFlow 
-											JavaSDM.ensure(!outFlow
-													.equals(inFlow));
-
-											// check link targetRef from inFlow to parallelConvGateway
-											JavaSDM.ensure(parallelConvGateway
-													.equals(inFlow
-															.getTargetRef()));
-
-											// iterate to-many link flowElements from process to divergeFlow
-											fujaba__Success = false;
-
-											fujaba__IterProcessToDivergeFlow = new ArrayList(
-													process.getFlowElements())
-													.iterator();
-
-											while (fujaba__IterProcessToDivergeFlow
-													.hasNext()) {
-												try {
-													_TmpObject = fujaba__IterProcessToDivergeFlow
-															.next();
-
-													// ensure correct type and really bound of object divergeFlow
-													JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-													divergeFlow = (SequenceFlow) _TmpObject;
-													// check isomorphic binding between objects inFlow1 and divergeFlow 
-													JavaSDM.ensure(!inFlow1
-															.equals(divergeFlow));
-
-													// check isomorphic binding between objects inFlow and divergeFlow 
-													JavaSDM.ensure(!inFlow
-															.equals(divergeFlow));
-
-													// check isomorphic binding between objects outFlow and divergeFlow 
-													JavaSDM.ensure(!outFlow
-															.equals(divergeFlow));
-
-													// bind object
-													_TmpObject = divergeFlow
-															.getSourceRef();
-
-													// ensure correct type and really bound of object parallelGateway
-													JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-													parallelGateway = (ParallelGateway) _TmpObject;
-
-													// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-													JavaSDM.ensure(!parallelGateway
-															.equals(parallelConvGateway));
-
-													// iterate to-many link sourceRef from parallelGateway to divergeFlow1
-													fujaba__Success = false;
-
-													fujaba__IterParallelGatewayToDivergeFlow1 = new ArrayList(
-															parallelGateway
-																	.getOutgoing())
-															.iterator();
-
-													while (fujaba__IterParallelGatewayToDivergeFlow1
-															.hasNext()) {
-														try {
-															divergeFlow1 = (SequenceFlow) fujaba__IterParallelGatewayToDivergeFlow1
-																	.next();
-
-															// check object divergeFlow1 is really bound
-															JavaSDM.ensure(divergeFlow1 != null);
-															// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-															JavaSDM.ensure(!divergeFlow1
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects inFlow1 and divergeFlow1 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects inFlow and divergeFlow1 
-															JavaSDM.ensure(!inFlow
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects outFlow and divergeFlow1 
-															JavaSDM.ensure(!outFlow
-																	.equals(divergeFlow1));
-
-															// story node 'test core match and DECs'
-															try {
-																fujaba__Success = false;
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_outFlow_flowElements_100723 = outFlow
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_outFlow_flowElements_100723 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_100723 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_100723
-																			.getFlowElements()
-																			.contains(
-																					outFlow));
-
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_100723 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_100723
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_parallelConvGateway_flowElements_736687 = parallelConvGateway
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_parallelConvGateway_flowElements_736687 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_736687 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_736687
-																			.getFlowElements()
-																			.contains(
-																					parallelConvGateway));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_736687 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_736687
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// negative check for link default from outFlow
-																JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				outFlow,
-																				ExclusiveGateway.class,
-																				"default")
-																		.size() == 0);
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_405333
-																	fujaba__Success = false;
-
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_405333 = new ArrayList(
-																			parallelConvGateway
-																					.getIncoming())
-																			.iterator();
-
-																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_405333
-																					.hasNext()) {
-																		try {
-																			__DEC_parallelConvGateway_targetRef_405333 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_405333
-																					.next();
-
-																			// check object __DEC_parallelConvGateway_targetRef_405333 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_405333 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_405333 and divergeFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_405333
-																					.equals(divergeFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_405333 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_405333
-																					.equals(divergeFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_405333 and inFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_405333
-																					.equals(inFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_405333 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_405333
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_405333 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_405333
-																					.equals(outFlow));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check object _edge_flowElements is really bound
-																JavaSDM.ensure(_edge_flowElements != null);
-																// check object divergeFlow1 is really bound
-																JavaSDM.ensure(divergeFlow1 != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object inFlow1 is really bound
-																JavaSDM.ensure(inFlow1 != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																JavaSDM.ensure(!divergeFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow and divergeFlow1 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects outFlow and divergeFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and inFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow1));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow1 to process
-																JavaSDM.ensure(process
-																		.equals(inFlow1
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link flowElements from parallelConvGateway to process
-																JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				parallelConvGateway,
-																				bpmn2.Process.class,
-																				"$eContainer")
-																		.contains(process)));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link sourceRef from divergeFlow1 to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow1
-																				.getSourceRef()));
-
-																// check link sourceRef from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link sourceRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link src from _edge_flowElements to process
-																JavaSDM.ensure(process
-																		.equals(_edge_flowElements
-																				.getSrc()));
-
-																// check link targetRef from inFlow1 to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow1
-																				.getTargetRef()));
-
-																// check link targetRef from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link targetRef from divergeFlow1 to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow1
-																				.getTargetRef())));
-
-																// check link targetRef from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link targetRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
-																// check link trg from _edge_flowElements to outFlow
-																JavaSDM.ensure(outFlow
-																		.equals(_edge_flowElements
-																				.getTrg()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// create object match
-																match = TGGRuntimeFactory.eINSTANCE
-																		.createMatch();
-
-																// assign attribute match
-																match.setRuleName(__eClass
-																		.getName());
-																// statement node 'bookkeeping with generic isAppropriate method'
-																fujaba__Success = this
-																		.isAppropriate_FWD(
-																				match,
-																				process,
-																				inFlow1,
-																				parallelConvGateway,
-																				parallelGateway,
-																				divergeFlow1,
-																				inFlow,
-																				outFlow,
-																				lane,
-																				laneSet,
-																				divergeFlow);
-																if (fujaba__Success) {
-																	// statement node 'Ensure that the correct types of elements are matched'
-																	fujaba__Success = this
-																			.checkTypes_FWD(match);
-																	if (fujaba__Success) {
-																		// story node 'Add match to rule result'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object __performOperation is really bound
-																			JavaSDM.ensure(__performOperation != null);
-																			// check object __result is really bound
-																			JavaSDM.ensure(__result != null);
-																			// check object match is really bound
-																			JavaSDM.ensure(match != null);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							match,
-																							__performOperation,
-																							"isApplicableOperation");
-
-																			// create link
-																			__result.getContents()
-																					.add(match);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																	} else {
-
-																	}
-
-																} else {
-
-																}
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_12_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_12_2_blackFFFFFFFFFFB(_edge_flowElements)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_12_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_12_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_12_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_12_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_12_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_12_6_expressionFB(__result);
 	}
 
 	/**
@@ -6123,657 +880,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_113(
 			EMoflonEdge _edge_targetRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_204649 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_58148 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_26485 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_26485 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelGatewayToDivergeFlow1 = null;
-		SequenceFlow divergeFlow1 = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToOutFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterProcessToInFlow1 = null;
-		SequenceFlow inFlow1 = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_13_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_targetRef is really bound
-			JavaSDM.ensure(_edge_targetRef != null);
-			// bind object
-			_TmpObject = _edge_targetRef.getSrc();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-			// bind object
-			_TmpObject = _edge_targetRef.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link targetRef from inFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowElements from process to divergeFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToDivergeFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
-
-					// ensure correct type and really bound of object divergeFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					divergeFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects inFlow and divergeFlow 
-					JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-					// bind object
-					_TmpObject = divergeFlow.getSourceRef();
-
-					// ensure correct type and really bound of object parallelGateway
-					JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-					parallelGateway = (ParallelGateway) _TmpObject;
-
-					// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-					JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-					// iterate to-many link flowElements from process to inFlow1
-					fujaba__Success = false;
-
-					fujaba__IterProcessToInFlow1 = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToInFlow1.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToInFlow1.next();
-
-							// ensure correct type and really bound of object inFlow1
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							inFlow1 = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow1 and divergeFlow 
-							JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-							// check isomorphic binding between objects inFlow1 and inFlow 
-							JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-							// check link targetRef from inFlow1 to parallelConvGateway
-							JavaSDM.ensure(parallelConvGateway.equals(inFlow1
-									.getTargetRef()));
-
-							// iterate to-many link flowElements from process to outFlow
-							fujaba__Success = false;
-
-							fujaba__IterProcessToOutFlow = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToOutFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToOutFlow
-											.next();
-
-									// ensure correct type and really bound of object outFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									outFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects outFlow and divergeFlow 
-									JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-									// check isomorphic binding between objects outFlow and inFlow1 
-									JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-									// check isomorphic binding between objects outFlow and inFlow 
-									JavaSDM.ensure(!outFlow.equals(inFlow));
-
-									// check link sourceRef from outFlow to parallelConvGateway
-									JavaSDM.ensure(parallelConvGateway
-											.equals(outFlow.getSourceRef()));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link lanes from laneSet to lane
-											fujaba__Success = false;
-
-											fujaba__IterLaneSetToLane = new ArrayList(
-													laneSet.getLanes())
-													.iterator();
-
-											while (fujaba__IterLaneSetToLane
-													.hasNext()) {
-												try {
-													lane = (Lane) fujaba__IterLaneSetToLane
-															.next();
-
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link flowNodeRefs from lane to parallelConvGateway
-													JavaSDM.ensure(lane
-															.getFlowNodeRefs()
-															.contains(
-																	parallelConvGateway));
-
-													// iterate to-many link sourceRef from parallelGateway to divergeFlow1
-													fujaba__Success = false;
-
-													fujaba__IterParallelGatewayToDivergeFlow1 = new ArrayList(
-															parallelGateway
-																	.getOutgoing())
-															.iterator();
-
-													while (fujaba__IterParallelGatewayToDivergeFlow1
-															.hasNext()) {
-														try {
-															divergeFlow1 = (SequenceFlow) fujaba__IterParallelGatewayToDivergeFlow1
-																	.next();
-
-															// check object divergeFlow1 is really bound
-															JavaSDM.ensure(divergeFlow1 != null);
-															// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-															JavaSDM.ensure(!divergeFlow1
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects inFlow1 and divergeFlow1 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects inFlow and divergeFlow1 
-															JavaSDM.ensure(!inFlow
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects outFlow and divergeFlow1 
-															JavaSDM.ensure(!outFlow
-																	.equals(divergeFlow1));
-
-															// story node 'test core match and DECs'
-															try {
-																fujaba__Success = false;
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_outFlow_flowElements_204649 = outFlow
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_outFlow_flowElements_204649 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_204649 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_204649
-																			.getFlowElements()
-																			.contains(
-																					outFlow));
-
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_204649 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_204649
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_parallelConvGateway_flowElements_58148 = parallelConvGateway
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_parallelConvGateway_flowElements_58148 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_58148 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_58148
-																			.getFlowElements()
-																			.contains(
-																					parallelConvGateway));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_58148 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_58148
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// negative check for link default from outFlow
-																JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				outFlow,
-																				ExclusiveGateway.class,
-																				"default")
-																		.size() == 0);
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_26485
-																	fujaba__Success = false;
-
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_26485 = new ArrayList(
-																			parallelConvGateway
-																					.getIncoming())
-																			.iterator();
-
-																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_26485
-																					.hasNext()) {
-																		try {
-																			__DEC_parallelConvGateway_targetRef_26485 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_26485
-																					.next();
-
-																			// check object __DEC_parallelConvGateway_targetRef_26485 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_26485 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_26485 and divergeFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_26485
-																					.equals(divergeFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_26485 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_26485
-																					.equals(divergeFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_26485 and inFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_26485
-																					.equals(inFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_26485 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_26485
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_26485 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_26485
-																					.equals(outFlow));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check object _edge_targetRef is really bound
-																JavaSDM.ensure(_edge_targetRef != null);
-																// check object divergeFlow1 is really bound
-																JavaSDM.ensure(divergeFlow1 != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object inFlow1 is really bound
-																JavaSDM.ensure(inFlow1 != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																JavaSDM.ensure(!divergeFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow and divergeFlow1 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects outFlow and divergeFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and inFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow1));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow1 to process
-																JavaSDM.ensure(process
-																		.equals(inFlow1
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link flowElements from parallelConvGateway to process
-																JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				parallelConvGateway,
-																				bpmn2.Process.class,
-																				"$eContainer")
-																		.contains(process)));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link sourceRef from divergeFlow1 to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow1
-																				.getSourceRef()));
-
-																// check link sourceRef from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link sourceRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link src from _edge_targetRef to inFlow
-																JavaSDM.ensure(inFlow
-																		.equals(_edge_targetRef
-																				.getSrc()));
-
-																// check link targetRef from inFlow1 to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow1
-																				.getTargetRef()));
-
-																// check link targetRef from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link targetRef from divergeFlow1 to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow1
-																				.getTargetRef())));
-
-																// check link targetRef from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link targetRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
-																// check link trg from _edge_targetRef to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(_edge_targetRef
-																				.getTrg()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// create object match
-																match = TGGRuntimeFactory.eINSTANCE
-																		.createMatch();
-
-																// assign attribute match
-																match.setRuleName(__eClass
-																		.getName());
-																// statement node 'bookkeeping with generic isAppropriate method'
-																fujaba__Success = this
-																		.isAppropriate_FWD(
-																				match,
-																				process,
-																				inFlow1,
-																				parallelConvGateway,
-																				parallelGateway,
-																				divergeFlow1,
-																				inFlow,
-																				outFlow,
-																				lane,
-																				laneSet,
-																				divergeFlow);
-																if (fujaba__Success) {
-																	// statement node 'Ensure that the correct types of elements are matched'
-																	fujaba__Success = this
-																			.checkTypes_FWD(match);
-																	if (fujaba__Success) {
-																		// story node 'Add match to rule result'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object __performOperation is really bound
-																			JavaSDM.ensure(__performOperation != null);
-																			// check object __result is really bound
-																			JavaSDM.ensure(__result != null);
-																			// check object match is really bound
-																			JavaSDM.ensure(match != null);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							match,
-																							__performOperation,
-																							"isApplicableOperation");
-
-																			// create link
-																			__result.getContents()
-																					.add(match);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																	} else {
-
-																	}
-
-																} else {
-
-																}
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_13_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_13_2_blackFFFFFFFFFFB(_edge_targetRef)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_13_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_13_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_13_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_13_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_13_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_13_6_expressionFB(__result);
 	}
 
 	/**
@@ -6783,712 +951,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_114(
 			EMoflonEdge _edge_incoming) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_636990 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_537418 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_788148 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_788148 = null;
-		Match match = null;
-		Iterator fujaba__IterInFlowTo_edge_targetRef = null;
-		EMoflonEdge _edge_targetRef = null;
-		Iterator fujaba__IterParallelGatewayToDivergeFlow1 = null;
-		SequenceFlow divergeFlow1 = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToInFlow1 = null;
-		SequenceFlow inFlow1 = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		Iterator fujaba__IterProcessToOutFlow = null;
-		SequenceFlow outFlow = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-		ParallelGateway parallelConvGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_14_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_incoming is really bound
-			JavaSDM.ensure(_edge_incoming != null);
-			// bind object
-			_TmpObject = _edge_incoming.getSrc();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_incoming.getTrg();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-			// check link targetRef from inFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowElements from process to outFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToOutFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToOutFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToOutFlow.next();
-
-					// ensure correct type and really bound of object outFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					outFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and inFlow 
-					JavaSDM.ensure(!outFlow.equals(inFlow));
-
-					// check link sourceRef from outFlow to parallelConvGateway
-					JavaSDM.ensure(parallelConvGateway.equals(outFlow
-							.getSourceRef()));
-
-					// iterate to-many link flowElements from process to divergeFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToDivergeFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToDivergeFlow
-									.next();
-
-							// ensure correct type and really bound of object divergeFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							divergeFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow and divergeFlow 
-							JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-							// check isomorphic binding between objects outFlow and divergeFlow 
-							JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-							// bind object
-							_TmpObject = divergeFlow.getSourceRef();
-
-							// ensure correct type and really bound of object parallelGateway
-							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-							parallelGateway = (ParallelGateway) _TmpObject;
-
-							// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-							JavaSDM.ensure(!parallelGateway
-									.equals(parallelConvGateway));
-
-							// iterate to-many link flowElements from process to inFlow1
-							fujaba__Success = false;
-
-							fujaba__IterProcessToInFlow1 = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToInFlow1.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToInFlow1
-											.next();
-
-									// ensure correct type and really bound of object inFlow1
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									inFlow1 = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow1 and divergeFlow 
-									JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-									// check isomorphic binding between objects inFlow1 and inFlow 
-									JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-									// check isomorphic binding between objects outFlow and inFlow1 
-									JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-									// check link targetRef from inFlow1 to parallelConvGateway
-									JavaSDM.ensure(parallelConvGateway
-											.equals(inFlow1.getTargetRef()));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link lanes from laneSet to lane
-											fujaba__Success = false;
-
-											fujaba__IterLaneSetToLane = new ArrayList(
-													laneSet.getLanes())
-													.iterator();
-
-											while (fujaba__IterLaneSetToLane
-													.hasNext()) {
-												try {
-													lane = (Lane) fujaba__IterLaneSetToLane
-															.next();
-
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link flowNodeRefs from lane to parallelConvGateway
-													JavaSDM.ensure(lane
-															.getFlowNodeRefs()
-															.contains(
-																	parallelConvGateway));
-
-													// iterate to-many link sourceRef from parallelGateway to divergeFlow1
-													fujaba__Success = false;
-
-													fujaba__IterParallelGatewayToDivergeFlow1 = new ArrayList(
-															parallelGateway
-																	.getOutgoing())
-															.iterator();
-
-													while (fujaba__IterParallelGatewayToDivergeFlow1
-															.hasNext()) {
-														try {
-															divergeFlow1 = (SequenceFlow) fujaba__IterParallelGatewayToDivergeFlow1
-																	.next();
-
-															// check object divergeFlow1 is really bound
-															JavaSDM.ensure(divergeFlow1 != null);
-															// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-															JavaSDM.ensure(!divergeFlow1
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects inFlow1 and divergeFlow1 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects inFlow and divergeFlow1 
-															JavaSDM.ensure(!inFlow
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects outFlow and divergeFlow1 
-															JavaSDM.ensure(!outFlow
-																	.equals(divergeFlow1));
-
-															// iterate to-many link src from inFlow to _edge_targetRef
-															fujaba__Success = false;
-
-															fujaba__IterInFlowTo_edge_targetRef = new ArrayList(
-																	org.moflon.util.eMoflonEMFUtil
-																			.getOppositeReference(
-																					inFlow,
-																					EMoflonEdge.class,
-																					"src"))
-																	.iterator();
-
-															while (fujaba__IterInFlowTo_edge_targetRef
-																	.hasNext()) {
-																try {
-																	_edge_targetRef = (EMoflonEdge) fujaba__IterInFlowTo_edge_targetRef
-																			.next();
-
-																	// check object _edge_targetRef is really bound
-																	JavaSDM.ensure(_edge_targetRef != null);
-																	// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-																	JavaSDM.ensure(!_edge_targetRef
-																			.equals(_edge_incoming));
-
-																	// check link trg from _edge_targetRef to parallelConvGateway
-																	JavaSDM.ensure(parallelConvGateway
-																			.equals(_edge_targetRef
-																					.getTrg()));
-
-																	// story node 'test core match and DECs'
-																	try {
-																		fujaba__Success = false;
-
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// bind object
-																			__DEC_outFlow_flowElements_636990 = outFlow
-																					.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																					.eContainer()
-																					: null;
-
-																			// check object __DEC_outFlow_flowElements_636990 is really bound
-																			JavaSDM.ensure(__DEC_outFlow_flowElements_636990 != null);
-
-																			// check if contained via correct reference
-																			JavaSDM.ensure(__DEC_outFlow_flowElements_636990
-																					.getFlowElements()
-																					.contains(
-																							outFlow));
-
-																			// check isomorphic binding between objects __DEC_outFlow_flowElements_636990 and process 
-																			JavaSDM.ensure(!__DEC_outFlow_flowElements_636990
-																					.equals(process));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// bind object
-																			__DEC_parallelConvGateway_flowElements_537418 = parallelConvGateway
-																					.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																					.eContainer()
-																					: null;
-
-																			// check object __DEC_parallelConvGateway_flowElements_537418 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_537418 != null);
-
-																			// check if contained via correct reference
-																			JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_537418
-																					.getFlowElements()
-																					.contains(
-																							parallelConvGateway));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_537418 and process 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_537418
-																					.equals(process));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// negative check for link default from outFlow
-																		JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																				.getOppositeReference(
-																						outFlow,
-																						ExclusiveGateway.class,
-																						"default")
-																				.size() == 0);
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_788148
-																			fujaba__Success = false;
-
-																			fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_788148 = new ArrayList(
-																					parallelConvGateway
-																							.getIncoming())
-																					.iterator();
-
-																			while (!(fujaba__Success)
-																					&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_788148
-																							.hasNext()) {
-																				try {
-																					__DEC_parallelConvGateway_targetRef_788148 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_788148
-																							.next();
-
-																					// check object __DEC_parallelConvGateway_targetRef_788148 is really bound
-																					JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_788148 != null);
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_788148 and divergeFlow1 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_788148
-																							.equals(divergeFlow1));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_788148 and divergeFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_788148
-																							.equals(divergeFlow));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_788148 and inFlow1 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_788148
-																							.equals(inFlow1));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_788148 and inFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_788148
-																							.equals(inFlow));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_788148 and outFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_788148
-																							.equals(outFlow));
-
-																					fujaba__Success = true;
-																				} catch (JavaSDMException fujaba__InternalException) {
-																					fujaba__Success = false;
-																				}
-																			}
-																			JavaSDM.ensure(fujaba__Success);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// check object _edge_incoming is really bound
-																		JavaSDM.ensure(_edge_incoming != null);
-																		// check object _edge_targetRef is really bound
-																		JavaSDM.ensure(_edge_targetRef != null);
-																		// check object divergeFlow1 is really bound
-																		JavaSDM.ensure(divergeFlow1 != null);
-																		// check object divergeFlow is really bound
-																		JavaSDM.ensure(divergeFlow != null);
-																		// check object inFlow1 is really bound
-																		JavaSDM.ensure(inFlow1 != null);
-																		// check object inFlow is really bound
-																		JavaSDM.ensure(inFlow != null);
-																		// check object lane is really bound
-																		JavaSDM.ensure(lane != null);
-																		// check object laneSet is really bound
-																		JavaSDM.ensure(laneSet != null);
-																		// check object outFlow is really bound
-																		JavaSDM.ensure(outFlow != null);
-																		// check object parallelConvGateway is really bound
-																		JavaSDM.ensure(parallelConvGateway != null);
-																		// check object parallelGateway is really bound
-																		JavaSDM.ensure(parallelGateway != null);
-																		// check object process is really bound
-																		JavaSDM.ensure(process != null);
-																		// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-																		JavaSDM.ensure(!_edge_targetRef
-																				.equals(_edge_incoming));
-
-																		// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																		JavaSDM.ensure(!divergeFlow1
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects inFlow and divergeFlow1 
-																		JavaSDM.ensure(!inFlow
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects outFlow and divergeFlow1 
-																		JavaSDM.ensure(!outFlow
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects inFlow1 and divergeFlow 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow and divergeFlow 
-																		JavaSDM.ensure(!inFlow
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects outFlow and divergeFlow 
-																		JavaSDM.ensure(!outFlow
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow1 and inFlow 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(inFlow));
-
-																		// check isomorphic binding between objects outFlow and inFlow1 
-																		JavaSDM.ensure(!outFlow
-																				.equals(inFlow1));
-
-																		// check isomorphic binding between objects outFlow and inFlow 
-																		JavaSDM.ensure(!outFlow
-																				.equals(inFlow));
-
-																		// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																		JavaSDM.ensure(!parallelGateway
-																				.equals(parallelConvGateway));
-
-																		// check link flowElements from divergeFlow to process
-																		JavaSDM.ensure(process
-																				.equals(divergeFlow
-																						.eContainer()));
-
-																		// check link flowElements from inFlow1 to process
-																		JavaSDM.ensure(process
-																				.equals(inFlow1
-																						.eContainer()));
-
-																		// check link flowElements from inFlow to process
-																		JavaSDM.ensure(process
-																				.equals(inFlow
-																						.eContainer()));
-
-																		// check link flowElements from outFlow to process
-																		JavaSDM.ensure(process
-																				.equals(outFlow
-																						.eContainer()));
-
-																		// check link flowElements from parallelConvGateway to process
-																		JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-																				.getOppositeReference(
-																						parallelConvGateway,
-																						bpmn2.Process.class,
-																						"$eContainer")
-																				.contains(process)));
-
-																		// check link laneSets from laneSet to process
-																		JavaSDM.ensure(process
-																				.equals(laneSet
-																						.eContainer()));
-
-																		// check link lanes from lane to laneSet
-																		JavaSDM.ensure(laneSet
-																				.equals(lane
-																						.eContainer()));
-
-																		// check link sourceRef from divergeFlow1 to parallelGateway
-																		JavaSDM.ensure(parallelGateway
-																				.equals(divergeFlow1
-																						.getSourceRef()));
-
-																		// check link sourceRef from divergeFlow to parallelGateway
-																		JavaSDM.ensure(parallelGateway
-																				.equals(divergeFlow
-																						.getSourceRef()));
-
-																		// check link sourceRef from outFlow to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(outFlow
-																						.getSourceRef()));
-
-																		// check link src from _edge_incoming to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(_edge_incoming
-																						.getSrc()));
-
-																		// check link src from _edge_targetRef to inFlow
-																		JavaSDM.ensure(inFlow
-																				.equals(_edge_targetRef
-																						.getSrc()));
-
-																		// check link targetRef from inFlow1 to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(inFlow1
-																						.getTargetRef()));
-
-																		// check link targetRef from inFlow to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(inFlow
-																						.getTargetRef()));
-
-																		// check link targetRef from divergeFlow1 to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(divergeFlow1
-																						.getTargetRef())));
-
-																		// check link targetRef from divergeFlow to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(divergeFlow
-																						.getTargetRef())));
-
-																		// check link targetRef from outFlow to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(outFlow
-																						.getTargetRef())));
-
-																		// check link trg from _edge_incoming to inFlow
-																		JavaSDM.ensure(inFlow
-																				.equals(_edge_incoming
-																						.getTrg()));
-
-																		// check link trg from _edge_targetRef to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(_edge_targetRef
-																						.getTrg()));
-
-																		// check link flowNodeRefs from lane to parallelConvGateway
-																		JavaSDM.ensure(lane
-																				.getFlowNodeRefs()
-																				.contains(
-																						parallelConvGateway));
-
-																		// create object match
-																		match = TGGRuntimeFactory.eINSTANCE
-																				.createMatch();
-
-																		// assign attribute match
-																		match.setRuleName(__eClass
-																				.getName());
-																		// statement node 'bookkeeping with generic isAppropriate method'
-																		fujaba__Success = this
-																				.isAppropriate_FWD(
-																						match,
-																						process,
-																						inFlow1,
-																						parallelConvGateway,
-																						parallelGateway,
-																						divergeFlow1,
-																						inFlow,
-																						outFlow,
-																						lane,
-																						laneSet,
-																						divergeFlow);
-																		if (fujaba__Success) {
-																			// statement node 'Ensure that the correct types of elements are matched'
-																			fujaba__Success = this
-																					.checkTypes_FWD(match);
-																			if (fujaba__Success) {
-																				// story node 'Add match to rule result'
-																				try {
-																					fujaba__Success = false;
-
-																					// check object __performOperation is really bound
-																					JavaSDM.ensure(__performOperation != null);
-																					// check object __result is really bound
-																					JavaSDM.ensure(__result != null);
-																					// check object match is really bound
-																					JavaSDM.ensure(match != null);
-
-																					// create link
-																					org.moflon.util.eMoflonEMFUtil
-																							.addOppositeReference(
-																									match,
-																									__performOperation,
-																									"isApplicableOperation");
-
-																					// create link
-																					__result.getContents()
-																							.add(match);
-
-																					fujaba__Success = true;
-																				} catch (JavaSDMException fujaba__InternalException) {
-																					fujaba__Success = false;
-																				}
-
-																			} else {
-
-																			}
-
-																		} else {
-
-																		}
-																		fujaba__Success = true;
-																	} catch (JavaSDMException fujaba__InternalException) {
-																		fujaba__Success = false;
-																	}
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_14_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_14_2_blackFFFFFFFFFFB(_edge_incoming)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_14_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_14_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_14_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_14_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_14_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_14_6_expressionFB(__result);
 	}
 
 	/**
@@ -7498,658 +1022,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_115(
 			EMoflonEdge _edge_sourceRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_144322 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_526942 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_50936 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_50936 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelGatewayToDivergeFlow1 = null;
-		SequenceFlow divergeFlow1 = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToInFlow1 = null;
-		SequenceFlow inFlow1 = null;
-		ParallelGateway parallelConvGateway = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_15_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_sourceRef is really bound
-			JavaSDM.ensure(_edge_sourceRef != null);
-			// bind object
-			_TmpObject = _edge_sourceRef.getSrc();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = outFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) outFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(outFlow));
-
-			// bind object
-			_TmpObject = _edge_sourceRef.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link sourceRef from outFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(outFlow.getSourceRef()));
-
-			// iterate to-many link flowElements from process to inFlow1
-			fujaba__Success = false;
-
-			fujaba__IterProcessToInFlow1 = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToInFlow1.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToInFlow1.next();
-
-					// ensure correct type and really bound of object inFlow1
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow1 = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and inFlow1 
-					JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-					// check link targetRef from inFlow1 to parallelConvGateway
-					JavaSDM.ensure(parallelConvGateway.equals(inFlow1
-							.getTargetRef()));
-
-					// iterate to-many link flowElements from process to inFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToInFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToInFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToInFlow.next();
-
-							// ensure correct type and really bound of object inFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							inFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow1 and inFlow 
-							JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link targetRef from inFlow to parallelConvGateway
-							JavaSDM.ensure(parallelConvGateway.equals(inFlow
-									.getTargetRef()));
-
-							// iterate to-many link flowElements from process to divergeFlow
-							fujaba__Success = false;
-
-							fujaba__IterProcessToDivergeFlow = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToDivergeFlow
-											.next();
-
-									// ensure correct type and really bound of object divergeFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									divergeFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow1 and divergeFlow 
-									JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// check isomorphic binding between objects outFlow and divergeFlow 
-									JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-									// bind object
-									_TmpObject = divergeFlow.getSourceRef();
-
-									// ensure correct type and really bound of object parallelGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelGateway = (ParallelGateway) _TmpObject;
-
-									// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-									JavaSDM.ensure(!parallelGateway
-											.equals(parallelConvGateway));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link lanes from laneSet to lane
-											fujaba__Success = false;
-
-											fujaba__IterLaneSetToLane = new ArrayList(
-													laneSet.getLanes())
-													.iterator();
-
-											while (fujaba__IterLaneSetToLane
-													.hasNext()) {
-												try {
-													lane = (Lane) fujaba__IterLaneSetToLane
-															.next();
-
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link flowNodeRefs from lane to parallelConvGateway
-													JavaSDM.ensure(lane
-															.getFlowNodeRefs()
-															.contains(
-																	parallelConvGateway));
-
-													// iterate to-many link sourceRef from parallelGateway to divergeFlow1
-													fujaba__Success = false;
-
-													fujaba__IterParallelGatewayToDivergeFlow1 = new ArrayList(
-															parallelGateway
-																	.getOutgoing())
-															.iterator();
-
-													while (fujaba__IterParallelGatewayToDivergeFlow1
-															.hasNext()) {
-														try {
-															divergeFlow1 = (SequenceFlow) fujaba__IterParallelGatewayToDivergeFlow1
-																	.next();
-
-															// check object divergeFlow1 is really bound
-															JavaSDM.ensure(divergeFlow1 != null);
-															// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-															JavaSDM.ensure(!divergeFlow1
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects inFlow1 and divergeFlow1 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects inFlow and divergeFlow1 
-															JavaSDM.ensure(!inFlow
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects outFlow and divergeFlow1 
-															JavaSDM.ensure(!outFlow
-																	.equals(divergeFlow1));
-
-															// story node 'test core match and DECs'
-															try {
-																fujaba__Success = false;
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_outFlow_flowElements_144322 = outFlow
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_outFlow_flowElements_144322 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_144322 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_144322
-																			.getFlowElements()
-																			.contains(
-																					outFlow));
-
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_144322 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_144322
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_parallelConvGateway_flowElements_526942 = parallelConvGateway
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_parallelConvGateway_flowElements_526942 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_526942 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_526942
-																			.getFlowElements()
-																			.contains(
-																					parallelConvGateway));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_526942 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_526942
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// negative check for link default from outFlow
-																JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				outFlow,
-																				ExclusiveGateway.class,
-																				"default")
-																		.size() == 0);
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_50936
-																	fujaba__Success = false;
-
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_50936 = new ArrayList(
-																			parallelConvGateway
-																					.getIncoming())
-																			.iterator();
-
-																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_50936
-																					.hasNext()) {
-																		try {
-																			__DEC_parallelConvGateway_targetRef_50936 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_50936
-																					.next();
-
-																			// check object __DEC_parallelConvGateway_targetRef_50936 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_50936 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_50936 and divergeFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_50936
-																					.equals(divergeFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_50936 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_50936
-																					.equals(divergeFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_50936 and inFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_50936
-																					.equals(inFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_50936 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_50936
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_50936 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_50936
-																					.equals(outFlow));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check object _edge_sourceRef is really bound
-																JavaSDM.ensure(_edge_sourceRef != null);
-																// check object divergeFlow1 is really bound
-																JavaSDM.ensure(divergeFlow1 != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object inFlow1 is really bound
-																JavaSDM.ensure(inFlow1 != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																JavaSDM.ensure(!divergeFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow and divergeFlow1 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects outFlow and divergeFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and inFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow1));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow1 to process
-																JavaSDM.ensure(process
-																		.equals(inFlow1
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link flowElements from parallelConvGateway to process
-																JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				parallelConvGateway,
-																				bpmn2.Process.class,
-																				"$eContainer")
-																		.contains(process)));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link sourceRef from divergeFlow1 to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow1
-																				.getSourceRef()));
-
-																// check link sourceRef from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link sourceRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link src from _edge_sourceRef to outFlow
-																JavaSDM.ensure(outFlow
-																		.equals(_edge_sourceRef
-																				.getSrc()));
-
-																// check link targetRef from inFlow1 to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow1
-																				.getTargetRef()));
-
-																// check link targetRef from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link targetRef from divergeFlow1 to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow1
-																				.getTargetRef())));
-
-																// check link targetRef from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link targetRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
-																// check link trg from _edge_sourceRef to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(_edge_sourceRef
-																				.getTrg()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// create object match
-																match = TGGRuntimeFactory.eINSTANCE
-																		.createMatch();
-
-																// assign attribute match
-																match.setRuleName(__eClass
-																		.getName());
-																// statement node 'bookkeeping with generic isAppropriate method'
-																fujaba__Success = this
-																		.isAppropriate_FWD(
-																				match,
-																				process,
-																				inFlow1,
-																				parallelConvGateway,
-																				parallelGateway,
-																				divergeFlow1,
-																				inFlow,
-																				outFlow,
-																				lane,
-																				laneSet,
-																				divergeFlow);
-																if (fujaba__Success) {
-																	// statement node 'Ensure that the correct types of elements are matched'
-																	fujaba__Success = this
-																			.checkTypes_FWD(match);
-																	if (fujaba__Success) {
-																		// story node 'Add match to rule result'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object __performOperation is really bound
-																			JavaSDM.ensure(__performOperation != null);
-																			// check object __result is really bound
-																			JavaSDM.ensure(__result != null);
-																			// check object match is really bound
-																			JavaSDM.ensure(match != null);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							match,
-																							__performOperation,
-																							"isApplicableOperation");
-
-																			// create link
-																			__result.getContents()
-																					.add(match);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																	} else {
-
-																	}
-
-																} else {
-
-																}
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_15_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_15_2_blackFFFFFFFFFFB(_edge_sourceRef)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_15_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_15_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_15_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_15_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_15_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_15_6_expressionFB(__result);
 	}
 
 	/**
@@ -8159,712 +1093,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_116(
 			EMoflonEdge _edge_outgoing) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_656313 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_346923 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_107711 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_107711 = null;
-		Match match = null;
-		Iterator fujaba__IterOutFlowTo_edge_sourceRef = null;
-		EMoflonEdge _edge_sourceRef = null;
-		Iterator fujaba__IterParallelGatewayToDivergeFlow1 = null;
-		SequenceFlow divergeFlow1 = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToInFlow1 = null;
-		SequenceFlow inFlow1 = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		ParallelGateway parallelConvGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_16_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_outgoing is really bound
-			JavaSDM.ensure(_edge_outgoing != null);
-			// bind object
-			_TmpObject = _edge_outgoing.getSrc();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_outgoing.getTrg();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = outFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) outFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(outFlow));
-
-			// check link sourceRef from outFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(outFlow.getSourceRef()));
-
-			// iterate to-many link flowElements from process to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToInFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToInFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToInFlow.next();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and inFlow 
-					JavaSDM.ensure(!outFlow.equals(inFlow));
-
-					// check link targetRef from inFlow to parallelConvGateway
-					JavaSDM.ensure(parallelConvGateway.equals(inFlow
-							.getTargetRef()));
-
-					// iterate to-many link flowElements from process to divergeFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToDivergeFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToDivergeFlow
-									.next();
-
-							// ensure correct type and really bound of object divergeFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							divergeFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow and divergeFlow 
-							JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-							// check isomorphic binding between objects outFlow and divergeFlow 
-							JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-							// bind object
-							_TmpObject = divergeFlow.getSourceRef();
-
-							// ensure correct type and really bound of object parallelGateway
-							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-							parallelGateway = (ParallelGateway) _TmpObject;
-
-							// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-							JavaSDM.ensure(!parallelGateway
-									.equals(parallelConvGateway));
-
-							// iterate to-many link flowElements from process to inFlow1
-							fujaba__Success = false;
-
-							fujaba__IterProcessToInFlow1 = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToInFlow1.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToInFlow1
-											.next();
-
-									// ensure correct type and really bound of object inFlow1
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									inFlow1 = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow1 and divergeFlow 
-									JavaSDM.ensure(!inFlow1.equals(divergeFlow));
-
-									// check isomorphic binding between objects inFlow1 and inFlow 
-									JavaSDM.ensure(!inFlow1.equals(inFlow));
-
-									// check isomorphic binding between objects outFlow and inFlow1 
-									JavaSDM.ensure(!outFlow.equals(inFlow1));
-
-									// check link targetRef from inFlow1 to parallelConvGateway
-									JavaSDM.ensure(parallelConvGateway
-											.equals(inFlow1.getTargetRef()));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// iterate to-many link lanes from laneSet to lane
-											fujaba__Success = false;
-
-											fujaba__IterLaneSetToLane = new ArrayList(
-													laneSet.getLanes())
-													.iterator();
-
-											while (fujaba__IterLaneSetToLane
-													.hasNext()) {
-												try {
-													lane = (Lane) fujaba__IterLaneSetToLane
-															.next();
-
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link flowNodeRefs from lane to parallelConvGateway
-													JavaSDM.ensure(lane
-															.getFlowNodeRefs()
-															.contains(
-																	parallelConvGateway));
-
-													// iterate to-many link sourceRef from parallelGateway to divergeFlow1
-													fujaba__Success = false;
-
-													fujaba__IterParallelGatewayToDivergeFlow1 = new ArrayList(
-															parallelGateway
-																	.getOutgoing())
-															.iterator();
-
-													while (fujaba__IterParallelGatewayToDivergeFlow1
-															.hasNext()) {
-														try {
-															divergeFlow1 = (SequenceFlow) fujaba__IterParallelGatewayToDivergeFlow1
-																	.next();
-
-															// check object divergeFlow1 is really bound
-															JavaSDM.ensure(divergeFlow1 != null);
-															// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-															JavaSDM.ensure(!divergeFlow1
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects inFlow1 and divergeFlow1 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects inFlow and divergeFlow1 
-															JavaSDM.ensure(!inFlow
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects outFlow and divergeFlow1 
-															JavaSDM.ensure(!outFlow
-																	.equals(divergeFlow1));
-
-															// iterate to-many link src from outFlow to _edge_sourceRef
-															fujaba__Success = false;
-
-															fujaba__IterOutFlowTo_edge_sourceRef = new ArrayList(
-																	org.moflon.util.eMoflonEMFUtil
-																			.getOppositeReference(
-																					outFlow,
-																					EMoflonEdge.class,
-																					"src"))
-																	.iterator();
-
-															while (fujaba__IterOutFlowTo_edge_sourceRef
-																	.hasNext()) {
-																try {
-																	_edge_sourceRef = (EMoflonEdge) fujaba__IterOutFlowTo_edge_sourceRef
-																			.next();
-
-																	// check object _edge_sourceRef is really bound
-																	JavaSDM.ensure(_edge_sourceRef != null);
-																	// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-																	JavaSDM.ensure(!_edge_sourceRef
-																			.equals(_edge_outgoing));
-
-																	// check link trg from _edge_sourceRef to parallelConvGateway
-																	JavaSDM.ensure(parallelConvGateway
-																			.equals(_edge_sourceRef
-																					.getTrg()));
-
-																	// story node 'test core match and DECs'
-																	try {
-																		fujaba__Success = false;
-
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// bind object
-																			__DEC_outFlow_flowElements_656313 = outFlow
-																					.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																					.eContainer()
-																					: null;
-
-																			// check object __DEC_outFlow_flowElements_656313 is really bound
-																			JavaSDM.ensure(__DEC_outFlow_flowElements_656313 != null);
-
-																			// check if contained via correct reference
-																			JavaSDM.ensure(__DEC_outFlow_flowElements_656313
-																					.getFlowElements()
-																					.contains(
-																							outFlow));
-
-																			// check isomorphic binding between objects __DEC_outFlow_flowElements_656313 and process 
-																			JavaSDM.ensure(!__DEC_outFlow_flowElements_656313
-																					.equals(process));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// bind object
-																			__DEC_parallelConvGateway_flowElements_346923 = parallelConvGateway
-																					.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																					.eContainer()
-																					: null;
-
-																			// check object __DEC_parallelConvGateway_flowElements_346923 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_346923 != null);
-
-																			// check if contained via correct reference
-																			JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_346923
-																					.getFlowElements()
-																					.contains(
-																							parallelConvGateway));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_346923 and process 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_346923
-																					.equals(process));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// negative check for link default from outFlow
-																		JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																				.getOppositeReference(
-																						outFlow,
-																						ExclusiveGateway.class,
-																						"default")
-																				.size() == 0);
-																		// check negative bindings
-																		try {
-																			fujaba__Success = false;
-
-																			// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_107711
-																			fujaba__Success = false;
-
-																			fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_107711 = new ArrayList(
-																					parallelConvGateway
-																							.getIncoming())
-																					.iterator();
-
-																			while (!(fujaba__Success)
-																					&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_107711
-																							.hasNext()) {
-																				try {
-																					__DEC_parallelConvGateway_targetRef_107711 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_107711
-																							.next();
-
-																					// check object __DEC_parallelConvGateway_targetRef_107711 is really bound
-																					JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_107711 != null);
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_107711 and divergeFlow1 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_107711
-																							.equals(divergeFlow1));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_107711 and divergeFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_107711
-																							.equals(divergeFlow));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_107711 and inFlow1 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_107711
-																							.equals(inFlow1));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_107711 and inFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_107711
-																							.equals(inFlow));
-
-																					// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_107711 and outFlow 
-																					JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_107711
-																							.equals(outFlow));
-
-																					fujaba__Success = true;
-																				} catch (JavaSDMException fujaba__InternalException) {
-																					fujaba__Success = false;
-																				}
-																			}
-																			JavaSDM.ensure(fujaba__Success);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																		fujaba__Success = !(fujaba__Success);
-
-																		JavaSDM.ensure(fujaba__Success);
-
-																		// check object _edge_outgoing is really bound
-																		JavaSDM.ensure(_edge_outgoing != null);
-																		// check object _edge_sourceRef is really bound
-																		JavaSDM.ensure(_edge_sourceRef != null);
-																		// check object divergeFlow1 is really bound
-																		JavaSDM.ensure(divergeFlow1 != null);
-																		// check object divergeFlow is really bound
-																		JavaSDM.ensure(divergeFlow != null);
-																		// check object inFlow1 is really bound
-																		JavaSDM.ensure(inFlow1 != null);
-																		// check object inFlow is really bound
-																		JavaSDM.ensure(inFlow != null);
-																		// check object lane is really bound
-																		JavaSDM.ensure(lane != null);
-																		// check object laneSet is really bound
-																		JavaSDM.ensure(laneSet != null);
-																		// check object outFlow is really bound
-																		JavaSDM.ensure(outFlow != null);
-																		// check object parallelConvGateway is really bound
-																		JavaSDM.ensure(parallelConvGateway != null);
-																		// check object parallelGateway is really bound
-																		JavaSDM.ensure(parallelGateway != null);
-																		// check object process is really bound
-																		JavaSDM.ensure(process != null);
-																		// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-																		JavaSDM.ensure(!_edge_sourceRef
-																				.equals(_edge_outgoing));
-
-																		// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																		JavaSDM.ensure(!divergeFlow1
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects inFlow and divergeFlow1 
-																		JavaSDM.ensure(!inFlow
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects outFlow and divergeFlow1 
-																		JavaSDM.ensure(!outFlow
-																				.equals(divergeFlow1));
-
-																		// check isomorphic binding between objects inFlow1 and divergeFlow 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow and divergeFlow 
-																		JavaSDM.ensure(!inFlow
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects outFlow and divergeFlow 
-																		JavaSDM.ensure(!outFlow
-																				.equals(divergeFlow));
-
-																		// check isomorphic binding between objects inFlow1 and inFlow 
-																		JavaSDM.ensure(!inFlow1
-																				.equals(inFlow));
-
-																		// check isomorphic binding between objects outFlow and inFlow1 
-																		JavaSDM.ensure(!outFlow
-																				.equals(inFlow1));
-
-																		// check isomorphic binding between objects outFlow and inFlow 
-																		JavaSDM.ensure(!outFlow
-																				.equals(inFlow));
-
-																		// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																		JavaSDM.ensure(!parallelGateway
-																				.equals(parallelConvGateway));
-
-																		// check link flowElements from divergeFlow to process
-																		JavaSDM.ensure(process
-																				.equals(divergeFlow
-																						.eContainer()));
-
-																		// check link flowElements from inFlow1 to process
-																		JavaSDM.ensure(process
-																				.equals(inFlow1
-																						.eContainer()));
-
-																		// check link flowElements from inFlow to process
-																		JavaSDM.ensure(process
-																				.equals(inFlow
-																						.eContainer()));
-
-																		// check link flowElements from outFlow to process
-																		JavaSDM.ensure(process
-																				.equals(outFlow
-																						.eContainer()));
-
-																		// check link flowElements from parallelConvGateway to process
-																		JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-																				.getOppositeReference(
-																						parallelConvGateway,
-																						bpmn2.Process.class,
-																						"$eContainer")
-																				.contains(process)));
-
-																		// check link laneSets from laneSet to process
-																		JavaSDM.ensure(process
-																				.equals(laneSet
-																						.eContainer()));
-
-																		// check link lanes from lane to laneSet
-																		JavaSDM.ensure(laneSet
-																				.equals(lane
-																						.eContainer()));
-
-																		// check link sourceRef from divergeFlow1 to parallelGateway
-																		JavaSDM.ensure(parallelGateway
-																				.equals(divergeFlow1
-																						.getSourceRef()));
-
-																		// check link sourceRef from divergeFlow to parallelGateway
-																		JavaSDM.ensure(parallelGateway
-																				.equals(divergeFlow
-																						.getSourceRef()));
-
-																		// check link sourceRef from outFlow to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(outFlow
-																						.getSourceRef()));
-
-																		// check link src from _edge_outgoing to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(_edge_outgoing
-																						.getSrc()));
-
-																		// check link src from _edge_sourceRef to outFlow
-																		JavaSDM.ensure(outFlow
-																				.equals(_edge_sourceRef
-																						.getSrc()));
-
-																		// check link targetRef from inFlow1 to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(inFlow1
-																						.getTargetRef()));
-
-																		// check link targetRef from inFlow to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(inFlow
-																						.getTargetRef()));
-
-																		// check link targetRef from divergeFlow1 to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(divergeFlow1
-																						.getTargetRef())));
-
-																		// check link targetRef from divergeFlow to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(divergeFlow
-																						.getTargetRef())));
-
-																		// check link targetRef from outFlow to parallelConvGateway
-																		JavaSDM.ensure(!(parallelConvGateway
-																				.equals(outFlow
-																						.getTargetRef())));
-
-																		// check link trg from _edge_outgoing to outFlow
-																		JavaSDM.ensure(outFlow
-																				.equals(_edge_outgoing
-																						.getTrg()));
-
-																		// check link trg from _edge_sourceRef to parallelConvGateway
-																		JavaSDM.ensure(parallelConvGateway
-																				.equals(_edge_sourceRef
-																						.getTrg()));
-
-																		// check link flowNodeRefs from lane to parallelConvGateway
-																		JavaSDM.ensure(lane
-																				.getFlowNodeRefs()
-																				.contains(
-																						parallelConvGateway));
-
-																		// create object match
-																		match = TGGRuntimeFactory.eINSTANCE
-																				.createMatch();
-
-																		// assign attribute match
-																		match.setRuleName(__eClass
-																				.getName());
-																		// statement node 'bookkeeping with generic isAppropriate method'
-																		fujaba__Success = this
-																				.isAppropriate_FWD(
-																						match,
-																						process,
-																						inFlow1,
-																						parallelConvGateway,
-																						parallelGateway,
-																						divergeFlow1,
-																						inFlow,
-																						outFlow,
-																						lane,
-																						laneSet,
-																						divergeFlow);
-																		if (fujaba__Success) {
-																			// statement node 'Ensure that the correct types of elements are matched'
-																			fujaba__Success = this
-																					.checkTypes_FWD(match);
-																			if (fujaba__Success) {
-																				// story node 'Add match to rule result'
-																				try {
-																					fujaba__Success = false;
-
-																					// check object __performOperation is really bound
-																					JavaSDM.ensure(__performOperation != null);
-																					// check object __result is really bound
-																					JavaSDM.ensure(__result != null);
-																					// check object match is really bound
-																					JavaSDM.ensure(match != null);
-
-																					// create link
-																					org.moflon.util.eMoflonEMFUtil
-																							.addOppositeReference(
-																									match,
-																									__performOperation,
-																									"isApplicableOperation");
-
-																					// create link
-																					__result.getContents()
-																							.add(match);
-
-																					fujaba__Success = true;
-																				} catch (JavaSDMException fujaba__InternalException) {
-																					fujaba__Success = false;
-																				}
-
-																			} else {
-
-																			}
-
-																		} else {
-
-																		}
-																		fujaba__Success = true;
-																	} catch (JavaSDMException fujaba__InternalException) {
-																		fujaba__Success = false;
-																	}
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_16_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_16_2_blackFFFFFFFFFFB(_edge_outgoing)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_16_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_16_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_16_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_16_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_16_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_16_6_expressionFB(__result);
 	}
 
 	/**
@@ -8874,661 +1164,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_117(
 			EMoflonEdge _edge_flowNodeRefs) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_700530 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_261157 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_727697 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_727697 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelConvGatewayToInFlow1 = null;
-		SequenceFlow inFlow1 = null;
-		Iterator fujaba__IterParallelGatewayToDivergeFlow1 = null;
-		SequenceFlow divergeFlow1 = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterParallelConvGatewayToOutFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterParallelConvGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		Lane lane = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_17_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowNodeRefs is really bound
-			JavaSDM.ensure(_edge_flowNodeRefs != null);
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getSrc();
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link flowNodeRefs from lane to parallelConvGateway
-			JavaSDM.ensure(lane.getFlowNodeRefs().contains(parallelConvGateway));
-
-			// iterate to-many link targetRef from parallelConvGateway to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterParallelConvGatewayToInFlow = new ArrayList(
-					parallelConvGateway.getIncoming()).iterator();
-
-			while (fujaba__IterParallelConvGatewayToInFlow.hasNext()) {
-				try {
-					inFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToInFlow
-							.next();
-
-					// check object inFlow is really bound
-					JavaSDM.ensure(inFlow != null);
-					// iterate to-many link sourceRef from parallelConvGateway to outFlow
-					fujaba__Success = false;
-
-					fujaba__IterParallelConvGatewayToOutFlow = new ArrayList(
-							parallelConvGateway.getOutgoing()).iterator();
-
-					while (fujaba__IterParallelConvGatewayToOutFlow.hasNext()) {
-						try {
-							outFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToOutFlow
-									.next();
-
-							// check object outFlow is really bound
-							JavaSDM.ensure(outFlow != null);
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// bind object
-							_TmpObject = outFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) outFlow
-									.eContainer() : null;
-
-							// ensure correct type and really bound of object process
-							JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-							process = (bpmn2.Process) _TmpObject;
-
-							// check if contained via correct reference
-							JavaSDM.ensure(process.getFlowElements().contains(
-									outFlow));
-
-							// check link flowElements from inFlow to process
-							JavaSDM.ensure(process.equals(inFlow.eContainer()));
-
-							// iterate to-many link flowElements from process to divergeFlow
-							fujaba__Success = false;
-
-							fujaba__IterProcessToDivergeFlow = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToDivergeFlow
-											.next();
-
-									// ensure correct type and really bound of object divergeFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									divergeFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// check isomorphic binding between objects outFlow and divergeFlow 
-									JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-									// bind object
-									_TmpObject = divergeFlow.getSourceRef();
-
-									// ensure correct type and really bound of object parallelGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelGateway = (ParallelGateway) _TmpObject;
-
-									// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-									JavaSDM.ensure(!parallelGateway
-											.equals(parallelConvGateway));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// check link lanes from lane to laneSet
-											JavaSDM.ensure(laneSet.equals(lane
-													.eContainer()));
-
-											// iterate to-many link sourceRef from parallelGateway to divergeFlow1
-											fujaba__Success = false;
-
-											fujaba__IterParallelGatewayToDivergeFlow1 = new ArrayList(
-													parallelGateway
-															.getOutgoing())
-													.iterator();
-
-											while (fujaba__IterParallelGatewayToDivergeFlow1
-													.hasNext()) {
-												try {
-													divergeFlow1 = (SequenceFlow) fujaba__IterParallelGatewayToDivergeFlow1
-															.next();
-
-													// check object divergeFlow1 is really bound
-													JavaSDM.ensure(divergeFlow1 != null);
-													// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-													JavaSDM.ensure(!divergeFlow1
-															.equals(divergeFlow));
-
-													// check isomorphic binding between objects inFlow and divergeFlow1 
-													JavaSDM.ensure(!inFlow
-															.equals(divergeFlow1));
-
-													// check isomorphic binding between objects outFlow and divergeFlow1 
-													JavaSDM.ensure(!outFlow
-															.equals(divergeFlow1));
-
-													// iterate to-many link targetRef from parallelConvGateway to inFlow1
-													fujaba__Success = false;
-
-													fujaba__IterParallelConvGatewayToInFlow1 = new ArrayList(
-															parallelConvGateway
-																	.getIncoming())
-															.iterator();
-
-													while (fujaba__IterParallelConvGatewayToInFlow1
-															.hasNext()) {
-														try {
-															inFlow1 = (SequenceFlow) fujaba__IterParallelConvGatewayToInFlow1
-																	.next();
-
-															// check object inFlow1 is really bound
-															JavaSDM.ensure(inFlow1 != null);
-															// check isomorphic binding between objects inFlow1 and divergeFlow1 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow1));
-
-															// check isomorphic binding between objects inFlow1 and divergeFlow 
-															JavaSDM.ensure(!inFlow1
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects inFlow1 and inFlow 
-															JavaSDM.ensure(!inFlow1
-																	.equals(inFlow));
-
-															// check isomorphic binding between objects outFlow and inFlow1 
-															JavaSDM.ensure(!outFlow
-																	.equals(inFlow1));
-
-															// check link flowElements from inFlow1 to process
-															JavaSDM.ensure(process
-																	.equals(inFlow1
-																			.eContainer()));
-
-															// story node 'test core match and DECs'
-															try {
-																fujaba__Success = false;
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_outFlow_flowElements_700530 = outFlow
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_outFlow_flowElements_700530 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_700530 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_700530
-																			.getFlowElements()
-																			.contains(
-																					outFlow));
-
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_700530 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_700530
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_parallelConvGateway_flowElements_261157 = parallelConvGateway
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_parallelConvGateway_flowElements_261157 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_261157 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_261157
-																			.getFlowElements()
-																			.contains(
-																					parallelConvGateway));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_261157 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_261157
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// negative check for link default from outFlow
-																JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				outFlow,
-																				ExclusiveGateway.class,
-																				"default")
-																		.size() == 0);
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_727697
-																	fujaba__Success = false;
-
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_727697 = new ArrayList(
-																			parallelConvGateway
-																					.getIncoming())
-																			.iterator();
-
-																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_727697
-																					.hasNext()) {
-																		try {
-																			__DEC_parallelConvGateway_targetRef_727697 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_727697
-																					.next();
-
-																			// check object __DEC_parallelConvGateway_targetRef_727697 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_727697 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_727697 and divergeFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_727697
-																					.equals(divergeFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_727697 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_727697
-																					.equals(divergeFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_727697 and inFlow1 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_727697
-																					.equals(inFlow1));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_727697 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_727697
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_727697 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_727697
-																					.equals(outFlow));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check object _edge_flowNodeRefs is really bound
-																JavaSDM.ensure(_edge_flowNodeRefs != null);
-																// check object divergeFlow1 is really bound
-																JavaSDM.ensure(divergeFlow1 != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object inFlow1 is really bound
-																JavaSDM.ensure(inFlow1 != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check isomorphic binding between objects divergeFlow1 and divergeFlow 
-																JavaSDM.ensure(!divergeFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow1 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow and divergeFlow1 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects outFlow and divergeFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow1));
-
-																// check isomorphic binding between objects inFlow1 and divergeFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects inFlow1 and inFlow 
-																JavaSDM.ensure(!inFlow1
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow1 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow1));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow1 to process
-																JavaSDM.ensure(process
-																		.equals(inFlow1
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link flowElements from parallelConvGateway to process
-																JavaSDM.ensure(!(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				parallelConvGateway,
-																				bpmn2.Process.class,
-																				"$eContainer")
-																		.contains(process)));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link sourceRef from divergeFlow1 to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow1
-																				.getSourceRef()));
-
-																// check link sourceRef from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link sourceRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link src from _edge_flowNodeRefs to lane
-																JavaSDM.ensure(lane
-																		.equals(_edge_flowNodeRefs
-																				.getSrc()));
-
-																// check link targetRef from inFlow1 to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow1
-																				.getTargetRef()));
-
-																// check link targetRef from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link targetRef from divergeFlow1 to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow1
-																				.getTargetRef())));
-
-																// check link targetRef from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link targetRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
-																// check link trg from _edge_flowNodeRefs to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(_edge_flowNodeRefs
-																				.getTrg()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// create object match
-																match = TGGRuntimeFactory.eINSTANCE
-																		.createMatch();
-
-																// assign attribute match
-																match.setRuleName(__eClass
-																		.getName());
-																// statement node 'bookkeeping with generic isAppropriate method'
-																fujaba__Success = this
-																		.isAppropriate_FWD(
-																				match,
-																				process,
-																				inFlow1,
-																				parallelConvGateway,
-																				parallelGateway,
-																				divergeFlow1,
-																				inFlow,
-																				outFlow,
-																				lane,
-																				laneSet,
-																				divergeFlow);
-																if (fujaba__Success) {
-																	// statement node 'Ensure that the correct types of elements are matched'
-																	fujaba__Success = this
-																			.checkTypes_FWD(match);
-																	if (fujaba__Success) {
-																		// story node 'Add match to rule result'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object __performOperation is really bound
-																			JavaSDM.ensure(__performOperation != null);
-																			// check object __result is really bound
-																			JavaSDM.ensure(__result != null);
-																			// check object match is really bound
-																			JavaSDM.ensure(match != null);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							match,
-																							__performOperation,
-																							"isApplicableOperation");
-
-																			// create link
-																			__result.getContents()
-																					.add(match);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																	} else {
-
-																	}
-
-																} else {
-
-																}
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_17_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_17_2_blackFFFFFFFFFFB(_edge_flowNodeRefs)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_17_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_17_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_17_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_17_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_17_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_17_6_expressionFB(__result);
 	}
 
 	/**
@@ -9536,12 +1233,210 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// [user code injected with eMoflon]
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer,
+			SequenceFlowToUCFlow inFlow1ToFlow1Parameter) {
+		// create result
+		Object[] result1_black = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_19_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_19_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+		// ForEach is applicable core
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_19_2_blackFFFFFFFFFFFFFFFFFFFFFBB(
+						ruleEntryContainer, ruleResult)) {
+			// RuleEntryList inFlow1ToFlow1List = (RuleEntryList) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[2];
+			SequenceFlowToUCFlow inFlow1ToFlow1 = (SequenceFlowToUCFlow) result2_black[3];
+			ParallelFlow flow1 = (ParallelFlow) result2_black[4];
+			Step step1 = (Step) result2_black[5];
+			SequenceFlowToStep inFlow1ToStep1 = (SequenceFlowToStep) result2_black[6];
+			ParallelStep parallelStep = (ParallelStep) result2_black[7];
+			ParallelFlow flow = (ParallelFlow) result2_black[8];
+			Step step = (Step) result2_black[9];
+			SequenceFlowToStep inFlowToStep = (SequenceFlowToStep) result2_black[10];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[11];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[12];
+			SequenceFlowToUCFlow divergeFlowToFlow = (SequenceFlowToUCFlow) result2_black[13];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[14];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[15];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[16];
+			SequenceFlowToUCFlow divergeFlow1ToFlow1 = (SequenceFlowToUCFlow) result2_black[17];
+			Flow initFlow = (Flow) result2_black[18];
+			LaneSet laneSet = (LaneSet) result2_black[19];
+			Lane lane = (Lane) result2_black[20];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_19_3_bindingAndBlackFBBBBBBBBBBBBBBBBBBBBBBB(
+							this, isApplicableMatch, process, inFlow1,
+							parallelGateway, divergeFlow1, flow1,
+							inFlow1ToFlow1, step1, inFlow1ToStep1,
+							parallelStep, divergeFlow1ToFlow1, inFlow, flow,
+							inFlowToFlow, step, inFlowToStep, initFlow, lane,
+							laneSet, divergeFlow, divergeFlowToFlow, ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_19_4_expressionFBB(
+							this, csp)) {
+				// check nacs
+				Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_19_5_blackBBBBBBBBBBBBBBBBBBBB(
+								step, process, inFlow1, parallelGateway,
+								divergeFlow1, flow1, inFlow1ToFlow1, step1,
+								inFlow1ToStep1, parallelStep,
+								divergeFlow1ToFlow1, inFlow, flow,
+								inFlowToFlow, inFlowToStep, initFlow, lane,
+								laneSet, divergeFlow, divergeFlowToFlow);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_19_6_blackBBBBBBBBBBBBBBBBBBBBB(
+									process, inFlow1, parallelGateway,
+									divergeFlow1, flow1, inFlow1ToFlow1, step1,
+									inFlow1ToStep1, parallelStep,
+									divergeFlow1ToFlow1, inFlow, flow,
+									inFlowToFlow, step, inFlowToStep, initFlow,
+									lane, laneSet, divergeFlow,
+									divergeFlowToFlow, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_19_6_greenBBFBBFBFFBBB(
+									process, inFlow1, parallelStep, inFlow,
+									initFlow, lane, ruleResult, csp);
+					// ParallelGateway parallelConvGateway = (ParallelGateway) result6_green[2];
+					// SequenceFlow outFlow = (SequenceFlow) result6_green[5];
+					// SequenceFlowToUCFlow outFlowToInitFlow = (SequenceFlowToUCFlow) result6_green[7];
+					// SequenceFlowToStep outFlowToParallelStep = (SequenceFlowToStep) result6_green[8];
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_19_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
+			Step step1, SequenceFlowToStep inFlow1ToStep1,
+			ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			ParallelFlow flow, SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("Converging");
+		literal0.setType("");
+		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal1", true, csp);
+		literal1.setValue("Diverging");
+		literal1.setType("");
+
+		// Create attribute variables
+		Variable var_parallelGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
+				.createVariable("parallelGateway.gatewayDirection", true, csp);
+		var_parallelGateway_gatewayDirection.setValue(parallelGateway
+				.getGatewayDirection());
+		var_parallelGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
+
+		// Create unbound variables
+		Variable var_parallelConvGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
+				.createVariable("parallelConvGateway.gatewayDirection", csp);
+		var_parallelConvGateway_gatewayDirection
+				.setType("bpmn2.GatewayDirection");
+
+		// Create constraints
+		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
+		EqGatewayDirection eqGatewayDirection_0 = new EqGatewayDirection();
+
+		csp.getConstraints().add(eqGatewayDirection);
+		csp.getConstraints().add(eqGatewayDirection_0);
+
+		// Solve CSP
+		eqGatewayDirection.setRuleName("");
+		eqGatewayDirection
+				.solve(var_parallelGateway_gatewayDirection, literal1);
+		eqGatewayDirection_0.setRuleName("");
+		eqGatewayDirection_0.solve(var_parallelConvGateway_gatewayDirection,
+				literal0);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("process", process);
+		isApplicableMatch.registerObject("inFlow1", inFlow1);
+		isApplicableMatch.registerObject("parallelGateway", parallelGateway);
+		isApplicableMatch.registerObject("divergeFlow1", divergeFlow1);
+		isApplicableMatch.registerObject("flow1", flow1);
+		isApplicableMatch.registerObject("inFlow1ToFlow1", inFlow1ToFlow1);
+		isApplicableMatch.registerObject("step1", step1);
+		isApplicableMatch.registerObject("inFlow1ToStep1", inFlow1ToStep1);
+		isApplicableMatch.registerObject("parallelStep", parallelStep);
+		isApplicableMatch.registerObject("divergeFlow1ToFlow1",
+				divergeFlow1ToFlow1);
+		isApplicableMatch.registerObject("inFlow", inFlow);
+		isApplicableMatch.registerObject("flow", flow);
+		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
+		isApplicableMatch.registerObject("step", step);
+		isApplicableMatch.registerObject("inFlowToStep", inFlowToStep);
+		isApplicableMatch.registerObject("initFlow", initFlow);
+		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("laneSet", laneSet);
+		isApplicableMatch.registerObject("divergeFlow", divergeFlow);
+		isApplicableMatch
+				.registerObject("divergeFlowToFlow", divergeFlowToFlow);
+		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean generateModel_checkCsp_BWD(CSP csp) {
+		return csp.check();
 	}
 
 	/**
@@ -9553,443 +1448,88 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			SequenceFlow inFlow, ParallelGateway parallelConvGateway,
 			SequenceFlow outFlow, Lane lane, LaneSet laneSet,
 			ParallelGateway parallelGateway, SequenceFlow divergeFlow) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __outFlow_sourceRef_parallelConvGateway = null;
-		EMoflonEdge __lane_flowNodeRefs_parallelConvGateway = null;
-		EMoflonEdge __parallelConvGateway_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_parallelConvGateway = null;
-		EMoflonEdge __process_flowElements_outFlow = null;
-		EMoflonEdge __parallelConvGateway_outgoing_outFlow = null;
-		EMoflonEdge __inFlow_targetRef_parallelConvGateway = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		EMoflonEdge __divergeFlow_sourceRef_parallelGateway = null;
-		EMoflonEdge __process_flowElements_divergeFlow = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __process_flowElements_parallelGateway = null;
-		EMoflonEdge __parallelGateway_outgoing_divergeFlow = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object divergeFlow is really bound
-			JavaSDM.ensure(divergeFlow != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object outFlow is really bound
-			JavaSDM.ensure(outFlow != null);
-			// check object parallelConvGateway is really bound
-			JavaSDM.ensure(parallelConvGateway != null);
-			// check object parallelGateway is really bound
-			JavaSDM.ensure(parallelGateway != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check isomorphic binding between objects inFlow and divergeFlow 
-			JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects outFlow and divergeFlow 
-			JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-			// check isomorphic binding between objects outFlow and inFlow 
-			JavaSDM.ensure(!outFlow.equals(inFlow));
-
-			// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-			JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_0_1_blackBBBBBBBBBB(
+						this, match, process, inFlow, parallelConvGateway,
+						outFlow, lane, laneSet, parallelGateway, divergeFlow);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, process,
-					inFlow, parallelConvGateway, outFlow, lane, laneSet,
-					parallelGateway, divergeFlow));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_0_2_bindingAndBlackFBBBBBBBBBB(
+						this, match, process, inFlow, parallelConvGateway,
+						outFlow, lane, laneSet, parallelGateway, divergeFlow);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_0_3_expressionFBB(this,
+						csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object divergeFlow is really bound
-				JavaSDM.ensure(divergeFlow != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object parallelConvGateway is really bound
-				JavaSDM.ensure(parallelConvGateway != null);
-				// check object parallelGateway is really bound
-				JavaSDM.ensure(parallelGateway != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects inFlow and divergeFlow 
-				JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-				// check isomorphic binding between objects outFlow and divergeFlow 
-				JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-				// check isomorphic binding between objects outFlow and inFlow 
-				JavaSDM.ensure(!outFlow.equals(inFlow));
-
-				// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-				JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-				// create object __outFlow_sourceRef_parallelConvGateway
-				__outFlow_sourceRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __lane_flowNodeRefs_parallelConvGateway
-				__lane_flowNodeRefs_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelConvGateway_incoming_inFlow
-				__parallelConvGateway_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_parallelConvGateway
-				__process_flowElements_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_outFlow
-				__process_flowElements_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelConvGateway_outgoing_outFlow
-				__parallelConvGateway_outgoing_outFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __inFlow_targetRef_parallelConvGateway
-				__inFlow_targetRef_parallelConvGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_flowElements_parallelConvGateway
-				__process_flowElements_parallelConvGateway
-						.setName("flowElements");
-				// assign attribute __process_flowElements_outFlow
-				__process_flowElements_outFlow.setName("flowElements");
-				// assign attribute __inFlow_targetRef_parallelConvGateway
-				__inFlow_targetRef_parallelConvGateway.setName("targetRef");
-				// assign attribute __parallelConvGateway_incoming_inFlow
-				__parallelConvGateway_incoming_inFlow.setName("incoming");
-				// assign attribute __outFlow_sourceRef_parallelConvGateway
-				__outFlow_sourceRef_parallelConvGateway.setName("sourceRef");
-				// assign attribute __parallelConvGateway_outgoing_outFlow
-				__parallelConvGateway_outgoing_outFlow.setName("outgoing");
-				// assign attribute __lane_flowNodeRefs_parallelConvGateway
-				__lane_flowNodeRefs_parallelConvGateway.setName("flowNodeRefs");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__outFlow_sourceRef_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__lane_flowNodeRefs_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						outFlow, "toBeTranslatedNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__parallelConvGateway_incoming_inFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_outFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__parallelConvGateway_outgoing_outFlow,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_parallelConvGateway,
-						"toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						parallelConvGateway, "toBeTranslatedNodes");
-
-				// create link
-				__process_flowElements_parallelConvGateway.setSrc(process);
-
-				// create link
-				__process_flowElements_outFlow.setSrc(process);
-
-				// create link
-				__inFlow_targetRef_parallelConvGateway.setSrc(inFlow);
-
-				// create link
-				__parallelConvGateway_incoming_inFlow.setTrg(inFlow);
-
-				// create link
-				__lane_flowNodeRefs_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__parallelConvGateway_incoming_inFlow
-						.setSrc(parallelConvGateway);
-
-				// create link
-				__parallelConvGateway_outgoing_outFlow
-						.setSrc(parallelConvGateway);
-
-				// create link
-				__process_flowElements_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__inFlow_targetRef_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__outFlow_sourceRef_parallelConvGateway
-						.setTrg(parallelConvGateway);
-
-				// create link
-				__parallelConvGateway_outgoing_outFlow.setTrg(outFlow);
-
-				// create link
-				__process_flowElements_outFlow.setTrg(outFlow);
-
-				// create link
-				__outFlow_sourceRef_parallelConvGateway.setSrc(outFlow);
-
-				// create link
-				__lane_flowNodeRefs_parallelConvGateway.setSrc(lane);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_0_4_blackBBBBBBBBB(
+							match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_0_4_greenBBBBBBFFFFFFF(
+							match, process, inFlow, parallelConvGateway,
+							outFlow, lane);
+			// EMoflonEdge process__parallelConvGateway____flowElements = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result4_green[12];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object divergeFlow is really bound
-				JavaSDM.ensure(divergeFlow != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object outFlow is really bound
-				JavaSDM.ensure(outFlow != null);
-				// check object parallelConvGateway is really bound
-				JavaSDM.ensure(parallelConvGateway != null);
-				// check object parallelGateway is really bound
-				JavaSDM.ensure(parallelGateway != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// check isomorphic binding between objects inFlow and divergeFlow 
-				JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-				// check isomorphic binding between objects outFlow and divergeFlow 
-				JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-				// check isomorphic binding between objects outFlow and inFlow 
-				JavaSDM.ensure(!outFlow.equals(inFlow));
-
-				// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-				JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __divergeFlow_sourceRef_parallelGateway
-				__divergeFlow_sourceRef_parallelGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_divergeFlow
-				__process_flowElements_divergeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_inFlow
-				__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_parallelGateway
-				__process_flowElements_parallelGateway = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __parallelGateway_outgoing_divergeFlow
-				__parallelGateway_outgoing_divergeFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_flowElements_inFlow
-				__process_flowElements_inFlow.setName("flowElements");
-				// assign attribute __process_laneSets_laneSet
-				__process_laneSets_laneSet.setName("laneSets");
-				// assign attribute __process_flowElements_divergeFlow
-				__process_flowElements_divergeFlow.setName("flowElements");
-				// assign attribute __process_flowElements_parallelGateway
-				__process_flowElements_parallelGateway.setName("flowElements");
-				// assign attribute __laneSet_lanes_lane
-				__laneSet_lanes_lane.setName("lanes");
-				// assign attribute __divergeFlow_sourceRef_parallelGateway
-				__divergeFlow_sourceRef_parallelGateway.setName("sourceRef");
-				// assign attribute __parallelGateway_outgoing_divergeFlow
-				__parallelGateway_outgoing_divergeFlow.setName("outgoing");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__laneSet_lanes_lane, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil
-						.addOppositeReference(match,
-								__divergeFlow_sourceRef_parallelGateway,
-								"contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						divergeFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_divergeFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_parallelGateway, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__parallelGateway_outgoing_divergeFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						parallelGateway, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
-
-				// create link
-				__process_flowElements_inFlow.setSrc(process);
-
-				// create link
-				__process_laneSets_laneSet.setSrc(process);
-
-				// create link
-				__process_flowElements_parallelGateway.setSrc(process);
-
-				// create link
-				__process_flowElements_divergeFlow.setSrc(process);
-
-				// create link
-				__process_flowElements_inFlow.setTrg(inFlow);
-
-				// create link
-				__laneSet_lanes_lane.setTrg(lane);
-
-				// create link
-				__laneSet_lanes_lane.setSrc(laneSet);
-
-				// create link
-				__process_laneSets_laneSet.setTrg(laneSet);
-
-				// create link
-				__process_flowElements_parallelGateway.setTrg(parallelGateway);
-
-				// create link
-				__divergeFlow_sourceRef_parallelGateway.setTrg(parallelGateway);
-
-				// create link
-				__parallelGateway_outgoing_divergeFlow.setSrc(parallelGateway);
-
-				// create link
-				__process_flowElements_divergeFlow.setTrg(divergeFlow);
-
-				// create link
-				__divergeFlow_sourceRef_parallelGateway.setSrc(divergeFlow);
-
-				// create link
-				__parallelGateway_outgoing_divergeFlow.setTrg(divergeFlow);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_0_5_blackBBBBBBBBB(
+							match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_0_5_greenBBBBBBBFFFFFFF(
+							match, process, inFlow, lane, laneSet,
+							parallelGateway, divergeFlow);
+			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[7];
+			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[8];
+			// EMoflonEdge process__divergeFlow____flowElements = (EMoflonEdge) result5_green[9];
+			// EMoflonEdge process__parallelGateway____flowElements = (EMoflonEdge) result5_green[10];
+			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[11];
+			// EMoflonEdge divergeFlow__parallelGateway____sourceRef = (EMoflonEdge) result5_green[12];
+			// EMoflonEdge parallelGateway__divergeFlow____outgoing = (EMoflonEdge) result5_green[13];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, process, inFlow,
-					parallelConvGateway, outFlow, lane, laneSet,
-					parallelGateway, divergeFlow);
-			return true;
-
+			// register objects to match
+			ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_0_6_expressionBBBBBBBBBB(
+							this, match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow);
+			return ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -10020,19 +1560,18 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	public CSP isAppropriate_solveCsp_FWD(Match match, bpmn2.Process process,
 			SequenceFlow inFlow, ParallelGateway parallelConvGateway,
 			SequenceFlow outFlow, Lane lane, LaneSet laneSet,
-			ParallelGateway parallelGateway, SequenceFlow divergeFlow) {
-		// Create CSP
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
 		literal0.setValue("Converging");
-		literal0.setType("String");
+		literal0.setType("");
 		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal1", true, csp);
 		literal1.setValue("Diverging");
-		literal1.setType("String");
+		literal1.setType("");
 
 		// Create attribute variables
 		Variable var_parallelConvGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
@@ -10040,14 +1579,13 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						csp);
 		var_parallelConvGateway_gatewayDirection.setValue(parallelConvGateway
 				.getGatewayDirection());
-		var_parallelConvGateway_gatewayDirection.setType("EObject");
+		var_parallelConvGateway_gatewayDirection
+				.setType("bpmn2.GatewayDirection");
 		Variable var_parallelGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
 				.createVariable("parallelGateway.gatewayDirection", true, csp);
 		var_parallelGateway_gatewayDirection.setValue(parallelGateway
 				.getGatewayDirection());
-		var_parallelGateway_gatewayDirection.setType("EObject");
-
-		// Create explicit parameters
+		var_parallelGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
 
 		// Create unbound variables
 
@@ -10080,16 +1618,13 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			SequenceFlowToStep inFlowToStep, Flow initFlow,
 			ParallelStep parallelStep, Lane lane, LaneSet laneSet,
 			ParallelGateway parallelGateway, FlowNodeToStep pgwToParallelStep,
-			SequenceFlow divergeFlow, SequenceFlowToUCFlow divergeFlowToFlow) {
-		// Create CSP
+			SequenceFlow divergeFlow, SequenceFlowToUCFlow divergeFlowToFlow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -10163,541 +1698,66 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_54(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_800828 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_140476 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_363880 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_363880 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelConvGatewayToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToOutFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_10_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// iterate to-many link laneSets from process to laneSet
-			fujaba__Success = false;
-
-			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
-					.iterator();
-
-			while (fujaba__IterProcessToLaneSet.hasNext()) {
-				try {
-					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
-
-					// check object laneSet is really bound
-					JavaSDM.ensure(laneSet != null);
-					// bind object
-					_TmpObject = _edge_flowElements.getTrg();
-
-					// ensure correct type and really bound of object parallelConvGateway
-					JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-					parallelConvGateway = (ParallelGateway) _TmpObject;
-
-					// check link flowElements from parallelConvGateway to process
-					JavaSDM.ensure(process.equals(parallelConvGateway
-							.eContainer()));
-
-					// iterate to-many link flowElements from process to divergeFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToDivergeFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToDivergeFlow
-									.next();
-
-							// ensure correct type and really bound of object divergeFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							divergeFlow = (SequenceFlow) _TmpObject;
-							// bind object
-							_TmpObject = divergeFlow.getSourceRef();
-
-							// ensure correct type and really bound of object parallelGateway
-							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-							parallelGateway = (ParallelGateway) _TmpObject;
-
-							// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-							JavaSDM.ensure(!parallelGateway
-									.equals(parallelConvGateway));
-
-							// check link flowElements from parallelGateway to process
-							JavaSDM.ensure(process.equals(parallelGateway
-									.eContainer()));
-
-							// iterate to-many link flowElements from process to inFlow
-							fujaba__Success = false;
-
-							fujaba__IterProcessToInFlow = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToInFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToInFlow
-											.next();
-
-									// ensure correct type and really bound of object inFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									inFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects inFlow and divergeFlow 
-									JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-									// check link targetRef from inFlow to parallelConvGateway
-									JavaSDM.ensure(parallelConvGateway
-											.equals(inFlow.getTargetRef()));
-
-									// iterate to-many link flowElements from process to outFlow
-									fujaba__Success = false;
-
-									fujaba__IterProcessToOutFlow = new ArrayList(
-											process.getFlowElements())
-											.iterator();
-
-									while (fujaba__IterProcessToOutFlow
-											.hasNext()) {
-										try {
-											_TmpObject = fujaba__IterProcessToOutFlow
-													.next();
-
-											// ensure correct type and really bound of object outFlow
-											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-											outFlow = (SequenceFlow) _TmpObject;
-											// check isomorphic binding between objects outFlow and divergeFlow 
-											JavaSDM.ensure(!outFlow
-													.equals(divergeFlow));
-
-											// check isomorphic binding between objects outFlow and inFlow 
-											JavaSDM.ensure(!outFlow
-													.equals(inFlow));
-
-											// check link sourceRef from outFlow to parallelConvGateway
-											JavaSDM.ensure(parallelConvGateway
-													.equals(outFlow
-															.getSourceRef()));
-
-											// iterate to-many link flowNodeRefs from parallelConvGateway to lane
-											fujaba__Success = false;
-
-											fujaba__IterParallelConvGatewayToLane = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	parallelConvGateway,
-																	Lane.class,
-																	"flowNodeRefs"))
-													.iterator();
-
-											while (fujaba__IterParallelConvGatewayToLane
-													.hasNext()) {
-												try {
-													lane = (Lane) fujaba__IterParallelConvGatewayToLane
-															.next();
-
-													// check object lane is really bound
-													JavaSDM.ensure(lane != null);
-													// check link lanes from lane to laneSet
-													JavaSDM.ensure(laneSet.equals(lane
-															.eContainer()));
-
-													// story node 'test core match and DECs'
-													try {
-														fujaba__Success = false;
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_outFlow_flowElements_800828 = outFlow
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_outFlow_flowElements_800828 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_800828 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_800828
-																	.getFlowElements()
-																	.contains(
-																			outFlow));
-
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_800828 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_800828
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_parallelConvGateway_flowElements_140476 = parallelConvGateway
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_parallelConvGateway_flowElements_140476 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_140476 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_140476
-																	.getFlowElements()
-																	.contains(
-																			parallelConvGateway));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_140476 and process 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_140476
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// negative check for link default from outFlow
-														JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																.getOppositeReference(
-																		outFlow,
-																		ExclusiveGateway.class,
-																		"default")
-																.size() == 0);
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_363880
-															fujaba__Success = false;
-
-															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_363880 = new ArrayList(
-																	parallelConvGateway
-																			.getIncoming())
-																	.iterator();
-
-															while (!(fujaba__Success)
-																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_363880
-																			.hasNext()) {
-																try {
-																	__DEC_parallelConvGateway_targetRef_363880 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_363880
-																			.next();
-
-																	// check object __DEC_parallelConvGateway_targetRef_363880 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_363880 != null);
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_363880 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_363880
-																			.equals(divergeFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_363880 and inFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_363880
-																			.equals(inFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_363880 and outFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_363880
-																			.equals(outFlow));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check object _edge_flowElements is really bound
-														JavaSDM.ensure(_edge_flowElements != null);
-														// check object divergeFlow is really bound
-														JavaSDM.ensure(divergeFlow != null);
-														// check object inFlow is really bound
-														JavaSDM.ensure(inFlow != null);
-														// check object lane is really bound
-														JavaSDM.ensure(lane != null);
-														// check object laneSet is really bound
-														JavaSDM.ensure(laneSet != null);
-														// check object outFlow is really bound
-														JavaSDM.ensure(outFlow != null);
-														// check object parallelConvGateway is really bound
-														JavaSDM.ensure(parallelConvGateway != null);
-														// check object parallelGateway is really bound
-														JavaSDM.ensure(parallelGateway != null);
-														// check object process is really bound
-														JavaSDM.ensure(process != null);
-														// check isomorphic binding between objects inFlow and divergeFlow 
-														JavaSDM.ensure(!inFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and divergeFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and inFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(inFlow));
-
-														// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-														JavaSDM.ensure(!parallelGateway
-																.equals(parallelConvGateway));
-
-														// check link flowElements from divergeFlow to process
-														JavaSDM.ensure(process
-																.equals(divergeFlow
-																		.eContainer()));
-
-														// check link flowElements from inFlow to process
-														JavaSDM.ensure(process.equals(inFlow
-																.eContainer()));
-
-														// check link flowElements from outFlow to process
-														JavaSDM.ensure(process.equals(outFlow
-																.eContainer()));
-
-														// check link flowElements from parallelConvGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelConvGateway
-																		.eContainer()));
-
-														// check link flowElements from parallelGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelGateway
-																		.eContainer()));
-
-														// check link laneSets from laneSet to process
-														JavaSDM.ensure(process.equals(laneSet
-																.eContainer()));
-
-														// check link lanes from lane to laneSet
-														JavaSDM.ensure(laneSet.equals(lane
-																.eContainer()));
-
-														// check link sourceRef from divergeFlow to parallelGateway
-														JavaSDM.ensure(parallelGateway
-																.equals(divergeFlow
-																		.getSourceRef()));
-
-														// check link sourceRef from outFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link src from _edge_flowElements to process
-														JavaSDM.ensure(process
-																.equals(_edge_flowElements
-																		.getSrc()));
-
-														// check link targetRef from inFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link targetRef from divergeFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link targetRef from outFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-																.getTargetRef())));
-
-														// check link trg from _edge_flowElements to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway
-																.equals(_edge_flowElements
-																		.getTrg()));
-
-														// check link flowNodeRefs from lane to parallelConvGateway
-														JavaSDM.ensure(lane
-																.getFlowNodeRefs()
-																.contains(
-																		parallelConvGateway));
-
-														// create object match
-														match = TGGRuntimeFactory.eINSTANCE
-																.createMatch();
-
-														// assign attribute match
-														match.setRuleName(__eClass
-																.getName());
-														// statement node 'bookkeeping with generic isAppropriate method'
-														fujaba__Success = this
-																.isAppropriate_FWD(
-																		match,
-																		process,
-																		inFlow,
-																		parallelConvGateway,
-																		outFlow,
-																		lane,
-																		laneSet,
-																		parallelGateway,
-																		divergeFlow);
-														if (fujaba__Success) {
-															// statement node 'Ensure that the correct types of elements are matched'
-															fujaba__Success = this
-																	.checkTypes_FWD(match);
-															if (fujaba__Success) {
-																// story node 'Add match to rule result'
-																try {
-																	fujaba__Success = false;
-
-																	// check object __performOperation is really bound
-																	JavaSDM.ensure(__performOperation != null);
-																	// check object __result is really bound
-																	JavaSDM.ensure(__result != null);
-																	// check object match is really bound
-																	JavaSDM.ensure(match != null);
-
-																	// create link
-																	org.moflon.util.eMoflonEMFUtil
-																			.addOppositeReference(
-																					match,
-																					__performOperation,
-																					"isApplicableOperation");
-
-																	// create link
-																	__result.getContents()
-																			.add(match);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-															} else {
-
-															}
-
-														} else {
-
-														}
-														fujaba__Success = true;
-													} catch (JavaSDMException fujaba__InternalException) {
-														fujaba__Success = false;
-													}
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_10_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_10_2_blackFFFFFFFFB(_edge_flowElements)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[6];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[7];
+			Object[] result2_green = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_10_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_10_3_expressionFBBBBBBBBBB(
+							this, match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayRuleImpl
+						.pattern_ParallelConvergingGatewayRule_10_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_10_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_10_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_10_6_expressionFB(__result);
 	}
 
 	/**
@@ -10707,564 +1767,66 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_55(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_741560 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_230943 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_563367 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_563367 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelConvGatewayToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToParallelConvGateway = null;
-		ParallelGateway parallelConvGateway = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterProcessToParallelGateway = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_11_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// iterate to-many link laneSets from process to laneSet
-			fujaba__Success = false;
-
-			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
-					.iterator();
-
-			while (fujaba__IterProcessToLaneSet.hasNext()) {
-				try {
-					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
-
-					// check object laneSet is really bound
-					JavaSDM.ensure(laneSet != null);
-					// iterate to-many link flowElements from process to parallelGateway
-					fujaba__Success = false;
-
-					fujaba__IterProcessToParallelGateway = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToParallelGateway.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToParallelGateway
-									.next();
-
-							// ensure correct type and really bound of object parallelGateway
-							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-							parallelGateway = (ParallelGateway) _TmpObject;
-							// bind object
-							_TmpObject = _edge_flowElements.getTrg();
-
-							// ensure correct type and really bound of object outFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							outFlow = (SequenceFlow) _TmpObject;
-
-							// check link flowElements from outFlow to process
-							JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-							// iterate to-many link flowElements from process to divergeFlow
-							fujaba__Success = false;
-
-							fujaba__IterProcessToDivergeFlow = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToDivergeFlow
-											.next();
-
-									// ensure correct type and really bound of object divergeFlow
-									JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-									divergeFlow = (SequenceFlow) _TmpObject;
-									// check isomorphic binding between objects outFlow and divergeFlow 
-									JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-									// check link sourceRef from divergeFlow to parallelGateway
-									JavaSDM.ensure(parallelGateway
-											.equals(divergeFlow.getSourceRef()));
-
-									// iterate to-many link flowElements from process to inFlow
-									fujaba__Success = false;
-
-									fujaba__IterProcessToInFlow = new ArrayList(
-											process.getFlowElements())
-											.iterator();
-
-									while (fujaba__IterProcessToInFlow
-											.hasNext()) {
-										try {
-											_TmpObject = fujaba__IterProcessToInFlow
-													.next();
-
-											// ensure correct type and really bound of object inFlow
-											JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-											inFlow = (SequenceFlow) _TmpObject;
-											// check isomorphic binding between objects inFlow and divergeFlow 
-											JavaSDM.ensure(!inFlow
-													.equals(divergeFlow));
-
-											// check isomorphic binding between objects outFlow and inFlow 
-											JavaSDM.ensure(!outFlow
-													.equals(inFlow));
-
-											// iterate to-many link flowElements from process to parallelConvGateway
-											fujaba__Success = false;
-
-											fujaba__IterProcessToParallelConvGateway = new ArrayList(
-													process.getFlowElements())
-													.iterator();
-
-											while (fujaba__IterProcessToParallelConvGateway
-													.hasNext()) {
-												try {
-													_TmpObject = fujaba__IterProcessToParallelConvGateway
-															.next();
-
-													// ensure correct type and really bound of object parallelConvGateway
-													JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-													parallelConvGateway = (ParallelGateway) _TmpObject;
-													// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-													JavaSDM.ensure(!parallelGateway
-															.equals(parallelConvGateway));
-
-													// check link sourceRef from outFlow to parallelConvGateway
-													JavaSDM.ensure(parallelConvGateway.equals(outFlow
-															.getSourceRef()));
-
-													// check link targetRef from inFlow to parallelConvGateway
-													JavaSDM.ensure(parallelConvGateway.equals(inFlow
-															.getTargetRef()));
-
-													// iterate to-many link flowNodeRefs from parallelConvGateway to lane
-													fujaba__Success = false;
-
-													fujaba__IterParallelConvGatewayToLane = new ArrayList(
-															org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReference(
-																			parallelConvGateway,
-																			Lane.class,
-																			"flowNodeRefs"))
-															.iterator();
-
-													while (fujaba__IterParallelConvGatewayToLane
-															.hasNext()) {
-														try {
-															lane = (Lane) fujaba__IterParallelConvGatewayToLane
-																	.next();
-
-															// check object lane is really bound
-															JavaSDM.ensure(lane != null);
-															// check link lanes from lane to laneSet
-															JavaSDM.ensure(laneSet
-																	.equals(lane
-																			.eContainer()));
-
-															// story node 'test core match and DECs'
-															try {
-																fujaba__Success = false;
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_outFlow_flowElements_741560 = outFlow
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_outFlow_flowElements_741560 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_741560 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_741560
-																			.getFlowElements()
-																			.contains(
-																					outFlow));
-
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_741560 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_741560
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_parallelConvGateway_flowElements_230943 = parallelConvGateway
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_parallelConvGateway_flowElements_230943 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_230943 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_230943
-																			.getFlowElements()
-																			.contains(
-																					parallelConvGateway));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_230943 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_230943
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// negative check for link default from outFlow
-																JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				outFlow,
-																				ExclusiveGateway.class,
-																				"default")
-																		.size() == 0);
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_563367
-																	fujaba__Success = false;
-
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_563367 = new ArrayList(
-																			parallelConvGateway
-																					.getIncoming())
-																			.iterator();
-
-																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_563367
-																					.hasNext()) {
-																		try {
-																			__DEC_parallelConvGateway_targetRef_563367 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_563367
-																					.next();
-
-																			// check object __DEC_parallelConvGateway_targetRef_563367 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_563367 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_563367 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_563367
-																					.equals(divergeFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_563367 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_563367
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_563367 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_563367
-																					.equals(outFlow));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check object _edge_flowElements is really bound
-																JavaSDM.ensure(_edge_flowElements != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link flowElements from parallelConvGateway to process
-																JavaSDM.ensure(process
-																		.equals(parallelConvGateway
-																				.eContainer()));
-
-																// check link flowElements from parallelGateway to process
-																JavaSDM.ensure(process
-																		.equals(parallelGateway
-																				.eContainer()));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link sourceRef from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link sourceRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link src from _edge_flowElements to process
-																JavaSDM.ensure(process
-																		.equals(_edge_flowElements
-																				.getSrc()));
-
-																// check link targetRef from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link targetRef from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link targetRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
-																// check link trg from _edge_flowElements to outFlow
-																JavaSDM.ensure(outFlow
-																		.equals(_edge_flowElements
-																				.getTrg()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// create object match
-																match = TGGRuntimeFactory.eINSTANCE
-																		.createMatch();
-
-																// assign attribute match
-																match.setRuleName(__eClass
-																		.getName());
-																// statement node 'bookkeeping with generic isAppropriate method'
-																fujaba__Success = this
-																		.isAppropriate_FWD(
-																				match,
-																				process,
-																				inFlow,
-																				parallelConvGateway,
-																				outFlow,
-																				lane,
-																				laneSet,
-																				parallelGateway,
-																				divergeFlow);
-																if (fujaba__Success) {
-																	// statement node 'Ensure that the correct types of elements are matched'
-																	fujaba__Success = this
-																			.checkTypes_FWD(match);
-																	if (fujaba__Success) {
-																		// story node 'Add match to rule result'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object __performOperation is really bound
-																			JavaSDM.ensure(__performOperation != null);
-																			// check object __result is really bound
-																			JavaSDM.ensure(__result != null);
-																			// check object match is really bound
-																			JavaSDM.ensure(match != null);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							match,
-																							__performOperation,
-																							"isApplicableOperation");
-
-																			// create link
-																			__result.getContents()
-																					.add(match);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																	} else {
-
-																	}
-
-																} else {
-
-																}
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_11_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_11_2_blackFFFFFFFFB(_edge_flowElements)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[6];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[7];
+			Object[] result2_green = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_11_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_11_3_expressionFBBBBBBBBBB(
+							this, match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayRuleImpl
+						.pattern_ParallelConvergingGatewayRule_11_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_11_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_11_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_11_6_expressionFB(__result);
 	}
 
 	/**
@@ -11274,517 +1836,66 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_56(
 			EMoflonEdge _edge_targetRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_681730 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_826099 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_529741 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_529741 = null;
-		Match match = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToOutFlow = null;
-		SequenceFlow outFlow = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		ParallelGateway parallelConvGateway = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_12_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_targetRef is really bound
-			JavaSDM.ensure(_edge_targetRef != null);
-			// bind object
-			_TmpObject = _edge_targetRef.getSrc();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-			// bind object
-			_TmpObject = _edge_targetRef.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link flowElements from parallelConvGateway to process
-			JavaSDM.ensure(process.equals(parallelConvGateway.eContainer()));
-
-			// check link targetRef from inFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowElements from process to divergeFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToDivergeFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
-
-					// ensure correct type and really bound of object divergeFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					divergeFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects inFlow and divergeFlow 
-					JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-					// bind object
-					_TmpObject = divergeFlow.getSourceRef();
-
-					// ensure correct type and really bound of object parallelGateway
-					JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-					parallelGateway = (ParallelGateway) _TmpObject;
-
-					// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-					JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-					// check link flowElements from parallelGateway to process
-					JavaSDM.ensure(process.equals(parallelGateway.eContainer()));
-
-					// iterate to-many link flowElements from process to outFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToOutFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToOutFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToOutFlow.next();
-
-							// ensure correct type and really bound of object outFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							outFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects outFlow and divergeFlow 
-							JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link sourceRef from outFlow to parallelConvGateway
-							JavaSDM.ensure(parallelConvGateway.equals(outFlow
-									.getSourceRef()));
-
-							// iterate to-many link laneSets from process to laneSet
-							fujaba__Success = false;
-
-							fujaba__IterProcessToLaneSet = new ArrayList(
-									process.getLaneSets()).iterator();
-
-							while (fujaba__IterProcessToLaneSet.hasNext()) {
-								try {
-									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-											.next();
-
-									// check object laneSet is really bound
-									JavaSDM.ensure(laneSet != null);
-									// iterate to-many link lanes from laneSet to lane
-									fujaba__Success = false;
-
-									fujaba__IterLaneSetToLane = new ArrayList(
-											laneSet.getLanes()).iterator();
-
-									while (fujaba__IterLaneSetToLane.hasNext()) {
-										try {
-											lane = (Lane) fujaba__IterLaneSetToLane
-													.next();
-
-											// check object lane is really bound
-											JavaSDM.ensure(lane != null);
-											// check link flowNodeRefs from lane to parallelConvGateway
-											JavaSDM.ensure(lane
-													.getFlowNodeRefs()
-													.contains(
-															parallelConvGateway));
-
-											// story node 'test core match and DECs'
-											try {
-												fujaba__Success = false;
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// bind object
-													__DEC_outFlow_flowElements_681730 = outFlow
-															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-															.eContainer()
-															: null;
-
-													// check object __DEC_outFlow_flowElements_681730 is really bound
-													JavaSDM.ensure(__DEC_outFlow_flowElements_681730 != null);
-
-													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_outFlow_flowElements_681730
-															.getFlowElements()
-															.contains(outFlow));
-
-													// check isomorphic binding between objects __DEC_outFlow_flowElements_681730 and process 
-													JavaSDM.ensure(!__DEC_outFlow_flowElements_681730
-															.equals(process));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// bind object
-													__DEC_parallelConvGateway_flowElements_826099 = parallelConvGateway
-															.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-															.eContainer()
-															: null;
-
-													// check object __DEC_parallelConvGateway_flowElements_826099 is really bound
-													JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_826099 != null);
-
-													// check if contained via correct reference
-													JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_826099
-															.getFlowElements()
-															.contains(
-																	parallelConvGateway));
-
-													// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_826099 and process 
-													JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_826099
-															.equals(process));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// negative check for link default from outFlow
-												JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-														.getOppositeReference(
-																outFlow,
-																ExclusiveGateway.class,
-																"default")
-														.size() == 0);
-												// check negative bindings
-												try {
-													fujaba__Success = false;
-
-													// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_529741
-													fujaba__Success = false;
-
-													fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_529741 = new ArrayList(
-															parallelConvGateway
-																	.getIncoming())
-															.iterator();
-
-													while (!(fujaba__Success)
-															&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_529741
-																	.hasNext()) {
-														try {
-															__DEC_parallelConvGateway_targetRef_529741 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_529741
-																	.next();
-
-															// check object __DEC_parallelConvGateway_targetRef_529741 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_529741 != null);
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_529741 and divergeFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_529741
-																	.equals(divergeFlow));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_529741 and inFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_529741
-																	.equals(inFlow));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_529741 and outFlow 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_529741
-																	.equals(outFlow));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-												fujaba__Success = !(fujaba__Success);
-
-												JavaSDM.ensure(fujaba__Success);
-
-												// check object _edge_targetRef is really bound
-												JavaSDM.ensure(_edge_targetRef != null);
-												// check object divergeFlow is really bound
-												JavaSDM.ensure(divergeFlow != null);
-												// check object inFlow is really bound
-												JavaSDM.ensure(inFlow != null);
-												// check object lane is really bound
-												JavaSDM.ensure(lane != null);
-												// check object laneSet is really bound
-												JavaSDM.ensure(laneSet != null);
-												// check object outFlow is really bound
-												JavaSDM.ensure(outFlow != null);
-												// check object parallelConvGateway is really bound
-												JavaSDM.ensure(parallelConvGateway != null);
-												// check object parallelGateway is really bound
-												JavaSDM.ensure(parallelGateway != null);
-												// check object process is really bound
-												JavaSDM.ensure(process != null);
-												// check isomorphic binding between objects inFlow and divergeFlow 
-												JavaSDM.ensure(!inFlow
-														.equals(divergeFlow));
-
-												// check isomorphic binding between objects outFlow and divergeFlow 
-												JavaSDM.ensure(!outFlow
-														.equals(divergeFlow));
-
-												// check isomorphic binding between objects outFlow and inFlow 
-												JavaSDM.ensure(!outFlow
-														.equals(inFlow));
-
-												// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-												JavaSDM.ensure(!parallelGateway
-														.equals(parallelConvGateway));
-
-												// check link flowElements from divergeFlow to process
-												JavaSDM.ensure(process
-														.equals(divergeFlow
-																.eContainer()));
-
-												// check link flowElements from inFlow to process
-												JavaSDM.ensure(process
-														.equals(inFlow
-																.eContainer()));
-
-												// check link flowElements from outFlow to process
-												JavaSDM.ensure(process
-														.equals(outFlow
-																.eContainer()));
-
-												// check link flowElements from parallelConvGateway to process
-												JavaSDM.ensure(process
-														.equals(parallelConvGateway
-																.eContainer()));
-
-												// check link flowElements from parallelGateway to process
-												JavaSDM.ensure(process
-														.equals(parallelGateway
-																.eContainer()));
-
-												// check link laneSets from laneSet to process
-												JavaSDM.ensure(process
-														.equals(laneSet
-																.eContainer()));
-
-												// check link lanes from lane to laneSet
-												JavaSDM.ensure(laneSet
-														.equals(lane
-																.eContainer()));
-
-												// check link sourceRef from divergeFlow to parallelGateway
-												JavaSDM.ensure(parallelGateway.equals(divergeFlow
-														.getSourceRef()));
-
-												// check link sourceRef from outFlow to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway.equals(outFlow
-														.getSourceRef()));
-
-												// check link src from _edge_targetRef to inFlow
-												JavaSDM.ensure(inFlow
-														.equals(_edge_targetRef
-																.getSrc()));
-
-												// check link targetRef from inFlow to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway.equals(inFlow
-														.getTargetRef()));
-
-												// check link targetRef from divergeFlow to parallelConvGateway
-												JavaSDM.ensure(!(parallelConvGateway.equals(divergeFlow
-														.getTargetRef())));
-
-												// check link targetRef from outFlow to parallelConvGateway
-												JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-														.getTargetRef())));
-
-												// check link trg from _edge_targetRef to parallelConvGateway
-												JavaSDM.ensure(parallelConvGateway
-														.equals(_edge_targetRef
-																.getTrg()));
-
-												// check link flowNodeRefs from lane to parallelConvGateway
-												JavaSDM.ensure(lane
-														.getFlowNodeRefs()
-														.contains(
-																parallelConvGateway));
-
-												// create object match
-												match = TGGRuntimeFactory.eINSTANCE
-														.createMatch();
-
-												// assign attribute match
-												match.setRuleName(__eClass
-														.getName());
-												// statement node 'bookkeeping with generic isAppropriate method'
-												fujaba__Success = this
-														.isAppropriate_FWD(
-																match,
-																process,
-																inFlow,
-																parallelConvGateway,
-																outFlow,
-																lane,
-																laneSet,
-																parallelGateway,
-																divergeFlow);
-												if (fujaba__Success) {
-													// statement node 'Ensure that the correct types of elements are matched'
-													fujaba__Success = this
-															.checkTypes_FWD(match);
-													if (fujaba__Success) {
-														// story node 'Add match to rule result'
-														try {
-															fujaba__Success = false;
-
-															// check object __performOperation is really bound
-															JavaSDM.ensure(__performOperation != null);
-															// check object __result is really bound
-															JavaSDM.ensure(__result != null);
-															// check object match is really bound
-															JavaSDM.ensure(match != null);
-
-															// create link
-															org.moflon.util.eMoflonEMFUtil
-																	.addOppositeReference(
-																			match,
-																			__performOperation,
-																			"isApplicableOperation");
-
-															// create link
-															__result.getContents()
-																	.add(match);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-													} else {
-
-													}
-
-												} else {
-
-												}
-												fujaba__Success = true;
-											} catch (JavaSDMException fujaba__InternalException) {
-												fujaba__Success = false;
-											}
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_12_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_12_2_blackFFFFFFFFB(_edge_targetRef)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[6];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[7];
+			Object[] result2_green = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_12_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_12_3_expressionFBBBBBBBBBB(
+							this, match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayRuleImpl
+						.pattern_ParallelConvergingGatewayRule_12_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_12_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_12_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_12_6_expressionFB(__result);
 	}
 
 	/**
@@ -11794,601 +1905,66 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_57(
 			EMoflonEdge _edge_incoming) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_89647 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_969846 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_260058 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_260058 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelConvGatewayTo_edge_targetRef = null;
-		EMoflonEdge _edge_targetRef = null;
-		Iterator fujaba__IterParallelConvGatewayToOutFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToParallelGateway = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterParallelConvGatewayToLane = null;
-		Lane lane = null;
-		ParallelGateway parallelConvGateway = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_13_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_incoming is really bound
-			JavaSDM.ensure(_edge_incoming != null);
-			// bind object
-			_TmpObject = _edge_incoming.getTrg();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_incoming.getSrc();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link targetRef from inFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowNodeRefs from parallelConvGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterParallelConvGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							parallelConvGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterParallelConvGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterParallelConvGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					_TmpObject = parallelConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) parallelConvGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							parallelConvGateway));
-
-					// check link flowElements from inFlow to process
-					JavaSDM.ensure(process.equals(inFlow.eContainer()));
-
-					// iterate to-many link flowElements from process to divergeFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToDivergeFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToDivergeFlow
-									.next();
-
-							// ensure correct type and really bound of object divergeFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							divergeFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow and divergeFlow 
-							JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-							// iterate to-many link flowElements from process to parallelGateway
-							fujaba__Success = false;
-
-							fujaba__IterProcessToParallelGateway = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToParallelGateway
-									.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToParallelGateway
-											.next();
-
-									// ensure correct type and really bound of object parallelGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelGateway = (ParallelGateway) _TmpObject;
-									// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-									JavaSDM.ensure(!parallelGateway
-											.equals(parallelConvGateway));
-
-									// check link sourceRef from divergeFlow to parallelGateway
-									JavaSDM.ensure(parallelGateway
-											.equals(divergeFlow.getSourceRef()));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// check link lanes from lane to laneSet
-											JavaSDM.ensure(laneSet.equals(lane
-													.eContainer()));
-
-											// iterate to-many link sourceRef from parallelConvGateway to outFlow
-											fujaba__Success = false;
-
-											fujaba__IterParallelConvGatewayToOutFlow = new ArrayList(
-													parallelConvGateway
-															.getOutgoing())
-													.iterator();
-
-											while (fujaba__IterParallelConvGatewayToOutFlow
-													.hasNext()) {
-												try {
-													outFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToOutFlow
-															.next();
-
-													// check object outFlow is really bound
-													JavaSDM.ensure(outFlow != null);
-													// check isomorphic binding between objects outFlow and divergeFlow 
-													JavaSDM.ensure(!outFlow
-															.equals(divergeFlow));
-
-													// check isomorphic binding between objects outFlow and inFlow 
-													JavaSDM.ensure(!outFlow
-															.equals(inFlow));
-
-													// check link flowElements from outFlow to process
-													JavaSDM.ensure(process.equals(outFlow
-															.eContainer()));
-
-													// iterate to-many link trg from parallelConvGateway to _edge_targetRef
-													fujaba__Success = false;
-
-													fujaba__IterParallelConvGatewayTo_edge_targetRef = new ArrayList(
-															org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReference(
-																			parallelConvGateway,
-																			EMoflonEdge.class,
-																			"trg"))
-															.iterator();
-
-													while (fujaba__IterParallelConvGatewayTo_edge_targetRef
-															.hasNext()) {
-														try {
-															_edge_targetRef = (EMoflonEdge) fujaba__IterParallelConvGatewayTo_edge_targetRef
-																	.next();
-
-															// check object _edge_targetRef is really bound
-															JavaSDM.ensure(_edge_targetRef != null);
-															// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-															JavaSDM.ensure(!_edge_targetRef
-																	.equals(_edge_incoming));
-
-															// check link src from _edge_targetRef to inFlow
-															JavaSDM.ensure(inFlow
-																	.equals(_edge_targetRef
-																			.getSrc()));
-
-															// story node 'test core match and DECs'
-															try {
-																fujaba__Success = false;
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_outFlow_flowElements_89647 = outFlow
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_outFlow_flowElements_89647 is really bound
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_89647 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_outFlow_flowElements_89647
-																			.getFlowElements()
-																			.contains(
-																					outFlow));
-
-																	// check isomorphic binding between objects __DEC_outFlow_flowElements_89647 and process 
-																	JavaSDM.ensure(!__DEC_outFlow_flowElements_89647
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// bind object
-																	__DEC_parallelConvGateway_flowElements_969846 = parallelConvGateway
-																			.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																			.eContainer()
-																			: null;
-
-																	// check object __DEC_parallelConvGateway_flowElements_969846 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_969846 != null);
-
-																	// check if contained via correct reference
-																	JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_969846
-																			.getFlowElements()
-																			.contains(
-																					parallelConvGateway));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_969846 and process 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_969846
-																			.equals(process));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// negative check for link default from outFlow
-																JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																		.getOppositeReference(
-																				outFlow,
-																				ExclusiveGateway.class,
-																				"default")
-																		.size() == 0);
-																// check negative bindings
-																try {
-																	fujaba__Success = false;
-
-																	// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_260058
-																	fujaba__Success = false;
-
-																	fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_260058 = new ArrayList(
-																			parallelConvGateway
-																					.getIncoming())
-																			.iterator();
-
-																	while (!(fujaba__Success)
-																			&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_260058
-																					.hasNext()) {
-																		try {
-																			__DEC_parallelConvGateway_targetRef_260058 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_260058
-																					.next();
-
-																			// check object __DEC_parallelConvGateway_targetRef_260058 is really bound
-																			JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_260058 != null);
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_260058 and divergeFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_260058
-																					.equals(divergeFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_260058 and inFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_260058
-																					.equals(inFlow));
-
-																			// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_260058 and outFlow 
-																			JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_260058
-																					.equals(outFlow));
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-																	}
-																	JavaSDM.ensure(fujaba__Success);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-																fujaba__Success = !(fujaba__Success);
-
-																JavaSDM.ensure(fujaba__Success);
-
-																// check object _edge_incoming is really bound
-																JavaSDM.ensure(_edge_incoming != null);
-																// check object _edge_targetRef is really bound
-																JavaSDM.ensure(_edge_targetRef != null);
-																// check object divergeFlow is really bound
-																JavaSDM.ensure(divergeFlow != null);
-																// check object inFlow is really bound
-																JavaSDM.ensure(inFlow != null);
-																// check object lane is really bound
-																JavaSDM.ensure(lane != null);
-																// check object laneSet is really bound
-																JavaSDM.ensure(laneSet != null);
-																// check object outFlow is really bound
-																JavaSDM.ensure(outFlow != null);
-																// check object parallelConvGateway is really bound
-																JavaSDM.ensure(parallelConvGateway != null);
-																// check object parallelGateway is really bound
-																JavaSDM.ensure(parallelGateway != null);
-																// check object process is really bound
-																JavaSDM.ensure(process != null);
-																// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-																JavaSDM.ensure(!_edge_targetRef
-																		.equals(_edge_incoming));
-
-																// check isomorphic binding between objects inFlow and divergeFlow 
-																JavaSDM.ensure(!inFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and divergeFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(divergeFlow));
-
-																// check isomorphic binding between objects outFlow and inFlow 
-																JavaSDM.ensure(!outFlow
-																		.equals(inFlow));
-
-																// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-																JavaSDM.ensure(!parallelGateway
-																		.equals(parallelConvGateway));
-
-																// check link flowElements from divergeFlow to process
-																JavaSDM.ensure(process
-																		.equals(divergeFlow
-																				.eContainer()));
-
-																// check link flowElements from inFlow to process
-																JavaSDM.ensure(process
-																		.equals(inFlow
-																				.eContainer()));
-
-																// check link flowElements from outFlow to process
-																JavaSDM.ensure(process
-																		.equals(outFlow
-																				.eContainer()));
-
-																// check link flowElements from parallelConvGateway to process
-																JavaSDM.ensure(process
-																		.equals(parallelConvGateway
-																				.eContainer()));
-
-																// check link flowElements from parallelGateway to process
-																JavaSDM.ensure(process
-																		.equals(parallelGateway
-																				.eContainer()));
-
-																// check link laneSets from laneSet to process
-																JavaSDM.ensure(process
-																		.equals(laneSet
-																				.eContainer()));
-
-																// check link lanes from lane to laneSet
-																JavaSDM.ensure(laneSet
-																		.equals(lane
-																				.eContainer()));
-
-																// check link sourceRef from divergeFlow to parallelGateway
-																JavaSDM.ensure(parallelGateway
-																		.equals(divergeFlow
-																				.getSourceRef()));
-
-																// check link sourceRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(outFlow
-																				.getSourceRef()));
-
-																// check link src from _edge_incoming to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(_edge_incoming
-																				.getSrc()));
-
-																// check link src from _edge_targetRef to inFlow
-																JavaSDM.ensure(inFlow
-																		.equals(_edge_targetRef
-																				.getSrc()));
-
-																// check link targetRef from inFlow to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(inFlow
-																				.getTargetRef()));
-
-																// check link targetRef from divergeFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(divergeFlow
-																				.getTargetRef())));
-
-																// check link targetRef from outFlow to parallelConvGateway
-																JavaSDM.ensure(!(parallelConvGateway
-																		.equals(outFlow
-																				.getTargetRef())));
-
-																// check link trg from _edge_incoming to inFlow
-																JavaSDM.ensure(inFlow
-																		.equals(_edge_incoming
-																				.getTrg()));
-
-																// check link trg from _edge_targetRef to parallelConvGateway
-																JavaSDM.ensure(parallelConvGateway
-																		.equals(_edge_targetRef
-																				.getTrg()));
-
-																// check link flowNodeRefs from lane to parallelConvGateway
-																JavaSDM.ensure(lane
-																		.getFlowNodeRefs()
-																		.contains(
-																				parallelConvGateway));
-
-																// create object match
-																match = TGGRuntimeFactory.eINSTANCE
-																		.createMatch();
-
-																// assign attribute match
-																match.setRuleName(__eClass
-																		.getName());
-																// statement node 'bookkeeping with generic isAppropriate method'
-																fujaba__Success = this
-																		.isAppropriate_FWD(
-																				match,
-																				process,
-																				inFlow,
-																				parallelConvGateway,
-																				outFlow,
-																				lane,
-																				laneSet,
-																				parallelGateway,
-																				divergeFlow);
-																if (fujaba__Success) {
-																	// statement node 'Ensure that the correct types of elements are matched'
-																	fujaba__Success = this
-																			.checkTypes_FWD(match);
-																	if (fujaba__Success) {
-																		// story node 'Add match to rule result'
-																		try {
-																			fujaba__Success = false;
-
-																			// check object __performOperation is really bound
-																			JavaSDM.ensure(__performOperation != null);
-																			// check object __result is really bound
-																			JavaSDM.ensure(__result != null);
-																			// check object match is really bound
-																			JavaSDM.ensure(match != null);
-
-																			// create link
-																			org.moflon.util.eMoflonEMFUtil
-																					.addOppositeReference(
-																							match,
-																							__performOperation,
-																							"isApplicableOperation");
-
-																			// create link
-																			__result.getContents()
-																					.add(match);
-
-																			fujaba__Success = true;
-																		} catch (JavaSDMException fujaba__InternalException) {
-																			fujaba__Success = false;
-																		}
-
-																	} else {
-
-																	}
-
-																} else {
-
-																}
-																fujaba__Success = true;
-															} catch (JavaSDMException fujaba__InternalException) {
-																fujaba__Success = false;
-															}
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-													}
-													JavaSDM.ensure(fujaba__Success);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_13_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_13_2_blackFFFFFFFFB(_edge_incoming)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[6];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[7];
+			Object[] result2_green = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_13_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_13_3_expressionFBBBBBBBBBB(
+							this, match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayRuleImpl
+						.pattern_ParallelConvergingGatewayRule_13_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_13_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_13_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_13_6_expressionFB(__result);
 	}
 
 	/**
@@ -12398,541 +1974,66 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_58(
 			EMoflonEdge _edge_sourceRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_739910 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_100467 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_946614 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_946614 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelConvGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToParallelGateway = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterParallelConvGatewayToLane = null;
-		Lane lane = null;
-		ParallelGateway parallelConvGateway = null;
-		SequenceFlow outFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_14_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_sourceRef is really bound
-			JavaSDM.ensure(_edge_sourceRef != null);
-			// bind object
-			_TmpObject = _edge_sourceRef.getSrc();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_sourceRef.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// check link sourceRef from outFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(outFlow.getSourceRef()));
-
-			// iterate to-many link flowNodeRefs from parallelConvGateway to lane
-			fujaba__Success = false;
-
-			fujaba__IterParallelConvGatewayToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							parallelConvGateway, Lane.class, "flowNodeRefs"))
-					.iterator();
-
-			while (fujaba__IterParallelConvGatewayToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterParallelConvGatewayToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					_TmpObject = parallelConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) parallelConvGateway
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(
-							parallelConvGateway));
-
-					// check link flowElements from outFlow to process
-					JavaSDM.ensure(process.equals(outFlow.eContainer()));
-
-					// iterate to-many link flowElements from process to divergeFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToDivergeFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToDivergeFlow
-									.next();
-
-							// ensure correct type and really bound of object divergeFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							divergeFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects outFlow and divergeFlow 
-							JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-							// iterate to-many link flowElements from process to parallelGateway
-							fujaba__Success = false;
-
-							fujaba__IterProcessToParallelGateway = new ArrayList(
-									process.getFlowElements()).iterator();
-
-							while (fujaba__IterProcessToParallelGateway
-									.hasNext()) {
-								try {
-									_TmpObject = fujaba__IterProcessToParallelGateway
-											.next();
-
-									// ensure correct type and really bound of object parallelGateway
-									JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-									parallelGateway = (ParallelGateway) _TmpObject;
-									// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-									JavaSDM.ensure(!parallelGateway
-											.equals(parallelConvGateway));
-
-									// check link sourceRef from divergeFlow to parallelGateway
-									JavaSDM.ensure(parallelGateway
-											.equals(divergeFlow.getSourceRef()));
-
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// check link lanes from lane to laneSet
-											JavaSDM.ensure(laneSet.equals(lane
-													.eContainer()));
-
-											// iterate to-many link targetRef from parallelConvGateway to inFlow
-											fujaba__Success = false;
-
-											fujaba__IterParallelConvGatewayToInFlow = new ArrayList(
-													parallelConvGateway
-															.getIncoming())
-													.iterator();
-
-											while (fujaba__IterParallelConvGatewayToInFlow
-													.hasNext()) {
-												try {
-													inFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToInFlow
-															.next();
-
-													// check object inFlow is really bound
-													JavaSDM.ensure(inFlow != null);
-													// check isomorphic binding between objects inFlow and divergeFlow 
-													JavaSDM.ensure(!inFlow
-															.equals(divergeFlow));
-
-													// check isomorphic binding between objects outFlow and inFlow 
-													JavaSDM.ensure(!outFlow
-															.equals(inFlow));
-
-													// check link flowElements from inFlow to process
-													JavaSDM.ensure(process.equals(inFlow
-															.eContainer()));
-
-													// story node 'test core match and DECs'
-													try {
-														fujaba__Success = false;
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_outFlow_flowElements_739910 = outFlow
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_outFlow_flowElements_739910 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_739910 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_739910
-																	.getFlowElements()
-																	.contains(
-																			outFlow));
-
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_739910 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_739910
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_parallelConvGateway_flowElements_100467 = parallelConvGateway
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_parallelConvGateway_flowElements_100467 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_100467 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_100467
-																	.getFlowElements()
-																	.contains(
-																			parallelConvGateway));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_100467 and process 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_100467
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// negative check for link default from outFlow
-														JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																.getOppositeReference(
-																		outFlow,
-																		ExclusiveGateway.class,
-																		"default")
-																.size() == 0);
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_946614
-															fujaba__Success = false;
-
-															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_946614 = new ArrayList(
-																	parallelConvGateway
-																			.getIncoming())
-																	.iterator();
-
-															while (!(fujaba__Success)
-																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_946614
-																			.hasNext()) {
-																try {
-																	__DEC_parallelConvGateway_targetRef_946614 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_946614
-																			.next();
-
-																	// check object __DEC_parallelConvGateway_targetRef_946614 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_946614 != null);
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_946614 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_946614
-																			.equals(divergeFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_946614 and inFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_946614
-																			.equals(inFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_946614 and outFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_946614
-																			.equals(outFlow));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check object _edge_sourceRef is really bound
-														JavaSDM.ensure(_edge_sourceRef != null);
-														// check object divergeFlow is really bound
-														JavaSDM.ensure(divergeFlow != null);
-														// check object inFlow is really bound
-														JavaSDM.ensure(inFlow != null);
-														// check object lane is really bound
-														JavaSDM.ensure(lane != null);
-														// check object laneSet is really bound
-														JavaSDM.ensure(laneSet != null);
-														// check object outFlow is really bound
-														JavaSDM.ensure(outFlow != null);
-														// check object parallelConvGateway is really bound
-														JavaSDM.ensure(parallelConvGateway != null);
-														// check object parallelGateway is really bound
-														JavaSDM.ensure(parallelGateway != null);
-														// check object process is really bound
-														JavaSDM.ensure(process != null);
-														// check isomorphic binding between objects inFlow and divergeFlow 
-														JavaSDM.ensure(!inFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and divergeFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and inFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(inFlow));
-
-														// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-														JavaSDM.ensure(!parallelGateway
-																.equals(parallelConvGateway));
-
-														// check link flowElements from divergeFlow to process
-														JavaSDM.ensure(process
-																.equals(divergeFlow
-																		.eContainer()));
-
-														// check link flowElements from inFlow to process
-														JavaSDM.ensure(process.equals(inFlow
-																.eContainer()));
-
-														// check link flowElements from outFlow to process
-														JavaSDM.ensure(process.equals(outFlow
-																.eContainer()));
-
-														// check link flowElements from parallelConvGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelConvGateway
-																		.eContainer()));
-
-														// check link flowElements from parallelGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelGateway
-																		.eContainer()));
-
-														// check link laneSets from laneSet to process
-														JavaSDM.ensure(process.equals(laneSet
-																.eContainer()));
-
-														// check link lanes from lane to laneSet
-														JavaSDM.ensure(laneSet.equals(lane
-																.eContainer()));
-
-														// check link sourceRef from divergeFlow to parallelGateway
-														JavaSDM.ensure(parallelGateway
-																.equals(divergeFlow
-																		.getSourceRef()));
-
-														// check link sourceRef from outFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link src from _edge_sourceRef to outFlow
-														JavaSDM.ensure(outFlow
-																.equals(_edge_sourceRef
-																		.getSrc()));
-
-														// check link targetRef from inFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link targetRef from divergeFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link targetRef from outFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-																.getTargetRef())));
-
-														// check link trg from _edge_sourceRef to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway
-																.equals(_edge_sourceRef
-																		.getTrg()));
-
-														// check link flowNodeRefs from lane to parallelConvGateway
-														JavaSDM.ensure(lane
-																.getFlowNodeRefs()
-																.contains(
-																		parallelConvGateway));
-
-														// create object match
-														match = TGGRuntimeFactory.eINSTANCE
-																.createMatch();
-
-														// assign attribute match
-														match.setRuleName(__eClass
-																.getName());
-														// statement node 'bookkeeping with generic isAppropriate method'
-														fujaba__Success = this
-																.isAppropriate_FWD(
-																		match,
-																		process,
-																		inFlow,
-																		parallelConvGateway,
-																		outFlow,
-																		lane,
-																		laneSet,
-																		parallelGateway,
-																		divergeFlow);
-														if (fujaba__Success) {
-															// statement node 'Ensure that the correct types of elements are matched'
-															fujaba__Success = this
-																	.checkTypes_FWD(match);
-															if (fujaba__Success) {
-																// story node 'Add match to rule result'
-																try {
-																	fujaba__Success = false;
-
-																	// check object __performOperation is really bound
-																	JavaSDM.ensure(__performOperation != null);
-																	// check object __result is really bound
-																	JavaSDM.ensure(__result != null);
-																	// check object match is really bound
-																	JavaSDM.ensure(match != null);
-
-																	// create link
-																	org.moflon.util.eMoflonEMFUtil
-																			.addOppositeReference(
-																					match,
-																					__performOperation,
-																					"isApplicableOperation");
-
-																	// create link
-																	__result.getContents()
-																			.add(match);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-															} else {
-
-															}
-
-														} else {
-
-														}
-														fujaba__Success = true;
-													} catch (JavaSDMException fujaba__InternalException) {
-														fujaba__Success = false;
-													}
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_14_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_14_2_blackFFFFFFFFB(_edge_sourceRef)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[6];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[7];
+			Object[] result2_green = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_14_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_14_3_expressionFBBBBBBBBBB(
+							this, match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayRuleImpl
+						.pattern_ParallelConvergingGatewayRule_14_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_14_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_14_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_14_6_expressionFB(__result);
 	}
 
 	/**
@@ -12942,573 +2043,66 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_59(
 			EMoflonEdge _edge_outgoing) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_154007 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_731206 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_657110 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_657110 = null;
-		Match match = null;
-		Iterator fujaba__IterOutFlowTo_edge_sourceRef = null;
-		EMoflonEdge _edge_sourceRef = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterParallelConvGatewayToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		bpmn2.Process process = null;
-		SequenceFlow outFlow = null;
-		ParallelGateway parallelConvGateway = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_15_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_outgoing is really bound
-			JavaSDM.ensure(_edge_outgoing != null);
-			// bind object
-			_TmpObject = _edge_outgoing.getSrc();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_outgoing.getTrg();
-
-			// ensure correct type and really bound of object outFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			outFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = outFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) outFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(outFlow));
-
-			// check link flowElements from parallelConvGateway to process
-			JavaSDM.ensure(process.equals(parallelConvGateway.eContainer()));
-
-			// check link sourceRef from outFlow to parallelConvGateway
-			JavaSDM.ensure(parallelConvGateway.equals(outFlow.getSourceRef()));
-
-			// iterate to-many link flowElements from process to divergeFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToDivergeFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
-
-					// ensure correct type and really bound of object divergeFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					divergeFlow = (SequenceFlow) _TmpObject;
-					// check isomorphic binding between objects outFlow and divergeFlow 
-					JavaSDM.ensure(!outFlow.equals(divergeFlow));
-
-					// bind object
-					_TmpObject = divergeFlow.getSourceRef();
-
-					// ensure correct type and really bound of object parallelGateway
-					JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-					parallelGateway = (ParallelGateway) _TmpObject;
-
-					// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-					JavaSDM.ensure(!parallelGateway.equals(parallelConvGateway));
-
-					// check link flowElements from parallelGateway to process
-					JavaSDM.ensure(process.equals(parallelGateway.eContainer()));
-
-					// iterate to-many link flowElements from process to inFlow
-					fujaba__Success = false;
-
-					fujaba__IterProcessToInFlow = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToInFlow.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToInFlow.next();
-
-							// ensure correct type and really bound of object inFlow
-							JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-							inFlow = (SequenceFlow) _TmpObject;
-							// check isomorphic binding between objects inFlow and divergeFlow 
-							JavaSDM.ensure(!inFlow.equals(divergeFlow));
-
-							// check isomorphic binding between objects outFlow and inFlow 
-							JavaSDM.ensure(!outFlow.equals(inFlow));
-
-							// check link targetRef from inFlow to parallelConvGateway
-							JavaSDM.ensure(parallelConvGateway.equals(inFlow
-									.getTargetRef()));
-
-							// iterate to-many link flowNodeRefs from parallelConvGateway to lane
-							fujaba__Success = false;
-
-							fujaba__IterParallelConvGatewayToLane = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(
-													parallelConvGateway,
-													Lane.class, "flowNodeRefs"))
-									.iterator();
-
-							while (fujaba__IterParallelConvGatewayToLane
-									.hasNext()) {
-								try {
-									lane = (Lane) fujaba__IterParallelConvGatewayToLane
-											.next();
-
-									// check object lane is really bound
-									JavaSDM.ensure(lane != null);
-									// iterate to-many link laneSets from process to laneSet
-									fujaba__Success = false;
-
-									fujaba__IterProcessToLaneSet = new ArrayList(
-											process.getLaneSets()).iterator();
-
-									while (fujaba__IterProcessToLaneSet
-											.hasNext()) {
-										try {
-											laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-													.next();
-
-											// check object laneSet is really bound
-											JavaSDM.ensure(laneSet != null);
-											// check link lanes from lane to laneSet
-											JavaSDM.ensure(laneSet.equals(lane
-													.eContainer()));
-
-											// iterate to-many link src from outFlow to _edge_sourceRef
-											fujaba__Success = false;
-
-											fujaba__IterOutFlowTo_edge_sourceRef = new ArrayList(
-													org.moflon.util.eMoflonEMFUtil
-															.getOppositeReference(
-																	outFlow,
-																	EMoflonEdge.class,
-																	"src"))
-													.iterator();
-
-											while (fujaba__IterOutFlowTo_edge_sourceRef
-													.hasNext()) {
-												try {
-													_edge_sourceRef = (EMoflonEdge) fujaba__IterOutFlowTo_edge_sourceRef
-															.next();
-
-													// check object _edge_sourceRef is really bound
-													JavaSDM.ensure(_edge_sourceRef != null);
-													// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-													JavaSDM.ensure(!_edge_sourceRef
-															.equals(_edge_outgoing));
-
-													// check link trg from _edge_sourceRef to parallelConvGateway
-													JavaSDM.ensure(parallelConvGateway
-															.equals(_edge_sourceRef
-																	.getTrg()));
-
-													// story node 'test core match and DECs'
-													try {
-														fujaba__Success = false;
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_outFlow_flowElements_154007 = outFlow
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_outFlow_flowElements_154007 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_154007 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_154007
-																	.getFlowElements()
-																	.contains(
-																			outFlow));
-
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_154007 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_154007
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_parallelConvGateway_flowElements_731206 = parallelConvGateway
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_parallelConvGateway_flowElements_731206 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_731206 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_731206
-																	.getFlowElements()
-																	.contains(
-																			parallelConvGateway));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_731206 and process 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_731206
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// negative check for link default from outFlow
-														JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																.getOppositeReference(
-																		outFlow,
-																		ExclusiveGateway.class,
-																		"default")
-																.size() == 0);
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_657110
-															fujaba__Success = false;
-
-															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_657110 = new ArrayList(
-																	parallelConvGateway
-																			.getIncoming())
-																	.iterator();
-
-															while (!(fujaba__Success)
-																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_657110
-																			.hasNext()) {
-																try {
-																	__DEC_parallelConvGateway_targetRef_657110 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_657110
-																			.next();
-
-																	// check object __DEC_parallelConvGateway_targetRef_657110 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_657110 != null);
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_657110 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_657110
-																			.equals(divergeFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_657110 and inFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_657110
-																			.equals(inFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_657110 and outFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_657110
-																			.equals(outFlow));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check object _edge_outgoing is really bound
-														JavaSDM.ensure(_edge_outgoing != null);
-														// check object _edge_sourceRef is really bound
-														JavaSDM.ensure(_edge_sourceRef != null);
-														// check object divergeFlow is really bound
-														JavaSDM.ensure(divergeFlow != null);
-														// check object inFlow is really bound
-														JavaSDM.ensure(inFlow != null);
-														// check object lane is really bound
-														JavaSDM.ensure(lane != null);
-														// check object laneSet is really bound
-														JavaSDM.ensure(laneSet != null);
-														// check object outFlow is really bound
-														JavaSDM.ensure(outFlow != null);
-														// check object parallelConvGateway is really bound
-														JavaSDM.ensure(parallelConvGateway != null);
-														// check object parallelGateway is really bound
-														JavaSDM.ensure(parallelGateway != null);
-														// check object process is really bound
-														JavaSDM.ensure(process != null);
-														// check isomorphic binding between objects _edge_sourceRef and _edge_outgoing 
-														JavaSDM.ensure(!_edge_sourceRef
-																.equals(_edge_outgoing));
-
-														// check isomorphic binding between objects inFlow and divergeFlow 
-														JavaSDM.ensure(!inFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and divergeFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and inFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(inFlow));
-
-														// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-														JavaSDM.ensure(!parallelGateway
-																.equals(parallelConvGateway));
-
-														// check link flowElements from divergeFlow to process
-														JavaSDM.ensure(process
-																.equals(divergeFlow
-																		.eContainer()));
-
-														// check link flowElements from inFlow to process
-														JavaSDM.ensure(process.equals(inFlow
-																.eContainer()));
-
-														// check link flowElements from outFlow to process
-														JavaSDM.ensure(process.equals(outFlow
-																.eContainer()));
-
-														// check link flowElements from parallelConvGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelConvGateway
-																		.eContainer()));
-
-														// check link flowElements from parallelGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelGateway
-																		.eContainer()));
-
-														// check link laneSets from laneSet to process
-														JavaSDM.ensure(process.equals(laneSet
-																.eContainer()));
-
-														// check link lanes from lane to laneSet
-														JavaSDM.ensure(laneSet.equals(lane
-																.eContainer()));
-
-														// check link sourceRef from divergeFlow to parallelGateway
-														JavaSDM.ensure(parallelGateway
-																.equals(divergeFlow
-																		.getSourceRef()));
-
-														// check link sourceRef from outFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link src from _edge_outgoing to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway
-																.equals(_edge_outgoing
-																		.getSrc()));
-
-														// check link src from _edge_sourceRef to outFlow
-														JavaSDM.ensure(outFlow
-																.equals(_edge_sourceRef
-																		.getSrc()));
-
-														// check link targetRef from inFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link targetRef from divergeFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link targetRef from outFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-																.getTargetRef())));
-
-														// check link trg from _edge_outgoing to outFlow
-														JavaSDM.ensure(outFlow
-																.equals(_edge_outgoing
-																		.getTrg()));
-
-														// check link trg from _edge_sourceRef to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway
-																.equals(_edge_sourceRef
-																		.getTrg()));
-
-														// check link flowNodeRefs from lane to parallelConvGateway
-														JavaSDM.ensure(lane
-																.getFlowNodeRefs()
-																.contains(
-																		parallelConvGateway));
-
-														// create object match
-														match = TGGRuntimeFactory.eINSTANCE
-																.createMatch();
-
-														// assign attribute match
-														match.setRuleName(__eClass
-																.getName());
-														// statement node 'bookkeeping with generic isAppropriate method'
-														fujaba__Success = this
-																.isAppropriate_FWD(
-																		match,
-																		process,
-																		inFlow,
-																		parallelConvGateway,
-																		outFlow,
-																		lane,
-																		laneSet,
-																		parallelGateway,
-																		divergeFlow);
-														if (fujaba__Success) {
-															// statement node 'Ensure that the correct types of elements are matched'
-															fujaba__Success = this
-																	.checkTypes_FWD(match);
-															if (fujaba__Success) {
-																// story node 'Add match to rule result'
-																try {
-																	fujaba__Success = false;
-
-																	// check object __performOperation is really bound
-																	JavaSDM.ensure(__performOperation != null);
-																	// check object __result is really bound
-																	JavaSDM.ensure(__result != null);
-																	// check object match is really bound
-																	JavaSDM.ensure(match != null);
-
-																	// create link
-																	org.moflon.util.eMoflonEMFUtil
-																			.addOppositeReference(
-																					match,
-																					__performOperation,
-																					"isApplicableOperation");
-
-																	// create link
-																	__result.getContents()
-																			.add(match);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-															} else {
-
-															}
-
-														} else {
-
-														}
-														fujaba__Success = true;
-													} catch (JavaSDMException fujaba__InternalException) {
-														fujaba__Success = false;
-													}
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_15_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_15_2_blackFFFFFFFFB(_edge_outgoing)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[6];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[7];
+			Object[] result2_green = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_15_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_15_3_expressionFBBBBBBBBBB(
+							this, match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayRuleImpl
+						.pattern_ParallelConvergingGatewayRule_15_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_15_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_15_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_15_6_expressionFB(__result);
 	}
 
 	/**
@@ -13518,542 +2112,140 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_60(
 			EMoflonEdge _edge_flowNodeRefs) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_outFlow_flowElements_28653 = null;
-		FlowElementsContainer __DEC_parallelConvGateway_flowElements_83768 = null;
-		Iterator fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_556657 = null;
-		SequenceFlow __DEC_parallelConvGateway_targetRef_556657 = null;
-		Match match = null;
-		Iterator fujaba__IterParallelConvGatewayToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterParallelConvGatewayToOutFlow = null;
-		SequenceFlow outFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterProcessToParallelGateway = null;
-		ParallelGateway parallelGateway = null;
-		Iterator fujaba__IterProcessToDivergeFlow = null;
-		SequenceFlow divergeFlow = null;
-		bpmn2.Process process = null;
-		ParallelGateway parallelConvGateway = null;
-		Lane lane = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_16_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
-
-			// check object _edge_flowNodeRefs is really bound
-			JavaSDM.ensure(_edge_flowNodeRefs != null);
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getSrc();
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getTrg();
-
-			// ensure correct type and really bound of object parallelConvGateway
-			JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-			parallelConvGateway = (ParallelGateway) _TmpObject;
-
-			// bind object
-			_TmpObject = parallelConvGateway.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) parallelConvGateway
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(
-					parallelConvGateway));
-
-			// check link flowNodeRefs from lane to parallelConvGateway
-			JavaSDM.ensure(lane.getFlowNodeRefs().contains(parallelConvGateway));
-
-			// iterate to-many link flowElements from process to divergeFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToDivergeFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToDivergeFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToDivergeFlow.next();
-
-					// ensure correct type and really bound of object divergeFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					divergeFlow = (SequenceFlow) _TmpObject;
-					// iterate to-many link flowElements from process to parallelGateway
-					fujaba__Success = false;
-
-					fujaba__IterProcessToParallelGateway = new ArrayList(
-							process.getFlowElements()).iterator();
-
-					while (fujaba__IterProcessToParallelGateway.hasNext()) {
-						try {
-							_TmpObject = fujaba__IterProcessToParallelGateway
-									.next();
-
-							// ensure correct type and really bound of object parallelGateway
-							JavaSDM.ensure(_TmpObject instanceof ParallelGateway);
-							parallelGateway = (ParallelGateway) _TmpObject;
-							// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-							JavaSDM.ensure(!parallelGateway
-									.equals(parallelConvGateway));
-
-							// check link sourceRef from divergeFlow to parallelGateway
-							JavaSDM.ensure(parallelGateway.equals(divergeFlow
-									.getSourceRef()));
-
-							// iterate to-many link laneSets from process to laneSet
-							fujaba__Success = false;
-
-							fujaba__IterProcessToLaneSet = new ArrayList(
-									process.getLaneSets()).iterator();
-
-							while (fujaba__IterProcessToLaneSet.hasNext()) {
-								try {
-									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-											.next();
-
-									// check object laneSet is really bound
-									JavaSDM.ensure(laneSet != null);
-									// check link lanes from lane to laneSet
-									JavaSDM.ensure(laneSet.equals(lane
-											.eContainer()));
-
-									// iterate to-many link sourceRef from parallelConvGateway to outFlow
-									fujaba__Success = false;
-
-									fujaba__IterParallelConvGatewayToOutFlow = new ArrayList(
-											parallelConvGateway.getOutgoing())
-											.iterator();
-
-									while (fujaba__IterParallelConvGatewayToOutFlow
-											.hasNext()) {
-										try {
-											outFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToOutFlow
-													.next();
-
-											// check object outFlow is really bound
-											JavaSDM.ensure(outFlow != null);
-											// check isomorphic binding between objects outFlow and divergeFlow 
-											JavaSDM.ensure(!outFlow
-													.equals(divergeFlow));
-
-											// check link flowElements from outFlow to process
-											JavaSDM.ensure(process
-													.equals(outFlow
-															.eContainer()));
-
-											// iterate to-many link targetRef from parallelConvGateway to inFlow
-											fujaba__Success = false;
-
-											fujaba__IterParallelConvGatewayToInFlow = new ArrayList(
-													parallelConvGateway
-															.getIncoming())
-													.iterator();
-
-											while (fujaba__IterParallelConvGatewayToInFlow
-													.hasNext()) {
-												try {
-													inFlow = (SequenceFlow) fujaba__IterParallelConvGatewayToInFlow
-															.next();
-
-													// check object inFlow is really bound
-													JavaSDM.ensure(inFlow != null);
-													// check isomorphic binding between objects inFlow and divergeFlow 
-													JavaSDM.ensure(!inFlow
-															.equals(divergeFlow));
-
-													// check isomorphic binding between objects outFlow and inFlow 
-													JavaSDM.ensure(!outFlow
-															.equals(inFlow));
-
-													// check link flowElements from inFlow to process
-													JavaSDM.ensure(process.equals(inFlow
-															.eContainer()));
-
-													// story node 'test core match and DECs'
-													try {
-														fujaba__Success = false;
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_outFlow_flowElements_28653 = outFlow
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) outFlow
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_outFlow_flowElements_28653 is really bound
-															JavaSDM.ensure(__DEC_outFlow_flowElements_28653 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_outFlow_flowElements_28653
-																	.getFlowElements()
-																	.contains(
-																			outFlow));
-
-															// check isomorphic binding between objects __DEC_outFlow_flowElements_28653 and process 
-															JavaSDM.ensure(!__DEC_outFlow_flowElements_28653
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// bind object
-															__DEC_parallelConvGateway_flowElements_83768 = parallelConvGateway
-																	.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) parallelConvGateway
-																	.eContainer()
-																	: null;
-
-															// check object __DEC_parallelConvGateway_flowElements_83768 is really bound
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_83768 != null);
-
-															// check if contained via correct reference
-															JavaSDM.ensure(__DEC_parallelConvGateway_flowElements_83768
-																	.getFlowElements()
-																	.contains(
-																			parallelConvGateway));
-
-															// check isomorphic binding between objects __DEC_parallelConvGateway_flowElements_83768 and process 
-															JavaSDM.ensure(!__DEC_parallelConvGateway_flowElements_83768
-																	.equals(process));
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// negative check for link default from outFlow
-														JavaSDM.ensure(org.moflon.util.eMoflonEMFUtil
-																.getOppositeReference(
-																		outFlow,
-																		ExclusiveGateway.class,
-																		"default")
-																.size() == 0);
-														// check negative bindings
-														try {
-															fujaba__Success = false;
-
-															// iterate to-many link targetRef from parallelConvGateway to __DEC_parallelConvGateway_targetRef_556657
-															fujaba__Success = false;
-
-															fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_556657 = new ArrayList(
-																	parallelConvGateway
-																			.getIncoming())
-																	.iterator();
-
-															while (!(fujaba__Success)
-																	&& fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_556657
-																			.hasNext()) {
-																try {
-																	__DEC_parallelConvGateway_targetRef_556657 = (SequenceFlow) fujaba__IterParallelConvGatewayTo__DEC_parallelConvGateway_targetRef_556657
-																			.next();
-
-																	// check object __DEC_parallelConvGateway_targetRef_556657 is really bound
-																	JavaSDM.ensure(__DEC_parallelConvGateway_targetRef_556657 != null);
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_556657 and divergeFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_556657
-																			.equals(divergeFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_556657 and inFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_556657
-																			.equals(inFlow));
-
-																	// check isomorphic binding between objects __DEC_parallelConvGateway_targetRef_556657 and outFlow 
-																	JavaSDM.ensure(!__DEC_parallelConvGateway_targetRef_556657
-																			.equals(outFlow));
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-															}
-															JavaSDM.ensure(fujaba__Success);
-
-															fujaba__Success = true;
-														} catch (JavaSDMException fujaba__InternalException) {
-															fujaba__Success = false;
-														}
-
-														fujaba__Success = !(fujaba__Success);
-
-														JavaSDM.ensure(fujaba__Success);
-
-														// check object _edge_flowNodeRefs is really bound
-														JavaSDM.ensure(_edge_flowNodeRefs != null);
-														// check object divergeFlow is really bound
-														JavaSDM.ensure(divergeFlow != null);
-														// check object inFlow is really bound
-														JavaSDM.ensure(inFlow != null);
-														// check object lane is really bound
-														JavaSDM.ensure(lane != null);
-														// check object laneSet is really bound
-														JavaSDM.ensure(laneSet != null);
-														// check object outFlow is really bound
-														JavaSDM.ensure(outFlow != null);
-														// check object parallelConvGateway is really bound
-														JavaSDM.ensure(parallelConvGateway != null);
-														// check object parallelGateway is really bound
-														JavaSDM.ensure(parallelGateway != null);
-														// check object process is really bound
-														JavaSDM.ensure(process != null);
-														// check isomorphic binding between objects inFlow and divergeFlow 
-														JavaSDM.ensure(!inFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and divergeFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(divergeFlow));
-
-														// check isomorphic binding between objects outFlow and inFlow 
-														JavaSDM.ensure(!outFlow
-																.equals(inFlow));
-
-														// check isomorphic binding between objects parallelGateway and parallelConvGateway 
-														JavaSDM.ensure(!parallelGateway
-																.equals(parallelConvGateway));
-
-														// check link flowElements from divergeFlow to process
-														JavaSDM.ensure(process
-																.equals(divergeFlow
-																		.eContainer()));
-
-														// check link flowElements from inFlow to process
-														JavaSDM.ensure(process.equals(inFlow
-																.eContainer()));
-
-														// check link flowElements from outFlow to process
-														JavaSDM.ensure(process.equals(outFlow
-																.eContainer()));
-
-														// check link flowElements from parallelConvGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelConvGateway
-																		.eContainer()));
-
-														// check link flowElements from parallelGateway to process
-														JavaSDM.ensure(process
-																.equals(parallelGateway
-																		.eContainer()));
-
-														// check link laneSets from laneSet to process
-														JavaSDM.ensure(process.equals(laneSet
-																.eContainer()));
-
-														// check link lanes from lane to laneSet
-														JavaSDM.ensure(laneSet.equals(lane
-																.eContainer()));
-
-														// check link sourceRef from divergeFlow to parallelGateway
-														JavaSDM.ensure(parallelGateway
-																.equals(divergeFlow
-																		.getSourceRef()));
-
-														// check link sourceRef from outFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(outFlow
-																.getSourceRef()));
-
-														// check link src from _edge_flowNodeRefs to lane
-														JavaSDM.ensure(lane
-																.equals(_edge_flowNodeRefs
-																		.getSrc()));
-
-														// check link targetRef from inFlow to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway.equals(inFlow
-																.getTargetRef()));
-
-														// check link targetRef from divergeFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway
-																.equals(divergeFlow
-																		.getTargetRef())));
-
-														// check link targetRef from outFlow to parallelConvGateway
-														JavaSDM.ensure(!(parallelConvGateway.equals(outFlow
-																.getTargetRef())));
-
-														// check link trg from _edge_flowNodeRefs to parallelConvGateway
-														JavaSDM.ensure(parallelConvGateway
-																.equals(_edge_flowNodeRefs
-																		.getTrg()));
-
-														// check link flowNodeRefs from lane to parallelConvGateway
-														JavaSDM.ensure(lane
-																.getFlowNodeRefs()
-																.contains(
-																		parallelConvGateway));
-
-														// create object match
-														match = TGGRuntimeFactory.eINSTANCE
-																.createMatch();
-
-														// assign attribute match
-														match.setRuleName(__eClass
-																.getName());
-														// statement node 'bookkeeping with generic isAppropriate method'
-														fujaba__Success = this
-																.isAppropriate_FWD(
-																		match,
-																		process,
-																		inFlow,
-																		parallelConvGateway,
-																		outFlow,
-																		lane,
-																		laneSet,
-																		parallelGateway,
-																		divergeFlow);
-														if (fujaba__Success) {
-															// statement node 'Ensure that the correct types of elements are matched'
-															fujaba__Success = this
-																	.checkTypes_FWD(match);
-															if (fujaba__Success) {
-																// story node 'Add match to rule result'
-																try {
-																	fujaba__Success = false;
-
-																	// check object __performOperation is really bound
-																	JavaSDM.ensure(__performOperation != null);
-																	// check object __result is really bound
-																	JavaSDM.ensure(__result != null);
-																	// check object match is really bound
-																	JavaSDM.ensure(match != null);
-
-																	// create link
-																	org.moflon.util.eMoflonEMFUtil
-																			.addOppositeReference(
-																					match,
-																					__performOperation,
-																					"isApplicableOperation");
-
-																	// create link
-																	__result.getContents()
-																			.add(match);
-
-																	fujaba__Success = true;
-																} catch (JavaSDMException fujaba__InternalException) {
-																	fujaba__Success = false;
-																}
-
-															} else {
-
-															}
-
-														} else {
-
-														}
-														fujaba__Success = true;
-													} catch (JavaSDMException fujaba__InternalException) {
-														fujaba__Success = false;
-													}
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_16_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_16_2_blackFFFFFFFFB(_edge_flowNodeRefs)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			Lane lane = (Lane) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[6];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[7];
+			Object[] result2_green = ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_16_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayRuleImpl
+					.pattern_ParallelConvergingGatewayRule_16_3_expressionFBBBBBBBBBB(
+							this, match, process, inFlow, parallelConvGateway,
+							outFlow, lane, laneSet, parallelGateway,
+							divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayRuleImpl
+						.pattern_ParallelConvergingGatewayRule_16_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_16_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					ParallelConvergingGatewayRuleImpl
+							.pattern_ParallelConvergingGatewayRule_16_5_greenBBB(
+									match, __performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
+		return ParallelConvergingGatewayRuleImpl
+				.pattern_ParallelConvergingGatewayRule_16_6_expressionFB(__result);
+	}
 
-		return __result;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			bpmn2.Process process, SequenceFlow inFlow, ParallelFlow flow,
+			SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow,
+			ParallelStep parallelStep, Lane lane, LaneSet laneSet,
+			ParallelGateway parallelGateway, FlowNodeToStep pgwToParallelStep,
+			SequenceFlow divergeFlow, SequenceFlowToUCFlow divergeFlowToFlow,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("Converging");
+		literal0.setType("");
+		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal1", true, csp);
+		literal1.setValue("Diverging");
+		literal1.setType("");
+
+		// Create attribute variables
+		Variable var_parallelGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
+				.createVariable("parallelGateway.gatewayDirection", true, csp);
+		var_parallelGateway_gatewayDirection.setValue(parallelGateway
+				.getGatewayDirection());
+		var_parallelGateway_gatewayDirection.setType("bpmn2.GatewayDirection");
+
+		// Create unbound variables
+		Variable var_parallelConvGateway_gatewayDirection = CSPFactoryHelper.eINSTANCE
+				.createVariable("parallelConvGateway.gatewayDirection", csp);
+		var_parallelConvGateway_gatewayDirection
+				.setType("bpmn2.GatewayDirection");
+
+		// Create constraints
+		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
+		EqGatewayDirection eqGatewayDirection_0 = new EqGatewayDirection();
+
+		csp.getConstraints().add(eqGatewayDirection);
+		csp.getConstraints().add(eqGatewayDirection_0);
+
+		// Solve CSP
+		eqGatewayDirection.setRuleName("");
+		eqGatewayDirection
+				.solve(var_parallelGateway_gatewayDirection, literal1);
+		eqGatewayDirection_0.setRuleName("");
+		eqGatewayDirection_0.solve(var_parallelConvGateway_gatewayDirection,
+				literal0);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("process", process);
+		isApplicableMatch.registerObject("inFlow", inFlow);
+		isApplicableMatch.registerObject("flow", flow);
+		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
+		isApplicableMatch.registerObject("step", step);
+		isApplicableMatch.registerObject("inFlowToStep", inFlowToStep);
+		isApplicableMatch.registerObject("initFlow", initFlow);
+		isApplicableMatch.registerObject("parallelStep", parallelStep);
+		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("laneSet", laneSet);
+		isApplicableMatch.registerObject("parallelGateway", parallelGateway);
+		isApplicableMatch
+				.registerObject("pgwToParallelStep", pgwToParallelStep);
+		isApplicableMatch.registerObject("divergeFlow", divergeFlow);
+		isApplicableMatch
+				.registerObject("divergeFlowToFlow", divergeFlowToFlow);
+		return csp;
 	}
 
 	/**
@@ -14101,6 +2293,12 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				return RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_60__EMOFLONEDGE;
 			case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 				return RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH;
+			case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW:
+				return RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW;
+			case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_PARALLELSTEP_LANE_LANESET_PARALLELGATEWAY_FLOWNODETOSTEP_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_MODELGENERATORRULERESULT:
+				return RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_PARALLELSTEP_LANE_LANESET_PARALLELGATEWAY_FLOWNODETOSTEP_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_MODELGENERATORRULERESULT;
+			case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+				return RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP;
 			default:
 				return -1;
 			}
@@ -14226,6 +2424,34 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(SequenceFlowToUCFlow) arguments.get(1));
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_SEQUENCEFLOWTOUCFLOW_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_LANE_LANESET_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(bpmn2.Process) arguments.get(1),
+					(SequenceFlow) arguments.get(2),
+					(ParallelGateway) arguments.get(3),
+					(SequenceFlow) arguments.get(4),
+					(ParallelFlow) arguments.get(5),
+					(SequenceFlowToUCFlow) arguments.get(6),
+					(Step) arguments.get(7),
+					(SequenceFlowToStep) arguments.get(8),
+					(ParallelStep) arguments.get(9),
+					(SequenceFlowToUCFlow) arguments.get(10),
+					(SequenceFlow) arguments.get(11),
+					(ParallelFlow) arguments.get(12),
+					(SequenceFlowToUCFlow) arguments.get(13),
+					(Step) arguments.get(14),
+					(SequenceFlowToStep) arguments.get(15),
+					(Flow) arguments.get(16), (Lane) arguments.get(17),
+					(LaneSet) arguments.get(18),
+					(SequenceFlow) arguments.get(19),
+					(SequenceFlowToUCFlow) arguments.get(20),
+					(ModelgeneratorRuleResult) arguments.get(21));
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD__MATCH_PROCESS_SEQUENCEFLOW_PARALLELGATEWAY_SEQUENCEFLOW_LANE_LANESET_PARALLELGATEWAY_SEQUENCEFLOW:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(bpmn2.Process) arguments.get(1),
@@ -14305,9 +2531,5691 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_60__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_60((EMoflonEdge) arguments
 					.get(0));
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_PARALLELFLOW_SEQUENCEFLOWTOUCFLOW_STEP_SEQUENCEFLOWTOSTEP_FLOW_PARALLELSTEP_LANE_LANESET_PARALLELGATEWAY_FLOWNODETOSTEP_SEQUENCEFLOW_SEQUENCEFLOWTOUCFLOW_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(bpmn2.Process) arguments.get(1),
+					(SequenceFlow) arguments.get(2),
+					(ParallelFlow) arguments.get(3),
+					(SequenceFlowToUCFlow) arguments.get(4),
+					(Step) arguments.get(5),
+					(SequenceFlowToStep) arguments.get(6),
+					(Flow) arguments.get(7), (ParallelStep) arguments.get(8),
+					(Lane) arguments.get(9), (LaneSet) arguments.get(10),
+					(ParallelGateway) arguments.get(11),
+					(FlowNodeToStep) arguments.get(12),
+					(SequenceFlow) arguments.get(13),
+					(SequenceFlowToUCFlow) arguments.get(14),
+					(ModelgeneratorRuleResult) arguments.get(15));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_1_blackBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		if (!inFlow1.equals(outFlow)) {
+			if (!parallelConvGateway.equals(parallelGateway)) {
+				if (!divergeFlow1.equals(inFlow1)) {
+					if (!divergeFlow1.equals(inFlow)) {
+						if (!divergeFlow1.equals(outFlow)) {
+							if (!inFlow.equals(inFlow1)) {
+								if (!inFlow.equals(outFlow)) {
+									if (!divergeFlow.equals(inFlow1)) {
+										if (!divergeFlow.equals(divergeFlow1)) {
+											if (!divergeFlow.equals(inFlow)) {
+												if (!divergeFlow
+														.equals(outFlow)) {
+													return new Object[] {
+															_this,
+															match,
+															process,
+															inFlow1,
+															parallelConvGateway,
+															parallelGateway,
+															divergeFlow1,
+															inFlow, outFlow,
+															lane, laneSet,
+															divergeFlow };
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_2_bindingFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, process, inFlow1,
+					parallelConvGateway, parallelGateway, divergeFlow1, inFlow,
+					outFlow, lane, laneSet, divergeFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_2_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_2_bindingAndBlackFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_0_2_binding = pattern_ParallelConvergingGatewayTwoInputsRule_0_2_bindingFBBBBBBBBBBBB(
+				_this, match, process, inFlow1, parallelConvGateway,
+				parallelGateway, divergeFlow1, inFlow, outFlow, lane, laneSet,
+				divergeFlow);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_0_2_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelConvergingGatewayTwoInputsRule_0_2_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_0_2_black = pattern_ParallelConvergingGatewayTwoInputsRule_0_2_blackB(csp);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_0_2_black != null) {
+
+				return new Object[] { csp, _this, match, process, inFlow1,
+						parallelConvGateway, parallelGateway, divergeFlow1,
+						inFlow, outFlow, lane, laneSet, divergeFlow };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_0_3_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_4_blackBBBBBBBBBBB(
+			Match match, bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		if (!inFlow1.equals(outFlow)) {
+			if (!parallelConvGateway.equals(parallelGateway)) {
+				if (!divergeFlow1.equals(inFlow1)) {
+					if (!divergeFlow1.equals(inFlow)) {
+						if (!divergeFlow1.equals(outFlow)) {
+							if (!inFlow.equals(inFlow1)) {
+								if (!inFlow.equals(outFlow)) {
+									if (!divergeFlow.equals(inFlow1)) {
+										if (!divergeFlow.equals(divergeFlow1)) {
+											if (!divergeFlow.equals(inFlow)) {
+												if (!divergeFlow
+														.equals(outFlow)) {
+													return new Object[] {
+															match,
+															process,
+															inFlow1,
+															parallelConvGateway,
+															parallelGateway,
+															divergeFlow1,
+															inFlow, outFlow,
+															lane, laneSet,
+															divergeFlow };
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_4_greenBBBBBBBFFFFFFFF(
+			Match match, bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway, SequenceFlow inFlow,
+			SequenceFlow outFlow, Lane lane) {
+		EMoflonEdge inFlow1__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__inFlow1____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__parallelConvGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__parallelConvGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(parallelConvGateway);
+		match.getToBeTranslatedNodes().add(outFlow);
+		String inFlow1__parallelConvGateway____targetRef_name_prime = "targetRef";
+		String parallelConvGateway__inFlow1____incoming_name_prime = "incoming";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		String inFlow__parallelConvGateway____targetRef_name_prime = "targetRef";
+		String parallelConvGateway__inFlow____incoming_name_prime = "incoming";
+		String outFlow__parallelConvGateway____sourceRef_name_prime = "sourceRef";
+		String parallelConvGateway__outFlow____outgoing_name_prime = "outgoing";
+		String lane__parallelConvGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		inFlow1__parallelConvGateway____targetRef.setSrc(inFlow1);
+		inFlow1__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
+		match.getToBeTranslatedEdges().add(
+				inFlow1__parallelConvGateway____targetRef);
+		parallelConvGateway__inFlow1____incoming.setSrc(parallelConvGateway);
+		parallelConvGateway__inFlow1____incoming.setTrg(inFlow1);
+		match.getToBeTranslatedEdges().add(
+				parallelConvGateway__inFlow1____incoming);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		match.getToBeTranslatedEdges().add(process__outFlow____flowElements);
+		inFlow__parallelConvGateway____targetRef.setSrc(inFlow);
+		inFlow__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
+		match.getToBeTranslatedEdges().add(
+				inFlow__parallelConvGateway____targetRef);
+		parallelConvGateway__inFlow____incoming.setSrc(parallelConvGateway);
+		parallelConvGateway__inFlow____incoming.setTrg(inFlow);
+		match.getToBeTranslatedEdges().add(
+				parallelConvGateway__inFlow____incoming);
+		outFlow__parallelConvGateway____sourceRef.setSrc(outFlow);
+		outFlow__parallelConvGateway____sourceRef.setTrg(parallelConvGateway);
+		match.getToBeTranslatedEdges().add(
+				outFlow__parallelConvGateway____sourceRef);
+		parallelConvGateway__outFlow____outgoing.setSrc(parallelConvGateway);
+		parallelConvGateway__outFlow____outgoing.setTrg(outFlow);
+		match.getToBeTranslatedEdges().add(
+				parallelConvGateway__outFlow____outgoing);
+		lane__parallelConvGateway____flowNodeRefs.setSrc(lane);
+		lane__parallelConvGateway____flowNodeRefs.setTrg(parallelConvGateway);
+		match.getToBeTranslatedEdges().add(
+				lane__parallelConvGateway____flowNodeRefs);
+		inFlow1__parallelConvGateway____targetRef
+				.setName(inFlow1__parallelConvGateway____targetRef_name_prime);
+		parallelConvGateway__inFlow1____incoming
+				.setName(parallelConvGateway__inFlow1____incoming_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		inFlow__parallelConvGateway____targetRef
+				.setName(inFlow__parallelConvGateway____targetRef_name_prime);
+		parallelConvGateway__inFlow____incoming
+				.setName(parallelConvGateway__inFlow____incoming_name_prime);
+		outFlow__parallelConvGateway____sourceRef
+				.setName(outFlow__parallelConvGateway____sourceRef_name_prime);
+		parallelConvGateway__outFlow____outgoing
+				.setName(parallelConvGateway__outFlow____outgoing_name_prime);
+		lane__parallelConvGateway____flowNodeRefs
+				.setName(lane__parallelConvGateway____flowNodeRefs_name_prime);
+		return new Object[] { match, process, inFlow1, parallelConvGateway,
+				inFlow, outFlow, lane,
+				inFlow1__parallelConvGateway____targetRef,
+				parallelConvGateway__inFlow1____incoming,
+				process__outFlow____flowElements,
+				inFlow__parallelConvGateway____targetRef,
+				parallelConvGateway__inFlow____incoming,
+				outFlow__parallelConvGateway____sourceRef,
+				parallelConvGateway__outFlow____outgoing,
+				lane__parallelConvGateway____flowNodeRefs };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_5_blackBBBBBBBBBBB(
+			Match match, bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		if (!inFlow1.equals(outFlow)) {
+			if (!parallelConvGateway.equals(parallelGateway)) {
+				if (!divergeFlow1.equals(inFlow1)) {
+					if (!divergeFlow1.equals(inFlow)) {
+						if (!divergeFlow1.equals(outFlow)) {
+							if (!inFlow.equals(inFlow1)) {
+								if (!inFlow.equals(outFlow)) {
+									if (!divergeFlow.equals(inFlow1)) {
+										if (!divergeFlow.equals(divergeFlow1)) {
+											if (!divergeFlow.equals(inFlow)) {
+												if (!divergeFlow
+														.equals(outFlow)) {
+													return new Object[] {
+															match,
+															process,
+															inFlow1,
+															parallelConvGateway,
+															parallelGateway,
+															divergeFlow1,
+															inFlow, outFlow,
+															lane, laneSet,
+															divergeFlow };
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_5_greenBBBBBBBBBFFFFFFFFF(
+			Match match, bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, Lane lane, LaneSet laneSet,
+			SequenceFlow divergeFlow) {
+		EMoflonEdge process__inFlow1____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge divergeFlow1__parallelGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelGateway__divergeFlow1____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__divergeFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge divergeFlow__parallelGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelGateway__divergeFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getContextNodes().add(process);
+		match.getContextNodes().add(inFlow1);
+		match.getContextNodes().add(parallelGateway);
+		match.getContextNodes().add(divergeFlow1);
+		match.getContextNodes().add(inFlow);
+		match.getContextNodes().add(lane);
+		match.getContextNodes().add(laneSet);
+		match.getContextNodes().add(divergeFlow);
+		String process__inFlow1____flowElements_name_prime = "flowElements";
+		String divergeFlow1__parallelGateway____sourceRef_name_prime = "sourceRef";
+		String parallelGateway__divergeFlow1____outgoing_name_prime = "outgoing";
+		String process__inFlow____flowElements_name_prime = "flowElements";
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__divergeFlow____flowElements_name_prime = "flowElements";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		String divergeFlow__parallelGateway____sourceRef_name_prime = "sourceRef";
+		String parallelGateway__divergeFlow____outgoing_name_prime = "outgoing";
+		process__inFlow1____flowElements.setSrc(process);
+		process__inFlow1____flowElements.setTrg(inFlow1);
+		match.getContextEdges().add(process__inFlow1____flowElements);
+		divergeFlow1__parallelGateway____sourceRef.setSrc(divergeFlow1);
+		divergeFlow1__parallelGateway____sourceRef.setTrg(parallelGateway);
+		match.getContextEdges().add(divergeFlow1__parallelGateway____sourceRef);
+		parallelGateway__divergeFlow1____outgoing.setSrc(parallelGateway);
+		parallelGateway__divergeFlow1____outgoing.setTrg(divergeFlow1);
+		match.getContextEdges().add(parallelGateway__divergeFlow1____outgoing);
+		process__inFlow____flowElements.setSrc(process);
+		process__inFlow____flowElements.setTrg(inFlow);
+		match.getContextEdges().add(process__inFlow____flowElements);
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		match.getContextEdges().add(process__laneSet____laneSets);
+		process__divergeFlow____flowElements.setSrc(process);
+		process__divergeFlow____flowElements.setTrg(divergeFlow);
+		match.getContextEdges().add(process__divergeFlow____flowElements);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		match.getContextEdges().add(laneSet__lane____lanes);
+		divergeFlow__parallelGateway____sourceRef.setSrc(divergeFlow);
+		divergeFlow__parallelGateway____sourceRef.setTrg(parallelGateway);
+		match.getContextEdges().add(divergeFlow__parallelGateway____sourceRef);
+		parallelGateway__divergeFlow____outgoing.setSrc(parallelGateway);
+		parallelGateway__divergeFlow____outgoing.setTrg(divergeFlow);
+		match.getContextEdges().add(parallelGateway__divergeFlow____outgoing);
+		process__inFlow1____flowElements
+				.setName(process__inFlow1____flowElements_name_prime);
+		divergeFlow1__parallelGateway____sourceRef
+				.setName(divergeFlow1__parallelGateway____sourceRef_name_prime);
+		parallelGateway__divergeFlow1____outgoing
+				.setName(parallelGateway__divergeFlow1____outgoing_name_prime);
+		process__inFlow____flowElements
+				.setName(process__inFlow____flowElements_name_prime);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__divergeFlow____flowElements
+				.setName(process__divergeFlow____flowElements_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		divergeFlow__parallelGateway____sourceRef
+				.setName(divergeFlow__parallelGateway____sourceRef_name_prime);
+		parallelGateway__divergeFlow____outgoing
+				.setName(parallelGateway__divergeFlow____outgoing_name_prime);
+		return new Object[] { match, process, inFlow1, parallelGateway,
+				divergeFlow1, inFlow, lane, laneSet, divergeFlow,
+				process__inFlow1____flowElements,
+				divergeFlow1__parallelGateway____sourceRef,
+				parallelGateway__divergeFlow1____outgoing,
+				process__inFlow____flowElements, process__laneSet____laneSets,
+				process__divergeFlow____flowElements, laneSet__lane____lanes,
+				divergeFlow__parallelGateway____sourceRef,
+				parallelGateway__divergeFlow____outgoing };
+	}
+
+	public static final void pattern_ParallelConvergingGatewayTwoInputsRule_0_6_expressionBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		_this.registerObjectsToMatch_FWD(match, process, inFlow1,
+				parallelConvGateway, parallelGateway, divergeFlow1, inFlow,
+				outFlow, lane, laneSet, divergeFlow);
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_0_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_0_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_1_bindingFFFFFFFFFFFFFFFFFFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("process");
+		EObject _localVariable_1 = isApplicableMatch.getObject("inFlow1");
+		EObject _localVariable_2 = isApplicableMatch
+				.getObject("parallelConvGateway");
+		EObject _localVariable_3 = isApplicableMatch
+				.getObject("parallelGateway");
+		EObject _localVariable_4 = isApplicableMatch.getObject("divergeFlow1");
+		EObject _localVariable_5 = isApplicableMatch.getObject("flow1");
+		EObject _localVariable_6 = isApplicableMatch
+				.getObject("inFlow1ToFlow1");
+		EObject _localVariable_7 = isApplicableMatch.getObject("step1");
+		EObject _localVariable_8 = isApplicableMatch
+				.getObject("inFlow1ToStep1");
+		EObject _localVariable_9 = isApplicableMatch.getObject("parallelStep");
+		EObject _localVariable_10 = isApplicableMatch
+				.getObject("divergeFlow1ToFlow1");
+		EObject _localVariable_11 = isApplicableMatch.getObject("inFlow");
+		EObject _localVariable_12 = isApplicableMatch.getObject("outFlow");
+		EObject _localVariable_13 = isApplicableMatch.getObject("flow");
+		EObject _localVariable_14 = isApplicableMatch.getObject("inFlowToFlow");
+		EObject _localVariable_15 = isApplicableMatch.getObject("step");
+		EObject _localVariable_16 = isApplicableMatch.getObject("inFlowToStep");
+		EObject _localVariable_17 = isApplicableMatch.getObject("initFlow");
+		EObject _localVariable_18 = isApplicableMatch.getObject("lane");
+		EObject _localVariable_19 = isApplicableMatch.getObject("laneSet");
+		EObject _localVariable_20 = isApplicableMatch.getObject("divergeFlow");
+		EObject _localVariable_21 = isApplicableMatch
+				.getObject("divergeFlowToFlow");
+		EObject tmpProcess = _localVariable_0;
+		EObject tmpInFlow1 = _localVariable_1;
+		EObject tmpParallelConvGateway = _localVariable_2;
+		EObject tmpParallelGateway = _localVariable_3;
+		EObject tmpDivergeFlow1 = _localVariable_4;
+		EObject tmpFlow1 = _localVariable_5;
+		EObject tmpInFlow1ToFlow1 = _localVariable_6;
+		EObject tmpStep1 = _localVariable_7;
+		EObject tmpInFlow1ToStep1 = _localVariable_8;
+		EObject tmpParallelStep = _localVariable_9;
+		EObject tmpDivergeFlow1ToFlow1 = _localVariable_10;
+		EObject tmpInFlow = _localVariable_11;
+		EObject tmpOutFlow = _localVariable_12;
+		EObject tmpFlow = _localVariable_13;
+		EObject tmpInFlowToFlow = _localVariable_14;
+		EObject tmpStep = _localVariable_15;
+		EObject tmpInFlowToStep = _localVariable_16;
+		EObject tmpInitFlow = _localVariable_17;
+		EObject tmpLane = _localVariable_18;
+		EObject tmpLaneSet = _localVariable_19;
+		EObject tmpDivergeFlow = _localVariable_20;
+		EObject tmpDivergeFlowToFlow = _localVariable_21;
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			if (tmpInFlow1 instanceof SequenceFlow) {
+				SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+				if (tmpParallelConvGateway instanceof ParallelGateway) {
+					ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+					if (tmpParallelGateway instanceof ParallelGateway) {
+						ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+						if (tmpDivergeFlow1 instanceof SequenceFlow) {
+							SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+							if (tmpFlow1 instanceof ParallelFlow) {
+								ParallelFlow flow1 = (ParallelFlow) tmpFlow1;
+								if (tmpInFlow1ToFlow1 instanceof SequenceFlowToUCFlow) {
+									SequenceFlowToUCFlow inFlow1ToFlow1 = (SequenceFlowToUCFlow) tmpInFlow1ToFlow1;
+									if (tmpStep1 instanceof Step) {
+										Step step1 = (Step) tmpStep1;
+										if (tmpInFlow1ToStep1 instanceof SequenceFlowToStep) {
+											SequenceFlowToStep inFlow1ToStep1 = (SequenceFlowToStep) tmpInFlow1ToStep1;
+											if (tmpParallelStep instanceof ParallelStep) {
+												ParallelStep parallelStep = (ParallelStep) tmpParallelStep;
+												if (tmpDivergeFlow1ToFlow1 instanceof SequenceFlowToUCFlow) {
+													SequenceFlowToUCFlow divergeFlow1ToFlow1 = (SequenceFlowToUCFlow) tmpDivergeFlow1ToFlow1;
+													if (tmpInFlow instanceof SequenceFlow) {
+														SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+														if (tmpOutFlow instanceof SequenceFlow) {
+															SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+															if (tmpFlow instanceof ParallelFlow) {
+																ParallelFlow flow = (ParallelFlow) tmpFlow;
+																if (tmpInFlowToFlow instanceof SequenceFlowToUCFlow) {
+																	SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) tmpInFlowToFlow;
+																	if (tmpStep instanceof Step) {
+																		Step step = (Step) tmpStep;
+																		if (tmpInFlowToStep instanceof SequenceFlowToStep) {
+																			SequenceFlowToStep inFlowToStep = (SequenceFlowToStep) tmpInFlowToStep;
+																			if (tmpInitFlow instanceof Flow) {
+																				Flow initFlow = (Flow) tmpInitFlow;
+																				if (tmpLane instanceof Lane) {
+																					Lane lane = (Lane) tmpLane;
+																					if (tmpLaneSet instanceof LaneSet) {
+																						LaneSet laneSet = (LaneSet) tmpLaneSet;
+																						if (tmpDivergeFlow instanceof SequenceFlow) {
+																							SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																							if (tmpDivergeFlowToFlow instanceof SequenceFlowToUCFlow) {
+																								SequenceFlowToUCFlow divergeFlowToFlow = (SequenceFlowToUCFlow) tmpDivergeFlowToFlow;
+																								return new Object[] {
+																										process,
+																										inFlow1,
+																										parallelConvGateway,
+																										parallelGateway,
+																										divergeFlow1,
+																										flow1,
+																										inFlow1ToFlow1,
+																										step1,
+																										inFlow1ToStep1,
+																										parallelStep,
+																										divergeFlow1ToFlow1,
+																										inFlow,
+																										outFlow,
+																										flow,
+																										inFlowToFlow,
+																										step,
+																										inFlowToStep,
+																										initFlow,
+																										lane,
+																										laneSet,
+																										divergeFlow,
+																										divergeFlowToFlow,
+																										isApplicableMatch };
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_1_blackBBBBBBBBBBBBBBBBBBBBBBFBB(
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
+			Step step1, SequenceFlowToStep inFlow1ToStep1,
+			ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			SequenceFlow outFlow, ParallelFlow flow,
+			SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow,
+			ParallelConvergingGatewayTwoInputsRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		if (!inFlow1.equals(outFlow)) {
+			if (!parallelConvGateway.equals(parallelGateway)) {
+				if (!divergeFlow1.equals(inFlow1)) {
+					if (!divergeFlow1.equals(inFlow)) {
+						if (!divergeFlow1.equals(outFlow)) {
+							if (!flow1.equals(initFlow)) {
+								if (!inFlow1ToFlow1.equals(inFlowToFlow)) {
+									if (!inFlow1ToStep1.equals(inFlowToStep)) {
+										if (!parallelStep.equals(step1)) {
+											if (!parallelStep.equals(step)) {
+												if (!divergeFlow1ToFlow1
+														.equals(inFlow1ToFlow1)) {
+													if (!divergeFlow1ToFlow1
+															.equals(inFlowToFlow)) {
+														if (!divergeFlow1ToFlow1
+																.equals(divergeFlowToFlow)) {
+															if (!inFlow
+																	.equals(inFlow1)) {
+																if (!inFlow
+																		.equals(outFlow)) {
+																	if (!flow
+																			.equals(flow1)) {
+																		if (!flow
+																				.equals(initFlow)) {
+																			if (!step
+																					.equals(step1)) {
+																				if (!divergeFlow
+																						.equals(inFlow1)) {
+																					if (!divergeFlow
+																							.equals(divergeFlow1)) {
+																						if (!divergeFlow
+																								.equals(inFlow)) {
+																							if (!divergeFlow
+																									.equals(outFlow)) {
+																								if (!divergeFlowToFlow
+																										.equals(inFlow1ToFlow1)) {
+																									if (!divergeFlowToFlow
+																											.equals(inFlowToFlow)) {
+																										for (EObject tmpCsp : isApplicableMatch
+																												.getAttributeInfo()) {
+																											if (tmpCsp instanceof CSP) {
+																												CSP csp = (CSP) tmpCsp;
+																												return new Object[] {
+																														process,
+																														inFlow1,
+																														parallelConvGateway,
+																														parallelGateway,
+																														divergeFlow1,
+																														flow1,
+																														inFlow1ToFlow1,
+																														step1,
+																														inFlow1ToStep1,
+																														parallelStep,
+																														divergeFlow1ToFlow1,
+																														inFlow,
+																														outFlow,
+																														flow,
+																														inFlowToFlow,
+																														step,
+																														inFlowToStep,
+																														initFlow,
+																														lane,
+																														laneSet,
+																														divergeFlow,
+																														divergeFlowToFlow,
+																														csp,
+																														_this,
+																														isApplicableMatch };
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_1_bindingAndBlackFFFFFFFFFFFFFFFFFFFFFFFBB(
+			ParallelConvergingGatewayTwoInputsRule _this,
+			IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_1_1_bindingFFFFFFFFFFFFFFFFFFFFFFB(isApplicableMatch);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding != null) {
+			bpmn2.Process process = (bpmn2.Process) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[4];
+			ParallelFlow flow1 = (ParallelFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[5];
+			SequenceFlowToUCFlow inFlow1ToFlow1 = (SequenceFlowToUCFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[6];
+			Step step1 = (Step) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[7];
+			SequenceFlowToStep inFlow1ToStep1 = (SequenceFlowToStep) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[8];
+			ParallelStep parallelStep = (ParallelStep) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[9];
+			SequenceFlowToUCFlow divergeFlow1ToFlow1 = (SequenceFlowToUCFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[10];
+			SequenceFlow inFlow = (SequenceFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[11];
+			SequenceFlow outFlow = (SequenceFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[12];
+			ParallelFlow flow = (ParallelFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[13];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[14];
+			Step step = (Step) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[15];
+			SequenceFlowToStep inFlowToStep = (SequenceFlowToStep) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[16];
+			Flow initFlow = (Flow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[17];
+			Lane lane = (Lane) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[18];
+			LaneSet laneSet = (LaneSet) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[19];
+			SequenceFlow divergeFlow = (SequenceFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[20];
+			SequenceFlowToUCFlow divergeFlowToFlow = (SequenceFlowToUCFlow) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_binding[21];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_1_1_blackBBBBBBBBBBBBBBBBBBBBBBFBB(
+					process, inFlow1, parallelConvGateway, parallelGateway,
+					divergeFlow1, flow1, inFlow1ToFlow1, step1, inFlow1ToStep1,
+					parallelStep, divergeFlow1ToFlow1, inFlow, outFlow, flow,
+					inFlowToFlow, step, inFlowToStep, initFlow, lane, laneSet,
+					divergeFlow, divergeFlowToFlow, _this, isApplicableMatch);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_black != null) {
+				CSP csp = (CSP) result_pattern_ParallelConvergingGatewayTwoInputsRule_1_1_black[22];
+
+				return new Object[] { process, inFlow1, parallelConvGateway,
+						parallelGateway, divergeFlow1, flow1, inFlow1ToFlow1,
+						step1, inFlow1ToStep1, parallelStep,
+						divergeFlow1ToFlow1, inFlow, outFlow, flow,
+						inFlowToFlow, step, inFlowToStep, initFlow, lane,
+						laneSet, divergeFlow, divergeFlowToFlow, csp, _this,
+						isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_1_greenBBBFF(
+			ParallelStep parallelStep, SequenceFlow outFlow, Flow initFlow) {
+		SequenceFlowToUCFlow outFlowToInitFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToUCFlow();
+		SequenceFlowToStep outFlowToParallelStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToStep();
+		outFlowToInitFlow.setSource(outFlow);
+		outFlowToInitFlow.setTarget(initFlow);
+		outFlowToParallelStep.setSource(outFlow);
+		outFlowToParallelStep.setTarget(parallelStep);
+		return new Object[] { parallelStep, outFlow, initFlow,
+				outFlowToInitFlow, outFlowToParallelStep };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_2_blackBBBB(
+			ParallelGateway parallelConvGateway, SequenceFlow outFlow,
+			SequenceFlowToUCFlow outFlowToInitFlow,
+			SequenceFlowToStep outFlowToParallelStep) {
+		return new Object[] { parallelConvGateway, outFlow, outFlowToInitFlow,
+				outFlowToParallelStep };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_2_greenFBBBB(
+			ParallelGateway parallelConvGateway, SequenceFlow outFlow,
+			SequenceFlowToUCFlow outFlowToInitFlow,
+			SequenceFlowToStep outFlowToParallelStep) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getTranslatedElements().add(parallelConvGateway);
+		ruleresult.getTranslatedElements().add(outFlow);
+		ruleresult.getCreatedLinkElements().add(outFlowToInitFlow);
+		ruleresult.getCreatedLinkElements().add(outFlowToParallelStep);
+		return new Object[] { ruleresult, parallelConvGateway, outFlow,
+				outFlowToInitFlow, outFlowToParallelStep };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_3_blackBBBBBBBBBBBBBBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject process, EObject inFlow1,
+			EObject parallelConvGateway, EObject parallelGateway,
+			EObject divergeFlow1, EObject flow1, EObject inFlow1ToFlow1,
+			EObject step1, EObject inFlow1ToStep1, EObject parallelStep,
+			EObject divergeFlow1ToFlow1, EObject inFlow, EObject outFlow,
+			EObject flow, EObject inFlowToFlow, EObject step,
+			EObject inFlowToStep, EObject initFlow, EObject outFlowToInitFlow,
+			EObject outFlowToParallelStep, EObject lane, EObject laneSet,
+			EObject divergeFlow, EObject divergeFlowToFlow) {
+		if (!process.equals(step1)) {
+			if (!process.equals(step)) {
+				if (!inFlow1.equals(process)) {
+					if (!inFlow1.equals(parallelConvGateway)) {
+						if (!inFlow1.equals(parallelGateway)) {
+							if (!inFlow1.equals(inFlow1ToFlow1)) {
+								if (!inFlow1.equals(step1)) {
+									if (!inFlow1.equals(inFlow1ToStep1)) {
+										if (!inFlow1.equals(parallelStep)) {
+											if (!inFlow1.equals(outFlow)) {
+												if (!inFlow1
+														.equals(inFlowToFlow)) {
+													if (!inFlow1.equals(step)) {
+														if (!inFlow1
+																.equals(inFlowToStep)) {
+															if (!inFlow1
+																	.equals(initFlow)) {
+																if (!inFlow1
+																		.equals(outFlowToInitFlow)) {
+																	if (!inFlow1
+																			.equals(outFlowToParallelStep)) {
+																		if (!inFlow1
+																				.equals(lane)) {
+																			if (!inFlow1
+																					.equals(laneSet)) {
+																				if (!parallelConvGateway
+																						.equals(process)) {
+																					if (!parallelConvGateway
+																							.equals(parallelGateway)) {
+																						if (!parallelConvGateway
+																								.equals(step1)) {
+																							if (!parallelConvGateway
+																									.equals(parallelStep)) {
+																								if (!parallelConvGateway
+																										.equals(step)) {
+																									if (!parallelGateway
+																											.equals(process)) {
+																										if (!parallelGateway
+																												.equals(step1)) {
+																											if (!parallelGateway
+																													.equals(parallelStep)) {
+																												if (!parallelGateway
+																														.equals(step)) {
+																													if (!divergeFlow1
+																															.equals(process)) {
+																														if (!divergeFlow1
+																																.equals(inFlow1)) {
+																															if (!divergeFlow1
+																																	.equals(parallelConvGateway)) {
+																																if (!divergeFlow1
+																																		.equals(parallelGateway)) {
+																																	if (!divergeFlow1
+																																			.equals(flow1)) {
+																																		if (!divergeFlow1
+																																				.equals(inFlow1ToFlow1)) {
+																																			if (!divergeFlow1
+																																					.equals(step1)) {
+																																				if (!divergeFlow1
+																																						.equals(inFlow1ToStep1)) {
+																																					if (!divergeFlow1
+																																							.equals(parallelStep)) {
+																																						if (!divergeFlow1
+																																								.equals(divergeFlow1ToFlow1)) {
+																																							if (!divergeFlow1
+																																									.equals(inFlow)) {
+																																								if (!divergeFlow1
+																																										.equals(outFlow)) {
+																																									if (!divergeFlow1
+																																											.equals(flow)) {
+																																										if (!divergeFlow1
+																																												.equals(inFlowToFlow)) {
+																																											if (!divergeFlow1
+																																													.equals(step)) {
+																																												if (!divergeFlow1
+																																														.equals(inFlowToStep)) {
+																																													if (!divergeFlow1
+																																															.equals(initFlow)) {
+																																														if (!divergeFlow1
+																																																.equals(outFlowToInitFlow)) {
+																																															if (!divergeFlow1
+																																																	.equals(outFlowToParallelStep)) {
+																																																if (!divergeFlow1
+																																																		.equals(lane)) {
+																																																	if (!divergeFlow1
+																																																			.equals(laneSet)) {
+																																																		if (!divergeFlow1
+																																																				.equals(divergeFlowToFlow)) {
+																																																			if (!flow1
+																																																					.equals(process)) {
+																																																				if (!flow1
+																																																						.equals(inFlow1)) {
+																																																					if (!flow1
+																																																							.equals(parallelConvGateway)) {
+																																																						if (!flow1
+																																																								.equals(parallelGateway)) {
+																																																							if (!flow1
+																																																									.equals(inFlow1ToFlow1)) {
+																																																								if (!flow1
+																																																										.equals(step1)) {
+																																																									if (!flow1
+																																																											.equals(inFlow1ToStep1)) {
+																																																										if (!flow1
+																																																												.equals(parallelStep)) {
+																																																											if (!flow1
+																																																													.equals(inFlow)) {
+																																																												if (!flow1
+																																																														.equals(outFlow)) {
+																																																													if (!flow1
+																																																															.equals(inFlowToFlow)) {
+																																																														if (!flow1
+																																																																.equals(step)) {
+																																																															if (!flow1
+																																																																	.equals(inFlowToStep)) {
+																																																																if (!flow1
+																																																																		.equals(initFlow)) {
+																																																																	if (!flow1
+																																																																			.equals(outFlowToInitFlow)) {
+																																																																		if (!flow1
+																																																																				.equals(outFlowToParallelStep)) {
+																																																																			if (!flow1
+																																																																					.equals(lane)) {
+																																																																				if (!flow1
+																																																																						.equals(laneSet)) {
+																																																																					if (!inFlow1ToFlow1
+																																																																							.equals(process)) {
+																																																																						if (!inFlow1ToFlow1
+																																																																								.equals(parallelConvGateway)) {
+																																																																							if (!inFlow1ToFlow1
+																																																																									.equals(parallelGateway)) {
+																																																																								if (!inFlow1ToFlow1
+																																																																										.equals(step1)) {
+																																																																									if (!inFlow1ToFlow1
+																																																																											.equals(inFlow1ToStep1)) {
+																																																																										if (!inFlow1ToFlow1
+																																																																												.equals(parallelStep)) {
+																																																																											if (!inFlow1ToFlow1
+																																																																													.equals(outFlow)) {
+																																																																												if (!inFlow1ToFlow1
+																																																																														.equals(inFlowToFlow)) {
+																																																																													if (!inFlow1ToFlow1
+																																																																															.equals(step)) {
+																																																																														if (!inFlow1ToFlow1
+																																																																																.equals(inFlowToStep)) {
+																																																																															if (!inFlow1ToFlow1
+																																																																																	.equals(initFlow)) {
+																																																																																if (!inFlow1ToFlow1
+																																																																																		.equals(outFlowToInitFlow)) {
+																																																																																	if (!inFlow1ToFlow1
+																																																																																			.equals(outFlowToParallelStep)) {
+																																																																																		if (!inFlow1ToFlow1
+																																																																																				.equals(lane)) {
+																																																																																			if (!inFlow1ToFlow1
+																																																																																					.equals(laneSet)) {
+																																																																																				if (!inFlow1ToStep1
+																																																																																						.equals(process)) {
+																																																																																					if (!inFlow1ToStep1
+																																																																																							.equals(parallelConvGateway)) {
+																																																																																						if (!inFlow1ToStep1
+																																																																																								.equals(parallelGateway)) {
+																																																																																							if (!inFlow1ToStep1
+																																																																																									.equals(step1)) {
+																																																																																								if (!inFlow1ToStep1
+																																																																																										.equals(parallelStep)) {
+																																																																																									if (!inFlow1ToStep1
+																																																																																											.equals(outFlow)) {
+																																																																																										if (!inFlow1ToStep1
+																																																																																												.equals(inFlowToFlow)) {
+																																																																																											if (!inFlow1ToStep1
+																																																																																													.equals(step)) {
+																																																																																												if (!inFlow1ToStep1
+																																																																																														.equals(inFlowToStep)) {
+																																																																																													if (!inFlow1ToStep1
+																																																																																															.equals(initFlow)) {
+																																																																																														if (!inFlow1ToStep1
+																																																																																																.equals(outFlowToInitFlow)) {
+																																																																																															if (!inFlow1ToStep1
+																																																																																																	.equals(outFlowToParallelStep)) {
+																																																																																																if (!inFlow1ToStep1
+																																																																																																		.equals(lane)) {
+																																																																																																	if (!inFlow1ToStep1
+																																																																																																			.equals(laneSet)) {
+																																																																																																		if (!parallelStep
+																																																																																																				.equals(process)) {
+																																																																																																			if (!parallelStep
+																																																																																																					.equals(step1)) {
+																																																																																																				if (!parallelStep
+																																																																																																						.equals(step)) {
+																																																																																																					if (!divergeFlow1ToFlow1
+																																																																																																							.equals(process)) {
+																																																																																																						if (!divergeFlow1ToFlow1
+																																																																																																								.equals(inFlow1)) {
+																																																																																																							if (!divergeFlow1ToFlow1
+																																																																																																									.equals(parallelConvGateway)) {
+																																																																																																								if (!divergeFlow1ToFlow1
+																																																																																																										.equals(parallelGateway)) {
+																																																																																																									if (!divergeFlow1ToFlow1
+																																																																																																											.equals(flow1)) {
+																																																																																																										if (!divergeFlow1ToFlow1
+																																																																																																												.equals(inFlow1ToFlow1)) {
+																																																																																																											if (!divergeFlow1ToFlow1
+																																																																																																													.equals(step1)) {
+																																																																																																												if (!divergeFlow1ToFlow1
+																																																																																																														.equals(inFlow1ToStep1)) {
+																																																																																																													if (!divergeFlow1ToFlow1
+																																																																																																															.equals(parallelStep)) {
+																																																																																																														if (!divergeFlow1ToFlow1
+																																																																																																																.equals(inFlow)) {
+																																																																																																															if (!divergeFlow1ToFlow1
+																																																																																																																	.equals(outFlow)) {
+																																																																																																																if (!divergeFlow1ToFlow1
+																																																																																																																		.equals(flow)) {
+																																																																																																																	if (!divergeFlow1ToFlow1
+																																																																																																																			.equals(inFlowToFlow)) {
+																																																																																																																		if (!divergeFlow1ToFlow1
+																																																																																																																				.equals(step)) {
+																																																																																																																			if (!divergeFlow1ToFlow1
+																																																																																																																					.equals(inFlowToStep)) {
+																																																																																																																				if (!divergeFlow1ToFlow1
+																																																																																																																						.equals(initFlow)) {
+																																																																																																																					if (!divergeFlow1ToFlow1
+																																																																																																																							.equals(outFlowToInitFlow)) {
+																																																																																																																						if (!divergeFlow1ToFlow1
+																																																																																																																								.equals(outFlowToParallelStep)) {
+																																																																																																																							if (!divergeFlow1ToFlow1
+																																																																																																																									.equals(lane)) {
+																																																																																																																								if (!divergeFlow1ToFlow1
+																																																																																																																										.equals(laneSet)) {
+																																																																																																																									if (!divergeFlow1ToFlow1
+																																																																																																																											.equals(divergeFlowToFlow)) {
+																																																																																																																										if (!inFlow
+																																																																																																																												.equals(process)) {
+																																																																																																																											if (!inFlow
+																																																																																																																													.equals(inFlow1)) {
+																																																																																																																												if (!inFlow
+																																																																																																																														.equals(parallelConvGateway)) {
+																																																																																																																													if (!inFlow
+																																																																																																																															.equals(parallelGateway)) {
+																																																																																																																														if (!inFlow
+																																																																																																																																.equals(inFlow1ToFlow1)) {
+																																																																																																																															if (!inFlow
+																																																																																																																																	.equals(step1)) {
+																																																																																																																																if (!inFlow
+																																																																																																																																		.equals(inFlow1ToStep1)) {
+																																																																																																																																	if (!inFlow
+																																																																																																																																			.equals(parallelStep)) {
+																																																																																																																																		if (!inFlow
+																																																																																																																																				.equals(outFlow)) {
+																																																																																																																																			if (!inFlow
+																																																																																																																																					.equals(inFlowToFlow)) {
+																																																																																																																																				if (!inFlow
+																																																																																																																																						.equals(step)) {
+																																																																																																																																					if (!inFlow
+																																																																																																																																							.equals(inFlowToStep)) {
+																																																																																																																																						if (!inFlow
+																																																																																																																																								.equals(initFlow)) {
+																																																																																																																																							if (!inFlow
+																																																																																																																																									.equals(outFlowToInitFlow)) {
+																																																																																																																																								if (!inFlow
+																																																																																																																																										.equals(outFlowToParallelStep)) {
+																																																																																																																																									if (!inFlow
+																																																																																																																																											.equals(lane)) {
+																																																																																																																																										if (!inFlow
+																																																																																																																																												.equals(laneSet)) {
+																																																																																																																																											if (!outFlow
+																																																																																																																																													.equals(process)) {
+																																																																																																																																												if (!outFlow
+																																																																																																																																														.equals(parallelConvGateway)) {
+																																																																																																																																													if (!outFlow
+																																																																																																																																															.equals(parallelGateway)) {
+																																																																																																																																														if (!outFlow
+																																																																																																																																																.equals(step1)) {
+																																																																																																																																															if (!outFlow
+																																																																																																																																																	.equals(parallelStep)) {
+																																																																																																																																																if (!outFlow
+																																																																																																																																																		.equals(step)) {
+																																																																																																																																																	if (!outFlow
+																																																																																																																																																			.equals(outFlowToInitFlow)) {
+																																																																																																																																																		if (!outFlow
+																																																																																																																																																				.equals(outFlowToParallelStep)) {
+																																																																																																																																																			if (!flow
+																																																																																																																																																					.equals(process)) {
+																																																																																																																																																				if (!flow
+																																																																																																																																																						.equals(inFlow1)) {
+																																																																																																																																																					if (!flow
+																																																																																																																																																							.equals(parallelConvGateway)) {
+																																																																																																																																																						if (!flow
+																																																																																																																																																								.equals(parallelGateway)) {
+																																																																																																																																																							if (!flow
+																																																																																																																																																									.equals(flow1)) {
+																																																																																																																																																								if (!flow
+																																																																																																																																																										.equals(inFlow1ToFlow1)) {
+																																																																																																																																																									if (!flow
+																																																																																																																																																											.equals(step1)) {
+																																																																																																																																																										if (!flow
+																																																																																																																																																												.equals(inFlow1ToStep1)) {
+																																																																																																																																																											if (!flow
+																																																																																																																																																													.equals(parallelStep)) {
+																																																																																																																																																												if (!flow
+																																																																																																																																																														.equals(inFlow)) {
+																																																																																																																																																													if (!flow
+																																																																																																																																																															.equals(outFlow)) {
+																																																																																																																																																														if (!flow
+																																																																																																																																																																.equals(inFlowToFlow)) {
+																																																																																																																																																															if (!flow
+																																																																																																																																																																	.equals(step)) {
+																																																																																																																																																																if (!flow
+																																																																																																																																																																		.equals(inFlowToStep)) {
+																																																																																																																																																																	if (!flow
+																																																																																																																																																																			.equals(initFlow)) {
+																																																																																																																																																																		if (!flow
+																																																																																																																																																																				.equals(outFlowToInitFlow)) {
+																																																																																																																																																																			if (!flow
+																																																																																																																																																																					.equals(outFlowToParallelStep)) {
+																																																																																																																																																																				if (!flow
+																																																																																																																																																																						.equals(lane)) {
+																																																																																																																																																																					if (!flow
+																																																																																																																																																																							.equals(laneSet)) {
+																																																																																																																																																																						if (!inFlowToFlow
+																																																																																																																																																																								.equals(process)) {
+																																																																																																																																																																							if (!inFlowToFlow
+																																																																																																																																																																									.equals(parallelConvGateway)) {
+																																																																																																																																																																								if (!inFlowToFlow
+																																																																																																																																																																										.equals(parallelGateway)) {
+																																																																																																																																																																									if (!inFlowToFlow
+																																																																																																																																																																											.equals(step1)) {
+																																																																																																																																																																										if (!inFlowToFlow
+																																																																																																																																																																												.equals(parallelStep)) {
+																																																																																																																																																																											if (!inFlowToFlow
+																																																																																																																																																																													.equals(outFlow)) {
+																																																																																																																																																																												if (!inFlowToFlow
+																																																																																																																																																																														.equals(step)) {
+																																																																																																																																																																													if (!inFlowToFlow
+																																																																																																																																																																															.equals(inFlowToStep)) {
+																																																																																																																																																																														if (!inFlowToFlow
+																																																																																																																																																																																.equals(initFlow)) {
+																																																																																																																																																																															if (!inFlowToFlow
+																																																																																																																																																																																	.equals(outFlowToInitFlow)) {
+																																																																																																																																																																																if (!inFlowToFlow
+																																																																																																																																																																																		.equals(outFlowToParallelStep)) {
+																																																																																																																																																																																	if (!inFlowToFlow
+																																																																																																																																																																																			.equals(lane)) {
+																																																																																																																																																																																		if (!inFlowToFlow
+																																																																																																																																																																																				.equals(laneSet)) {
+																																																																																																																																																																																			if (!step
+																																																																																																																																																																																					.equals(step1)) {
+																																																																																																																																																																																				if (!inFlowToStep
+																																																																																																																																																																																						.equals(process)) {
+																																																																																																																																																																																					if (!inFlowToStep
+																																																																																																																																																																																							.equals(parallelConvGateway)) {
+																																																																																																																																																																																						if (!inFlowToStep
+																																																																																																																																																																																								.equals(parallelGateway)) {
+																																																																																																																																																																																							if (!inFlowToStep
+																																																																																																																																																																																									.equals(step1)) {
+																																																																																																																																																																																								if (!inFlowToStep
+																																																																																																																																																																																										.equals(parallelStep)) {
+																																																																																																																																																																																									if (!inFlowToStep
+																																																																																																																																																																																											.equals(outFlow)) {
+																																																																																																																																																																																										if (!inFlowToStep
+																																																																																																																																																																																												.equals(step)) {
+																																																																																																																																																																																											if (!inFlowToStep
+																																																																																																																																																																																													.equals(initFlow)) {
+																																																																																																																																																																																												if (!inFlowToStep
+																																																																																																																																																																																														.equals(outFlowToInitFlow)) {
+																																																																																																																																																																																													if (!inFlowToStep
+																																																																																																																																																																																															.equals(outFlowToParallelStep)) {
+																																																																																																																																																																																														if (!inFlowToStep
+																																																																																																																																																																																																.equals(lane)) {
+																																																																																																																																																																																															if (!inFlowToStep
+																																																																																																																																																																																																	.equals(laneSet)) {
+																																																																																																																																																																																																if (!initFlow
+																																																																																																																																																																																																		.equals(process)) {
+																																																																																																																																																																																																	if (!initFlow
+																																																																																																																																																																																																			.equals(parallelConvGateway)) {
+																																																																																																																																																																																																		if (!initFlow
+																																																																																																																																																																																																				.equals(parallelGateway)) {
+																																																																																																																																																																																																			if (!initFlow
+																																																																																																																																																																																																					.equals(step1)) {
+																																																																																																																																																																																																				if (!initFlow
+																																																																																																																																																																																																						.equals(parallelStep)) {
+																																																																																																																																																																																																					if (!initFlow
+																																																																																																																																																																																																							.equals(outFlow)) {
+																																																																																																																																																																																																						if (!initFlow
+																																																																																																																																																																																																								.equals(step)) {
+																																																																																																																																																																																																							if (!initFlow
+																																																																																																																																																																																																									.equals(outFlowToInitFlow)) {
+																																																																																																																																																																																																								if (!initFlow
+																																																																																																																																																																																																										.equals(outFlowToParallelStep)) {
+																																																																																																																																																																																																									if (!initFlow
+																																																																																																																																																																																																											.equals(lane)) {
+																																																																																																																																																																																																										if (!initFlow
+																																																																																																																																																																																																												.equals(laneSet)) {
+																																																																																																																																																																																																											if (!outFlowToInitFlow
+																																																																																																																																																																																																													.equals(process)) {
+																																																																																																																																																																																																												if (!outFlowToInitFlow
+																																																																																																																																																																																																														.equals(parallelConvGateway)) {
+																																																																																																																																																																																																													if (!outFlowToInitFlow
+																																																																																																																																																																																																															.equals(parallelGateway)) {
+																																																																																																																																																																																																														if (!outFlowToInitFlow
+																																																																																																																																																																																																																.equals(step1)) {
+																																																																																																																																																																																																															if (!outFlowToInitFlow
+																																																																																																																																																																																																																	.equals(parallelStep)) {
+																																																																																																																																																																																																																if (!outFlowToInitFlow
+																																																																																																																																																																																																																		.equals(step)) {
+																																																																																																																																																																																																																	if (!outFlowToInitFlow
+																																																																																																																																																																																																																			.equals(outFlowToParallelStep)) {
+																																																																																																																																																																																																																		if (!outFlowToParallelStep
+																																																																																																																																																																																																																				.equals(process)) {
+																																																																																																																																																																																																																			if (!outFlowToParallelStep
+																																																																																																																																																																																																																					.equals(parallelConvGateway)) {
+																																																																																																																																																																																																																				if (!outFlowToParallelStep
+																																																																																																																																																																																																																						.equals(parallelGateway)) {
+																																																																																																																																																																																																																					if (!outFlowToParallelStep
+																																																																																																																																																																																																																							.equals(step1)) {
+																																																																																																																																																																																																																						if (!outFlowToParallelStep
+																																																																																																																																																																																																																								.equals(parallelStep)) {
+																																																																																																																																																																																																																							if (!outFlowToParallelStep
+																																																																																																																																																																																																																									.equals(step)) {
+																																																																																																																																																																																																																								if (!lane
+																																																																																																																																																																																																																										.equals(process)) {
+																																																																																																																																																																																																																									if (!lane
+																																																																																																																																																																																																																											.equals(parallelConvGateway)) {
+																																																																																																																																																																																																																										if (!lane
+																																																																																																																																																																																																																												.equals(parallelGateway)) {
+																																																																																																																																																																																																																											if (!lane
+																																																																																																																																																																																																																													.equals(step1)) {
+																																																																																																																																																																																																																												if (!lane
+																																																																																																																																																																																																																														.equals(parallelStep)) {
+																																																																																																																																																																																																																													if (!lane
+																																																																																																																																																																																																																															.equals(outFlow)) {
+																																																																																																																																																																																																																														if (!lane
+																																																																																																																																																																																																																																.equals(step)) {
+																																																																																																																																																																																																																															if (!lane
+																																																																																																																																																																																																																																	.equals(outFlowToInitFlow)) {
+																																																																																																																																																																																																																																if (!lane
+																																																																																																																																																																																																																																		.equals(outFlowToParallelStep)) {
+																																																																																																																																																																																																																																	if (!lane
+																																																																																																																																																																																																																																			.equals(laneSet)) {
+																																																																																																																																																																																																																																		if (!laneSet
+																																																																																																																																																																																																																																				.equals(process)) {
+																																																																																																																																																																																																																																			if (!laneSet
+																																																																																																																																																																																																																																					.equals(parallelConvGateway)) {
+																																																																																																																																																																																																																																				if (!laneSet
+																																																																																																																																																																																																																																						.equals(parallelGateway)) {
+																																																																																																																																																																																																																																					if (!laneSet
+																																																																																																																																																																																																																																							.equals(step1)) {
+																																																																																																																																																																																																																																						if (!laneSet
+																																																																																																																																																																																																																																								.equals(parallelStep)) {
+																																																																																																																																																																																																																																							if (!laneSet
+																																																																																																																																																																																																																																									.equals(outFlow)) {
+																																																																																																																																																																																																																																								if (!laneSet
+																																																																																																																																																																																																																																										.equals(step)) {
+																																																																																																																																																																																																																																									if (!laneSet
+																																																																																																																																																																																																																																											.equals(outFlowToInitFlow)) {
+																																																																																																																																																																																																																																										if (!laneSet
+																																																																																																																																																																																																																																												.equals(outFlowToParallelStep)) {
+																																																																																																																																																																																																																																											if (!divergeFlow
+																																																																																																																																																																																																																																													.equals(process)) {
+																																																																																																																																																																																																																																												if (!divergeFlow
+																																																																																																																																																																																																																																														.equals(inFlow1)) {
+																																																																																																																																																																																																																																													if (!divergeFlow
+																																																																																																																																																																																																																																															.equals(parallelConvGateway)) {
+																																																																																																																																																																																																																																														if (!divergeFlow
+																																																																																																																																																																																																																																																.equals(parallelGateway)) {
+																																																																																																																																																																																																																																															if (!divergeFlow
+																																																																																																																																																																																																																																																	.equals(divergeFlow1)) {
+																																																																																																																																																																																																																																																if (!divergeFlow
+																																																																																																																																																																																																																																																		.equals(flow1)) {
+																																																																																																																																																																																																																																																	if (!divergeFlow
+																																																																																																																																																																																																																																																			.equals(inFlow1ToFlow1)) {
+																																																																																																																																																																																																																																																		if (!divergeFlow
+																																																																																																																																																																																																																																																				.equals(step1)) {
+																																																																																																																																																																																																																																																			if (!divergeFlow
+																																																																																																																																																																																																																																																					.equals(inFlow1ToStep1)) {
+																																																																																																																																																																																																																																																				if (!divergeFlow
+																																																																																																																																																																																																																																																						.equals(parallelStep)) {
+																																																																																																																																																																																																																																																					if (!divergeFlow
+																																																																																																																																																																																																																																																							.equals(divergeFlow1ToFlow1)) {
+																																																																																																																																																																																																																																																						if (!divergeFlow
+																																																																																																																																																																																																																																																								.equals(inFlow)) {
+																																																																																																																																																																																																																																																							if (!divergeFlow
+																																																																																																																																																																																																																																																									.equals(outFlow)) {
+																																																																																																																																																																																																																																																								if (!divergeFlow
+																																																																																																																																																																																																																																																										.equals(flow)) {
+																																																																																																																																																																																																																																																									if (!divergeFlow
+																																																																																																																																																																																																																																																											.equals(inFlowToFlow)) {
+																																																																																																																																																																																																																																																										if (!divergeFlow
+																																																																																																																																																																																																																																																												.equals(step)) {
+																																																																																																																																																																																																																																																											if (!divergeFlow
+																																																																																																																																																																																																																																																													.equals(inFlowToStep)) {
+																																																																																																																																																																																																																																																												if (!divergeFlow
+																																																																																																																																																																																																																																																														.equals(initFlow)) {
+																																																																																																																																																																																																																																																													if (!divergeFlow
+																																																																																																																																																																																																																																																															.equals(outFlowToInitFlow)) {
+																																																																																																																																																																																																																																																														if (!divergeFlow
+																																																																																																																																																																																																																																																																.equals(outFlowToParallelStep)) {
+																																																																																																																																																																																																																																																															if (!divergeFlow
+																																																																																																																																																																																																																																																																	.equals(lane)) {
+																																																																																																																																																																																																																																																																if (!divergeFlow
+																																																																																																																																																																																																																																																																		.equals(laneSet)) {
+																																																																																																																																																																																																																																																																	if (!divergeFlow
+																																																																																																																																																																																																																																																																			.equals(divergeFlowToFlow)) {
+																																																																																																																																																																																																																																																																		if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																				.equals(process)) {
+																																																																																																																																																																																																																																																																			if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																					.equals(inFlow1)) {
+																																																																																																																																																																																																																																																																				if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																						.equals(parallelConvGateway)) {
+																																																																																																																																																																																																																																																																					if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																							.equals(parallelGateway)) {
+																																																																																																																																																																																																																																																																						if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																								.equals(flow1)) {
+																																																																																																																																																																																																																																																																							if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																									.equals(inFlow1ToFlow1)) {
+																																																																																																																																																																																																																																																																								if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																										.equals(step1)) {
+																																																																																																																																																																																																																																																																									if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																											.equals(inFlow1ToStep1)) {
+																																																																																																																																																																																																																																																																										if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																												.equals(parallelStep)) {
+																																																																																																																																																																																																																																																																											if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																													.equals(inFlow)) {
+																																																																																																																																																																																																																																																																												if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																														.equals(outFlow)) {
+																																																																																																																																																																																																																																																																													if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																															.equals(flow)) {
+																																																																																																																																																																																																																																																																														if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																																.equals(inFlowToFlow)) {
+																																																																																																																																																																																																																																																																															if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																																	.equals(step)) {
+																																																																																																																																																																																																																																																																																if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																																		.equals(inFlowToStep)) {
+																																																																																																																																																																																																																																																																																	if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																																			.equals(initFlow)) {
+																																																																																																																																																																																																																																																																																		if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																																				.equals(outFlowToInitFlow)) {
+																																																																																																																																																																																																																																																																																			if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																																					.equals(outFlowToParallelStep)) {
+																																																																																																																																																																																																																																																																																				if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																																						.equals(lane)) {
+																																																																																																																																																																																																																																																																																					if (!divergeFlowToFlow
+																																																																																																																																																																																																																																																																																							.equals(laneSet)) {
+																																																																																																																																																																																																																																																																																						return new Object[] {
+																																																																																																																																																																																																																																																																																								ruleresult,
+																																																																																																																																																																																																																																																																																								process,
+																																																																																																																																																																																																																																																																																								inFlow1,
+																																																																																																																																																																																																																																																																																								parallelConvGateway,
+																																																																																																																																																																																																																																																																																								parallelGateway,
+																																																																																																																																																																																																																																																																																								divergeFlow1,
+																																																																																																																																																																																																																																																																																								flow1,
+																																																																																																																																																																																																																																																																																								inFlow1ToFlow1,
+																																																																																																																																																																																																																																																																																								step1,
+																																																																																																																																																																																																																																																																																								inFlow1ToStep1,
+																																																																																																																																																																																																																																																																																								parallelStep,
+																																																																																																																																																																																																																																																																																								divergeFlow1ToFlow1,
+																																																																																																																																																																																																																																																																																								inFlow,
+																																																																																																																																																																																																																																																																																								outFlow,
+																																																																																																																																																																																																																																																																																								flow,
+																																																																																																																																																																																																																																																																																								inFlowToFlow,
+																																																																																																																																																																																																																																																																																								step,
+																																																																																																																																																																																																																																																																																								inFlowToStep,
+																																																																																																																																																																																																																																																																																								initFlow,
+																																																																																																																																																																																																																																																																																								outFlowToInitFlow,
+																																																																																																																																																																																																																																																																																								outFlowToParallelStep,
+																																																																																																																																																																																																																																																																																								lane,
+																																																																																																																																																																																																																																																																																								laneSet,
+																																																																																																																																																																																																																																																																																								divergeFlow,
+																																																																																																																																																																																																																																																																																								divergeFlowToFlow };
+																																																																																																																																																																																																																																																																																					}
+																																																																																																																																																																																																																																																																																				}
+																																																																																																																																																																																																																																																																																			}
+																																																																																																																																																																																																																																																																																		}
+																																																																																																																																																																																																																																																																																	}
+																																																																																																																																																																																																																																																																																}
+																																																																																																																																																																																																																																																																															}
+																																																																																																																																																																																																																																																																														}
+																																																																																																																																																																																																																																																																													}
+																																																																																																																																																																																																																																																																												}
+																																																																																																																																																																																																																																																																											}
+																																																																																																																																																																																																																																																																										}
+																																																																																																																																																																																																																																																																									}
+																																																																																																																																																																																																																																																																								}
+																																																																																																																																																																																																																																																																							}
+																																																																																																																																																																																																																																																																						}
+																																																																																																																																																																																																																																																																					}
+																																																																																																																																																																																																																																																																				}
+																																																																																																																																																																																																																																																																			}
+																																																																																																																																																																																																																																																																		}
+																																																																																																																																																																																																																																																																	}
+																																																																																																																																																																																																																																																																}
+																																																																																																																																																																																																																																																															}
+																																																																																																																																																																																																																																																														}
+																																																																																																																																																																																																																																																													}
+																																																																																																																																																																																																																																																												}
+																																																																																																																																																																																																																																																											}
+																																																																																																																																																																																																																																																										}
+																																																																																																																																																																																																																																																									}
+																																																																																																																																																																																																																																																								}
+																																																																																																																																																																																																																																																							}
+																																																																																																																																																																																																																																																						}
+																																																																																																																																																																																																																																																					}
+																																																																																																																																																																																																																																																				}
+																																																																																																																																																																																																																																																			}
+																																																																																																																																																																																																																																																		}
+																																																																																																																																																																																																																																																	}
+																																																																																																																																																																																																																																																}
+																																																																																																																																																																																																																																															}
+																																																																																																																																																																																																																																														}
+																																																																																																																																																																																																																																													}
+																																																																																																																																																																																																																																												}
+																																																																																																																																																																																																																																											}
+																																																																																																																																																																																																																																										}
+																																																																																																																																																																																																																																									}
+																																																																																																																																																																																																																																								}
+																																																																																																																																																																																																																																							}
+																																																																																																																																																																																																																																						}
+																																																																																																																																																																																																																																					}
+																																																																																																																																																																																																																																				}
+																																																																																																																																																																																																																																			}
+																																																																																																																																																																																																																																		}
+																																																																																																																																																																																																																																	}
+																																																																																																																																																																																																																																}
+																																																																																																																																																																																																																															}
+																																																																																																																																																																																																																														}
+																																																																																																																																																																																																																													}
+																																																																																																																																																																																																																												}
+																																																																																																																																																																																																																											}
+																																																																																																																																																																																																																										}
+																																																																																																																																																																																																																									}
+																																																																																																																																																																																																																								}
+																																																																																																																																																																																																																							}
+																																																																																																																																																																																																																						}
+																																																																																																																																																																																																																					}
+																																																																																																																																																																																																																				}
+																																																																																																																																																																																																																			}
+																																																																																																																																																																																																																		}
+																																																																																																																																																																																																																	}
+																																																																																																																																																																																																																}
+																																																																																																																																																																																																															}
+																																																																																																																																																																																																														}
+																																																																																																																																																																																																													}
+																																																																																																																																																																																																												}
+																																																																																																																																																																																																											}
+																																																																																																																																																																																																										}
+																																																																																																																																																																																																									}
+																																																																																																																																																																																																								}
+																																																																																																																																																																																																							}
+																																																																																																																																																																																																						}
+																																																																																																																																																																																																					}
+																																																																																																																																																																																																				}
+																																																																																																																																																																																																			}
+																																																																																																																																																																																																		}
+																																																																																																																																																																																																	}
+																																																																																																																																																																																																}
+																																																																																																																																																																																															}
+																																																																																																																																																																																														}
+																																																																																																																																																																																													}
+																																																																																																																																																																																												}
+																																																																																																																																																																																											}
+																																																																																																																																																																																										}
+																																																																																																																																																																																									}
+																																																																																																																																																																																								}
+																																																																																																																																																																																							}
+																																																																																																																																																																																						}
+																																																																																																																																																																																					}
+																																																																																																																																																																																				}
+																																																																																																																																																																																			}
+																																																																																																																																																																																		}
+																																																																																																																																																																																	}
+																																																																																																																																																																																}
+																																																																																																																																																																															}
+																																																																																																																																																																														}
+																																																																																																																																																																													}
+																																																																																																																																																																												}
+																																																																																																																																																																											}
+																																																																																																																																																																										}
+																																																																																																																																																																									}
+																																																																																																																																																																								}
+																																																																																																																																																																							}
+																																																																																																																																																																						}
+																																																																																																																																																																					}
+																																																																																																																																																																				}
+																																																																																																																																																																			}
+																																																																																																																																																																		}
+																																																																																																																																																																	}
+																																																																																																																																																																}
+																																																																																																																																																															}
+																																																																																																																																																														}
+																																																																																																																																																													}
+																																																																																																																																																												}
+																																																																																																																																																											}
+																																																																																																																																																										}
+																																																																																																																																																									}
+																																																																																																																																																								}
+																																																																																																																																																							}
+																																																																																																																																																						}
+																																																																																																																																																					}
+																																																																																																																																																				}
+																																																																																																																																																			}
+																																																																																																																																																		}
+																																																																																																																																																	}
+																																																																																																																																																}
+																																																																																																																																															}
+																																																																																																																																														}
+																																																																																																																																													}
+																																																																																																																																												}
+																																																																																																																																											}
+																																																																																																																																										}
+																																																																																																																																									}
+																																																																																																																																								}
+																																																																																																																																							}
+																																																																																																																																						}
+																																																																																																																																					}
+																																																																																																																																				}
+																																																																																																																																			}
+																																																																																																																																		}
+																																																																																																																																	}
+																																																																																																																																}
+																																																																																																																															}
+																																																																																																																														}
+																																																																																																																													}
+																																																																																																																												}
+																																																																																																																											}
+																																																																																																																										}
+																																																																																																																									}
+																																																																																																																								}
+																																																																																																																							}
+																																																																																																																						}
+																																																																																																																					}
+																																																																																																																				}
+																																																																																																																			}
+																																																																																																																		}
+																																																																																																																	}
+																																																																																																																}
+																																																																																																															}
+																																																																																																														}
+																																																																																																													}
+																																																																																																												}
+																																																																																																											}
+																																																																																																										}
+																																																																																																									}
+																																																																																																								}
+																																																																																																							}
+																																																																																																						}
+																																																																																																					}
+																																																																																																				}
+																																																																																																			}
+																																																																																																		}
+																																																																																																	}
+																																																																																																}
+																																																																																															}
+																																																																																														}
+																																																																																													}
+																																																																																												}
+																																																																																											}
+																																																																																										}
+																																																																																									}
+																																																																																								}
+																																																																																							}
+																																																																																						}
+																																																																																					}
+																																																																																				}
+																																																																																			}
+																																																																																		}
+																																																																																	}
+																																																																																}
+																																																																															}
+																																																																														}
+																																																																													}
+																																																																												}
+																																																																											}
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject process, EObject inFlow1,
+			EObject parallelConvGateway, EObject parallelStep, EObject inFlow,
+			EObject outFlow, EObject initFlow, EObject outFlowToInitFlow,
+			EObject outFlowToParallelStep, EObject lane) {
+		EMoflonEdge inFlow1__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__inFlow1____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__parallelConvGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToInitFlow__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToInitFlow__initFlow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToParallelStep__outFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlowToParallelStep__parallelStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__parallelConvGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "ParallelConvergingGatewayTwoInputsRule";
+		String inFlow1__parallelConvGateway____targetRef_name_prime = "targetRef";
+		String parallelConvGateway__inFlow1____incoming_name_prime = "incoming";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		String inFlow__parallelConvGateway____targetRef_name_prime = "targetRef";
+		String parallelConvGateway__inFlow____incoming_name_prime = "incoming";
+		String outFlow__parallelConvGateway____sourceRef_name_prime = "sourceRef";
+		String parallelConvGateway__outFlow____outgoing_name_prime = "outgoing";
+		String outFlowToInitFlow__outFlow____source_name_prime = "source";
+		String outFlowToInitFlow__initFlow____target_name_prime = "target";
+		String outFlowToParallelStep__outFlow____source_name_prime = "source";
+		String outFlowToParallelStep__parallelStep____target_name_prime = "target";
+		String lane__parallelConvGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		inFlow1__parallelConvGateway____targetRef.setSrc(inFlow1);
+		inFlow1__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
+		ruleresult.getTranslatedEdges().add(
+				inFlow1__parallelConvGateway____targetRef);
+		parallelConvGateway__inFlow1____incoming.setSrc(parallelConvGateway);
+		parallelConvGateway__inFlow1____incoming.setTrg(inFlow1);
+		ruleresult.getTranslatedEdges().add(
+				parallelConvGateway__inFlow1____incoming);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		ruleresult.getTranslatedEdges().add(process__outFlow____flowElements);
+		inFlow__parallelConvGateway____targetRef.setSrc(inFlow);
+		inFlow__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
+		ruleresult.getTranslatedEdges().add(
+				inFlow__parallelConvGateway____targetRef);
+		parallelConvGateway__inFlow____incoming.setSrc(parallelConvGateway);
+		parallelConvGateway__inFlow____incoming.setTrg(inFlow);
+		ruleresult.getTranslatedEdges().add(
+				parallelConvGateway__inFlow____incoming);
+		outFlow__parallelConvGateway____sourceRef.setSrc(outFlow);
+		outFlow__parallelConvGateway____sourceRef.setTrg(parallelConvGateway);
+		ruleresult.getTranslatedEdges().add(
+				outFlow__parallelConvGateway____sourceRef);
+		parallelConvGateway__outFlow____outgoing.setSrc(parallelConvGateway);
+		parallelConvGateway__outFlow____outgoing.setTrg(outFlow);
+		ruleresult.getTranslatedEdges().add(
+				parallelConvGateway__outFlow____outgoing);
+		outFlowToInitFlow__outFlow____source.setSrc(outFlowToInitFlow);
+		outFlowToInitFlow__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(outFlowToInitFlow__outFlow____source);
+		outFlowToInitFlow__initFlow____target.setSrc(outFlowToInitFlow);
+		outFlowToInitFlow__initFlow____target.setTrg(initFlow);
+		ruleresult.getCreatedEdges().add(outFlowToInitFlow__initFlow____target);
+		outFlowToParallelStep__outFlow____source.setSrc(outFlowToParallelStep);
+		outFlowToParallelStep__outFlow____source.setTrg(outFlow);
+		ruleresult.getCreatedEdges().add(
+				outFlowToParallelStep__outFlow____source);
+		outFlowToParallelStep__parallelStep____target
+				.setSrc(outFlowToParallelStep);
+		outFlowToParallelStep__parallelStep____target.setTrg(parallelStep);
+		ruleresult.getCreatedEdges().add(
+				outFlowToParallelStep__parallelStep____target);
+		lane__parallelConvGateway____flowNodeRefs.setSrc(lane);
+		lane__parallelConvGateway____flowNodeRefs.setTrg(parallelConvGateway);
+		ruleresult.getTranslatedEdges().add(
+				lane__parallelConvGateway____flowNodeRefs);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		inFlow1__parallelConvGateway____targetRef
+				.setName(inFlow1__parallelConvGateway____targetRef_name_prime);
+		parallelConvGateway__inFlow1____incoming
+				.setName(parallelConvGateway__inFlow1____incoming_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		inFlow__parallelConvGateway____targetRef
+				.setName(inFlow__parallelConvGateway____targetRef_name_prime);
+		parallelConvGateway__inFlow____incoming
+				.setName(parallelConvGateway__inFlow____incoming_name_prime);
+		outFlow__parallelConvGateway____sourceRef
+				.setName(outFlow__parallelConvGateway____sourceRef_name_prime);
+		parallelConvGateway__outFlow____outgoing
+				.setName(parallelConvGateway__outFlow____outgoing_name_prime);
+		outFlowToInitFlow__outFlow____source
+				.setName(outFlowToInitFlow__outFlow____source_name_prime);
+		outFlowToInitFlow__initFlow____target
+				.setName(outFlowToInitFlow__initFlow____target_name_prime);
+		outFlowToParallelStep__outFlow____source
+				.setName(outFlowToParallelStep__outFlow____source_name_prime);
+		outFlowToParallelStep__parallelStep____target
+				.setName(outFlowToParallelStep__parallelStep____target_name_prime);
+		lane__parallelConvGateway____flowNodeRefs
+				.setName(lane__parallelConvGateway____flowNodeRefs_name_prime);
+		return new Object[] { ruleresult, process, inFlow1,
+				parallelConvGateway, parallelStep, inFlow, outFlow, initFlow,
+				outFlowToInitFlow, outFlowToParallelStep, lane,
+				inFlow1__parallelConvGateway____targetRef,
+				parallelConvGateway__inFlow1____incoming,
+				process__outFlow____flowElements,
+				inFlow__parallelConvGateway____targetRef,
+				parallelConvGateway__inFlow____incoming,
+				outFlow__parallelConvGateway____sourceRef,
+				parallelConvGateway__outFlow____outgoing,
+				outFlowToInitFlow__outFlow____source,
+				outFlowToInitFlow__initFlow____target,
+				outFlowToParallelStep__outFlow____source,
+				outFlowToParallelStep__parallelStep____target,
+				lane__parallelConvGateway____flowNodeRefs };
+	}
+
+	public static final void pattern_ParallelConvergingGatewayTwoInputsRule_1_5_expressionBBBBBBBBBBBBBBBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this,
+			PerformRuleResult ruleresult, EObject process, EObject inFlow1,
+			EObject parallelConvGateway, EObject parallelGateway,
+			EObject divergeFlow1, EObject flow1, EObject inFlow1ToFlow1,
+			EObject step1, EObject inFlow1ToStep1, EObject parallelStep,
+			EObject divergeFlow1ToFlow1, EObject inFlow, EObject outFlow,
+			EObject flow, EObject inFlowToFlow, EObject step,
+			EObject inFlowToStep, EObject initFlow, EObject outFlowToInitFlow,
+			EObject outFlowToParallelStep, EObject lane, EObject laneSet,
+			EObject divergeFlow, EObject divergeFlowToFlow) {
+		_this.registerObjects_FWD(ruleresult, process, inFlow1,
+				parallelConvGateway, parallelGateway, divergeFlow1, flow1,
+				inFlow1ToFlow1, step1, inFlow1ToStep1, parallelStep,
+				divergeFlow1ToFlow1, inFlow, outFlow, flow, inFlowToFlow, step,
+				inFlowToStep, initFlow, outFlowToInitFlow,
+				outFlowToParallelStep, lane, laneSet, divergeFlow,
+				divergeFlowToFlow);
+
+	}
+
+	public static final PerformRuleResult pattern_ParallelConvergingGatewayTwoInputsRule_1_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_1_blackFBB(
+			EClass eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_FWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_2_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_2_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_2_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_2_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_2_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_2_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_2_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_2_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "ParallelConvergingGatewayTwoInputsRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_2_bindingFFFFFFFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("process");
+		EObject _localVariable_1 = match.getObject("inFlow1");
+		EObject _localVariable_2 = match.getObject("parallelConvGateway");
+		EObject _localVariable_3 = match.getObject("parallelGateway");
+		EObject _localVariable_4 = match.getObject("divergeFlow1");
+		EObject _localVariable_5 = match.getObject("inFlow");
+		EObject _localVariable_6 = match.getObject("outFlow");
+		EObject _localVariable_7 = match.getObject("lane");
+		EObject _localVariable_8 = match.getObject("laneSet");
+		EObject _localVariable_9 = match.getObject("divergeFlow");
+		EObject tmpProcess = _localVariable_0;
+		EObject tmpInFlow1 = _localVariable_1;
+		EObject tmpParallelConvGateway = _localVariable_2;
+		EObject tmpParallelGateway = _localVariable_3;
+		EObject tmpDivergeFlow1 = _localVariable_4;
+		EObject tmpInFlow = _localVariable_5;
+		EObject tmpOutFlow = _localVariable_6;
+		EObject tmpLane = _localVariable_7;
+		EObject tmpLaneSet = _localVariable_8;
+		EObject tmpDivergeFlow = _localVariable_9;
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			if (tmpInFlow1 instanceof SequenceFlow) {
+				SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+				if (tmpParallelConvGateway instanceof ParallelGateway) {
+					ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+					if (tmpParallelGateway instanceof ParallelGateway) {
+						ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+						if (tmpDivergeFlow1 instanceof SequenceFlow) {
+							SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+							if (tmpInFlow instanceof SequenceFlow) {
+								SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+								if (tmpOutFlow instanceof SequenceFlow) {
+									SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+									if (tmpLane instanceof Lane) {
+										Lane lane = (Lane) tmpLane;
+										if (tmpLaneSet instanceof LaneSet) {
+											LaneSet laneSet = (LaneSet) tmpLaneSet;
+											if (tmpDivergeFlow instanceof SequenceFlow) {
+												SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+												return new Object[] { process,
+														inFlow1,
+														parallelConvGateway,
+														parallelGateway,
+														divergeFlow1, inFlow,
+														outFlow, lane, laneSet,
+														divergeFlow, match };
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_2_2_blackBBBBBFFFFFBBFFFFBBBFB(
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!inFlow1.equals(outFlow)) {
+			if (!parallelConvGateway.equals(parallelGateway)) {
+				if (!divergeFlow1.equals(inFlow1)) {
+					if (!divergeFlow1.equals(inFlow)) {
+						if (!divergeFlow1.equals(outFlow)) {
+							if (!inFlow.equals(inFlow1)) {
+								if (!inFlow.equals(outFlow)) {
+									if (!divergeFlow.equals(inFlow1)) {
+										if (!divergeFlow.equals(divergeFlow1)) {
+											if (!divergeFlow.equals(inFlow)) {
+												if (!divergeFlow
+														.equals(outFlow)) {
+													for (SequenceFlowToUCFlow inFlow1ToFlow1 : org.moflon.util.eMoflonEMFUtil
+															.getOppositeReferenceTyped(
+																	inFlow1,
+																	SequenceFlowToUCFlow.class,
+																	"source")) {
+														Flow tmpFlow1 = inFlow1ToFlow1
+																.getTarget();
+														if (tmpFlow1 instanceof ParallelFlow) {
+															ParallelFlow flow1 = (ParallelFlow) tmpFlow1;
+															for (SequenceFlowToStep inFlow1ToStep1 : org.moflon.util.eMoflonEMFUtil
+																	.getOppositeReferenceTyped(
+																			inFlow1,
+																			SequenceFlowToStep.class,
+																			"source")) {
+																Step step1 = inFlow1ToStep1
+																		.getTarget();
+																if (step1 != null) {
+																	for (SequenceFlowToUCFlow divergeFlow1ToFlow1 : org.moflon.util.eMoflonEMFUtil
+																			.getOppositeReferenceTyped(
+																					divergeFlow1,
+																					SequenceFlowToUCFlow.class,
+																					"source")) {
+																		if (!divergeFlow1ToFlow1
+																				.equals(inFlow1ToFlow1)) {
+																			if (flow1
+																					.equals(divergeFlow1ToFlow1
+																							.getTarget())) {
+																				for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																						.getOppositeReferenceTyped(
+																								inFlow,
+																								SequenceFlowToUCFlow.class,
+																								"source")) {
+																					if (!inFlow1ToFlow1
+																							.equals(inFlowToFlow)) {
+																						if (!divergeFlow1ToFlow1
+																								.equals(inFlowToFlow)) {
+																							Flow tmpFlow = inFlowToFlow
+																									.getTarget();
+																							if (tmpFlow instanceof ParallelFlow) {
+																								ParallelFlow flow = (ParallelFlow) tmpFlow;
+																								if (!flow
+																										.equals(flow1)) {
+																									for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+																											.getOppositeReferenceTyped(
+																													inFlow,
+																													SequenceFlowToStep.class,
+																													"source")) {
+																										if (!inFlow1ToStep1
+																												.equals(inFlowToStep)) {
+																											Step step = inFlowToStep
+																													.getTarget();
+																											if (step != null) {
+																												if (!step
+																														.equals(step1)) {
+																													for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																															.getOppositeReferenceTyped(
+																																	divergeFlow,
+																																	SequenceFlowToUCFlow.class,
+																																	"source")) {
+																														if (!divergeFlow1ToFlow1
+																																.equals(divergeFlowToFlow)) {
+																															if (!divergeFlowToFlow
+																																	.equals(inFlow1ToFlow1)) {
+																																if (!divergeFlowToFlow
+																																		.equals(inFlowToFlow)) {
+																																	if (flow.equals(divergeFlowToFlow
+																																			.getTarget())) {
+																																		_result.add(new Object[] {
+																																				process,
+																																				inFlow1,
+																																				parallelConvGateway,
+																																				parallelGateway,
+																																				divergeFlow1,
+																																				flow1,
+																																				inFlow1ToFlow1,
+																																				step1,
+																																				inFlow1ToStep1,
+																																				divergeFlow1ToFlow1,
+																																				inFlow,
+																																				outFlow,
+																																				flow,
+																																				inFlowToFlow,
+																																				step,
+																																				inFlowToStep,
+																																				lane,
+																																				laneSet,
+																																				divergeFlow,
+																																				divergeFlowToFlow,
+																																				match });
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+
+																										}
+																									}
+																								}
+																							}
+
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+
+															}
+														}
+
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_3_black_nac_0BBB(
+			Step step, Step step1, ParallelStep parallelStep) {
+		if (!step.equals(step1)) {
+			if (!parallelStep.equals(step)) {
+				if (!parallelStep.equals(step1)) {
+					Step nextStep = step.getNext();
+					if (nextStep != null) {
+						if (!step.equals(nextStep)) {
+							if (!step1.equals(nextStep)) {
+								if (!parallelStep.equals(nextStep)) {
+									return new Object[] { step, step1,
+											parallelStep };
+								}
+							}
+						}
+					}
+
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_2_3_blackBBBBBBBBBFBBBBBBBFBBBB(
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
+			Step step1, SequenceFlowToStep inFlow1ToStep1,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			SequenceFlow outFlow, ParallelFlow flow,
+			SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Lane lane, LaneSet laneSet,
+			SequenceFlow divergeFlow, SequenceFlowToUCFlow divergeFlowToFlow) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (!inFlow1.equals(outFlow)) {
+			if (!parallelConvGateway.equals(parallelGateway)) {
+				if (!divergeFlow1.equals(inFlow1)) {
+					if (!divergeFlow1.equals(inFlow)) {
+						if (!divergeFlow1.equals(outFlow)) {
+							if (!inFlow1ToFlow1.equals(inFlowToFlow)) {
+								if (!inFlow1ToStep1.equals(inFlowToStep)) {
+									if (!divergeFlow1ToFlow1
+											.equals(inFlow1ToFlow1)) {
+										if (!divergeFlow1ToFlow1
+												.equals(inFlowToFlow)) {
+											if (!divergeFlow1ToFlow1
+													.equals(divergeFlowToFlow)) {
+												if (!inFlow.equals(inFlow1)) {
+													if (!inFlow.equals(outFlow)) {
+														if (!flow.equals(flow1)) {
+															if (!step
+																	.equals(step1)) {
+																if (!divergeFlow
+																		.equals(inFlow1)) {
+																	if (!divergeFlow
+																			.equals(divergeFlow1)) {
+																		if (!divergeFlow
+																				.equals(inFlow)) {
+																			if (!divergeFlow
+																					.equals(outFlow)) {
+																				if (!divergeFlowToFlow
+																						.equals(inFlow1ToFlow1)) {
+																					if (!divergeFlowToFlow
+																							.equals(inFlowToFlow)) {
+																						if (process
+																								.getFlowElements()
+																								.contains(
+																										inFlow1)) {
+																							if (parallelConvGateway
+																									.equals(inFlow1
+																											.getTargetRef())) {
+																								if (parallelGateway
+																										.equals(divergeFlow1
+																												.getSourceRef())) {
+																									if (flow1
+																											.getSteps()
+																											.contains(
+																													step1)) {
+																										if (inFlow1
+																												.equals(inFlow1ToFlow1
+																														.getSource())) {
+																											if (flow1
+																													.equals(inFlow1ToFlow1
+																															.getTarget())) {
+																												if (inFlow1
+																														.equals(inFlow1ToStep1
+																																.getSource())) {
+																													if (step1
+																															.equals(inFlow1ToStep1
+																																	.getTarget())) {
+																														if (divergeFlow1
+																																.equals(divergeFlow1ToFlow1
+																																		.getSource())) {
+																															if (flow1
+																																	.equals(divergeFlow1ToFlow1
+																																			.getTarget())) {
+																																if (process
+																																		.getFlowElements()
+																																		.contains(
+																																				inFlow)) {
+																																	if (process
+																																			.getLaneSets()
+																																			.contains(
+																																					laneSet)) {
+																																		if (process
+																																				.getFlowElements()
+																																				.contains(
+																																						outFlow)) {
+																																			if (process
+																																					.getFlowElements()
+																																					.contains(
+																																							divergeFlow)) {
+																																				if (parallelConvGateway
+																																						.equals(inFlow
+																																								.getTargetRef())) {
+																																					if (parallelConvGateway
+																																							.equals(outFlow
+																																									.getSourceRef())) {
+																																						if (flow.getSteps()
+																																								.contains(
+																																										step)) {
+																																							if (inFlow
+																																									.equals(inFlowToFlow
+																																											.getSource())) {
+																																								if (flow.equals(inFlowToFlow
+																																										.getTarget())) {
+																																									if (inFlow
+																																											.equals(inFlowToStep
+																																													.getSource())) {
+																																										if (step.equals(inFlowToStep
+																																												.getTarget())) {
+																																											if (lane.getFlowNodeRefs()
+																																													.contains(
+																																															parallelConvGateway)) {
+																																												if (laneSet
+																																														.getLanes()
+																																														.contains(
+																																																lane)) {
+																																													if (parallelGateway
+																																															.equals(divergeFlow
+																																																	.getSourceRef())) {
+																																														if (divergeFlow
+																																																.equals(divergeFlowToFlow
+																																																		.getSource())) {
+																																															if (flow.equals(divergeFlowToFlow
+																																																	.getTarget())) {
+																																																for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
+																																																		.getOppositeReferenceTyped(
+																																																				flow1,
+																																																				ParallelStep.class,
+																																																				"invokedFlows")) {
+																																																	if (!parallelStep
+																																																			.equals(step1)) {
+																																																		if (!parallelStep
+																																																				.equals(step)) {
+																																																			if (parallelStep
+																																																					.getInvokedFlows()
+																																																					.contains(
+																																																							flow)) {
+																																																				if (pattern_ParallelConvergingGatewayTwoInputsRule_2_3_black_nac_0BBB(
+																																																						step,
+																																																						step1,
+																																																						parallelStep) == null) {
+																																																					for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																																																							.getOppositeReferenceTyped(
+																																																									parallelStep,
+																																																									Flow.class,
+																																																									"steps")) {
+																																																						if (!flow1
+																																																								.equals(initFlow)) {
+																																																							if (!flow
+																																																									.equals(initFlow)) {
+																																																								_result.add(new Object[] {
+																																																										process,
+																																																										inFlow1,
+																																																										parallelConvGateway,
+																																																										parallelGateway,
+																																																										divergeFlow1,
+																																																										flow1,
+																																																										inFlow1ToFlow1,
+																																																										step1,
+																																																										inFlow1ToStep1,
+																																																										parallelStep,
+																																																										divergeFlow1ToFlow1,
+																																																										inFlow,
+																																																										outFlow,
+																																																										flow,
+																																																										inFlowToFlow,
+																																																										step,
+																																																										inFlowToStep,
+																																																										initFlow,
+																																																										lane,
+																																																										laneSet,
+																																																										divergeFlow,
+																																																										divergeFlowToFlow });
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_3_greenBBBBBBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
+			Step step1, SequenceFlowToStep inFlow1ToStep1,
+			ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			SequenceFlow outFlow, ParallelFlow flow,
+			SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge process__inFlow1____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow1__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__inFlow1____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge divergeFlow1__parallelGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelGateway__divergeFlow1____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow1__step1____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow1ToFlow1__inFlow1____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow1ToFlow1__flow1____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow1ToStep1__inFlow1____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow1ToStep1__step1____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelStep__flow1____invokedFlows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge divergeFlow1ToFlow1__divergeFlow1____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge divergeFlow1ToFlow1__flow1____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__divergeFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge outFlow__parallelConvGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelConvGateway__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToFlow__inFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToStep__inFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToStep__step____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge initFlow__parallelStep____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelStep__flow____invokedFlows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__parallelConvGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge divergeFlow__parallelGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge parallelGateway__divergeFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge divergeFlowToFlow__divergeFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge divergeFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String process__inFlow1____flowElements_name_prime = "flowElements";
+		String inFlow1__parallelConvGateway____targetRef_name_prime = "targetRef";
+		String parallelConvGateway__inFlow1____incoming_name_prime = "incoming";
+		String divergeFlow1__parallelGateway____sourceRef_name_prime = "sourceRef";
+		String parallelGateway__divergeFlow1____outgoing_name_prime = "outgoing";
+		String flow1__step1____steps_name_prime = "steps";
+		String inFlow1ToFlow1__inFlow1____source_name_prime = "source";
+		String inFlow1ToFlow1__flow1____target_name_prime = "target";
+		String inFlow1ToStep1__inFlow1____source_name_prime = "source";
+		String inFlow1ToStep1__step1____target_name_prime = "target";
+		String parallelStep__flow1____invokedFlows_name_prime = "invokedFlows";
+		String divergeFlow1ToFlow1__divergeFlow1____source_name_prime = "source";
+		String divergeFlow1ToFlow1__flow1____target_name_prime = "target";
+		String process__inFlow____flowElements_name_prime = "flowElements";
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__outFlow____flowElements_name_prime = "flowElements";
+		String process__divergeFlow____flowElements_name_prime = "flowElements";
+		String inFlow__parallelConvGateway____targetRef_name_prime = "targetRef";
+		String parallelConvGateway__inFlow____incoming_name_prime = "incoming";
+		String outFlow__parallelConvGateway____sourceRef_name_prime = "sourceRef";
+		String parallelConvGateway__outFlow____outgoing_name_prime = "outgoing";
+		String flow__step____steps_name_prime = "steps";
+		String inFlowToFlow__inFlow____source_name_prime = "source";
+		String inFlowToFlow__flow____target_name_prime = "target";
+		String inFlowToStep__inFlow____source_name_prime = "source";
+		String inFlowToStep__step____target_name_prime = "target";
+		String initFlow__parallelStep____steps_name_prime = "steps";
+		String parallelStep__flow____invokedFlows_name_prime = "invokedFlows";
+		String lane__parallelConvGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		String divergeFlow__parallelGateway____sourceRef_name_prime = "sourceRef";
+		String parallelGateway__divergeFlow____outgoing_name_prime = "outgoing";
+		String divergeFlowToFlow__divergeFlow____source_name_prime = "source";
+		String divergeFlowToFlow__flow____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(process);
+		isApplicableMatch.getAllContextElements().add(inFlow1);
+		isApplicableMatch.getAllContextElements().add(parallelConvGateway);
+		isApplicableMatch.getAllContextElements().add(parallelGateway);
+		isApplicableMatch.getAllContextElements().add(divergeFlow1);
+		isApplicableMatch.getAllContextElements().add(flow1);
+		isApplicableMatch.getAllContextElements().add(inFlow1ToFlow1);
+		isApplicableMatch.getAllContextElements().add(step1);
+		isApplicableMatch.getAllContextElements().add(inFlow1ToStep1);
+		isApplicableMatch.getAllContextElements().add(parallelStep);
+		isApplicableMatch.getAllContextElements().add(divergeFlow1ToFlow1);
+		isApplicableMatch.getAllContextElements().add(inFlow);
+		isApplicableMatch.getAllContextElements().add(outFlow);
+		isApplicableMatch.getAllContextElements().add(flow);
+		isApplicableMatch.getAllContextElements().add(inFlowToFlow);
+		isApplicableMatch.getAllContextElements().add(step);
+		isApplicableMatch.getAllContextElements().add(inFlowToStep);
+		isApplicableMatch.getAllContextElements().add(initFlow);
+		isApplicableMatch.getAllContextElements().add(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet);
+		isApplicableMatch.getAllContextElements().add(divergeFlow);
+		isApplicableMatch.getAllContextElements().add(divergeFlowToFlow);
+		process__inFlow1____flowElements.setSrc(process);
+		process__inFlow1____flowElements.setTrg(inFlow1);
+		isApplicableMatch.getAllContextElements().add(
+				process__inFlow1____flowElements);
+		inFlow1__parallelConvGateway____targetRef.setSrc(inFlow1);
+		inFlow1__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow1__parallelConvGateway____targetRef);
+		parallelConvGateway__inFlow1____incoming.setSrc(parallelConvGateway);
+		parallelConvGateway__inFlow1____incoming.setTrg(inFlow1);
+		isApplicableMatch.getAllContextElements().add(
+				parallelConvGateway__inFlow1____incoming);
+		divergeFlow1__parallelGateway____sourceRef.setSrc(divergeFlow1);
+		divergeFlow1__parallelGateway____sourceRef.setTrg(parallelGateway);
+		isApplicableMatch.getAllContextElements().add(
+				divergeFlow1__parallelGateway____sourceRef);
+		parallelGateway__divergeFlow1____outgoing.setSrc(parallelGateway);
+		parallelGateway__divergeFlow1____outgoing.setTrg(divergeFlow1);
+		isApplicableMatch.getAllContextElements().add(
+				parallelGateway__divergeFlow1____outgoing);
+		flow1__step1____steps.setSrc(flow1);
+		flow1__step1____steps.setTrg(step1);
+		isApplicableMatch.getAllContextElements().add(flow1__step1____steps);
+		inFlow1ToFlow1__inFlow1____source.setSrc(inFlow1ToFlow1);
+		inFlow1ToFlow1__inFlow1____source.setTrg(inFlow1);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow1ToFlow1__inFlow1____source);
+		inFlow1ToFlow1__flow1____target.setSrc(inFlow1ToFlow1);
+		inFlow1ToFlow1__flow1____target.setTrg(flow1);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow1ToFlow1__flow1____target);
+		inFlow1ToStep1__inFlow1____source.setSrc(inFlow1ToStep1);
+		inFlow1ToStep1__inFlow1____source.setTrg(inFlow1);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow1ToStep1__inFlow1____source);
+		inFlow1ToStep1__step1____target.setSrc(inFlow1ToStep1);
+		inFlow1ToStep1__step1____target.setTrg(step1);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow1ToStep1__step1____target);
+		parallelStep__flow1____invokedFlows.setSrc(parallelStep);
+		parallelStep__flow1____invokedFlows.setTrg(flow1);
+		isApplicableMatch.getAllContextElements().add(
+				parallelStep__flow1____invokedFlows);
+		divergeFlow1ToFlow1__divergeFlow1____source.setSrc(divergeFlow1ToFlow1);
+		divergeFlow1ToFlow1__divergeFlow1____source.setTrg(divergeFlow1);
+		isApplicableMatch.getAllContextElements().add(
+				divergeFlow1ToFlow1__divergeFlow1____source);
+		divergeFlow1ToFlow1__flow1____target.setSrc(divergeFlow1ToFlow1);
+		divergeFlow1ToFlow1__flow1____target.setTrg(flow1);
+		isApplicableMatch.getAllContextElements().add(
+				divergeFlow1ToFlow1__flow1____target);
+		process__inFlow____flowElements.setSrc(process);
+		process__inFlow____flowElements.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__inFlow____flowElements);
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		isApplicableMatch.getAllContextElements().add(
+				process__laneSet____laneSets);
+		process__outFlow____flowElements.setSrc(process);
+		process__outFlow____flowElements.setTrg(outFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__outFlow____flowElements);
+		process__divergeFlow____flowElements.setSrc(process);
+		process__divergeFlow____flowElements.setTrg(divergeFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__divergeFlow____flowElements);
+		inFlow__parallelConvGateway____targetRef.setSrc(inFlow);
+		inFlow__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow__parallelConvGateway____targetRef);
+		parallelConvGateway__inFlow____incoming.setSrc(parallelConvGateway);
+		parallelConvGateway__inFlow____incoming.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				parallelConvGateway__inFlow____incoming);
+		outFlow__parallelConvGateway____sourceRef.setSrc(outFlow);
+		outFlow__parallelConvGateway____sourceRef.setTrg(parallelConvGateway);
+		isApplicableMatch.getAllContextElements().add(
+				outFlow__parallelConvGateway____sourceRef);
+		parallelConvGateway__outFlow____outgoing.setSrc(parallelConvGateway);
+		parallelConvGateway__outFlow____outgoing.setTrg(outFlow);
+		isApplicableMatch.getAllContextElements().add(
+				parallelConvGateway__outFlow____outgoing);
+		flow__step____steps.setSrc(flow);
+		flow__step____steps.setTrg(step);
+		isApplicableMatch.getAllContextElements().add(flow__step____steps);
+		inFlowToFlow__inFlow____source.setSrc(inFlowToFlow);
+		inFlowToFlow__inFlow____source.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToFlow__inFlow____source);
+		inFlowToFlow__flow____target.setSrc(inFlowToFlow);
+		inFlowToFlow__flow____target.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToFlow__flow____target);
+		inFlowToStep__inFlow____source.setSrc(inFlowToStep);
+		inFlowToStep__inFlow____source.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToStep__inFlow____source);
+		inFlowToStep__step____target.setSrc(inFlowToStep);
+		inFlowToStep__step____target.setTrg(step);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToStep__step____target);
+		initFlow__parallelStep____steps.setSrc(initFlow);
+		initFlow__parallelStep____steps.setTrg(parallelStep);
+		isApplicableMatch.getAllContextElements().add(
+				initFlow__parallelStep____steps);
+		parallelStep__flow____invokedFlows.setSrc(parallelStep);
+		parallelStep__flow____invokedFlows.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(
+				parallelStep__flow____invokedFlows);
+		lane__parallelConvGateway____flowNodeRefs.setSrc(lane);
+		lane__parallelConvGateway____flowNodeRefs.setTrg(parallelConvGateway);
+		isApplicableMatch.getAllContextElements().add(
+				lane__parallelConvGateway____flowNodeRefs);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet__lane____lanes);
+		divergeFlow__parallelGateway____sourceRef.setSrc(divergeFlow);
+		divergeFlow__parallelGateway____sourceRef.setTrg(parallelGateway);
+		isApplicableMatch.getAllContextElements().add(
+				divergeFlow__parallelGateway____sourceRef);
+		parallelGateway__divergeFlow____outgoing.setSrc(parallelGateway);
+		parallelGateway__divergeFlow____outgoing.setTrg(divergeFlow);
+		isApplicableMatch.getAllContextElements().add(
+				parallelGateway__divergeFlow____outgoing);
+		divergeFlowToFlow__divergeFlow____source.setSrc(divergeFlowToFlow);
+		divergeFlowToFlow__divergeFlow____source.setTrg(divergeFlow);
+		isApplicableMatch.getAllContextElements().add(
+				divergeFlowToFlow__divergeFlow____source);
+		divergeFlowToFlow__flow____target.setSrc(divergeFlowToFlow);
+		divergeFlowToFlow__flow____target.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(
+				divergeFlowToFlow__flow____target);
+		process__inFlow1____flowElements
+				.setName(process__inFlow1____flowElements_name_prime);
+		inFlow1__parallelConvGateway____targetRef
+				.setName(inFlow1__parallelConvGateway____targetRef_name_prime);
+		parallelConvGateway__inFlow1____incoming
+				.setName(parallelConvGateway__inFlow1____incoming_name_prime);
+		divergeFlow1__parallelGateway____sourceRef
+				.setName(divergeFlow1__parallelGateway____sourceRef_name_prime);
+		parallelGateway__divergeFlow1____outgoing
+				.setName(parallelGateway__divergeFlow1____outgoing_name_prime);
+		flow1__step1____steps.setName(flow1__step1____steps_name_prime);
+		inFlow1ToFlow1__inFlow1____source
+				.setName(inFlow1ToFlow1__inFlow1____source_name_prime);
+		inFlow1ToFlow1__flow1____target
+				.setName(inFlow1ToFlow1__flow1____target_name_prime);
+		inFlow1ToStep1__inFlow1____source
+				.setName(inFlow1ToStep1__inFlow1____source_name_prime);
+		inFlow1ToStep1__step1____target
+				.setName(inFlow1ToStep1__step1____target_name_prime);
+		parallelStep__flow1____invokedFlows
+				.setName(parallelStep__flow1____invokedFlows_name_prime);
+		divergeFlow1ToFlow1__divergeFlow1____source
+				.setName(divergeFlow1ToFlow1__divergeFlow1____source_name_prime);
+		divergeFlow1ToFlow1__flow1____target
+				.setName(divergeFlow1ToFlow1__flow1____target_name_prime);
+		process__inFlow____flowElements
+				.setName(process__inFlow____flowElements_name_prime);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__outFlow____flowElements
+				.setName(process__outFlow____flowElements_name_prime);
+		process__divergeFlow____flowElements
+				.setName(process__divergeFlow____flowElements_name_prime);
+		inFlow__parallelConvGateway____targetRef
+				.setName(inFlow__parallelConvGateway____targetRef_name_prime);
+		parallelConvGateway__inFlow____incoming
+				.setName(parallelConvGateway__inFlow____incoming_name_prime);
+		outFlow__parallelConvGateway____sourceRef
+				.setName(outFlow__parallelConvGateway____sourceRef_name_prime);
+		parallelConvGateway__outFlow____outgoing
+				.setName(parallelConvGateway__outFlow____outgoing_name_prime);
+		flow__step____steps.setName(flow__step____steps_name_prime);
+		inFlowToFlow__inFlow____source
+				.setName(inFlowToFlow__inFlow____source_name_prime);
+		inFlowToFlow__flow____target
+				.setName(inFlowToFlow__flow____target_name_prime);
+		inFlowToStep__inFlow____source
+				.setName(inFlowToStep__inFlow____source_name_prime);
+		inFlowToStep__step____target
+				.setName(inFlowToStep__step____target_name_prime);
+		initFlow__parallelStep____steps
+				.setName(initFlow__parallelStep____steps_name_prime);
+		parallelStep__flow____invokedFlows
+				.setName(parallelStep__flow____invokedFlows_name_prime);
+		lane__parallelConvGateway____flowNodeRefs
+				.setName(lane__parallelConvGateway____flowNodeRefs_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		divergeFlow__parallelGateway____sourceRef
+				.setName(divergeFlow__parallelGateway____sourceRef_name_prime);
+		parallelGateway__divergeFlow____outgoing
+				.setName(parallelGateway__divergeFlow____outgoing_name_prime);
+		divergeFlowToFlow__divergeFlow____source
+				.setName(divergeFlowToFlow__divergeFlow____source_name_prime);
+		divergeFlowToFlow__flow____target
+				.setName(divergeFlowToFlow__flow____target_name_prime);
+		return new Object[] { process, inFlow1, parallelConvGateway,
+				parallelGateway, divergeFlow1, flow1, inFlow1ToFlow1, step1,
+				inFlow1ToStep1, parallelStep, divergeFlow1ToFlow1, inFlow,
+				outFlow, flow, inFlowToFlow, step, inFlowToStep, initFlow,
+				lane, laneSet, divergeFlow, divergeFlowToFlow,
+				isApplicableMatch, process__inFlow1____flowElements,
+				inFlow1__parallelConvGateway____targetRef,
+				parallelConvGateway__inFlow1____incoming,
+				divergeFlow1__parallelGateway____sourceRef,
+				parallelGateway__divergeFlow1____outgoing,
+				flow1__step1____steps, inFlow1ToFlow1__inFlow1____source,
+				inFlow1ToFlow1__flow1____target,
+				inFlow1ToStep1__inFlow1____source,
+				inFlow1ToStep1__step1____target,
+				parallelStep__flow1____invokedFlows,
+				divergeFlow1ToFlow1__divergeFlow1____source,
+				divergeFlow1ToFlow1__flow1____target,
+				process__inFlow____flowElements, process__laneSet____laneSets,
+				process__outFlow____flowElements,
+				process__divergeFlow____flowElements,
+				inFlow__parallelConvGateway____targetRef,
+				parallelConvGateway__inFlow____incoming,
+				outFlow__parallelConvGateway____sourceRef,
+				parallelConvGateway__outFlow____outgoing, flow__step____steps,
+				inFlowToFlow__inFlow____source, inFlowToFlow__flow____target,
+				inFlowToStep__inFlow____source, inFlowToStep__step____target,
+				initFlow__parallelStep____steps,
+				parallelStep__flow____invokedFlows,
+				lane__parallelConvGateway____flowNodeRefs,
+				laneSet__lane____lanes,
+				divergeFlow__parallelGateway____sourceRef,
+				parallelGateway__divergeFlow____outgoing,
+				divergeFlowToFlow__divergeFlow____source,
+				divergeFlowToFlow__flow____target };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_4_bindingFBBBBBBBBBBBBBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this,
+			IsApplicableMatch isApplicableMatch, bpmn2.Process process,
+			SequenceFlow inFlow1, ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
+			Step step1, SequenceFlowToStep inFlow1ToStep1,
+			ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			SequenceFlow outFlow, ParallelFlow flow,
+			SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
+				isApplicableMatch, process, inFlow1, parallelConvGateway,
+				parallelGateway, divergeFlow1, flow1, inFlow1ToFlow1, step1,
+				inFlow1ToStep1, parallelStep, divergeFlow1ToFlow1, inFlow,
+				outFlow, flow, inFlowToFlow, step, inFlowToStep, initFlow,
+				lane, laneSet, divergeFlow, divergeFlowToFlow);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, process,
+					inFlow1, parallelConvGateway, parallelGateway,
+					divergeFlow1, flow1, inFlow1ToFlow1, step1, inFlow1ToStep1,
+					parallelStep, divergeFlow1ToFlow1, inFlow, outFlow, flow,
+					inFlowToFlow, step, inFlowToStep, initFlow, lane, laneSet,
+					divergeFlow, divergeFlowToFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_4_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_4_bindingAndBlackFBBBBBBBBBBBBBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this,
+			IsApplicableMatch isApplicableMatch, bpmn2.Process process,
+			SequenceFlow inFlow1, ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
+			Step step1, SequenceFlowToStep inFlow1ToStep1,
+			ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			SequenceFlow outFlow, ParallelFlow flow,
+			SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_2_4_binding = pattern_ParallelConvergingGatewayTwoInputsRule_2_4_bindingFBBBBBBBBBBBBBBBBBBBBBBBB(
+				_this, isApplicableMatch, process, inFlow1,
+				parallelConvGateway, parallelGateway, divergeFlow1, flow1,
+				inFlow1ToFlow1, step1, inFlow1ToStep1, parallelStep,
+				divergeFlow1ToFlow1, inFlow, outFlow, flow, inFlowToFlow, step,
+				inFlowToStep, initFlow, lane, laneSet, divergeFlow,
+				divergeFlowToFlow);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_2_4_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelConvergingGatewayTwoInputsRule_2_4_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_2_4_black = pattern_ParallelConvergingGatewayTwoInputsRule_2_4_blackB(csp);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_2_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, process,
+						inFlow1, parallelConvGateway, parallelGateway,
+						divergeFlow1, flow1, inFlow1ToFlow1, step1,
+						inFlow1ToStep1, parallelStep, divergeFlow1ToFlow1,
+						inFlow, outFlow, flow, inFlowToFlow, step,
+						inFlowToStep, initFlow, lane, laneSet, divergeFlow,
+						divergeFlowToFlow };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_2_5_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "ParallelConvergingGatewayTwoInputsRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_ParallelConvergingGatewayTwoInputsRule_2_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_10_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_10_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_10_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_10_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_10_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_10_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_10_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_10_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_145706 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_1BB(
+			bpmn2.Process process, ParallelGateway parallelConvGateway) {
+		if (process.getFlowElements().contains(parallelConvGateway)) {
+			return new Object[] { process, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_2BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_3BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_4BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_10_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_targetRef) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpInFlow1 = _edge_targetRef.getSrc();
+		if (tmpInFlow1 instanceof SequenceFlow) {
+			SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+			EObject tmpParallelConvGateway = _edge_targetRef.getTrg();
+			if (tmpParallelConvGateway instanceof ParallelGateway) {
+				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+				if (parallelConvGateway.equals(inFlow1.getTargetRef())) {
+					for (SequenceFlow inFlow : parallelConvGateway
+							.getIncoming()) {
+						if (!inFlow.equals(inFlow1)) {
+							for (SequenceFlow outFlow : parallelConvGateway
+									.getOutgoing()) {
+								if (!inFlow1.equals(outFlow)) {
+									if (!inFlow.equals(outFlow)) {
+										if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_0B(outFlow) == null) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_3BB(
+													outFlow,
+													parallelConvGateway) == null) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																inFlow1,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			outFlow)) {
+																if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_1BB(
+																		process,
+																		parallelConvGateway) == null) {
+																	for (LaneSet laneSet : process
+																			.getLaneSets()) {
+																		for (FlowElement tmpDivergeFlow : process
+																				.getFlowElements()) {
+																			if (tmpDivergeFlow instanceof SequenceFlow) {
+																				SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																				if (!divergeFlow
+																						.equals(inFlow1)) {
+																					if (!divergeFlow
+																							.equals(inFlow)) {
+																						if (!divergeFlow
+																								.equals(outFlow)) {
+																							FlowNode tmpParallelGateway = divergeFlow
+																									.getSourceRef();
+																							if (tmpParallelGateway instanceof ParallelGateway) {
+																								ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																								if (!parallelConvGateway
+																										.equals(parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_4BB(
+																											divergeFlow,
+																											parallelConvGateway) == null) {
+																										for (Lane lane : laneSet
+																												.getLanes()) {
+																											if (lane.getFlowNodeRefs()
+																													.contains(
+																															parallelConvGateway)) {
+																												for (SequenceFlow divergeFlow1 : parallelGateway
+																														.getOutgoing()) {
+																													if (!divergeFlow1
+																															.equals(inFlow1)) {
+																														if (!divergeFlow1
+																																.equals(inFlow)) {
+																															if (!divergeFlow1
+																																	.equals(outFlow)) {
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_2BB(
+																																			divergeFlow1,
+																																			parallelConvGateway) == null) {
+																																		_result.add(new Object[] {
+																																				process,
+																																				inFlow1,
+																																				parallelConvGateway,
+																																				parallelGateway,
+																																				divergeFlow1,
+																																				inFlow,
+																																				outFlow,
+																																				lane,
+																																				laneSet,
+																																				divergeFlow,
+																																				_edge_targetRef });
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_10_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_10_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_10_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_11_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_11_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_11_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_11_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_11_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_11_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_11_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_11_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_850519 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_1BB(
+			bpmn2.Process process, ParallelGateway parallelConvGateway) {
+		if (process.getFlowElements().contains(parallelConvGateway)) {
+			return new Object[] { process, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_2BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_3BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_4BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_11_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_incoming) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpParallelConvGateway = _edge_incoming.getSrc();
+		if (tmpParallelConvGateway instanceof ParallelGateway) {
+			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+			EObject tmpInFlow1 = _edge_incoming.getTrg();
+			if (tmpInFlow1 instanceof SequenceFlow) {
+				SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+				if (parallelConvGateway.equals(inFlow1.getTargetRef())) {
+					for (SequenceFlow inFlow : parallelConvGateway
+							.getIncoming()) {
+						if (!inFlow.equals(inFlow1)) {
+							for (SequenceFlow outFlow : parallelConvGateway
+									.getOutgoing()) {
+								if (!inFlow1.equals(outFlow)) {
+									if (!inFlow.equals(outFlow)) {
+										if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_0B(outFlow) == null) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_3BB(
+													outFlow,
+													parallelConvGateway) == null) {
+												for (Lane lane : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																parallelConvGateway,
+																Lane.class,
+																"flowNodeRefs")) {
+													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+															.getOppositeReferenceTyped(
+																	inFlow1,
+																	FlowElementsContainer.class,
+																	"flowElements")) {
+														if (tmpProcess instanceof bpmn2.Process) {
+															bpmn2.Process process = (bpmn2.Process) tmpProcess;
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow)) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				outFlow)) {
+																	if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_1BB(
+																			process,
+																			parallelConvGateway) == null) {
+																		for (LaneSet laneSet : process
+																				.getLaneSets()) {
+																			if (laneSet
+																					.getLanes()
+																					.contains(
+																							lane)) {
+																				for (FlowElement tmpDivergeFlow : process
+																						.getFlowElements()) {
+																					if (tmpDivergeFlow instanceof SequenceFlow) {
+																						SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																						if (!divergeFlow
+																								.equals(inFlow1)) {
+																							if (!divergeFlow
+																									.equals(inFlow)) {
+																								if (!divergeFlow
+																										.equals(outFlow)) {
+																									FlowNode tmpParallelGateway = divergeFlow
+																											.getSourceRef();
+																									if (tmpParallelGateway instanceof ParallelGateway) {
+																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																										if (!parallelConvGateway
+																												.equals(parallelGateway)) {
+																											if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_4BB(
+																													divergeFlow,
+																													parallelConvGateway) == null) {
+																												for (SequenceFlow divergeFlow1 : parallelGateway
+																														.getOutgoing()) {
+																													if (!divergeFlow1
+																															.equals(inFlow1)) {
+																														if (!divergeFlow1
+																																.equals(inFlow)) {
+																															if (!divergeFlow1
+																																	.equals(outFlow)) {
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_2BB(
+																																			divergeFlow1,
+																																			parallelConvGateway) == null) {
+																																		_result.add(new Object[] {
+																																				process,
+																																				inFlow1,
+																																				parallelConvGateway,
+																																				parallelGateway,
+																																				divergeFlow1,
+																																				inFlow,
+																																				outFlow,
+																																				lane,
+																																				laneSet,
+																																				divergeFlow,
+																																				_edge_incoming });
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_11_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_11_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_11_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_12_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_12_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_12_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_12_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_12_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_12_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_12_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_12_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_670282 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_1BB(
+			bpmn2.Process process, ParallelGateway parallelConvGateway) {
+		if (process.getFlowElements().contains(parallelConvGateway)) {
+			return new Object[] { process, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_2BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_3BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_4BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_12_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_flowElements) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpOutFlow = _edge_flowElements.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (process.getFlowElements().contains(outFlow)) {
+					FlowNode tmpParallelConvGateway = outFlow.getSourceRef();
+					if (tmpParallelConvGateway instanceof ParallelGateway) {
+						ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+						if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_0B(outFlow) == null) {
+							if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_1BB(
+									process, parallelConvGateway) == null) {
+								if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_3BB(
+										outFlow, parallelConvGateway) == null) {
+									for (FlowElement tmpInFlow1 : process
+											.getFlowElements()) {
+										if (tmpInFlow1 instanceof SequenceFlow) {
+											SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+											if (!inFlow1.equals(outFlow)) {
+												if (parallelConvGateway
+														.equals(inFlow1
+																.getTargetRef())) {
+													for (FlowElement tmpInFlow : process
+															.getFlowElements()) {
+														if (tmpInFlow instanceof SequenceFlow) {
+															SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+															if (!inFlow
+																	.equals(inFlow1)) {
+																if (!inFlow
+																		.equals(outFlow)) {
+																	if (parallelConvGateway
+																			.equals(inFlow
+																					.getTargetRef())) {
+																		for (LaneSet laneSet : process
+																				.getLaneSets()) {
+																			for (FlowElement tmpDivergeFlow : process
+																					.getFlowElements()) {
+																				if (tmpDivergeFlow instanceof SequenceFlow) {
+																					SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																					if (!divergeFlow
+																							.equals(inFlow1)) {
+																						if (!divergeFlow
+																								.equals(inFlow)) {
+																							if (!divergeFlow
+																									.equals(outFlow)) {
+																								FlowNode tmpParallelGateway = divergeFlow
+																										.getSourceRef();
+																								if (tmpParallelGateway instanceof ParallelGateway) {
+																									ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																									if (!parallelConvGateway
+																											.equals(parallelGateway)) {
+																										if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_4BB(
+																												divergeFlow,
+																												parallelConvGateway) == null) {
+																											for (Lane lane : laneSet
+																													.getLanes()) {
+																												if (lane.getFlowNodeRefs()
+																														.contains(
+																																parallelConvGateway)) {
+																													for (SequenceFlow divergeFlow1 : parallelGateway
+																															.getOutgoing()) {
+																														if (!divergeFlow1
+																																.equals(inFlow1)) {
+																															if (!divergeFlow1
+																																	.equals(inFlow)) {
+																																if (!divergeFlow1
+																																		.equals(outFlow)) {
+																																	if (!divergeFlow
+																																			.equals(divergeFlow1)) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_2BB(
+																																				divergeFlow1,
+																																				parallelConvGateway) == null) {
+																																			_result.add(new Object[] {
+																																					process,
+																																					inFlow1,
+																																					parallelConvGateway,
+																																					parallelGateway,
+																																					divergeFlow1,
+																																					inFlow,
+																																					outFlow,
+																																					lane,
+																																					laneSet,
+																																					divergeFlow,
+																																					_edge_flowElements });
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_12_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_12_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_12_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_13_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_13_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_13_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_13_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_13_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_13_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_13_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_13_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_773545 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_1BB(
+			bpmn2.Process process, ParallelGateway parallelConvGateway) {
+		if (process.getFlowElements().contains(parallelConvGateway)) {
+			return new Object[] { process, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_2BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_3BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_4BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_13_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_targetRef) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpInFlow = _edge_targetRef.getSrc();
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			EObject tmpParallelConvGateway = _edge_targetRef.getTrg();
+			if (tmpParallelConvGateway instanceof ParallelGateway) {
+				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+				if (parallelConvGateway.equals(inFlow.getTargetRef())) {
+					for (SequenceFlow inFlow1 : parallelConvGateway
+							.getIncoming()) {
+						if (!inFlow.equals(inFlow1)) {
+							for (SequenceFlow outFlow : parallelConvGateway
+									.getOutgoing()) {
+								if (!inFlow1.equals(outFlow)) {
+									if (!inFlow.equals(outFlow)) {
+										if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_0B(outFlow) == null) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_3BB(
+													outFlow,
+													parallelConvGateway) == null) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																inFlow,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow1)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			outFlow)) {
+																if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_1BB(
+																		process,
+																		parallelConvGateway) == null) {
+																	for (LaneSet laneSet : process
+																			.getLaneSets()) {
+																		for (FlowElement tmpDivergeFlow : process
+																				.getFlowElements()) {
+																			if (tmpDivergeFlow instanceof SequenceFlow) {
+																				SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																				if (!divergeFlow
+																						.equals(inFlow1)) {
+																					if (!divergeFlow
+																							.equals(inFlow)) {
+																						if (!divergeFlow
+																								.equals(outFlow)) {
+																							FlowNode tmpParallelGateway = divergeFlow
+																									.getSourceRef();
+																							if (tmpParallelGateway instanceof ParallelGateway) {
+																								ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																								if (!parallelConvGateway
+																										.equals(parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_4BB(
+																											divergeFlow,
+																											parallelConvGateway) == null) {
+																										for (Lane lane : laneSet
+																												.getLanes()) {
+																											if (lane.getFlowNodeRefs()
+																													.contains(
+																															parallelConvGateway)) {
+																												for (SequenceFlow divergeFlow1 : parallelGateway
+																														.getOutgoing()) {
+																													if (!divergeFlow1
+																															.equals(inFlow1)) {
+																														if (!divergeFlow1
+																																.equals(inFlow)) {
+																															if (!divergeFlow1
+																																	.equals(outFlow)) {
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_2BB(
+																																			divergeFlow1,
+																																			parallelConvGateway) == null) {
+																																		_result.add(new Object[] {
+																																				process,
+																																				inFlow1,
+																																				parallelConvGateway,
+																																				parallelGateway,
+																																				divergeFlow1,
+																																				inFlow,
+																																				outFlow,
+																																				lane,
+																																				laneSet,
+																																				divergeFlow,
+																																				_edge_targetRef });
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_13_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_13_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_13_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_14_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_14_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_14_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_14_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_14_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_14_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_14_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_14_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_654821 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_1BB(
+			bpmn2.Process process, ParallelGateway parallelConvGateway) {
+		if (process.getFlowElements().contains(parallelConvGateway)) {
+			return new Object[] { process, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_2BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_3BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_4BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_14_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_incoming) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpParallelConvGateway = _edge_incoming.getSrc();
+		if (tmpParallelConvGateway instanceof ParallelGateway) {
+			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+			EObject tmpInFlow = _edge_incoming.getTrg();
+			if (tmpInFlow instanceof SequenceFlow) {
+				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+				if (parallelConvGateway.equals(inFlow.getTargetRef())) {
+					for (SequenceFlow inFlow1 : parallelConvGateway
+							.getIncoming()) {
+						if (!inFlow.equals(inFlow1)) {
+							for (SequenceFlow outFlow : parallelConvGateway
+									.getOutgoing()) {
+								if (!inFlow1.equals(outFlow)) {
+									if (!inFlow.equals(outFlow)) {
+										if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_0B(outFlow) == null) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_3BB(
+													outFlow,
+													parallelConvGateway) == null) {
+												for (Lane lane : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																parallelConvGateway,
+																Lane.class,
+																"flowNodeRefs")) {
+													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+															.getOppositeReferenceTyped(
+																	inFlow,
+																	FlowElementsContainer.class,
+																	"flowElements")) {
+														if (tmpProcess instanceof bpmn2.Process) {
+															bpmn2.Process process = (bpmn2.Process) tmpProcess;
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow1)) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				outFlow)) {
+																	if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_1BB(
+																			process,
+																			parallelConvGateway) == null) {
+																		for (LaneSet laneSet : process
+																				.getLaneSets()) {
+																			if (laneSet
+																					.getLanes()
+																					.contains(
+																							lane)) {
+																				for (FlowElement tmpDivergeFlow : process
+																						.getFlowElements()) {
+																					if (tmpDivergeFlow instanceof SequenceFlow) {
+																						SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																						if (!divergeFlow
+																								.equals(inFlow1)) {
+																							if (!divergeFlow
+																									.equals(inFlow)) {
+																								if (!divergeFlow
+																										.equals(outFlow)) {
+																									FlowNode tmpParallelGateway = divergeFlow
+																											.getSourceRef();
+																									if (tmpParallelGateway instanceof ParallelGateway) {
+																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																										if (!parallelConvGateway
+																												.equals(parallelGateway)) {
+																											if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_4BB(
+																													divergeFlow,
+																													parallelConvGateway) == null) {
+																												for (SequenceFlow divergeFlow1 : parallelGateway
+																														.getOutgoing()) {
+																													if (!divergeFlow1
+																															.equals(inFlow1)) {
+																														if (!divergeFlow1
+																																.equals(inFlow)) {
+																															if (!divergeFlow1
+																																	.equals(outFlow)) {
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_2BB(
+																																			divergeFlow1,
+																																			parallelConvGateway) == null) {
+																																		_result.add(new Object[] {
+																																				process,
+																																				inFlow1,
+																																				parallelConvGateway,
+																																				parallelGateway,
+																																				divergeFlow1,
+																																				inFlow,
+																																				outFlow,
+																																				lane,
+																																				laneSet,
+																																				divergeFlow,
+																																				_edge_incoming });
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_14_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_14_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_14_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_15_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_15_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_15_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_15_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_15_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_15_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_15_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_15_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_468404 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_1BB(
+			bpmn2.Process process, ParallelGateway parallelConvGateway) {
+		if (process.getFlowElements().contains(parallelConvGateway)) {
+			return new Object[] { process, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_2BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_3BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_4BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_15_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_sourceRef) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpOutFlow = _edge_sourceRef.getSrc();
+		if (tmpOutFlow instanceof SequenceFlow) {
+			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+			EObject tmpParallelConvGateway = _edge_sourceRef.getTrg();
+			if (tmpParallelConvGateway instanceof ParallelGateway) {
+				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+				if (parallelConvGateway.equals(outFlow.getSourceRef())) {
+					if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_0B(outFlow) == null) {
+						if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_3BB(
+								outFlow, parallelConvGateway) == null) {
+							for (SequenceFlow inFlow1 : parallelConvGateway
+									.getIncoming()) {
+								if (!inFlow1.equals(outFlow)) {
+									for (SequenceFlow inFlow : parallelConvGateway
+											.getIncoming()) {
+										if (!inFlow.equals(inFlow1)) {
+											if (!inFlow.equals(outFlow)) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																outFlow,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow1)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow)) {
+																if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_1BB(
+																		process,
+																		parallelConvGateway) == null) {
+																	for (LaneSet laneSet : process
+																			.getLaneSets()) {
+																		for (FlowElement tmpDivergeFlow : process
+																				.getFlowElements()) {
+																			if (tmpDivergeFlow instanceof SequenceFlow) {
+																				SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																				if (!divergeFlow
+																						.equals(inFlow1)) {
+																					if (!divergeFlow
+																							.equals(inFlow)) {
+																						if (!divergeFlow
+																								.equals(outFlow)) {
+																							FlowNode tmpParallelGateway = divergeFlow
+																									.getSourceRef();
+																							if (tmpParallelGateway instanceof ParallelGateway) {
+																								ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																								if (!parallelConvGateway
+																										.equals(parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_4BB(
+																											divergeFlow,
+																											parallelConvGateway) == null) {
+																										for (Lane lane : laneSet
+																												.getLanes()) {
+																											if (lane.getFlowNodeRefs()
+																													.contains(
+																															parallelConvGateway)) {
+																												for (SequenceFlow divergeFlow1 : parallelGateway
+																														.getOutgoing()) {
+																													if (!divergeFlow1
+																															.equals(inFlow1)) {
+																														if (!divergeFlow1
+																																.equals(inFlow)) {
+																															if (!divergeFlow1
+																																	.equals(outFlow)) {
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_2BB(
+																																			divergeFlow1,
+																																			parallelConvGateway) == null) {
+																																		_result.add(new Object[] {
+																																				process,
+																																				inFlow1,
+																																				parallelConvGateway,
+																																				parallelGateway,
+																																				divergeFlow1,
+																																				inFlow,
+																																				outFlow,
+																																				lane,
+																																				laneSet,
+																																				divergeFlow,
+																																				_edge_sourceRef });
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_15_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_15_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_15_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_16_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_16_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_16_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_16_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_16_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_16_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_16_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_16_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_221567 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_1BB(
+			bpmn2.Process process, ParallelGateway parallelConvGateway) {
+		if (process.getFlowElements().contains(parallelConvGateway)) {
+			return new Object[] { process, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_2BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_3BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_4BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_16_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_outgoing) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpParallelConvGateway = _edge_outgoing.getSrc();
+		if (tmpParallelConvGateway instanceof ParallelGateway) {
+			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+			EObject tmpOutFlow = _edge_outgoing.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (parallelConvGateway.equals(outFlow.getSourceRef())) {
+					if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_0B(outFlow) == null) {
+						if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_3BB(
+								outFlow, parallelConvGateway) == null) {
+							for (SequenceFlow inFlow1 : parallelConvGateway
+									.getIncoming()) {
+								if (!inFlow1.equals(outFlow)) {
+									for (SequenceFlow inFlow : parallelConvGateway
+											.getIncoming()) {
+										if (!inFlow.equals(inFlow1)) {
+											if (!inFlow.equals(outFlow)) {
+												for (Lane lane : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																parallelConvGateway,
+																Lane.class,
+																"flowNodeRefs")) {
+													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+															.getOppositeReferenceTyped(
+																	outFlow,
+																	FlowElementsContainer.class,
+																	"flowElements")) {
+														if (tmpProcess instanceof bpmn2.Process) {
+															bpmn2.Process process = (bpmn2.Process) tmpProcess;
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow1)) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				inFlow)) {
+																	if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_1BB(
+																			process,
+																			parallelConvGateway) == null) {
+																		for (LaneSet laneSet : process
+																				.getLaneSets()) {
+																			if (laneSet
+																					.getLanes()
+																					.contains(
+																							lane)) {
+																				for (FlowElement tmpDivergeFlow : process
+																						.getFlowElements()) {
+																					if (tmpDivergeFlow instanceof SequenceFlow) {
+																						SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																						if (!divergeFlow
+																								.equals(inFlow1)) {
+																							if (!divergeFlow
+																									.equals(inFlow)) {
+																								if (!divergeFlow
+																										.equals(outFlow)) {
+																									FlowNode tmpParallelGateway = divergeFlow
+																											.getSourceRef();
+																									if (tmpParallelGateway instanceof ParallelGateway) {
+																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																										if (!parallelConvGateway
+																												.equals(parallelGateway)) {
+																											if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_4BB(
+																													divergeFlow,
+																													parallelConvGateway) == null) {
+																												for (SequenceFlow divergeFlow1 : parallelGateway
+																														.getOutgoing()) {
+																													if (!divergeFlow1
+																															.equals(inFlow1)) {
+																														if (!divergeFlow1
+																																.equals(inFlow)) {
+																															if (!divergeFlow1
+																																	.equals(outFlow)) {
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_2BB(
+																																			divergeFlow1,
+																																			parallelConvGateway) == null) {
+																																		_result.add(new Object[] {
+																																				process,
+																																				inFlow1,
+																																				parallelConvGateway,
+																																				parallelGateway,
+																																				divergeFlow1,
+																																				inFlow,
+																																				outFlow,
+																																				lane,
+																																				laneSet,
+																																				divergeFlow,
+																																				_edge_outgoing });
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_16_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_16_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_16_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_17_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_17_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_17_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_17_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_17_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_17_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_17_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_17_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_83886 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_1BB(
+			bpmn2.Process process, ParallelGateway parallelConvGateway) {
+		if (process.getFlowElements().contains(parallelConvGateway)) {
+			return new Object[] { process, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_2BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_3BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_4BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_17_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_flowNodeRefs) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpLane = _edge_flowNodeRefs.getSrc();
+		if (tmpLane instanceof Lane) {
+			Lane lane = (Lane) tmpLane;
+			EObject tmpParallelConvGateway = _edge_flowNodeRefs.getTrg();
+			if (tmpParallelConvGateway instanceof ParallelGateway) {
+				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+				if (lane.getFlowNodeRefs().contains(parallelConvGateway)) {
+					for (SequenceFlow inFlow1 : parallelConvGateway
+							.getIncoming()) {
+						for (SequenceFlow inFlow : parallelConvGateway
+								.getIncoming()) {
+							if (!inFlow.equals(inFlow1)) {
+								for (SequenceFlow outFlow : parallelConvGateway
+										.getOutgoing()) {
+									if (!inFlow1.equals(outFlow)) {
+										if (!inFlow.equals(outFlow)) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_0B(outFlow) == null) {
+												if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_3BB(
+														outFlow,
+														parallelConvGateway) == null) {
+													for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+															.getOppositeReferenceTyped(
+																	lane,
+																	LaneSet.class,
+																	"lanes")) {
+														for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		inFlow1,
+																		FlowElementsContainer.class,
+																		"flowElements")) {
+															if (tmpProcess instanceof bpmn2.Process) {
+																bpmn2.Process process = (bpmn2.Process) tmpProcess;
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				inFlow)) {
+																	if (process
+																			.getLaneSets()
+																			.contains(
+																					laneSet)) {
+																		if (process
+																				.getFlowElements()
+																				.contains(
+																						outFlow)) {
+																			if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_1BB(
+																					process,
+																					parallelConvGateway) == null) {
+																				for (FlowElement tmpDivergeFlow : process
+																						.getFlowElements()) {
+																					if (tmpDivergeFlow instanceof SequenceFlow) {
+																						SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																						if (!divergeFlow
+																								.equals(inFlow1)) {
+																							if (!divergeFlow
+																									.equals(inFlow)) {
+																								if (!divergeFlow
+																										.equals(outFlow)) {
+																									FlowNode tmpParallelGateway = divergeFlow
+																											.getSourceRef();
+																									if (tmpParallelGateway instanceof ParallelGateway) {
+																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																										if (!parallelConvGateway
+																												.equals(parallelGateway)) {
+																											if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_4BB(
+																													divergeFlow,
+																													parallelConvGateway) == null) {
+																												for (SequenceFlow divergeFlow1 : parallelGateway
+																														.getOutgoing()) {
+																													if (!divergeFlow1
+																															.equals(inFlow1)) {
+																														if (!divergeFlow1
+																																.equals(inFlow)) {
+																															if (!divergeFlow1
+																																	.equals(outFlow)) {
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_2BB(
+																																			divergeFlow1,
+																																			parallelConvGateway) == null) {
+																																		_result.add(new Object[] {
+																																				process,
+																																				inFlow1,
+																																				parallelConvGateway,
+																																				parallelGateway,
+																																				divergeFlow1,
+																																				inFlow,
+																																				outFlow,
+																																				lane,
+																																				laneSet,
+																																				divergeFlow,
+																																				_edge_flowNodeRefs });
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_17_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_17_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_17_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_1_blackB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		return new Object[] { _this };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_1_greenFF() {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
+				.createModelgeneratorRuleResult();
+		boolean ruleResult_success_prime = false;
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		return new Object[] { isApplicableMatch, ruleResult };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
+		if (ruleResult.getSourceObjects().contains(process)) {
+			return new Object[] { ruleResult, process };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlow inFlow1) {
+		if (ruleResult.getSourceObjects().contains(inFlow1)) {
+			return new Object[] { ruleResult, inFlow1 };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_2BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToUCFlow inFlow1ToFlow1) {
+		if (ruleResult.getCorrObjects().contains(inFlow1ToFlow1)) {
+			return new Object[] { ruleResult, inFlow1ToFlow1 };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_3BB(
+			ModelgeneratorRuleResult ruleResult, ParallelFlow flow1) {
+		if (ruleResult.getTargetObjects().contains(flow1)) {
+			return new Object[] { ruleResult, flow1 };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_4BB(
+			ModelgeneratorRuleResult ruleResult, Step step1) {
+		if (ruleResult.getTargetObjects().contains(step1)) {
+			return new Object[] { ruleResult, step1 };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_5BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToStep inFlow1ToStep1) {
+		if (ruleResult.getCorrObjects().contains(inFlow1ToStep1)) {
+			return new Object[] { ruleResult, inFlow1ToStep1 };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_6BB(
+			ModelgeneratorRuleResult ruleResult, ParallelStep parallelStep) {
+		if (ruleResult.getTargetObjects().contains(parallelStep)) {
+			return new Object[] { ruleResult, parallelStep };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_7BB(
+			ModelgeneratorRuleResult ruleResult, ParallelFlow flow) {
+		if (ruleResult.getTargetObjects().contains(flow)) {
+			return new Object[] { ruleResult, flow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_8BB(
+			ModelgeneratorRuleResult ruleResult, Step step) {
+		if (ruleResult.getTargetObjects().contains(step)) {
+			return new Object[] { ruleResult, step };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_9BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlowToStep inFlowToStep) {
+		if (ruleResult.getCorrObjects().contains(inFlowToStep)) {
+			return new Object[] { ruleResult, inFlowToStep };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_10BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlow inFlow) {
+		if (ruleResult.getSourceObjects().contains(inFlow)) {
+			return new Object[] { ruleResult, inFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_11BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToUCFlow inFlowToFlow) {
+		if (ruleResult.getCorrObjects().contains(inFlowToFlow)) {
+			return new Object[] { ruleResult, inFlowToFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_12BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToUCFlow divergeFlowToFlow) {
+		if (ruleResult.getCorrObjects().contains(divergeFlowToFlow)) {
+			return new Object[] { ruleResult, divergeFlowToFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_13BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlow divergeFlow) {
+		if (ruleResult.getSourceObjects().contains(divergeFlow)) {
+			return new Object[] { ruleResult, divergeFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_14BB(
+			ModelgeneratorRuleResult ruleResult, ParallelGateway parallelGateway) {
+		if (ruleResult.getSourceObjects().contains(parallelGateway)) {
+			return new Object[] { ruleResult, parallelGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_15BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlow divergeFlow1) {
+		if (ruleResult.getSourceObjects().contains(divergeFlow1)) {
+			return new Object[] { ruleResult, divergeFlow1 };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_16BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1) {
+		if (ruleResult.getCorrObjects().contains(divergeFlow1ToFlow1)) {
+			return new Object[] { ruleResult, divergeFlow1ToFlow1 };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_17BB(
+			ModelgeneratorRuleResult ruleResult, Flow initFlow) {
+		if (ruleResult.getTargetObjects().contains(initFlow)) {
+			return new Object[] { ruleResult, initFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_18BB(
+			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
+		if (ruleResult.getSourceObjects().contains(laneSet)) {
+			return new Object[] { ruleResult, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_19BB(
+			ModelgeneratorRuleResult ruleResult, Lane lane) {
+		if (ruleResult.getSourceObjects().contains(lane)) {
+			return new Object[] { ruleResult, lane };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_19_2_blackFFFFFFFFFFFFFFFFFFFFFBB(
+			RuleEntryContainer ruleEntryContainer,
+			ModelgeneratorRuleResult ruleResult) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (RuleEntryList inFlow1ToFlow1List : ruleEntryContainer
+				.getRuleEntryList()) {
+			for (EObject tmpInFlow1ToFlow1 : inFlow1ToFlow1List
+					.getEntryObjects()) {
+				if (tmpInFlow1ToFlow1 instanceof SequenceFlowToUCFlow) {
+					SequenceFlowToUCFlow inFlow1ToFlow1 = (SequenceFlowToUCFlow) tmpInFlow1ToFlow1;
+					SequenceFlow inFlow1 = inFlow1ToFlow1.getSource();
+					if (inFlow1 != null) {
+						Flow tmpFlow1 = inFlow1ToFlow1.getTarget();
+						if (tmpFlow1 instanceof ParallelFlow) {
+							ParallelFlow flow1 = (ParallelFlow) tmpFlow1;
+							if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_2BB(
+									ruleResult, inFlow1ToFlow1) == null) {
+								if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_1BB(
+										ruleResult, inFlow1) == null) {
+									if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_3BB(
+											ruleResult, flow1) == null) {
+										for (Step step1 : flow1.getSteps()) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_4BB(
+													ruleResult, step1) == null) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																inFlow1,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_0BB(
+																ruleResult,
+																process) == null) {
+															for (FlowElement tmpInFlow : process
+																	.getFlowElements()) {
+																if (tmpInFlow instanceof SequenceFlow) {
+																	SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+																	if (!inFlow
+																			.equals(inFlow1)) {
+																		if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_10BB(
+																				ruleResult,
+																				inFlow) == null) {
+																			for (FlowElement tmpDivergeFlow : process
+																					.getFlowElements()) {
+																				if (tmpDivergeFlow instanceof SequenceFlow) {
+																					SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																					if (!divergeFlow
+																							.equals(inFlow1)) {
+																						if (!divergeFlow
+																								.equals(inFlow)) {
+																							FlowNode tmpParallelGateway = divergeFlow
+																									.getSourceRef();
+																							if (tmpParallelGateway instanceof ParallelGateway) {
+																								ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																								if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_13BB(
+																										ruleResult,
+																										divergeFlow) == null) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_14BB(
+																											ruleResult,
+																											parallelGateway) == null) {
+																										for (LaneSet laneSet : process
+																												.getLaneSets()) {
+																											if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_18BB(
+																													ruleResult,
+																													laneSet) == null) {
+																												for (SequenceFlow divergeFlow1 : parallelGateway
+																														.getOutgoing()) {
+																													if (!divergeFlow
+																															.equals(divergeFlow1)) {
+																														if (!divergeFlow1
+																																.equals(inFlow1)) {
+																															if (!divergeFlow1
+																																	.equals(inFlow)) {
+																																if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_15BB(
+																																		ruleResult,
+																																		divergeFlow1) == null) {
+																																	for (Lane lane : laneSet
+																																			.getLanes()) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_19BB(
+																																				ruleResult,
+																																				lane) == null) {
+																																			for (SequenceFlowToStep inFlow1ToStep1 : org.moflon.util.eMoflonEMFUtil
+																																					.getOppositeReferenceTyped(
+																																							inFlow1,
+																																							SequenceFlowToStep.class,
+																																							"source")) {
+																																				if (step1
+																																						.equals(inFlow1ToStep1
+																																								.getTarget())) {
+																																					if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_5BB(
+																																							ruleResult,
+																																							inFlow1ToStep1) == null) {
+																																						for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
+																																								.getOppositeReferenceTyped(
+																																										flow1,
+																																										ParallelStep.class,
+																																										"invokedFlows")) {
+																																							if (!parallelStep
+																																									.equals(step1)) {
+																																								if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_6BB(
+																																										ruleResult,
+																																										parallelStep) == null) {
+																																									for (ParallelFlow flow : parallelStep
+																																											.getInvokedFlows()) {
+																																										if (!flow
+																																												.equals(flow1)) {
+																																											if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_7BB(
+																																													ruleResult,
+																																													flow) == null) {
+																																												for (Step step : flow
+																																														.getSteps()) {
+																																													if (!parallelStep
+																																															.equals(step)) {
+																																														if (!step
+																																																.equals(step1)) {
+																																															if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_8BB(
+																																																	ruleResult,
+																																																	step) == null) {
+																																																for (SequenceFlowToUCFlow divergeFlow1ToFlow1 : org.moflon.util.eMoflonEMFUtil
+																																																		.getOppositeReferenceTyped(
+																																																				flow1,
+																																																				SequenceFlowToUCFlow.class,
+																																																				"target")) {
+																																																	if (!divergeFlow1ToFlow1
+																																																			.equals(inFlow1ToFlow1)) {
+																																																		if (divergeFlow1
+																																																				.equals(divergeFlow1ToFlow1
+																																																						.getSource())) {
+																																																			if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_16BB(
+																																																					ruleResult,
+																																																					divergeFlow1ToFlow1) == null) {
+																																																				for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+																																																						.getOppositeReferenceTyped(
+																																																								inFlow,
+																																																								SequenceFlowToStep.class,
+																																																								"source")) {
+																																																					if (!inFlow1ToStep1
+																																																							.equals(inFlowToStep)) {
+																																																						if (step.equals(inFlowToStep
+																																																								.getTarget())) {
+																																																							if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_9BB(
+																																																									ruleResult,
+																																																									inFlowToStep) == null) {
+																																																								for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																																										.getOppositeReferenceTyped(
+																																																												inFlow,
+																																																												SequenceFlowToUCFlow.class,
+																																																												"source")) {
+																																																									if (!inFlow1ToFlow1
+																																																											.equals(inFlowToFlow)) {
+																																																										if (!divergeFlow1ToFlow1
+																																																												.equals(inFlowToFlow)) {
+																																																											if (flow.equals(inFlowToFlow
+																																																													.getTarget())) {
+																																																												if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_11BB(
+																																																														ruleResult,
+																																																														inFlowToFlow) == null) {
+																																																													for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																																															.getOppositeReferenceTyped(
+																																																																	divergeFlow,
+																																																																	SequenceFlowToUCFlow.class,
+																																																																	"source")) {
+																																																														if (!divergeFlowToFlow
+																																																																.equals(inFlow1ToFlow1)) {
+																																																															if (!divergeFlowToFlow
+																																																																	.equals(inFlowToFlow)) {
+																																																																if (!divergeFlow1ToFlow1
+																																																																		.equals(divergeFlowToFlow)) {
+																																																																	if (flow.equals(divergeFlowToFlow
+																																																																			.getTarget())) {
+																																																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_12BB(
+																																																																				ruleResult,
+																																																																				divergeFlowToFlow) == null) {
+																																																																			for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																																																																					.getOppositeReferenceTyped(
+																																																																							parallelStep,
+																																																																							Flow.class,
+																																																																							"steps")) {
+																																																																				if (!flow1
+																																																																						.equals(initFlow)) {
+																																																																					if (!flow
+																																																																							.equals(initFlow)) {
+																																																																						if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_17BB(
+																																																																								ruleResult,
+																																																																								initFlow) == null) {
+																																																																							_result.add(new Object[] {
+																																																																									inFlow1ToFlow1List,
+																																																																									process,
+																																																																									inFlow1,
+																																																																									inFlow1ToFlow1,
+																																																																									flow1,
+																																																																									step1,
+																																																																									inFlow1ToStep1,
+																																																																									parallelStep,
+																																																																									flow,
+																																																																									step,
+																																																																									inFlowToStep,
+																																																																									inFlow,
+																																																																									inFlowToFlow,
+																																																																									divergeFlowToFlow,
+																																																																									divergeFlow,
+																																																																									parallelGateway,
+																																																																									divergeFlow1,
+																																																																									divergeFlow1ToFlow1,
+																																																																									initFlow,
+																																																																									laneSet,
+																																																																									lane,
+																																																																									ruleEntryContainer,
+																																																																									ruleResult });
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+					}
+
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_3_bindingFBBBBBBBBBBBBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this,
+			IsApplicableMatch isApplicableMatch, bpmn2.Process process,
+			SequenceFlow inFlow1, ParallelGateway parallelGateway,
+			SequenceFlow divergeFlow1, ParallelFlow flow1,
+			SequenceFlowToUCFlow inFlow1ToFlow1, Step step1,
+			SequenceFlowToStep inFlow1ToStep1, ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			ParallelFlow flow, SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow,
+			ModelgeneratorRuleResult ruleResult) {
+		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
+				isApplicableMatch, process, inFlow1, parallelGateway,
+				divergeFlow1, flow1, inFlow1ToFlow1, step1, inFlow1ToStep1,
+				parallelStep, divergeFlow1ToFlow1, inFlow, flow, inFlowToFlow,
+				step, inFlowToStep, initFlow, lane, laneSet, divergeFlow,
+				divergeFlowToFlow, ruleResult);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, process,
+					inFlow1, parallelGateway, divergeFlow1, flow1,
+					inFlow1ToFlow1, step1, inFlow1ToStep1, parallelStep,
+					divergeFlow1ToFlow1, inFlow, flow, inFlowToFlow, step,
+					inFlowToStep, initFlow, lane, laneSet, divergeFlow,
+					divergeFlowToFlow, ruleResult };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_3_blackB(
+			CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_3_bindingAndBlackFBBBBBBBBBBBBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this,
+			IsApplicableMatch isApplicableMatch, bpmn2.Process process,
+			SequenceFlow inFlow1, ParallelGateway parallelGateway,
+			SequenceFlow divergeFlow1, ParallelFlow flow1,
+			SequenceFlowToUCFlow inFlow1ToFlow1, Step step1,
+			SequenceFlowToStep inFlow1ToStep1, ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			ParallelFlow flow, SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow,
+			ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_binding = pattern_ParallelConvergingGatewayTwoInputsRule_19_3_bindingFBBBBBBBBBBBBBBBBBBBBBBB(
+				_this, isApplicableMatch, process, inFlow1, parallelGateway,
+				divergeFlow1, flow1, inFlow1ToFlow1, step1, inFlow1ToStep1,
+				parallelStep, divergeFlow1ToFlow1, inFlow, flow, inFlowToFlow,
+				step, inFlowToStep, initFlow, lane, laneSet, divergeFlow,
+				divergeFlowToFlow, ruleResult);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_black = pattern_ParallelConvergingGatewayTwoInputsRule_19_3_blackB(csp);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, process,
+						inFlow1, parallelGateway, divergeFlow1, flow1,
+						inFlow1ToFlow1, step1, inFlow1ToStep1, parallelStep,
+						divergeFlow1ToFlow1, inFlow, flow, inFlowToFlow, step,
+						inFlowToStep, initFlow, lane, laneSet, divergeFlow,
+						divergeFlowToFlow, ruleResult };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_19_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_5_black_nac_0BBB(
+			Step step, Step step1, ParallelStep parallelStep) {
+		if (!step.equals(step1)) {
+			if (!parallelStep.equals(step)) {
+				if (!parallelStep.equals(step1)) {
+					Step nextStep = step.getNext();
+					if (nextStep != null) {
+						if (!step.equals(nextStep)) {
+							if (!step1.equals(nextStep)) {
+								if (!parallelStep.equals(nextStep)) {
+									return new Object[] { step, step1,
+											parallelStep };
+								}
+							}
+						}
+					}
+
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_5_blackBBBBBBBBBBBBBBBBBBBB(
+			Step step, bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
+			Step step1, SequenceFlowToStep inFlow1ToStep1,
+			ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			ParallelFlow flow, SequenceFlowToUCFlow inFlowToFlow,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow) {
+		if (!step.equals(step1)) {
+			if (!divergeFlow1.equals(inFlow1)) {
+				if (!divergeFlow1.equals(inFlow)) {
+					if (!flow1.equals(initFlow)) {
+						if (!inFlow1ToFlow1.equals(inFlowToFlow)) {
+							if (!inFlow1ToStep1.equals(inFlowToStep)) {
+								if (!parallelStep.equals(step)) {
+									if (!parallelStep.equals(step1)) {
+										if (!divergeFlow1ToFlow1
+												.equals(inFlow1ToFlow1)) {
+											if (!divergeFlow1ToFlow1
+													.equals(inFlowToFlow)) {
+												if (!divergeFlow1ToFlow1
+														.equals(divergeFlowToFlow)) {
+													if (!inFlow.equals(inFlow1)) {
+														if (!flow.equals(flow1)) {
+															if (!flow
+																	.equals(initFlow)) {
+																if (!divergeFlow
+																		.equals(inFlow1)) {
+																	if (!divergeFlow
+																			.equals(divergeFlow1)) {
+																		if (!divergeFlow
+																				.equals(inFlow)) {
+																			if (!divergeFlowToFlow
+																					.equals(inFlow1ToFlow1)) {
+																				if (!divergeFlowToFlow
+																						.equals(inFlowToFlow)) {
+																					if (pattern_ParallelConvergingGatewayTwoInputsRule_19_5_black_nac_0BBB(
+																							step,
+																							step1,
+																							parallelStep) == null) {
+																						return new Object[] {
+																								step,
+																								process,
+																								inFlow1,
+																								parallelGateway,
+																								divergeFlow1,
+																								flow1,
+																								inFlow1ToFlow1,
+																								step1,
+																								inFlow1ToStep1,
+																								parallelStep,
+																								divergeFlow1ToFlow1,
+																								inFlow,
+																								flow,
+																								inFlowToFlow,
+																								inFlowToStep,
+																								initFlow,
+																								lane,
+																								laneSet,
+																								divergeFlow,
+																								divergeFlowToFlow };
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_6_blackBBBBBBBBBBBBBBBBBBBBB(
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
+			Step step1, SequenceFlowToStep inFlow1ToStep1,
+			ParallelStep parallelStep,
+			SequenceFlowToUCFlow divergeFlow1ToFlow1, SequenceFlow inFlow,
+			ParallelFlow flow, SequenceFlowToUCFlow inFlowToFlow, Step step,
+			SequenceFlowToStep inFlowToStep, Flow initFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow,
+			SequenceFlowToUCFlow divergeFlowToFlow,
+			ModelgeneratorRuleResult ruleResult) {
+		if (!divergeFlow1.equals(inFlow1)) {
+			if (!divergeFlow1.equals(inFlow)) {
+				if (!flow1.equals(initFlow)) {
+					if (!inFlow1ToFlow1.equals(inFlowToFlow)) {
+						if (!inFlow1ToStep1.equals(inFlowToStep)) {
+							if (!parallelStep.equals(step1)) {
+								if (!parallelStep.equals(step)) {
+									if (!divergeFlow1ToFlow1
+											.equals(inFlow1ToFlow1)) {
+										if (!divergeFlow1ToFlow1
+												.equals(inFlowToFlow)) {
+											if (!divergeFlow1ToFlow1
+													.equals(divergeFlowToFlow)) {
+												if (!inFlow.equals(inFlow1)) {
+													if (!flow.equals(flow1)) {
+														if (!flow
+																.equals(initFlow)) {
+															if (!step
+																	.equals(step1)) {
+																if (!divergeFlow
+																		.equals(inFlow1)) {
+																	if (!divergeFlow
+																			.equals(divergeFlow1)) {
+																		if (!divergeFlow
+																				.equals(inFlow)) {
+																			if (!divergeFlowToFlow
+																					.equals(inFlow1ToFlow1)) {
+																				if (!divergeFlowToFlow
+																						.equals(inFlowToFlow)) {
+																					return new Object[] {
+																							process,
+																							inFlow1,
+																							parallelGateway,
+																							divergeFlow1,
+																							flow1,
+																							inFlow1ToFlow1,
+																							step1,
+																							inFlow1ToStep1,
+																							parallelStep,
+																							divergeFlow1ToFlow1,
+																							inFlow,
+																							flow,
+																							inFlowToFlow,
+																							step,
+																							inFlowToStep,
+																							initFlow,
+																							lane,
+																							laneSet,
+																							divergeFlow,
+																							divergeFlowToFlow,
+																							ruleResult };
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_6_greenBBFBBFBFFBBB(
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelStep parallelStep, SequenceFlow inFlow, Flow initFlow,
+			Lane lane, ModelgeneratorRuleResult ruleResult, CSP csp) {
+		ParallelGateway parallelConvGateway = Bpmn2Factory.eINSTANCE
+				.createParallelGateway();
+		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
+		SequenceFlowToUCFlow outFlowToInitFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToUCFlow();
+		SequenceFlowToStep outFlowToParallelStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createSequenceFlowToStep();
+		Object _localVariable_0 = csp.getValue("parallelConvGateway",
+				"gatewayDirection");
+		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
+		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		inFlow1.setTargetRef(parallelConvGateway);
+		inFlow.setTargetRef(parallelConvGateway);
+		lane.getFlowNodeRefs().add(parallelConvGateway);
+		ruleResult.getSourceObjects().add(parallelConvGateway);
+		process.getFlowElements().add(outFlow);
+		outFlow.setSourceRef(parallelConvGateway);
+		ruleResult.getSourceObjects().add(outFlow);
+		outFlowToInitFlow.setSource(outFlow);
+		outFlowToInitFlow.setTarget(initFlow);
+		ruleResult.getCorrObjects().add(outFlowToInitFlow);
+		outFlowToParallelStep.setSource(outFlow);
+		outFlowToParallelStep.setTarget(parallelStep);
+		ruleResult.getCorrObjects().add(outFlowToParallelStep);
+		GatewayDirection parallelConvGateway_gatewayDirection_prime = (GatewayDirection) _localVariable_0;
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		parallelConvGateway
+				.setGatewayDirection(parallelConvGateway_gatewayDirection_prime);
+		ruleResult.setPerformCount(Integer
+				.valueOf(ruleResult_performCount_prime));
+		return new Object[] { process, inFlow1, parallelConvGateway,
+				parallelStep, inFlow, outFlow, initFlow, outFlowToInitFlow,
+				outFlowToParallelStep, lane, ruleResult, csp };
+	}
+
+	public static final ModelgeneratorRuleResult pattern_ParallelConvergingGatewayTwoInputsRule_19_7_expressionFB(
+			ModelgeneratorRuleResult ruleResult) {
+		ModelgeneratorRuleResult _result = ruleResult;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

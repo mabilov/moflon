@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:expressions="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//expressions" xmlns:patternExpressions="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//patterns/patternExpressions" name="UseCaseCodeAdapter">
   <domain name="Source" metamodel="//@metamodel.0" type="SOURCE"/>
-  <domain name="Target" metamodel="//@metamodel.2" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.1"/>
+  <domain name="Target" metamodel="//@metamodel.1" type="TARGET"/>
+  <domain name="Correspondence" metamodel="//@metamodel.2"/>
   <tggRule name="FileToUCModel" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="file" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/MocaTree/model/MocaTree.ecore#//File"/>
@@ -19,6 +19,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.0/@objectVariable.1" source="//@tggRule.0/@objectVariable.2" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//FileToUseCasesModel/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="PackageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="ucModel" incomingLink="//@tggRule.1/@linkVariable.3" outgoingLink="//@tggRule.1/@linkVariable.0" domain="//@domain.1">
@@ -99,6 +100,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.2/@objectVariable.0" source="//@tggRule.2/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToPackageDeclaration/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="ActorRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actorsNode" incomingLink="//@tggRule.3/@linkVariable.0" outgoingLink="//@tggRule.3/@linkVariable.2" domain="//@domain.0">
@@ -353,6 +355,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.6/@objectVariable.0" source="//@tggRule.6/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToPackageDeclaration/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="UseCaseRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCaseRootNode" incomingLink="//@tggRule.7/@linkVariable.0" outgoingLink="//@tggRule.7/@linkVariable.2" domain="//@domain.0">
@@ -652,6 +655,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.12/@objectVariable.4" source="//@tggRule.12/@objectVariable.5" bindingOperator="CREATE" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToFlow/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="AlternativeFlowRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="useCase" incomingLink="//@tggRule.13/@linkVariable.3" outgoingLink="//@tggRule.13/@linkVariable.0" domain="//@domain.1">
@@ -1243,6 +1247,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.22/@objectVariable.0" source="//@tggRule.22/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToStep/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="AltFlowAltRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="altNode" incomingLink="//@tggRule.23/@linkVariable.0" outgoingLink="//@tggRule.23/@linkVariable.2" domain="//@domain.0">
@@ -1494,6 +1499,7 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.25/@objectVariable.0" source="//@tggRule.25/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#//NodeToStep/target"/>
     </linkVariable>
+    <csp/>
   </tggRule>
   <tggRule name="ParallelStepInvokeRefRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="f" incomingLink="//@tggRule.26/@linkVariable.6" outgoingLink="//@tggRule.26/@linkVariable.0" domain="//@domain.1">
@@ -1579,10 +1585,10 @@
   <metamodel name="MocaTree">
     <outermostPackage href="platform:/plugin/MocaTree/model/MocaTree.ecore#/"/>
   </metamodel>
-  <metamodel name="UseCaseCodeAdapter">
-    <outermostPackage href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#/"/>
-  </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
+  </metamodel>
+  <metamodel name="UseCaseCodeAdapter">
+    <outermostPackage href="platform:/plugin/UseCaseCodeAdapter/model/UseCaseCodeAdapter.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

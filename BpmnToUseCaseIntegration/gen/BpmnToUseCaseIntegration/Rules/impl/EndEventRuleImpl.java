@@ -3,28 +3,25 @@
 package BpmnToUseCaseIntegration.Rules.impl;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
-import BpmnToUseCaseIntegration.DefinitionsToPackage;
-import BpmnToUseCaseIntegration.DocRootToUCModel;
 import BpmnToUseCaseIntegration.EndEventToFlow;
-import BpmnToUseCaseIntegration.FlowNodeToStep;
-import BpmnToUseCaseIntegration.ICEToAltFlow;
-import BpmnToUseCaseIntegration.LaneToActor;
-import BpmnToUseCaseIntegration.ProcessToActor;
 import BpmnToUseCaseIntegration.ProcessToUseCase;
 
 import BpmnToUseCaseIntegration.Rules.EndEventRule;
 import BpmnToUseCaseIntegration.Rules.RulesPackage;
 
-import BpmnToUseCaseIntegration.SeqFlowToAltFlowAlt;
-import BpmnToUseCaseIntegration.SequenceFlowToStep;
 import BpmnToUseCaseIntegration.SequenceFlowToUCFlow;
-import BpmnToUseCaseIntegration.StartEventToBasicFlow;
+
+import TGGLanguage.csp.CSP;
+
+import TGGLanguage.modelgenerator.RuleEntryContainer;
+import TGGLanguage.modelgenerator.RuleEntryList;
 
 import TGGRuntime.EMoflonEdge;
 import TGGRuntime.EObjectContainer;
 import TGGRuntime.IsApplicableMatch;
 import TGGRuntime.IsApplicableRuleResult;
 import TGGRuntime.Match;
+import TGGRuntime.ModelgeneratorRuleResult;
 import TGGRuntime.PerformRuleResult;
 import TGGRuntime.RuleResult;
 import TGGRuntime.TGGRuntimeFactory;
@@ -32,53 +29,28 @@ import TGGRuntime.TripleMatch;
 
 import TGGRuntime.impl.AbstractRuleImpl;
 
-import UseCaseDSL.Actor;
-import UseCaseDSL.AlternativeFlow;
-import UseCaseDSL.AlternativeFlowAlternative;
-import UseCaseDSL.BasicFlow;
 import UseCaseDSL.Flow;
-import UseCaseDSL.NormalStep;
-import UseCaseDSL.PackageDeclaration;
-import UseCaseDSL.ParallelFlow;
-import UseCaseDSL.ParallelStep;
-import UseCaseDSL.Step;
 import UseCaseDSL.UseCase;
-import UseCaseDSL.UseCaseDSLFactory;
-import UseCaseDSL.UseCasesModel;
 
 import bpmn2.Bpmn2Factory;
-import bpmn2.Definitions;
-import bpmn2.DocumentRoot;
 import bpmn2.EndEvent;
-import bpmn2.Event;
-import bpmn2.EventBasedGateway;
-import bpmn2.ExclusiveGateway;
+import bpmn2.FlowElement;
 import bpmn2.FlowElementsContainer;
-import bpmn2.FlowNode;
-import bpmn2.IntermediateCatchEvent;
-import bpmn2.IntermediateThrowEvent;
 import bpmn2.Lane;
 import bpmn2.LaneSet;
-import bpmn2.ParallelGateway;
 import bpmn2.SequenceFlow;
-import bpmn2.ServiceTask;
-import bpmn2.StartEvent;
-import bpmn2.Task;
-import bpmn2.UserTask;
 
-import de.upb.tools.sdm.*;
+import java.lang.Iterable;
 
 import java.lang.reflect.InvocationTargetException;
 
-import java.util.*;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
-
-import org.moflon.csp.CSPFactoryHelper;
 // <-- [user defined imports]
 import org.moflon.csp.*;
 import csp.constraints.*;
@@ -122,241 +94,64 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 */
 	public boolean isAppropriate_FWD(Match match, bpmn2.Process process,
 			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		CSP csp = null;
-		EMoflonEdge __lane_flowNodeRefs_endEvent = null;
-		EMoflonEdge __process_flowElements_endEvent = null;
-		EMoflonEdge __inFlow_targetRef_endEvent = null;
-		EMoflonEdge __endEvent_incoming_inFlow = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-
-		// story node 'initial bindings'
-		try {
-			fujaba__Success = false;
-
-			// check object endEvent is really bound
-			JavaSDM.ensure(endEvent != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// initial bindings
+		Object[] result1_black = EndEventRuleImpl
+				.pattern_EndEventRule_0_1_blackBBBBBBB(this, match, process,
+						inFlow, endEvent, lane, laneSet);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [initial bindings] failed");
 		}
 
-		// story node 'Solve CSP'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.isAppropriate_solveCsp_FWD(match, process,
-					inFlow, endEvent, lane, laneSet));
-
-			// ensure correct type and really bound of object csp
-			JavaSDM.ensure(_TmpObject instanceof CSP);
-			csp = (CSP) _TmpObject;
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// Solve CSP
+		Object[] result2_bindingAndBlack = EndEventRuleImpl
+				.pattern_EndEventRule_0_2_bindingAndBlackFBBBBBBB(this, match,
+						process, inFlow, endEvent, lane, laneSet);
+		if (result2_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [Solve CSP] failed");
 		}
+		CSP csp = (CSP) result2_bindingAndBlack[0];
+		// Check CSP
+		if (EndEventRuleImpl.pattern_EndEventRule_0_3_expressionFBB(this, csp)) {
 
-		// statement node 'Check CSP'
-		fujaba__Success = this.isAppropriate_checkCsp_FWD(csp);
-		if (fujaba__Success) {
-			// story node 'collect elements to be translated'
-			try {
-				fujaba__Success = false;
-
-				// check object endEvent is really bound
-				JavaSDM.ensure(endEvent != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// create object __lane_flowNodeRefs_endEvent
-				__lane_flowNodeRefs_endEvent = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_flowElements_endEvent
-				__process_flowElements_endEvent = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __inFlow_targetRef_endEvent
-				__inFlow_targetRef_endEvent = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __endEvent_incoming_inFlow
-				__endEvent_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_flowElements_endEvent
-				__process_flowElements_endEvent.setName("flowElements");
-				// assign attribute __inFlow_targetRef_endEvent
-				__inFlow_targetRef_endEvent.setName("targetRef");
-				// assign attribute __endEvent_incoming_inFlow
-				__endEvent_incoming_inFlow.setName("incoming");
-				// assign attribute __lane_flowNodeRefs_endEvent
-				__lane_flowNodeRefs_endEvent.setName("flowNodeRefs");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__lane_flowNodeRefs_endEvent, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_endEvent, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__inFlow_targetRef_endEvent, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__endEvent_incoming_inFlow, "toBeTranslatedEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						endEvent, "toBeTranslatedNodes");
-
-				// create link
-				__process_flowElements_endEvent.setSrc(process);
-
-				// create link
-				__inFlow_targetRef_endEvent.setSrc(inFlow);
-
-				// create link
-				__endEvent_incoming_inFlow.setTrg(inFlow);
-
-				// create link
-				__process_flowElements_endEvent.setTrg(endEvent);
-
-				// create link
-				__lane_flowNodeRefs_endEvent.setTrg(endEvent);
-
-				// create link
-				__endEvent_incoming_inFlow.setSrc(endEvent);
-
-				// create link
-				__inFlow_targetRef_endEvent.setTrg(endEvent);
-
-				// create link
-				__lane_flowNodeRefs_endEvent.setSrc(lane);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect elements to be translated
+			Object[] result4_black = EndEventRuleImpl
+					.pattern_EndEventRule_0_4_blackBBBBBB(match, process,
+							inFlow, endEvent, lane, laneSet);
+			if (result4_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect elements to be translated] failed");
 			}
+			EndEventRuleImpl.pattern_EndEventRule_0_4_greenBBBBBFFFF(match,
+					process, inFlow, endEvent, lane);
+			// EMoflonEdge process__endEvent____flowElements = (EMoflonEdge) result4_green[5];
+			// EMoflonEdge inFlow__endEvent____targetRef = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge endEvent__inFlow____incoming = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge lane__endEvent____flowNodeRefs = (EMoflonEdge) result4_green[8];
 
-			// story node 'collect context elements'
-			try {
-				fujaba__Success = false;
-
-				// check object endEvent is really bound
-				JavaSDM.ensure(endEvent != null);
-				// check object inFlow is really bound
-				JavaSDM.ensure(inFlow != null);
-				// check object lane is really bound
-				JavaSDM.ensure(lane != null);
-				// check object laneSet is really bound
-				JavaSDM.ensure(laneSet != null);
-				// check object match is really bound
-				JavaSDM.ensure(match != null);
-				// check object process is really bound
-				JavaSDM.ensure(process != null);
-				// create object __process_flowElements_inFlow
-				__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __process_laneSets_laneSet
-				__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// create object __laneSet_lanes_lane
-				__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-						.createEMoflonEdge();
-
-				// assign attribute __process_laneSets_laneSet
-				__process_laneSets_laneSet.setName("laneSets");
-				// assign attribute __process_flowElements_inFlow
-				__process_flowElements_inFlow.setName("flowElements");
-				// assign attribute __laneSet_lanes_lane
-				__laneSet_lanes_lane.setName("lanes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						laneSet, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_flowElements_inFlow, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__process_laneSets_laneSet, "contextEdges");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						inFlow, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						lane, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						process, "contextNodes");
-
-				// create link
-				org.moflon.util.eMoflonEMFUtil.addOppositeReference(match,
-						__laneSet_lanes_lane, "contextEdges");
-
-				// create link
-				__process_laneSets_laneSet.setSrc(process);
-
-				// create link
-				__process_flowElements_inFlow.setSrc(process);
-
-				// create link
-				__process_flowElements_inFlow.setTrg(inFlow);
-
-				// create link
-				__laneSet_lanes_lane.setTrg(lane);
-
-				// create link
-				__process_laneSets_laneSet.setTrg(laneSet);
-
-				// create link
-				__laneSet_lanes_lane.setSrc(laneSet);
-
-				fujaba__Success = true;
-			} catch (JavaSDMException fujaba__InternalException) {
-				fujaba__Success = false;
+			// collect context elements
+			Object[] result5_black = EndEventRuleImpl
+					.pattern_EndEventRule_0_5_blackBBBBBB(match, process,
+							inFlow, endEvent, lane, laneSet);
+			if (result5_black == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [collect context elements] failed");
 			}
+			EndEventRuleImpl.pattern_EndEventRule_0_5_greenBBBBBFFF(match,
+					process, inFlow, lane, laneSet);
+			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[5];
+			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[6];
+			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[7];
 
-			// statement node 'register objects to match'
-			this.registerObjectsToMatch_FWD(match, process, inFlow, endEvent,
-					lane, laneSet);
-			return true;
-
+			// register objects to match
+			EndEventRuleImpl.pattern_EndEventRule_0_6_expressionBBBBBBB(this,
+					match, process, inFlow, endEvent, lane, laneSet);
+			return EndEventRuleImpl.pattern_EndEventRule_0_7_expressionF();
 		} else {
-			return false;
-
+			return EndEventRuleImpl.pattern_EndEventRule_0_8_expressionF();
 		}
+
 	}
 
 	/**
@@ -365,410 +160,65 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * @generated
 	 */
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EndEvent endEvent = null;
-		Flow flow = null;
-		SequenceFlow inFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		ProcessToUseCase processToUseCase = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterIsApplicableMatchToCsp = null;
-		CSP csp = null;
-		EndEventToFlow endEventToFlow = null;
-		PerformRuleResult ruleresult = null;
-		EMoflonEdge __endEvent_incoming_inFlow = null;
-		EMoflonEdge endEventToFlow__source__endEvent = null;
-		EMoflonEdge __inFlow_targetRef_endEvent = null;
-		EMoflonEdge __process_flowElements_endEvent = null;
-		EMoflonEdge __lane_flowNodeRefs_endEvent = null;
-		EMoflonEdge endEventToFlow__target__flow = null;
-
-		// story node 'perform transformation'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (isApplicableMatch.getObject("endEvent"));
-
-			// ensure correct type and really bound of object endEvent
-			JavaSDM.ensure(_TmpObject instanceof EndEvent);
-			endEvent = (EndEvent) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("flow"));
-
-			// ensure correct type and really bound of object flow
-			JavaSDM.ensure(_TmpObject instanceof Flow);
-			flow = (Flow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlow"));
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("inFlowToFlow"));
-
-			// ensure correct type and really bound of object inFlowToFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlowToUCFlow);
-			inFlowToFlow = (SequenceFlowToUCFlow) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("processToUseCase"));
-
-			// ensure correct type and really bound of object processToUseCase
-			JavaSDM.ensure(_TmpObject instanceof ProcessToUseCase);
-			processToUseCase = (ProcessToUseCase) _TmpObject;
-			_TmpObject = (isApplicableMatch.getObject("useCase"));
-
-			// ensure correct type and really bound of object useCase
-			JavaSDM.ensure(_TmpObject instanceof UseCase);
-			useCase = (UseCase) _TmpObject;
-			// check object isApplicableMatch is really bound
-			JavaSDM.ensure(isApplicableMatch != null);
-			// iterate to-many link attributeInfo from isApplicableMatch to csp
-			fujaba__Success = false;
-
-			fujaba__IterIsApplicableMatchToCsp = isApplicableMatch
-					.getAttributeInfo().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterIsApplicableMatchToCsp.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterIsApplicableMatchToCsp.next();
-
-					// ensure correct type and really bound of object csp
-					JavaSDM.ensure(_TmpObject instanceof CSP);
-					csp = (CSP) _TmpObject;
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object endEventToFlow
-			endEventToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
-					.createEndEventToFlow();
-
-			// create link
-			endEventToFlow.setSource(endEvent);
-
-			// create link
-			endEventToFlow.setTarget(flow);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// perform transformation
+		Object[] result1_bindingAndBlack = EndEventRuleImpl
+				.pattern_EndEventRule_1_1_bindingAndBlackFFFFFFFFFFBB(this,
+						isApplicableMatch);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [perform transformation] failed");
 		}
+		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
+		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[1];
+		EndEvent endEvent = (EndEvent) result1_bindingAndBlack[2];
+		Flow flow = (Flow) result1_bindingAndBlack[3];
+		SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[4];
+		UseCase useCase = (UseCase) result1_bindingAndBlack[5];
+		ProcessToUseCase processToUseCase = (ProcessToUseCase) result1_bindingAndBlack[6];
+		Lane lane = (Lane) result1_bindingAndBlack[7];
+		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[8];
+		// CSP csp = (CSP) result1_bindingAndBlack[9];
+		Object[] result1_green = EndEventRuleImpl
+				.pattern_EndEventRule_1_1_greenBBF(endEvent, flow);
+		EndEventToFlow endEventToFlow = (EndEventToFlow) result1_green[2];
 
-		// story node 'collect translated elements'
-		try {
-			fujaba__Success = false;
-
-			// check object endEvent is really bound
-			JavaSDM.ensure(endEvent != null);
-			// check object endEventToFlow is really bound
-			JavaSDM.ensure(endEventToFlow != null);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE.createPerformRuleResult();
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					endEvent, "translatedElements");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					endEventToFlow, "createdLinkElements");
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// collect translated elements
+		Object[] result2_black = EndEventRuleImpl
+				.pattern_EndEventRule_1_2_blackBB(endEvent, endEventToFlow);
+		if (result2_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [collect translated elements] failed");
 		}
-
-		// story node 'bookkeeping for edges'
-		try {
-			fujaba__Success = false;
-
-			// check object endEvent is really bound
-			JavaSDM.ensure(endEvent != null);
-			// check object endEventToFlow is really bound
-			JavaSDM.ensure(endEventToFlow != null);
-			// check object flow is really bound
-			JavaSDM.ensure(flow != null);
-			// check object inFlow is really bound
-			JavaSDM.ensure(inFlow != null);
-			// check object inFlowToFlow is really bound
-			JavaSDM.ensure(inFlowToFlow != null);
-			// check object lane is really bound
-			JavaSDM.ensure(lane != null);
-			// check object laneSet is really bound
-			JavaSDM.ensure(laneSet != null);
-			// check object process is really bound
-			JavaSDM.ensure(process != null);
-			// check object processToUseCase is really bound
-			JavaSDM.ensure(processToUseCase != null);
-			// check object ruleresult is really bound
-			JavaSDM.ensure(ruleresult != null);
-			// check object useCase is really bound
-			JavaSDM.ensure(useCase != null);
-			// check isomorphic binding between objects endEventToFlow and endEvent 
-			JavaSDM.ensure(!endEventToFlow.equals(endEvent));
-
-			// check isomorphic binding between objects flow and endEvent 
-			JavaSDM.ensure(!flow.equals(endEvent));
-
-			// check isomorphic binding between objects inFlow and endEvent 
-			JavaSDM.ensure(!inFlow.equals(endEvent));
-
-			// check isomorphic binding between objects inFlowToFlow and endEvent 
-			JavaSDM.ensure(!inFlowToFlow.equals(endEvent));
-
-			// check isomorphic binding between objects lane and endEvent 
-			JavaSDM.ensure(!lane.equals(endEvent));
-
-			// check isomorphic binding between objects laneSet and endEvent 
-			JavaSDM.ensure(!laneSet.equals(endEvent));
-
-			// check isomorphic binding between objects process and endEvent 
-			JavaSDM.ensure(!process.equals(endEvent));
-
-			// check isomorphic binding between objects processToUseCase and endEvent 
-			JavaSDM.ensure(!processToUseCase.equals(endEvent));
-
-			// check isomorphic binding between objects useCase and endEvent 
-			JavaSDM.ensure(!useCase.equals(endEvent));
-
-			// check isomorphic binding between objects flow and endEventToFlow 
-			JavaSDM.ensure(!flow.equals(endEventToFlow));
-
-			// check isomorphic binding between objects inFlow and endEventToFlow 
-			JavaSDM.ensure(!inFlow.equals(endEventToFlow));
-
-			// check isomorphic binding between objects inFlowToFlow and endEventToFlow 
-			JavaSDM.ensure(!inFlowToFlow.equals(endEventToFlow));
-
-			// check isomorphic binding between objects lane and endEventToFlow 
-			JavaSDM.ensure(!lane.equals(endEventToFlow));
-
-			// check isomorphic binding between objects laneSet and endEventToFlow 
-			JavaSDM.ensure(!laneSet.equals(endEventToFlow));
-
-			// check isomorphic binding between objects process and endEventToFlow 
-			JavaSDM.ensure(!process.equals(endEventToFlow));
-
-			// check isomorphic binding between objects processToUseCase and endEventToFlow 
-			JavaSDM.ensure(!processToUseCase.equals(endEventToFlow));
-
-			// check isomorphic binding between objects useCase and endEventToFlow 
-			JavaSDM.ensure(!useCase.equals(endEventToFlow));
-
-			// check isomorphic binding between objects inFlow and flow 
-			JavaSDM.ensure(!inFlow.equals(flow));
-
-			// check isomorphic binding between objects inFlowToFlow and flow 
-			JavaSDM.ensure(!inFlowToFlow.equals(flow));
-
-			// check isomorphic binding between objects lane and flow 
-			JavaSDM.ensure(!lane.equals(flow));
-
-			// check isomorphic binding between objects laneSet and flow 
-			JavaSDM.ensure(!laneSet.equals(flow));
-
-			// check isomorphic binding between objects process and flow 
-			JavaSDM.ensure(!process.equals(flow));
-
-			// check isomorphic binding between objects processToUseCase and flow 
-			JavaSDM.ensure(!processToUseCase.equals(flow));
-
-			// check isomorphic binding between objects useCase and flow 
-			JavaSDM.ensure(!useCase.equals(flow));
-
-			// check isomorphic binding between objects inFlowToFlow and inFlow 
-			JavaSDM.ensure(!inFlowToFlow.equals(inFlow));
-
-			// check isomorphic binding between objects lane and inFlow 
-			JavaSDM.ensure(!lane.equals(inFlow));
-
-			// check isomorphic binding between objects laneSet and inFlow 
-			JavaSDM.ensure(!laneSet.equals(inFlow));
-
-			// check isomorphic binding between objects process and inFlow 
-			JavaSDM.ensure(!process.equals(inFlow));
-
-			// check isomorphic binding between objects processToUseCase and inFlow 
-			JavaSDM.ensure(!processToUseCase.equals(inFlow));
-
-			// check isomorphic binding between objects useCase and inFlow 
-			JavaSDM.ensure(!useCase.equals(inFlow));
-
-			// check isomorphic binding between objects lane and inFlowToFlow 
-			JavaSDM.ensure(!lane.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects laneSet and inFlowToFlow 
-			JavaSDM.ensure(!laneSet.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects process and inFlowToFlow 
-			JavaSDM.ensure(!process.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects processToUseCase and inFlowToFlow 
-			JavaSDM.ensure(!processToUseCase.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects useCase and inFlowToFlow 
-			JavaSDM.ensure(!useCase.equals(inFlowToFlow));
-
-			// check isomorphic binding between objects laneSet and lane 
-			JavaSDM.ensure(!laneSet.equals(lane));
-
-			// check isomorphic binding between objects process and lane 
-			JavaSDM.ensure(!process.equals(lane));
-
-			// check isomorphic binding between objects processToUseCase and lane 
-			JavaSDM.ensure(!processToUseCase.equals(lane));
-
-			// check isomorphic binding between objects useCase and lane 
-			JavaSDM.ensure(!useCase.equals(lane));
-
-			// check isomorphic binding between objects process and laneSet 
-			JavaSDM.ensure(!process.equals(laneSet));
-
-			// check isomorphic binding between objects processToUseCase and laneSet 
-			JavaSDM.ensure(!processToUseCase.equals(laneSet));
-
-			// check isomorphic binding between objects useCase and laneSet 
-			JavaSDM.ensure(!useCase.equals(laneSet));
-
-			// check isomorphic binding between objects processToUseCase and process 
-			JavaSDM.ensure(!processToUseCase.equals(process));
-
-			// check isomorphic binding between objects useCase and process 
-			JavaSDM.ensure(!useCase.equals(process));
-
-			// check isomorphic binding between objects useCase and processToUseCase 
-			JavaSDM.ensure(!useCase.equals(processToUseCase));
-
-			// create object __endEvent_incoming_inFlow
-			__endEvent_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object endEventToFlow__source__endEvent
-			endEventToFlow__source__endEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __inFlow_targetRef_endEvent
-			__inFlow_targetRef_endEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __process_flowElements_endEvent
-			__process_flowElements_endEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object __lane_flowNodeRefs_endEvent
-			__lane_flowNodeRefs_endEvent = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// create object endEventToFlow__target__flow
-			endEventToFlow__target__flow = TGGRuntimeFactory.eINSTANCE
-					.createEMoflonEdge();
-
-			// assign attribute ruleresult
-			ruleresult.setRuleName("EndEventRule");
-			// assign attribute __process_flowElements_endEvent
-			__process_flowElements_endEvent.setName("flowElements");
-			// assign attribute __inFlow_targetRef_endEvent
-			__inFlow_targetRef_endEvent.setName("targetRef");
-			// assign attribute __endEvent_incoming_inFlow
-			__endEvent_incoming_inFlow.setName("incoming");
-			// assign attribute endEventToFlow__source__endEvent
-			endEventToFlow__source__endEvent.setName("source");
-			// assign attribute endEventToFlow__target__flow
-			endEventToFlow__target__flow.setName("target");
-			// assign attribute __lane_flowNodeRefs_endEvent
-			__lane_flowNodeRefs_endEvent.setName("flowNodeRefs");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__endEvent_incoming_inFlow, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					endEventToFlow__source__endEvent, "createdEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__inFlow_targetRef_endEvent, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__process_flowElements_endEvent, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					__lane_flowNodeRefs_endEvent, "translatedEdges");
-
-			// create link
-			org.moflon.util.eMoflonEMFUtil.addOppositeReference(ruleresult,
-					endEventToFlow__target__flow, "createdEdges");
-
-			// create link
-			__process_flowElements_endEvent.setSrc(process);
-
-			// create link
-			__endEvent_incoming_inFlow.setTrg(inFlow);
-
-			// create link
-			__inFlow_targetRef_endEvent.setSrc(inFlow);
-
-			// create link
-			endEventToFlow__source__endEvent.setTrg(endEvent);
-
-			// create link
-			__lane_flowNodeRefs_endEvent.setTrg(endEvent);
-
-			// create link
-			__inFlow_targetRef_endEvent.setTrg(endEvent);
-
-			// create link
-			__endEvent_incoming_inFlow.setSrc(endEvent);
-
-			// create link
-			__process_flowElements_endEvent.setTrg(endEvent);
-
-			// create link
-			endEventToFlow__target__flow.setTrg(flow);
-
-			// create link
-			endEventToFlow__target__flow.setSrc(endEventToFlow);
-
-			// create link
-			endEventToFlow__source__endEvent.setSrc(endEventToFlow);
-
-			// create link
-			__lane_flowNodeRefs_endEvent.setSrc(lane);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		Object[] result2_green = EndEventRuleImpl
+				.pattern_EndEventRule_1_2_greenFBB(endEvent, endEventToFlow);
+		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
+
+		// bookkeeping for edges
+		Object[] result3_black = EndEventRuleImpl
+				.pattern_EndEventRule_1_3_blackBBBBBBBBBBB(ruleresult, process,
+						inFlow, endEvent, flow, inFlowToFlow, endEventToFlow,
+						useCase, processToUseCase, lane, laneSet);
+		if (result3_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [bookkeeping for edges] failed");
 		}
+		EndEventRuleImpl.pattern_EndEventRule_1_3_greenBBBBBBBFFFFFF(
+				ruleresult, process, inFlow, endEvent, flow, endEventToFlow,
+				lane);
+		// EMoflonEdge process__endEvent____flowElements = (EMoflonEdge) result3_green[7];
+		// EMoflonEdge inFlow__endEvent____targetRef = (EMoflonEdge) result3_green[8];
+		// EMoflonEdge endEvent__inFlow____incoming = (EMoflonEdge) result3_green[9];
+		// EMoflonEdge endEventToFlow__endEvent____source = (EMoflonEdge) result3_green[10];
+		// EMoflonEdge endEventToFlow__flow____target = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge lane__endEvent____flowNodeRefs = (EMoflonEdge) result3_green[12];
 
-		// statement node 'perform postprocessing'
-		// No post processing method found
-		// statement node 'register objects'
-		this.registerObjects_FWD(ruleresult, process, inFlow, endEvent, flow,
-				inFlowToFlow, endEventToFlow, useCase, processToUseCase, lane,
-				laneSet);
-		return ruleresult;
+		// perform postprocessing story node is empty
+		// register objects
+		EndEventRuleImpl.pattern_EndEventRule_1_5_expressionBBBBBBBBBBBB(this,
+				ruleresult, process, inFlow, endEvent, flow, inFlowToFlow,
+				endEventToFlow, useCase, processToUseCase, lane, laneSet);
+		return EndEventRuleImpl
+				.pattern_EndEventRule_1_6_expressionFB(ruleresult);
 	}
 
 	/**
@@ -777,579 +227,94 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * @generated
 	 */
 	public IsApplicableRuleResult isApplicable_FWD(Match match) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass eClass = null;
-		Iterator fujaba__IterEClassToPerformOperation = null;
-		EOperation performOperation = null;
-		IsApplicableRuleResult ruleresult = null;
-		EndEvent endEvent = null;
-		SequenceFlow inFlow = null;
-		Lane lane = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		EMoflonEdge __process_flowElements_endEvent = null;
-		EMoflonEdge __processToUseCase_source_process = null;
-		EMoflonEdge __process_laneSets_laneSet = null;
-		IsApplicableMatch isApplicableMatch = null;
-		EMoflonEdge __process_flowElements_inFlow = null;
-		EMoflonEdge __inFlow_targetRef_endEvent = null;
-		EMoflonEdge __inFlowToFlow_source_inFlow = null;
-		EMoflonEdge __endEvent_incoming_inFlow = null;
-		EMoflonEdge __lane_flowNodeRefs_endEvent = null;
-		EMoflonEdge __inFlowToFlow_target_flow = null;
-		EMoflonEdge __useCase_flows_flow = null;
-		EMoflonEdge __processToUseCase_target_useCase = null;
-		EMoflonEdge __laneSet_lanes_lane = null;
-		CSP csp = null;
-		UseCase useCase = null;
-		Iterator fujaba__IterProcessToProcessToUseCase = null;
-		ProcessToUseCase processToUseCase = null;
-		Flow flow = null;
-		Iterator fujaba__IterInFlowToInFlowToFlow = null;
-		SequenceFlowToUCFlow inFlowToFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from eClass to performOperation
-			fujaba__Success = false;
-
-			fujaba__IterEClassToPerformOperation = eClass.getEOperations()
-					.iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__IterEClassToPerformOperation.hasNext()) {
-				try {
-					performOperation = (EOperation) fujaba__IterEClassToPerformOperation
-							.next();
-
-					// check object performOperation is really bound
-					JavaSDM.ensure(performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							performOperation.getName(), "perform_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object ruleresult
-			ruleresult = TGGRuntimeFactory.eINSTANCE
-					.createIsApplicableRuleResult();
-
-			// assign attribute ruleresult
-			ruleresult.setSuccess(false);
-			// assign attribute ruleresult
-			ruleresult.setRule("EndEventRule");
-
-			// create link
-			ruleresult.setPerformOperation(performOperation);
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = EndEventRuleImpl
+				.pattern_EndEventRule_2_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
-
-		// story node 'core match'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (match.getObject("endEvent"));
-
-			// ensure correct type and really bound of object endEvent
-			JavaSDM.ensure(_TmpObject instanceof EndEvent);
-			endEvent = (EndEvent) _TmpObject;
-			_TmpObject = (match.getObject("inFlow"));
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-			_TmpObject = (match.getObject("lane"));
-
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-			_TmpObject = (match.getObject("laneSet"));
-
-			// ensure correct type and really bound of object laneSet
-			JavaSDM.ensure(_TmpObject instanceof LaneSet);
-			laneSet = (LaneSet) _TmpObject;
-			_TmpObject = (match.getObject("process"));
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-			// check object match is really bound
-			JavaSDM.ensure(match != null);
-			// iterate to-many link source from inFlow to inFlowToFlow
-			fujaba__Success = false;
-
-			fujaba__IterInFlowToInFlowToFlow = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(inFlow,
-							SequenceFlowToUCFlow.class, "source")).iterator();
-
-			while (fujaba__IterInFlowToInFlowToFlow.hasNext()) {
-				try {
-					inFlowToFlow = (SequenceFlowToUCFlow) fujaba__IterInFlowToInFlowToFlow
-							.next();
-
-					// check object inFlowToFlow is really bound
-					JavaSDM.ensure(inFlowToFlow != null);
-					// bind object
-					flow = inFlowToFlow.getTarget();
-
-					// check object flow is really bound
-					JavaSDM.ensure(flow != null);
-
-					// iterate to-many link source from process to processToUseCase
-					fujaba__Success = false;
-
-					fujaba__IterProcessToProcessToUseCase = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(process,
-											ProcessToUseCase.class, "source"))
-							.iterator();
-
-					while (fujaba__IterProcessToProcessToUseCase.hasNext()) {
-						try {
-							processToUseCase = (ProcessToUseCase) fujaba__IterProcessToProcessToUseCase
-									.next();
-
-							// check object processToUseCase is really bound
-							JavaSDM.ensure(processToUseCase != null);
-							// bind object
-							useCase = processToUseCase.getTarget();
-
-							// check object useCase is really bound
-							JavaSDM.ensure(useCase != null);
-
-							// story node 'find context'
-							try {
-								fujaba__Success = false;
-
-								// check object endEvent is really bound
-								JavaSDM.ensure(endEvent != null);
-								// check object flow is really bound
-								JavaSDM.ensure(flow != null);
-								// check object inFlow is really bound
-								JavaSDM.ensure(inFlow != null);
-								// check object inFlowToFlow is really bound
-								JavaSDM.ensure(inFlowToFlow != null);
-								// check object lane is really bound
-								JavaSDM.ensure(lane != null);
-								// check object laneSet is really bound
-								JavaSDM.ensure(laneSet != null);
-								// check object process is really bound
-								JavaSDM.ensure(process != null);
-								// check object processToUseCase is really bound
-								JavaSDM.ensure(processToUseCase != null);
-								// check object useCase is really bound
-								JavaSDM.ensure(useCase != null);
-								// check link flowElements from endEvent to process
-								JavaSDM.ensure(process.equals(endEvent
-										.eContainer()));
-
-								// check link flowElements from inFlow to process
-								JavaSDM.ensure(process.equals(inFlow
-										.eContainer()));
-
-								// check link flows from flow to useCase
-								JavaSDM.ensure(useCase.equals(flow.eContainer()));
-
-								// check link laneSets from laneSet to process
-								JavaSDM.ensure(process.equals(laneSet
-										.eContainer()));
-
-								// check link lanes from lane to laneSet
-								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-								// check link source from inFlowToFlow to inFlow
-								JavaSDM.ensure(inFlow.equals(inFlowToFlow
-										.getSource()));
-
-								// check link source from processToUseCase to process
-								JavaSDM.ensure(process.equals(processToUseCase
-										.getSource()));
-
-								// check link target from inFlowToFlow to flow
-								JavaSDM.ensure(flow.equals(inFlowToFlow
-										.getTarget()));
-
-								// check link target from processToUseCase to useCase
-								JavaSDM.ensure(useCase.equals(processToUseCase
-										.getTarget()));
-
-								// check link targetRef from inFlow to endEvent
-								JavaSDM.ensure(endEvent.equals(inFlow
-										.getTargetRef()));
-
-								// check link flowNodeRefs from lane to endEvent
-								JavaSDM.ensure(lane.getFlowNodeRefs().contains(
-										endEvent));
-
-								// create object __process_flowElements_endEvent
-								__process_flowElements_endEvent = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __processToUseCase_source_process
-								__processToUseCase_source_process = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __process_laneSets_laneSet
-								__process_laneSets_laneSet = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object isApplicableMatch
-								isApplicableMatch = TGGRuntimeFactory.eINSTANCE
-										.createIsApplicableMatch();
-
-								// create object __process_flowElements_inFlow
-								__process_flowElements_inFlow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __inFlow_targetRef_endEvent
-								__inFlow_targetRef_endEvent = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __inFlowToFlow_source_inFlow
-								__inFlowToFlow_source_inFlow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __endEvent_incoming_inFlow
-								__endEvent_incoming_inFlow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __lane_flowNodeRefs_endEvent
-								__lane_flowNodeRefs_endEvent = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __inFlowToFlow_target_flow
-								__inFlowToFlow_target_flow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __useCase_flows_flow
-								__useCase_flows_flow = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __processToUseCase_target_useCase
-								__processToUseCase_target_useCase = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// create object __laneSet_lanes_lane
-								__laneSet_lanes_lane = TGGRuntimeFactory.eINSTANCE
-										.createEMoflonEdge();
-
-								// assign attribute __process_laneSets_laneSet
-								__process_laneSets_laneSet.setName("laneSets");
-								// assign attribute __process_flowElements_inFlow
-								__process_flowElements_inFlow
-										.setName("flowElements");
-								// assign attribute __process_flowElements_endEvent
-								__process_flowElements_endEvent
-										.setName("flowElements");
-								// assign attribute __inFlow_targetRef_endEvent
-								__inFlow_targetRef_endEvent
-										.setName("targetRef");
-								// assign attribute __endEvent_incoming_inFlow
-								__endEvent_incoming_inFlow.setName("incoming");
-								// assign attribute __inFlowToFlow_source_inFlow
-								__inFlowToFlow_source_inFlow.setName("source");
-								// assign attribute __inFlowToFlow_target_flow
-								__inFlowToFlow_target_flow.setName("target");
-								// assign attribute __useCase_flows_flow
-								__useCase_flows_flow.setName("flows");
-								// assign attribute __processToUseCase_source_process
-								__processToUseCase_source_process
-										.setName("source");
-								// assign attribute __processToUseCase_target_useCase
-								__processToUseCase_target_useCase
-										.setName("target");
-								// assign attribute __lane_flowNodeRefs_endEvent
-								__lane_flowNodeRefs_endEvent
-										.setName("flowNodeRefs");
-								// assign attribute __laneSet_lanes_lane
-								__laneSet_lanes_lane.setName("lanes");
-
-								// create link
-								__process_flowElements_endEvent.setSrc(process);
-
-								// create link
-								__processToUseCase_source_process
-										.setTrg(process);
-
-								// create link
-								__process_laneSets_laneSet.setSrc(process);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										process);
-
-								// create link
-								__process_flowElements_inFlow.setSrc(process);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										inFlow);
-
-								// create link
-								__process_flowElements_inFlow.setTrg(inFlow);
-
-								// create link
-								__inFlow_targetRef_endEvent.setSrc(inFlow);
-
-								// create link
-								__inFlowToFlow_source_inFlow.setTrg(inFlow);
-
-								// create link
-								__endEvent_incoming_inFlow.setTrg(inFlow);
-
-								// create link
-								__endEvent_incoming_inFlow.setSrc(endEvent);
-
-								// create link
-								__lane_flowNodeRefs_endEvent.setTrg(endEvent);
-
-								// create link
-								__inFlow_targetRef_endEvent.setTrg(endEvent);
-
-								// create link
-								__process_flowElements_endEvent
-										.setTrg(endEvent);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										endEvent);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										flow);
-
-								// create link
-								__inFlowToFlow_target_flow.setTrg(flow);
-
-								// create link
-								__useCase_flows_flow.setTrg(flow);
-
-								// create link
-								__inFlowToFlow_target_flow.setSrc(inFlowToFlow);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										inFlowToFlow);
-
-								// create link
-								__inFlowToFlow_source_inFlow
-										.setSrc(inFlowToFlow);
-
-								// create link
-								__useCase_flows_flow.setSrc(useCase);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										useCase);
-
-								// create link
-								__processToUseCase_target_useCase
-										.setTrg(useCase);
-
-								// create link
-								__processToUseCase_source_process
-										.setSrc(processToUseCase);
-
-								// create link
-								__processToUseCase_target_useCase
-										.setSrc(processToUseCase);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										processToUseCase);
-
-								// create link
-								__lane_flowNodeRefs_endEvent.setSrc(lane);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										lane);
-
-								// create link
-								__laneSet_lanes_lane.setTrg(lane);
-
-								// create link
-								__laneSet_lanes_lane.setSrc(laneSet);
-
-								// create link
-								__process_laneSets_laneSet.setTrg(laneSet);
-
-								// create link
-								isApplicableMatch.getAllContextElements().add(
-										laneSet);
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__processToUseCase_target_useCase,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__process_flowElements_endEvent,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__process_flowElements_inFlow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__useCase_flows_flow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__lane_flowNodeRefs_endEvent,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__laneSet_lanes_lane,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__inFlowToFlow_source_inFlow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__endEvent_incoming_inFlow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__inFlow_targetRef_endEvent,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__processToUseCase_source_process,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__inFlowToFlow_target_flow,
-												"allContextElements");
-
-								// create link
-								org.moflon.util.eMoflonEMFUtil
-										.addOppositeReference(
-												isApplicableMatch,
-												__process_laneSets_laneSet,
-												"allContextElements");
-								// story node 'solve CSP'
-								try {
-									fujaba__Success = false;
-
-									_TmpObject = (this
-											.isApplicable_solveCsp_FWD(
-													isApplicableMatch, process,
-													inFlow, endEvent, flow,
-													inFlowToFlow, useCase,
-													processToUseCase, lane,
-													laneSet));
-
-									// ensure correct type and really bound of object csp
-									JavaSDM.ensure(_TmpObject instanceof CSP);
-									csp = (CSP) _TmpObject;
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								// statement node 'check CSP'
-								fujaba__Success = this
-										.isApplicable_checkCsp_FWD(csp);
-								if (fujaba__Success) {
-									// story node 'add match to rule result'
-									try {
-										fujaba__Success = false;
-
-										// check object isApplicableMatch is really bound
-										JavaSDM.ensure(isApplicableMatch != null);
-										// check object ruleresult is really bound
-										JavaSDM.ensure(ruleresult != null);
-										// assign attribute isApplicableMatch
-										isApplicableMatch
-												.setRuleName("EndEventRule");
-										// assign attribute ruleresult
-										ruleresult.setSuccess(true);
-
-										// create link
-										ruleresult.getIsApplicableMatch().add(
-												isApplicableMatch);
-
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
+		// EClass eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = EndEventRuleImpl
+				.pattern_EndEventRule_2_1_greenBF(performOperation);
+		IsApplicableRuleResult ruleresult = (IsApplicableRuleResult) result1_green[1];
+
+		// ForEach core match
+		Object[] result2_binding = EndEventRuleImpl
+				.pattern_EndEventRule_2_2_bindingFFFFFB(match);
+		if (result2_binding == null) {
+			throw new RuntimeException("Binding in node core match failed");
+		}
+		bpmn2.Process process = (bpmn2.Process) result2_binding[0];
+		SequenceFlow inFlow = (SequenceFlow) result2_binding[1];
+		EndEvent endEvent = (EndEvent) result2_binding[2];
+		Lane lane = (Lane) result2_binding[3];
+		LaneSet laneSet = (LaneSet) result2_binding[4];
+		for (Object[] result2_black : EndEventRuleImpl
+				.pattern_EndEventRule_2_2_blackBBBFFFFBBB(process, inFlow,
+						endEvent, lane, laneSet, match)) {
+			Flow flow = (Flow) result2_black[3];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[4];
+			UseCase useCase = (UseCase) result2_black[5];
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) result2_black[6];
+			// ForEach find context
+			for (Object[] result3_black : EndEventRuleImpl
+					.pattern_EndEventRule_2_3_blackBBBBBBBBB(process, inFlow,
+							endEvent, flow, inFlowToFlow, useCase,
+							processToUseCase, lane, laneSet)) {
+				Object[] result3_green = EndEventRuleImpl
+						.pattern_EndEventRule_2_3_greenBBBBBBBBBFFFFFFFFFFFFF(
+								process, inFlow, endEvent, flow, inFlowToFlow,
+								useCase, processToUseCase, lane, laneSet);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[9];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[10];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge process__endEvent____flowElements = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge inFlow__endEvent____targetRef = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge endEvent__inFlow____incoming = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge processToUseCase__process____source = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge processToUseCase__useCase____target = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge lane__endEvent____flowNodeRefs = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[21];
+
+				// solve CSP
+				Object[] result4_bindingAndBlack = EndEventRuleImpl
+						.pattern_EndEventRule_2_4_bindingAndBlackFBBBBBBBBBBB(
+								this, isApplicableMatch, process, inFlow,
+								endEvent, flow, inFlowToFlow, useCase,
+								processToUseCase, lane, laneSet);
+				if (result4_bindingAndBlack == null) {
+					throw new RuntimeException(
+							"Pattern matching in node [solve CSP] failed");
+				}
+				CSP csp = (CSP) result4_bindingAndBlack[0];
+				// check CSP
+				if (EndEventRuleImpl.pattern_EndEventRule_2_5_expressionFBB(
+						this, csp)) {
+
+					// add match to rule result
+					Object[] result6_black = EndEventRuleImpl
+							.pattern_EndEventRule_2_6_blackBB(ruleresult,
+									isApplicableMatch);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					EndEventRuleImpl.pattern_EndEventRule_2_6_greenBB(
+							ruleresult, isApplicableMatch);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
-		}
 
-		return ruleresult;
+			}
+
+		}
+		return EndEventRuleImpl
+				.pattern_EndEventRule_2_7_expressionFB(ruleresult);
 	}
 
 	/**
@@ -1373,15 +338,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, bpmn2.Process process,
-			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
-		// Create CSP
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 
 		// Create attribute variables
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -1408,8 +370,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			bpmn2.Process process, SequenceFlow inFlow, EndEvent endEvent,
 			Flow flow, SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
-			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet) {
-		// Create CSP
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -1424,8 +385,6 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				.createVariable("flow.finalState", true, csp);
 		var_flow_finalState.setValue(flow.getFinalState());
 		var_flow_finalState.setType("String");
-
-		// Create explicit parameters
 
 		// Create unbound variables
 
@@ -1499,338 +458,58 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_27(
 			EMoflonEdge _edge_flowElements) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_endEvent_flowElements_806797 = null;
-		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_985289 = null;
-		SequenceFlow __DEC_endEvent_targetRef_985289 = null;
-		Match match = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		Iterator fujaba__IterEndEventToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToInFlow = null;
-		SequenceFlow inFlow = null;
-		EndEvent endEvent = null;
-		bpmn2.Process process = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = EndEventRuleImpl
+				.pattern_EndEventRule_10_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = EndEventRuleImpl
+				.pattern_EndEventRule_10_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : EndEventRuleImpl
+				.pattern_EndEventRule_10_2_blackFFFFFB(_edge_flowElements)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			EndEvent endEvent = (EndEvent) result2_black[2];
+			Lane lane = (Lane) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Object[] result2_green = EndEventRuleImpl
+					.pattern_EndEventRule_10_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_flowElements is really bound
-			JavaSDM.ensure(_edge_flowElements != null);
-			// bind object
-			_TmpObject = _edge_flowElements.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (EndEventRuleImpl.pattern_EndEventRule_10_3_expressionFBBBBBBB(
+					this, match, process, inFlow, endEvent, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (EndEventRuleImpl.pattern_EndEventRule_10_4_expressionFBB(
+						this, match)) {
 
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowElements.getTrg();
-
-			// ensure correct type and really bound of object endEvent
-			JavaSDM.ensure(_TmpObject instanceof EndEvent);
-			endEvent = (EndEvent) _TmpObject;
-
-			// check link flowElements from endEvent to process
-			JavaSDM.ensure(process.equals(endEvent.eContainer()));
-
-			// iterate to-many link flowElements from process to inFlow
-			fujaba__Success = false;
-
-			fujaba__IterProcessToInFlow = new ArrayList(
-					process.getFlowElements()).iterator();
-
-			while (fujaba__IterProcessToInFlow.hasNext()) {
-				try {
-					_TmpObject = fujaba__IterProcessToInFlow.next();
-
-					// ensure correct type and really bound of object inFlow
-					JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-					inFlow = (SequenceFlow) _TmpObject;
-					// check link targetRef from inFlow to endEvent
-					JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
-
-					// iterate to-many link flowNodeRefs from endEvent to lane
-					fujaba__Success = false;
-
-					fujaba__IterEndEventToLane = new ArrayList(
-							org.moflon.util.eMoflonEMFUtil
-									.getOppositeReference(endEvent, Lane.class,
-											"flowNodeRefs")).iterator();
-
-					while (fujaba__IterEndEventToLane.hasNext()) {
-						try {
-							lane = (Lane) fujaba__IterEndEventToLane.next();
-
-							// check object lane is really bound
-							JavaSDM.ensure(lane != null);
-							// iterate to-many link laneSets from process to laneSet
-							fujaba__Success = false;
-
-							fujaba__IterProcessToLaneSet = new ArrayList(
-									process.getLaneSets()).iterator();
-
-							while (fujaba__IterProcessToLaneSet.hasNext()) {
-								try {
-									laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-											.next();
-
-									// check object laneSet is really bound
-									JavaSDM.ensure(laneSet != null);
-									// check link lanes from lane to laneSet
-									JavaSDM.ensure(laneSet.equals(lane
-											.eContainer()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_endEvent_flowElements_806797 = endEvent
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) endEvent
-													.eContainer() : null;
-
-											// check object __DEC_endEvent_flowElements_806797 is really bound
-											JavaSDM.ensure(__DEC_endEvent_flowElements_806797 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_endEvent_flowElements_806797
-													.getFlowElements()
-													.contains(endEvent));
-
-											// check isomorphic binding between objects __DEC_endEvent_flowElements_806797 and process 
-											JavaSDM.ensure(!__DEC_endEvent_flowElements_806797
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from endEvent to __DEC_endEvent_targetRef_985289
-											fujaba__Success = false;
-
-											fujaba__IterEndEventTo__DEC_endEvent_targetRef_985289 = new ArrayList(
-													endEvent.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_985289
-															.hasNext()) {
-												try {
-													__DEC_endEvent_targetRef_985289 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_985289
-															.next();
-
-													// check object __DEC_endEvent_targetRef_985289 is really bound
-													JavaSDM.ensure(__DEC_endEvent_targetRef_985289 != null);
-													// check isomorphic binding between objects __DEC_endEvent_targetRef_985289 and inFlow 
-													JavaSDM.ensure(!__DEC_endEvent_targetRef_985289
-															.equals(inFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_flowElements is really bound
-										JavaSDM.ensure(_edge_flowElements != null);
-										// check object endEvent is really bound
-										JavaSDM.ensure(endEvent != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check link flowElements from endEvent to process
-										JavaSDM.ensure(process.equals(endEvent
-												.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link src from _edge_flowElements to process
-										JavaSDM.ensure(process
-												.equals(_edge_flowElements
-														.getSrc()));
-
-										// check link targetRef from inFlow to endEvent
-										JavaSDM.ensure(endEvent.equals(inFlow
-												.getTargetRef()));
-
-										// check link trg from _edge_flowElements to endEvent
-										JavaSDM.ensure(endEvent
-												.equals(_edge_flowElements
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to endEvent
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(endEvent));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														process, inFlow,
-														endEvent, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = EndEventRuleImpl
+							.pattern_EndEventRule_10_5_blackBBB(match,
+									__performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					EndEventRuleImpl.pattern_EndEventRule_10_5_greenBBB(match,
+							__performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return EndEventRuleImpl
+				.pattern_EndEventRule_10_6_expressionFB(__result);
 	}
 
 	/**
@@ -1840,320 +519,58 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_28(
 			EMoflonEdge _edge_targetRef) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_endEvent_flowElements_430208 = null;
-		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_1835 = null;
-		SequenceFlow __DEC_endEvent_targetRef_1835 = null;
-		Match match = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		Iterator fujaba__IterEndEventToLane = null;
-		Lane lane = null;
-		EndEvent endEvent = null;
-		SequenceFlow inFlow = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = EndEventRuleImpl
+				.pattern_EndEventRule_11_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = EndEventRuleImpl
+				.pattern_EndEventRule_11_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : EndEventRuleImpl
+				.pattern_EndEventRule_11_2_blackFFFFFB(_edge_targetRef)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			EndEvent endEvent = (EndEvent) result2_black[2];
+			Lane lane = (Lane) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Object[] result2_green = EndEventRuleImpl
+					.pattern_EndEventRule_11_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_targetRef is really bound
-			JavaSDM.ensure(_edge_targetRef != null);
-			// bind object
-			_TmpObject = _edge_targetRef.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (EndEventRuleImpl.pattern_EndEventRule_11_3_expressionFBBBBBBB(
+					this, match, process, inFlow, endEvent, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (EndEventRuleImpl.pattern_EndEventRule_11_4_expressionFBB(
+						this, match)) {
 
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_targetRef.getTrg();
-
-			// ensure correct type and really bound of object endEvent
-			JavaSDM.ensure(_TmpObject instanceof EndEvent);
-			endEvent = (EndEvent) _TmpObject;
-
-			// check link targetRef from inFlow to endEvent
-			JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link flowNodeRefs from endEvent to lane
-			fujaba__Success = false;
-
-			fujaba__IterEndEventToLane = new ArrayList(
-					org.moflon.util.eMoflonEMFUtil.getOppositeReference(
-							endEvent, Lane.class, "flowNodeRefs")).iterator();
-
-			while (fujaba__IterEndEventToLane.hasNext()) {
-				try {
-					lane = (Lane) fujaba__IterEndEventToLane.next();
-
-					// check object lane is really bound
-					JavaSDM.ensure(lane != null);
-					// bind object
-					_TmpObject = endEvent.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) endEvent
-							.eContainer() : null;
-
-					// ensure correct type and really bound of object process
-					JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-					process = (bpmn2.Process) _TmpObject;
-
-					// check if contained via correct reference
-					JavaSDM.ensure(process.getFlowElements().contains(endEvent));
-
-					// check link flowElements from inFlow to process
-					JavaSDM.ensure(process.equals(inFlow.eContainer()));
-
-					// iterate to-many link laneSets from process to laneSet
-					fujaba__Success = false;
-
-					fujaba__IterProcessToLaneSet = new ArrayList(
-							process.getLaneSets()).iterator();
-
-					while (fujaba__IterProcessToLaneSet.hasNext()) {
-						try {
-							laneSet = (LaneSet) fujaba__IterProcessToLaneSet
-									.next();
-
-							// check object laneSet is really bound
-							JavaSDM.ensure(laneSet != null);
-							// check link lanes from lane to laneSet
-							JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_endEvent_flowElements_430208 = endEvent
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) endEvent
-											.eContainer() : null;
-
-									// check object __DEC_endEvent_flowElements_430208 is really bound
-									JavaSDM.ensure(__DEC_endEvent_flowElements_430208 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_endEvent_flowElements_430208
-											.getFlowElements().contains(
-													endEvent));
-
-									// check isomorphic binding between objects __DEC_endEvent_flowElements_430208 and process 
-									JavaSDM.ensure(!__DEC_endEvent_flowElements_430208
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link targetRef from endEvent to __DEC_endEvent_targetRef_1835
-									fujaba__Success = false;
-
-									fujaba__IterEndEventTo__DEC_endEvent_targetRef_1835 = new ArrayList(
-											endEvent.getIncoming()).iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_1835
-													.hasNext()) {
-										try {
-											__DEC_endEvent_targetRef_1835 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_1835
-													.next();
-
-											// check object __DEC_endEvent_targetRef_1835 is really bound
-											JavaSDM.ensure(__DEC_endEvent_targetRef_1835 != null);
-											// check isomorphic binding between objects __DEC_endEvent_targetRef_1835 and inFlow 
-											JavaSDM.ensure(!__DEC_endEvent_targetRef_1835
-													.equals(inFlow));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_targetRef is really bound
-								JavaSDM.ensure(_edge_targetRef != null);
-								// check object endEvent is really bound
-								JavaSDM.ensure(endEvent != null);
-								// check object inFlow is really bound
-								JavaSDM.ensure(inFlow != null);
-								// check object lane is really bound
-								JavaSDM.ensure(lane != null);
-								// check object laneSet is really bound
-								JavaSDM.ensure(laneSet != null);
-								// check object process is really bound
-								JavaSDM.ensure(process != null);
-								// check link flowElements from endEvent to process
-								JavaSDM.ensure(process.equals(endEvent
-										.eContainer()));
-
-								// check link flowElements from inFlow to process
-								JavaSDM.ensure(process.equals(inFlow
-										.eContainer()));
-
-								// check link laneSets from laneSet to process
-								JavaSDM.ensure(process.equals(laneSet
-										.eContainer()));
-
-								// check link lanes from lane to laneSet
-								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-								// check link src from _edge_targetRef to inFlow
-								JavaSDM.ensure(inFlow.equals(_edge_targetRef
-										.getSrc()));
-
-								// check link targetRef from inFlow to endEvent
-								JavaSDM.ensure(endEvent.equals(inFlow
-										.getTargetRef()));
-
-								// check link trg from _edge_targetRef to endEvent
-								JavaSDM.ensure(endEvent.equals(_edge_targetRef
-										.getTrg()));
-
-								// check link flowNodeRefs from lane to endEvent
-								JavaSDM.ensure(lane.getFlowNodeRefs().contains(
-										endEvent));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_FWD(match,
-										process, inFlow, endEvent, lane,
-										laneSet);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_FWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = EndEventRuleImpl
+							.pattern_EndEventRule_11_5_blackBBB(match,
+									__performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					EndEventRuleImpl.pattern_EndEventRule_11_5_greenBBB(match,
+							__performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return EndEventRuleImpl
+				.pattern_EndEventRule_11_6_expressionFB(__result);
 	}
 
 	/**
@@ -2163,373 +580,58 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_29(
 			EMoflonEdge _edge_incoming) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_endEvent_flowElements_363037 = null;
-		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_210775 = null;
-		SequenceFlow __DEC_endEvent_targetRef_210775 = null;
-		Match match = null;
-		Iterator fujaba__IterInFlowTo_edge_targetRef = null;
-		EMoflonEdge _edge_targetRef = null;
-		Iterator fujaba__IterLaneSetToLane = null;
-		Lane lane = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		SequenceFlow inFlow = null;
-		EndEvent endEvent = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = EndEventRuleImpl
+				.pattern_EndEventRule_12_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = EndEventRuleImpl
+				.pattern_EndEventRule_12_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : EndEventRuleImpl
+				.pattern_EndEventRule_12_2_blackFFFFFB(_edge_incoming)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			EndEvent endEvent = (EndEvent) result2_black[2];
+			Lane lane = (Lane) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Object[] result2_green = EndEventRuleImpl
+					.pattern_EndEventRule_12_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_incoming is really bound
-			JavaSDM.ensure(_edge_incoming != null);
-			// bind object
-			_TmpObject = _edge_incoming.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (EndEventRuleImpl.pattern_EndEventRule_12_3_expressionFBBBBBBB(
+					this, match, process, inFlow, endEvent, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (EndEventRuleImpl.pattern_EndEventRule_12_4_expressionFBB(
+						this, match)) {
 
-			// ensure correct type and really bound of object endEvent
-			JavaSDM.ensure(_TmpObject instanceof EndEvent);
-			endEvent = (EndEvent) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_incoming.getTrg();
-
-			// ensure correct type and really bound of object inFlow
-			JavaSDM.ensure(_TmpObject instanceof SequenceFlow);
-			inFlow = (SequenceFlow) _TmpObject;
-
-			// bind object
-			_TmpObject = inFlow.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) inFlow
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(inFlow));
-
-			// check link flowElements from endEvent to process
-			JavaSDM.ensure(process.equals(endEvent.eContainer()));
-
-			// check link targetRef from inFlow to endEvent
-			JavaSDM.ensure(endEvent.equals(inFlow.getTargetRef()));
-
-			// iterate to-many link laneSets from process to laneSet
-			fujaba__Success = false;
-
-			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
-					.iterator();
-
-			while (fujaba__IterProcessToLaneSet.hasNext()) {
-				try {
-					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
-
-					// check object laneSet is really bound
-					JavaSDM.ensure(laneSet != null);
-					// iterate to-many link lanes from laneSet to lane
-					fujaba__Success = false;
-
-					fujaba__IterLaneSetToLane = new ArrayList(
-							laneSet.getLanes()).iterator();
-
-					while (fujaba__IterLaneSetToLane.hasNext()) {
-						try {
-							lane = (Lane) fujaba__IterLaneSetToLane.next();
-
-							// check object lane is really bound
-							JavaSDM.ensure(lane != null);
-							// check link flowNodeRefs from lane to endEvent
-							JavaSDM.ensure(lane.getFlowNodeRefs().contains(
-									endEvent));
-
-							// iterate to-many link src from inFlow to _edge_targetRef
-							fujaba__Success = false;
-
-							fujaba__IterInFlowTo_edge_targetRef = new ArrayList(
-									org.moflon.util.eMoflonEMFUtil
-											.getOppositeReference(inFlow,
-													EMoflonEdge.class, "src"))
-									.iterator();
-
-							while (fujaba__IterInFlowTo_edge_targetRef
-									.hasNext()) {
-								try {
-									_edge_targetRef = (EMoflonEdge) fujaba__IterInFlowTo_edge_targetRef
-											.next();
-
-									// check object _edge_targetRef is really bound
-									JavaSDM.ensure(_edge_targetRef != null);
-									// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-									JavaSDM.ensure(!_edge_targetRef
-											.equals(_edge_incoming));
-
-									// check link trg from _edge_targetRef to endEvent
-									JavaSDM.ensure(endEvent
-											.equals(_edge_targetRef.getTrg()));
-
-									// story node 'test core match and DECs'
-									try {
-										fujaba__Success = false;
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// bind object
-											__DEC_endEvent_flowElements_363037 = endEvent
-													.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) endEvent
-													.eContainer() : null;
-
-											// check object __DEC_endEvent_flowElements_363037 is really bound
-											JavaSDM.ensure(__DEC_endEvent_flowElements_363037 != null);
-
-											// check if contained via correct reference
-											JavaSDM.ensure(__DEC_endEvent_flowElements_363037
-													.getFlowElements()
-													.contains(endEvent));
-
-											// check isomorphic binding between objects __DEC_endEvent_flowElements_363037 and process 
-											JavaSDM.ensure(!__DEC_endEvent_flowElements_363037
-													.equals(process));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check negative bindings
-										try {
-											fujaba__Success = false;
-
-											// iterate to-many link targetRef from endEvent to __DEC_endEvent_targetRef_210775
-											fujaba__Success = false;
-
-											fujaba__IterEndEventTo__DEC_endEvent_targetRef_210775 = new ArrayList(
-													endEvent.getIncoming())
-													.iterator();
-
-											while (!(fujaba__Success)
-													&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_210775
-															.hasNext()) {
-												try {
-													__DEC_endEvent_targetRef_210775 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_210775
-															.next();
-
-													// check object __DEC_endEvent_targetRef_210775 is really bound
-													JavaSDM.ensure(__DEC_endEvent_targetRef_210775 != null);
-													// check isomorphic binding between objects __DEC_endEvent_targetRef_210775 and inFlow 
-													JavaSDM.ensure(!__DEC_endEvent_targetRef_210775
-															.equals(inFlow));
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-											}
-											JavaSDM.ensure(fujaba__Success);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-										fujaba__Success = !(fujaba__Success);
-
-										JavaSDM.ensure(fujaba__Success);
-
-										// check object _edge_incoming is really bound
-										JavaSDM.ensure(_edge_incoming != null);
-										// check object _edge_targetRef is really bound
-										JavaSDM.ensure(_edge_targetRef != null);
-										// check object endEvent is really bound
-										JavaSDM.ensure(endEvent != null);
-										// check object inFlow is really bound
-										JavaSDM.ensure(inFlow != null);
-										// check object lane is really bound
-										JavaSDM.ensure(lane != null);
-										// check object laneSet is really bound
-										JavaSDM.ensure(laneSet != null);
-										// check object process is really bound
-										JavaSDM.ensure(process != null);
-										// check isomorphic binding between objects _edge_targetRef and _edge_incoming 
-										JavaSDM.ensure(!_edge_targetRef
-												.equals(_edge_incoming));
-
-										// check link flowElements from endEvent to process
-										JavaSDM.ensure(process.equals(endEvent
-												.eContainer()));
-
-										// check link flowElements from inFlow to process
-										JavaSDM.ensure(process.equals(inFlow
-												.eContainer()));
-
-										// check link laneSets from laneSet to process
-										JavaSDM.ensure(process.equals(laneSet
-												.eContainer()));
-
-										// check link lanes from lane to laneSet
-										JavaSDM.ensure(laneSet.equals(lane
-												.eContainer()));
-
-										// check link src from _edge_incoming to endEvent
-										JavaSDM.ensure(endEvent
-												.equals(_edge_incoming.getSrc()));
-
-										// check link src from _edge_targetRef to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(_edge_targetRef
-														.getSrc()));
-
-										// check link targetRef from inFlow to endEvent
-										JavaSDM.ensure(endEvent.equals(inFlow
-												.getTargetRef()));
-
-										// check link trg from _edge_incoming to inFlow
-										JavaSDM.ensure(inFlow
-												.equals(_edge_incoming.getTrg()));
-
-										// check link trg from _edge_targetRef to endEvent
-										JavaSDM.ensure(endEvent
-												.equals(_edge_targetRef
-														.getTrg()));
-
-										// check link flowNodeRefs from lane to endEvent
-										JavaSDM.ensure(lane.getFlowNodeRefs()
-												.contains(endEvent));
-
-										// create object match
-										match = TGGRuntimeFactory.eINSTANCE
-												.createMatch();
-
-										// assign attribute match
-										match.setRuleName(__eClass.getName());
-										// statement node 'bookkeeping with generic isAppropriate method'
-										fujaba__Success = this
-												.isAppropriate_FWD(match,
-														process, inFlow,
-														endEvent, lane, laneSet);
-										if (fujaba__Success) {
-											// statement node 'Ensure that the correct types of elements are matched'
-											fujaba__Success = this
-													.checkTypes_FWD(match);
-											if (fujaba__Success) {
-												// story node 'Add match to rule result'
-												try {
-													fujaba__Success = false;
-
-													// check object __performOperation is really bound
-													JavaSDM.ensure(__performOperation != null);
-													// check object __result is really bound
-													JavaSDM.ensure(__result != null);
-													// check object match is really bound
-													JavaSDM.ensure(match != null);
-
-													// create link
-													org.moflon.util.eMoflonEMFUtil
-															.addOppositeReference(
-																	match,
-																	__performOperation,
-																	"isApplicableOperation");
-
-													// create link
-													__result.getContents().add(
-															match);
-
-													fujaba__Success = true;
-												} catch (JavaSDMException fujaba__InternalException) {
-													fujaba__Success = false;
-												}
-
-											} else {
-
-											}
-
-										} else {
-
-										}
-										fujaba__Success = true;
-									} catch (JavaSDMException fujaba__InternalException) {
-										fujaba__Success = false;
-									}
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-							}
-							JavaSDM.ensure(fujaba__Success);
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = EndEventRuleImpl
+							.pattern_EndEventRule_12_5_blackBBB(match,
+									__performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					EndEventRuleImpl.pattern_EndEventRule_12_5_greenBBB(match,
+							__performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return EndEventRuleImpl
+				.pattern_EndEventRule_12_6_expressionFB(__result);
 	}
 
 	/**
@@ -2539,319 +641,58 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_30(
 			EMoflonEdge _edge_flowNodeRefs) {
-		boolean fujaba__Success = false;
-		Object _TmpObject = null;
-		EClass __eClass = null;
-		Iterator fujaba__Iter__eClassTo__performOperation = null;
-		EOperation __performOperation = null;
-		EObjectContainer __result = null;
-		FlowElementsContainer __DEC_endEvent_flowElements_402877 = null;
-		Iterator fujaba__IterEndEventTo__DEC_endEvent_targetRef_171711 = null;
-		SequenceFlow __DEC_endEvent_targetRef_171711 = null;
-		Match match = null;
-		Iterator fujaba__IterEndEventToInFlow = null;
-		SequenceFlow inFlow = null;
-		Iterator fujaba__IterProcessToLaneSet = null;
-		LaneSet laneSet = null;
-		bpmn2.Process process = null;
-		EndEvent endEvent = null;
-		Lane lane = null;
-
-		// story node 'prepare return value'
-		try {
-			fujaba__Success = false;
-
-			_TmpObject = (this.eClass());
-
-			// ensure correct type and really bound of object __eClass
-			JavaSDM.ensure(_TmpObject instanceof EClass);
-			__eClass = (EClass) _TmpObject;
-			// iterate to-many link eOperations from __eClass to __performOperation
-			fujaba__Success = false;
-
-			fujaba__Iter__eClassTo__performOperation = __eClass
-					.getEOperations().iterator();
-
-			while (!(fujaba__Success)
-					&& fujaba__Iter__eClassTo__performOperation.hasNext()) {
-				try {
-					__performOperation = (EOperation) fujaba__Iter__eClassTo__performOperation
-							.next();
-
-					// check object __performOperation is really bound
-					JavaSDM.ensure(__performOperation != null);
-					// attribute condition
-					JavaSDM.ensure(JavaSDM.stringCompare(
-							__performOperation.getName(), "isApplicable_FWD") == 0);
-
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
-				}
-			}
-			JavaSDM.ensure(fujaba__Success);
-			// create object __result
-			__result = TGGRuntimeFactory.eINSTANCE.createEObjectContainer();
-
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
+		// prepare return value
+		Object[] result1_bindingAndBlack = EndEventRuleImpl
+				.pattern_EndEventRule_13_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
 		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = EndEventRuleImpl
+				.pattern_EndEventRule_13_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
 
-		// story node 'test core match kernel'
-		try {
-			fujaba__Success = false;
+		// ForEach test core match and DECs
+		for (Object[] result2_black : EndEventRuleImpl
+				.pattern_EndEventRule_13_2_blackFFFFFB(_edge_flowNodeRefs)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
+			EndEvent endEvent = (EndEvent) result2_black[2];
+			Lane lane = (Lane) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Object[] result2_green = EndEventRuleImpl
+					.pattern_EndEventRule_13_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
 
-			// check object _edge_flowNodeRefs is really bound
-			JavaSDM.ensure(_edge_flowNodeRefs != null);
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getSrc();
+			// bookkeeping with generic isAppropriate method
+			if (EndEventRuleImpl.pattern_EndEventRule_13_3_expressionFBBBBBBB(
+					this, match, process, inFlow, endEvent, lane, laneSet)) {
+				// Ensure that the correct types of elements are matched
+				if (EndEventRuleImpl.pattern_EndEventRule_13_4_expressionFBB(
+						this, match)) {
 
-			// ensure correct type and really bound of object lane
-			JavaSDM.ensure(_TmpObject instanceof Lane);
-			lane = (Lane) _TmpObject;
-
-			// bind object
-			_TmpObject = _edge_flowNodeRefs.getTrg();
-
-			// ensure correct type and really bound of object endEvent
-			JavaSDM.ensure(_TmpObject instanceof EndEvent);
-			endEvent = (EndEvent) _TmpObject;
-
-			// bind object
-			_TmpObject = endEvent.eContainer() instanceof bpmn2.Process ? (bpmn2.Process) endEvent
-					.eContainer() : null;
-
-			// ensure correct type and really bound of object process
-			JavaSDM.ensure(_TmpObject instanceof bpmn2.Process);
-			process = (bpmn2.Process) _TmpObject;
-
-			// check if contained via correct reference
-			JavaSDM.ensure(process.getFlowElements().contains(endEvent));
-
-			// check link flowNodeRefs from lane to endEvent
-			JavaSDM.ensure(lane.getFlowNodeRefs().contains(endEvent));
-
-			// iterate to-many link laneSets from process to laneSet
-			fujaba__Success = false;
-
-			fujaba__IterProcessToLaneSet = new ArrayList(process.getLaneSets())
-					.iterator();
-
-			while (fujaba__IterProcessToLaneSet.hasNext()) {
-				try {
-					laneSet = (LaneSet) fujaba__IterProcessToLaneSet.next();
-
-					// check object laneSet is really bound
-					JavaSDM.ensure(laneSet != null);
-					// check link lanes from lane to laneSet
-					JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-					// iterate to-many link targetRef from endEvent to inFlow
-					fujaba__Success = false;
-
-					fujaba__IterEndEventToInFlow = new ArrayList(
-							endEvent.getIncoming()).iterator();
-
-					while (fujaba__IterEndEventToInFlow.hasNext()) {
-						try {
-							inFlow = (SequenceFlow) fujaba__IterEndEventToInFlow
-									.next();
-
-							// check object inFlow is really bound
-							JavaSDM.ensure(inFlow != null);
-							// check link flowElements from inFlow to process
-							JavaSDM.ensure(process.equals(inFlow.eContainer()));
-
-							// story node 'test core match and DECs'
-							try {
-								fujaba__Success = false;
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// bind object
-									__DEC_endEvent_flowElements_402877 = endEvent
-											.eContainer() instanceof FlowElementsContainer ? (FlowElementsContainer) endEvent
-											.eContainer() : null;
-
-									// check object __DEC_endEvent_flowElements_402877 is really bound
-									JavaSDM.ensure(__DEC_endEvent_flowElements_402877 != null);
-
-									// check if contained via correct reference
-									JavaSDM.ensure(__DEC_endEvent_flowElements_402877
-											.getFlowElements().contains(
-													endEvent));
-
-									// check isomorphic binding between objects __DEC_endEvent_flowElements_402877 and process 
-									JavaSDM.ensure(!__DEC_endEvent_flowElements_402877
-											.equals(process));
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check negative bindings
-								try {
-									fujaba__Success = false;
-
-									// iterate to-many link targetRef from endEvent to __DEC_endEvent_targetRef_171711
-									fujaba__Success = false;
-
-									fujaba__IterEndEventTo__DEC_endEvent_targetRef_171711 = new ArrayList(
-											endEvent.getIncoming()).iterator();
-
-									while (!(fujaba__Success)
-											&& fujaba__IterEndEventTo__DEC_endEvent_targetRef_171711
-													.hasNext()) {
-										try {
-											__DEC_endEvent_targetRef_171711 = (SequenceFlow) fujaba__IterEndEventTo__DEC_endEvent_targetRef_171711
-													.next();
-
-											// check object __DEC_endEvent_targetRef_171711 is really bound
-											JavaSDM.ensure(__DEC_endEvent_targetRef_171711 != null);
-											// check isomorphic binding between objects __DEC_endEvent_targetRef_171711 and inFlow 
-											JavaSDM.ensure(!__DEC_endEvent_targetRef_171711
-													.equals(inFlow));
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-									}
-									JavaSDM.ensure(fujaba__Success);
-
-									fujaba__Success = true;
-								} catch (JavaSDMException fujaba__InternalException) {
-									fujaba__Success = false;
-								}
-
-								fujaba__Success = !(fujaba__Success);
-
-								JavaSDM.ensure(fujaba__Success);
-
-								// check object _edge_flowNodeRefs is really bound
-								JavaSDM.ensure(_edge_flowNodeRefs != null);
-								// check object endEvent is really bound
-								JavaSDM.ensure(endEvent != null);
-								// check object inFlow is really bound
-								JavaSDM.ensure(inFlow != null);
-								// check object lane is really bound
-								JavaSDM.ensure(lane != null);
-								// check object laneSet is really bound
-								JavaSDM.ensure(laneSet != null);
-								// check object process is really bound
-								JavaSDM.ensure(process != null);
-								// check link flowElements from endEvent to process
-								JavaSDM.ensure(process.equals(endEvent
-										.eContainer()));
-
-								// check link flowElements from inFlow to process
-								JavaSDM.ensure(process.equals(inFlow
-										.eContainer()));
-
-								// check link laneSets from laneSet to process
-								JavaSDM.ensure(process.equals(laneSet
-										.eContainer()));
-
-								// check link lanes from lane to laneSet
-								JavaSDM.ensure(laneSet.equals(lane.eContainer()));
-
-								// check link src from _edge_flowNodeRefs to lane
-								JavaSDM.ensure(lane.equals(_edge_flowNodeRefs
-										.getSrc()));
-
-								// check link targetRef from inFlow to endEvent
-								JavaSDM.ensure(endEvent.equals(inFlow
-										.getTargetRef()));
-
-								// check link trg from _edge_flowNodeRefs to endEvent
-								JavaSDM.ensure(endEvent
-										.equals(_edge_flowNodeRefs.getTrg()));
-
-								// check link flowNodeRefs from lane to endEvent
-								JavaSDM.ensure(lane.getFlowNodeRefs().contains(
-										endEvent));
-
-								// create object match
-								match = TGGRuntimeFactory.eINSTANCE
-										.createMatch();
-
-								// assign attribute match
-								match.setRuleName(__eClass.getName());
-								// statement node 'bookkeeping with generic isAppropriate method'
-								fujaba__Success = this.isAppropriate_FWD(match,
-										process, inFlow, endEvent, lane,
-										laneSet);
-								if (fujaba__Success) {
-									// statement node 'Ensure that the correct types of elements are matched'
-									fujaba__Success = this
-											.checkTypes_FWD(match);
-									if (fujaba__Success) {
-										// story node 'Add match to rule result'
-										try {
-											fujaba__Success = false;
-
-											// check object __performOperation is really bound
-											JavaSDM.ensure(__performOperation != null);
-											// check object __result is really bound
-											JavaSDM.ensure(__result != null);
-											// check object match is really bound
-											JavaSDM.ensure(match != null);
-
-											// create link
-											org.moflon.util.eMoflonEMFUtil
-													.addOppositeReference(
-															match,
-															__performOperation,
-															"isApplicableOperation");
-
-											// create link
-											__result.getContents().add(match);
-
-											fujaba__Success = true;
-										} catch (JavaSDMException fujaba__InternalException) {
-											fujaba__Success = false;
-										}
-
-									} else {
-
-									}
-
-								} else {
-
-								}
-								fujaba__Success = true;
-							} catch (JavaSDMException fujaba__InternalException) {
-								fujaba__Success = false;
-							}
-
-							fujaba__Success = true;
-						} catch (JavaSDMException fujaba__InternalException) {
-							fujaba__Success = false;
-						}
+					// Add match to rule result
+					Object[] result5_black = EndEventRuleImpl
+							.pattern_EndEventRule_13_5_blackBBB(match,
+									__performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
 					}
-					JavaSDM.ensure(fujaba__Success);
+					EndEventRuleImpl.pattern_EndEventRule_13_5_greenBBB(match,
+							__performOperation, __result);
 
-					fujaba__Success = true;
-				} catch (JavaSDMException fujaba__InternalException) {
-					fujaba__Success = false;
+				} else {
 				}
+
+			} else {
 			}
-			JavaSDM.ensure(fujaba__Success);
 
-			fujaba__Success = true;
-		} catch (JavaSDMException fujaba__InternalException) {
-			fujaba__Success = false;
 		}
-
-		return __result;
+		return EndEventRuleImpl
+				.pattern_EndEventRule_13_6_expressionFB(__result);
 	}
 
 	/**
@@ -2859,12 +700,144 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
+		return null;
+	}
 
-		// [user code injected with eMoflon]
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelgeneratorRuleResult generateModel(
+			RuleEntryContainer ruleEntryContainer,
+			SequenceFlowToUCFlow inFlowToFlowParameter) {
+		// create result
+		Object[] result1_black = EndEventRuleImpl
+				.pattern_EndEventRule_15_1_blackB(this);
+		if (result1_black == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [create result] failed");
+		}
+		Object[] result1_green = EndEventRuleImpl
+				.pattern_EndEventRule_15_1_greenFF();
+		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
+		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
-		// TODO: implement this method here but do not remove the injection marker 
-		throw new UnsupportedOperationException();
+		// ForEach is applicable core
+		for (Object[] result2_black : EndEventRuleImpl
+				.pattern_EndEventRule_15_2_blackFFFFFFFFFBB(ruleEntryContainer,
+						ruleResult)) {
+			// RuleEntryList inFlowToFlowList = (RuleEntryList) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			LaneSet laneSet = (LaneSet) result2_black[2];
+			Lane lane = (Lane) result2_black[3];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[4];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[5];
+			Flow flow = (Flow) result2_black[6];
+			UseCase useCase = (UseCase) result2_black[7];
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) result2_black[8];
+
+			// solve CSP
+			Object[] result3_bindingAndBlack = EndEventRuleImpl
+					.pattern_EndEventRule_15_3_bindingAndBlackFBBBBBBBBBBB(
+							this, isApplicableMatch, process, inFlow, flow,
+							inFlowToFlow, useCase, processToUseCase, lane,
+							laneSet, ruleResult);
+			if (result3_bindingAndBlack == null) {
+				throw new RuntimeException(
+						"Pattern matching in node [solve CSP] failed");
+			}
+			CSP csp = (CSP) result3_bindingAndBlack[0];
+			// check CSP
+			if (EndEventRuleImpl.pattern_EndEventRule_15_4_expressionFBB(this,
+					csp)) {
+				// check nacs
+				Object[] result5_black = EndEventRuleImpl
+						.pattern_EndEventRule_15_5_blackBBBBBBBB(process,
+								inFlow, flow, inFlowToFlow, useCase,
+								processToUseCase, lane, laneSet);
+				if (result5_black != null) {
+
+					// perform
+					Object[] result6_black = EndEventRuleImpl
+							.pattern_EndEventRule_15_6_blackBBBBBBBBB(process,
+									inFlow, flow, inFlowToFlow, useCase,
+									processToUseCase, lane, laneSet, ruleResult);
+					if (result6_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [perform] failed");
+					}
+					EndEventRuleImpl.pattern_EndEventRule_15_6_greenBBFBFBBB(
+							process, inFlow, flow, lane, ruleResult, csp);
+					// EndEvent endEvent = (EndEvent) result6_green[2];
+					// EndEventToFlow endEventToFlow = (EndEventToFlow) result6_green[4];
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return EndEventRuleImpl
+				.pattern_EndEventRule_15_7_expressionFB(ruleResult);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			bpmn2.Process process, SequenceFlow inFlow, Flow flow,
+			SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
+		CSP csp = CspFactory.eINSTANCE.createCSP();
+		isApplicableMatch.getAttributeInfo().add(csp);
+
+		// Create literals
+
+		// Create attribute variables
+		Variable var_flow_finalState = CSPFactoryHelper.eINSTANCE
+				.createVariable("flow.finalState", true, csp);
+		var_flow_finalState.setValue(flow.getFinalState());
+		var_flow_finalState.setType("String");
+
+		// Create unbound variables
+		Variable var_endEvent_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"endEvent.name", csp);
+		var_endEvent_name.setType("String");
+
+		// Create constraints
+		SetCheckEqStr setCheckEqStr = new SetCheckEqStr();
+
+		csp.getConstraints().add(setCheckEqStr);
+
+		// Solve CSP
+		setCheckEqStr.setRuleName("");
+		setCheckEqStr.solve(var_endEvent_name, var_flow_finalState);
+
+		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("process", process);
+		isApplicableMatch.registerObject("inFlow", inFlow);
+		isApplicableMatch.registerObject("flow", flow);
+		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
+		isApplicableMatch.registerObject("useCase", useCase);
+		isApplicableMatch.registerObject("processToUseCase", processToUseCase);
+		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("laneSet", laneSet);
+		return csp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean generateModel_checkCsp_BWD(CSP csp) {
+		return csp.check();
 	}
 
 	/**
@@ -2937,9 +910,1667 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 					.get(0));
 		case RulesPackage.END_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
+		case RulesPackage.END_EVENT_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW:
+			return generateModel((RuleEntryContainer) arguments.get(0),
+					(SequenceFlowToUCFlow) arguments.get(1));
+		case RulesPackage.END_EVENT_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_FLOW_SEQUENCEFLOWTOUCFLOW_USECASE_PROCESSTOUSECASE_LANE_LANESET_MODELGENERATORRULERESULT:
+			return generateModel_solveCsp_BWD(
+					(IsApplicableMatch) arguments.get(0),
+					(bpmn2.Process) arguments.get(1),
+					(SequenceFlow) arguments.get(2), (Flow) arguments.get(3),
+					(SequenceFlowToUCFlow) arguments.get(4),
+					(UseCase) arguments.get(5),
+					(ProcessToUseCase) arguments.get(6),
+					(Lane) arguments.get(7), (LaneSet) arguments.get(8),
+					(ModelgeneratorRuleResult) arguments.get(9));
+		case RulesPackage.END_EVENT_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
+			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	public static final Object[] pattern_EndEventRule_0_1_blackBBBBBBB(
+			EndEventRule _this, Match match, bpmn2.Process process,
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		return new Object[] { _this, match, process, inFlow, endEvent, lane,
+				laneSet };
+	}
+
+	public static final Object[] pattern_EndEventRule_0_2_bindingFBBBBBBB(
+			EndEventRule _this, Match match, bpmn2.Process process,
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, process,
+				inFlow, endEvent, lane, laneSet);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, match, process, inFlow, endEvent,
+					lane, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_0_2_blackB(CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_EndEventRule_0_2_bindingAndBlackFBBBBBBB(
+			EndEventRule _this, Match match, bpmn2.Process process,
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		Object[] result_pattern_EndEventRule_0_2_binding = pattern_EndEventRule_0_2_bindingFBBBBBBB(
+				_this, match, process, inFlow, endEvent, lane, laneSet);
+		if (result_pattern_EndEventRule_0_2_binding != null) {
+			CSP csp = (CSP) result_pattern_EndEventRule_0_2_binding[0];
+
+			Object[] result_pattern_EndEventRule_0_2_black = pattern_EndEventRule_0_2_blackB(csp);
+			if (result_pattern_EndEventRule_0_2_black != null) {
+
+				return new Object[] { csp, _this, match, process, inFlow,
+						endEvent, lane, laneSet };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_EndEventRule_0_3_expressionFBB(
+			EndEventRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isAppropriate_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_0_4_blackBBBBBB(
+			Match match, bpmn2.Process process, SequenceFlow inFlow,
+			EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		return new Object[] { match, process, inFlow, endEvent, lane, laneSet };
+	}
+
+	public static final Object[] pattern_EndEventRule_0_4_greenBBBBBFFFF(
+			Match match, bpmn2.Process process, SequenceFlow inFlow,
+			EndEvent endEvent, Lane lane) {
+		EMoflonEdge process__endEvent____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__endEvent____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge endEvent__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__endEvent____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(endEvent);
+		String process__endEvent____flowElements_name_prime = "flowElements";
+		String inFlow__endEvent____targetRef_name_prime = "targetRef";
+		String endEvent__inFlow____incoming_name_prime = "incoming";
+		String lane__endEvent____flowNodeRefs_name_prime = "flowNodeRefs";
+		process__endEvent____flowElements.setSrc(process);
+		process__endEvent____flowElements.setTrg(endEvent);
+		match.getToBeTranslatedEdges().add(process__endEvent____flowElements);
+		inFlow__endEvent____targetRef.setSrc(inFlow);
+		inFlow__endEvent____targetRef.setTrg(endEvent);
+		match.getToBeTranslatedEdges().add(inFlow__endEvent____targetRef);
+		endEvent__inFlow____incoming.setSrc(endEvent);
+		endEvent__inFlow____incoming.setTrg(inFlow);
+		match.getToBeTranslatedEdges().add(endEvent__inFlow____incoming);
+		lane__endEvent____flowNodeRefs.setSrc(lane);
+		lane__endEvent____flowNodeRefs.setTrg(endEvent);
+		match.getToBeTranslatedEdges().add(lane__endEvent____flowNodeRefs);
+		process__endEvent____flowElements
+				.setName(process__endEvent____flowElements_name_prime);
+		inFlow__endEvent____targetRef
+				.setName(inFlow__endEvent____targetRef_name_prime);
+		endEvent__inFlow____incoming
+				.setName(endEvent__inFlow____incoming_name_prime);
+		lane__endEvent____flowNodeRefs
+				.setName(lane__endEvent____flowNodeRefs_name_prime);
+		return new Object[] { match, process, inFlow, endEvent, lane,
+				process__endEvent____flowElements,
+				inFlow__endEvent____targetRef, endEvent__inFlow____incoming,
+				lane__endEvent____flowNodeRefs };
+	}
+
+	public static final Object[] pattern_EndEventRule_0_5_blackBBBBBB(
+			Match match, bpmn2.Process process, SequenceFlow inFlow,
+			EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		return new Object[] { match, process, inFlow, endEvent, lane, laneSet };
+	}
+
+	public static final Object[] pattern_EndEventRule_0_5_greenBBBBBFFF(
+			Match match, bpmn2.Process process, SequenceFlow inFlow, Lane lane,
+			LaneSet laneSet) {
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getContextNodes().add(process);
+		match.getContextNodes().add(inFlow);
+		match.getContextNodes().add(lane);
+		match.getContextNodes().add(laneSet);
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__inFlow____flowElements_name_prime = "flowElements";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		match.getContextEdges().add(process__laneSet____laneSets);
+		process__inFlow____flowElements.setSrc(process);
+		process__inFlow____flowElements.setTrg(inFlow);
+		match.getContextEdges().add(process__inFlow____flowElements);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		match.getContextEdges().add(laneSet__lane____lanes);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__inFlow____flowElements
+				.setName(process__inFlow____flowElements_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		return new Object[] { match, process, inFlow, lane, laneSet,
+				process__laneSet____laneSets, process__inFlow____flowElements,
+				laneSet__lane____lanes };
+	}
+
+	public static final void pattern_EndEventRule_0_6_expressionBBBBBBB(
+			EndEventRule _this, Match match, bpmn2.Process process,
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		_this.registerObjectsToMatch_FWD(match, process, inFlow, endEvent,
+				lane, laneSet);
+
+	}
+
+	public static final boolean pattern_EndEventRule_0_7_expressionF() {
+		boolean _result = Boolean.valueOf(true);
+		return _result;
+	}
+
+	public static final boolean pattern_EndEventRule_0_8_expressionF() {
+		boolean _result = false;
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_1_1_bindingFFFFFFFFFB(
+			IsApplicableMatch isApplicableMatch) {
+		EObject _localVariable_0 = isApplicableMatch.getObject("process");
+		EObject _localVariable_1 = isApplicableMatch.getObject("inFlow");
+		EObject _localVariable_2 = isApplicableMatch.getObject("endEvent");
+		EObject _localVariable_3 = isApplicableMatch.getObject("flow");
+		EObject _localVariable_4 = isApplicableMatch.getObject("inFlowToFlow");
+		EObject _localVariable_5 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_6 = isApplicableMatch
+				.getObject("processToUseCase");
+		EObject _localVariable_7 = isApplicableMatch.getObject("lane");
+		EObject _localVariable_8 = isApplicableMatch.getObject("laneSet");
+		EObject tmpProcess = _localVariable_0;
+		EObject tmpInFlow = _localVariable_1;
+		EObject tmpEndEvent = _localVariable_2;
+		EObject tmpFlow = _localVariable_3;
+		EObject tmpInFlowToFlow = _localVariable_4;
+		EObject tmpUseCase = _localVariable_5;
+		EObject tmpProcessToUseCase = _localVariable_6;
+		EObject tmpLane = _localVariable_7;
+		EObject tmpLaneSet = _localVariable_8;
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			if (tmpInFlow instanceof SequenceFlow) {
+				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+				if (tmpEndEvent instanceof EndEvent) {
+					EndEvent endEvent = (EndEvent) tmpEndEvent;
+					if (tmpFlow instanceof Flow) {
+						Flow flow = (Flow) tmpFlow;
+						if (tmpInFlowToFlow instanceof SequenceFlowToUCFlow) {
+							SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) tmpInFlowToFlow;
+							if (tmpUseCase instanceof UseCase) {
+								UseCase useCase = (UseCase) tmpUseCase;
+								if (tmpProcessToUseCase instanceof ProcessToUseCase) {
+									ProcessToUseCase processToUseCase = (ProcessToUseCase) tmpProcessToUseCase;
+									if (tmpLane instanceof Lane) {
+										Lane lane = (Lane) tmpLane;
+										if (tmpLaneSet instanceof LaneSet) {
+											LaneSet laneSet = (LaneSet) tmpLaneSet;
+											return new Object[] { process,
+													inFlow, endEvent, flow,
+													inFlowToFlow, useCase,
+													processToUseCase, lane,
+													laneSet, isApplicableMatch };
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_1_1_blackBBBBBBBBBFBB(
+			bpmn2.Process process, SequenceFlow inFlow, EndEvent endEvent,
+			Flow flow, SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet,
+			EndEventRule _this, IsApplicableMatch isApplicableMatch) {
+		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+			if (tmpCsp instanceof CSP) {
+				CSP csp = (CSP) tmpCsp;
+				return new Object[] { process, inFlow, endEvent, flow,
+						inFlowToFlow, useCase, processToUseCase, lane, laneSet,
+						csp, _this, isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_1_1_bindingAndBlackFFFFFFFFFFBB(
+			EndEventRule _this, IsApplicableMatch isApplicableMatch) {
+		Object[] result_pattern_EndEventRule_1_1_binding = pattern_EndEventRule_1_1_bindingFFFFFFFFFB(isApplicableMatch);
+		if (result_pattern_EndEventRule_1_1_binding != null) {
+			bpmn2.Process process = (bpmn2.Process) result_pattern_EndEventRule_1_1_binding[0];
+			SequenceFlow inFlow = (SequenceFlow) result_pattern_EndEventRule_1_1_binding[1];
+			EndEvent endEvent = (EndEvent) result_pattern_EndEventRule_1_1_binding[2];
+			Flow flow = (Flow) result_pattern_EndEventRule_1_1_binding[3];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result_pattern_EndEventRule_1_1_binding[4];
+			UseCase useCase = (UseCase) result_pattern_EndEventRule_1_1_binding[5];
+			ProcessToUseCase processToUseCase = (ProcessToUseCase) result_pattern_EndEventRule_1_1_binding[6];
+			Lane lane = (Lane) result_pattern_EndEventRule_1_1_binding[7];
+			LaneSet laneSet = (LaneSet) result_pattern_EndEventRule_1_1_binding[8];
+
+			Object[] result_pattern_EndEventRule_1_1_black = pattern_EndEventRule_1_1_blackBBBBBBBBBFBB(
+					process, inFlow, endEvent, flow, inFlowToFlow, useCase,
+					processToUseCase, lane, laneSet, _this, isApplicableMatch);
+			if (result_pattern_EndEventRule_1_1_black != null) {
+				CSP csp = (CSP) result_pattern_EndEventRule_1_1_black[9];
+
+				return new Object[] { process, inFlow, endEvent, flow,
+						inFlowToFlow, useCase, processToUseCase, lane, laneSet,
+						csp, _this, isApplicableMatch };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_1_1_greenBBF(
+			EndEvent endEvent, Flow flow) {
+		EndEventToFlow endEventToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createEndEventToFlow();
+		endEventToFlow.setSource(endEvent);
+		endEventToFlow.setTarget(flow);
+		return new Object[] { endEvent, flow, endEventToFlow };
+	}
+
+	public static final Object[] pattern_EndEventRule_1_2_blackBB(
+			EndEvent endEvent, EndEventToFlow endEventToFlow) {
+		return new Object[] { endEvent, endEventToFlow };
+	}
+
+	public static final Object[] pattern_EndEventRule_1_2_greenFBB(
+			EndEvent endEvent, EndEventToFlow endEventToFlow) {
+		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createPerformRuleResult();
+		ruleresult.getTranslatedElements().add(endEvent);
+		ruleresult.getCreatedLinkElements().add(endEventToFlow);
+		return new Object[] { ruleresult, endEvent, endEventToFlow };
+	}
+
+	public static final Object[] pattern_EndEventRule_1_3_blackBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject process, EObject inFlow,
+			EObject endEvent, EObject flow, EObject inFlowToFlow,
+			EObject endEventToFlow, EObject useCase, EObject processToUseCase,
+			EObject lane, EObject laneSet) {
+		if (!process.equals(useCase)) {
+			if (!process.equals(processToUseCase)) {
+				if (!inFlow.equals(process)) {
+					if (!inFlow.equals(inFlowToFlow)) {
+						if (!inFlow.equals(useCase)) {
+							if (!inFlow.equals(processToUseCase)) {
+								if (!inFlow.equals(lane)) {
+									if (!inFlow.equals(laneSet)) {
+										if (!endEvent.equals(process)) {
+											if (!endEvent.equals(inFlow)) {
+												if (!endEvent.equals(flow)) {
+													if (!endEvent
+															.equals(inFlowToFlow)) {
+														if (!endEvent
+																.equals(endEventToFlow)) {
+															if (!endEvent
+																	.equals(useCase)) {
+																if (!endEvent
+																		.equals(processToUseCase)) {
+																	if (!endEvent
+																			.equals(lane)) {
+																		if (!endEvent
+																				.equals(laneSet)) {
+																			if (!flow
+																					.equals(process)) {
+																				if (!flow
+																						.equals(inFlow)) {
+																					if (!flow
+																							.equals(inFlowToFlow)) {
+																						if (!flow
+																								.equals(useCase)) {
+																							if (!flow
+																									.equals(processToUseCase)) {
+																								if (!flow
+																										.equals(lane)) {
+																									if (!flow
+																											.equals(laneSet)) {
+																										if (!inFlowToFlow
+																												.equals(process)) {
+																											if (!inFlowToFlow
+																													.equals(useCase)) {
+																												if (!inFlowToFlow
+																														.equals(processToUseCase)) {
+																													if (!inFlowToFlow
+																															.equals(lane)) {
+																														if (!inFlowToFlow
+																																.equals(laneSet)) {
+																															if (!endEventToFlow
+																																	.equals(process)) {
+																																if (!endEventToFlow
+																																		.equals(inFlow)) {
+																																	if (!endEventToFlow
+																																			.equals(flow)) {
+																																		if (!endEventToFlow
+																																				.equals(inFlowToFlow)) {
+																																			if (!endEventToFlow
+																																					.equals(useCase)) {
+																																				if (!endEventToFlow
+																																						.equals(processToUseCase)) {
+																																					if (!endEventToFlow
+																																							.equals(lane)) {
+																																						if (!endEventToFlow
+																																								.equals(laneSet)) {
+																																							if (!processToUseCase
+																																									.equals(useCase)) {
+																																								if (!lane
+																																										.equals(process)) {
+																																									if (!lane
+																																											.equals(useCase)) {
+																																										if (!lane
+																																												.equals(processToUseCase)) {
+																																											if (!lane
+																																													.equals(laneSet)) {
+																																												if (!laneSet
+																																														.equals(process)) {
+																																													if (!laneSet
+																																															.equals(useCase)) {
+																																														if (!laneSet
+																																																.equals(processToUseCase)) {
+																																															return new Object[] {
+																																																	ruleresult,
+																																																	process,
+																																																	inFlow,
+																																																	endEvent,
+																																																	flow,
+																																																	inFlowToFlow,
+																																																	endEventToFlow,
+																																																	useCase,
+																																																	processToUseCase,
+																																																	lane,
+																																																	laneSet };
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_1_3_greenBBBBBBBFFFFFF(
+			PerformRuleResult ruleresult, EObject process, EObject inFlow,
+			EObject endEvent, EObject flow, EObject endEventToFlow, EObject lane) {
+		EMoflonEdge process__endEvent____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__endEvent____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge endEvent__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge endEventToFlow__endEvent____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge endEventToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__endEvent____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String ruleresult_ruleName_prime = "EndEventRule";
+		String process__endEvent____flowElements_name_prime = "flowElements";
+		String inFlow__endEvent____targetRef_name_prime = "targetRef";
+		String endEvent__inFlow____incoming_name_prime = "incoming";
+		String endEventToFlow__endEvent____source_name_prime = "source";
+		String endEventToFlow__flow____target_name_prime = "target";
+		String lane__endEvent____flowNodeRefs_name_prime = "flowNodeRefs";
+		process__endEvent____flowElements.setSrc(process);
+		process__endEvent____flowElements.setTrg(endEvent);
+		ruleresult.getTranslatedEdges().add(process__endEvent____flowElements);
+		inFlow__endEvent____targetRef.setSrc(inFlow);
+		inFlow__endEvent____targetRef.setTrg(endEvent);
+		ruleresult.getTranslatedEdges().add(inFlow__endEvent____targetRef);
+		endEvent__inFlow____incoming.setSrc(endEvent);
+		endEvent__inFlow____incoming.setTrg(inFlow);
+		ruleresult.getTranslatedEdges().add(endEvent__inFlow____incoming);
+		endEventToFlow__endEvent____source.setSrc(endEventToFlow);
+		endEventToFlow__endEvent____source.setTrg(endEvent);
+		ruleresult.getCreatedEdges().add(endEventToFlow__endEvent____source);
+		endEventToFlow__flow____target.setSrc(endEventToFlow);
+		endEventToFlow__flow____target.setTrg(flow);
+		ruleresult.getCreatedEdges().add(endEventToFlow__flow____target);
+		lane__endEvent____flowNodeRefs.setSrc(lane);
+		lane__endEvent____flowNodeRefs.setTrg(endEvent);
+		ruleresult.getTranslatedEdges().add(lane__endEvent____flowNodeRefs);
+		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		process__endEvent____flowElements
+				.setName(process__endEvent____flowElements_name_prime);
+		inFlow__endEvent____targetRef
+				.setName(inFlow__endEvent____targetRef_name_prime);
+		endEvent__inFlow____incoming
+				.setName(endEvent__inFlow____incoming_name_prime);
+		endEventToFlow__endEvent____source
+				.setName(endEventToFlow__endEvent____source_name_prime);
+		endEventToFlow__flow____target
+				.setName(endEventToFlow__flow____target_name_prime);
+		lane__endEvent____flowNodeRefs
+				.setName(lane__endEvent____flowNodeRefs_name_prime);
+		return new Object[] { ruleresult, process, inFlow, endEvent, flow,
+				endEventToFlow, lane, process__endEvent____flowElements,
+				inFlow__endEvent____targetRef, endEvent__inFlow____incoming,
+				endEventToFlow__endEvent____source,
+				endEventToFlow__flow____target, lane__endEvent____flowNodeRefs };
+	}
+
+	public static final void pattern_EndEventRule_1_5_expressionBBBBBBBBBBBB(
+			EndEventRule _this, PerformRuleResult ruleresult, EObject process,
+			EObject inFlow, EObject endEvent, EObject flow,
+			EObject inFlowToFlow, EObject endEventToFlow, EObject useCase,
+			EObject processToUseCase, EObject lane, EObject laneSet) {
+		_this.registerObjects_FWD(ruleresult, process, inFlow, endEvent, flow,
+				inFlowToFlow, endEventToFlow, useCase, processToUseCase, lane,
+				laneSet);
+
+	}
+
+	public static final PerformRuleResult pattern_EndEventRule_1_6_expressionFB(
+			PerformRuleResult ruleresult) {
+		PerformRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_2_1_bindingFB(
+			EndEventRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass eClass = _localVariable_0;
+		if (eClass != null) {
+			return new Object[] { eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_2_1_blackFBB(
+			EClass eClass, EndEventRule _this) {
+		for (EOperation performOperation : eClass.getEOperations()) {
+			String performOperationname = performOperation.getName();
+			if (performOperationname.equals("perform_FWD")) {
+				return new Object[] { performOperation, eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_2_1_bindingAndBlackFFB(
+			EndEventRule _this) {
+		Object[] result_pattern_EndEventRule_2_1_binding = pattern_EndEventRule_2_1_bindingFB(_this);
+		if (result_pattern_EndEventRule_2_1_binding != null) {
+			EClass eClass = (EClass) result_pattern_EndEventRule_2_1_binding[0];
+
+			Object[] result_pattern_EndEventRule_2_1_black = pattern_EndEventRule_2_1_blackFBB(
+					eClass, _this);
+			if (result_pattern_EndEventRule_2_1_black != null) {
+				EOperation performOperation = (EOperation) result_pattern_EndEventRule_2_1_black[0];
+
+				return new Object[] { performOperation, eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_2_1_greenBF(
+			EOperation performOperation) {
+		IsApplicableRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableRuleResult();
+		boolean ruleresult_success_prime = false;
+		String ruleresult_rule_prime = "EndEventRule";
+		ruleresult.setPerformOperation(performOperation);
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		ruleresult.setRule(ruleresult_rule_prime);
+		return new Object[] { performOperation, ruleresult };
+	}
+
+	public static final Object[] pattern_EndEventRule_2_2_bindingFFFFFB(
+			Match match) {
+		EObject _localVariable_0 = match.getObject("process");
+		EObject _localVariable_1 = match.getObject("inFlow");
+		EObject _localVariable_2 = match.getObject("endEvent");
+		EObject _localVariable_3 = match.getObject("lane");
+		EObject _localVariable_4 = match.getObject("laneSet");
+		EObject tmpProcess = _localVariable_0;
+		EObject tmpInFlow = _localVariable_1;
+		EObject tmpEndEvent = _localVariable_2;
+		EObject tmpLane = _localVariable_3;
+		EObject tmpLaneSet = _localVariable_4;
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			if (tmpInFlow instanceof SequenceFlow) {
+				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+				if (tmpEndEvent instanceof EndEvent) {
+					EndEvent endEvent = (EndEvent) tmpEndEvent;
+					if (tmpLane instanceof Lane) {
+						Lane lane = (Lane) tmpLane;
+						if (tmpLaneSet instanceof LaneSet) {
+							LaneSet laneSet = (LaneSet) tmpLaneSet;
+							return new Object[] { process, inFlow, endEvent,
+									lane, laneSet, match };
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_EndEventRule_2_2_blackBBBFFFFBBB(
+			bpmn2.Process process, SequenceFlow inFlow, EndEvent endEvent,
+			Lane lane, LaneSet laneSet, Match match) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(inFlow, SequenceFlowToUCFlow.class,
+						"source")) {
+			Flow flow = inFlowToFlow.getTarget();
+			if (flow != null) {
+				for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+						.getOppositeReferenceTyped(process,
+								ProcessToUseCase.class, "source")) {
+					UseCase useCase = processToUseCase.getTarget();
+					if (useCase != null) {
+						_result.add(new Object[] { process, inFlow, endEvent,
+								flow, inFlowToFlow, useCase, processToUseCase,
+								lane, laneSet, match });
+					}
+
+				}
+			}
+
+		}
+		return _result;
+	}
+
+	public static final Iterable<Object[]> pattern_EndEventRule_2_3_blackBBBBBBBBB(
+			bpmn2.Process process, SequenceFlow inFlow, EndEvent endEvent,
+			Flow flow, SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		if (process.getLaneSets().contains(laneSet)) {
+			if (process.getFlowElements().contains(inFlow)) {
+				if (process.getFlowElements().contains(endEvent)) {
+					if (endEvent.equals(inFlow.getTargetRef())) {
+						if (inFlow.equals(inFlowToFlow.getSource())) {
+							if (flow.equals(inFlowToFlow.getTarget())) {
+								if (useCase.getFlows().contains(flow)) {
+									if (process.equals(processToUseCase
+											.getSource())) {
+										if (useCase.equals(processToUseCase
+												.getTarget())) {
+											if (lane.getFlowNodeRefs()
+													.contains(endEvent)) {
+												if (laneSet.getLanes()
+														.contains(lane)) {
+													_result.add(new Object[] {
+															process, inFlow,
+															endEvent, flow,
+															inFlowToFlow,
+															useCase,
+															processToUseCase,
+															lane, laneSet });
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_2_3_greenBBBBBBBBBFFFFFFFFFFFFF(
+			bpmn2.Process process, SequenceFlow inFlow, EndEvent endEvent,
+			Flow flow, SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet) {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__endEvent____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__endEvent____targetRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge endEvent__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToFlow__inFlow____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToUseCase__process____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge processToUseCase__useCase____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge lane__endEvent____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		String process__laneSet____laneSets_name_prime = "laneSets";
+		String process__inFlow____flowElements_name_prime = "flowElements";
+		String process__endEvent____flowElements_name_prime = "flowElements";
+		String inFlow__endEvent____targetRef_name_prime = "targetRef";
+		String endEvent__inFlow____incoming_name_prime = "incoming";
+		String inFlowToFlow__inFlow____source_name_prime = "source";
+		String inFlowToFlow__flow____target_name_prime = "target";
+		String useCase__flow____flows_name_prime = "flows";
+		String processToUseCase__process____source_name_prime = "source";
+		String processToUseCase__useCase____target_name_prime = "target";
+		String lane__endEvent____flowNodeRefs_name_prime = "flowNodeRefs";
+		String laneSet__lane____lanes_name_prime = "lanes";
+		isApplicableMatch.getAllContextElements().add(process);
+		isApplicableMatch.getAllContextElements().add(inFlow);
+		isApplicableMatch.getAllContextElements().add(endEvent);
+		isApplicableMatch.getAllContextElements().add(flow);
+		isApplicableMatch.getAllContextElements().add(inFlowToFlow);
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(processToUseCase);
+		isApplicableMatch.getAllContextElements().add(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet);
+		process__laneSet____laneSets.setSrc(process);
+		process__laneSet____laneSets.setTrg(laneSet);
+		isApplicableMatch.getAllContextElements().add(
+				process__laneSet____laneSets);
+		process__inFlow____flowElements.setSrc(process);
+		process__inFlow____flowElements.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				process__inFlow____flowElements);
+		process__endEvent____flowElements.setSrc(process);
+		process__endEvent____flowElements.setTrg(endEvent);
+		isApplicableMatch.getAllContextElements().add(
+				process__endEvent____flowElements);
+		inFlow__endEvent____targetRef.setSrc(inFlow);
+		inFlow__endEvent____targetRef.setTrg(endEvent);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow__endEvent____targetRef);
+		endEvent__inFlow____incoming.setSrc(endEvent);
+		endEvent__inFlow____incoming.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				endEvent__inFlow____incoming);
+		inFlowToFlow__inFlow____source.setSrc(inFlowToFlow);
+		inFlowToFlow__inFlow____source.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToFlow__inFlow____source);
+		inFlowToFlow__flow____target.setSrc(inFlowToFlow);
+		inFlowToFlow__flow____target.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(
+				inFlowToFlow__flow____target);
+		useCase__flow____flows.setSrc(useCase);
+		useCase__flow____flows.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(useCase__flow____flows);
+		processToUseCase__process____source.setSrc(processToUseCase);
+		processToUseCase__process____source.setTrg(process);
+		isApplicableMatch.getAllContextElements().add(
+				processToUseCase__process____source);
+		processToUseCase__useCase____target.setSrc(processToUseCase);
+		processToUseCase__useCase____target.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				processToUseCase__useCase____target);
+		lane__endEvent____flowNodeRefs.setSrc(lane);
+		lane__endEvent____flowNodeRefs.setTrg(endEvent);
+		isApplicableMatch.getAllContextElements().add(
+				lane__endEvent____flowNodeRefs);
+		laneSet__lane____lanes.setSrc(laneSet);
+		laneSet__lane____lanes.setTrg(lane);
+		isApplicableMatch.getAllContextElements().add(laneSet__lane____lanes);
+		process__laneSet____laneSets
+				.setName(process__laneSet____laneSets_name_prime);
+		process__inFlow____flowElements
+				.setName(process__inFlow____flowElements_name_prime);
+		process__endEvent____flowElements
+				.setName(process__endEvent____flowElements_name_prime);
+		inFlow__endEvent____targetRef
+				.setName(inFlow__endEvent____targetRef_name_prime);
+		endEvent__inFlow____incoming
+				.setName(endEvent__inFlow____incoming_name_prime);
+		inFlowToFlow__inFlow____source
+				.setName(inFlowToFlow__inFlow____source_name_prime);
+		inFlowToFlow__flow____target
+				.setName(inFlowToFlow__flow____target_name_prime);
+		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		processToUseCase__process____source
+				.setName(processToUseCase__process____source_name_prime);
+		processToUseCase__useCase____target
+				.setName(processToUseCase__useCase____target_name_prime);
+		lane__endEvent____flowNodeRefs
+				.setName(lane__endEvent____flowNodeRefs_name_prime);
+		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		return new Object[] { process, inFlow, endEvent, flow, inFlowToFlow,
+				useCase, processToUseCase, lane, laneSet, isApplicableMatch,
+				process__laneSet____laneSets, process__inFlow____flowElements,
+				process__endEvent____flowElements,
+				inFlow__endEvent____targetRef, endEvent__inFlow____incoming,
+				inFlowToFlow__inFlow____source, inFlowToFlow__flow____target,
+				useCase__flow____flows, processToUseCase__process____source,
+				processToUseCase__useCase____target,
+				lane__endEvent____flowNodeRefs, laneSet__lane____lanes };
+	}
+
+	public static final Object[] pattern_EndEventRule_2_4_bindingFBBBBBBBBBBB(
+			EndEventRule _this, IsApplicableMatch isApplicableMatch,
+			bpmn2.Process process, SequenceFlow inFlow, EndEvent endEvent,
+			Flow flow, SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
+				isApplicableMatch, process, inFlow, endEvent, flow,
+				inFlowToFlow, useCase, processToUseCase, lane, laneSet);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, process,
+					inFlow, endEvent, flow, inFlowToFlow, useCase,
+					processToUseCase, lane, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_2_4_blackB(CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_EndEventRule_2_4_bindingAndBlackFBBBBBBBBBBB(
+			EndEventRule _this, IsApplicableMatch isApplicableMatch,
+			bpmn2.Process process, SequenceFlow inFlow, EndEvent endEvent,
+			Flow flow, SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet) {
+		Object[] result_pattern_EndEventRule_2_4_binding = pattern_EndEventRule_2_4_bindingFBBBBBBBBBBB(
+				_this, isApplicableMatch, process, inFlow, endEvent, flow,
+				inFlowToFlow, useCase, processToUseCase, lane, laneSet);
+		if (result_pattern_EndEventRule_2_4_binding != null) {
+			CSP csp = (CSP) result_pattern_EndEventRule_2_4_binding[0];
+
+			Object[] result_pattern_EndEventRule_2_4_black = pattern_EndEventRule_2_4_blackB(csp);
+			if (result_pattern_EndEventRule_2_4_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, process,
+						inFlow, endEvent, flow, inFlowToFlow, useCase,
+						processToUseCase, lane, laneSet };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_EndEventRule_2_5_expressionFBB(
+			EndEventRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.isApplicable_checkCsp_FWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_2_6_blackBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final Object[] pattern_EndEventRule_2_6_greenBB(
+			IsApplicableRuleResult ruleresult,
+			IsApplicableMatch isApplicableMatch) {
+		ruleresult.getIsApplicableMatch().add(isApplicableMatch);
+		boolean ruleresult_success_prime = Boolean.valueOf(true);
+		String isApplicableMatch_ruleName_prime = "EndEventRule";
+		ruleresult.setSuccess(Boolean.valueOf(ruleresult_success_prime));
+		isApplicableMatch.setRuleName(isApplicableMatch_ruleName_prime);
+		return new Object[] { ruleresult, isApplicableMatch };
+	}
+
+	public static final IsApplicableRuleResult pattern_EndEventRule_2_7_expressionFB(
+			IsApplicableRuleResult ruleresult) {
+		IsApplicableRuleResult _result = ruleresult;
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_10_1_bindingFB(
+			EndEventRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_10_1_blackFBB(
+			EClass __eClass, EndEventRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_10_1_bindingAndBlackFFB(
+			EndEventRule _this) {
+		Object[] result_pattern_EndEventRule_10_1_binding = pattern_EndEventRule_10_1_bindingFB(_this);
+		if (result_pattern_EndEventRule_10_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_EndEventRule_10_1_binding[0];
+
+			Object[] result_pattern_EndEventRule_10_1_black = pattern_EndEventRule_10_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_EndEventRule_10_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_EndEventRule_10_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_10_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_EndEventRule_10_2_blackFFFFFB(
+			EMoflonEdge _edge_flowElements) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpEndEvent = _edge_flowElements.getTrg();
+			if (tmpEndEvent instanceof EndEvent) {
+				EndEvent endEvent = (EndEvent) tmpEndEvent;
+				if (process.getFlowElements().contains(endEvent)) {
+					for (LaneSet laneSet : process.getLaneSets()) {
+						for (FlowElement tmpInFlow : process.getFlowElements()) {
+							if (tmpInFlow instanceof SequenceFlow) {
+								SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+								if (endEvent.equals(inFlow.getTargetRef())) {
+									for (Lane lane : laneSet.getLanes()) {
+										if (lane.getFlowNodeRefs().contains(
+												endEvent)) {
+											_result.add(new Object[] { process,
+													inFlow, endEvent, lane,
+													laneSet, _edge_flowElements });
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_10_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_EndEventRule_10_3_expressionFBBBBBBB(
+			EndEventRule _this, Match match, bpmn2.Process process,
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow, endEvent, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_EndEventRule_10_4_expressionFBB(
+			EndEventRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_10_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_EndEventRule_10_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_EndEventRule_10_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_11_1_bindingFB(
+			EndEventRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_11_1_blackFBB(
+			EClass __eClass, EndEventRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_11_1_bindingAndBlackFFB(
+			EndEventRule _this) {
+		Object[] result_pattern_EndEventRule_11_1_binding = pattern_EndEventRule_11_1_bindingFB(_this);
+		if (result_pattern_EndEventRule_11_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_EndEventRule_11_1_binding[0];
+
+			Object[] result_pattern_EndEventRule_11_1_black = pattern_EndEventRule_11_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_EndEventRule_11_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_EndEventRule_11_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_11_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_EndEventRule_11_2_blackFFFFFB(
+			EMoflonEdge _edge_targetRef) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpInFlow = _edge_targetRef.getSrc();
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			EObject tmpEndEvent = _edge_targetRef.getTrg();
+			if (tmpEndEvent instanceof EndEvent) {
+				EndEvent endEvent = (EndEvent) tmpEndEvent;
+				if (endEvent.equals(inFlow.getTargetRef())) {
+					for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(inFlow,
+									FlowElementsContainer.class, "flowElements")) {
+						if (tmpProcess instanceof bpmn2.Process) {
+							bpmn2.Process process = (bpmn2.Process) tmpProcess;
+							if (process.getFlowElements().contains(endEvent)) {
+								for (LaneSet laneSet : process.getLaneSets()) {
+									for (Lane lane : laneSet.getLanes()) {
+										if (lane.getFlowNodeRefs().contains(
+												endEvent)) {
+											_result.add(new Object[] { process,
+													inFlow, endEvent, lane,
+													laneSet, _edge_targetRef });
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_11_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_EndEventRule_11_3_expressionFBBBBBBB(
+			EndEventRule _this, Match match, bpmn2.Process process,
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow, endEvent, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_EndEventRule_11_4_expressionFBB(
+			EndEventRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_11_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_EndEventRule_11_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_EndEventRule_11_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_12_1_bindingFB(
+			EndEventRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_12_1_blackFBB(
+			EClass __eClass, EndEventRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_12_1_bindingAndBlackFFB(
+			EndEventRule _this) {
+		Object[] result_pattern_EndEventRule_12_1_binding = pattern_EndEventRule_12_1_bindingFB(_this);
+		if (result_pattern_EndEventRule_12_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_EndEventRule_12_1_binding[0];
+
+			Object[] result_pattern_EndEventRule_12_1_black = pattern_EndEventRule_12_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_EndEventRule_12_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_EndEventRule_12_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_12_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_EndEventRule_12_2_blackFFFFFB(
+			EMoflonEdge _edge_incoming) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpEndEvent = _edge_incoming.getSrc();
+		if (tmpEndEvent instanceof EndEvent) {
+			EndEvent endEvent = (EndEvent) tmpEndEvent;
+			EObject tmpInFlow = _edge_incoming.getTrg();
+			if (tmpInFlow instanceof SequenceFlow) {
+				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+				if (endEvent.equals(inFlow.getTargetRef())) {
+					for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(endEvent,
+									FlowElementsContainer.class, "flowElements")) {
+						if (tmpProcess instanceof bpmn2.Process) {
+							bpmn2.Process process = (bpmn2.Process) tmpProcess;
+							if (process.getFlowElements().contains(inFlow)) {
+								for (LaneSet laneSet : process.getLaneSets()) {
+									for (Lane lane : laneSet.getLanes()) {
+										if (lane.getFlowNodeRefs().contains(
+												endEvent)) {
+											_result.add(new Object[] { process,
+													inFlow, endEvent, lane,
+													laneSet, _edge_incoming });
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_12_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_EndEventRule_12_3_expressionFBBBBBBB(
+			EndEventRule _this, Match match, bpmn2.Process process,
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow, endEvent, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_EndEventRule_12_4_expressionFBB(
+			EndEventRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_12_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_EndEventRule_12_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_EndEventRule_12_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_13_1_bindingFB(
+			EndEventRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_13_1_blackFBB(
+			EClass __eClass, EndEventRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_13_1_bindingAndBlackFFB(
+			EndEventRule _this) {
+		Object[] result_pattern_EndEventRule_13_1_binding = pattern_EndEventRule_13_1_bindingFB(_this);
+		if (result_pattern_EndEventRule_13_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_EndEventRule_13_1_binding[0];
+
+			Object[] result_pattern_EndEventRule_13_1_black = pattern_EndEventRule_13_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_EndEventRule_13_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_EndEventRule_13_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_13_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_EndEventRule_13_2_blackFFFFFB(
+			EMoflonEdge _edge_flowNodeRefs) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpLane = _edge_flowNodeRefs.getSrc();
+		if (tmpLane instanceof Lane) {
+			Lane lane = (Lane) tmpLane;
+			EObject tmpEndEvent = _edge_flowNodeRefs.getTrg();
+			if (tmpEndEvent instanceof EndEvent) {
+				EndEvent endEvent = (EndEvent) tmpEndEvent;
+				if (lane.getFlowNodeRefs().contains(endEvent)) {
+					for (SequenceFlow inFlow : endEvent.getIncoming()) {
+						for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(lane, LaneSet.class,
+										"lanes")) {
+							for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(endEvent,
+											FlowElementsContainer.class,
+											"flowElements")) {
+								if (tmpProcess instanceof bpmn2.Process) {
+									bpmn2.Process process = (bpmn2.Process) tmpProcess;
+									if (process.getLaneSets().contains(laneSet)) {
+										if (process.getFlowElements().contains(
+												inFlow)) {
+											_result.add(new Object[] { process,
+													inFlow, endEvent, lane,
+													laneSet, _edge_flowNodeRefs });
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_13_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_EndEventRule_13_3_expressionFBBBBBBB(
+			EndEventRule _this, Match match, bpmn2.Process process,
+			SequenceFlow inFlow, EndEvent endEvent, Lane lane, LaneSet laneSet) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow, endEvent, lane, laneSet);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_EndEventRule_13_4_expressionFBB(
+			EndEventRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_13_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_EndEventRule_13_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_EndEventRule_13_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_1_blackB(
+			EndEventRule _this) {
+		return new Object[] { _this };
+	}
+
+	public static final Object[] pattern_EndEventRule_15_1_greenFF() {
+		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
+				.createIsApplicableMatch();
+		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
+				.createModelgeneratorRuleResult();
+		boolean ruleResult_success_prime = false;
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		return new Object[] { isApplicableMatch, ruleResult };
+	}
+
+	public static final Object[] pattern_EndEventRule_15_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
+		if (ruleResult.getSourceObjects().contains(process)) {
+			return new Object[] { ruleResult, process };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
+		if (ruleResult.getSourceObjects().contains(laneSet)) {
+			return new Object[] { ruleResult, laneSet };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_2_black_nac_2BB(
+			ModelgeneratorRuleResult ruleResult, Lane lane) {
+		if (ruleResult.getSourceObjects().contains(lane)) {
+			return new Object[] { ruleResult, lane };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_2_black_nac_3BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlow inFlow) {
+		if (ruleResult.getSourceObjects().contains(inFlow)) {
+			return new Object[] { ruleResult, inFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_2_black_nac_4BB(
+			ModelgeneratorRuleResult ruleResult,
+			SequenceFlowToUCFlow inFlowToFlow) {
+		if (ruleResult.getCorrObjects().contains(inFlowToFlow)) {
+			return new Object[] { ruleResult, inFlowToFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_2_black_nac_5BB(
+			ModelgeneratorRuleResult ruleResult, Flow flow) {
+		if (ruleResult.getTargetObjects().contains(flow)) {
+			return new Object[] { ruleResult, flow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_2_black_nac_6BB(
+			ModelgeneratorRuleResult ruleResult, UseCase useCase) {
+		if (ruleResult.getTargetObjects().contains(useCase)) {
+			return new Object[] { ruleResult, useCase };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_2_black_nac_7BB(
+			ModelgeneratorRuleResult ruleResult,
+			ProcessToUseCase processToUseCase) {
+		if (ruleResult.getCorrObjects().contains(processToUseCase)) {
+			return new Object[] { ruleResult, processToUseCase };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_EndEventRule_15_2_blackFFFFFFFFFBB(
+			RuleEntryContainer ruleEntryContainer,
+			ModelgeneratorRuleResult ruleResult) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		for (RuleEntryList inFlowToFlowList : ruleEntryContainer
+				.getRuleEntryList()) {
+			for (EObject tmpInFlowToFlow : inFlowToFlowList.getEntryObjects()) {
+				if (tmpInFlowToFlow instanceof SequenceFlowToUCFlow) {
+					SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) tmpInFlowToFlow;
+					SequenceFlow inFlow = inFlowToFlow.getSource();
+					if (inFlow != null) {
+						Flow flow = inFlowToFlow.getTarget();
+						if (flow != null) {
+							if (pattern_EndEventRule_15_2_black_nac_4BB(
+									ruleResult, inFlowToFlow) == null) {
+								if (pattern_EndEventRule_15_2_black_nac_3BB(
+										ruleResult, inFlow) == null) {
+									if (pattern_EndEventRule_15_2_black_nac_5BB(
+											ruleResult, flow) == null) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														inFlow,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (pattern_EndEventRule_15_2_black_nac_0BB(
+														ruleResult, process) == null) {
+													for (LaneSet laneSet : process
+															.getLaneSets()) {
+														if (pattern_EndEventRule_15_2_black_nac_1BB(
+																ruleResult,
+																laneSet) == null) {
+															for (Lane lane : laneSet
+																	.getLanes()) {
+																if (pattern_EndEventRule_15_2_black_nac_2BB(
+																		ruleResult,
+																		lane) == null) {
+																	for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+																			.getOppositeReferenceTyped(
+																					flow,
+																					UseCase.class,
+																					"flows")) {
+																		if (pattern_EndEventRule_15_2_black_nac_6BB(
+																				ruleResult,
+																				useCase) == null) {
+																			for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+																					.getOppositeReferenceTyped(
+																							process,
+																							ProcessToUseCase.class,
+																							"source")) {
+																				if (useCase
+																						.equals(processToUseCase
+																								.getTarget())) {
+																					if (pattern_EndEventRule_15_2_black_nac_7BB(
+																							ruleResult,
+																							processToUseCase) == null) {
+																						_result.add(new Object[] {
+																								inFlowToFlowList,
+																								process,
+																								laneSet,
+																								lane,
+																								inFlow,
+																								inFlowToFlow,
+																								flow,
+																								useCase,
+																								processToUseCase,
+																								ruleEntryContainer,
+																								ruleResult });
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+					}
+
+				}
+			}
+		}
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_3_bindingFBBBBBBBBBBB(
+			EndEventRule _this, IsApplicableMatch isApplicableMatch,
+			bpmn2.Process process, SequenceFlow inFlow, Flow flow,
+			SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet,
+			ModelgeneratorRuleResult ruleResult) {
+		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
+				isApplicableMatch, process, inFlow, flow, inFlowToFlow,
+				useCase, processToUseCase, lane, laneSet, ruleResult);
+		CSP csp = _localVariable_0;
+		if (csp != null) {
+			return new Object[] { csp, _this, isApplicableMatch, process,
+					inFlow, flow, inFlowToFlow, useCase, processToUseCase,
+					lane, laneSet, ruleResult };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_3_blackB(CSP csp) {
+		return new Object[] { csp };
+	}
+
+	public static final Object[] pattern_EndEventRule_15_3_bindingAndBlackFBBBBBBBBBBB(
+			EndEventRule _this, IsApplicableMatch isApplicableMatch,
+			bpmn2.Process process, SequenceFlow inFlow, Flow flow,
+			SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet,
+			ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_EndEventRule_15_3_binding = pattern_EndEventRule_15_3_bindingFBBBBBBBBBBB(
+				_this, isApplicableMatch, process, inFlow, flow, inFlowToFlow,
+				useCase, processToUseCase, lane, laneSet, ruleResult);
+		if (result_pattern_EndEventRule_15_3_binding != null) {
+			CSP csp = (CSP) result_pattern_EndEventRule_15_3_binding[0];
+
+			Object[] result_pattern_EndEventRule_15_3_black = pattern_EndEventRule_15_3_blackB(csp);
+			if (result_pattern_EndEventRule_15_3_black != null) {
+
+				return new Object[] { csp, _this, isApplicableMatch, process,
+						inFlow, flow, inFlowToFlow, useCase, processToUseCase,
+						lane, laneSet, ruleResult };
+			}
+		}
+		return null;
+	}
+
+	public static final boolean pattern_EndEventRule_15_4_expressionFBB(
+			EndEventRule _this, CSP csp) {
+		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_EndEventRule_15_5_blackBBBBBBBB(
+			bpmn2.Process process, SequenceFlow inFlow, Flow flow,
+			SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet) {
+		return new Object[] { process, inFlow, flow, inFlowToFlow, useCase,
+				processToUseCase, lane, laneSet };
+	}
+
+	public static final Object[] pattern_EndEventRule_15_6_blackBBBBBBBBB(
+			bpmn2.Process process, SequenceFlow inFlow, Flow flow,
+			SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet,
+			ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { process, inFlow, flow, inFlowToFlow, useCase,
+				processToUseCase, lane, laneSet, ruleResult };
+	}
+
+	public static final Object[] pattern_EndEventRule_15_6_greenBBFBFBBB(
+			bpmn2.Process process, SequenceFlow inFlow, Flow flow, Lane lane,
+			ModelgeneratorRuleResult ruleResult, CSP csp) {
+		EndEvent endEvent = Bpmn2Factory.eINSTANCE.createEndEvent();
+		EndEventToFlow endEventToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
+				.createEndEventToFlow();
+		Object _localVariable_0 = csp.getValue("endEvent", "name");
+		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
+		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		process.getFlowElements().add(endEvent);
+		inFlow.setTargetRef(endEvent);
+		lane.getFlowNodeRefs().add(endEvent);
+		ruleResult.getSourceObjects().add(endEvent);
+		endEventToFlow.setSource(endEvent);
+		endEventToFlow.setTarget(flow);
+		ruleResult.getCorrObjects().add(endEventToFlow);
+		String endEvent_name_prime = (String) _localVariable_0;
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
+		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		endEvent.setName(endEvent_name_prime);
+		ruleResult.setPerformCount(Integer
+				.valueOf(ruleResult_performCount_prime));
+		return new Object[] { process, inFlow, endEvent, flow, endEventToFlow,
+				lane, ruleResult, csp };
+	}
+
+	public static final ModelgeneratorRuleResult pattern_EndEventRule_15_7_expressionFB(
+			ModelgeneratorRuleResult ruleResult) {
+		ModelgeneratorRuleResult _result = ruleResult;
+		return _result;
+	}
+
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
